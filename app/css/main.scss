@@ -69,6 +69,16 @@ h1#logo {
 
 form#enter-chat {
   margin-bottom: 20px;
+  label {
+    color: yellow;
+    font-size: 28px;
+    text-shadow: #333 1px 1px 1px;
+    margin-right: 10px;
+  }
+  input {
+    margin-top: 5px;
+    font-size: 20px;
+  }
 }
 
 @include keyframes(textshadowfade) {
@@ -270,4 +280,72 @@ ul {
   position: absolute;
   bottom:20px;
   left:60px;
+}
+
+input {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear .2s, box-shadow linear .2s;
+  -moz-transition: border linear .2s, box-shadow linear .2s;
+  -o-transition: border linear .2s, box-shadow linear .2s;
+  transition: border linear .2s, box-shadow linear .2s;
+}
+
+.cool-button {
+  background-color: $blue;
+  border: 1px solid white;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    background-color: darken($blue, 15%);
+    border: 1px solid darken(white, 15%);
+    color: #fff;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.small-cool-button {
+  background-color: $green;
+  border: 1px solid white;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    background-color: darken($green, 15%);
+    border: 1px solid darken(white, 15%);
+    color: #fff;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 }
