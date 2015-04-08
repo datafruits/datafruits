@@ -1,6 +1,26 @@
 /* jshint devel:true */
 console.log('Look at app/js/main.js');
 
+var vjIsLive = false;
+
+function checkTwitch(){
+  $.getJSON("https://api.twitch.tv/kraken/streams/datafruits.json?callback=?", function(data){
+    if(data.stream == null) {
+      console.log("no live VJ")
+      vjIsLive = false;
+    }else {
+      console.log("live stream!")
+      vjIsLive = true;
+    }
+  });
+}
+
+function showVJ(){
+}
+
+function hideVJ(){
+}
+
 $(function(){
   var socket = io('https://datafruits.fm:8080',{secure:true});
   var connected = false;
@@ -113,5 +133,9 @@ $(function(){
     solution: "html, flash",
     cssSelectorAncestor: "#jp_container"
   });
+
+  setTimeout(function(){
+    checkTwitch();
+  }, 1500);
 
 });
