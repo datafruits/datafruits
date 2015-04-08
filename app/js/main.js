@@ -1,0 +1,119 @@
+/* jshint devel:true */
+console.log('Look at app/js/main.js');
+
+$(function(){
+  console.log("Hey");
+
+  var socket = io('https://datafruits.fm:8080',{secure:true});
+  var connected = false;
+  socket.on('connect', function(){
+    socket.on('JOINED', function(data) {
+      console.log(data.username + " joined the chat");
+      addJoinedMessage(data.username);
+    });
+    socket.on('MSG', function(data) {
+      console.log("message from " + data.username + ": " + data.message);
+      addChatMessage(data);
+    });
+    socket.on('disconnect', function(){
+      console.log('socket.io disconnected');
+    });
+    socket.on("LOGIN", function(){
+      console.log('LOGIN');
+      connected = true;
+    });
+  });
+
+  function addChatMessage(data) {
+    var new_message = $("<li class='message' />");
+    var message = $("<span class='message-body'>");
+    message.text(data.message);
+    var username = $("<span class='username'>");
+    username.text(data.username);
+    new_message.append(username, message);
+    $("#messages").append(new_message);
+    $("#messages")[0].scrollTop = $("#messages")[0].scrollHeight;
+  }
+
+  function addJoinedMessage(name) {
+    var new_message = $("<li class='message' />");
+    var message = $("<span class='message-body'>");
+    message.text(" joined the chat 🙋");
+    var username = $("<span class='username'>");
+    username.text(name);
+    new_message.append(username, message);
+    $("#messages").append(new_message);
+    $("#messages")[0].scrollTop = $("#messages")[0].scrollHeight;
+  }
+
+  function cleanMessage(input){
+    return $('<div/>').text(input).text();
+  }
+
+  function sendMessage(){
+    var message = $("#input-message").val();
+    message = cleanMessage(message)
+    console.log('message: '+message);
+    if(message && connected){
+      socket.emit('MSG', message);
+      $("#input-message").val('');
+    }
+  }
+
+  $("#send-message").submit(function(event) {
+    sendMessage();
+    event.preventDefault();
+  });
+
+  $('#enter-chat').submit(function(event) {
+    var nick = cleanMessage($('input[name=nick]').val().trim());
+    console.log('emitting nick: '+nick);
+    socket.emit('JOIN', nick);
+    $("#enter-chat").hide();
+    $("#chat-room").show();
+    $("#input-message").focus();
+    event.preventDefault();
+  });
+
+  var stream = {
+    mp3: "http://radio.datafruits.fm:8000/datafruits.mp3",
+    oga: "http://radio.datafruits.fm:8000/datafruits.ogg"
+  };
+
+  var playButtonClicked = false;
+  $("#radio-player").jPlayer({
+    ready: function () {
+      $(this).jPlayer("setMedia", stream);
+    },
+    supplied: "mp3, oga",
+    wmode: "window",
+    playing: function(e) {
+      $(".jp-loading").hide();
+    },
+    pause: function(e){
+      $(this).jPlayer("clearMedia");
+      $(this).jPlayer("setMedia", stream);
+    },
+    error: function(event) {
+      console.log("jPlayer error: "+ event.jPlayer.error.type);
+
+      if(playButtonClicked == true){
+        $(this).jPlayer("setMedia", stream).jPlayer("play");
+      }
+
+      $("jp-pause").hide();
+      $("jp-loading").hide();
+    },
+    waiting: function(e) {
+      $(".jp-loading").show();
+      $(".jp-play").hide();
+      $(".jp-pause").hide();
+    },
+    loadeddata: function(e) {
+      $(".jp-loading").hide();
+    },
+    solution: "html, flash",
+    cssSelectorAncestor: "#jp_container"
+  });
+
+});

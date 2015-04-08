@@ -1,0 +1,108 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Datafruits12</title>
+
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css css/vendor.css -->
+    <!-- bower:css -->
+    <link rel='stylesheet' href='/bower_components/normalize-css/normalize.css' />
+    <link rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css' />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css css/main.css -->
+    <link rel="stylesheet" href="css/main.css">
+    <!-- endbuild -->
+    <link href='https://fonts.googleapis.com/css?family=Condiment' rel='stylesheet' type='text/css'>
+
+    <!-- build:js js/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 10]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <nav class="navbar navbar-default" role="navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="/podcasts">Podcasts →</a>
+        </li>
+        <li>
+          <a href="/timetable">Timetable →</a>
+        </li>
+        <li>
+          <a href="http://releases.datafruits.fm/" target="_blank">Label →</a>
+        </li>
+        <li>
+          <a href="/login">Login</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="radio-bar">
+      <div id="radio-player"></div>
+      <div id="jp_container">
+        <a class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
+        <a class="jp-pause" href="javascript:;" tabindex="1">❚❚</a>
+        <a class="jp-loading" href="javascript:;" tabindex="1" style="display:none;">↻</a>
+        <span>Now playing:</span><span class="jp-title"></span>
+        <span>Next live on air:</span><div id="next-show"></div>
+      </div>
+    </div>
+    <h1 id="logo">datafruits.fm</h1>
+    <div id="chat">
+      <form align='center' id="enter-chat">
+        <label for='nick'>Nickname</label><input type="text" name="nick">
+        <br />
+        <input type="submit" value="Enter chatroom">
+      </form>
+      <div id="chat-room" style="display:none;">
+        <div id="chat-area">
+          <ul id="messages">
+          </ul>
+        </div>
+        <form align='center' id="send-message">
+          <input type="text" id="input-message" placeholder="type here...">
+          <input type="submit" value="Send">
+        </form>
+      </div>
+    </div>
+    <div id="zolos">
+      <img src="images/zolo1.png" class='floaty' id='zolo1'>
+      <img src="images/zolo2.png" class='twirly' id='zolo2'>
+      <img src="images/zolo3.png" class='dancey' id='zolo3'>
+      <img src="images/zolo4.png" class='arrow' id='zolo4'>
+    </div>
+    <p align="center"><input type="button" id="setup-new-broadcast" value="START VJING"/></p>
+    <p align="center"><input type="button" id="setup-new-audio-broadcast" value="START DJING"/></p>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+      e.src='//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+      ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    <!-- build:js js/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/bower_components/jplayer/dist/jplayer/jquery.jplayer.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <!-- endbower -->
+    <script src="/bower_components/socket.io-client/socket.io.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js js/main.js -->
+    <script src="js/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
