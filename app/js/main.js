@@ -2,8 +2,6 @@
 console.log('Look at app/js/main.js');
 
 $(function(){
-  console.log("Hey");
-
   var socket = io('https://datafruits.fm:8080',{secure:true});
   var connected = false;
   socket.on('connect', function(){
@@ -27,7 +25,7 @@ $(function(){
   function addChatMessage(data) {
     var new_message = $("<li class='message' />");
     var message = $("<span class='message-body'>");
-    message.text(data.message);
+    message.html(emojione.shortnameToImage(escapeHtml(data.message)));
     var username = $("<span class='username'>");
     username.text(data.username);
     new_message.append(username, message);
@@ -38,7 +36,7 @@ $(function(){
   function addJoinedMessage(name) {
     var new_message = $("<li class='message' />");
     var message = $("<span class='message-body'>");
-    message.text(" joined the chat 🙋");
+    message.html(emojione.shortnameToImage(" joined the chat :raising_hand:"));
     var username = $("<span class='username'>");
     username.text(name);
     new_message.append(username, message);
@@ -76,8 +74,8 @@ $(function(){
   });
 
   var stream = {
-    mp3: "http://radio.datafruits.fm:8000/datafruits.mp3",
-    oga: "http://radio.datafruits.fm:8000/datafruits.ogg"
+    mp3: "http://datafruits.streampusher.com:8000/datafruits.mp3",
+    oga: "http://datafruits.streampusher.com:8000/datafruits.ogg"
   };
 
   var playButtonClicked = false;
