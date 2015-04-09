@@ -13,7 +13,7 @@ npm install
 ```
 bower install
 ```
-5. run `gulp server`
+5. run `gulp serve`
 
 Server should be up at http://localhost:9000, gulp will open your browser
 automatically.
