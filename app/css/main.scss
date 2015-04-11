@@ -59,9 +59,11 @@ h1#logo {
   @include animation(textshadowfade 5s infinite);
   @include transform(rotate(-5deg));
   font-size: 85px;
-  padding: 0px 5px 20px 20px;
   color: white;
-  margin: 10px 0px 10px 0px;
+  position:absolute;
+  z-index: 1000;
+  right: 18px;
+  top: 30px;
 }
 
 #enter-chat {
@@ -161,13 +163,17 @@ div.wrap {height:100%; overflow:hidden;}
 #messages {
   background: rgba(221, 221, 221, 0.45);
   color: yellow;
-  height: 230px;
+  height: 500px;
   overflow-y:scroll;
   width: 95%;
   padding:10px 20px 10px 20px;
   margin:0;
   font-weight: bold;
   text-shadow: #333 1px 1px 1px;
+}
+
+input#input-message {
+  width: 80%;
 }
 
 .username {
@@ -182,6 +188,7 @@ div.wrap {height:100%; overflow:hidden;}
 }
 
 #chat-area {
+  width: 105%;
 }
 
 ul {

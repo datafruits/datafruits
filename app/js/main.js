@@ -99,7 +99,7 @@ $(function(){
     console.log('emitting nick: '+nick);
     socket.emit('JOIN', nick);
     $("#enter-chat").hide();
-    $("#chat-room").show();
+    $("#send-message").show();
     $("#input-message").focus();
     event.preventDefault();
   });
