@@ -1,28 +1,39 @@
 /* jshint devel:true */
-console.log('Look at app/js/main.js');
-
 var vjIsLive = false;
+var showingVj = false
 
 function checkTwitch(){
-  $.getJSON("https://api.twitch.tv/kraken/streams/datafruits.json?callback=?", function(data){
+  $.getJSON('https://api.twitch.tv/kraken/streams/datafruits.json?callback=?', function(data){
     if(data.stream == null) {
-      console.log("no live VJ")
+      console.log('no live VJ')
       vjIsLive = false;
+      if(showingVj === true){
+        hideVJ();
+      }
     }else {
-      console.log("live stream!")
+      console.log('live stream!')
       vjIsLive = true;
+      if(showingVj === false){
+        showVJ();
+      }
     }
   });
 }
 
 function showVJ(){
+  showingVj = true;
+  $("#zolos").hide();
+  $("#livestream").show();
 }
 
 function hideVJ(){
+  showingVj = false;
+  $("#zolos").show();
+  $("#livestream").hide();
 }
 
 $(function(){
-  var socket = io('https://datafruits.fm:8080',{secure:true});
+  var socket = io('http://datafruits.fm:8080');
   var connected = false;
   socket.on('connect', function(){
     socket.on('JOINED', function(data) {
@@ -135,6 +146,10 @@ $(function(){
   });
 
   setTimeout(function(){
+    checkTwitch();
+  }, 500);
+
+  setInterval(function(){
     checkTwitch();
   }, 1500);
 
