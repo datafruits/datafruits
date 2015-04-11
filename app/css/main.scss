@@ -32,6 +32,7 @@ body {
   margin:0;
   background-attachment:fixed;
   @include animation(fade 60s infinite); /* this is CRASHING chrome...jesus wtf */
+  overflow: hidden;
 }
 
 .content {
@@ -131,8 +132,8 @@ div#radio-bar {
   position:absolute;
   background:$blue;
   width:100%;
+  height:50px;
   bottom:0;
-  height:40px;
   padding:5px;
   color:white;
   text-decoration:none;
@@ -177,9 +178,10 @@ div.wrap {height:100%; overflow:hidden;}
   text-align: right;
 }
 
+#chat {
+}
+
 #chat-area {
-  height:100%;
-  padding:20px;
 }
 
 ul {
@@ -353,7 +355,14 @@ input {
 #livestream {
   display: none;
   position: absolute;
-  top: 0;
-  left: 0;
+  margin: auto;
+  top: -200px;
   z-index: -999;
+}
+
+#actions {
+  font-size: 14px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
