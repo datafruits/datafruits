@@ -191,3 +191,24 @@ gulp.task('build', ['html', 'images', 'fonts', 'extras'], function () {
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
 });
+
+gulp.task('deploy', ['build'], function () {
+  // create a new publisher
+  var publisher = $.awspublish.create({
+    key: process.env.S3_KEY,
+    secret: process.env.S3_SECRET,
+    bucket: process.env.DATAFRUITS12_BUCKET
+  });
+
+  // define custom headers
+  var headers = {
+    'Cache-Control': 'max-age=315360000, no-transform, public'
+  };
+
+  return gulp.src('dist/**/*.*')
+    .pipe($.awspublish.gzip({ ext: '' }))
+    .pipe(publisher.publish(headers))
+    .pipe(publisher.sync())
+    .pipe(publisher.cache())
+    .pipe($.awspublish.reporter());
+});

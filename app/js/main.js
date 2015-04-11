@@ -33,7 +33,7 @@ function hideVJ(){
 }
 
 $(function(){
-  var socket = io('http://datafruits.fm:8080');
+  var socket = io('http://superchathotdog.herokuapp.com')
   var connected = false;
   socket.on('connect', function(){
     socket.on('JOINED', function(data) {
@@ -151,6 +151,6 @@ $(function(){
 
   setInterval(function(){
     checkTwitch();
-  }, 1500);
+  }, 2500);
 
 });
