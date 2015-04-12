@@ -51,6 +51,10 @@ $(function(){
       console.log('LOGIN');
       connected = true;
     });
+    socket.on("USER_LEFT", function(data){
+      console.log(data.username + " left the chat");
+      addLeftMessage(data.username);
+    });
   });
 
   function addChatMessage(data) {
@@ -68,6 +72,17 @@ $(function(){
     var new_message = $("<li class='message' />");
     var message = $("<span class='message-body'>");
     message.html(emojione.shortnameToImage(" joined the chat :raising_hand:"));
+    var username = $("<span class='username'>");
+    username.text(name);
+    new_message.append(username, message);
+    $("#messages").append(new_message);
+    $("#messages")[0].scrollTop = $("#messages")[0].scrollHeight;
+  }
+
+  function addLeftMessage(name) {
+    var new_message = $("<li class='message' />");
+    var message = $("<span class='message-body'>");
+    message.html(emojione.shortnameToImage(" left the chat :dash:"));
     var username = $("<span class='username'>");
     username.text(name);
     new_message.append(username, message);
