@@ -33,14 +33,15 @@ function hideVJ(){
 }
 
 $(function(){
-  var socket = io('http://superchathotdog.herokuapp.com')
+  //var socket = io('http://superchathotdog.herokuapp.com')
+  var socket = io('http://localhost:8080');
   var connected = false;
   socket.on('connect', function(){
     socket.on('JOINED', function(data) {
       console.log(data.username + " joined the chat");
       addJoinedMessage(data.username);
     });
-    socket.on('MSG', function(data) {
+    socket.on('NEW_MSG', function(data) {
       console.log("message from " + data.username + ": " + data.message);
       addChatMessage(data);
     });
@@ -75,6 +76,20 @@ $(function(){
     $("#messages")[0].scrollTop = $("#messages")[0].scrollHeight;
   }
 
+  function isImage(string){
+  }
+
+  function addImage(url){
+    var new_message = $("<li class='message' />");
+    var message = $("<span class='message-body'>");
+    var image = new Image();
+    image.src = url;
+    message.append($(image));
+    new_message.append(message);
+    $("#messages").append(new_message);
+    $("#messages")[0].scrollTop = $("#messages")[0].scrollHeight;
+  }
+
   function cleanMessage(input){
     return $('<div/>').text(input).text();
   }
@@ -84,7 +99,7 @@ $(function(){
     message = cleanMessage(message)
     console.log('message: '+message);
     if(message && connected){
-      socket.emit('MSG', message);
+      socket.emit('SENT_MSG', message);
       $("#input-message").val('');
     }
   }
