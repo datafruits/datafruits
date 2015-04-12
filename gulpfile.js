@@ -71,9 +71,9 @@ gulp.task('javascript', function () {
       console.log(error.stack);
       this.emit('end');
     })
-    //.pipe($.sourcemaps.init())
+    .pipe($.sourcemaps.init())
     // .pipe($.uglify())
-    //.pipe($.sourcemaps.write('.'))
+    .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('.tmp/js'))
     .pipe(gulp.dest('dist/js'));
 });
