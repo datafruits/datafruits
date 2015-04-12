@@ -33,8 +33,7 @@ function hideVJ(){
 }
 
 $(function(){
-  //var socket = io('http://superchathotdog.herokuapp.com')
-  var socket = io('http://localhost:8080');
+  var socket = io('http://superchathotdog.herokuapp.com');
   var connected = false;
   socket.on('connect', function(){
     socket.on('JOINED', function(data) {
