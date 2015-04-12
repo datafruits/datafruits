@@ -2,6 +2,17 @@
 var vjIsLive = false;
 var showingVj = false
 
+function radioTitle(){
+  var url = $("#radio-player").data('icecast-json').toString();
+  console.log(url);
+
+  $.get(url, function(data){
+    var title = data.icestats.source[0].title;
+    console.log(title);
+    $('.jp-title').html(title);
+  });
+}
+
 function checkTwitch(){
   $.getJSON('https://api.twitch.tv/kraken/streams/datafruits.json?callback=?', function(data){
     if(data.stream == null) {
@@ -181,5 +192,13 @@ $(function(){
   setInterval(function(){
     checkTwitch();
   }, 2500);
+
+  setTimeout(function(){
+    radioTitle();
+  }, 500);
+
+  setInterval(function(){
+    radioTitle();
+  }, 10000);
 
 });

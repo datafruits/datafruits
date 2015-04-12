@@ -160,6 +160,12 @@ div.wrap {height:100%; overflow:hidden;}
   @include animation(rotation 0.7s linear infinite);
 }
 
+.jp-title {
+  font-style: italic;
+  text-shadow: #333 1px 1px 1px;
+  color: yellow;
+}
+
 #messages {
   background: rgba(221, 221, 221, 0.45);
   color: yellow;
