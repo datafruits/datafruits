@@ -44,12 +44,14 @@ function hideVJ(){
 }
 
 $(function(){
-  var socket = io('http://superchathotdog.herokuapp.com');
+  //var socket = io('http://superchathotdog.herokuapp.com');
+  var socket = io('http://localhost:8080');
   var connected = false;
   socket.on('connect', function(){
     socket.on('JOINED', function(data) {
       console.log(data.username + " joined the chat");
       addJoinedMessage(data.username);
+      addToUserList(data.username);
     });
     socket.on('NEW_MSG', function(data) {
       console.log("message from " + data.username + ": " + data.message);
@@ -58,15 +60,31 @@ $(function(){
     socket.on('disconnect', function(){
       console.log('socket.io disconnected');
     });
-    socket.on("LOGIN", function(){
+    socket.on("LOGIN", function(data){
       console.log('LOGIN');
+      $.each(data.users, function(user){
+        addToUserList(user);
+      });
       connected = true;
     });
     socket.on("USER_LEFT", function(data){
       console.log(data.username + " left the chat");
+      removeFromUserList(data.username);
       addLeftMessage(data.username);
     });
   });
+
+  function addToUserList(username){
+    var new_user = $("<li class='userlist-item' data-username='"+username+"' />");
+    var message = $("<span>");
+    message.html(emojione.shortnameToImage(escapeHtml(username)));
+    new_user.append(message);
+    $("ul#userlist").append(new_user);
+  }
+
+  function removeFromUserList(username){
+    $("li.userlist-item[data-username="+username+"]").remove()
+  }
 
   function addChatMessage(data) {
     var new_message = $("<li class='message' />");

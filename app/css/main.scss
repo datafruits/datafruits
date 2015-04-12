@@ -58,12 +58,12 @@ h1#logo {
   font-family: 'Condiment', cursive;
   @include animation(textshadowfade 5s infinite);
   @include transform(rotate(-5deg));
-  font-size: 85px;
+  font-size: 45px;
   color: white;
   position:absolute;
   z-index: 1000;
-  right: 18px;
-  top: 30px;
+  right: 5px;
+  top: 10px;
 }
 
 #enter-chat {
@@ -166,16 +166,26 @@ div.wrap {height:100%; overflow:hidden;}
   color: yellow;
 }
 
-#messages {
+#chat-area {
   background: rgba(221, 221, 221, 0.45);
   color: yellow;
-  height: 500px;
-  overflow-y:scroll;
-  width: 95%;
-  padding:10px 20px 10px 20px;
-  margin:0;
   font-weight: bold;
   text-shadow: #333 1px 1px 1px;
+}
+
+#messages {
+  height: 480px;
+  overflow-y:scroll;
+  padding:10px 20px 10px 20px;
+  margin:0;
+}
+
+#userlist {
+  height: 480px;
+  overflow-y:scroll;
+}
+
+li.userlist-item {
 }
 
 input#input-message {
@@ -191,10 +201,6 @@ input#input-message {
 }
 
 #chat {
-}
-
-#chat-area {
-  width: 105%;
 }
 
 ul {

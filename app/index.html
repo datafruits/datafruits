@@ -49,8 +49,8 @@
           <a class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
           <a class="jp-pause" href="javascript:;" tabindex="1">❚❚</a>
           <a class="jp-loading" href="javascript:;" tabindex="1" style="display:none;">↻</a>
-          <span>Now playing:</span><span class="jp-title"></span>
-          <span>Next live on air:</span><div id="next-show"></div>
+          <span>Now playing: </span><span class="jp-title"></span>
+          <span>Next live on air: </span><div id="next-show"></div>
         </div>
         <div id="actions">
           <p align="center">
@@ -65,10 +65,16 @@
       </div>
       <h1 id="logo">datafruits.fm</h1>
       <div id="chat">
-        <div id="chat-room">
-          <div id="chat-area">
-            <ul id="messages">
-            </ul>
+        <div id="chat-room" class="container-fluid">
+          <div id="chat-area" class="row">
+            <div class="col-md-10">
+              <ul id="messages">
+              </ul>
+            </div>
+            <div class="col-md-2">
+              <ul id="userlist">
+              </ul>
+            </div>
           </div>
           <form align='center' id="send-message" style="display: none;">
             <input type="text" id="input-message" placeholder="type here...">
@@ -77,7 +83,6 @@
         </div>
         <form align='center' id="enter-chat">
           <label for='nick'>Nickname</label><input type="text" name="nick">
-          <br />
           <input type="submit" value="Enter chatroom" class="cool-button">
         </form>
       </div>
