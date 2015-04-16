@@ -90,7 +90,7 @@ $(function(){
     var message = $("<span class='message-body'>");
     message.html(emojione.shortnameToImage(escapeHtml(data.message)));
     var username = $("<span class='username'>");
-    username.text(data.username);
+    username.html(emojione.shortnameToImage(escapeHtml(data.username)));
     new_message.append(username, message);
     $("#messages").append(new_message);
     $("#messages")[0].scrollTop = $("#messages")[0].scrollHeight;
