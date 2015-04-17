@@ -13,7 +13,7 @@ var through2 = require('through2');
 var browserify = require('browserify');
 
 gulp.task('stylesheet', ['sprites'], function () {
-  return gulp.src('app/css/main.scss')
+  return gulp.src('app/css/*.scss')
     //.pipe($.sourcemaps.init())
     .pipe($.sass({
       outputStyle: 'nested', // libsass doesn't support expanded yet

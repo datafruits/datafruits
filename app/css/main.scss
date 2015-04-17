@@ -423,3 +423,11 @@ img.emojione {
       float: none;
   }
 }
+
+a {
+  color: $yellow;
+}
+
+a:hover {
+  color: darken($yellow, 20%);
+}
