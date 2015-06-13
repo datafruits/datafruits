@@ -31,8 +31,11 @@ body {
   height:100%;
   margin:0;
   background-attachment:fixed;
-  @include animation(fade 60s infinite); /* this is CRASHING chrome...jesus wtf */
   overflow: hidden;
+
+  @media only screen and (min-device-width: 480px) {
+    @include animation(fade 60s infinite); /* this is CRASHING chrome...jesus wtf */
+  }
 }
 
 .dropdown-menu {
@@ -47,14 +50,16 @@ body {
 }
 h1#logo {
   font-family: 'Condiment', cursive;
-  @include animation(textshadowfade 5s infinite);
-  @include transform(rotate(-5deg));
   font-size: 45px;
   color: white;
   position:absolute;
   z-index: 1000;
   right: 5px;
   top: 10px;
+  @media screen and (min-device-width: 480px) {
+    @include animation(textshadowfade 5s infinite);
+    @include transform(rotate(-5deg));
+  }
 }
 
 #enter-chat {
@@ -429,4 +434,10 @@ a {
 
 a:hover {
   color: darken($yellow, 20%);
+}
+
+@media only screen and (max-device-width: 480px) {
+  #zolos {
+    display: none;
+  }
 }
