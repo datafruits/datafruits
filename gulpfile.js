@@ -60,6 +60,7 @@ gulp.task('javascript', function () {
     .pipe(through2.obj(function (file, enc, next){ // workaround for https://github.com/babel/babelify/issues/46
       browserify(file.path)
       .transform('babelify')
+      .transform('envify')
       .bundle(function(err, res){
         if (err) { return next(err); }
 
@@ -184,7 +185,7 @@ gulp.task('wiredep', function () {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['html', 'images', 'fonts', 'extras'], function () {
+gulp.task('build', ['jshint', 'javascript', 'html', 'images', 'fonts', 'extras'], function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

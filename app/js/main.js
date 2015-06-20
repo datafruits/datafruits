@@ -1,6 +1,9 @@
 /* jshint devel:true */
+
+"use strict";
+
 var vjIsLive = false;
-var showingVj = false
+var showingVj = false;
 
 function radioTitle(){
   var url = $("#radio-player").data('icecast-json').toString();
