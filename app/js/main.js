@@ -68,11 +68,18 @@ $(function(){
         addToUserList(user);
       });
       connected = true;
+      $('#enter-chat').hide();
+      $('#send-message').show();
+      $('#input-message').focus();
     });
     socket.on('USER_LEFT', function(data){
       console.log(data.username + ' left the chat');
       removeFromUserList(data.username);
       addLeftMessage(data.username);
+    });
+    socket.on('ERROR', function(data){
+      console.log('there was an error: ' + data.message);
+      alert(data.message);
     });
   });
 
@@ -158,9 +165,6 @@ $(function(){
     var nick = cleanMessage($('input[name=nick]').val().trim());
     console.log('emitting nick: '+nick);
     socket.emit('JOIN', nick);
-    $('#enter-chat').hide();
-    $('#send-message').show();
-    $('#input-message').focus();
     event.preventDefault();
   });
 
