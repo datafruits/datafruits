@@ -9,6 +9,7 @@
     "socket.io-client": "~1.3.5",
     "bootstrap-sass": "~3.3.4",
     "js-emoji": "~1.0.0",
-    "emojione": "~1.3.0"
+    "emojione": "~1.3.0",
+    "fullcalendar": "~2.3.2"
   }
 }
