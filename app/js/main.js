@@ -228,7 +228,7 @@ $(function(){
   $('#calendar').ready(function(){
     $('#calendar').fullCalendar({
       header: { left: 'prev,next today', center: 'title', right: 'month,basicWeek,basicDay'},
-      defaultView: 'basicWeek',
+      defaultView: 'month',
       editable: true,
       eventSources: ["http://datafruits.streampusher.com/scheduled_shows.json"]
     });
