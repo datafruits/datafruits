@@ -225,4 +225,12 @@ $(function(){
     radioTitle();
   }, 10000);
 
+  $('#calendar').ready(function(){
+    $('#calendar').fullCalendar({
+      header: { left: 'prev,next today', center: 'title', right: 'month,basicWeek,basicDay'},
+      defaultView: 'basicWeek',
+      editable: true,
+      eventSources: ["http://datafruits.streampusher.com/scheduled_shows.json"]
+    });
+  });
 });

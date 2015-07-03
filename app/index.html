@@ -13,9 +13,7 @@
     <!-- build:css css/vendor.css -->
     <!-- bower:css -->
     <link rel='stylesheet' href='/bower_components/normalize-css/normalize.css' />
-    <link rel='stylesheet' href='/bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss' />
-    <link rel='stylesheet' href='/bower_components/emojione/assets/css/emojione.css' />
-    <link rel="stylesheet" href="/bower_components/fullcalendar/dist/fullcalendar.css" />
+    <link rel='stylesheet' href='/bower_components/fullcalendar/dist/fullcalendar.css' />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -49,7 +47,7 @@
               <a href="https://itunes.apple.com/us/podcast/datafruits.fm/id627039781?mt=2" target="_blank">Podcasts →</a>
             </li>
             <li>
-              <a href="#" data-toggle="modal" data-target="#comingSoonModal">Timetable →</a>
+              <a href="#" data-toggle="modal" data-target="#timetableModal">Timetable →</a>
             </li>
             <li>
               <a href="http://releases.datafruits.fm/" target="_blank">Label →</a>
@@ -176,6 +174,25 @@
       </div>
     </div>
 
+    <div class="modal fade" id="timetableModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">TIMETABLE</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              <div id="calendar">
+              </div>
+            </p>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -191,8 +208,8 @@
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/jplayer/dist/jplayer/jquery.jplayer.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
-    <script src="/bower_components/emojione/lib/js/emojione.js"></script>
-    <script src="bower_components/fullcalendar/dist/fullcalendar.js></script>
+    <script src="/bower_components/moment/moment.js"></script>
+    <script src="/bower_components/fullcalendar/dist/fullcalendar.js"></script>
     <!-- endbower -->
     <script src="/bower_components/socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
