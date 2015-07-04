@@ -233,4 +233,8 @@ $(function(){
       eventSources: ["http://datafruits.streampusher.com/scheduled_shows.json"]
     });
   });
+
+  $("#timetableModal").on('shown.bs.modal', function(e) {
+    $("#calendar").fullCalendar('render');
+  });
 });
