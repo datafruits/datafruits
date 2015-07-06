@@ -104,6 +104,9 @@ $(function(){
     new_message.append(username, message);
     $('#messages').append(new_message);
     $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
+    if(isImage(data.message)) {
+      addImage(data.message.match(imgRegex)[0]);
+    }
   }
 
   function addJoinedMessage(name) {
@@ -128,7 +131,8 @@ $(function(){
     $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
   }
 
-  function isImage(string){
+  function isImage(url){
+    return imgRegex.test(url);
   }
 
   function addImage(url){

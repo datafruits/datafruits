@@ -14,3 +14,5 @@ function escapeHtml(string) {
     return entityMap[s];
   });
 }
+
+var imgRegex = /https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpg|gif|png)/;
