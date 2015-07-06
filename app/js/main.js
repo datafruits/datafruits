@@ -226,9 +226,12 @@ $(function(){
   }, 10000);
 
   $('#calendar').ready(function(){
+    var timeZone = jstz.determine();
+
     $('#calendar').fullCalendar({
       header: { left: 'prev,next today', center: 'title', right: 'month,basicWeek,basicDay'},
       defaultView: 'month',
+      timezone: timeZone.name(),
       editable: true,
       eventSources: ["http://datafruits.streampusher.com/scheduled_shows.json"]
     });
