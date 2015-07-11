@@ -242,8 +242,8 @@ $(function(){
         $("#timetableModal").modal('hide');
         $("#eventModal h1").html(calEvent.title);
         $("#eventModal h2").html(calEvent.dj.username);
-        $("#eventModal .start-time").html(calEvent.start.calendar);
-        $("#eventModal .end-time").html(calEvent.end.calendar);
+        $("#eventModal .start-time").html(calEvent.start.calendar());
+        $("#eventModal .end-time").html(calEvent.end.calendar());
         var image = new Image();
         image.src = calEvent.image_url;
         $("#eventModal .event-image").append($(image));
