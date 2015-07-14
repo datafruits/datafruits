@@ -7,12 +7,13 @@
     "bourbon": "~4.2.2",
     "jplayer": "~2.9.2",
     "socket.io-client": "~1.3.5",
-    "bootstrap-sass": "~3.3.4",
+    "bootstrap-sass": "~3.3.5",
     "js-emoji": "~1.0.0",
-    "emojione": "~1.3.0",
+    "emojione": "~1.4.1",
     "fullcalendar": "~2.3.2",
     "moment": "~2.10.3",
     "jsTimezoneDetect": "~1.0.6",
-    "moment-timezone": "~0.4.0"
+    "moment-timezone": "~0.4.0",
+    "autolink": "*"
   }
 }

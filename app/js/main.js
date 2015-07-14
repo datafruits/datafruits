@@ -98,7 +98,7 @@ $(function(){
   function addChatMessage(data) {
     var new_message = $('<li class="message" />');
     var message = $('<span class="message-body">');
-    message.html(emojione.shortnameToImage(escapeHtml(data.message)));
+    message.html(emojione.shortnameToImage(escapeHtml(data.message).autoLink({ target: "_blank", })));
     var username = $('<span class="username">');
     username.html(emojione.shortnameToImage(escapeHtml(data.username)));
     new_message.append(username, message);

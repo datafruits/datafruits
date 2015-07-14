@@ -32,7 +32,7 @@
     "main-bower-files": "^2.5.0",
     "opn": "^1.0.1",
     "through2": "~0.6.3",
-    "wiredep": "^2.2.2"
+    "wiredep": "3.0.0beta"
   },
   "dependencies": {
     "envify": "^3.4.0"
