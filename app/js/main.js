@@ -47,9 +47,64 @@ function checkTwitch(){
 }
 
 $(function(){
-  var socket = io('http://superchathotdog.herokuapp.com');
-  var connected = false;
-  socket.on('connect', function(){
+  var socket = new window.Phoenix.Socket("ws://localhost:4000/socket", {
+    logger: function logger(kind, msg, data) {
+      console.log(kind + ": " + msg, data);
+    }
+  });
+
+  socket.connect({ user_id: "123" });
+  var $messages = $("#messages");
+  var $input = $("#input-message");
+  var $username = $("#input-nick");
+
+  socket.onOpen(function (ev) {
+    return console.log("OPEN", ev);
+  });
+  socket.onError(function (ev) {
+    return console.log("ERROR", ev);
+  });
+  socket.onClose(function (e) {
+    return console.log("CLOSE", e);
+  });
+
+  var chan = socket.chan("rooms:lobby", {});
+  chan.join().receive("ignore", function () {
+    return console.log("auth error");
+  }).receive("ok", function () {
+    return console.log("join ok");
+  }).after(10000, function () {
+    return console.log("Connection interruption");
+  });
+  chan.onError(function (e) {
+    return console.log("something went wrong", e);
+  });
+  chan.onClose(function (e) {
+    return console.log("channel closed", e);
+  });
+
+  chan.on("new:msg", function (msg) {
+    addChatMessage(msg);
+  });
+
+  chan.on("authorized", function (msg) {
+    $('#enter-chat').hide();
+    $('#send-message').show();
+    $('#input-message').focus();
+  });
+
+  chan.on("user:authorized", function(msg) {
+    addJoinedMessage(msg.user);
+  });
+
+  chan.on("user:entered", function (msg) {
+    //var username = _this.sanitize(msg.user || "anonymous");
+    //$messages.append("<br/><i>[" + username + " entered]</i>");
+    //addJoinedMessage(msg.user);
+  });
+
+  //var connected = false;
+  /*socket.on('connect', function(){
     socket.on('JOINED', function(data) {
       console.log(data.username + ' joined the chat');
       addJoinedMessage(data.username);
@@ -82,6 +137,7 @@ $(function(){
       alert(data.message);
     });
   });
+*/
 
   function addToUserList(username){
     var new_user = $('<li class="userlist-item" data-username="'+username+'" />');
@@ -98,14 +154,14 @@ $(function(){
   function addChatMessage(data) {
     var new_message = $('<li class="message" />');
     var message = $('<span class="message-body">');
-    message.html(emojione.shortnameToImage(escapeHtml(data.message).autoLink({ target: "_blank", })));
+    message.html(emojione.shortnameToImage(escapeHtml(data.body).autoLink({ target: "_blank", })));
     var username = $('<span class="username">');
-    username.html(emojione.shortnameToImage(escapeHtml(data.username)));
+    username.html(emojione.shortnameToImage(escapeHtml(data.user)));
     new_message.append(username, message);
     $('#messages').append(new_message);
     $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
-    if(isImage(data.message)) {
-      addImage(data.message.match(imgRegex)[0]);
+    if(isImage(data.body)) {
+      addImage(data.body.match(imgRegex)[0]);
     }
   }
 
@@ -154,8 +210,9 @@ $(function(){
     var message = $('#input-message').val();
     message = cleanMessage(message);
     console.log('message: '+message);
-    if(message && connected){
-      socket.emit('SENT_MSG', message);
+    if(message){
+      //socket.emit('SENT_MSG', message);
+      chan.push("new:msg", { user: $username.val(), body: message });
       $('#input-message').val('');
     }
   }
@@ -168,7 +225,8 @@ $(function(){
   $('#enter-chat').submit(function(event) {
     var nick = cleanMessage($('input[name=nick]').val().trim());
     console.log('emitting nick: '+nick);
-    socket.emit('JOIN', nick);
+    //socket.emit('JOIN', nick);
+    chan.push("authorize", { user: nick });
     event.preventDefault();
   });
 
@@ -213,13 +271,14 @@ $(function(){
     cssSelectorAncestor: '#jp_container'
   });
 
-  setTimeout(function(){
+  /*setTimeout(function(){
     checkTwitch();
   }, 500);
 
   setInterval(function(){
     checkTwitch();
   }, 2500);
+  */
 
   setTimeout(function(){
     radioTitle();
