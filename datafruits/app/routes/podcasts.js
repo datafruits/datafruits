@@ -8,7 +8,7 @@ export default Ember.Route.extend({
   },
 
   setupController: function(controller, model){
-    this._super('controller', model);
+    this._super(controller, model);
     Ember.run.schedule('afterRender', this, function () {
       Ember.$("#podcastsModal").modal('show');
       var _this = this;
@@ -17,5 +17,9 @@ export default Ember.Route.extend({
         _this.transitionTo('application');
       });
     });
+  },
+
+  model: function(){
+    return Ember.$.getJSON('http://datafruits.streampusher.com/podcasts/datafruits.json');
   }
 });

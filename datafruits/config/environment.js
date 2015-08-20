@@ -4,6 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'datafruits',
     environment: environment,
+    contentSecurityPolicy: { 'connect-src': "'self' http://localhost:3000 http://datafruits.streampusher.com" },
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
