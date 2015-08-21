@@ -23,6 +23,7 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/moment/moment.js');
   app.import(app.bowerDirectory + '/fullcalendar/dist/fullcalendar.css');
   app.import(app.bowerDirectory + '/fullcalendar/dist/fullcalendar.js');
+  app.import(app.bowerDirectory + '/jplayer/dist/jplayer/jquery.jplayer.js');
 
   return app.toTree();
 };
