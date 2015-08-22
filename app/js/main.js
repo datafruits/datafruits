@@ -69,6 +69,7 @@ $(function(){
   });
 
   var chan = socket.chan("rooms:lobby", {});
+
   chan.join().receive("ignore", function () {
     return console.log("auth error");
   }).receive("ok", function () {
@@ -76,9 +77,11 @@ $(function(){
   }).after(10000, function () {
     return console.log("Connection interruption");
   });
+
   chan.onError(function (e) {
     return console.log("something went wrong", e);
   });
+
   chan.onClose(function (e) {
     return console.log("channel closed", e);
   });
