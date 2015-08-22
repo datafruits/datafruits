@@ -24,6 +24,7 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/fullcalendar/dist/fullcalendar.css');
   app.import(app.bowerDirectory + '/fullcalendar/dist/fullcalendar.js');
   app.import(app.bowerDirectory + '/jplayer/dist/jplayer/jquery.jplayer.js');
+  app.import(app.bowerDirectory + '/jsTimezoneDetect/jstz.min.js');
 
   return app.toTree();
 };

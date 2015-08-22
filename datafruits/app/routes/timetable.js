@@ -10,6 +10,7 @@ export default Ember.Route.extend({
   setupController: function(controller, model){
     this._super('controller', model);
     Ember.run.schedule('afterRender', this, function () {
+      $("#calendar").fullCalendar('render');
       Ember.$("#timetableModal").modal('show');
       var _this = this;
       Ember.$("#timetableModal").on('hidden.bs.modal', function () {

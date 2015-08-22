@@ -16,6 +16,7 @@
     "fullcalendar": "~2.3.2",
     "moment": "~2.10.6",
     "bourbon": "~4.2.3",
-    "jplayer": "~2.9.2"
+    "jplayer": "~2.9.2",
+    "jsTimezoneDetect": "~1.0.6"
   }
 }
