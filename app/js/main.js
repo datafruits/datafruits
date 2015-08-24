@@ -96,6 +96,10 @@ $(function(){
     $('#input-message').focus();
   });
 
+  chan.on("notauthorized", function(msg) {
+    alert(msg.error);
+  });
+
   chan.on("user:authorized", function(msg) {
     addJoinedMessage(msg.user);
   });
