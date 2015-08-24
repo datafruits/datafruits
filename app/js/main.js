@@ -101,46 +101,8 @@ $(function(){
   });
 
   chan.on("user:entered", function (msg) {
-    //var username = _this.sanitize(msg.user || "anonymous");
-    //$messages.append("<br/><i>[" + username + " entered]</i>");
-    //addJoinedMessage(msg.user);
+    //user entered room, but nick not authorized yet
   });
-
-  //var connected = false;
-  /*socket.on('connect', function(){
-    socket.on('JOINED', function(data) {
-      console.log(data.username + ' joined the chat');
-      addJoinedMessage(data.username);
-      addToUserList(data.username);
-    });
-    socket.on('NEW_MSG', function(data) {
-      console.log('message from ' + data.username + ': ' + data.message);
-      addChatMessage(data);
-    });
-    socket.on('disconnect', function(){
-      console.log('socket.io disconnected');
-    });
-    socket.on('LOGIN', function(data){
-      console.log('LOGIN');
-      $.each(data.users, function(user){
-        addToUserList(user);
-      });
-      connected = true;
-      $('#enter-chat').hide();
-      $('#send-message').show();
-      $('#input-message').focus();
-    });
-    socket.on('USER_LEFT', function(data){
-      console.log(data.username + ' left the chat');
-      removeFromUserList(data.username);
-      addLeftMessage(data.username);
-    });
-    socket.on('ERROR', function(data){
-      console.log('there was an error: ' + data.message);
-      alert(data.message);
-    });
-  });
-*/
 
   function addToUserList(username){
     var new_user = $('<li class="userlist-item" data-username="'+username+'" />');
@@ -274,14 +236,13 @@ $(function(){
     cssSelectorAncestor: '#jp_container'
   });
 
-  /*setTimeout(function(){
+  setTimeout(function(){
     checkTwitch();
   }, 500);
 
   setInterval(function(){
     checkTwitch();
   }, 2500);
-  */
 
   setTimeout(function(){
     radioTitle();
