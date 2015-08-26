@@ -1,0 +1,8 @@
+<div class="podcast">
+  {{#if playing}}
+    <a class="podcast-controls" {{action "pause"}}>❚❚</a>
+  {{else}}
+    <a class="podcast-controls" {{action "play"}}>▶︎</a>
+  {{/if}}
+  {{audio_file_name}}
+</div>

@@ -29,10 +29,6 @@ export default Ember.View.extend({
       playing: function(e) {
         $('.jp-loading').hide();
       },
-      pause: function(e){
-        $(this).jPlayer('clearMedia');
-        $(this).jPlayer('setMedia', stream);
-      },
       error: function(event) {
         console.log('jPlayer error: '+ event.jPlayer.error.type);
 

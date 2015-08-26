@@ -445,3 +445,12 @@ a:hover {
 .tiny {
   font-size:12px;
 }
+
+.podcast-controls {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.podcast-controls:hover {
+  text-decoration: none;
+}

@@ -7,9 +7,7 @@
       </div>
       <div class="modal-body">
         {{#each track in model.podcast.tracks}}
-          <div class="podcast">
-            {{track.audio_file_name}}
-          </div>
+          {{podcast-track audio_file_name=track.audio_file_name}}
         {{/each}}
       </div>
       <div class="modal-footer">
