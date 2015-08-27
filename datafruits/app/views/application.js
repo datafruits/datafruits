@@ -12,7 +12,7 @@ function radioTitle(){
 }
 
 export default Ember.View.extend({
-  setupJplayer: function(){
+  setup: function(){
     console.log("setting up jPlayer");
     var stream = {
       mp3: 'http://datafruits.streampusher.com:8000/datafruits.mp3',
@@ -50,6 +50,5 @@ export default Ember.View.extend({
       solution: 'html, flash',
       cssSelectorAncestor: '#jp_container'
     });
-
   }.on('didInsertElement')
 });

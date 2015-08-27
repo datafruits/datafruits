@@ -1,5 +1,8 @@
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var ES6Modules = require('broccoli-es6modules');
+var esTranspiler = require('broccoli-babel-transpiler');
+var mergeTrees = require('broccoli-merge-trees');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
@@ -25,6 +28,21 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/fullcalendar/dist/fullcalendar.js');
   app.import(app.bowerDirectory + '/jplayer/dist/jplayer/jquery.jplayer.js');
   app.import(app.bowerDirectory + '/jsTimezoneDetect/jstz.min.js');
+  app.import(app.bowerDirectory + '/emojione/assets/css/emojione.css');
+  app.import(app.bowerDirectory + '/emojione/lib/js/emojione.js');
+  app.import(app.bowerDirectory + '/autolink/autolink.js');
 
-  return app.toTree();
+  var phoenixTree = "./vendor/phoenix";
+  var phoenixAmdFiles = new ES6Modules(phoenixTree, {
+    format: 'amd',
+    esperantoOptions: {
+      strict: true,
+      amdName: "phoenix"
+    }
+  });
+  var phoenixTranspiledFiles = esTranspiler(phoenixAmdFiles, {});
+
+  //module.exports = mergeTrees([app.toTree(), phoenixTranspiledFiles]);
+  //return app.toTree();
+  return mergeTrees([app.toTree(), phoenixTranspiledFiles]);
 };
