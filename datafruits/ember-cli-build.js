@@ -7,6 +7,9 @@ var mergeTrees = require('broccoli-merge-trees');
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     // Add options here
+    fingerprint: {
+      prepend: "//datafruitstest.s3-website-us-east-1.amazonaws.com/"
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated
