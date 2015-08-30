@@ -6,7 +6,7 @@
         <h4 class="modal-title" id="myModalLabel">PODCASTS</h4>
       </div>
       <div class="modal-body">
-        {{#each track in model.podcast.tracks}}
+        {{#each track in model.tracks}}
           {{podcast-track audio_file_name=track.audio_file_name}}
         {{/each}}
       </div>
