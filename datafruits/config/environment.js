@@ -5,7 +5,9 @@ module.exports = function(environment) {
     modulePrefix: 'datafruits',
     environment: environment,
     contentSecurityPolicy: { 'connect-src': "'self' http://localhost:3000 http://datafruits.streampusher.com http://datafruits.streampusher.com:8000 ws://hotdog-lounge.herokuapp.com ws://localhost:4000",
-                             'media-src': "http://datafruits.streampusher.com:8000"},
+                             'media-src': "http://datafruits.streampusher.com:8000",
+                             'script-src': 'http://datafruitstest.s3-website-us-east-1.amazonaws.com/',
+                             'style-src': 'http://datafruitstest.s3-website-us-east-1.amazonaws.com/'},
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -43,6 +45,9 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
 
+  }
+
+  if (environment == 'staging') {
   }
 
   return ENV;
