@@ -8,7 +8,8 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     // Add options here
     fingerprint: {
-      prepend: "//datafruitstest.s3-website-us-east-1.amazonaws.com/"
+      prepend: "//datafruitstest.s3-website-us-east-1.amazonaws.com/",
+      exclude: ['datafruits']
     }
   });
 
@@ -45,7 +46,5 @@ module.exports = function(defaults) {
   });
   var phoenixTranspiledFiles = esTranspiler(phoenixAmdFiles, {});
 
-  //module.exports = mergeTrees([app.toTree(), phoenixTranspiledFiles]);
-  //return app.toTree();
   return mergeTrees([app.toTree(), phoenixTranspiledFiles]);
 };
