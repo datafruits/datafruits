@@ -1,7 +1,7 @@
 {
-  "name": "datafruits",
+  "name": "datafruits13",
   "version": "0.0.0",
-  "description": "Small description for datafruits goes here",
+  "description": "datafruits frontend app",
   "private": true,
   "directories": {
     "doc": "doc",

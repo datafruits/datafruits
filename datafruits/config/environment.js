@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'datafruits',
+    modulePrefix: 'datafruits13',
     environment: environment,
     contentSecurityPolicy: { 'connect-src': "'self' http://localhost:3000 http://datafruits.streampusher.com http://datafruits.streampusher.com:8000 ws://hotdog-lounge.herokuapp.com ws://localhost:4000",
                              'media-src': "http://datafruits.streampusher.com:8000"},
