@@ -161,8 +161,10 @@ export default Ember.Component.extend({
     });
 
     this.chan.on("user:left", function(msg) {
-      addLeftMessage(msg.user);
-      removeFromUserList(msg.user);
+      if(msg.user !== null){
+        addLeftMessage(msg.user);
+        removeFromUserList(msg.user);
+      }
     });
 
     this.chan.on("user:authorized", function(msg) {
