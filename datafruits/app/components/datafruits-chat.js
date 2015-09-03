@@ -11,7 +11,6 @@ var entityMap = {
 };
 
 function escapeHtml(string) {
-  //return String(string).replace(/[&<>"'\/]/g, function (s) {
   return String(string).replace(/[<>"']/g, function (s) {
     return entityMap[s];
   });
@@ -161,8 +160,14 @@ export default Ember.Component.extend({
       alert(msg.error);
     });
 
+    this.chan.on("user:left", function(msg) {
+      addLeftMessage(msg.user);
+      removeFromUserList(msg.user);
+    });
+
     this.chan.on("user:authorized", function(msg) {
       addJoinedMessage(msg.user);
+      addToUserList(msg.user);
     });
 
     this.chan.on("user:entered", function (msg) {
