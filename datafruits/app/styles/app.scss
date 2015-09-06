@@ -1,4 +1,5 @@
 @import "bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
+@import 'bower_components/font-awesome/scss/font-awesome.scss';
 
 $green:  #82ffa5;
 $yellow: #fff94f;
@@ -374,7 +375,7 @@ input {
 }
 
 #livestream {
-  display: none;
+  display: block;
   position: absolute;
   margin: auto;
   top: -200px;

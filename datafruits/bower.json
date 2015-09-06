@@ -19,6 +19,7 @@
     "jplayer": "~2.9.2",
     "jsTimezoneDetect": "~1.0.6",
     "emojione": "~1.5.0",
-    "autolink": "*"
+    "autolink": "*",
+    "moment-duration-format": "~1.3.0"
   }
 }

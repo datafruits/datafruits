@@ -53,3 +53,36 @@ function radioTitle(){
     $('.jp-title').html(title);
   });
 }
+
+var vjIsLive = false;
+var showingVj = false;
+
+function showVJ(){
+  showingVj = true;
+  $('#zolos').hide();
+  $('#livestream').show();
+}
+
+function hideVJ(){
+  showingVj = false;
+  $('#zolos').show();
+  $('#livestream').hide();
+}
+
+function checkTwitch(){
+  $.getJSON('https://api.twitch.tv/kraken/streams/datafruits.json?callback=?', function(data){
+    if(data.stream === null) {
+      console.log('no live VJ');
+      vjIsLive = false;
+      if(showingVj === true){
+        hideVJ();
+      }
+    }else {
+      console.log('live stream!');
+      vjIsLive = true;
+      if(showingVj === false){
+        showVJ();
+      }
+    }
+  });
+}

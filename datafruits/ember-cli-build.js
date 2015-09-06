@@ -3,6 +3,7 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var ES6Modules = require('broccoli-es6modules');
 var esTranspiler = require('broccoli-babel-transpiler');
 var mergeTrees = require('broccoli-merge-trees');
+var pickFiles = require('broccoli-static-compiler');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
@@ -35,6 +36,19 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/emojione/assets/css/emojione.css');
   app.import(app.bowerDirectory + '/emojione/lib/js/emojione.js');
   app.import(app.bowerDirectory + '/autolink/autolink.js');
+  // Import fontawesome fonts
+  var fontawesome = pickFiles(app.bowerDirectory+'/font-awesome/fonts', {
+      srcDir: '/',
+      files: [
+          'fontawesome-webfont.ttf',
+          'fontawesome-webfont.woff',
+          'fontawesome-webfont.woff2',
+          'fontawesome-webfont.eot',
+          'FontAwesome.otf',
+          'fontawesome-webfont.svg'
+      ],
+      destDir: '/assets/fonts'
+  });
 
   var phoenixTree = "./vendor/phoenix";
   var phoenixAmdFiles = new ES6Modules(phoenixTree, {
@@ -46,5 +60,5 @@ module.exports = function(defaults) {
   });
   var phoenixTranspiledFiles = esTranspiler(phoenixAmdFiles, {});
 
-  return mergeTrees([app.toTree(), phoenixTranspiledFiles]);
+  return mergeTrees([app.toTree(), phoenixTranspiledFiles, fontawesome]);
 };
