@@ -19,6 +19,14 @@ App = Ember.Application.extend({
     setInterval(function(){
       radioTitle();
     }, 10000);
+
+    setTimeout(function(){
+      checkTwitch();
+    }, 500);
+
+    setInterval(function(){
+      checkTwitch();
+    }, 2500);
   }
 });
 
