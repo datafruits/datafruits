@@ -22,7 +22,7 @@ export default Ember.View.extend({
     var playButtonClicked = false;
     $('#radio-player').jPlayer({
       ready: function () {
-        $(this).jPlayer('setMedia', stream);
+        $(this).jPlayer('setMedia', stream).jPlayer("play");
       },
       supplied: 'mp3, oga',
       wmode: 'window',
