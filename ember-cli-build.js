@@ -11,6 +11,9 @@ module.exports = function(defaults) {
     fingerprint: {
       prepend: "//datafruitstest.s3-website-us-east-1.amazonaws.com/",
       exclude: ['datafruits']
+    },
+    emberCliFontAwesome: {
+      useScss: true
     }
   });
 
@@ -36,19 +39,6 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/emojione/assets/css/emojione.css');
   app.import(app.bowerDirectory + '/emojione/lib/js/emojione.js');
   app.import(app.bowerDirectory + '/autolink/autolink.js');
-  // Import fontawesome fonts
-  var fontawesome = pickFiles(app.bowerDirectory+'/font-awesome/fonts', {
-      srcDir: '/',
-      files: [
-          'fontawesome-webfont.ttf',
-          'fontawesome-webfont.woff',
-          'fontawesome-webfont.woff2',
-          'fontawesome-webfont.eot',
-          'FontAwesome.otf',
-          'fontawesome-webfont.svg'
-      ],
-      destDir: '/assets/fonts'
-  });
 
   var phoenixTree = "./vendor/phoenix";
   var phoenixAmdFiles = new ES6Modules(phoenixTree, {
@@ -60,5 +50,5 @@ module.exports = function(defaults) {
   });
   var phoenixTranspiledFiles = esTranspiler(phoenixAmdFiles, {});
 
-  return mergeTrees([app.toTree(), phoenixTranspiledFiles, fontawesome]);
+  return mergeTrees([app.toTree(), phoenixTranspiledFiles]);
 };
