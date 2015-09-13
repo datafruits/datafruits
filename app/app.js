@@ -67,13 +67,11 @@ var showingVj = false;
 
 function showVJ(){
   showingVj = true;
-  $('#zolos').hide();
   $('#livestream').show();
 }
 
 function hideVJ(){
   showingVj = false;
-  $('#zolos').show();
   $('#livestream').hide();
 }
 
