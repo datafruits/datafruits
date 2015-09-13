@@ -172,6 +172,12 @@ export default Ember.Component.extend({
       addToUserList(msg.user);
     });
 
+    this.chan.on("join", function(msg) {
+      for(var i = 0; i < msg.users.length; i++){
+        addToUserList(msg.users[i]);
+      }
+    });
+
     this.chan.on("user:entered", function (msg) {
       //user entered room, but nick not authorized yet
     });
