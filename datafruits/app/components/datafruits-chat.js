@@ -27,7 +27,7 @@ function addToUserList(username){
 }
 
 function removeFromUserList(username){
-  Ember.$('li.userlist-item[data-username='+username+']').remove();
+  Ember.$('li.userlist-item[data-username="'+username+'"]').remove();
 }
 
 function addChatMessage(data) {
