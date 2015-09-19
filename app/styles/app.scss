@@ -122,10 +122,14 @@ nav {
 .navbar .nav > li > a {
   float: none;
   padding: 10px 15px 10px;
-  color: #777777;
+  color: white;
   text-decoration: none;
-  text-shadow: 0 1px 0 #ffffff;
+  text-shadow: 0 1px 0 #777777;
   line-height: 25px;
+}
+
+.navbar .nav > li > a:hover {
+  color: darken(white, 20%);
 }
 
 div#radio-bar {
