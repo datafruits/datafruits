@@ -17,7 +17,7 @@ $blue:  #00b4ff;
     @include linear-gradient(50deg, $blue, lighten($blue, 20%));
   }
   90% {
-    @include linear-gradient(50deg, $yellow, lighten($yellow, 20%));
+    @include linear-gradient(50deg, $pink , lighten($pink, 20%));
   }
   to {
     @include linear-gradient(50deg, $green, lighten($green, 20%));
