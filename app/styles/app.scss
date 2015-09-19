@@ -48,15 +48,14 @@ body {
 }
 h1#logo {
   font-family: 'Condiment', cursive;
-  font-size: 45px;
+  font-size: 3em;
   color: white;
   position:absolute;
   z-index: 1000;
   right: 5px;
-  top: 10px;
+  top: 0;
   @media screen and (min-device-width: 480px) {
     @include animation(textshadowfade 5s infinite);
-    @include transform(rotate(-5deg));
   }
 }
 
@@ -80,21 +79,18 @@ form#enter-chat {
 
 @include keyframes(textshadowfade) {
   from {
-    font-size: 35px;
     text-shadow: $green -1px -1px, $green -2px -2px, $green -3px -3px, $green -4px -4px, $green -5px -5px, $green -6px -6px, $green -7px -7px, $green -8px -8px, $green -9px -9px, $green -10px -10px, $green -11px -11px, $green -12px -12px, $green -13px -13px, $green -14px -14px, $green -15px -15px;
   }
   30% {
     text-shadow: $pink -1px -1px, $pink -2px -2px, $pink -3px -3px, $pink -4px -4px, $pink -5px -5px, $pink -6px -6px, $pink -7px -7px, $pink -8px -8px, $pink -9px -9px, $pink -10px -10px, $pink -11px -11px, $pink -12px -12px, $pink -13px -13px, $pink -14px -14px, $pink -15px -15px;
   }
   60% {
-    font-size: 45px;
     text-shadow: $blue -1px -1px, $blue -2px -2px, $blue -3px -3px, $blue -4px -4px, $blue -5px -5px, $blue -6px -6px, $blue -7px -7px, $blue -8px -8px, $blue -9px -9px, $blue -10px -10px, $blue -11px -11px, $blue -12px -12px, $blue -13px -13px, $blue -14px -14px, $blue -15px -15px;
   }
   90% {
     text-shadow: $yellow -1px -1px, $yellow -2px -2px, $yellow -3px -3px, $yellow -4px -4px, $yellow -5px -5px, $yellow -6px -6px, $yellow -7px -7px, $yellow -8px -8px, $yellow -9px -9px, $yellow -10px -10px, $yellow -11px -11px, $yellow -12px -12px, $yellow -13px -13px, $yellow -14px -14px, $yellow -15px -15px;
   }
   to {
-    font-size: 35px;
     text-shadow: $green -1px -1px, $green -2px -2px, $green -3px -3px, $green -4px -4px, $green -5px -5px, $green -6px -6px, $green -7px -7px, $green -8px -8px, $green -9px -9px, $green -10px -10px, $green -11px -11px, $green -12px -12px, $green -13px -13px, $green -14px -14px, $green -15px -15px;
   }
 }
