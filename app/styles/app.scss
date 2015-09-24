@@ -68,6 +68,21 @@ h1#logo {
   @media screen and (min-device-width: 480px) {
     @include animation(textshadowfade 5s infinite);
   }
+  @media only screen and (max-device-width: 480px) {
+    display: none;
+  }
+}
+
+#circle-logo {
+  display: none;
+  @media only screen and (max-device-width: 480px) {
+    display: block;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }
 
 #enter-chat {
