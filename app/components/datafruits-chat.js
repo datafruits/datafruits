@@ -86,6 +86,7 @@ function cleanMessage(input){
 }
 
 export default Ember.Component.extend({
+  classNames: ['chat'],
   actions: {
     enterChat: function(){
       var nick = cleanMessage(Ember.$('input[name=nick]').val().trim());

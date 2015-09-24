@@ -1,28 +1,18 @@
-<div id="chat">
-  <div id="chat-room" class="container-fluid">
-    <div id="chat-area" class="row">
-      <div class="col-md-10" id="messages-area">
-        <ul id="messages">
-        </ul>
-      </div>
-      <div class="col-md-2">
-        <ul id="userlist">
-        </ul>
-      </div>
-    </div>
+<div id="chat-room">
+  <div id="chat-area">
+    <ul id="messages">
+    </ul>
+    <ul id="userlist">
+    </ul>
   </div>
-  <div id="controls" class="container-fluid">
-    <div class="col-md-12">
-      <form align='center' id="send-message" style="display: none;">
-        <input type="text" id="input-message" placeholder="type here...">
-        <button {{action 'sendMessage'}}>Send</button>
-      </form>
-    </div>
-    <div class="col-md-12">
-      <form align='center' id="enter-chat">
-        <label for='nick'>Nickname</label><input type="text" name="nick">
-        <button class="cool-button" {{action 'enterChat'}}>Enter chatroom</button>
-      </form>
-    </div>
-  </div>
+</div>
+<div id="controls">
+  <form align='center' id="send-message" style="display: none;">
+    <input type="text" id="input-message" placeholder="type here...">
+    <button class="cool-button" {{action 'sendMessage'}}>Send</button>
+  </form>
+  <form align='center' id="enter-chat">
+    <label for='nick'>Nickname</label><input type="text" name="nick">
+    <button class="cool-button" {{action 'enterChat'}}>Enter chatroom</button>
+  </form>
 </div>

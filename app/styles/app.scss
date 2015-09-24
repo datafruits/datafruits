@@ -24,15 +24,24 @@ $blue:  #00b4ff;
   }
 }
 
+html {
+  height:100%;
+}
+
+.main {
+  height: 100%;
+}
+
 body {
   background-repeat: no-repeat;
   height:100%;
+  overflow:hidden;
   margin:0;
   background-attachment:fixed;
   overflow: hidden;
 
   @media only screen and (min-device-width: 480px) {
-    @include animation(fade 60s infinite); /* this is CRASHING chrome...jesus wtf */
+    @include animation(fade 60s infinite);
   }
 }
 
@@ -63,11 +72,15 @@ h1#logo {
   font-size: 25px;
 }
 
+form#send-message {
+  margin-bottom: 20px;
+}
+
 form#enter-chat {
   margin-bottom: 20px;
   label {
     color: yellow;
-    font-size: 28px;
+    font-size: 25px;
     text-shadow: #333 1px 1px 1px;
     margin-right: 10px;
   }
@@ -106,10 +119,11 @@ form#enter-chat {
 
 
 nav {
-  position:absolute;
+  //position:absolute;
   background:$pink !important;
   width:100%;
-  top: 0;
+  //top: 0;
+  //height: 5%;
   font-size:20px;
   z-index:1000;
   border: 0 !important;
@@ -129,25 +143,19 @@ nav {
 }
 
 div#radio-bar {
-  position:absolute;
   background:$blue;
   width:100%;
-  height:50px;
-  bottom:0;
+  // height:10%;
   padding:5px;
   color:white;
   text-decoration:none;
   font-size:20px;
-  line-height:40px;
   z-index:1000;
 }
 
 div#radio-bar a:hover {
   text-decoration:none;
 }
-
-/* remove vertical scroll */
-div.wrap {height:100%; overflow:hidden;}
 
 #jp_container {
   position:relative;
@@ -164,29 +172,35 @@ div.wrap {height:100%; overflow:hidden;}
   color: yellow;
 }
 
+#chat-room {
+  //height: 90%;
+}
+
+#controls {
+  //height: 10%;
+}
+
 #chat-area {
+  //height: 100%;
   background: rgba(221, 221, 221, 0.45);
+  //background: black;
   color: yellow;
   font-weight: bold;
   text-shadow: #333 1px 1px 1px;
 }
 
-#chat-room {
-}
-
 #messages {
-  height: 480px;
-  overflow-y:scroll;
+  //height: 100%;
   margin:0;
-}
-
-#messages-area {
   border-right: 1px white solid;
 }
 
+#messages-area {
+  //height: 100%;
+}
+
 #userlist {
-  height: 480px;
-  overflow-y:scroll;
+  //height: 100%;
 }
 
 li.userlist-item {
@@ -202,10 +216,6 @@ input#input-message {
   padding-right: 15px;
   text-align: right;
 }
-
-#chat {
-}
-
 ul {
   list-style:none;
   word-wrap:break-word;
@@ -319,6 +329,7 @@ input {
 }
 
 .cool-button {
+  font-size: 15px;
   background-color: $blue;
   border: 1px solid white;
   border-radius: 3px;
@@ -327,7 +338,7 @@ input {
   display: inline-block;
   font-weight: 600;
   line-height: 1;
-  padding: 0.75em 1em;
+  padding: 0.6em 0.5em;
   text-decoration: none;
   user-select: none;
   vertical-align: middle;
@@ -496,4 +507,63 @@ a:hover {
 .social-icons li {
   display:inline;
   font-size:40px;
+}
+
+.flexbox-container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  // these are flex items
+  // flex: 1; same as:
+  // flex-grow: 1;
+  // flex-shrink: 1;
+  // flex-basis: auto;
+  // flex: 1 1 auto;
+  nav {
+    flex: 0.05;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .chat {
+    flex: 8;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    #chat-room {
+      flex: 7;
+      display: flex;
+      flex-direction: column;
+      #chat-area {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        height: 0px;
+        #messages {
+          overflow-y: scroll;
+          flex-grow: 3;
+        }
+        #userlist {
+          overflow-y: scroll;
+          flex-grow: 1;
+        }
+      }
+    }
+    #controls {
+      flex: 1;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  #radio-bar {
+    flex: 0.05;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.ember-view {
+  height: 100%;
 }
