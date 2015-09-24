@@ -512,8 +512,8 @@ a:hover {
 
 .flexbox-container {
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
+  @include display(flex);
+  @include flex-direction(column);
   // these are flex items
   // flex: 1; same as:
   // flex-grow: 1;
@@ -521,47 +521,47 @@ a:hover {
   // flex-basis: auto;
   // flex: 1 1 auto;
   nav {
-    flex: 0.05;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
+    @include flex(0.05);
+    @include justify-content(center);
+    @include display(flex);
+    @include flex-direction(column);
   }
   .chat {
-    flex: 8;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
+    @include flex(8);
+    @include justify-content(center);
+    @include display(flex);
+    @include flex-direction(column);
     #chat-room {
-      flex: 7;
-      display: flex;
-      flex-direction: column;
+      @include flex(7);
+      @include display(flex);
+      @include flex-direction(column);
       #chat-area {
-        display: flex;
-        flex-direction: row;
-        flex: 1;
+        @include display(flex);
+        @include flex-direction(row);
+        @include flex(1);
         height: 0px;
         #messages {
           overflow-y: scroll;
-          flex-grow: 3;
+          @include flex-grow(3);
         }
         #userlist {
           overflow-y: scroll;
-          flex-grow: 1;
+          @include flex-grow(1);
         }
       }
     }
     #controls {
-      flex: 1;
-      justify-content: center;
-      display: flex;
-      flex-direction: column;
+      @include flex(1);
+      @include justify-content(center);
+      @include display(flex);
+      @include flex-direction(column);
     }
   }
   #radio-bar {
-    flex: 0.05;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
+    @include flex(0.05);
+    @include justify-content(center);
+    @include display(flex);
+    @include flex-direction(column);
   }
 }
 
