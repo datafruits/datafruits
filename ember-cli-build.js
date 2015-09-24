@@ -36,6 +36,7 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/fullcalendar/dist/fullcalendar.js');
   app.import(app.bowerDirectory + '/jplayer/dist/jplayer/jquery.jplayer.js');
   app.import(app.bowerDirectory + '/jsTimezoneDetect/jstz.min.js');
+  app.import(app.bowerDirectory + '/moment-timezone/builds/moment-timezone-with-data-2010-2020.js');
   app.import(app.bowerDirectory + '/emojione/assets/css/emojione.css');
   app.import(app.bowerDirectory + '/emojione/lib/js/emojione.js');
   app.import(app.bowerDirectory + '/autolink/autolink.js');
