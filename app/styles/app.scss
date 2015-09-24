@@ -71,7 +71,7 @@ h1#logo {
 }
 
 #enter-chat {
-  font-size: 25px;
+  font-size: 2rem;
 }
 
 form#send-message {
@@ -80,15 +80,23 @@ form#send-message {
 
 form#enter-chat {
   margin-bottom: 20px;
+  @media only screen and (max-device-width: 480px) {
+    label {
+      display: none;
+    }
+    input {
+      width: 50%;
+    }
+  }
   label {
     color: yellow;
-    font-size: 25px;
+    font-size: 2rem;
     text-shadow: #333 1px 1px 1px;
     margin-right: 10px;
   }
   input {
     margin-top: 5px;
-    font-size: 20px;
+    font-size: 2rem;
   }
 }
 
@@ -126,7 +134,7 @@ nav {
   width:100%;
   //top: 0;
   //height: 5%;
-  font-size:20px;
+  font-size:2rem;
   z-index:1000;
   border: 0 !important;
 }
@@ -151,8 +159,14 @@ div#radio-bar {
   padding:5px;
   color:white;
   text-decoration:none;
-  font-size:20px;
+  font-size:2rem;
   z-index:1000;
+  @media only screen and (max-device-width: 480px) {
+    font-size:1.5rem;
+    #next-show {
+      display: none;
+    }
+  }
 }
 
 div#radio-bar a:hover {
@@ -331,7 +345,7 @@ input {
 }
 
 .cool-button {
-  font-size: 15px;
+  font-size: 1.5rem;
   background-color: $blue;
   border: 1px solid white;
   border-radius: 3px;
