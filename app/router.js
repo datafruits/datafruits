@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('podcasts');
   this.route('about');
   this.route('subscribe');
+  this.resource('show', {path: '/shows/:id'});
 });
 
 export default Router;
