@@ -19,10 +19,11 @@ export default Ember.View.extend({
       oga: 'http://datafruits.streampusher.com:8000/datafruits.ogg'
     };
 
-    var playButtonClicked = false;
+    var playTry = false;
     $('#radio-player').jPlayer({
       ready: function () {
         $(this).jPlayer('setMedia', stream).jPlayer("play");
+        playTry = true;
       },
       supplied: 'mp3, oga',
       wmode: 'window',
@@ -32,12 +33,12 @@ export default Ember.View.extend({
       error: function(event) {
         console.log('jPlayer error: '+ event.jPlayer.error.type);
 
-        if(playButtonClicked === true){
-          $(this).jPlayer('setMedia', stream).jPlayer('play');
-        }
-
         $('jp-pause').hide();
         $('jp-loading').hide();
+
+        if(playTry === true){
+          $(this).jPlayer('setMedia', stream).jPlayer('play');
+        }
       },
       waiting: function(e) {
         $('.jp-loading').show();
