@@ -20,6 +20,7 @@ export default Ember.View.extend({
     };
 
     var playTry = false;
+    var playingPodcast = false;
     $('#radio-player').jPlayer({
       ready: function () {
         $(this).jPlayer('setMedia', stream).jPlayer("play");
@@ -29,6 +30,12 @@ export default Ember.View.extend({
       wmode: 'window',
       playing: function(e) {
         $('.jp-loading').hide();
+      },
+      pause: function(e) {
+        if (playingPodcast == false) {
+          $(this).jPlayer("clearMedia");
+          $(this).jPlayer("setMedia", stream);
+        }
       },
       error: function(event) {
         console.log('jPlayer error: '+ event.jPlayer.error.type);
