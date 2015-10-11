@@ -40,7 +40,6 @@ body {
   overflow:hidden;
   margin:0;
   background-attachment:fixed;
-  overflow: hidden;
 
   @media only screen and (min-device-width: 480px) {
     @include animation(fade 60s infinite);
