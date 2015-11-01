@@ -538,6 +538,7 @@ a:hover {
 
 .flexbox-container {
   min-height: 100%;
+  max-height: 100%;
   @include display(flex);
   @include flex-direction(column);
   // these are flex items
@@ -557,15 +558,17 @@ a:hover {
     @include justify-content(center);
     @include display(flex);
     @include flex-direction(column);
+    min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
     #chat-room {
       @include flex(7);
       @include display(flex);
       @include flex-direction(column);
+      min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
       #chat-area {
         @include display(flex);
         @include flex-direction(row);
         @include flex(1);
-        height: 0px;
+        min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
         #messages {
           overflow-y: scroll;
           @include flex-grow(3);

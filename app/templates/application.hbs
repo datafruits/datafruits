@@ -1,50 +1,50 @@
 {{outlet}}
 <section class="flexbox-container">
-<nav class="navbar navbar-default custom-navbar" role="navigation">
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
+  <nav class="navbar navbar-default custom-navbar" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse navbar-left" id="navbar">
+      <ul class="nav navbar-nav">
+        <li>
+          {{#link-to 'podcasts'}}Podcasts →{{/link-to}}
+        </li>
+        <li>
+          {{#link-to 'timetable'}}Timetable →{{/link-to}}
+        </li>
+        <li>
+          <a href="http://releases.datafruits.fm/" target="_blank">Label →</a>
+        </li>
+        <li>
+          {{#link-to 'about'}}About →{{/link-to}}
+        </li>
+        <li>
+          <a href="http://datafruits.tumblr.com/" target="_blank">Blog →</a>
+        </li>
+        <li>
+          {{#link-to 'subscribe'}}Subscribe →{{/link-to}}
+        </li>
+      </ul>
+    </div>
+    <img id="circle-logo" src="/assets/images/logo.png" />
+  </nav>
+  <h1 id="logo">datafruits.fm</h1>
+  {{datafruits-chat}}
+  <div id="radio-bar">
+    <div id="radio-player" data-icecast-json="http://datafruits.streampusher.com:8000/status-json.xsl"></div>
+    <div id="jp_container">
+      <a class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
+      <a class="jp-pause" href="javascript:;" tabindex="1">❚❚</a>
+      <a class="jp-loading" href="javascript:;" tabindex="1" style="display:none;">↻</a>
+      <span>Now playing: </span><span class="jp-title"></span>
+      <span id="next-show">Next live on air: </span>
+    </div>
   </div>
-  <div class="collapse navbar-collapse navbar-left" id="navbar">
-    <ul class="nav navbar-nav">
-      <li>
-        {{#link-to 'podcasts'}}Podcasts →{{/link-to}}
-      </li>
-      <li>
-        {{#link-to 'timetable'}}Timetable →{{/link-to}}
-      </li>
-      <li>
-        <a href="http://releases.datafruits.fm/" target="_blank">Label →</a>
-      </li>
-      <li>
-        {{#link-to 'about'}}About →{{/link-to}}
-      </li>
-      <li>
-        <a href="http://datafruits.tumblr.com/" target="_blank">Blog →</a>
-      </li>
-      <li>
-        {{#link-to 'subscribe'}}Subscribe →{{/link-to}}
-      </li>
-    </ul>
-  </div>
-  <img id="circle-logo" src="/assets/images/logo.png" />
-</nav>
-<h1 id="logo">datafruits.fm</h1>
-{{datafruits-chat}}
-<div id="radio-bar">
-  <div id="radio-player" data-icecast-json="http://datafruits.streampusher.com:8000/status-json.xsl"></div>
-  <div id="jp_container">
-    <a class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
-    <a class="jp-pause" href="javascript:;" tabindex="1">❚❚</a>
-    <a class="jp-loading" href="javascript:;" tabindex="1" style="display:none;">↻</a>
-    <span>Now playing: </span><span class="jp-title"></span>
-    <span id="next-show">Next live on air: </span>
-  </div>
-</div>
 </section>
 <div id="livestream">
   <object bgcolor="#000000"
