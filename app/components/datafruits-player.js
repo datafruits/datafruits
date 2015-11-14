@@ -41,8 +41,8 @@ export default Ember.Component.extend({
     var _this = this;
     console.log("setting up jPlayer");
     this.stream = {
-      mp3: 'http://datafruits.streampusher.com:8000/datafruits.mp3',
-      oga: 'http://datafruits.streampusher.com:8000/datafruits.ogg'
+      mp3: 'http://relay.datafruits.fm:8000/datafruits.mp3',
+      oga: 'http://relay.datafruits.fm:8000/datafruits.ogg'
     };
 
     var playTry = false;
