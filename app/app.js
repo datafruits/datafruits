@@ -13,14 +13,6 @@ App = Ember.Application.extend({
   Resolver: Resolver,
   ready: function() {
     setTimeout(function(){
-      radioTitle();
-    }, 500);
-
-    setInterval(function(){
-      radioTitle();
-    }, 10000);
-
-    setTimeout(function(){
       checkTwitch();
     }, 500);
 
@@ -50,17 +42,6 @@ function escapeHtml(string) {
 }
 
 var imgRegex = /https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpg|gif|png)/;
-
-function radioTitle(){
-  var url = $('#radio-player').data('icecast-json').toString();
-  console.log(url);
-
-  $.get(url, function(data){
-    var title = data.icestats.source[0].title;
-    console.log(title);
-    $('.jp-title').html(title);
-  });
-}
 
 var vjIsLive = false;
 var showingVj = false;

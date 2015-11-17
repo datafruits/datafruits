@@ -1,29 +1,55 @@
 import Ember from 'ember';
 
-function radioTitle(){
-  var url = $('#radio-player').data('icecast-json').toString();
-  console.log(url);
-
-  $.get(url, function(data){
-    var title = data.icestats.source[0].title;
-    console.log(title);
-    $('.jp-title').html(title);
-  });
-}
-
 export default Ember.Component.extend({
+  _initialize: Ember.on('init', function(){
+    this.get("eventBus").subscribe("trackPlayed", this, "onTrackPlayed");
+  }),
+  pollRadioTitle: function() {
+    var _this = this;
+    Ember.run.later(function() {
+      _this.setRadioTitle();
+      _this.pollRadioTitle();
+    }, 10000);
+  },
+  setRadioTitle: function(){
+    if(this.get('playingPodcast') === false){
+      var url = $('#radio-player').data('icecast-json').toString();
+      console.log(url);
+
+      $.get(url, function(data){
+        var title = data.icestats.source[0].title;
+        console.log(title);
+        $('.jp-title').html(title);
+      });
+    }
+  },
+  onTrackPlayed: function(track){
+    console.log("player saw onTrackPlayed"+track.title);
+    $('.jp-title').html(track.title);
+    this.set('playingPodcast', true);
+  },
+  actions: {
+    playLiveStream: function(){
+      Ember.$("#radio-player").jPlayer("setMedia", this.stream);
+      Ember.$("#radio-player").jPlayer("play");
+      this.set('playingPodcast', false);
+      this.setRadioTitle();
+    },
+  },
+  eventBus: Ember.inject.service(),
   setup: function(){
+    var _this = this;
+    this.set('playingPodcast', false);
     console.log("setting up jPlayer");
-    var stream = {
+    this.stream = {
       mp3: 'http://datafruits.streampusher.com:8000/datafruits.mp3',
       oga: 'http://datafruits.streampusher.com:8000/datafruits.ogg'
     };
 
     var playTry = false;
-    var playingPodcast = false;
     $('#radio-player').jPlayer({
       ready: function () {
-        $(this).jPlayer('setMedia', stream).jPlayer("play");
+        $(this).jPlayer('setMedia', _this.stream).jPlayer("play");
         playTry = true;
       },
       supplied: 'mp3, oga',
@@ -32,7 +58,7 @@ export default Ember.Component.extend({
         $('.jp-loading').hide();
       },
       pause: function(e) {
-        if (playingPodcast == false) {
+        if (this.get('playingPodcast') === false) {
           $(this).jPlayer("clearMedia");
           $(this).jPlayer("setMedia", stream);
         }
@@ -44,7 +70,7 @@ export default Ember.Component.extend({
         $('jp-loading').hide();
 
         if(playTry === true){
-          $(this).jPlayer('setMedia', stream).jPlayer('play');
+          $(this).jPlayer('setMedia', _this.stream).jPlayer('play');
         }
       },
       waiting: function(e) {
@@ -58,5 +84,8 @@ export default Ember.Component.extend({
       solution: 'html, flash',
       cssSelectorAncestor: '#jp_container'
     });
+    this.setRadioTitle();
+    this.pollRadioTitle();
+
   }.on('didInsertElement')
 });
