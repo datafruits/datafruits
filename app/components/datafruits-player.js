@@ -12,7 +12,7 @@ export default Ember.Component.extend({
     }, 10000);
   },
   setRadioTitle: function(){
-    if(this.get('playingPodcast') === false){
+    if(!this.get('playingPodcast')){
       var url = $('#radio-player').data('icecast-json').toString();
       console.log(url);
 
@@ -35,10 +35,10 @@ export default Ember.Component.extend({
       this.setRadioTitle();
     },
   },
+  playingPodcast: false,
   eventBus: Ember.inject.service(),
   setup: function(){
     var _this = this;
-    this.set('playingPodcast', false);
     console.log("setting up jPlayer");
     this.stream = {
       mp3: 'http://datafruits.streampusher.com:8000/datafruits.mp3',
