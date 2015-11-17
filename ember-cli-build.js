@@ -39,7 +39,7 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/moment-timezone/builds/moment-timezone-with-data-2010-2020.js');
   app.import(app.bowerDirectory + '/emojione/assets/css/emojione.css');
   app.import(app.bowerDirectory + '/emojione/lib/js/emojione.js');
-  app.import(app.bowerDirectory + '/autolink/autolink.js');
+  app.import(app.bowerDirectory + '/autolink/autolink-min.js');
 
   var phoenixTree = "./vendor/phoenix";
   var phoenixAmdFiles = new ES6Modules(phoenixTree, {

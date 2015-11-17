@@ -1,7 +1,7 @@
 {
   "name": "datafruits",
   "dependencies": {
-    "autolink": "*",
+    "autolink": "~1.0.1",
     "bootstrap": "~3.3.5",
     "bourbon": "~4.2.3",
     "ember": "1.13.7",
