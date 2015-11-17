@@ -26,7 +26,9 @@ export default Ember.Component.extend({
   },
   onTrackPlayed: function(event){
     if(this !== event){
-      this.set("playing", false);
+      if(!(this.get('isDestroyed') || this.get('isDestroying'))) {
+        this.set("playing", false);
+      }
     }
   }
 });

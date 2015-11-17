@@ -24,7 +24,6 @@ export default Ember.Component.extend({
     }
   },
   onTrackPlayed: function(track){
-    console.log("player saw onTrackPlayed"+track.title);
     $('.jp-title').html(track.title);
     this.set('playingPodcast', true);
   },
@@ -58,7 +57,7 @@ export default Ember.Component.extend({
         $('.jp-loading').hide();
       },
       pause: function(e) {
-        if (this.get('playingPodcast') === false) {
+        if (_this.get('playingPodcast') === false) {
           $(this).jPlayer("clearMedia");
           $(this).jPlayer("setMedia", stream);
         }
