@@ -11,7 +11,7 @@ function radioTitle(){
   });
 }
 
-export default Ember.View.extend({
+export default Ember.Component.extend({
   setup: function(){
     console.log("setting up jPlayer");
     var stream = {
