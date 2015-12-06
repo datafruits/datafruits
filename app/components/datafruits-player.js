@@ -35,6 +35,8 @@ export default Ember.Component.extend({
       this.setRadioTitle();
     },
   },
+  classNames: ['radio-bar'],
+  classNameBindings: ['playingPodcast'],
   playingPodcast: false,
   eventBus: Ember.inject.service(),
   setup: function(){

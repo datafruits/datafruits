@@ -170,7 +170,7 @@ nav {
   color: darken(white, 20%);
 }
 
-div#radio-bar {
+div.radio-bar {
   background:$blue;
   width:100%;
   // height:10%;
@@ -187,7 +187,11 @@ div#radio-bar {
   }
 }
 
-div#radio-bar a:hover {
+.playing-podcast {
+  background: $green !important;
+}
+
+div.radio-bar a:hover {
   text-decoration:none;
 }
 
@@ -590,7 +594,7 @@ a:hover {
       @include flex-direction(column);
     }
   }
-  #radio-bar {
+  .radio-bar {
     @include flex(0.05);
     @include justify-content(center);
     @include display(flex);
