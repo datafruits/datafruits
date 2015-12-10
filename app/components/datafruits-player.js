@@ -61,7 +61,7 @@ export default Ember.Component.extend({
       pause: function(e) {
         if (_this.get('playingPodcast') === false) {
           $(this).jPlayer("clearMedia");
-          $(this).jPlayer("setMedia", stream);
+          $(this).jPlayer("setMedia", _this.stream);
         }
       },
       error: function(event) {
