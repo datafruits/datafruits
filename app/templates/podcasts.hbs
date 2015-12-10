@@ -6,6 +6,9 @@
         <h4 class="modal-title" id="myModalLabel">PODCASTS</h4>
       </div>
       <div class="modal-body">
+        <p>
+          You can also download the <a href="http://datafruits.streampusher.com/podcasts/datafruits.xml">XML feed</a> to your favorite podcast feed reader.
+        </p>
         {{#each model.tracks as |track|}}
           {{podcast-track audio_file_name=track.audio_file_name title=track.title}}
         {{/each}}
