@@ -40,6 +40,8 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/emojione/assets/css/emojione.css');
   app.import(app.bowerDirectory + '/emojione/lib/js/emojione.js');
   app.import(app.bowerDirectory + '/autolink/autolink-min.js');
+  app.import(app.bowerDirectory + '/jquery-textcomplete/dist/jquery.textcomplete.min.js');
+  app.import('/vendor/emojione_autocomplete.css');
 
   var phoenixTree = "./vendor/phoenix";
   var phoenixAmdFiles = new ES6Modules(phoenixTree, {
