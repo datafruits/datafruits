@@ -6,7 +6,7 @@ module.exports = function(environment) {
     environment: environment,
     contentSecurityPolicy: { 'connect-src': "'self' http://localhost:3000 http://datafruits.streampusher.com http://datafruits.streampusher.com:8000 ws://hotdog-lounge.herokuapp.com ws://localhost:4000",
                              'media-src': "http://datafruits.streampusher.com:8000 http://relay.datafruits.fm:8000",
-                             'script-src': "'self' https://api.twitch.tv"},
+                             'script-src': "'self'"},
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
