@@ -38,21 +38,17 @@
   {{datafruits-player}}
 </section>
 <div id="livestream">
-  <object bgcolor="#000000"
-          data="//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf"
-          height="900"
-          type="application/x-shockwave-flash"
-          width="1400"
-          >
-    <param name="allowFullScreen"
-            value="true" />
-    <param name="allowNetworking"
-            value="all" />
-    <param name="allowScriptAccess"
-            value="always" />
-    <param name="movie"
-            value="//www-cdn.jtvnw.net/swflibs/TwitchPlayer.swf" />
-    <param name="flashvars"
-            value="channel=datafruits&auto_play=true&start_volume=0" />
-  </object>
+  {{ember-youtube
+      ytid="0ndUCFAuU3E"
+      autoplay=true
+      volume=0
+
+      height=900
+      width=1400
+
+      showControls=false
+      showTime=false
+      showProgress=false
+      showDebug=false
+  }}
 </div>
