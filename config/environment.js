@@ -6,8 +6,8 @@ module.exports = function(environment) {
     environment: environment,
     contentSecurityPolicy: { 'connect-src': "'self' http://localhost:3000 http://datafruits.streampusher.com http://datafruits.streampusher.com:8000 ws://hotdog-lounge.herokuapp.com ws://localhost:4000",
                              'media-src': "http://datafruits.streampusher.com:8000 http://relay.datafruits.fm:8000",
-                             'script-src': "'self' https://www.youtube.com https://s.ytimg.com",
-                             'child-src': "https://www.youtube.com"},
+                             'script-src': "'self' http://www.youtube.com http://s.ytimg.com",
+                             'child-src': "http://www.youtube.com"},
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
