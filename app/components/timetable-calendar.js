@@ -8,7 +8,7 @@ export default Ember.Component.extend({
       header: { left: 'prev,next today', center: 'title', right: 'month,basicWeek,basicDay'},
       defaultView: 'month',
       timezone: timeZone.name(),
-      editable: true,
+      editable: false,
       eventSources: ["http://datafruits.streampusher.com/scheduled_shows.json"],
       eventClick: function(calEvent, jsEvent, view) {
         $("#eventModal h1").html("");
