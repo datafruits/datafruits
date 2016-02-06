@@ -410,14 +410,6 @@ input {
   }
 }
 
-.visuals {
-  display: block;
-  position: absolute;
-  margin: auto;
-  top: -200px;
-  z-index: -999;
-}
-
 #actions {
   font-size: 14px;
   position: absolute;
@@ -591,6 +583,14 @@ a:hover {
   }
 }
 
-.ember-view {
-  height: 100%;
+.visuals {
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: -999;
+}
+
+.EmberYoutube iframe {
+  width: 100vw;
+  height: 100vh;
 }
