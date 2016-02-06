@@ -14,11 +14,9 @@ export default Ember.Component.extend({
   setRadioTitle: function(){
     if(!this.get('playingPodcast')){
       var url = $('#radio-player').data('icecast-json').toString();
-      console.log(url);
 
       $.get(url, function(data){
         var title = data.icestats.source[0].title;
-        console.log(title);
         $('.jp-title').html(title);
       });
     }
@@ -41,7 +39,6 @@ export default Ember.Component.extend({
   eventBus: Ember.inject.service(),
   setup: function(){
     var _this = this;
-    console.log("setting up jPlayer");
     this.stream = {
       mp3: 'http://datafruits.streampusher.com:8000/datafruits.mp3',
       oga: 'http://datafruits.streampusher.com:8000/datafruits.ogg'
