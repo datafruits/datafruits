@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('about');
   this.route('subscribe');
   this.resource('show', {path: '/shows/:id'});
+  this.route('dj-inquiry');
 });
 
 export default Router;
