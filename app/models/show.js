@@ -8,5 +8,11 @@ export default DS.Model.extend({
   image_url: DS.attr(),
   thumb_image_url: DS.attr(),
   description: DS.attr(),
-  tweet_content: DS.attr()
+  tweet_content: DS.attr(),
+
+  formattedStart: function(){
+    var timeZone = jstz.determine();
+    var formattedTime = this.get('start').tz(timeZone.name()).format("ha z");
+    return formattedTime;
+  }
 });
