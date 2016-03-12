@@ -8,7 +8,9 @@ var Router = Ember.Router.extend(googlePageview, {
 
 Router.map(function() {
   this.route('timetable');
-  this.route('podcasts');
+  this.route('podcasts', function() {
+    this.route('show');
+  });
   this.route('about');
   this.route('subscribe');
   this.resource('show', {path: '/shows/:id'});
