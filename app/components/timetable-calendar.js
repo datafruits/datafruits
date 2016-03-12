@@ -1,31 +1,20 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  goToEvent: function(calEvent, jsEvent, view){
+    this.sendAction('showEvent', calEvent);
+  },
   setupCalendar: function(){
     var timeZone = jstz.determine();
 
-    $('#calendar').fullCalendar({
+    Ember.$('#calendar').fullCalendar({
       header: { left: 'prev,next today', center: 'title', right: 'month,basicWeek,basicDay'},
       defaultView: 'month',
       timezone: timeZone.name(),
       editable: false,
       eventSources: ["http://datafruits.streampusher.com/scheduled_shows.json"],
-      eventClick: function(calEvent, jsEvent, view) {
-        $("#eventModal h1").html("");
-        $("#eventModal h2").html("");
-        $("#eventModal .start-time").html("");
-        $("#eventModal .end-time").html("");
-        $("#eventModal .event-image").html("");
-
-        $("#timetableModal").modal('hide');
-        $("#eventModal h1").html(calEvent.title);
-        $("#eventModal h2").html(calEvent.dj.username);
-        $("#eventModal .start-time").html(calEvent.start.tz(timeZone.name()).format("ha z"));
-        $("#eventModal .end-time").html(calEvent.end.tz(timeZone.name()).format('ha z'));
-        var image = new Image();
-        image.src = calEvent.image_url;
-        $("#eventModal .event-image").append($(image));
-        $("#eventModal").modal('show');
+      eventClick: (calEvent, jsEvent, view) => {
+        this.goToEvent(calEvent, jsEvent, view);
       }
     });
   }.on('didInsertElement')

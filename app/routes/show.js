@@ -13,7 +13,6 @@ export default Ember.Route.extend({
       Ember.$("#showModal").modal('show');
       var _this = this;
       Ember.$("#showModal").on('hidden.bs.modal', function () {
-        console.log("modal exited");
         _this.transitionTo('application');
       });
     });
