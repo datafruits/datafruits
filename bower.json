@@ -16,7 +16,7 @@
     "font-awesome": "~4.4.0",
     "fullcalendar": "~2.3.2",
     "jplayer": "~2.9.2",
-    "jquery": "^1.11.3",
+    "jquery": "^1.12.1",
     "jsTimezoneDetect": "~1.0.6",
     "loader.js": "ember-cli/loader.js#3.2.1",
     "moment": "~2.10.6",
