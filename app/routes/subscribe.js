@@ -8,7 +8,7 @@ export default Ember.Route.extend({
   },
 
   setupController: function(controller, model){
-    this._super('controller', model);
+    this._super(controller, model);
     Ember.run.schedule('afterRender', this, function () {
       Ember.$("#subscribeModal").modal('show');
       var _this = this;
