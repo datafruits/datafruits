@@ -1,13 +1,13 @@
 <div id="radio-player" data-icecast-json="http://datafruits.streampusher.com:8000/status-json.xsl"></div>
 <div id="jp_container">
   {{#if playingPodcast }}
-  <a {{action "playLiveStream"}}>return to live stream</a>
+    <a {{action "playLiveStream"}}>return to live stream</a>
   {{/if}}
   <a class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
   <a class="jp-pause" href="javascript:;" tabindex="1">❚❚</a>
   <a class="jp-loading" href="javascript:;" tabindex="1" style="display:none;">↻</a>
   <span>Now playing: </span><span class="jp-title"></span>
   {{#if nextShow}}
-  <span id="next-show">Next live on air: </span>{{#link-to 'show' nextShow}}{{nextShow.title}}{{/link-to}}
+    <span id="next-show">Next live on air: </span>{{#link-to 'show' nextShow}}{{nextShow.title}}{{/link-to}}
   {{/if}}
 </div>
