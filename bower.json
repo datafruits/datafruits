@@ -24,5 +24,8 @@
     "moment-timezone": "~0.4.0",
     "qunit": "~1.18.0",
     "jquery-textcomplete": "~0.8.1"
+  },
+  "resolutions": {
+    "ember": "~2.2.0"
   }
 }
