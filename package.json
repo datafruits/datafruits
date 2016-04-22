@@ -39,6 +39,7 @@
     "ember-deploy-s3": "0.0.5",
     "ember-deploy-s3-index": "^0.4.0",
     "ember-export-application-global": "^1.0.5",
+    "ember-font-awesome": "2.1.0",
     "ember-load-initializers": "^0.5.1",
     "ember-resolver": "^2.0.3",
     "ember-youtube": "git://github.com/mcfiredrill/ember-youtube.git",
