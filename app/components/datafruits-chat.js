@@ -111,8 +111,8 @@ export default Ember.Component.extend({
     }
   },
   setupChat: function(){
-    var socket = new Socket("ws://localhost:4000/socket", {
-    //var socket = new Socket("ws://hotdog-lounge.herokuapp.com/socket", {
+    //var socket = new Socket("ws://localhost:4000/socket", {
+    var socket = new Socket("ws://hotdog-lounge.herokuapp.com/socket", {
       logger: function logger(kind, msg, data) {
         console.log(kind + ": " + msg, data);
       }
