@@ -33,12 +33,15 @@ function removeFromUserList(username){
 }
 
 function addChatMessage(data) {
+  // TODO make this more ember like with components?
   var new_message = Ember.$('<li class="message" />');
   var message = Ember.$('<span class="message-body">');
   message.html(emojione.shortnameToImage(escapeHtml(data.body).autoLink({ target: "_blank", })));
+  var timestamp = Ember.$('<span class="message-timestamp">');
+  timestamp.html(escapeHtml(moment(data.timestamp).format("HH:MM:SS")));
   var username = Ember.$('<span class="username">');
   username.html(emojione.shortnameToImage(escapeHtml(data.user)));
-  new_message.append(username, message);
+  new_message.append(timestamp, username, message);
   Ember.$('#messages').append(new_message);
   Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
   if(isImage(data.body)) {
@@ -102,14 +105,14 @@ export default Ember.Component.extend({
       console.log('message: '+message);
       if(message){
         //socket.emit('SENT_MSG', message);
-        this.chan.push("new:msg", { user: this.get('username'), body: message });
+        this.chan.push("new:msg", { user: this.get('username'), body: message, timestamp: Date.now() });
         Ember.$('#input-message').val('');
       }
     }
   },
   setupChat: function(){
-    //var socket = new Socket("ws://localhost:4000/socket", {
-    var socket = new Socket("ws://hotdog-lounge.herokuapp.com/socket", {
+    var socket = new Socket("ws://localhost:4000/socket", {
+    //var socket = new Socket("ws://hotdog-lounge.herokuapp.com/socket", {
       logger: function logger(kind, msg, data) {
         console.log(kind + ": " + msg, data);
       }
