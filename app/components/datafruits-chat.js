@@ -38,7 +38,7 @@ function addChatMessage(data) {
   var message = Ember.$('<span class="message-body">');
   message.html(emojione.shortnameToImage(escapeHtml(data.body).autoLink({ target: "_blank", })));
   var timestamp = Ember.$('<span class="message-timestamp">');
-  timestamp.html(escapeHtml(moment(data.timestamp).format("HH:MM:SS")));
+  timestamp.html(escapeHtml(moment(data.timestamp).format("HH:mm:ss")));
   var username = Ember.$('<span class="username">');
   username.html(emojione.shortnameToImage(escapeHtml(data.user)));
   new_message.append(timestamp, username, message);
