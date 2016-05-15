@@ -5,12 +5,14 @@ var esTranspiler = require('broccoli-babel-transpiler');
 var mergeTrees = require('broccoli-merge-trees');
 
 module.exports = function(defaults) {
+  var fingerprintOptions = {
+    enabled: true
+    //exclude: ['datafruits']
+  };
+
   var app = new EmberApp(defaults, {
     // Add options here
-    fingerprint: {
-      prepend: "//datafruitstest.s3-website-us-east-1.amazonaws.com/",
-      exclude: ['datafruits']
-    },
+    fingerprint: fingerprintOptions,
     emberCliFontAwesome: {
       useScss: true
     }
