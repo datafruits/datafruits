@@ -25,6 +25,6 @@
     "jquery-textcomplete": "~0.8.1"
   },
   "resolutions": {
-    "ember": "~2.2.0"
+    "ember": "2.5"
   }
 }
