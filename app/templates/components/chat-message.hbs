@@ -1,0 +1,20 @@
+<li class="message">
+  <span class="message-timestamp">
+    {{format-message-timestamp message.timestamp}}
+  </span>
+  <span class="username">
+    {{format-message-user message.user}}
+  </span>
+  <span class="message-body">
+      {{format-message-body message.body}}
+  </span>
+</li>
+{{#if gifsEnabled}}
+  {{#if hasImage}}
+    <li class="message">
+      <span class="message-body">
+        <img src="{{imgUrl}}">
+      </span>
+    </li>
+  {{/if}}
+{{/if}}

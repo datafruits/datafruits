@@ -1,8 +1,14 @@
 <div id="chat-room">
   <div id="chat-area">
     <ul id="messages">
+      {{#each messages as |message|}}
+        {{chat-message message=message gifsEnabled=gifsEnabled}}
+      {{/each}}
     </ul>
     <ul id="userlist">
+      {{#each joinedUsers as |joinedUser|}}
+        {{user-list-item user=joinedUser}}
+      {{/each}}
     </ul>
   </div>
 </div>
@@ -11,6 +17,7 @@
     <input type="text" id="input-message" autocomplete="off"
       placeholder="type here...">
     <button class="cool-button" {{action 'sendMessage'}}>Send</button>
+    <button class="cool-button" {{action 'toggleGifsEnabled'}}>{{images-enabled-button-label gifsEnabled}}</button>
   </form>
   <form align='center' id="enter-chat">
     <label for='nick'>Nickname</label><input type="text" name="nick" autocorrect="off" autocapitalize="none">
