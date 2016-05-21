@@ -68,7 +68,6 @@ export default Ember.Component.extend({
 
     this.chan.on("new:msg", (msg) => {
       this.messages.pushObject(msg);
-      Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
     });
 
     var self = this;
@@ -88,14 +87,12 @@ export default Ember.Component.extend({
         let leftMessage = { user: msg.user, body: ' left the chat :dash:', timestamp: msg.timestamp };
         this.messages.pushObject(leftMessage);
         this.joinedUsers.removeObject(msg.user);
-        Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
       }
     });
 
     this.chan.on("user:authorized", (msg) => {
       let joinedMessage = { user: msg.user, body: ' joined the chat :raising_hand:', timestamp: msg.timestamp };
       this.messages.pushObject(joinedMessage);
-      Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
       this.joinedUsers.pushObject(msg.user);
       //addToUserList(msg.user);
     });

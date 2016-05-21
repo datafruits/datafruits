@@ -8,5 +8,9 @@ export default Ember.Component.extend({
   }),
   imgUrl: Ember.computed('message.body', function(){
     return this.message.body.match(this.imgRegex)[0];
-  })
+  }),
+  didInsertElement() {
+    this._super(...arguments);
+    Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
+  }
 });
