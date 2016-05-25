@@ -148,5 +148,8 @@ export default Ember.Component.extend({
         footer: '<a href="http://www.emoji.codes" target="_blank">Browse All<span class="arrow">»</span></a>',
         className: 'emoji-autocomplete'
     });
-  }.on('didInsertElement')
+  }.on('didInsertElement'),
+  scrollToBottom: function() {
+    Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
+  }.on('didRender')
 });
