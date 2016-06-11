@@ -145,10 +145,7 @@ div.radio-bar {
   color:white;
   text-decoration:none;
   font-size:2rem;
-  z-index:1000;
-  #next-show {
-    text-shadow: #333 1px 1px 1px;
-  }
+  text-shadow: #333 1px 1px 1px;
   @media only screen and (max-device-width: 480px) {
     font-size:1.5rem;
     #next-show {
