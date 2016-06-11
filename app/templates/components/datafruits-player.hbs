@@ -8,6 +8,6 @@
   <a class="jp-loading" href="javascript:;" tabindex="1" style="display:none;">↻</a>
   <span>Now playing: </span><span class="jp-title"></span>
   {{#if nextShow}}
-    <span id="next-show">Next live on air: </span>{{#link-to 'show' nextShow}}{{nextShow.title}}{{/link-to}}
+    <span id="next-show">Next live on air: {{#link-to 'show' nextShow}}{{nextShow.title}}{{/link-to}}</span>
   {{/if}}
 </div>

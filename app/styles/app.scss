@@ -6,24 +6,6 @@ $yellow: #fff94f;
 $pink: #e992ff;
 $blue:  #00b4ff;
 
-@include keyframes(fade) {
-  from {
-    @include linear-gradient(50deg, $green, lighten($green, 20%));
-  }
-  30% {
-    @include linear-gradient(50deg, $pink, lighten($pink, 20%));
-  }
-  60% {
-    @include linear-gradient(50deg, $blue, lighten($blue, 20%));
-  }
-  90% {
-    @include linear-gradient(50deg, $pink , lighten($pink, 20%));
-  }
-  to {
-    @include linear-gradient(50deg, $green, lighten($green, 20%));
-  }
-}
-
 a {
   cursor: pointer;
 }
@@ -38,16 +20,12 @@ html {
 
 body {
   background-repeat: no-repeat;
-  background: $green;
+  background: $blue;
   height:100%;
   position: relative;
   overflow:hidden;
   margin:0;
   background-attachment:fixed;
-
-  @media only screen and (min-device-width: 480px) {
-    @include animation(fade 60s infinite);
-  }
 }
 
 h1#logo {
@@ -161,14 +139,16 @@ nav {
 }
 
 div.radio-bar {
-  background:$blue;
+  background:$pink;
   width:100%;
-  // height:10%;
   padding:5px;
   color:white;
   text-decoration:none;
   font-size:2rem;
   z-index:1000;
+  #next-show {
+    text-shadow: #333 1px 1px 1px;
+  }
   @media only screen and (max-device-width: 480px) {
     font-size:1.5rem;
     #next-show {
@@ -249,101 +229,6 @@ input#input-message {
 ul {
   list-style:none;
   word-wrap:break-word;
-}
-
-@include keyframes(floaty) {
-  from {
-    @include transform(translate(0px, 0px) rotate(0deg));
-  }
-  65% {
-    @include transform(translate(0px, 30px) rotate(-6deg));
-  }
-  to {
-    @include transform(translate(0px, 0px) rotate(0deg));
-  }
-}
-
-@include keyframes(twirly) {
-  from {
-    @include transform(rotate(0deg));
-  }
-  50% {
-    @include transform(rotate(360deg));
-  }
-  to {
-    @include transform(rotate(0deg));
-  }
-}
-
-@include keyframes(dancey) {
-  from {
-    @include transform(rotate(0deg) translateX(0px) translateY(0px));
-  }
-  50% {
-    @include transform(rotate(36deg) translateX(-300px) translateY(-20px));
-  }
-  to {
-    @include transform(rotate(0deg) translateX(0px) translateY(0px));
-  }
-}
-
-@include keyframes(arrow) {
-  from {
-    @include transform(rotate(0deg)translateX(0px) translateY(0px));
-  }
-  65% {
-    @include transform(rotate(90deg) translateX(-50px) translateY(-50px));
-  }
-  to {
-    @include transform(rotate(0deg) translateX(0px) translateY(0px));
-  }
-}
-
-.floaty {
-  @include animation(floaty 6s infinite ease-in-out);
-}
-
-.twirly {
-  @include animation(twirly 10s infinite ease-in-out);
-}
-
-.dancey {
-  @include animation(dancey 12s infinite ease-in-out);
-}
-
-.arrow {
-  @include animation(arrow 8s infinite ease-in-out);
-}
-
-#zolos {
-  position: absolute;
-  top:0;
-  left:0;
-  height:100%;
-  width:100%;
-  z-index:-1;
-}
-
-#zolo1 {
-  position: absolute;
-}
-
-#zolo2 {
-  position: absolute;
-  bottom:40px;
-  right:40px;
-}
-
-#zolo3 {
-  position: absolute;
-  right:200px;
-  top:60px;
-}
-
-#zolo4 {
-  position: absolute;
-  bottom:20px;
-  left:60px;
 }
 
 input {
