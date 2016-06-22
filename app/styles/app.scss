@@ -489,3 +489,14 @@ a:hover {
 .chat {
   height: 100vh;
 }
+
+/* Manton's CSS Edits (Will Lint Later) */
+
+.podcast-controls, .fa-download {
+    font-size: 21px;
+    color: deepskyblue;
+}
+
+.fa-download:hover {
+    color: yellow;
+}
