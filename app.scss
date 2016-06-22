@@ -1,0 +1,502 @@
+@import "bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
+@import 'bower_components/font-awesome/scss/font-awesome.scss';
+
+$green:  #82ffa5;
+$yellow: #fff94f;
+$pink: #e992ff;
+$blue:  #00b4ff;
+
+a {
+  cursor: pointer;
+}
+
+html {
+  height:100%;
+}
+
+.main {
+  height: 100%;
+}
+
+body {
+  background-repeat: no-repeat;
+  background: $blue;
+  height:100%;
+  position: relative;
+  overflow:hidden;
+  margin:0;
+  background-attachment:fixed;
+}
+
+h1#logo {
+  font-family: 'Condiment', cursive;
+  font-size: 3em;
+  color: white;
+  position:absolute;
+  z-index: 1000;
+  right: 5px;
+  top: 0;
+  @media screen and (min-device-width: 480px) {
+    @include animation(textshadowfade 5s infinite);
+  }
+  @media only screen and (max-device-width: 480px) {
+    display: none;
+  }
+}
+
+#circle-logo {
+  display: none;
+  @media only screen and (max-device-width: 480px) {
+    display: block;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+#enter-chat {
+  font-size: 2rem;
+}
+
+form#send-message {
+  margin-bottom: 20px;
+}
+
+form#enter-chat {
+  margin-bottom: 20px;
+  @media only screen and (max-device-width: 480px) {
+    label {
+      display: none;
+    }
+    input {
+      width: 50%;
+    }
+  }
+  label {
+    color: yellow;
+    font-size: 2rem;
+    text-shadow: #333 1px 1px 1px;
+    margin-right: 10px;
+  }
+  input {
+    margin-top: 5px;
+    font-size: 2rem;
+  }
+}
+
+@include keyframes(textshadowfade) {
+  from {
+    text-shadow: $green -1px -1px, $green -2px -2px, $green -3px -3px, $green -4px -4px, $green -5px -5px, $green -6px -6px, $green -7px -7px, $green -8px -8px, $green -9px -9px, $green -10px -10px, $green -11px -11px, $green -12px -12px, $green -13px -13px, $green -14px -14px, $green -15px -15px;
+  }
+  30% {
+    text-shadow: $pink -1px -1px, $pink -2px -2px, $pink -3px -3px, $pink -4px -4px, $pink -5px -5px, $pink -6px -6px, $pink -7px -7px, $pink -8px -8px, $pink -9px -9px, $pink -10px -10px, $pink -11px -11px, $pink -12px -12px, $pink -13px -13px, $pink -14px -14px, $pink -15px -15px;
+  }
+  60% {
+    text-shadow: $blue -1px -1px, $blue -2px -2px, $blue -3px -3px, $blue -4px -4px, $blue -5px -5px, $blue -6px -6px, $blue -7px -7px, $blue -8px -8px, $blue -9px -9px, $blue -10px -10px, $blue -11px -11px, $blue -12px -12px, $blue -13px -13px, $blue -14px -14px, $blue -15px -15px;
+  }
+  90% {
+    text-shadow: $yellow -1px -1px, $yellow -2px -2px, $yellow -3px -3px, $yellow -4px -4px, $yellow -5px -5px, $yellow -6px -6px, $yellow -7px -7px, $yellow -8px -8px, $yellow -9px -9px, $yellow -10px -10px, $yellow -11px -11px, $yellow -12px -12px, $yellow -13px -13px, $yellow -14px -14px, $yellow -15px -15px;
+  }
+  to {
+    text-shadow: $green -1px -1px, $green -2px -2px, $green -3px -3px, $green -4px -4px, $green -5px -5px, $green -6px -6px, $green -7px -7px, $green -8px -8px, $green -9px -9px, $green -10px -10px, $green -11px -11px, $green -12px -12px, $green -13px -13px, $green -14px -14px, $green -15px -15px;
+  }
+}
+
+@include keyframes(rotation){
+  from {
+    @include transform(rotate(0deg));
+  }
+  to {
+    @include transform(rotate(360deg));
+  }
+}
+
+
+nav {
+  //position:absolute;
+  background:$pink !important;
+  width:100%;
+  //top: 0;
+  //height: 5%;
+  font-size:2rem;
+  z-index:1000;
+  border: 0 !important;
+}
+
+.navbar .nav > li > a {
+  float: none;
+  padding: 10px 15px 10px;
+  color: white;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #777777;
+  line-height: 25px;
+}
+
+.navbar .nav > li > a:hover {
+  color: darken(white, 20%);
+}
+
+div.radio-bar {
+  background:$pink;
+  width:100%;
+  padding:5px;
+  color:white;
+  text-decoration:none;
+  font-size:2rem;
+  text-shadow: #333 1px 1px 1px;
+  @media only screen and (max-device-width: 480px) {
+    font-size:1.5rem;
+    #next-show {
+      display: none;
+    }
+  }
+}
+
+.playing-podcast {
+  background: $green !important;
+}
+
+div.radio-bar a:hover {
+  text-decoration:none;
+}
+
+#jp_container {
+  position:relative;
+}
+
+.jp-loading {
+  display: inline-block;
+  @include animation(rotation 0.7s linear infinite);
+}
+
+.jp-title {
+  font-style: italic;
+  text-shadow: #333 1px 1px 1px;
+  color: yellow;
+}
+
+#chat-room {
+  //height: 90%;
+}
+
+#controls {
+  //height: 10%;
+}
+
+#chat-area {
+  color: yellow;
+  font-weight: bold;
+  text-shadow: #333 1px 1px 1px;
+}
+
+#messages {
+  width: 100vw;
+  margin:0;
+  border-right: 1px white solid;
+}
+
+#messages-area {
+  //height: 100%;
+}
+
+#userlist {
+  width: 20vw;
+}
+
+li.userlist-item {
+}
+
+input#input-message {
+  width: 80%;
+}
+
+.message-timestamp {
+  padding-right: 10px;
+  text-align: right;
+}
+
+.username {
+  font-weight: 700;
+  overflow: hidden;
+  padding-right: 15px;
+  text-align: right;
+}
+ul {
+  list-style:none;
+  word-wrap:break-word;
+}
+
+input {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border linear .2s, box-shadow linear .2s;
+  -moz-transition: border linear .2s, box-shadow linear .2s;
+  -o-transition: border linear .2s, box-shadow linear .2s;
+  transition: border linear .2s, box-shadow linear .2s;
+}
+
+.cool-button {
+  font-size: 1.5rem;
+  background-color: $blue;
+  border: 1px solid white;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.6em 0.5em;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    background-color: darken($blue, 15%);
+    border: 1px solid darken(white, 15%);
+    color: #fff;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+.small-cool-button {
+  background-color: $green;
+  border: 1px solid white;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus {
+    background-color: darken($green, 15%);
+    border: 1px solid darken(white, 15%);
+    color: #fff;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+
+#actions {
+  font-size: 14px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.modal-content {
+  background: $pink;
+  color: yellow;
+  text-shadow: #333 1px 1px 1px;
+  .modal-body {
+    height: 65vh;
+    overflow-y: scroll;
+  }
+}
+
+img.emojione {
+  height: 3ex !important;
+}
+
+/* this makes the collapsed navbar appear on the left instead of right */
+.custom-navbar .fa {font-size:25px}
+
+@media (max-width:767px) {
+  .custom-navbar .navbar-right {
+      float: right;
+      padding-right: 15px;
+  }
+  .custom-navbar .nav.navbar-nav.navbar-right li {
+      float: right;
+  }
+    .custom-navbar .nav.navbar-nav.navbar-right li > a {
+      padding:8px 5px;
+  }
+  .custom-navbar .navbar-toggle {
+      float: left
+  }
+  .custom-navbar .navbar-header {
+      float: left;
+      width: auto!important;
+  }
+  .custom-navbar .navbar-collapse {
+      clear: both;
+      float: none;
+  }
+  #actions {
+    display: none;
+  }
+}
+
+a {
+  color: $yellow;
+}
+
+a:hover {
+  color: darken($yellow, 20%);
+}
+
+@media only screen and (max-device-width: 480px) {
+  #zolos {
+    display: none;
+  }
+}
+
+.tiny {
+  font-size:12px;
+}
+
+.podcast-controls {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.podcast-controls:hover {
+  text-decoration: none;
+}
+
+#timetableModal {
+  display: block;
+}
+
+/* ligature symbols */
+@font-face {
+  font-family: 'LigatureSymbols';
+  src: url('/assets/fonts/LigatureSymbols-2.11.eot');
+  src: url('/assets/fonts/LigatureSymbols-2.11.eot?#iefix') format('embedded-opentype'),
+       url('/assets/fonts/LigatureSymbols-2.11.woff') format('woff'),
+       url('/assets/fonts/LigatureSymbols-2.11.ttf') format('truetype'),
+       url('/assets/fonts/LigatureSymbols-2.11.svg#LigatureSymbols') format('svg');
+  src: url('/assets/fonts/LigatureSymbols-2.11.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.lsf, .lsf-icon:before {
+  font-family: 'LigatureSymbols';
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.lsf-icon:before {
+  content:attr(title);
+  margin-right:0.3em;
+  font-size:130%;
+}
+
+.social-icons li {
+  display:inline;
+  font-size:40px;
+}
+
+.flexbox-container {
+  height: 100vh;
+  @include display(flex);
+  @include flex-direction(column);
+  // these are flex items
+  // flex: 1; same as:
+  // flex-grow: 1;
+  // flex-shrink: 1;
+  // flex-basis: auto;
+  // flex: 1 1 auto;
+  nav {
+    @include flex(0.05);
+    @include justify-content(center);
+    @include display(flex);
+    @include flex-direction(column);
+  }
+  .chat {
+    @include flex(8);
+    @include justify-content(center);
+    @include display(flex);
+    @include flex-direction(column);
+    min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
+    #chat-room {
+      @include flex(7);
+      @include display(flex);
+      @include flex-direction(column);
+      min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
+      #chat-area {
+        @include display(flex);
+        @include flex-direction(row);
+        @include flex(1);
+        min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
+        #messages {
+          overflow-y: scroll;
+          @include flex-grow(3);
+        }
+        #userlist {
+          overflow-y: scroll;
+          @include flex-grow(1);
+        }
+      }
+    }
+    #controls {
+      @include flex(1);
+      @include justify-content(center);
+      @include display(flex);
+      @include flex-direction(column);
+    }
+  }
+  .radio-bar {
+    @include flex(0.5);
+    @include justify-content(center);
+    @include display(flex);
+    @include flex-direction(column);
+  }
+}
+
+.visuals {
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: -999;
+}
+
+.EmberYoutube iframe {
+  width: 100vw;
+  height: 100vh;
+}
+
+.chat {
+  height: 100vh;
+}
+
+/* Manton's CSS Edits (Will Lint Later) */
+
+.podcast-controls, .fa-download {
+    font-size: 21px;
+    color: deepskyblue;
+}
+
+.fa-download:hover {
+    color: yellow;
+}
