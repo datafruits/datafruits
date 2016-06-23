@@ -449,6 +449,7 @@ a:hover {
         @include flex-direction(row);
         @include flex(1);
         min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
+        position: relative;
         #messages {
           overflow-y: scroll;
           @include flex-grow(3);
@@ -456,6 +457,15 @@ a:hover {
         #userlist {
           overflow-y: scroll;
           @include flex-grow(1);
+        }
+        #new-messages-below {
+          position: absolute;
+          bottom: 0;
+          color: white;
+          font-size: 14px;
+          background: rgba(170, 170, 170, 0.79);
+          left: 0;
+          width: 100%;
         }
       }
     }

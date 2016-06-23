@@ -9,8 +9,22 @@ export default Ember.Component.extend({
   imgUrl: Ember.computed('message.body', function(){
     return this.message.body.match(this.imgRegex)[0];
   }),
+  scrolledToBottom: function() {
+    let scrollPosition = Ember.$('#messages')[0].scrollHeight - Ember.$('#messages')[0].scrollTop;
+    return scrollPosition === Ember.$('#messages').outerHeight();
+  },
+  willRender() {
+    if(this.scrolledToBottom()){
+      this.willAutoscroll = true;
+    }else{
+      this.sendAction("newMessagesAvailable");
+      this.willAutoscroll = false;
+    }
+  },
   didInsertElement() {
     this._super(...arguments);
-    Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
+    if(this.willAutoscroll){
+      Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
+    }
   }
 });

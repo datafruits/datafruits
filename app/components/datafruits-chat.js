@@ -8,23 +8,37 @@ export default Ember.Component.extend({
   messages: Ember.ArrayProxy.create({ content: Ember.A() }),
   joinedUsers: Ember.ArrayProxy.create({ content: Ember.A() }),
   gifsEnabled: true,
+  newMessagesBelow: false,
   actions: {
     toggleGifsEnabled: function(){
       this.toggleProperty("gifsEnabled");
     },
     enterChat: function(){
       var nick = Ember.$('input[name=nick]').val().trim();
-      console.log('emitting nick: '+nick);
       this.chan.push("authorize", { user: nick, timestamp: Date.now() });
     },
     sendMessage: function(){
       var message = Ember.$('#input-message').val();
-      console.log('message: '+message);
       if(message){
         this.chan.push("new:msg", { user: this.get('username'), body: message, timestamp: Date.now() });
         Ember.$('#input-message').val('');
       }
+    },
+    newMessagesAvailable: function(){
+      this.set("newMessagesBelow", true);
     }
+  },
+  scrolledToBottom: function() {
+    let scrollPosition = Ember.$('#messages')[0].scrollHeight - Ember.$('#messages')[0].scrollTop;
+    return scrollPosition === Ember.$('#messages').outerHeight();
+  },
+  _onScroll: function(){
+    if(this.scrolledToBottom()){
+      this.set("newMessagesBelow", false);
+    }else{
+      this.set("newMessagesBelow", true);
+    }
+    console.log("scrolled");
   },
   setupChat: function(){
     //var socket = new Socket("ws://localhost:4000/socket", {
@@ -35,8 +49,6 @@ export default Ember.Component.extend({
     });
 
     socket.connect({ user_id: "123" });
-    //var $messages = Ember.$("#messages");
-    //var $input = Ember.$("#input-message");
 
     socket.onOpen(function (ev) {
       return console.log("OPEN", ev);
@@ -148,8 +160,9 @@ export default Ember.Component.extend({
         footer: '<a href="http://www.emoji.codes" target="_blank">Browse All<span class="arrow">»</span></a>',
         className: 'emoji-autocomplete'
     });
-  }.on('didInsertElement'),
-  scrollToBottom: function() {
-    Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
-  }.on('didRender')
+
+    var onScroll = this._onScroll.bind(this);
+    this.$("#messages").bind('touchmove', onScroll);
+    this.$("#messages").bind('scroll', onScroll);
+  }.on('didInsertElement')
 });

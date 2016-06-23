@@ -2,8 +2,13 @@
   <div id="chat-area">
     <ul id="messages">
       {{#each messages as |message|}}
-        {{chat-message message=message gifsEnabled=gifsEnabled}}
+        {{chat-message message=message gifsEnabled=gifsEnabled newMessagesAvailable="newMessagesAvailable"}}
       {{/each}}
+      {{#if newMessagesBelow}}
+        <div id="new-messages-below">
+          <span>New messages below.</span>
+        </div>
+      {{/if}}
     </ul>
     <ul id="userlist">
       {{#each joinedUsers as |joinedUser|}}
