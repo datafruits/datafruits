@@ -20,12 +20,12 @@
 <div id="controls">
   <form align='center' id="send-message" style="display: none;">
     <input type="text" id="input-message" autocomplete="off"
-      placeholder="type here...">
+      placeholder="enter your message here...">
     <button class="cool-button" {{action 'sendMessage'}}>Send</button>
     <button class="cool-button" {{action 'toggleGifsEnabled'}}>{{images-enabled-button-label gifsEnabled}}</button>
   </form>
   <form align='center' id="enter-chat">
-    <label for='nick'>Nickname</label><input type="text" name="nick" autocorrect="off" autocapitalize="none">
-    <button class="cool-button" {{action 'enterChat'}}>Enter chatroom</button>
+    <input type="text" name="nick" autocorrect="off" autocapitalize="none" placeholder="nickname">
+    <button class="cool-button" {{action 'enterChat'}}>Join chatroom</button>
   </form>
 </div>
