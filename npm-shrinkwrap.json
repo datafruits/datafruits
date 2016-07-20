@@ -1507,9 +1507,9 @@
       "resolved": "https://registry.npmjs.org/ember-cli-deploy-build/-/ember-cli-deploy-build-0.1.1.tgz"
     },
     "ember-cli-deploy-display-revisions": {
-      "version": "0.2.1",
-      "from": "ember-cli-deploy-display-revisions@0.2.1",
-      "resolved": "https://registry.npmjs.org/ember-cli-deploy-display-revisions/-/ember-cli-deploy-display-revisions-0.2.1.tgz",
+      "version": "0.2.2",
+      "from": "ember-cli-deploy-display-revisions@0.2.2",
+      "resolved": "https://registry.npmjs.org/ember-cli-deploy-display-revisions/-/ember-cli-deploy-display-revisions-0.2.2.tgz",
       "dependencies": {
         "core-object": {
           "version": "2.0.5",
