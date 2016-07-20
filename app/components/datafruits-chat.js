@@ -38,7 +38,6 @@ export default Ember.Component.extend({
     }else{
       this.set("newMessagesBelow", true);
     }
-    console.log("scrolled");
   },
   setupChat: function(){
     //var socket = new Socket("ws://localhost:4000/socket", {

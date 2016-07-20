@@ -24,7 +24,13 @@ export default Ember.Component.extend({
   didInsertElement() {
     this._super(...arguments);
     if(this.willAutoscroll){
-      Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
+      if(this.$("img").length > 0){
+        this.$("img")[0].onload = () => {
+          Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
+        };
+      }else{
+        Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
+      }
     }
   }
 });
