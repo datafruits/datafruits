@@ -453,6 +453,10 @@ a:hover {
         #messages {
           overflow-y: scroll;
           @include flex-grow(3);
+          img {
+            max-width: 95%;
+            max-height: 95%;
+          }
         }
         #userlist {
           overflow-y: scroll;
