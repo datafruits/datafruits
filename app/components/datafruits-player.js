@@ -16,7 +16,10 @@ export default Ember.Component.extend({
       var url = $('#radio-player').data('icecast-json').toString();
 
       $.get(url, function(data){
-        var title = data.icestats.source[0].title;
+        var datafruits = data.icestats.source.find((s) => {
+          return s.server_name == "datafruits.mp3";
+        });
+        var title = datafruits.title;
         $('.jp-title').html(title);
       });
     }
