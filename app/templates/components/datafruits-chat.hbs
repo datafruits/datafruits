@@ -26,6 +26,6 @@
   </form>
   <form align='center' id="enter-chat">
     <input type="text" name="nick" autocorrect="off" autocapitalize="none" placeholder="nickname">
-    <button class="cool-button" {{action 'enterChat'}}>Join chatroom</button>
+    <button class="cool-button" disabled={{isJoiningChat}} {{action 'enterChat'}}>Join chatroom</button>
   </form>
 </div>

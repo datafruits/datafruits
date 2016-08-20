@@ -9,11 +9,13 @@ export default Ember.Component.extend({
   joinedUsers: Ember.ArrayProxy.create({ content: Ember.A() }),
   gifsEnabled: true,
   newMessagesBelow: false,
+  isJoiningChat: false,
   actions: {
     toggleGifsEnabled: function(){
       this.toggleProperty("gifsEnabled");
     },
     enterChat: function(){
+      this.set('isJoiningChat', true);
       var nick = Ember.$('input[name=nick]').val().trim();
       this.chan.push("authorize", { user: nick, timestamp: Date.now() });
     },
