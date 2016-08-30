@@ -379,44 +379,6 @@ a:hover {
   display: block;
 }
 
-/* ligature symbols */
-@font-face {
-  font-family: 'LigatureSymbols';
-  src: url('/assets/fonts/LigatureSymbols-2.11.eot');
-  src: url('/assets/fonts/LigatureSymbols-2.11.eot?#iefix') format('embedded-opentype'),
-       url('/assets/fonts/LigatureSymbols-2.11.woff') format('woff'),
-       url('/assets/fonts/LigatureSymbols-2.11.ttf') format('truetype'),
-       url('/assets/fonts/LigatureSymbols-2.11.svg#LigatureSymbols') format('svg');
-  src: url('/assets/fonts/LigatureSymbols-2.11.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-.lsf, .lsf-icon:before {
-  font-family: 'LigatureSymbols';
-  -webkit-text-rendering: optimizeLegibility;
-  -moz-text-rendering: optimizeLegibility;
-  -ms-text-rendering: optimizeLegibility;
-  -o-text-rendering: optimizeLegibility;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  -ms-font-smoothing: antialiased;
-  -o-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-}
-
-.lsf-icon:before {
-  content:attr(title);
-  margin-right:0.3em;
-  font-size:130%;
-}
-
-.social-icons li {
-  display:inline;
-  font-size:40px;
-}
-
 .flexbox-container {
   height: 100vh;
   @include display(flex);
@@ -514,7 +476,13 @@ a:hover {
 }
 
 .social-icons {
-  a {
-    text-decoration: none;
+  li {
+    a {
+      text-decoration: none;
+    }
+    display:inline;
+    font-size:40px;
   }
 }
+
+
