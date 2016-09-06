@@ -43,8 +43,8 @@ export default Ember.Component.extend({
   setup: function(){
     var _this = this;
     this.stream = {
-      mp3: 'http://streampusher-relay.club:8000/datafruits.mp3',
-      oga: 'http://streampusher-relay.club:8000/datafruits.ogg'
+      mp3: 'http://datafruits.streampusher.com:8000/datafruits.mp3',
+      oga: 'http://datafruits.streampusher.com:8000/datafruits.ogg'
     };
 
     var playTry = false;
