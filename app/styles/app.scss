@@ -356,12 +356,6 @@ a:hover {
   color: darken($yellow, 20%);
 }
 
-@media only screen and (max-device-width: 480px) {
-  #zolos {
-    display: none;
-  }
-}
-
 .tiny {
   font-size:12px;
 }
