@@ -387,10 +387,12 @@ a:hover {
   // flex-basis: auto;
   // flex: 1 1 auto;
   nav {
-    @include flex(0.05);
-    @include justify-content(center);
-    @include display(flex);
-    @include flex-direction(column);
+    @media only screen and (min-device-width: 480px) {
+      @include flex(0.05);
+      @include justify-content(center);
+      @include display(flex);
+      @include flex-direction(column);
+    }
   }
   .chat {
     @include flex(8);
