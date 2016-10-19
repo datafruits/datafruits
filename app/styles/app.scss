@@ -41,13 +41,16 @@ h1#logo {
   }
   @media only screen and (max-device-width: 480px) {
     display: none;
+    visibility: hidden;
   }
 }
 
 #circle-logo {
   display: none;
+  visibility: hidden;
   @media only screen and (max-device-width: 480px) {
     display: block;
+    visibility: visible;
     height: 50px;
     width: 50px;
     position: absolute;
