@@ -8,7 +8,7 @@ export default Ember.Component.extend({
   actions: {
     play: function(){
       var stream = {
-        mp3: this.audio_file_name
+        mp3: this.cdn_url
       };
       if(this.get("paused") !== true){
         Ember.$("#radio-player").jPlayer("setMedia", stream);
