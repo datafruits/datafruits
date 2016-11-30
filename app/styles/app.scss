@@ -118,11 +118,8 @@ form#enter-chat {
 
 
 nav {
-  //position:absolute;
   background:$pink !important;
   width:100%;
-  //top: 0;
-  //height: 5%;
   font-size:2rem;
   z-index:1000;
   border: 0 !important;
@@ -178,14 +175,6 @@ div.radio-bar a:hover {
   font-style: italic;
   text-shadow: #333 1px 1px 1px;
   color: yellow;
-}
-
-#chat-room {
-  //height: 90%;
-}
-
-#controls {
-  //height: 10%;
 }
 
 #chat-area {
@@ -394,12 +383,13 @@ a:hover {
       @include flex-direction(column);
     }
   }
-  .chat {
+  .main-content {
     @include flex(8);
-    @include justify-content(center);
+    //@include justify-content(center);
     @include display(flex);
     @include flex-direction(column);
     min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
+    overflow-y: scroll;
     #chat-room {
       @include flex(7);
       @include display(flex);
@@ -484,4 +474,7 @@ a:hover {
   }
 }
 
-
+#calendar {
+  margin-top: 150px;
+  padding: 40px;
+}

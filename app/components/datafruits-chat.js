@@ -3,7 +3,7 @@ import {Socket, LongPoller} from "phoenix";
 import emojiStrategy from "../emojiStrategy";
 
 export default Ember.Component.extend({
-  classNames: ['chat'],
+  //classNames: ['chat'],
   messages: Ember.ArrayProxy.create({ content: Ember.A() }),
   joinedUsers: Ember.ArrayProxy.create({ content: Ember.A() }),
   gifsEnabled: true,
