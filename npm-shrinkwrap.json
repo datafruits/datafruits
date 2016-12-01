@@ -466,6 +466,18 @@
         }
       }
     },
+    "babel5-plugin-strip-class-callcheck": {
+      "version": "5.1.0",
+      "from": "babel5-plugin-strip-class-callcheck@>=5.1.0 <6.0.0",
+      "resolved": "https://registry.npmjs.org/babel5-plugin-strip-class-callcheck/-/babel5-plugin-strip-class-callcheck-5.1.0.tgz",
+      "dev": true
+    },
+    "babel5-plugin-strip-heimdall": {
+      "version": "5.0.2",
+      "from": "babel5-plugin-strip-heimdall@>=5.0.2 <6.0.0",
+      "resolved": "https://registry.npmjs.org/babel5-plugin-strip-heimdall/-/babel5-plugin-strip-heimdall-5.0.2.tgz",
+      "dev": true
+    },
     "babylon": {
       "version": "5.8.38",
       "from": "babylon@>=5.8.38 <6.0.0",
@@ -2207,15 +2219,21 @@
       "dev": true
     },
     "ember-cli-deploy-revision-data": {
-      "version": "0.2.3",
-      "from": "ember-cli-deploy-revision-data@0.2.3",
-      "resolved": "https://registry.npmjs.org/ember-cli-deploy-revision-data/-/ember-cli-deploy-revision-data-0.2.3.tgz",
+      "version": "0.3.2",
+      "from": "ember-cli-deploy-revision-data@0.3.2",
+      "resolved": "https://registry.npmjs.org/ember-cli-deploy-revision-data/-/ember-cli-deploy-revision-data-0.3.2.tgz",
       "dev": true,
       "dependencies": {
-        "minimatch": {
-          "version": "2.0.10",
-          "from": "minimatch@>=2.0.4 <3.0.0",
-          "resolved": "https://registry.npmjs.org/minimatch/-/minimatch-2.0.10.tgz",
+        "core-object": {
+          "version": "2.0.6",
+          "from": "core-object@>=2.0.6 <3.0.0",
+          "resolved": "https://registry.npmjs.org/core-object/-/core-object-2.0.6.tgz",
+          "dev": true
+        },
+        "git-repo-info": {
+          "version": "1.2.0",
+          "from": "git-repo-info@1.2.0",
+          "resolved": "https://registry.npmjs.org/git-repo-info/-/git-repo-info-1.2.0.tgz",
           "dev": true
         }
       }
@@ -2267,9 +2285,9 @@
       }
     },
     "ember-cli-htmlbars": {
-      "version": "1.1.0",
-      "from": "ember-cli-htmlbars@>=1.0.3 <2.0.0",
-      "resolved": "https://registry.npmjs.org/ember-cli-htmlbars/-/ember-cli-htmlbars-1.1.0.tgz",
+      "version": "1.1.1",
+      "from": "ember-cli-htmlbars@1.1.1",
+      "resolved": "https://registry.npmjs.org/ember-cli-htmlbars/-/ember-cli-htmlbars-1.1.1.tgz",
       "dev": true
     },
     "ember-cli-htmlbars-inline-precompile": {
@@ -2383,15 +2401,27 @@
       "dev": true
     },
     "ember-data": {
-      "version": "2.9.0",
-      "from": "ember-data@>=2.5.0 <3.0.0",
-      "resolved": "https://registry.npmjs.org/ember-data/-/ember-data-2.9.0.tgz",
+      "version": "2.10.0",
+      "from": "ember-data@2.10.0",
+      "resolved": "https://registry.npmjs.org/ember-data/-/ember-data-2.10.0.tgz",
       "dev": true,
       "dependencies": {
         "exists-sync": {
           "version": "0.0.3",
           "from": "exists-sync@0.0.3",
           "resolved": "https://registry.npmjs.org/exists-sync/-/exists-sync-0.0.3.tgz",
+          "dev": true
+        },
+        "heimdalljs": {
+          "version": "0.3.0",
+          "from": "heimdalljs@>=0.3.0 <0.4.0",
+          "resolved": "https://registry.npmjs.org/heimdalljs/-/heimdalljs-0.3.0.tgz",
+          "dev": true
+        },
+        "rsvp": {
+          "version": "3.2.1",
+          "from": "rsvp@>=3.2.1 <3.3.0",
+          "resolved": "https://registry.npmjs.org/rsvp/-/rsvp-3.2.1.tgz",
           "dev": true
         },
         "semver": {
@@ -2483,9 +2513,9 @@
       }
     },
     "ember-runtime-enumerable-includes-polyfill": {
-      "version": "1.0.3",
+      "version": "1.0.4",
       "from": "ember-runtime-enumerable-includes-polyfill@>=1.0.0 <2.0.0",
-      "resolved": "https://registry.npmjs.org/ember-runtime-enumerable-includes-polyfill/-/ember-runtime-enumerable-includes-polyfill-1.0.3.tgz",
+      "resolved": "https://registry.npmjs.org/ember-runtime-enumerable-includes-polyfill/-/ember-runtime-enumerable-includes-polyfill-1.0.4.tgz",
       "dev": true
     },
     "ember-test-helpers": {
@@ -6810,6 +6840,12 @@
       "resolved": "https://registry.npmjs.org/statuses/-/statuses-1.3.1.tgz",
       "dev": true
     },
+    "string_decoder": {
+      "version": "0.10.31",
+      "from": "string_decoder@>=0.10.0 <0.11.0",
+      "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz",
+      "dev": true
+    },
     "string-width": {
       "version": "1.0.2",
       "from": "string-width@>=1.0.1 <2.0.0",
@@ -6820,12 +6856,6 @@
       "version": "0.2.0",
       "from": "string.prototype.codepointat@>=0.2.0 <0.3.0",
       "resolved": "https://registry.npmjs.org/string.prototype.codepointat/-/string.prototype.codepointat-0.2.0.tgz",
-      "dev": true
-    },
-    "string_decoder": {
-      "version": "0.10.31",
-      "from": "string_decoder@>=0.10.0 <0.11.0",
-      "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-0.10.31.tgz",
       "dev": true
     },
     "stringmap": {
