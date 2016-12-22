@@ -41,7 +41,6 @@ export default Ember.Component.extend({
   },
   searchYoutube: function(){
     var channelId = this.youtubeChannelId;
-    var that = this;
     var request = gapi.client.youtube.search.list({
       part: 'snippet',
       channelId: channelId,
@@ -51,13 +50,13 @@ export default Ember.Component.extend({
 
     });
 
-    request.then(function(response) {
+    request.then((response) => {
       if(response.result.pageInfo.totalResults == 0){
         console.log("no live stream at the moment");
       }else{
         var videoId = response.result.items[0].id.videoId;
         console.log("live stream: "+videoId);
-        that.set("ytid", videoId);
+        this.set("ytid", videoId);
       }
     }, function(reason) {
       console.log('Error: ' + reason.result.error.message);
