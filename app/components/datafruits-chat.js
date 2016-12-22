@@ -166,7 +166,6 @@ export default Ember.Component.extend({
           let matches = this.words.filter(function(word) {
             return (word.indexOf(term) === 0) && (word !== self.username);
           });
-          console.log(matches);
           callback(matches);
         },
         index: 1,
