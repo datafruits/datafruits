@@ -1,3 +1,4 @@
+/* global $, gapi */
 import Ember from 'ember';
 
 export default Ember.Component.extend({
@@ -32,7 +33,7 @@ export default Ember.Component.extend({
     var url = "http://datafruits.streampusher.com/vj/enabled.json";
     Ember.$.get(url, function(data){
       var vj_enabled = data.vj_enabled;
-      if(vj_enabled == true){
+      if(vj_enabled === true){
         $(".visuals").show();
       }else{
         $(".visuals").hide();
@@ -51,7 +52,7 @@ export default Ember.Component.extend({
     });
 
     request.then((response) => {
-      if(response.result.pageInfo.totalResults == 0){
+      if(response.result.pageInfo.totalResults === 0){
         console.log("no live stream at the moment");
       }else{
         var videoId = response.result.items[0].id.videoId;
@@ -70,7 +71,6 @@ export default Ember.Component.extend({
       // Keep checking until the library is loaded
       var googleApiKey = this.googleApiKey;
       var searchYoutube = this.searchYoutube.bind(this);
-      var channelId = this.youtubeChannelId;
       (function checkIfLoaded() {
         if (gapi.client){
           gapi.client.setApiKey(googleApiKey);
