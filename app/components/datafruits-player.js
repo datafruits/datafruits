@@ -20,6 +20,9 @@ export default Ember.Component.extend({
           return s.server_name == "datafruits.mp3";
         });
         var title = datafruits.title;
+        if(title.substring(0, 3) === " - "){
+          title = title.slice(3);
+        }
         $('.jp-title').html(title);
       });
     }
