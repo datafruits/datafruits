@@ -8,12 +8,17 @@ module.exports = function(environment) {
                              'media-src': "http://datafruits.streampusher.com:8000 http://relay.datafruits.fm:8000",
                              'script-src': "'self' http://www.youtube.com http://s.ytimg.com",
                              'child-src': "http://www.youtube.com"},
-    baseURL: '/',
+    //baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
+      },
+      EXTEND_PROTOTYPES: {
+        // Prevent Ember Data from overriding Date.parse.
+        Date: false
       }
     },
 
