@@ -8,7 +8,7 @@ export default Ember.Component.extend({
   header: { left: 'prev,next today', center: 'title', right: 'month,basicWeek,basicDay'},
 
   actions: {
-    goToEvent: function(calEvent, jsEvent, view){
+    goToEvent: function(calEvent){
       this.sendAction('showEvent', calEvent);
     },
   },
