@@ -1,2 +1,7 @@
-<div id="calendar">
-</div>
+{{full-calendar
+  eventSources=eventSources
+  defaultView='month'
+  editable=false
+  eventClick=(action 'goToEvent')
+  timezone=timezone header=header
+}}

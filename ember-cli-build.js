@@ -16,7 +16,11 @@ module.exports = function(defaults) {
     fingerprint: fingerprintOptions,
     emberCliFontAwesome: {
       useScss: true
+    },
+    emberFullCalendar: {
+      scheduler: false
     }
+
   });
 
   // Use `app.import` to add additional libraries to the generated
@@ -34,8 +38,6 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/bootstrap/dist/js/bootstrap.js');
   app.import(app.bowerDirectory + '/bootstrap/dist/css/bootstrap.css');
   app.import(app.bowerDirectory + '/moment/moment.js');
-  app.import(app.bowerDirectory + '/fullcalendar/dist/fullcalendar.css');
-  app.import(app.bowerDirectory + '/fullcalendar/dist/fullcalendar.js');
   app.import(app.bowerDirectory + '/jplayer/dist/jplayer/jquery.jplayer.js');
   app.import(app.bowerDirectory + '/jsTimezoneDetect/jstz.min.js');
   app.import(app.bowerDirectory + '/moment-timezone/builds/moment-timezone-with-data-2010-2020.js');

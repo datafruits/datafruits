@@ -1,21 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  goToEvent: function(calEvent, jsEvent, view){
-    this.sendAction('showEvent', calEvent);
+  eventSources: ["http://datafruits.streampusher.com/scheduled_shows.json"],
+  timezone: function(){
+    return jstz.determine().name();
   },
-  setupCalendar: function(){
-    var timeZone = jstz.determine();
+  header: { left: 'prev,next today', center: 'title', right: 'month,basicWeek,basicDay'},
 
-    Ember.$('#calendar').fullCalendar({
-      header: { left: 'prev,next today', center: 'title', right: 'month,basicWeek,basicDay'},
-      defaultView: 'month',
-      timezone: timeZone.name(),
-      editable: false,
-      eventSources: ["http://datafruits.streampusher.com/scheduled_shows.json"],
-      eventClick: (calEvent, jsEvent, view) => {
-        this.goToEvent(calEvent, jsEvent, view);
-      }
-    });
-  }.on('didInsertElement')
+  actions: {
+    goToEvent: function(calEvent, jsEvent, view){
+      this.sendAction('showEvent', calEvent);
+    },
+  },
 });

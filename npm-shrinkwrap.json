@@ -2228,6 +2228,26 @@
       "resolved": "https://registry.npmjs.org/ember-cli-lodash-subset/-/ember-cli-lodash-subset-1.0.11.tgz",
       "dev": true
     },
+    "ember-cli-moment-shim": {
+      "version": "3.0.1",
+      "from": "ember-cli-moment-shim@latest",
+      "resolved": "https://registry.npmjs.org/ember-cli-moment-shim/-/ember-cli-moment-shim-3.0.1.tgz",
+      "dev": true,
+      "dependencies": {
+        "moment": {
+          "version": "2.17.1",
+          "from": "moment@>=2.13.0 <3.0.0",
+          "resolved": "https://registry.npmjs.org/moment/-/moment-2.17.1.tgz",
+          "dev": true
+        },
+        "moment-timezone": {
+          "version": "0.5.11",
+          "from": "moment-timezone@>=0.5.0 <0.6.0",
+          "resolved": "https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.11.tgz",
+          "dev": true
+        }
+      }
+    },
     "ember-cli-normalize-entity-name": {
       "version": "1.0.0",
       "from": "ember-cli-normalize-entity-name@>=1.0.0 <2.0.0",
@@ -3969,6 +3989,12 @@
       "from": "ember-font-awesome@2.2.0",
       "resolved": "https://registry.npmjs.org/ember-font-awesome/-/ember-font-awesome-2.2.0.tgz"
     },
+    "ember-fullcalendar": {
+      "version": "1.1.0",
+      "from": "https://registry.npmjs.org/ember-fullcalendar/-/ember-fullcalendar-1.1.0.tgz",
+      "resolved": "https://registry.npmjs.org/ember-fullcalendar/-/ember-fullcalendar-1.1.0.tgz",
+      "dev": true
+    },
     "ember-getowner-polyfill": {
       "version": "1.1.1",
       "from": "ember-getowner-polyfill@>=1.0.0 <2.0.0",
@@ -3985,6 +4011,12 @@
       "version": "1.10.0",
       "from": "ember-inflector@>=1.9.4 <2.0.0",
       "resolved": "https://registry.npmjs.org/ember-inflector/-/ember-inflector-1.10.0.tgz",
+      "dev": true
+    },
+    "ember-invoke-action": {
+      "version": "1.4.0",
+      "from": "ember-invoke-action@>=1.4.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/ember-invoke-action/-/ember-invoke-action-1.4.0.tgz",
       "dev": true
     },
     "ember-lazy-image": {
@@ -4706,6 +4738,11 @@
       "resolved": "https://registry.npmjs.org/fstream/-/fstream-1.0.10.tgz",
       "dev": true
     },
+    "fullcalendar": {
+      "version": "3.1.0",
+      "from": "fullcalendar@latest",
+      "resolved": "https://registry.npmjs.org/fullcalendar/-/fullcalendar-3.1.0.tgz"
+    },
     "gauge": {
       "version": "2.7.2",
       "from": "gauge@>=2.7.1 <2.8.0",
@@ -5353,8 +5390,7 @@
     "jquery": {
       "version": "3.1.1",
       "from": "jquery@>=3.1.1 <4.0.0",
-      "resolved": "https://registry.npmjs.org/jquery/-/jquery-3.1.1.tgz",
-      "dev": true
+      "resolved": "https://registry.npmjs.org/jquery/-/jquery-3.1.1.tgz"
     },
     "js-string-escape": {
       "version": "1.0.1",
@@ -5631,6 +5667,12 @@
       "version": "3.1.1",
       "from": "lodash.debounce@>=3.1.1 <4.0.0",
       "resolved": "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-3.1.1.tgz",
+      "dev": true
+    },
+    "lodash.defaults": {
+      "version": "4.2.0",
+      "from": "lodash.defaults@>=4.1.0 <5.0.0",
+      "resolved": "https://registry.npmjs.org/lodash.defaults/-/lodash.defaults-4.2.0.tgz",
       "dev": true
     },
     "lodash.find": {
@@ -8135,9 +8177,9 @@
       "dev": true
     },
     "portfinder": {
-      "version": "1.0.10",
-      "from": "portfinder@>=1.0.7 <2.0.0",
-      "resolved": "https://registry.npmjs.org/portfinder/-/portfinder-1.0.10.tgz",
+      "version": "1.0.12",
+      "from": "portfinder@1.0.12",
+      "resolved": "https://registry.npmjs.org/portfinder/-/portfinder-1.0.12.tgz",
       "dev": true
     },
     "prelude-ls": {
