@@ -7,6 +7,8 @@ export default Ember.Component.extend({
   ytid: "",
   playerVars: {
     autoplay: 1,
+    mute: 1,
+    volume: 0,
     controls: 0,
     enablejsapi: 1,
     rel: 0, // disable related videos
