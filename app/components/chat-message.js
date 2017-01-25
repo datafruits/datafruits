@@ -10,8 +10,7 @@ export default Ember.Component.extend({
     return this.message.body.match(this.imgRegex)[0];
   }),
   scrolledToBottom: function() {
-    let scrollPosition = Ember.$('#messages')[0].scrollHeight - Ember.$('#messages')[0].scrollTop;
-    return scrollPosition === Ember.$('#messages').outerHeight();
+    return Ember.$('#messages')[0].scrollHeight - Ember.$('#messages')[0].scrollTop - Ember.$('#messages').outerHeight() < 1;
   },
   willRender() {
     if(this.scrolledToBottom()){
