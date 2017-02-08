@@ -385,23 +385,20 @@ a:hover {
   }
   .main-content {
     @include flex(8);
-    //@include justify-content(center);
     @include display(flex);
     @include flex-direction(column);
     min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
     overflow-y: scroll;
     padding: 2rem;
     #chat-room {
-      @include flex(7);
-      @include display(flex);
+      @include flex(8);
+      display: flex;
       @include flex-direction(column);
-      min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
       #chat-area {
         @include display(flex);
         @include flex-direction(row);
         @include flex(1);
         min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
-        position: relative;
         #messages {
           overflow-y: scroll;
           @include flex-grow(3);
