@@ -390,6 +390,7 @@ a:hover {
     @include flex-direction(column);
     min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
     overflow-y: scroll;
+    padding: 2rem;
     #chat-room {
       @include flex(7);
       @include display(flex);
