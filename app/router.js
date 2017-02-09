@@ -14,8 +14,9 @@ Router.map(function() {
   this.route('subscribe');
   this.route('show', {path: '/shows/:id'});
   this.route('dj-inquiry');
-  this.route('chat', {path: '/'});
   this.route('coc');
+  this.route('chat');
+  this.route('blog', {path: '/'});
 });
 
 export default Router;

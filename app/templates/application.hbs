@@ -39,9 +39,9 @@
         </li>
       </ul>
     </div>
-    <img id="circle-logo" src="/assets/images/logo.png" />
+    {{#link-to 'application'}}<img id="circle-logo" src="/assets/images/logo.png" />{{/link-to}}
   </nav>
-  <h1 id="logo">datafruits.fm</h1>
+  {{#link-to 'application'}}<h1 id="logo">datafruits.fm</h1>{{/link-to}}
   {{outlet}}
   {{datafruits-player nextShow=model}}
 </section>
