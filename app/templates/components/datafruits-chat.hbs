@@ -4,12 +4,12 @@
       {{#each messages as |message|}}
         {{chat-message message=message gifsEnabled=gifsEnabled newMessagesAvailable="newMessagesAvailable"}}
       {{/each}}
-      {{#if newMessagesBelow}}
-        <div id="new-messages-below">
-          <span>New messages below.</span>
-        </div>
-      {{/if}}
     </ul>
+    {{#if newMessagesBelow}}
+      <div id="new-messages-below">
+        <span>New messages below.</span>
+      </div>
+    {{/if}}
     <ul id="userlist">
       {{#each joinedUsers as |joinedUser|}}
         {{user-list-item user=joinedUser}}
@@ -18,14 +18,17 @@
   </div>
 </div>
 <div id="controls">
-  <form align='center' id="send-message" style="display: none;">
-    <input type="text" id="input-message" autocomplete="off"
-      placeholder="enter your message here...">
-    <button class="cool-button" {{action 'sendMessage'}}>Send</button>
-    <button class="cool-button" {{action 'toggleGifsEnabled'}}>{{images-enabled-button-label gifsEnabled}}</button>
-  </form>
-  <form align='center' id="enter-chat">
-    <input type="text" name="nick" autocorrect="off" autocapitalize="none" placeholder="nickname">
-    <button class="cool-button" disabled={{isJoiningChat}} {{action 'enterChat'}}>Join chatroom</button>
-  </form>
+  {{#if joinedChat}}
+    <form align='center' id="send-message">
+      {{input type="text" id="input-message" autocomplete="off" value=inputMessage
+        placeholder="enter your message here..." autofocus="autofocus"}}
+      <button class="cool-button" {{action 'sendMessage'}}>Send</button>
+      <button class="cool-button" {{action 'toggleGifsEnabled'}}>{{images-enabled-button-label gifsEnabled}}</button>
+    </form>
+  {{else}}
+    <form align='center' id="enter-chat">
+      {{input type="text" name="nick" value=nick autocorrect="off" autocapitalize="none" placeholder="nickname"}}
+      <button class="cool-button" disabled={{isJoiningChat}} {{action 'enterChat'}}>Join chatroom</button>
+    </form>
+  {{/if}}
 </div>

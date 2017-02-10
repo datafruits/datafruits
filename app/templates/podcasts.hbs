@@ -1,24 +1,15 @@
-<div class="modal fade" id="podcastsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        {{#link-to 'application'}}<button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>{{/link-to}}
-        <h4 class="modal-title" id="myModalLabel">PODCASTS</h4>
-      </div>
-      <div class="modal-body">
-        <h4>Subscribe to the datafruits.fm podcast</h4>
-        <p>
-          <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">iTunes</a>
-          <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml">Overcast</a>
-          <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">Podcasts.app</a>
-          <a href="http://datafruits.streampusher.com/podcasts/datafruits.xml">RSS</a>
-        </p>
-        {{#each model.tracks as |track|}}
-          {{podcast-track cdn_url=track.cdn_url title=track.title}}
-        {{/each}}
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div>
+<div class="main-content">
+  <h1>PODCASTS</h1>
+  <div>
+    <h4>Subscribe to the datafruits.fm podcast</h4>
+    <p>
+      <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">iTunes</a>
+      <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml">Overcast</a>
+      <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">Podcasts.app</a>
+      <a href="http://datafruits.streampusher.com/podcasts/datafruits.xml">RSS</a>
+    </p>
+    {{#each model.tracks as |track|}}
+      {{podcast-track cdn_url=track.cdn_url title=track.title}}
+    {{/each}}
   </div>
 </div>

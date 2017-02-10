@@ -118,11 +118,8 @@ form#enter-chat {
 
 
 nav {
-  //position:absolute;
   background:$pink !important;
   width:100%;
-  //top: 0;
-  //height: 5%;
   font-size:2rem;
   z-index:1000;
   border: 0 !important;
@@ -178,14 +175,6 @@ div.radio-bar a:hover {
   font-style: italic;
   text-shadow: #333 1px 1px 1px;
   color: yellow;
-}
-
-#chat-room {
-  //height: 90%;
-}
-
-#controls {
-  //height: 10%;
 }
 
 #chat-area {
@@ -394,23 +383,25 @@ a:hover {
       @include flex-direction(column);
     }
   }
-  .chat {
+  .main-content {
+    color: white;
+    text-shadow: #333 1px 1px 1px;
     @include flex(8);
-    @include justify-content(center);
     @include display(flex);
     @include flex-direction(column);
     min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
+    overflow-y: scroll;
+    padding: 0 2rem 0 2rem;
     #chat-room {
-      @include flex(7);
-      @include display(flex);
+      @include flex(8);
+      display: flex;
       @include flex-direction(column);
-      min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
       #chat-area {
+        position: relative;
         @include display(flex);
         @include flex-direction(row);
         @include flex(1);
         min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
-        position: relative;
         #messages {
           overflow-y: scroll;
           @include flex-grow(3);
@@ -467,7 +458,7 @@ a:hover {
 
 .podcast-controls, .fa-download {
   font-size: 21px;
-  color: deepskyblue;
+  color: $green;
 }
 
 .fa-download:hover {
@@ -484,4 +475,6 @@ a:hover {
   }
 }
 
-
+#calendar {
+  margin: 0 40px 0 40px;
+}
