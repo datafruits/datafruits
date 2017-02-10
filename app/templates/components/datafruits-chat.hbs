@@ -21,7 +21,7 @@
   {{#if joinedChat}}
     <form align='center' id="send-message">
       {{input type="text" id="input-message" autocomplete="off" value=inputMessage
-        placeholder="enter your message here..."}}
+        placeholder="enter your message here..." autofocus="autofocus"}}
       <button class="cool-button" {{action 'sendMessage'}}>Send</button>
       <button class="cool-button" {{action 'toggleGifsEnabled'}}>{{images-enabled-button-label gifsEnabled}}</button>
     </form>
