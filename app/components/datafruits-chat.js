@@ -1,38 +1,39 @@
 import Ember from 'ember';
-import {Socket, LongPoller} from "phoenix";
-import emojiStrategy from "../emojiStrategy";
 
 export default Ember.Component.extend({
+  chat: Ember.inject.service(),
   classNames: ['main-content'],
-  messages: Ember.ArrayProxy.create({ content: Ember.A() }),
-  joinedUsers: Ember.ArrayProxy.create({ content: Ember.A() }),
   gifsEnabled: true,
   newMessagesBelow: false,
   isJoiningChat: false,
+  joinedChat: Ember.computed.oneWay('chat.joinedChat'),
+  joinedUsers: Ember.computed.oneWay('chat.joinedUsers'),
+  messages: Ember.computed.oneWay('chat.messages'),
+  username: Ember.computed.oneWay('chat.username'),
   actions: {
-    toggleGifsEnabled: function(){
+    toggleGifsEnabled(){
       this.toggleProperty("gifsEnabled");
     },
-    enterChat: function(){
+    enterChat(){
       this.set('isJoiningChat', true);
-      const nick = Ember.$('input[name=nick]').val().trim();
-      this.chan.push("authorize", { user: nick, timestamp: Date.now() });
+      const nick = this.get('nick').trim();
+      this.get('chat').push("authorize", { user: nick, timestamp: Date.now() });
     },
-    sendMessage: function(){
-      var message = Ember.$('#input-message').val();
+    sendMessage(){
+      var message = this.get('inputMessage');
       if(message){
-        this.chan.push("new:msg", { user: this.get('username'), body: message, timestamp: Date.now() });
-        Ember.$('#input-message').val('');
+        this.get('chat').push("new:msg", { user: this.get('username'), body: message, timestamp: Date.now() });
+        this.set('inputMessage', '');
       }
     },
-    newMessagesAvailable: function(){
+    newMessagesAvailable(){
       this.set("newMessagesBelow", true);
     }
   },
-  scrolledToBottom: function() {
+  scrolledToBottom() {
     return Ember.$('#messages')[0].scrollHeight - Ember.$('#messages')[0].scrollTop - Ember.$('#messages').outerHeight() < 1;
   },
-  _onScroll: function(){
+  _onScroll(){
     if(this.scrolledToBottom()){
       this.set("newMessagesBelow", false);
     }else{
@@ -40,82 +41,6 @@ export default Ember.Component.extend({
     }
   },
   setupChat: function(){
-    //var socket = new Socket("ws://localhost:4000/socket", {
-    var socket = new Socket("ws://hotdog-lounge.herokuapp.com/socket", {
-      logger: function logger(kind, msg, data) {
-        console.log(kind + ": " + msg, data);
-      }
-    });
-
-    socket.connect({ user_id: "123" });
-
-    socket.onOpen(function (ev) {
-      return console.log("OPEN", ev);
-    });
-    socket.onError(function (ev) {
-      return console.log("ERROR", ev);
-    });
-    socket.onClose(function (e) {
-      return console.log("CLOSE", e);
-    });
-
-    this.chan = socket.channel("rooms:lobby", {});
-
-    this.chan.join().receive("ignore", function () {
-      return console.log("auth error");
-    }).receive("ok", function () {
-      return console.log("join ok");
-    }).after(10000, function () {
-      return console.log("Connection interruption");
-    });
-
-    this.chan.onError(function (e) {
-      return console.log("something went wrong", e);
-    });
-
-    this.chan.onClose(function (e) {
-      return console.log("channel closed", e);
-    });
-
-    this.chan.on("new:msg", (msg) => {
-      this.messages.pushObject(msg);
-    });
-
-    var self = this;
-    this.chan.on("authorized", function (msg) {
-      self.set("username", msg.user);
-      Ember.$('#enter-chat').hide();
-      Ember.$('#send-message').show();
-      Ember.$('#input-message').focus();
-    });
-
-    this.chan.on("notauthorized", function(msg) {
-      alert(msg.error);
-    });
-
-    this.chan.on("user:left", (msg) => {
-      if(msg.user !== null){
-        let leftMessage = { user: msg.user, body: ' left the chat :dash:', timestamp: msg.timestamp };
-        this.messages.pushObject(leftMessage);
-        this.joinedUsers.removeObject(msg.user);
-      }
-    });
-
-    this.chan.on("user:authorized", (msg) => {
-      let joinedMessage = { user: msg.user, body: ' joined the chat :raising_hand:', timestamp: msg.timestamp };
-      this.messages.pushObject(joinedMessage);
-      this.joinedUsers.pushObject(msg.user);
-      //addToUserList(msg.user);
-    });
-
-    this.chan.on("join", (msg) => {
-      this.joinedUsers.pushObjects(msg.users);
-    });
-
-    this.chan.on("user:entered", function (msg) {
-      //user entered room, but nick not authorized yet
-    });
-
     Ember.$('#enter-chat').submit(function(event) {
       event.preventDefault();
     });

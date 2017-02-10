@@ -395,6 +395,7 @@ a:hover {
       display: flex;
       @include flex-direction(column);
       #chat-area {
+        position: relative;
         @include display(flex);
         @include flex-direction(row);
         @include flex(1);
