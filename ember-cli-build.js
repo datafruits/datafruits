@@ -37,13 +37,11 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
   if (!process.env.EMBER_CLI_FASTBOOT) {
     app.import(app.bowerDirectory + '/bootstrap/dist/js/bootstrap.js');
-    app.import(app.bowerDirectory + '/moment/moment.js');
     app.import(app.bowerDirectory + '/jplayer/dist/jplayer/jquery.jplayer.js');
-    app.import(app.bowerDirectory + '/moment-timezone/builds/moment-timezone-with-data-2010-2020.js');
     app.import(app.bowerDirectory + '/emojione/lib/js/emojione.js');
     app.import(app.bowerDirectory + '/jquery-textcomplete/dist/jquery.textcomplete.min.js');
-    app.import(app.bowerDirectory + '/jsTimezoneDetect/jstz.min.js');
   }
+  app.import(app.bowerDirectory + '/jsTimezoneDetect/jstz.min.js');
   app.import(app.bowerDirectory + '/autolink/autolink-min.js');
   app.import(app.bowerDirectory + '/bootstrap/dist/css/bootstrap.css');
   app.import(app.bowerDirectory + '/emojione/assets/css/emojione.css');
