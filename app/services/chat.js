@@ -81,7 +81,7 @@ export default Ember.Service.extend({
       this.joinedUsers.pushObjects(msg.users);
     });
 
-    this.chan.on("user:entered", function (msg) {
+    this.chan.on("user:entered", function (/*msg*/) {
       //user entered room, but nick not authorized yet
     });
   }
