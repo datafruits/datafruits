@@ -5,7 +5,9 @@ export default Ember.Route.extend({
   model(){
     return fetch('http://datafruits.streampusher.com/podcasts/datafruits.json')
     .then(function(response){
-      return response.json().podcast;
+      return response.json().then(function(json){
+        return json.podcast;
+      });
     });
   }
 });
