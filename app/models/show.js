@@ -11,8 +11,13 @@ export default DS.Model.extend({
   tweet_content: DS.attr(),
 
   formattedStart: function(){
-    var timeZone = jstz.determine();
-    var formattedTime = this.get('start').tz(timeZone.name()).format("ha z");
+    let formattedTime;
+    if(jstz){
+      let timeZone = jstz.determine();
+      formattedTime = this.get('start').tz(timeZone.name()).format("ha z");
+    } else {
+      formattedTime = this.get('start');
+    }
     return formattedTime;
   }
 });
