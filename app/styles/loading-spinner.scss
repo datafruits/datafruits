@@ -1,0 +1,27 @@
+$base-line-height: 100px;
+$spin-duration: 1.5s;
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  border-radius: 50%;
+  width: $base-line-height;
+  height: $base-line-height;
+  border: 2rem solid #ddd;
+  border-top-color: white;
+  animation: spin $spin-duration infinite linear;
+}
+
+.loading-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 50px;
+}
