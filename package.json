@@ -27,7 +27,7 @@
     "ember-cli-deploy": "0.6.2",
     "ember-cli-deploy-build": "0.1.1",
     "ember-cli-deploy-display-revisions": "0.2.2",
-    "ember-cli-deploy-revision-data": "git@github.com:mcfiredrill/ember-cli-deploy-revision-data.git#use-project-root-for-git-info",
+    "ember-cli-deploy-revision-data": "git://github.com/mcfiredrill/ember-cli-deploy-revision-data.git#use-project-root-for-git-info",
     "ember-cli-deploy-s3": "0.3.0",
     "ember-cli-deploy-s3-index": "0.5.0",
     "ember-cli-eslint": "1.7.0",
