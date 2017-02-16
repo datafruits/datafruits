@@ -58,7 +58,8 @@
     "fullcalendar": "^3.1.0"
   },
   "engines": {
-    "node": "6.9.2"
+    "node": "6.9.2",
+    "npm": "3.10.9"
   },
   "private": true
 }
