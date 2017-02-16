@@ -3465,6 +3465,34 @@
         }
       }
     },
+    "ember-cli-deploy-plugin": {
+      "version": "0.2.9",
+      "from": "ember-cli-deploy-plugin@>=0.2.6 <0.3.0",
+      "resolved": "https://registry.npmjs.org/ember-cli-deploy-plugin/-/ember-cli-deploy-plugin-0.2.9.tgz",
+      "dev": true,
+      "dependencies": {
+        "core-object": {
+          "version": "2.0.6",
+          "from": "core-object@2.0.6",
+          "resolved": "https://registry.npmjs.org/core-object/-/core-object-2.0.6.tgz",
+          "dev": true
+        }
+      }
+    },
+    "ember-cli-deploy-revision-data": {
+      "version": "0.3.3",
+      "from": "git://github.com/mcfiredrill/ember-cli-deploy-revision-data.git#use-project-root-for-git-info",
+      "resolved": "git://github.com/mcfiredrill/ember-cli-deploy-revision-data.git#ae103eb1f1a187811384db198ceb262351f3527f",
+      "dev": true,
+      "dependencies": {
+        "core-object": {
+          "version": "2.1.1",
+          "from": "core-object@>=2.0.6 <3.0.0",
+          "resolved": "https://registry.npmjs.org/core-object/-/core-object-2.1.1.tgz",
+          "dev": true
+        }
+      }
+    },
     "ember-cli-eslint": {
       "version": "1.7.0",
       "from": "ember-cli-eslint@1.7.0",
@@ -8391,6 +8419,12 @@
       "version": "0.1.0",
       "from": "simple-fmt@>=0.1.0 <0.2.0",
       "resolved": "https://registry.npmjs.org/simple-fmt/-/simple-fmt-0.1.0.tgz"
+    },
+    "simple-git": {
+      "version": "1.66.0",
+      "from": "simple-git@>=1.57.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/simple-git/-/simple-git-1.66.0.tgz",
+      "dev": true
     },
     "simple-is": {
       "version": "0.2.0",
