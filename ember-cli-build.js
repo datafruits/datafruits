@@ -1,6 +1,9 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var ES6Modules = require('broccoli-es6modules');
+var esTranspiler = require('broccoli-babel-transpiler');
+var mergeTrees = require('broccoli-merge-trees');
 
 module.exports = function(defaults) {
   var fingerprintOptions = {
@@ -44,5 +47,15 @@ module.exports = function(defaults) {
   app.import(app.bowerDirectory + '/emojione/assets/css/emojione.css');
   app.import('/vendor/emojione_autocomplete.css');
 
-  return app.toTree();
+  var phoenixTree = "./vendor/phoenix";
+  var phoenixAmdFiles = new ES6Modules(phoenixTree, {
+    format: 'amd',
+    esperantoOptions: {
+      strict: true,
+      amdName: "phoenix"
+    }
+  });
+  var phoenixTranspiledFiles = esTranspiler(phoenixAmdFiles, {});
+
+  return mergeTrees([app.toTree(), phoenixTranspiledFiles]);
 };
