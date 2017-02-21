@@ -25,6 +25,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    moment: {
+      includeTimezone: "2010-2020"
     }
   };
 
@@ -48,7 +52,7 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
-  if (environment === 'production') {
+  if (environment === 'production' && !process.env.EMBER_CLI_FASTBOOT) {
     ENV.googleAnalytics = {
       webPropertyId: 'UA-28868734-1'
     };
