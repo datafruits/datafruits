@@ -32,7 +32,7 @@ export default Ember.Component.extend({
     }, 10000);
   },
   setVisuals: function(){
-    var url = "http://datafruits.streampusher.com/vj/enabled.json";
+    var url = "https://datafruits.streampusher.com/vj/enabled.json";
     Ember.$.get(url, function(data){
       var vj_enabled = data.vj_enabled;
       if(vj_enabled === true){
