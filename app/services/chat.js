@@ -54,8 +54,7 @@ export default Ember.Service.extend({
     this.chan.on("authorized", function (msg) {
       self.set("username", msg.user);
       self.set("joinedChat", true);
-      console.log(self.get("joinedChat"));
-      Ember.$('#input-message').focus();
+      //Ember.$('#input-message').focus();
     });
 
     this.chan.on("notauthorized", function(msg) {
