@@ -8,6 +8,7 @@ export default Ember.Component.extend({
   isJoiningChat: false,
   joinedChat: Ember.computed.oneWay('chat.joinedChat'),
   messages: Ember.computed.oneWay('chat.messages'),
+  joinedUsers: Ember.computed.oneWay('chat.joinedUsers'),
   actions: {
     toggleGifsEnabled(){
       this.toggleProperty("gifsEnabled");
