@@ -41,10 +41,6 @@ export default Ember.Component.extend({
     }
   },
   setupChat: function(){
-    Ember.$('#enter-chat').submit(function(event) {
-      event.preventDefault();
-    });
-
     $("#input-message").textcomplete([
       {
         id: "emojis",
