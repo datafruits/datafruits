@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import {Socket, LongPoller} from "phoenix";
+import ENV from "datafruits13/config/environment";
 
 export default Ember.Service.extend({
   joinedUsers: Ember.ArrayProxy.create({ content: Ember.A() }),
@@ -9,8 +10,8 @@ export default Ember.Service.extend({
     this.chan.push(message, object);
   },
   init() {
-    //var socket = new Socket("ws://localhost:4000/socket", {
-    var socket = new Socket("wss://hotdog-lounge.herokuapp.com/socket", {
+    var socket = new Socket(ENV.CHAT_SOCKET_URL, {
+
       logger: function logger(kind, msg, data) {
         console.log(kind + ": " + msg, data);
       }

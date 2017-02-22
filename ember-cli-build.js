@@ -19,6 +19,9 @@ module.exports = function(defaults) {
     },
     emberFullCalendar: {
       scheduler: false
+    },
+    dotEnv: {
+      clientAllowedKeys: ['CHAT_SOCKET_URL']
     }
 
   });

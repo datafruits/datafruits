@@ -29,7 +29,9 @@ module.exports = function(environment) {
 
     moment: {
       includeTimezone: "2010-2020"
-    }
+    },
+
+    CHAT_SOCKET_URL: process.env.CHAT_SOCKET_URL
   };
 
   if (environment === 'development') {
