@@ -19,7 +19,7 @@
     "broccoli-babel-transpiler": "^5.5.0",
     "broccoli-es6modules": "^1.2.2",
     "broccoli-merge-trees": "^1.1.1",
-    "ember-ajax": "^2.4.1",
+    "ember-ajax": "2.5.5",
     "ember-cli": "2.11.1",
     "ember-cli-app-version": "^2.0.0",
     "ember-cli-babel": "^5.1.7",
