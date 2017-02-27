@@ -8,7 +8,6 @@ module.exports = function(environment) {
                              'media-src': "http://datafruits.streampusher.com:8000 http://relay.datafruits.fm:8000",
                              'script-src': "'self' http://www.youtube.com http://s.ytimg.com",
                              'child-src': "http://www.youtube.com"},
-    //baseURL: '/',
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -44,7 +43,7 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
+    ENV.rootURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter
