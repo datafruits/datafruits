@@ -10,14 +10,15 @@ export default Ember.Service.extend({
     this.chan.push(message, object);
   },
   init() {
-    var socket = new Socket(ENV.CHAT_SOCKET_URL, {
+    let socket = new Socket(ENV.CHAT_SOCKET_URL, {
 
       logger: function logger(kind, msg, data) {
         console.log(kind + ": " + msg, data);
-      }
+      },
+      params: { user_id: "123" }
     });
 
-    socket.connect({ user_id: "123" });
+    socket.connect();
 
     socket.onOpen(function (ev) {
       return console.log("OPEN", ev);
@@ -35,7 +36,7 @@ export default Ember.Service.extend({
       return console.log("auth error");
     }).receive("ok", function () {
       return console.log("join ok");
-    }).after(10000, function () {
+    }).receive("timeout", function () {
       return console.log("Connection interruption");
     });
 
