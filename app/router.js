@@ -15,6 +15,7 @@ Router.map(function() {
   this.route('show', {path: '/shows/:id'});
   this.route('dj-inquiry');
   this.route('chat', {path: '/'});
+  this.route('coc');
 });
 
 export default Router;
