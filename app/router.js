@@ -35,6 +35,7 @@ Router.map(function() {
   this.route('show', {path: '/shows/:id'});
   this.route('dj-inquiry');
   this.route('coc');
+  this.route('djs');
   this.route('chat');
   this.route('blog', {path: '/'});
 });
