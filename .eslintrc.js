@@ -8,6 +8,12 @@ module.exports = {
   env: {
     browser: true
   },
+  globals: {
+    "$": false,
+    "jstz": false,
+    "twttr": false,
+    "emojione": false
+  },
   rules: {
   }
 };
