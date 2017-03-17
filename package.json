@@ -28,7 +28,7 @@
     "ember-cli-eslint": "1.7.0",
     "ember-cli-fastboot": "1.0.0-beta.15",
     "ember-cli-google-analytics": "^1.5.0",
-    "ember-cli-htmlbars": "^1.1.1",
+    "ember-cli-htmlbars": "1.1.1",
     "ember-cli-htmlbars-inline-precompile": "^0.3.6",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-jshint": "^2.0.1",
