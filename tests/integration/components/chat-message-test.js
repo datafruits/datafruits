@@ -23,5 +23,5 @@ test('it renders', function(assert) {
   assert.equal(this.$().text().trim(), 'template block text');
 });
 
-test('it shows images if they are enabled', function(assert) {
-});
+// test('it shows images if they are enabled', function(assert) {
+// });

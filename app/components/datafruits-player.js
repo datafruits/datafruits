@@ -58,17 +58,17 @@ export default Ember.Component.extend({
       },
       supplied: 'mp3, oga',
       wmode: 'window',
-      playing: function(e) {
+      playing: function() {
         $('.jp-loading').hide();
       },
-      pause: function(e) {
+      pause: function() {
         if (_this.get('playingPodcast') === false) {
           $(this).jPlayer("clearMedia");
           $(this).jPlayer("setMedia", _this.stream);
         }
       },
-      error: function(event) {
-        console.log('jPlayer error: '+ event.jPlayer.error.type);
+      error: function(/*event*/) {
+        /*console.log('jPlayer error: '+ event.jPlayer.error.type);*/
 
         $('jp-pause').hide();
         $('jp-loading').hide();
@@ -77,12 +77,12 @@ export default Ember.Component.extend({
           $(this).jPlayer('setMedia', _this.stream).jPlayer('play');
         }
       },
-      waiting: function(e) {
+      waiting: function() {
         $('.jp-loading').show();
         $('.jp-play').hide();
         $('.jp-pause').hide();
       },
-      loadeddata: function(e) {
+      loadeddata: function() {
         $('.jp-loading').hide();
       },
       solution: 'html, flash',

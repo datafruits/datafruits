@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import {Socket, LongPoller} from "phoenix";
+import {Socket/*, LongPoller*/} from "phoenix";
 import ENV from "datafruits13/config/environment";
 
 export default Ember.Service.extend({
@@ -12,40 +12,40 @@ export default Ember.Service.extend({
   init() {
     let socket = new Socket(ENV.CHAT_SOCKET_URL, {
 
-      logger: function logger(kind, msg, data) {
-        console.log(kind + ": " + msg, data);
+      logger: function logger(/*kind, msg, data*/) {
+        //console.log(kind + ": " + msg, data);
       },
       params: { user_id: "123" }
     });
 
     socket.connect();
 
-    socket.onOpen(function (ev) {
-      return console.log("OPEN", ev);
+    socket.onOpen(function (/*ev*/) {
+      //return console.log("OPEN", ev);
     });
-    socket.onError(function (ev) {
-      return console.log("ERROR", ev);
+    socket.onError(function (/*ev*/) {
+      //return console.log("ERROR", ev);
     });
-    socket.onClose(function (e) {
-      return console.log("CLOSE", e);
+    socket.onClose(function (/*e*/) {
+      //return console.log("CLOSE", e);
     });
 
     this.chan = socket.channel("rooms:lobby", {});
 
     this.chan.join().receive("ignore", function () {
-      return console.log("auth error");
+      //return console.log("auth error");
     }).receive("ok", function () {
-      return console.log("join ok");
+      //return console.log("join ok");
     }).receive("timeout", function () {
-      return console.log("Connection interruption");
+      //return console.log("Connection interruption");
     });
 
-    this.chan.onError(function (e) {
-      return console.log("something went wrong", e);
+    this.chan.onError(function (/*e*/) {
+      //return console.log("something went wrong", e);
     });
 
-    this.chan.onClose(function (e) {
-      return console.log("channel closed", e);
+    this.chan.onClose(function (/*e*/) {
+      //return console.log("channel closed", e);
     });
 
     this.chan.on("new:msg", (msg) => {

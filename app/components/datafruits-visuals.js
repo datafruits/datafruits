@@ -55,14 +55,14 @@ export default Ember.Component.extend({
 
     request.then((response) => {
       if(response.result.pageInfo.totalResults === 0){
-        console.log("no live stream at the moment");
+        /*console.log("no live stream at the moment");*/
       }else{
         var videoId = response.result.items[0].id.videoId;
-        console.log("live stream: "+videoId);
+        /*console.log("live stream: "+videoId);*/
         this.set("ytid", videoId);
       }
-    }, function(reason) {
-      console.log('Error: ' + reason.result.error.message);
+    }, function(/*reason*/) {
+      /*console.log('Error: ' + reason.result.error.message);*/
     });
 
   },
