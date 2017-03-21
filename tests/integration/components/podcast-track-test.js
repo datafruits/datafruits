@@ -6,21 +6,14 @@ moduleForComponent('podcast-track', 'Integration | Component | podcast track', {
 });
 
 test('it renders', function(assert) {
-  assert.expect(2);
+  assert.expect(1);
 
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
+  this.set('cdn_url', "http://cdn.dongles.net/track.mp3");
+  this.set('title', "cool track");
 
-  this.render(hbs`{{podcast-track}}`);
+  this.render(hbs`{{podcast-track cdn_url=cdn_url title=title}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#podcast-track}}
-      template block text
-    {{/podcast-track}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), '▶︎\n  \n  cool track');
 });
