@@ -2110,7 +2110,7 @@ ember-welcome-page@^2.0.2:
 
 "ember-youtube@git://github.com/mcfiredrill/ember-youtube.git":
   version "0.8.0-beta.0"
-  resolved "git://github.com/mcfiredrill/ember-youtube.git#e48f52659f656db0f2ed05bcecef9ea80e5c0c8c"
+  resolved "git://github.com/mcfiredrill/ember-youtube.git#12050a959099aeb5783436ae833c72cd274c71d1"
   dependencies:
     ember-cli-babel "^5.1.6"
 
