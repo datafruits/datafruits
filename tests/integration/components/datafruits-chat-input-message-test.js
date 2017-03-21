@@ -6,20 +6,11 @@ moduleForComponent('datafruits-chat-input-message', 'Integration | Component | d
 });
 
 test('it renders', function(assert) {
-
+  assert.expect(1);
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
   this.render(hbs`{{datafruits-chat-input-message}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#datafruits-chat-input-message}}
-      template block text
-    {{/datafruits-chat-input-message}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), 'Send');
 });
