@@ -9,16 +9,5 @@ export default DS.Model.extend({
   thumb_image_url: DS.attr(),
   description: DS.attr(),
   html_description: DS.attr(),
-  tweet_content: DS.attr(),
-
-  formattedStart: function(){
-    let formattedTime;
-    if(jstz){
-      let timeZone = jstz.determine();
-      formattedTime = this.get('start').tz(timeZone.name()).format("ha z");
-    } else {
-      formattedTime = this.get('start');
-    }
-    return formattedTime;
-  }
+  tweet_content: DS.attr()
 });
