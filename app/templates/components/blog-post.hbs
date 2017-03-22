@@ -1,8 +1,14 @@
 {{#if (eq post.type "photo")}}
   {{#each post.photos as |photo|}}
-    <img src="{{photo.alt_sizes.2.url}}"/>
+    <div class="blog-photo">
+      <img src="{{photo.alt_sizes.2.url}}"/>
+    </div>
   {{/each}}
-  {{post.captionSafe}}
+  <div class="blog-text">
+    {{post.captionSafe}}
+  </div>
 {{else if (eq post.type "text")}}
-  {{post.bodySafe}}
+  <div class="blog-text">
+    {{post.bodySafe}}
+  </div>
 {{/if}}
