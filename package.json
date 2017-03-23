@@ -54,7 +54,7 @@
   "dependencies": {
     "ember-cli-release": "^1.0.0-beta.2",
     "ember-fullcalendar": "git://github.com/mcfiredrill/ember-fullcalendar.git#datafruits",
-    "fullcalendar": "^3.1.0"
+    "fullcalendar": "3.2.0"
   },
   "engines": {
     "node": "6.9.2",
