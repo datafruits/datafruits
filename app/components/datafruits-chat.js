@@ -33,7 +33,6 @@ export default Ember.Component.extend({
     }
   },
   setupChat: function(){
-
     var onScroll = this._onScroll.bind(this);
     this.$("#messages").bind('touchmove', onScroll);
     this.$("#messages").bind('scroll', onScroll);

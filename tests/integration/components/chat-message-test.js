@@ -9,18 +9,12 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{chat-message}}`);
+  this.set("message", { body: "hey", user: "tony", timestamp: Date.parse("2017-03-27") });
+  this.render(hbs`{{chat-message message=message}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#chat-message}}
-      template block text
-    {{/chat-message}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$(".username").text().trim(), 'tony');
+  assert.equal(this.$(".message-body").text().trim(), 'hey');
+  //assert.equal(this.$(".message-timestamp").text().trim(), 'hey');
 });
 
 // test('it shows images if they are enabled', function(assert) {

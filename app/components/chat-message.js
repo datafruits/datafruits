@@ -9,27 +9,17 @@ export default Ember.Component.extend({
   imgUrl: Ember.computed('message.body', function(){
     return this.message.body.match(this.imgRegex)[0];
   }),
-  scrolledToBottom: function() {
-    return Ember.$('#messages')[0].scrollHeight - Ember.$('#messages')[0].scrollTop - Ember.$('#messages').outerHeight() < 1;
-  },
   willRender() {
-    if(this.scrolledToBottom()){
-      this.willAutoscroll = true;
-    }else{
-      this.sendAction("newMessagesAvailable");
-      this.willAutoscroll = false;
-    }
+    this.sendAction("setupAutoscroll");
   },
   didInsertElement() {
     this._super(...arguments);
-    if(this.willAutoscroll){
-      if(this.$("img").length > 0){
-        this.$("img")[0].onload = () => {
-          Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
-        };
-      }else{
-        Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
-      }
+    if(this.$("img").length > 0){
+      this.$("img")[0].onload = () => {
+        this.sendAction("adjustScrolling");
+      };
+    }else{
+      this.sendAction("adjustScrolling");
     }
   }
 });
