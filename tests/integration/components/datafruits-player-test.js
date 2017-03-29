@@ -6,21 +6,13 @@ moduleForComponent('datafruits-player', 'Integration | Component | datafruits pl
 });
 
 test('it renders', function(assert) {
-  assert.expect(2);
+  assert.expect(1);
 
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
+  this.set("nextShow", { title: "vampire disco 3000" });
 
-  this.render(hbs`{{datafruits-player}}`);
+  this.render(hbs`{{datafruits-player nextShow=nextShow}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#datafruits-player}}
-      template block text
-    {{/datafruits-player}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$("#next-show").text().trim(), "Next live on air: vampire disco 3000");
 });

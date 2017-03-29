@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('service:eventbus', 'Unit | Service | eventbus', {
+moduleFor('service:event-bus', 'Unit | Service | eventbus', {
   // Specify the other units that are required for this test.
   // needs: ['service:foo']
 });

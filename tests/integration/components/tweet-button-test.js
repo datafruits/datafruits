@@ -10,8 +10,10 @@ test('it renders', function(assert) {
 
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
+  this.set("text", "hey this is the tweet")
+  window.twttr = { widgets: { load: function(){} } };
 
-  this.render(hbs`{{tweet-button}}`);
+  this.render(hbs`{{tweet-button data-text=text}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), 'Tweet');
 });
