@@ -22,28 +22,28 @@ export default Ember.Component.extend({
         id: "emojis",
         match: /\B:([\-+\w]*)$/,
         search: function (term, callback) {
-        var results = [];
-        var results2 = [];
-        var results3 = [];
-        $.each(emojiStrategy,function(shortname,data) {
-          if(shortname.indexOf(term) > -1) { results.push(shortname); }
-          else {
-            if((data.aliases !== null) && (data.aliases.indexOf(term) > -1)) {
-              results2.push(shortname);
+          var results = [];
+          var results2 = [];
+          var results3 = [];
+          $.each(emojiStrategy,function(shortname,data) {
+            if(shortname.indexOf(term) > -1) { results.push(shortname); }
+            else {
+              if((data.aliases !== null) && (data.aliases.indexOf(term) > -1)) {
+                results2.push(shortname);
+              }
+              else if((data.keywords !== null) && (data.keywords.indexOf(term) > -1)) {
+                results3.push(shortname);
+              }
             }
-            else if((data.keywords !== null) && (data.keywords.indexOf(term) > -1)) {
-              results3.push(shortname);
-            }
+          });
+          if(term.length >= 3) {
+            results.sort(function(a,b) { return (a.length > b.length); });
+            results2.sort(function(a,b) { return (a.length > b.length); });
+            results3.sort();
           }
-        });
-        if(term.length >= 3) {
-          results.sort(function(a,b) { return (a.length > b.length); });
-          results2.sort(function(a,b) { return (a.length > b.length); });
-          results3.sort();
-        }
-        var newResults = results.concat(results2).concat(results3);
+          var newResults = results.concat(results2).concat(results3);
 
-        callback(newResults);
+          callback(newResults);
         },
         template: function (shortname) {
           return '<img class="emojione" src="//cdn.jsdelivr.net/emojione/assets/png/'+emojiStrategy[shortname].unicode+'.png"> :'+shortname+':';
@@ -56,11 +56,10 @@ export default Ember.Component.extend({
       },
       {
         id: "usernames",
-        words: this.get('joinedUsers'),
         match: /\b(\w{2,})$/,
-        search: function (term, callback) {
+        search: (term, callback) => {
           let matches;
-          matches = this.words.filter((word) => {
+          matches = this.get('joinedUsers').filter((word) => {
             return (word.indexOf(term) === 0) && (word !== this.get('username'));
           });
           callback(matches);
