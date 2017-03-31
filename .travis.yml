@@ -6,9 +6,18 @@ node_js:
 sudo: false
 
 cache:
+  - yarn
   directories:
     - $HOME/.npm
     - $HOME/.cache # includes bowers cache
+
+addons:
+  apt:
+    sources:
+      - sourceline: 'deb https://dl.yarnpkg.com/debian/ stable main'
+        key_url: 'https://dl.yarnpkg.com/debian/pubkey.gpg'
+    packages:
+      - yarn
 
 before_install:
   - npm config set spin false
