@@ -13,5 +13,7 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{datafruits-chat}}`);
 
+  console.log("HEY");
+  console.log(this.$().text().trim());
   assert.equal(this.$().text().trim(), 'Join chatroom');
 });
