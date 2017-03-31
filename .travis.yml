@@ -6,8 +6,8 @@ node_js:
 sudo: false
 
 cache:
-  - yarn
   directories:
+    - $HOME/.yarn-cache
     - $HOME/.npm
     - $HOME/.cache # includes bowers cache
 
