@@ -38,13 +38,12 @@ module.exports = function(defaults) {
   if (!process.env.EMBER_CLI_FASTBOOT) {
     app.import(app.bowerDirectory + '/bootstrap/dist/js/bootstrap.js');
     app.import(app.bowerDirectory + '/jplayer/dist/jplayer/jquery.jplayer.js');
-    app.import(app.bowerDirectory + '/emojione/lib/js/emojione.js');
     app.import(app.bowerDirectory + '/jquery-textcomplete/dist/jquery.textcomplete.min.js');
   }
   app.import(app.bowerDirectory + '/jsTimezoneDetect/jstz.min.js');
   app.import(app.bowerDirectory + '/autolink/autolink-min.js');
   app.import(app.bowerDirectory + '/bootstrap/dist/css/bootstrap.css');
-  app.import(app.bowerDirectory + '/emojione/assets/css/emojione.css');
+
   app.import('/vendor/emojione_autocomplete.css');
 
   return app.toTree();

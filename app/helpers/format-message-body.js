@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import emojione from 'npm:emojione';
 
 export function formatMessageBody(params/*, hash*/) {
   let message = Ember.Handlebars.Utils.escapeExpression(params[0]);
