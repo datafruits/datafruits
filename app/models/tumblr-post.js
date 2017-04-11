@@ -1,4 +1,5 @@
 import TumblrPost from 'ember-tumblr/models/tumblr-post';
+import Ember from 'ember';
 import DS from 'ember-data';
 
 export default TumblrPost.extend({
