@@ -1,0 +1,14 @@
+{{#if (eq post.type "photo")}}
+  {{#each post.photos as |photo|}}
+    <div class="blog-photo">
+      <img src="{{photo.alt_sizes.2.url}}"/>
+    </div>
+  {{/each}}
+  <div class="blog-text">
+    {{post.captionSafe}}
+  </div>
+{{else if (eq post.type "text")}}
+  <div class="blog-text">
+    {{post.bodySafe}}
+  </div>
+{{/if}}

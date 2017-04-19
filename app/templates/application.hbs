@@ -26,7 +26,7 @@
           {{#link-to 'about'}}About →{{/link-to}}
         </li>
         <li>
-          <a href="http://datafruits.tumblr.com/" target="_blank">Blog →</a>
+          {{#link-to 'blog'}}Blog →{{/link-to}}
         </li>
         <li>
           <a href="http://datafruits.storenvy.com/" target="_blank">Shop →</a>
@@ -39,9 +39,9 @@
         </li>
       </ul>
     </div>
-    <img id="circle-logo" src="/assets/images/logo.png" />
+    {{#link-to 'application'}}<img id="circle-logo" src="/assets/images/logo.png" />{{/link-to}}
   </nav>
-  <h1 id="logo">datafruits.fm</h1>
+  {{#link-to 'application'}}<h1 id="logo">datafruits.fm</h1>{{/link-to}}
   {{outlet}}
   {{datafruits-player nextShow=model}}
 </section>
