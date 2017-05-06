@@ -8,8 +8,6 @@
       <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">Podcasts.app</a>
       <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">RSS</a>
     </p>
-    {{#each model.tracks as |track|}}
-      {{podcast-track cdn_url=track.cdn_url title=track.title}}
-    {{/each}}
+    {{podcasts-search podcasts=model.tracks}}
   </div>
 </div>
