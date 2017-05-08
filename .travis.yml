@@ -6,28 +6,17 @@ node_js:
 sudo: false
 
 cache:
-  directories:
-    - $HOME/.yarn-cache
-    - $HOME/.npm
-    - $HOME/.cache # includes bowers cache
-
-addons:
-  apt:
-    sources:
-      - sourceline: 'deb https://dl.yarnpkg.com/debian/ stable main'
-        key_url: 'https://dl.yarnpkg.com/debian/pubkey.gpg'
-    packages:
-      - yarn
+  yarn: true
 
 before_install:
-  - npm config set spin false
-  - npm install -g bower phantomjs-prebuilt
-  - bower --version
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
+  - yarn global add phantomjs-prebuilt
   - phantomjs --version
 
 install:
-  - yarn
   - bower install
+  - yarn install
 
 script:
-  - npm test
+  - yarn test
