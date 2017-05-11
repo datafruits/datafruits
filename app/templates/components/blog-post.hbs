@@ -11,4 +11,11 @@
   <div class="blog-text">
     {{post.bodySafe}}
   </div>
+{{else if (eq post.type "video")}}
+  <div class="blog-video">
+    {{post.playerSafe}}
+  </div>
+  <div class="blog-text">
+    {{post.captionSafe}}
+  </div>
 {{/if}}
