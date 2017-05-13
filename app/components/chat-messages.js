@@ -6,14 +6,14 @@ export default Ember.Component.extend({
   actions: {
     setupAutoscroll(){
       if(this.scrolledToBottom()){
-        this.willAutoscroll = true;
+        this.set('willAutoscroll', true);
       }else{
         this.sendAction("newMessagesAvailable");
-        this.willAutoscroll = false;
+        this.set('willAutoscroll', false);
       }
     },
     adjustScrolling(){
-      if(this.willAutoscroll){
+      if(this.get('willAutoscroll')){
         Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
       }
     }
