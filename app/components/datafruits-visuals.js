@@ -3,7 +3,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   googleApiKey: "AIzaSyA2tCCcRl5itJoSLRL-COoHXwpyMAX9raQ",
-  youtubeChannelId: "UCLPRfPIf6h9Cg7snuV8AzUQ",
+  youtubeChannelId: "UChjo2k-w5UhvroZU0xqVcsg",
   ytid: "",
   playerVars: {
     autoplay: 1,
