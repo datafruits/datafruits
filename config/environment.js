@@ -30,6 +30,10 @@ module.exports = function(environment) {
       includeTimezone: "subset"
     },
 
+    rollbar: {
+      accessToken: process.env.ROLLBAR_TOKEN,
+    },
+
     CHAT_SOCKET_URL: process.env.CHAT_SOCKET_URL,
     GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
     YOUTUBE_CHANNEL_ID: process.env.YOUTUBE_CHANNEL_ID
