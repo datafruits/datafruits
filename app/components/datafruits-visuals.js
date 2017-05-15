@@ -2,8 +2,10 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  googleApiKey: "AIzaSyA2tCCcRl5itJoSLRL-COoHXwpyMAX9raQ",
-  youtubeChannelId: "UChjo2k-w5UhvroZU0xqVcsg",
+  // googleApiKey: "AIzaSyA2tCCcRl5itJoSLRL-COoHXwpyMAX9raQ",
+  // youtubeChannelId: "UChjo2k-w5UhvroZU0xqVcsg",
+  googleApiKey: ENV.GOOGLE_API_KEY,
+  youtubeChannelId: ENV.YOUTUBE_CHANNEL_ID,
   ytid: "",
   playerVars: {
     autoplay: 1,
