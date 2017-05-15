@@ -1,5 +1,6 @@
 /* global $, gapi */
 import Ember from 'ember';
+import ENV from "datafruits13/config/environment";
 
 export default Ember.Component.extend({
   // googleApiKey: "AIzaSyA2tCCcRl5itJoSLRL-COoHXwpyMAX9raQ",
