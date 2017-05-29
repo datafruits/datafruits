@@ -2568,7 +2568,7 @@ ember-cli-dotenv@1.2.0:
     dotenv "^1.0.0"
     exists-sync "0.0.3"
 
-ember-cli-eslint@^3.0.0, ember-cli-eslint@^3.0.2:
+ember-cli-eslint@^3.0.0:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/ember-cli-eslint/-/ember-cli-eslint-3.0.3.tgz#620abced2984be96a8747a47bfd41c5adbb9b968"
   dependencies:
@@ -2577,9 +2577,9 @@ ember-cli-eslint@^3.0.0, ember-cli-eslint@^3.0.2:
     rsvp "^3.2.1"
     walk-sync "^0.3.0"
 
-ember-cli-fastboot@1.0.0-beta.16:
-  version "1.0.0-beta.16"
-  resolved "https://registry.yarnpkg.com/ember-cli-fastboot/-/ember-cli-fastboot-1.0.0-beta.16.tgz#174066e6d3401a30bf8e0fa0ceeef102f2bca70c"
+ember-cli-fastboot@1.0.0-beta.15:
+  version "1.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/ember-cli-fastboot/-/ember-cli-fastboot-1.0.0-beta.15.tgz#bdfe28f6270d543d5057048e4bdd00685ddf7b3c"
   dependencies:
     broccoli-funnel "^1.0.0"
     broccoli-merge-trees "^1.1.1"
@@ -2589,7 +2589,6 @@ ember-cli-fastboot@1.0.0-beta.16:
     core-object "^2.0.5"
     debug "^2.2.0"
     ember-cli-babel "^5.1.7"
-    ember-cli-eslint "^3.0.2"
     ember-cli-version-checker "^1.1.6"
     express "^4.8.5"
     fastboot-express-middleware "1.0.0-rc.7"
@@ -2668,9 +2667,9 @@ ember-cli-lodash-subset@^1.0.11, ember-cli-lodash-subset@^1.0.7:
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/ember-cli-lodash-subset/-/ember-cli-lodash-subset-1.0.12.tgz#af2e77eba5dcb0d77f3308d3a6fd7d3450f6e537"
 
-ember-cli-moment-shim@3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-moment-shim/-/ember-cli-moment-shim-3.2.0.tgz#649582f396e0309fe59571fe581ea8a78d85f625"
+ember-cli-moment-shim@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-moment-shim/-/ember-cli-moment-shim-3.3.0.tgz#420ea29a81d7c03410ee988d0d7e36b49b2b283d"
   dependencies:
     broccoli-funnel "^1.1.0"
     broccoli-merge-trees "^2.0.0"
