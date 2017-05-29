@@ -26,6 +26,10 @@ module.exports = function(environment) {
       // when it is created
     },
 
+    fastboot: {
+      hostWhitelist: ['streampusher.com', 'datafruits.streampusher.com', 'datafruits.tumblr.com']
+    },
+
     moment: {
       includeTimezone: "subset"
     },
