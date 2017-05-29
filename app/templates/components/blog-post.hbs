@@ -18,4 +18,8 @@
   <div class="blog-text">
     {{post.captionSafe}}
   </div>
+{{else if (eq post.type "audio")}}
+  <div class="blog-text">
+    {{post.embedSafe}}
+  </div>
 {{/if}}
