@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  title: "",
   _initialize: Ember.on('init', function(){
     this.get("eventBus").subscribe("trackPlayed", this, "onTrackPlayed");
   }),
@@ -19,16 +20,20 @@ export default Ember.Component.extend({
         var datafruits = data.icestats.source.find((s) => {
           return s.server_name == "datafruits.mp3";
         });
-        var title = datafruits.title;
+        let title = datafruits.title;
         if(title.substring(0, 3) === " - "){
           title = title.slice(3);
         }
-        $('.jp-title').html(title);
+        //$('.jp-title').html(title);
+        this.clear('error');
+        this.set('title', title);
       });
     }
   },
   onTrackPlayed: function(track){
-    $('.jp-title').html(track.title);
+    //$('.jp-title').html(track.title);
+    this.clear('error');
+    this.set('title', title);
     this.set('playingPodcast', true);
   },
   actions: {
@@ -69,6 +74,7 @@ export default Ember.Component.extend({
       },
       error: function(/*event*/) {
         /*console.log('jPlayer error: '+ event.jPlayer.error.type);*/
+        this.set('error', "There was an error playing the stream. Trying again in a second...");
 
         $('jp-pause').hide();
         $('jp-loading').hide();
