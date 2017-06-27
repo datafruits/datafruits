@@ -1,10 +1,10 @@
 {{input class="search-tracks" autofocus="autofocus" value=filterText escape-press='clearSearch' placeholder="Search podcasts"}}
 {{#if isSearching}}
   {{#each filteredResults as |track|}}
-    {{podcast-track cdn_url=track.cdn_url title=track.title}}
+    {{podcast-track cdn_url=track.cdn_url title=track.title labels=track.labels}}
   {{/each}}
 {{else}}
   {{#each podcasts as |track|}}
-    {{podcast-track cdn_url=track.cdn_url title=track.title}}
+    {{podcast-track cdn_url=track.cdn_url title=track.title labels=track.labels}}
   {{/each}}
 {{/if}}

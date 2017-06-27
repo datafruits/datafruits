@@ -314,7 +314,7 @@ img.emojione {
 /* this makes the collapsed navbar appear on the left instead of right */
 .custom-navbar .fa {font-size:25px}
 
-@media (max-width:767px) {
+@media only screen and (max-width:767px) {
   .custom-navbar .navbar-right {
       float: right;
       padding-right: 15px;
@@ -492,4 +492,11 @@ form {
   padding: 5px;
   border-radius: 5px;
   text-align: center;
+}
+
+.track-label {
+  background: $pink;
+  color: $yellow;
+  text-transform: uppercase;
+  padding: 2px;
 }
