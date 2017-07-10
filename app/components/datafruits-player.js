@@ -5,6 +5,9 @@ export default Ember.Component.extend({
   _initialize: Ember.on('init', function(){
     this.get("eventBus").subscribe("trackPlayed", this, "onTrackPlayed");
   }),
+  isLive: Ember.computed('title', function(){
+    return this.get('title').startsWith("LIVE");
+  }),
   pollRadioTitle() {
     let _this = this;
     Ember.run.later(function() {
@@ -30,10 +33,9 @@ export default Ember.Component.extend({
       });
     }
   },
-  onTrackPlayed(/*track*/){
-    //$('.jp-title').html(track.title);
+  onTrackPlayed(track){
     this.set('error', null);
-    this.set('title', title);
+    this.set('title', track.title);
     this.set('playingPodcast', true);
   },
   actions: {
@@ -45,7 +47,7 @@ export default Ember.Component.extend({
     },
   },
   classNames: ['radio-bar'],
-  classNameBindings: ['playingPodcast'],
+  classNameBindings: ['playingPodcast', 'isLive'],
   playingPodcast: false,
   eventBus: Ember.inject.service(),
   setup: function(){
