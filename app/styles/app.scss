@@ -152,9 +152,10 @@ div.radio-bar {
       display: none;
     }
   }
-  .is-live {
-    background-image: url("/assets/images/pink_sparkles.gif");
-  }
+}
+
+div.radio-bar.is-live {
+  background-image: url("/assets/images/pink_sparkles.gif");
 }
 
 .playing-podcast {
