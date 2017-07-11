@@ -13,7 +13,10 @@ export default Ember.Route.extend({
       labels: fetch('https://datafruits.streampusher.com/labels.json')
         .then(function(response){
           return response.json().then(function(json){
-            return json.labels;
+            let labelNames = json.labels.map(function(label){
+              return label.name;
+            });
+            return labelNames;
           });
         })
     });

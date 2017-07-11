@@ -7,6 +7,6 @@
   <a href="{{cdn_url}}" download><i class="fa fa-download"></i></a>
   {{title}}
   {{#each labels as |label|}}
-    <a class="track-label">{{label}}</a>
+    <a class="track-label" {{action "selectLabel" label}}>{{label}}</a>
   {{/each}}
 </div>

@@ -22,6 +22,9 @@ export default Ember.Component.extend({
       Ember.$("#radio-player").jPlayer("pause");
       this.set("playing", false);
       this.set("paused", true);
+    },
+    selectLabel(label){
+      this.sendAction("selectLabel", label);
     }
   },
   onTrackPlayed: function(event){

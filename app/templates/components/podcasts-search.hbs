@@ -3,19 +3,18 @@
     placeholder="Search by tag..."
     options=labels
     selected=selectedLabels
-    searchField="name"
     renderInPlace=true
     onchange=(action (mut selectedLabels))
     as |label|
 }}
-  {{label.name}}
+  {{label}}
 {{/power-select-multiple}}
 {{#if isSearching}}
   {{#each filteredResults as |track|}}
-    {{podcast-track cdn_url=track.cdn_url title=track.title labels=track.labels}}
+    {{podcast-track cdn_url=track.cdn_url title=track.title labels=track.labels selectLabel="selectLabel"}}
   {{/each}}
 {{else}}
   {{#each podcasts as |track|}}
-    {{podcast-track cdn_url=track.cdn_url title=track.title labels=track.labels}}
+    {{podcast-track cdn_url=track.cdn_url title=track.title labels=track.labels selectLabel="selectLabel"}}
   {{/each}}
 {{/if}}
