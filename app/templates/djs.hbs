@@ -1,30 +1,13 @@
 <div class="main-content">
   <div class="row">
-    <div class="col-md-4">
-      <h2>OVENRAKE</h2>
-      <img src="{{rootURL}}assets/images/ovenrake.png" />
-    </div>
-    <div class="col-md-4">
-      <h2>CALIFORNIAGAMES</h2>
-      <img src="{{rootURL}}assets/images/californiagames.png" />
-    </div>
-    <div class="col-md-4">
-      <h2>SLUGGA</h2>
-      <img src="{{rootURL}}assets/images/slugga.png" />
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <h2>FENGIR</h2>
-      <img src="{{rootURL}}assets/images/fengir.png" />
-    </div>
-    <div class="col-md-4">
-      <h2>HOJO</h2>
-      <img src="{{rootURL}}assets/images/hojo.png" />
-    </div>
-    <div class="col-md-4">
-      <h2>FIREDRILL</h2>
-      <img src="{{rootURL}}assets/images/firedrill.png" />
-    </div>
+    {{#each djs as |dj|}}
+      <div class="col-md-4">
+        <h2>{{dj.username}}</h2>
+        <img src={{dj.image_url}} />
+        <p>
+          {{dj.bio}}
+        </p>
+      </div>
+    {{/each}}
   </div>
 </div>
