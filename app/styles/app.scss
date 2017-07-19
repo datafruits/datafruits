@@ -116,6 +116,24 @@ form#enter-chat {
   }
 }
 
+@include keyframes(slideup){
+  0% {
+    bottom: -110px;
+  }
+  10% {
+    bottom: -5px;
+  }
+  35% {
+    bottom: -5px;
+  }
+  40% {
+    bottom: -110px;
+  }
+  100% {
+    bottom: -110px;
+  }
+}
+
 
 nav {
   background:$pink !important;
@@ -507,3 +525,10 @@ form {
 }
 
 @import "ember-power-select";
+
+.tiny-guy {
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  @include animation(slideup 10s linear infinite);
+}
