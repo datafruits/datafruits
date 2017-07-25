@@ -2716,6 +2716,13 @@ ember-cli-google-analytics@^1.5.0:
   dependencies:
     lodash-node "^2.4.1"
 
+ember-cli-head@^0.3.0:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-head/-/ember-cli-head-0.3.1.tgz#a407df4880f235280371c437bb5b0b5cbdaea646"
+  dependencies:
+    ember-cli-babel "^6.1.0"
+    ember-cli-htmlbars "^2.0.1"
+
 ember-cli-htmlbars-inline-precompile@^0.4.0:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars-inline-precompile/-/ember-cli-htmlbars-inline-precompile-0.4.2.tgz#0aaf6ff12e94219bdbaad44ba18d7674e5249e2a"
@@ -2777,6 +2784,15 @@ ember-cli-legacy-blueprints@^0.1.2:
 ember-cli-lodash-subset@^1.0.11, ember-cli-lodash-subset@^1.0.7:
   version "1.0.12"
   resolved "https://registry.yarnpkg.com/ember-cli-lodash-subset/-/ember-cli-lodash-subset-1.0.12.tgz#af2e77eba5dcb0d77f3308d3a6fd7d3450f6e537"
+
+ember-cli-meta-tags@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-meta-tags/-/ember-cli-meta-tags-4.0.0.tgz#38140f7b96f5b26834b531e6093e5370bab575a3"
+  dependencies:
+    ember-cli-babel "^6.0.0"
+    ember-cli-head "^0.3.0"
+    ember-cli-htmlbars "^1.1.1"
+    ember-runtime-enumerable-includes-polyfill "^2.0.0"
 
 ember-cli-moment-shim@^3.3.0:
   version "3.3.0"
