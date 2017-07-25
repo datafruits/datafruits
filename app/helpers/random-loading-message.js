@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export function randomLoadingMessage(params/*, hash*/) {
+export function randomLoadingMessage() {
   let loadingMessages = [
     "musta been the onion salad dressing",
     "it's just a website",
