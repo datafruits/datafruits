@@ -528,6 +528,7 @@ form {
 
 .tiny-guy {
   position: absolute;
+  z-index: 1000;
   bottom: -5px;
   right: 0;
   @include animation(slideup 10s linear infinite);
