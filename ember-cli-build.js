@@ -10,16 +10,24 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     // Add options here
     fingerprint: fingerprintOptions,
+
     emberCliFontAwesome: {
       useScss: true
     },
+
     emberFullCalendar: {
       scheduler: false
     },
+
     dotEnv: {
       clientAllowedKeys: ['CHAT_SOCKET_URL']
-    }
+    },
 
+    'ember-bootstrap': {
+      'bootstrapVersion': 3,
+      'importBootstrapFont': true,
+      'importBootstrapCSS': false
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated
@@ -34,14 +42,12 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
-  if (!process.env.EMBER_CLI_FASTBOOT) {
-    app.import(app.bowerDirectory + '/bootstrap/dist/js/bootstrap.js');
-    app.import(app.bowerDirectory + '/jplayer/dist/jplayer/jquery.jplayer.js');
-    app.import(app.bowerDirectory + '/jquery-textcomplete/dist/jquery.textcomplete.min.js');
-  }
+  // if (typeof FastBoot === 'undefined') {
+  //   //app.import(app.bowerDirectory + '/jplayer/dist/jplayer/jquery.jplayer.js');
+  //   app.import(app.bowerDirectory + '/jquery-textcomplete/dist/jquery.textcomplete.min.js');
+  // }
   app.import(app.bowerDirectory + '/jsTimezoneDetect/jstz.min.js');
   app.import(app.bowerDirectory + '/autolink/autolink-min.js');
-  app.import(app.bowerDirectory + '/bootstrap/dist/css/bootstrap.css');
 
   app.import('/vendor/emojione_autocomplete.css');
 
