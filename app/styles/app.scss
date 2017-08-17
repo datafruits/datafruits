@@ -533,3 +533,12 @@ form {
   right: 0;
   @include animation(slideup 10s linear infinite);
 }
+
+.ember-power-select-multiple-option {
+  text-shadow: none;
+}
+
+.ember-power-select-option {
+  color: black;
+  text-shadow: none;
+}
