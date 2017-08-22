@@ -47,7 +47,6 @@
     "ember-lazy-image": "0.0.15",
     "ember-load-initializers": "^1.0.0",
     "ember-lodash": "^4.17.5",
-    "ember-masonry-grid": "file:/Users/tony/src/ember-masonry-grid",
     "ember-phoenix": "0.1.6",
     "ember-power-select": "^1.8.5",
     "ember-resolver": "^4.0.0",
