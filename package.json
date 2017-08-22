@@ -62,7 +62,7 @@
     "ember-browserify": "^1.1.13",
     "ember-cli-release": "^1.0.0-beta.2",
     "ember-cli-rollbar": "file:/Users/tony/src/ember-cli-rollbar",
-    "ember-fullcalendar": "file:/Users/tony/src/ember-fullcalendar",
+    "ember-fullcalendar": "git://github.com/scoutforpets/ember-fullcalendar",
     "emojione": "^3.0.0",
     "fullcalendar": "^3.1.0"
   },
