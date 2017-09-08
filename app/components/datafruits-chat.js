@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   chat: Ember.inject.service(),
   classNames: ['main-content'],
-  gifsEnabled: true,
+  gifsEnabled: Ember.computed.oneWay('chat.gifsEnabled'),
   newMessagesBelow: false,
   isJoiningChat: false,
   joinedChat: Ember.computed.oneWay('chat.joinedChat'),
@@ -11,7 +11,8 @@ export default Ember.Component.extend({
   joinedUsers: Ember.computed.oneWay('chat.joinedUsers'),
   actions: {
     toggleGifsEnabled(){
-      this.toggleProperty("gifsEnabled");
+      //this.toggleProperty("gifsEnabled");
+      this.get("chat").toggleProperty("gifsEnabled");
     },
     enterChat(){
       this.set('isJoiningChat', true);

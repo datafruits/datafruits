@@ -6,6 +6,7 @@ export default Ember.Service.extend({
   joinedUsers: Ember.ArrayProxy.create({ content: Ember.A() }),
   messages: Ember.ArrayProxy.create({ content: Ember.A() }),
   joinedChat: false,
+  gifsEnabled: true,
   push(message, object) {
     this.chan.push(message, object);
   },
