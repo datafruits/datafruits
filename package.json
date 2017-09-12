@@ -15,38 +15,38 @@
     "test": "ember test"
   },
   "devDependencies": {
+    "bootstrap-sass": "^3.3.7",
     "broccoli-asset-rev": "^2.4.5",
     "broccoli-babel-transpiler": "^6.0.0",
     "broccoli-es6modules": "^1.2.2",
     "broccoli-merge-trees": "^2.0.0",
     "ember-ajax": "^3.0.0",
+    "ember-bootstrap": "^1.0.0-beta.2",
     "ember-cli": "^2.13.2",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.0.0",
     "ember-cli-dependency-checker": "2.0.0",
     "ember-cli-dotenv": "1.2.0",
     "ember-cli-eslint": "^3.0.0",
-    "ember-cli-fastboot": "1.0.0-beta.19",
+    "ember-cli-fastboot": "^1.0.1",
     "ember-cli-google-analytics": "^1.5.0",
     "ember-cli-htmlbars": "^1.1.1",
     "ember-cli-htmlbars-inline-precompile": "^0.4.0",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-meta-tags": "^4.0.0",
-    "ember-cli-moment-shim": "^3.3.0",
+    "ember-cli-moment-shim": "^3.3.3",
     "ember-cli-qunit": "^4.0.0",
-    "ember-cli-rollbar": "^0.3.0",
     "ember-cli-sass": "6.1.2",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-data": "^2.13.0",
     "ember-export-application-global": "^2.0.0",
+    "ember-fetch": "^3.2.9",
     "ember-font-awesome": "^3.0.3",
     "ember-lazy-image": "0.0.15",
     "ember-load-initializers": "^1.0.0",
     "ember-lodash": "^4.17.5",
-    "ember-masonry-grid": "git://github.com/gmurphey/ember-masonry-grid.git",
-    "ember-network": "0.3.1",
     "ember-phoenix": "0.1.6",
     "ember-power-select": "^1.8.5",
     "ember-resolver": "^4.0.0",
@@ -60,12 +60,18 @@
   "dependencies": {
     "ember-browserify": "^1.1.13",
     "ember-cli-release": "^1.0.0-beta.2",
-    "ember-fullcalendar": "git://github.com/mcfiredrill/ember-fullcalendar.git#datafruits",
+    "ember-cli-rollbar": "git://github.com/mcfiredrill/ember-cli-rollbar#update-for-fastboot-1.0",
+    "ember-fullcalendar": "git://github.com/scoutforpets/ember-fullcalendar",
     "emojione": "^3.0.0",
     "fullcalendar": "^3.1.0"
   },
   "engines": {
     "node": ">= 4"
   },
-  "private": true
+  "private": true,
+  "ember-addon": {
+    "paths": [
+      "lib/fastboot-import"
+    ]
+  }
 }
