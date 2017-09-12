@@ -2955,8 +2955,9 @@ ember-cli-release@^1.0.0-beta.2:
     semver "^4.3.1"
     silent-error "^1.0.0"
 
-"ember-cli-rollbar@file:/Users/tony/src/ember-cli-rollbar":
+"ember-cli-rollbar@git://github.com/mcfiredrill/ember-cli-rollbar#update-for-fastboot-1.0":
   version "0.3.1"
+  resolved "git://github.com/mcfiredrill/ember-cli-rollbar#0d872deb36b90b9ff96388997c531fe1d4bdf44c"
   dependencies:
     broccoli-merge-trees "^1.1.1"
     broccoli-string-replace "^0.1.1"
