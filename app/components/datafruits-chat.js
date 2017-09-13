@@ -11,7 +11,6 @@ export default Ember.Component.extend({
   joinedUsers: Ember.computed.oneWay('chat.joinedUsers'),
   actions: {
     toggleGifsEnabled(){
-      //this.toggleProperty("gifsEnabled");
       this.get("chat").toggleProperty("gifsEnabled");
     },
     enterChat(){
@@ -32,10 +31,12 @@ export default Ember.Component.extend({
     }else{
       this.set("newMessagesBelow", true);
     }
+    this.get('chat').set('scrollTop', Ember.$('#messages')[0].scrollTop);
   },
   setupChat: function(){
     var onScroll = this._onScroll.bind(this);
     this.$("#messages").bind('touchmove', onScroll);
     this.$("#messages").bind('scroll', onScroll);
+    this.$("#messages")[0].scrollTop = this.get('chat.scrollTop');
   }.on('didInsertElement')
 });
