@@ -21,13 +21,12 @@ export default Ember.Component.extend({
 
       $.get(url, (data) => {
         let datafruits = data.icestats.source.find((s) => {
-          return s.server_name == "datafruits.mp3";
+          return s.server_name == "datafruits.ogg";
         });
         let title = datafruits.title;
         if(title.substring(0, 3) === " - "){
           title = title.slice(3);
         }
-        //$('.jp-title').html(title);
         this.set('error', null);
         this.set('title', title);
       });
