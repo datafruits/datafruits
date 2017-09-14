@@ -5,7 +5,11 @@ export default Ember.Component.extend({
   timezone: function(){
     return jstz.determine().name();
   },
-  header: { left: 'prev,next today', center: 'title', right: 'month,basicWeek,basicDay'},
+  header: {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'month,agendaWeek,agendaDay'
+  },
 
   actions: {
     goToEvent: function(calEvent){
