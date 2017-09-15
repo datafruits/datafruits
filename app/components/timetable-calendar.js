@@ -10,6 +10,7 @@ export default Ember.Component.extend({
     center: 'title',
     right: 'month,agendaWeek,agendaDay'
   },
+  nowIndicator: true,
 
   actions: {
     goToEvent: function(calEvent){
