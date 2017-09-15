@@ -51,5 +51,7 @@ module.exports = function(defaults) {
 
   app.import('/vendor/emojione_autocomplete.css');
 
+  app.import('/vendor/Condiment-Regular.ttf');
+
   return app.toTree();
 };

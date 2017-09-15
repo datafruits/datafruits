@@ -2,6 +2,13 @@
 @import "loading-spinner.scss";
 @import "ember-bootstrap/bootstrap";
 
+@font-face {
+  font-family: 'Condiment';
+  src:
+    url('/vendor/Condiment-Regular.ttf')
+    format('truetype');
+}
+
 $green:  #82ffa5;
 $yellow: #fff94f;
 $pink: #e992ff;
@@ -542,4 +549,9 @@ form {
 .ember-power-select-option {
   color: black;
   text-shadow: none;
+}
+
+.fc-center {
+  text-shadow: 3px 3px 3px #333, 7px 7px 0 #ff00fc;
+  transform: rotate(-3.5deg);
 }
