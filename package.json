@@ -34,7 +34,7 @@
     "ember-cli-htmlbars-inline-precompile": "^0.4.0",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-meta-tags": "^4.0.0",
-    "ember-cli-moment-shim": "^3.3.3",
+    "ember-cli-moment-shim": "^3.5.0",
     "ember-cli-qunit": "^4.0.0",
     "ember-cli-sass": "6.1.2",
     "ember-cli-shims": "^1.1.0",
@@ -43,10 +43,11 @@
     "ember-data": "^2.13.0",
     "ember-export-application-global": "^2.0.0",
     "ember-fetch": "^3.2.9",
-    "ember-font-awesome": "^3.0.3",
+    "ember-font-awesome": "4.0.0-alpha.4",
     "ember-lazy-image": "0.0.15",
     "ember-load-initializers": "^1.0.0",
     "ember-lodash": "^4.17.5",
+    "ember-moment": "^7.4.1",
     "ember-phoenix": "0.1.6",
     "ember-power-select": "^1.8.5",
     "ember-resolver": "^4.0.0",
@@ -59,11 +60,10 @@
   },
   "dependencies": {
     "ember-browserify": "^1.1.13",
+    "ember-calendar": "file:../ember-calendar",
     "ember-cli-release": "^1.0.0-beta.2",
     "ember-cli-rollbar": "git://github.com/mcfiredrill/ember-cli-rollbar#update-for-fastboot-1.0",
-    "ember-fullcalendar": "git://github.com/scoutforpets/ember-fullcalendar",
-    "emojione": "^3.0.0",
-    "fullcalendar": "^3.1.0"
+    "emojione": "^3.0.0"
   },
   "engines": {
     "node": ">= 4"

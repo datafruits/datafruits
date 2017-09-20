@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  occurrences: [],
   eventSources: ["https://datafruits.streampusher.com/scheduled_shows.json"],
   timezone: function(){
     return jstz.determine().name();

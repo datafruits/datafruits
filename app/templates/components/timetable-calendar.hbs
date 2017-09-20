@@ -1,7 +1,14 @@
-{{full-calendar
+<!-- {{full-calendar
   eventSources=eventSources
   defaultView='month'
   editable=false
   eventClick=(action 'goToEvent')
   timezone=timezone header=header nowIndicator=nowIndicator
-}}
+  }} -->
+{{as-calendar
+  occurrences=occurrences
+  defaultTimeZoneQuery="New York|London|Dubai|Hong Kong"
+  dayStartingTime="9:00"
+  dayEndingTime="18:00"
+  timeSlotDuration="00:30" }}
+

@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import Ember from 'ember';
 
 export default DS.Model.extend({
   start: DS.attr(),
@@ -8,5 +9,12 @@ export default DS.Model.extend({
   thumb_image_url: DS.attr(),
   description: DS.attr(),
   html_description: DS.attr(),
-  tweet_content: DS.attr()
+  tweet_content: DS.attr(),
+
+  startsAt: Ember.computed('start', function(){
+    return this.get('start');
+  }),
+  endsAt: Ember.computed('end', function(){
+    return this.get('end');
+  })
 });

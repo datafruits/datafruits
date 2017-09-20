@@ -11,8 +11,8 @@ module.exports = function(defaults) {
     // Add options here
     fingerprint: fingerprintOptions,
 
-    emberCliFontAwesome: {
-      useScss: true
+    'ember-font-awesome': {
+      useScss: true, // for ember-cli-sass
     },
 
     emberFullCalendar: {
