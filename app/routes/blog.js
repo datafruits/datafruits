@@ -6,7 +6,22 @@ import $ from 'jquery';
 export default Route.extend({
   fastboot: service(),
   model: function(){
-    return this.store.findAll('tumblr-post');
+    let shoebox = this.get('fastboot.shoebox');
+    let shoeboxStore = shoebox.retrieve('my-store');
+    let isFastBoot = this.get('fastboot.isFastBoot');
+
+    if (isFastBoot) {
+      return this.store.findAll('tumblr-post').then(posts => {
+        if (!shoeboxStore) {
+          shoeboxStore = [];
+          shoebox.put('my-store', shoeboxStore);
+          posts.forEach((post) => {
+            shoeboxStore.pushObject(post.toJSON());
+          });
+        }
+      });
+    }
+    return shoeboxStore;
   },
   setupController: function(controller, model){
     this._super(controller, model);

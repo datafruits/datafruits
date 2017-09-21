@@ -6,5 +6,4 @@ export default Route.extend({
       this.transitionTo('show', show);
     }
   }
-
 });

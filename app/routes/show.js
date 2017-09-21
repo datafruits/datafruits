@@ -1,14 +1,37 @@
 import Route from '@ember/routing/route';
 
+<<<<<<< HEAD
 export default Route.extend({
   model(params) {
     return this.store.find('scheduled-show', params.id);
+=======
+export default Ember.Route.extend({
+  fastboot: Ember.inject.service(),
+  model(params) {
+    let shoebox = this.get('fastboot.shoebox');
+    let shoeboxStore = shoebox.retrieve('my-store');
+    let isFastBoot = this.get('fastboot.isFastBoot');
+
+    if(isFastBoot){
+      return fetch('https://datafruits.streampusher.com/scheduled_shows/'+params.id+'.json')
+      .then((response) => {
+        return response.json().then((json) => {
+          if(!shoeboxStore){
+            shoeboxStore = {};
+            shoebox.put('my-store', shoeboxStore);
+          }
+          shoeboxStore[params.id] = json;
+        });
+      });
+    }
+    return shoeboxStore[params.id];
+>>>>>>> use shoebox in routes
   },
 
   afterModel: function(model) {
-   this.setHeadTags(model);
+    this.setHeadTags(model);
   },
-
+  //
   setHeadTags: function (model) {
    var headTags = [
      {
