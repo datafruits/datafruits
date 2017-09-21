@@ -37,6 +37,22 @@ module.exports = function(environment) {
     rollbar: {
       accessToken: process.env.ROLLBAR_TOKEN,
     },
+    metricsAdapters: [
+      {
+        name: 'GoogleAnalytics',
+        environments: ['development', 'production'],
+        config: {
+          id: 'UA-28868734-1',
+          // Use `analytics_debug.js` in development
+          debug: environment === 'development',
+          // Use verbose tracing of GA events
+          trace: environment === 'development',
+          // Ensure development env hits aren't sent to GA
+          sendHitTask: environment !== 'development'
+        }
+      },
+    ],
+
 
     CHAT_SOCKET_URL: process.env.CHAT_SOCKET_URL,
     GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
@@ -61,12 +77,6 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
-  }
-
-  if (environment === 'production' && !process.env.EMBER_CLI_FASTBOOT) {
-    ENV.googleAnalytics = {
-      webPropertyId: 'UA-28868734-1'
-    };
   }
 
   if (environment == 'staging') {
