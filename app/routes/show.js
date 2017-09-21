@@ -40,7 +40,7 @@ export default Ember.Route.extend({
        type: 'meta',
        attrs: {
          name: 'twitter:title',
-         content: model.title
+         content: `datafruits.fm - ${model.title}`
        },
      },
      {
