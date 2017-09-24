@@ -2,7 +2,16 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   model(params) {
-    return this.store.find('scheduled-show', params.id);
+    return this.store.query('scheduled-show', { filter: { slug: params.show_slug } })
+      .then(shows => {
+        return shows.get('firstObject');
+      });
+  },
+
+  serialize(show) {
+    return {
+      showSlug: show.get('slug')
+    };
   },
 
   afterModel: function(model) {
