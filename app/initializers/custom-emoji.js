@@ -12,13 +12,13 @@ export function initialize(/* application */) {
     ":tony:": {
       custom: true,
       uc_base: "tony",
-      uc_outpuut: "",
+      uc_output: "",
       shortnames: [":firedrill:", ":freedrull:", ":mcfiredrill:"]
     },
     ":ovenrake:": {
       custom: true,
       uc_base: "ovenrake",
-      uc_outpuut: "",
+      uc_output: "",
       shortnames: [":dakota:", ":oven:"]
     }
   };
@@ -28,6 +28,9 @@ export function initialize(/* application */) {
   emojione.shortnames = emojione.shortnames.concat(`|${Object.keys(customEmojis).join('|')}`);
   //emojione.shortnames = emojione.shortnames.concat("|:bgs:");
   emojione.regShortNames = new RegExp("<object[^>]*>.*?<\/object>|<span[^>]*>.*?<\/span>|<(?:object|embed|svg|img|div|span|p|a)[^>]*>|("+emojione.shortnames+")", "gi");
+
+  //emojione.imagePathPNG = "/assets/images/emojis/";
+  emojione.customImagePathPNG = "/assets/images/emojis/";
 }
 
 export default {
