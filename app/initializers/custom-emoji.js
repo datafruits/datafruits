@@ -26,6 +26,12 @@ export function initialize(/* application */) {
       uc_base: "snailzone",
       uc_output: "",
       shortnames: [":snailzone:", ":slimethru:"]
+    },
+    ":trekkie:": {
+      custom: true,
+      uc_base: "trekkie",
+      uc_output: "",
+      shortnames: [":trekkie:", ":trekkietrax:"]
     }
   };
   Object.keys(customEmojis).forEach(emoji => {
