@@ -3449,9 +3449,9 @@ ember-wormhole@^0.5.1, ember-wormhole@^0.5.2:
   dependencies:
     ember-cli-babel "^5.1.6"
 
-emojione@^3.0.0:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/emojione/-/emojione-3.1.1.tgz#f5680fbee2cb2a56e99042b14d935e3eb861b300"
+"emojione@git://github.com/mcfiredrill/emojione#custom-emoji":
+  version "3.1.2"
+  resolved "git://github.com/mcfiredrill/emojione#b60ae69e98789588fa35276bf7e97d1291c6ebbb"
 
 encodeurl@~1.0.1:
   version "1.0.1"

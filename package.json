@@ -63,7 +63,7 @@
     "ember-cli-release": "^1.0.0-beta.2",
     "ember-cli-rollbar": "git://github.com/mcfiredrill/ember-cli-rollbar#update-for-fastboot-1.0",
     "ember-fullcalendar": "git://github.com/scoutforpets/ember-fullcalendar",
-    "emojione": "^3.0.0",
+    "emojione": "git://github.com/mcfiredrill/emojione#custom-emoji",
     "fullcalendar": "^3.1.0"
   },
   "engines": {
