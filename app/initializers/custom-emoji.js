@@ -20,6 +20,12 @@ export function initialize(/* application */) {
       uc_base: "ovenrake",
       uc_output: "",
       shortnames: [":dakota:", ":oven:"]
+    },
+    ":snailzone:": {
+      custom: true,
+      uc_base: "snailzone",
+      uc_output: "",
+      shortnames: [":snailzone:", ":slimethru:"]
     }
   };
   Object.keys(customEmojis).forEach(emoji => {
