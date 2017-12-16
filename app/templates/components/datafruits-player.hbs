@@ -11,7 +11,13 @@
   {{else}}
     <span>Now playing: </span><span class="jp-title">{{title}}</span>
   {{/if}}
-  {{#if nextShow}}
+  {{#if playingPodcast }}
+    <div class='jp-progress'>
+      <div class='jp-seek-bar'>
+        <div class='jp-play-bar'></div>
+      </div>
+    </div>
+  {{else if nextShow}}
     <span id="next-show">Next live on air: {{#link-to 'show' nextShow}}{{nextShow.title}}{{/link-to}}</span>
   {{/if}}
 </div>

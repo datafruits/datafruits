@@ -49,7 +49,7 @@ export default Ember.Component.extend({
   classNameBindings: ['playingPodcast', 'isLive'],
   playingPodcast: false,
   eventBus: Ember.inject.service(),
-  setup: function(){
+  didInsertElement(){
     let _this = this;
     this.stream = {
       mp3: 'https://streampusher-relay.club/datafruits.mp3',
@@ -93,10 +93,14 @@ export default Ember.Component.extend({
         $('.jp-loading').hide();
       },
       solution: 'html, flash',
-      cssSelectorAncestor: '#jp_container'
+      cssSelectorAncestor: ""
     });
     this.setRadioTitle();
     this.pollRadioTitle();
 
-  }.on('didInsertElement')
+  },
+  didRender(){
+    Ember.$("#radio-player").jPlayer("option", "cssSelector.seekBar", ".jp-seek-bar");
+    Ember.$("#radio-player").jPlayer("option", "cssSelector.playBar", ".jp-play-bar");
+  }
 });

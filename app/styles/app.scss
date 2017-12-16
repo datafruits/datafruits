@@ -555,3 +555,30 @@ form {
   text-shadow: 3px 3px 3px #333, 7px 7px 0 #ff00fc;
   transform: rotate(-3.5deg);
 }
+
+/* progress */
+div.jp-progress {
+  overflow:hidden;
+  background-color: #fdff68;
+}
+div.jp-progress {
+  top:32px;
+  height:15px;
+}
+div.jp-seek-bar {
+  background: url("/assets/images/jplayer.png") 0 -29px repeat-x ;
+  width:0px;
+  height:100%;
+  cursor: pointer;
+}
+div.jp-play-bar {
+  background: url("/assets/images/jplayer.png") 0 -45px repeat-x;
+  width:0px;
+  height:100%;
+}
+
+/* The seeking class is added/removed inside jPlayer */
+div.jp-seeking-bg {
+  background: url("/assets/images/seeking.gif");
+}
+/* end progress */
