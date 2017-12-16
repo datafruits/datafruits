@@ -46,10 +46,14 @@ export default Ember.Component.extend({
           callback(newResults);
         },
         template: function (shortname) {
-          return '<img class="emojione" src="//cdn.jsdelivr.net/emojione/assets/png/'+emojiStrategy[shortname].unicode+'.png"> :'+shortname+':';
+          if(emojiStrategy[shortname].custom){
+            return '<img class="emojione" src="/assets/images/emojis/'+emojiStrategy[shortname].unicode+'.png"> '+shortname;
+          }else{
+            return '<img class="emojione" src="//cdn.jsdelivr.net/emojione/assets/png/'+emojiStrategy[shortname].unicode+'.png"> '+shortname;
+          }
         },
         replace: function (shortname) {
-          return ':'+shortname+': ';
+          return shortname;
         },
         index: 1,
         maxCount: 10

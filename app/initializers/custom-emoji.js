@@ -7,31 +7,36 @@ export function initialize(/* application */) {
       custom: true,
       uc_base: "bgs",
       uc_output: "",
-      shortnames: []
+      shortnames: [":bgs:"],
+      keywords: ["bgs"]
     },
     ":tony:": {
       custom: true,
       uc_base: "tony",
       uc_output: "",
-      shortnames: [":firedrill:", ":freedrull:", ":mcfiredrill:"]
+      shortnames: [":firedrill:", ":freedrull:", ":mcfiredrill:"],
+      keywords: ["firedrill", "freedrull", "mcfiredrill"]
     },
     ":ovenrake:": {
       custom: true,
       uc_base: "ovenrake",
       uc_output: "",
-      shortnames: [":dakota:", ":oven:"]
+      shortnames: [":dakota:", ":oven:"],
+      keywords: ["dakota", "oven"]
     },
     ":snailzone:": {
       custom: true,
       uc_base: "snailzone",
       uc_output: "",
-      shortnames: [":snailzone:", ":slimethru:"]
+      shortnames: [":snailzone:"],
+      keywords: ["snail", "slimethru"]
     },
     ":trekkie:": {
       custom: true,
       uc_base: "trekkie",
       uc_output: "",
-      shortnames: [":trekkie:", ":trekkietrax:"]
+      shortnames: [":trekkie:", ":trekkietrax:"],
+      keywords: ["trekkie", "trekkietrax"]
     }
   };
   Object.keys(customEmojis).forEach(emoji => {
