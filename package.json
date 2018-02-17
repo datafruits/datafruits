@@ -57,6 +57,7 @@
     "ember-tumblr": "0.8.1",
     "ember-welcome-page": "^3.0.0",
     "ember-youtube": "git://github.com/mcfiredrill/ember-youtube.git",
+    "eslint-plugin-ember": "^5.0.3",
     "loader.js": "^4.2.3"
   },
   "dependencies": {
