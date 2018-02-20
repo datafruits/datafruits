@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
-  setupTweetButton: function(){
+export default Component.extend({
+  didInsertElement(){
     twttr.widgets.load();
-  }.on('didInsertElement')
+  }
 });

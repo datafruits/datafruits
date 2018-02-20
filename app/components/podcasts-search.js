@@ -1,7 +1,8 @@
 import Ember from 'ember';
+import Component from '@ember/component';
 import _ from 'lodash';
 
-export default Ember.Component.extend({
+export default Component.extend({
   filterText: '',
   selectedLabels: [],
   labelNames: Ember.computed('labels', function(){

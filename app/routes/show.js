@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
+import fetch from 'fetch';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model(params) {
     return this.store.find('scheduled-show', params.id);
   },

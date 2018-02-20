@@ -1,7 +1,7 @@
-import Ember from 'ember';
 import emojiStrategy from "../emojiStrategy";
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: "span",
   chat: Ember.inject.service(),
   username: Ember.computed.oneWay('chat.username'),

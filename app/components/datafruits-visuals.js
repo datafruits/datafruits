@@ -1,8 +1,9 @@
 /* global $, gapi */
 import Ember from 'ember';
+import Component from '@ember/component';
 import ENV from "datafruits13/config/environment";
 
-export default Ember.Component.extend({
+export default Component.extend({
   // googleApiKey: "AIzaSyA2tCCcRl5itJoSLRL-COoHXwpyMAX9raQ",
   // youtubeChannelId: "UChjo2k-w5UhvroZU0xqVcsg",
   googleApiKey: ENV.GOOGLE_API_KEY,

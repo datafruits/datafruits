@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   chat: Ember.inject.service(),
   classNames: ['main-content'],
   gifsEnabled: Ember.computed.oneWay('chat.gifsEnabled'),

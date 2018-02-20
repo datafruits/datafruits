@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import Service from '@ember/service';
+import Evented from '@ember/object/evented'
 
-export default Ember.Service.extend(Ember.Evented, {
+export default Service.extend(Evented, {
   publish: function() {
     return this.trigger.apply(this, arguments);
   },

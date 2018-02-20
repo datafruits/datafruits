@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   eventSources: [
     {
       url: "https://datafruits.streampusher.com/scheduled_shows.json",
@@ -9,7 +9,6 @@ export default Ember.Component.extend({
       }
     }
   ],
-
   timezone: function(){
     return jstz.determine().name();
   },
