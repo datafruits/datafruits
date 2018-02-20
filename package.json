@@ -19,7 +19,7 @@
     "broccoli-asset-rev": "^2.4.5",
     "broccoli-babel-transpiler": "^6.0.0",
     "broccoli-es6modules": "^1.2.2",
-    "broccoli-merge-trees": "^2.0.0",
+    "broccoli-merge-trees": "^3.0.0",
     "ember-ajax": "^3.0.0",
     "ember-bootstrap": "^1.0.0-beta.2",
     "ember-cli": "^2.13.2",
