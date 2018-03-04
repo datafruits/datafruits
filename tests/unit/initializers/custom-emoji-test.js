@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import { initialize } from 'datafruits13/initializers/custom-emoji';
 import { module, test } from 'qunit';
 import { run } from '@ember/runloop';

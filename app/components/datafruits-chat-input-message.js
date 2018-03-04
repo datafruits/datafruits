@@ -1,11 +1,13 @@
 import emojiStrategy from "../emojiStrategy";
 import Component from '@ember/component';
+import { inject } from '@ember/service';
+import { oneWay } from '@ember/object/computed';
 
 export default Component.extend({
   tagName: "span",
-  chat: Ember.inject.service(),
-  username: Ember.computed.oneWay('chat.username'),
-  joinedUsers: Ember.computed.oneWay('chat.joinedUsers'),
+  chat: inject.service(),
+  username: oneWay('chat.username'),
+  joinedUsers: oneWay('chat.joinedUsers'),
   actions: {
     sendMessage(){
       const message = this.get('inputMessage');
@@ -16,7 +18,7 @@ export default Component.extend({
     }
   },
 
-  setupTextComplete: function(){
+  didInsertElement(){
     $("#input-message").textcomplete([
       {
         id: "emojis",
@@ -77,5 +79,5 @@ export default Component.extend({
       footer: '<a href="http://www.emoji.codes" target="_blank">Browse All<span class="arrow">»</span></a>',
       className: 'emoji-autocomplete'
     });
-  }.on('didInsertElement')
+  }
 });
