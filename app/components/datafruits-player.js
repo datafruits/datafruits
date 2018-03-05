@@ -8,6 +8,7 @@ export default Ember.Component.extend({
   isLive: Ember.computed('title', function(){
     return this.get('title').startsWith("LIVE");
   }),
+  router: Ember.inject.service(),
   pollRadioTitle() {
     let _this = this;
     Ember.run.later(function() {
@@ -102,5 +103,9 @@ export default Ember.Component.extend({
   didRender(){
     Ember.$("#radio-player").jPlayer("option", "cssSelector.seekBar", ".jp-seek-bar");
     Ember.$("#radio-player").jPlayer("option", "cssSelector.playBar", ".jp-play-bar");
+
+    Ember.run.later(() => {
+      this.get('router').refresh();
+    }, 10000);
   }
 });
