@@ -4,7 +4,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model(){
     return Ember.RSVP.hash({
-      tracks: this.store.findRecord('podcast', 'datafruits').then((podcast) => {
+      tracks: this.store.queryRecord('podcast', { name: 'datafruits' }).then((podcast) => {
         return podcast.get('tracks');
       }),
       labels: this.store.findAll('label')

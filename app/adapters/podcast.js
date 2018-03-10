@@ -1,7 +1,8 @@
 import ApplicationAdapter from './application';
 
 export default ApplicationAdapter.extend({
-  urlForFindRecord(id){
-    return `${this.urlPrefix()}/scheduled_shows/${id}.json`;
+  urlForQueryRecord(query){
+    let name = query.name;
+    return `${this.urlPrefix()}/podcasts/${name}.json`;
   }
 });
