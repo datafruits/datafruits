@@ -5,5 +5,6 @@ export default DS.Model.extend({
   cdn_url: DS.attr(),
   title: DS.attr(),
   podcast_published_date: DS.attr(),
-  labels: DS.attr()
+  labels: DS.hasMany('label'),
+  podcast: DS.belongsTo('podcast')
 });

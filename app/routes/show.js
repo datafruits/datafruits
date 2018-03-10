@@ -1,12 +1,8 @@
 import Ember from 'ember';
-import fetch from 'fetch';
 
 export default Ember.Route.extend({
   model(params) {
-    return fetch('https://datafruits.streampusher.com/scheduled_shows/'+params.id+'.json')
-    .then(function(response){
-      return response.json();
-    });
+    return this.store.find('scheduled-show', params.id);
   },
 
   afterModel: function(model) {

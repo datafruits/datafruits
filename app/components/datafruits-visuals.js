@@ -64,7 +64,7 @@ export default Ember.Component.extend({
         console.log("live stream: "+videoId);
         this.set("ytid", videoId);
       }
-    }, function(/*reason*/) {
+    }, function(reason) {
       console.log('Error: ' + reason.result.error.message);
     });
 

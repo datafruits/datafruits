@@ -1,11 +1,16 @@
 import Ember from 'ember';
-import fetch from 'fetch';
 
 export default Ember.Route.extend({
-  model(){
-    return fetch('https://datafruits.streampusher.com/scheduled_shows/next.json')
-    .then(function(response){
-      return response.json();
-    });
-  }
+  // model(){
+  //   return this.store.queryRecord('scheduled-show', {next: true});
+  // },
+  // afterModel(){
+  //   this.refreshNext();
+  // },
+  // refreshNext() {
+  //   this.model();
+  //   Ember.run.later(() => {
+  //     this.refreshNext();
+  //   }, 10000);
+  // },
 });

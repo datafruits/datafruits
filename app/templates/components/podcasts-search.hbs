@@ -1,7 +1,7 @@
 {{input class="search-tracks" autofocus="autofocus" value=filterText escape-press='clearSearch' placeholder="Search podcasts"}}
 {{#power-select-multiple
     placeholder="Search by tag..."
-    options=labels
+    options=labelNames
     selected=selectedLabels
     renderInPlace=true
     onchange=(action (mut selectedLabels))
@@ -14,7 +14,7 @@
     {{podcast-track cdn_url=track.cdn_url title=track.title labels=track.labels selectLabel="selectLabel"}}
   {{/each}}
 {{else}}
-  {{#each podcasts as |track|}}
+  {{#each tracks as |track|}}
     {{podcast-track cdn_url=track.cdn_url title=track.title labels=track.labels selectLabel="selectLabel"}}
   {{/each}}
 {{/if}}
