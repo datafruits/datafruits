@@ -4,9 +4,9 @@ export default DS.Model.extend({
   start: DS.attr(),
   end: DS.attr(),
   title: DS.attr(),
-  image_url: DS.attr(),
-  thumb_image_url: DS.attr(),
+  imageUrl: DS.attr(),
+  thumbImageUrl: DS.attr(),
   description: DS.attr(),
-  html_description: DS.attr(),
-  tweet_content: DS.attr()
+  htmlDescription: DS.attr(),
+  tweetContent: DS.attr()
 });

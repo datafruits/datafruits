@@ -1,10 +1,10 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  audio_file_name: DS.attr(),
-  cdn_url: DS.attr(),
+  audioFileName: DS.attr(),
+  cdnUrl: DS.attr(),
   title: DS.attr(),
-  podcast_published_date: DS.attr(),
+  podcastPublishedDate: DS.attr(),
   labels: DS.hasMany('label'),
   podcast: DS.belongsTo('podcast')
 });
