@@ -20,10 +20,6 @@ module.exports = function(defaults) {
       scheduler: false
     },
 
-    dotEnv: {
-      clientAllowedKeys: ['CHAT_SOCKET_URL']
-    },
-
     'ember-bootstrap': {
       'bootstrapVersion': 3,
       'importBootstrapFont': true,
