@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
-import fetch from 'fetch';
+import { later } from '@ember/runloop';
 
 export default Route.extend({
   model(){
@@ -9,8 +9,8 @@ export default Route.extend({
     this.refreshNext();
   },
   refreshNext() {
-    this.model();
-    Ember.run.later(() => {
+    later(() => {
+      this.model();
       this.refreshNext();
     }, 10000);
   },
