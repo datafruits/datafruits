@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import $ from 'jquery';
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: "ul",
   elementId: "messages",
   actions: {
@@ -14,11 +15,11 @@ export default Ember.Component.extend({
     },
     adjustScrolling(){
       if(this.get('willAutoscroll')){
-        Ember.$('#messages')[0].scrollTop = Ember.$('#messages')[0].scrollHeight;
+        $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
       }
     }
   },
   scrolledToBottom() {
-    return Ember.$('#messages')[0].scrollHeight - Ember.$('#messages')[0].scrollTop - Ember.$('#messages').outerHeight() < 1;
+    return $('#messages')[0].scrollHeight - $('#messages')[0].scrollTop - $('#messages').outerHeight() < 1;
   },
 });

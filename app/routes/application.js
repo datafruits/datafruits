@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
+import { later } from '@ember/runloop';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model(){
     return this.store.queryRecord('scheduled-show', {next: true});
   },
@@ -8,8 +9,8 @@ export default Ember.Route.extend({
     this.refreshNext();
   },
   refreshNext() {
-    this.model();
-    Ember.run.later(() => {
+    later(() => {
+      this.model();
       this.refreshNext();
     }, 10000);
   },

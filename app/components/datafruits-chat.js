@@ -1,14 +1,17 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { oneWay } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import $ from 'jquery';
 
-export default Ember.Component.extend({
-  chat: Ember.inject.service(),
+export default Component.extend({
+  chat: service(),
   classNames: ['main-content'],
-  gifsEnabled: Ember.computed.oneWay('chat.gifsEnabled'),
+  gifsEnabled: oneWay('chat.gifsEnabled'),
   newMessagesBelow: false,
   isJoiningChat: false,
-  joinedChat: Ember.computed.oneWay('chat.joinedChat'),
-  messages: Ember.computed.oneWay('chat.messages'),
-  joinedUsers: Ember.computed.oneWay('chat.joinedUsers'),
+  joinedChat: oneWay('chat.joinedChat'),
+  messages: oneWay('chat.messages'),
+  joinedUsers: oneWay('chat.joinedUsers'),
   actions: {
     toggleGifsEnabled(){
       this.get("chat").toggleProperty("gifsEnabled");
@@ -23,7 +26,7 @@ export default Ember.Component.extend({
     }
   },
   scrolledToBottom() {
-    return Ember.$('#messages')[0].scrollHeight - Ember.$('#messages')[0].scrollTop - Ember.$('#messages').outerHeight() < 1;
+    return $('#messages')[0].scrollHeight - $('#messages')[0].scrollTop - $('#messages').outerHeight() < 1;
   },
   _onScroll(){
     if(this.scrolledToBottom()){
@@ -31,12 +34,12 @@ export default Ember.Component.extend({
     }else{
       this.set("newMessagesBelow", true);
     }
-    this.get('chat').set('scrollTop', Ember.$('#messages')[0].scrollTop);
+    this.get('chat').set('scrollTop', $('#messages')[0].scrollTop);
   },
-  setupChat: function(){
+  didInsertElement(){
     var onScroll = this._onScroll.bind(this);
     this.$("#messages").bind('touchmove', onScroll);
     this.$("#messages").bind('scroll', onScroll);
     this.$("#messages")[0].scrollTop = this.get('chat.scrollTop');
-  }.on('didInsertElement')
+  }
 });

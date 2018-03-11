@@ -1,9 +1,9 @@
-import Ember from 'ember';
-//import fetch from 'fetch';
+import Route from '@ember/routing/route';
+import { hash } from 'rsvp';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model(){
-    return Ember.RSVP.hash({
+    return hash({
       tracks: this.store.queryRecord('podcast', { name: 'datafruits' }).then((podcast) => {
         return podcast.get('tracks');
       }),

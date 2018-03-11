@@ -1,4 +1,4 @@
-/* eslint-env node */
+'use strict';
 
 module.exports = function(environment) {
   var ENV = {
@@ -34,9 +34,9 @@ module.exports = function(environment) {
       includeTimezone: "subset"
     },
 
-    rollbar: {
-      accessToken: process.env.ROLLBAR_TOKEN,
-    },
+    // rollbar: {
+    //   accessToken: process.env.ROLLBAR_TOKEN,
+    // },
     metricsAdapters: [
       {
         name: 'GoogleAnalytics',

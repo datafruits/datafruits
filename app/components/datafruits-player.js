@@ -1,16 +1,21 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
+import $ from 'jquery';
+import { later } from '@ember/runloop';
 
-export default Ember.Component.extend({
+export default Component.extend({
   title: "",
-  _initialize: Ember.on('init', function(){
+  init(){
     this.get("eventBus").subscribe("trackPlayed", this, "onTrackPlayed");
-  }),
-  isLive: Ember.computed('title', function(){
+    this._super(...arguments);
+  },
+  isLive: computed('title', function(){
     return this.get('title').startsWith("LIVE");
   }),
   pollRadioTitle() {
     let _this = this;
-    Ember.run.later(function() {
+    later(function() {
       _this.setRadioTitle();
       _this.pollRadioTitle();
     }, 10000);
@@ -39,8 +44,8 @@ export default Ember.Component.extend({
   },
   actions: {
     playLiveStream: function(){
-      Ember.$("#radio-player").jPlayer("setMedia", this.stream);
-      Ember.$("#radio-player").jPlayer("play");
+      $("#radio-player").jPlayer("setMedia", this.stream);
+      $("#radio-player").jPlayer("play");
       this.set('playingPodcast', false);
       this.setRadioTitle();
     },
@@ -48,7 +53,7 @@ export default Ember.Component.extend({
   classNames: ['radio-bar'],
   classNameBindings: ['playingPodcast', 'isLive'],
   playingPodcast: false,
-  eventBus: Ember.inject.service(),
+  eventBus: service(),
   didInsertElement(){
     let _this = this;
     this.stream = {
@@ -99,7 +104,7 @@ export default Ember.Component.extend({
     this.pollRadioTitle();
   },
   didRender(){
-    Ember.$("#radio-player").jPlayer("option", "cssSelector.seekBar", ".jp-seek-bar");
-    Ember.$("#radio-player").jPlayer("option", "cssSelector.playBar", ".jp-play-bar");
+    $("#radio-player").jPlayer("option", "cssSelector.seekBar", ".jp-seek-bar");
+    $("#radio-player").jPlayer("option", "cssSelector.playBar", ".jp-play-bar");
   }
 });

@@ -23,11 +23,11 @@
     "broccoli-merge-trees": "^2.0.0",
     "ember-ajax": "^3.0.0",
     "ember-bootstrap": "^1.0.0-beta.2",
-    "ember-cli": "^2.13.2",
+    "ember-cli": "2.18.2",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-babel": "^6.0.0",
     "ember-cli-dependency-checker": "2.0.0",
-    "ember-cli-dotenv": "1.2.0",
+    "ember-cli-dotenv": "^2.0.0",
     "ember-cli-eslint": "^3.0.0",
     "ember-cli-fastboot": "^1.0.1",
     "ember-cli-htmlbars": "^1.1.1",
@@ -57,6 +57,7 @@
     "ember-tumblr": "0.8.1",
     "ember-welcome-page": "^3.0.0",
     "ember-youtube": "git://github.com/mcfiredrill/ember-youtube.git",
+    "eslint-plugin-ember": "^5.0.3",
     "loader.js": "^4.2.3"
   },
   "dependencies": {

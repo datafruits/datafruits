@@ -1,4 +1,5 @@
-/* eslint-env node */
+'use strict';
+
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
@@ -17,10 +18,6 @@ module.exports = function(defaults) {
 
     emberFullCalendar: {
       scheduler: false
-    },
-
-    dotEnv: {
-      clientAllowedKeys: ['CHAT_SOCKET_URL']
     },
 
     'ember-bootstrap': {

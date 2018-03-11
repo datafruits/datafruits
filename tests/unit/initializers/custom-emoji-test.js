@@ -1,12 +1,13 @@
-import Ember from 'ember';
 import { initialize } from 'datafruits13/initializers/custom-emoji';
 import { module, test } from 'qunit';
+import { run } from '@ember/runloop';
 import destroyApp from '../../helpers/destroy-app';
+import Application from '@ember/application';
 
 module('Unit | Initializer | custom emoji', {
   beforeEach() {
-    Ember.run(() => {
-      this.application = Ember.Application.create();
+    run(() => {
+      this.application = Application.create();
       this.application.deferReadiness();
     });
   },

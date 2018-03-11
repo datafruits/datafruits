@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function imagesEnabledButtonLabel(params/*, hash*/) {
   let imagesEnabled = params[0];
@@ -9,4 +9,4 @@ export function imagesEnabledButtonLabel(params/*, hash*/) {
   }
 }
 
-export default Ember.Helper.helper(imagesEnabledButtonLabel);
+export default helper(imagesEnabledButtonLabel);

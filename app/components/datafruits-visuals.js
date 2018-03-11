@@ -1,8 +1,10 @@
 /* global $, gapi */
-import Ember from 'ember';
+import $ from 'jquery';
+import Component from '@ember/component';
+import { later } from '@ember/runloop';
 import ENV from "datafruits13/config/environment";
 
-export default Ember.Component.extend({
+export default Component.extend({
   // googleApiKey: "AIzaSyA2tCCcRl5itJoSLRL-COoHXwpyMAX9raQ",
   // youtubeChannelId: "UChjo2k-w5UhvroZU0xqVcsg",
   googleApiKey: ENV.GOOGLE_API_KEY,
@@ -29,14 +31,14 @@ export default Ember.Component.extend({
   },
   pollVjApi: function(){
     var _this = this;
-    Ember.run.later(function() {
+    later(function() {
       _this.setVisuals();
       _this.pollVjApi();
     }, 10000);
   },
   setVisuals: function(){
     var url = "https://datafruits.streampusher.com/vj/enabled.json";
-    Ember.$.get(url, function(data){
+    $.get(url, function(data){
       var vj_enabled = data.vj_enabled;
       if(vj_enabled === true){
         $(".visuals").show();
@@ -69,7 +71,7 @@ export default Ember.Component.extend({
     });
 
   },
-  setup: function(){
+  didInsertElement(){
     this.setVisuals();
     this.pollVjApi();
     $.getScript("https://apis.google.com/js/client.js", () => {
@@ -85,5 +87,5 @@ export default Ember.Component.extend({
         }
       })();
     });
-  }.on('didInsertElement')
+  }
 });
