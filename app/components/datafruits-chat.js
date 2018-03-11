@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import { oneWay } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
+import $ from 'jquery';
 
 export default Component.extend({
   chat: service(),
@@ -25,7 +26,7 @@ export default Component.extend({
     }
   },
   scrolledToBottom() {
-    return Ember.$('#messages')[0].scrollHeight - Ember.$('#messages')[0].scrollTop - Ember.$('#messages').outerHeight() < 1;
+    return $('#messages')[0].scrollHeight - $('#messages')[0].scrollTop - $('#messages').outerHeight() < 1;
   },
   _onScroll(){
     if(this.scrolledToBottom()){
@@ -33,12 +34,12 @@ export default Component.extend({
     }else{
       this.set("newMessagesBelow", true);
     }
-    this.get('chat').set('scrollTop', Ember.$('#messages')[0].scrollTop);
+    this.get('chat').set('scrollTop', $('#messages')[0].scrollTop);
   },
-  setupChat: function(){
+  didInsertElement(){
     var onScroll = this._onScroll.bind(this);
     this.$("#messages").bind('touchmove', onScroll);
     this.$("#messages").bind('scroll', onScroll);
     this.$("#messages")[0].scrollTop = this.get('chat.scrollTop');
-  }.on('didInsertElement')
+  }
 });
