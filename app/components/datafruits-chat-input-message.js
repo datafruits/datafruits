@@ -1,11 +1,11 @@
 import emojiStrategy from "../emojiStrategy";
 import Component from '@ember/component';
-import { inject } from '@ember/service';
+import { inject as service } from '@ember/service';
 import { oneWay } from '@ember/object/computed';
 
 export default Component.extend({
   tagName: "span",
-  chat: inject.service(),
+  chat: service(),
   username: oneWay('chat.username'),
   joinedUsers: oneWay('chat.joinedUsers'),
   actions: {

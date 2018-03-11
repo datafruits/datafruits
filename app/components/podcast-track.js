@@ -1,26 +1,28 @@
-import Ember from 'ember';
 import Component from '@ember/component';
+import { inject as service } from '@ember/service';
+import $ from 'jquery';
 
 export default Component.extend({
-  _initialize: Ember.on('init', function(){
+  init(){
     this.get("eventBus").subscribe("trackPlayed", this, "onTrackPlayed");
-  }),
-  eventBus: Ember.inject.service(),
+    this._super(...arguments);
+  },
+  eventBus: service(),
   actions: {
     play: function(){
       var stream = {
         mp3: this.cdn_url
       };
       if(this.get("paused") !== true){
-        Ember.$("#radio-player").jPlayer("setMedia", stream);
+        $("#radio-player").jPlayer("setMedia", stream);
       }
-      Ember.$("#radio-player").jPlayer("play");
+      $("#radio-player").jPlayer("play");
       this.set("playing", true);
       this.set("paused", false);
       this.get('eventBus').publish("trackPlayed", this);
     },
     pause: function(){
-      Ember.$("#radio-player").jPlayer("pause");
+      $("#radio-player").jPlayer("pause");
       this.set("playing", false);
       this.set("paused", true);
     },

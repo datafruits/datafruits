@@ -1,10 +1,10 @@
 import Route from '@ember/routing/route';
-import { inject } from '@ember/service';
+import { inject as service } from '@ember/service';
 import { schedule } from '@ember/runloop';
 import $ from 'jquery';
 
 export default Route.extend({
-  fastboot: inject.service(),
+  fastboot: service(),
   model: function(){
     return this.store.findAll('tumblr-post');
   },

@@ -1,14 +1,16 @@
 import Component from '@ember/component';
+import { oneWay } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
 
 export default Component.extend({
-  chat: Ember.inject.service(),
+  chat: service(),
   classNames: ['main-content'],
-  gifsEnabled: Ember.computed.oneWay('chat.gifsEnabled'),
+  gifsEnabled: oneWay('chat.gifsEnabled'),
   newMessagesBelow: false,
   isJoiningChat: false,
-  joinedChat: Ember.computed.oneWay('chat.joinedChat'),
-  messages: Ember.computed.oneWay('chat.messages'),
-  joinedUsers: Ember.computed.oneWay('chat.joinedUsers'),
+  joinedChat: oneWay('chat.joinedChat'),
+  messages: oneWay('chat.messages'),
+  joinedUsers: oneWay('chat.joinedUsers'),
   actions: {
     toggleGifsEnabled(){
       this.get("chat").toggleProperty("gifsEnabled");
