@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import { htmlSafe } from '@ember/string';
+import { helper } from '@ember/component/helper';
 
 export function htmlSafeString(string) {
-  return Ember.String.htmlSafe(string);
+  return htmlSafe(string);
 }
 
-export default Ember.Helper.helper(htmlSafeString);
+export default helper(htmlSafeString);

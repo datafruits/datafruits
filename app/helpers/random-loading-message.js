@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 
 export function randomLoadingMessage() {
   let loadingMessages = [
@@ -12,4 +12,4 @@ export function randomLoadingMessage() {
   return loadingMessages[Math.floor(Math.random()*loadingMessages.length)];
 }
 
-export default Ember.Helper.helper(randomLoadingMessage);
+export default helper(randomLoadingMessage);

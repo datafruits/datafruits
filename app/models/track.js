@@ -1,5 +1,5 @@
 import DS from 'ember-data';
-import Ember from 'ember';
+import { computed } from '@ember/object';
 
 export default DS.Model.extend({
   audioFileName: DS.attr(),
@@ -8,7 +8,7 @@ export default DS.Model.extend({
   podcastPublishedDate: DS.attr(),
   labels: DS.hasMany('label'),
   podcast: DS.belongsTo('podcast'),
-  labelNames: Ember.computed('labels', function(){
+  labelNames: computed('labels', function(){
     return this.get('labels').map((label) => {
       return label.get('name');
     });
