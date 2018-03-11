@@ -1,5 +1,4 @@
 import TumblrPost from 'ember-tumblr/models/tumblr-post';
-import Ember from 'ember';
 import DS from 'ember-data';
 import { computed } from '@ember/object';
 import { htmlSafe } from '@ember/string';

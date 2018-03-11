@@ -1,6 +1,7 @@
 /* global $, gapi */
-import Ember from 'ember';
+import $ from 'jquery';
 import Component from '@ember/component';
+import { later } from '@ember/runloop';
 import ENV from "datafruits13/config/environment";
 
 export default Component.extend({
@@ -30,14 +31,14 @@ export default Component.extend({
   },
   pollVjApi: function(){
     var _this = this;
-    Ember.run.later(function() {
+    later(function() {
       _this.setVisuals();
       _this.pollVjApi();
     }, 10000);
   },
   setVisuals: function(){
     var url = "https://datafruits.streampusher.com/vj/enabled.json";
-    Ember.$.get(url, function(data){
+    $.get(url, function(data){
       var vj_enabled = data.vj_enabled;
       if(vj_enabled === true){
         $(".visuals").show();
@@ -70,7 +71,7 @@ export default Component.extend({
     });
 
   },
-  setup: function(){
+  didInsertElement(){
     this.setVisuals();
     this.pollVjApi();
     $.getScript("https://apis.google.com/js/client.js", () => {
@@ -86,5 +87,5 @@ export default Component.extend({
         }
       })();
     });
-  }.on('didInsertElement')
+  }
 });
