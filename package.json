@@ -14,7 +14,7 @@
     "start": "ember server",
     "test": "ember test"
   },
-  "devDependencies": {
+  "dependencies": {
     "active-model-adapter": "^2.2.0",
     "bootstrap-sass": "^3.3.7",
     "broccoli-asset-rev": "^2.4.5",
@@ -58,9 +58,7 @@
     "ember-welcome-page": "^3.0.0",
     "ember-youtube": "git://github.com/mcfiredrill/ember-youtube.git",
     "eslint-plugin-ember": "^5.0.3",
-    "loader.js": "^4.2.3"
-  },
-  "dependencies": {
+    "loader.js": "^4.2.3",
     "ember-browserify": "^1.1.13",
     "ember-cli-release": "^1.0.0-beta.2",
     "ember-cli-rollbar": "git://github.com/mcfiredrill/ember-cli-rollbar#update-for-fastboot-1.0",
