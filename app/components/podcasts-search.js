@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import computed from '@ember/object';
+import { computed } from '@ember/object';
 import _ from 'lodash';
 
 export default Component.extend({
