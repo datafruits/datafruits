@@ -1,7 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  eventSources: ["https://datafruits.streampusher.com/scheduled_shows.json"],
+  eventSources: [
+    {
+      url: "https://datafruits.streampusher.com/scheduled_shows.json",
+      data: {
+        fullcalendar: true
+      }
+    }
+  ],
+
   timezone: function(){
     return jstz.determine().name();
   },
