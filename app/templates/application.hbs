@@ -45,6 +45,7 @@
   {{#link-to 'application'}}<h1 id="logo">datafruits.fm</h1>{{/link-to}}
   {{outlet}}
   {{datafruits-player nextShow=model}}
+  {{locale-selector selectedLocale=i18n.locale setLocale=(action "setLocale")}}
 </section>
 <a href="https://soundcloud.com/datafruits/studio-phone" target="_blank"><img class="tiny-guy" src="{{rootURL}}assets/images/bgs_small.png" /></a>
 {{datafruits-visuals}}

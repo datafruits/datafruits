@@ -16,4 +16,9 @@ export default Route.extend({
       this.refreshNext();
     }, 60000);
   },
+  actions: {
+    setLocale(locale){
+      this.set('i18n.locale', locale);
+    }
+  }
 });
