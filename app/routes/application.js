@@ -12,6 +12,6 @@ export default Route.extend({
     later(() => {
       this.model();
       this.refreshNext();
-    }, 10000);
+    }, 60000);
   },
 });
