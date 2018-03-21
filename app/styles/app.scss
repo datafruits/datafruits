@@ -582,3 +582,14 @@ div.jp-seeking-bg {
   background: url("/assets/images/seeking.gif");
 }
 /* end progress */
+
+.locale-selector {
+  position: absolute;
+  bottom: 3px;
+  right: 20px;
+  select {
+    background: $pink;
+    color: white;
+    border: 1px solid $blue;
+  }
+}

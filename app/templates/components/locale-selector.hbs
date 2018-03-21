@@ -1,5 +1,5 @@
 <select onchange={{action setLocale value="target.value"}}>
   {{#each locales as |localeChoice|}}
-    <option value={{localeChoice}} selected={{eq selectedLocale localeChoice}}>{{localeChoice}}</option>
+    <option value={{localeChoice.value}} selected={{eq selectedLocale localeChoice.value}}>{{localeChoice.text}}</option>
   {{/each}}
 </select>
