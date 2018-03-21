@@ -34,6 +34,10 @@ module.exports = function(environment) {
       includeTimezone: "subset"
     },
 
+    i18n: {
+      defaultLocale: 'en'
+    },
+
     // rollbar: {
     //   accessToken: process.env.ROLLBAR_TOKEN,
     // },
