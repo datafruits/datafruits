@@ -144,10 +144,10 @@ form#enter-chat {
 
 
 nav {
-  background:$pink !important;
-  width:100%;
-  font-size:2rem;
-  z-index:1000;
+  background: $pink !important;
+  width: 100%;
+  font-size: 1.8rem;
+  z-index: 1000;
   border: 0 !important;
 }
 
@@ -582,3 +582,14 @@ div.jp-seeking-bg {
   background: url("/assets/images/seeking.gif");
 }
 /* end progress */
+
+.locale-selector {
+  position: absolute;
+  bottom: 3px;
+  right: 20px;
+  select {
+    background: $pink;
+    color: white;
+    border: 1px solid $blue;
+  }
+}

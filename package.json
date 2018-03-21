@@ -74,5 +74,8 @@
     "paths": [
       "lib/fastboot-import"
     ]
+  },
+  "devDependencies": {
+    "ember-i18n": "^5.2.0"
   }
 }
