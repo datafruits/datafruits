@@ -11,7 +11,7 @@ export default Component.extend({
   actions: {
     play: function(){
       var stream = {
-        mp3: this.cdn_url
+        mp3: this.cdnUrl
       };
       if(this.get("paused") !== true){
         $("#radio-player").jPlayer("setMedia", stream);
