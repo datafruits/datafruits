@@ -21,8 +21,8 @@ module.exports = function(defaults) {
     },
 
     'ember-bootstrap': {
-      'bootstrapVersion': 3,
-      'importBootstrapFont': true,
+      'bootstrapVersion': 4,
+      'importBootstrapFont': false,
       'importBootstrapCSS': false
     }
   });

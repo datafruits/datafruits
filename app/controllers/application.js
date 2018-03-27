@@ -4,6 +4,7 @@ import { oneWay } from '@ember/object/computed';
 
 export default Controller.extend({
   i18n: service(),
+  collapsed: false,
   locale: oneWay('i18n.locale'),
   actions: {
     setLocale(locale){
