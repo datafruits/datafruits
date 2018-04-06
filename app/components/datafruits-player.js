@@ -1,8 +1,8 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { later, run } from '@ember/runloop';
 import $ from 'jquery';
-import { later } from '@ember/runloop';
 
 export default Component.extend({
   title: "",
@@ -24,7 +24,7 @@ export default Component.extend({
     if(!this.get('playingPodcast')){
       let url = $('#radio-player').data('icecast-json').toString();
 
-      $.get(url, (data) => {
+      $.get(url).done((data) => {
         let datafruits = data.icestats.source.find((s) => {
           return s.server_name == "datafruits.ogg";
         });
@@ -32,8 +32,13 @@ export default Component.extend({
         if(title.substring(0, 3) === " - "){
           title = title.slice(3);
         }
-        this.set('error', null);
-        this.set('title', title);
+        run(() => {
+          this.set('error', null);
+          this.set('title', title);
+        });
+      }).fail((data, textStatus) => {
+        console.log(data);
+        console.log(textStatus);
       });
     }
   },
