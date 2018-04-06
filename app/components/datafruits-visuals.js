@@ -1,8 +1,8 @@
-/* global $, gapi */
 //import $ from 'jquery';
 import Component from '@ember/component';
 //import { later } from '@ember/runloop';
 import ENV from "datafruits13/config/environment";
+import videojs from "npm:video.js";
 
 export default Component.extend({
   classNames: ['visuals'],
