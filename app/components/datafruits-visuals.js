@@ -56,7 +56,7 @@ export default Component.extend({
     });
 
     player.src({
-      src: `streams/${name}.${extension}`,
+      src: `${host}/LiveApp/streams/${name}.${extension}`,
       type: type
     });
 
@@ -77,20 +77,20 @@ export default Component.extend({
     }
     let name = this.get('streamName');
     let host = this.get('streamHost');
-    fetch(`${host}/streams/${name}_adaptive.m3u8`, {method:'HEAD'}).then(function(response) {
+    fetch(`${host}/LiveApp/streams/${name}_adaptive.m3u8`, {method:'HEAD'}).then(function(response) {
       if (response.status == 200) {
         //// adaptive m3u8 existslay it
         this.initializePlayer(`${name}_adaptive`, "m3u8");
       } else {
         //adaptive m3u8 not exists, try m3u8 exists.
-        fetch(`${host}/streams/${name}.m3u8`, {method:'HEAD'}).then(function(response) {
+        fetch(`${host}/LiveApp/streams/${name}.m3u8`, {method:'HEAD'}).then(function(response) {
           if (response.status == 200) {
             //m3u8 exists, play it
             this.initializePlayer(name, "m3u8");
           } else {
             //no m3u8 exists, try vod file
 
-            fetch(`${host}/streams/${name}.mp4`, {method:'HEAD'}).then(function(response) {
+            fetch(`${host}/LiveApp/streams/${name}.mp4`, {method:'HEAD'}).then(function(response) {
               if (response.status == 200) {
                 //mp4 exists, play it
                 this.initializePlayer(name, "mp4");
