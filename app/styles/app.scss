@@ -217,6 +217,9 @@ div.radio-bar a:hover {
   width: 100vw;
   margin:0;
   border-right: 1px white solid;
+  @media only screen and (max-device-width: 480px) {
+    border-right: none !important;
+  }
 }
 
 #messages-area {
@@ -225,6 +228,9 @@ div.radio-bar a:hover {
 
 #userlist {
   width: 20vw;
+  @media only screen and (max-device-width: 480px) {
+    display: none;
+  }
 }
 
 li.userlist-item {
