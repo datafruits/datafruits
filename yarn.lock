@@ -1888,7 +1888,7 @@ broccoli-stew@^1.2.0, broccoli-stew@^1.3.3, broccoli-stew@^1.4.0, broccoli-stew@
     symlink-or-copy "^1.1.8"
     walk-sync "^0.3.0"
 
-broccoli-string-replace@^0.1.1:
+broccoli-string-replace@^0.1.1, broccoli-string-replace@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/broccoli-string-replace/-/broccoli-string-replace-0.1.2.tgz#1ed92f85680af8d503023925e754e4e33676b91f"
   dependencies:
@@ -3431,6 +3431,16 @@ ember-cli-version-checker@^2.0.0, ember-cli-version-checker@^2.1.0:
     resolve "^1.3.3"
     semver "^5.3.0"
 
+ember-cli-videojs-shim@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-videojs-shim/-/ember-cli-videojs-shim-0.1.1.tgz#401dda75d449e19143aed1be8a77849e5e5999d1"
+  dependencies:
+    broccoli-funnel "^2.0.1"
+    broccoli-merge-trees "^2.0.0"
+    broccoli-stew "^1.5.0"
+    ember-cli-babel "^5.1.7"
+    video.js "^6.2.7"
+
 ember-cli@2.18.2:
   version "2.18.2"
   resolved "https://registry.yarnpkg.com/ember-cli/-/ember-cli-2.18.2.tgz#bb15313a15139a85248a86d203643f918ba40f57"
@@ -3927,6 +3937,18 @@ ember-tumblr@0.8.1:
   dependencies:
     ember-cli-babel "^5.1.7"
     ember-cli-htmlbars "^1.1.1"
+
+ember-videojs-hls@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/ember-videojs-hls/-/ember-videojs-hls-0.0.2.tgz#dfd2a22e0a62a6f2daacfe215a5c76819b84b17f"
+  dependencies:
+    broccoli-funnel "^2.0.1"
+    broccoli-merge-trees "^2.0.0"
+    broccoli-stew "^1.5.0"
+    broccoli-string-replace "^0.1.2"
+    ember-cli-babel "^6.3.0"
+    ember-cli-videojs-shim "^0.1.1"
+    videojs-contrib-hls "^5.12.2"
 
 ember-weakmap@^3.0.0:
   version "3.1.1"
@@ -9520,7 +9542,20 @@ verror@1.10.0:
     videojs-vtt.js "0.12.5"
     xhr "2.4.0"
 
-videojs-contrib-hls@^5.14.1:
+video.js@^6.2.7:
+  version "6.10.3"
+  resolved "https://registry.yarnpkg.com/video.js/-/video.js-6.10.3.tgz#c0a2601866c240cebffacc0e966c08f7d6933edc"
+  dependencies:
+    babel-runtime "^6.9.2"
+    global "4.3.2"
+    safe-json-parse "4.0.0"
+    tsml "1.0.1"
+    videojs-font "2.1.0"
+    videojs-ie8 "1.1.2"
+    videojs-vtt.js "0.12.6"
+    xhr "2.4.0"
+
+videojs-contrib-hls@^5.12.2, videojs-contrib-hls@^5.14.1:
   version "5.14.1"
   resolved "https://registry.yarnpkg.com/videojs-contrib-hls/-/videojs-contrib-hls-5.14.1.tgz#eba4f4f6772a74a68ee7a213536ed7d2738972bd"
   dependencies:
@@ -9555,6 +9590,12 @@ videojs-ie8@1.1.2:
 videojs-vtt.js@0.12.5:
   version "0.12.5"
   resolved "https://registry.yarnpkg.com/videojs-vtt.js/-/videojs-vtt.js-0.12.5.tgz#32852732741c8b4e7a4314caa2cd93646a9c2d40"
+  dependencies:
+    global "^4.3.1"
+
+videojs-vtt.js@0.12.6:
+  version "0.12.6"
+  resolved "https://registry.yarnpkg.com/videojs-vtt.js/-/videojs-vtt.js-0.12.6.tgz#e078600bda899eaa6f9c3307134cd0c811947b8e"
   dependencies:
     global "^4.3.1"
 
