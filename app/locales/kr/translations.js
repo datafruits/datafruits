@@ -17,5 +17,5 @@ export default {
   'shop': '가게',
   'subscribe': '구독하다',
   'djinquiry': 'DJ',
-  'about_datafruits': "Datafruits is a netradio and netlabel founded in 2012 by Tony Miller (mcfiredrill). Its mission is to bring you the world's strangest electronic sounds and bring together the electronic music communities around the world.",
+  'about_datafruits': "Datafruits는 Tony Miller (mcfiredrill)가 2012 년에 설립 한 netradio 및 netlabel입니다. 그 임무는 요를 가져 오는 것입니다.세계에서 가장 이상한 전자 음악과 전 세계의 전자 음악 공동체를 만날 수 있습니다."
 };
