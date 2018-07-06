@@ -8,8 +8,12 @@ export default Component.extend({
   classNames: ['visuals'],
   // googleApiKey: ENV.GOOGLE_API_KEY,
   // youtubeChannelId: ENV.YOUTUBE_CHANNEL_ID,
-  streamHost: ENV.STREAM_HOST,
-  streamName: ENV.STREAM_NAME,
+
+  init() {
+    this._super(...arguments);
+    this.set('streamHost', ENV.STREAM_HOST);
+    this.set('streamName', ENV.STREAM_NAME);
+  },
 
   autoplay: false,
 
