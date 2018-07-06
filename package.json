@@ -64,7 +64,7 @@
     "eslint-plugin-ember": "^5.0.3",
     "fullcalendar": "^3.1.0",
     "loader.js": "^4.2.3",
-    "video.js": "^6.7.3",
+    "video.js": "^7.0.5",
     "videojs-contrib-hls": "^5.14.1"
   },
   "engines": {
