@@ -17,6 +17,8 @@ export default Component.extend({
 
   autoplay: false,
 
+  videoStreamActive: false,
+
   isMobile() {
     if( navigator.userAgent.match(/Android/i)
       || navigator.userAgent.match(/webOS/i)
@@ -34,6 +36,7 @@ export default Component.extend({
   },
 
   initializePlayer(name, extension) {
+    this.set("videoStreamActive", true);
     let type;
     let liveStream = false;
     let host = this.get('streamHost');
@@ -47,6 +50,7 @@ export default Component.extend({
     }
     else {
       console.log("Unknown extension: " + extension);
+      this.set("videoStreamActive", false);
       return;
     }
 
