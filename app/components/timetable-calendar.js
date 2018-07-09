@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import { jstz } from 'jstimezonedetect';
 
 export default Component.extend({
   eventSources: [

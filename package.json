@@ -77,7 +77,10 @@
     ]
   },
   "devDependencies": {
+    "autolink-js": "^1.0.2",
+    "ember-auto-import": "^1.0.1",
     "ember-i18n": "^5.2.0",
-    "ember-videojs-hls": "^0.0.2"
+    "ember-videojs-hls": "^0.0.2",
+    "jstimezonedetect": "^1.0.6"
   }
 }
