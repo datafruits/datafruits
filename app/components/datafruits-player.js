@@ -3,6 +3,7 @@ import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { later, run } from '@ember/runloop';
 import $ from 'jquery';
+import { jPlayer } from 'jplayer';
 
 export default Component.extend({
   title: "",
