@@ -77,6 +77,11 @@
     ]
   },
   "devDependencies": {
+<<<<<<< HEAD
+=======
+    "autolink-js": "^1.0.2",
+    "ember-auto-import": "^1.0.1",
+>>>>>>> e8adcd68... dont need bourbon anymore wooooo
     "ember-i18n": "^5.2.0",
     "ember-videojs-hls": "^0.0.2"
   }
