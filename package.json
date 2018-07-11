@@ -17,6 +17,7 @@
   "dependencies": {
     "active-model-adapter": "^2.2.0",
     "bootstrap-sass": "^3.3.7",
+    "bourbon": "^5.0.1",
     "broccoli-asset-rev": "^2.4.5",
     "broccoli-babel-transpiler": "^6.0.0",
     "broccoli-es6modules": "^1.2.2",
@@ -63,6 +64,7 @@
     "emojione": "git://github.com/mcfiredrill/emojione#custom-emoji",
     "eslint-plugin-ember": "^5.0.3",
     "fullcalendar": "^3.1.0",
+    "jplayer": "^2.9.2",
     "loader.js": "^4.2.3",
     "video.js": "^6.7.3",
     "videojs-contrib-hls": "^5.14.1"
@@ -71,14 +73,10 @@
     "node": ">= 4"
   },
   "private": true,
-  "ember-addon": {
-    "paths": [
-      "lib/fastboot-import"
-    ]
-  },
   "devDependencies": {
     "autolink-js": "^1.0.2",
     "ember-auto-import": "^1.0.1",
+    "ember-cli-bourbon": "https://github.com/yapplabs/ember-cli-bourbon",
     "ember-i18n": "^5.2.0",
     "ember-videojs-hls": "^0.0.2",
     "jstimezonedetect": "^1.0.6"
