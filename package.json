@@ -65,6 +65,7 @@
     "fullcalendar": "^3.1.0",
     "jplayer": "^2.9.2",
     "loader.js": "^4.2.3",
+    "masonry-layout": "^4.2.2",
     "video.js": "^6.7.3",
     "videojs-contrib-hls": "^5.14.1"
   },

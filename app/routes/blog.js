@@ -2,6 +2,7 @@ import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { schedule } from '@ember/runloop';
 import $ from 'jquery';
+import 'masonry-layout';
 
 export default Route.extend({
   fastboot: service(),
