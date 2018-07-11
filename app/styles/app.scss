@@ -44,7 +44,7 @@ h1#logo {
   right: 5px;
   top: 0;
   @media screen and (min-device-width: 480px) {
-    animation(textshadowfade 5s infinite);
+    animation: textshadowfade 5s infinite;
   }
   @media only screen and (max-device-width: 480px) {
     display: none;
@@ -116,10 +116,10 @@ form#enter-chat {
 
 @keyframes(rotation){
   from {
-    transform(rotate(0deg));
+    transform: rotate(0deg);
   }
   to {
-    transform(rotate(360deg));
+    transform: rotate(360deg);
   }
 }
 
@@ -197,7 +197,7 @@ div.radio-bar a:hover {
 
 .jp-loading {
   display: inline-block;
-  animation(rotation 0.7s linear infinite);
+  animation: rotation 0.7s linear infinite;
 }
 
 .jp-title {
@@ -404,8 +404,8 @@ a:hover {
 
 .flexbox-container {
   height: 100vh;
-  display(flex);
-  flex-direction(column);
+  display: flex;
+  flex-direction: column;
   // these are flex items
   // flex: 1; same as:
   // flex-grow: 1;
@@ -414,34 +414,34 @@ a:hover {
   // flex: 1 1 auto;
   nav {
     @media only screen and (min-device-width: 480px) {
-      flex(0.05);
-      justify-content(center);
-      display(flex);
-      flex-direction(column);
+      flex: 0.05;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
     }
   }
   .main-content {
     color: white;
     text-shadow: #333 1px 1px 1px;
-    flex(8);
-    display(flex);
-    flex-direction(column);
+    flex: 8;
+    display: flex;
+    flex-direction: column;
     min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
     overflow-y: scroll;
     padding: 0 2rem 0 2rem;
     #chat-room {
-      flex(8);
+      flex: 8;
       display: flex;
-      flex-direction(column);
+      flex-direction: column;
       #chat-area {
         position: relative;
-        display(flex);
-        flex-direction(row);
-        flex(1);
+        display: flex;
+        flex-direction: row;
+        flex: 1;
         min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
         #messages {
           overflow-y: scroll;
-          flex-grow(3);
+          flex-grow: 3;
           img {
             max-width: 95%;
             max-height: 95%;
@@ -449,7 +449,7 @@ a:hover {
         }
         #userlist {
           overflow-y: scroll;
-          flex-grow(1);
+          flex-grow: 1;
         }
         #new-messages-below {
           position: absolute;
@@ -463,17 +463,17 @@ a:hover {
       }
     }
     #controls {
-       flex(1);
-       justify-content(center);
-       display(flex);
-       flex-direction(column);
+       flex: 1;
+       justify-content: center;
+       display: flex;
+       flex-direction: column;
     }
   }
   .radio-bar {
-    flex(0.5);
-    justify-content(center);
-    display(flex);
-    flex-direction(column);
+    flex: 0.5;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -541,7 +541,7 @@ form {
   z-index: 1000;
   bottom: -5px;
   right: 0;
-  animation(slideup 10s linear infinite);
+  animation: slideup 10s linear infinite;
 }
 
 .ember-power-select-multiple-option {
