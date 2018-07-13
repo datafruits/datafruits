@@ -1,7 +1,13 @@
 import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model(params) {
-    return this.store.find('dj', params.name);
+    return this.store.queryRecord('dj', { filter: { name: params.name} });
+
   },
+  serialize(dj) {
+    return {
+      name: dj.get('name')
+    };
+  }
 });

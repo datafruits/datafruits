@@ -6,5 +6,8 @@ export default ApplicationAdapter.extend({
   },
   urlForFindRecord(name){
     return `${this.urlPrefix()}/djs/${name}.json`;
-  }
+  },
+  urlForQueryRecord(query){
+    return `${this.urlPrefix()}/djs/${query.filter.name}.json`;
+  },
 });
