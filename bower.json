@@ -2,7 +2,6 @@
   "name": "datafruits",
   "dependencies": {
     "autolink": "~1.0.1",
-    "bourbon": "~4.2.3",
     "jquery": ">=2.0.0",
     "jsTimezoneDetect": "~1.0.6",
     "loader.js": "ember-cli/loader.js#3.2.1",
