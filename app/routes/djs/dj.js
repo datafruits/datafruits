@@ -1,10 +1,7 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 
 export default Ember.Route.extend({
   model(params) {
-    return fetch('https://datafruits.streampusher.com/djs/'+params.id+'.json')
-    .then(function(response){
-      return response.json();
-    });
-  }
+    return this.store.find('dj', params.name);
+  },
 });
