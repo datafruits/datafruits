@@ -32,7 +32,7 @@ Router.map(function() {
   this.route('podcasts');
   this.route('about');
   this.route('subscribe');
-  this.route('show', {path: '/shows/:id'});
+  this.route('show', {path: '/shows/:show_slug'});
   this.route('dj-inquiry');
   this.route('coc');
   this.route('chat');

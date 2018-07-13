@@ -9,4 +9,5 @@ export default DS.Model.extend({
   description: DS.attr(),
   htmlDescription: DS.attr(),
   tweetContent: DS.attr()
+  slug: DS.attr()
 });
