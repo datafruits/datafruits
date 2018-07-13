@@ -96,7 +96,7 @@ form#enter-chat {
   }
 }
 
-@keyframes(textshadowfade) {
+@keyframes textshadowfade {
   from {
     text-shadow: $green -1px -1px, $green -2px -2px, $green -3px -3px, $green -4px -4px, $green -5px -5px, $green -6px -6px, $green -7px -7px, $green -8px -8px, $green -9px -9px, $green -10px -10px, $green -11px -11px, $green -12px -12px, $green -13px -13px, $green -14px -14px, $green -15px -15px;
   }
@@ -114,7 +114,7 @@ form#enter-chat {
   }
 }
 
-@keyframes(rotation){
+@keyframes rotation {
   from {
     transform: rotate(0deg);
   }
@@ -123,7 +123,7 @@ form#enter-chat {
   }
 }
 
-@keyframes(slideup){
+@keyframes slideup {
   0% {
     bottom: -110px;
   }
