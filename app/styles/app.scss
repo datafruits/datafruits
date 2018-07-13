@@ -537,14 +537,6 @@ form {
 
 @import "ember-power-select";
 
-.tiny-guy {
-  position: absolute;
-  z-index: 1000;
-  bottom: -5px;
-  right: 0;
-  @include animation(slideup 10s linear infinite);
-}
-
 .ember-power-select-multiple-option {
   text-shadow: none;
 }
