@@ -5,6 +5,9 @@
     <p>
       {{model.bio}}
     </p>
-    <h2>SHOWS</h2>
+    <h2>Podcasts</h2>
+    {{#each model.podcasts as |track|}}
+      {{podcast-track cdnUrl=track.cdnUrl title=track.title labels=track.labels selectLabel="browseLabel"}}
+    {{/each}}
   </div>
 </div>
