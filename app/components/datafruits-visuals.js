@@ -17,7 +17,7 @@ export default Component.extend({
 
   autoplay: false,
 
-  videoStreamActive: false,
+  videoStreamActive: true,
 
   isMobile() {
     if( navigator.userAgent.match(/Android/i)
@@ -89,12 +89,14 @@ export default Component.extend({
     fetch(`${host}/LiveApp/streams/${name}_adaptive.m3u8`, {method:'HEAD'}).then((response) => {
       if (response.status == 200) {
         //// adaptive m3u8 existslay it
+        console.log("found adaptive m3u8 stream");
         this.initializePlayer(`${name}_adaptive`, "m3u8");
       } else {
         //adaptive m3u8 not exists, try m3u8 exists.
         fetch(`${host}/LiveApp/streams/${name}.m3u8`, {method:'HEAD'}).then((response) => {
           if (response.status == 200) {
             //m3u8 exists, play it
+            console.log("found m3u8 stream");
             this.initializePlayer(name, "m3u8");
           } else {
             //no m3u8 exists, try vod file
@@ -102,6 +104,7 @@ export default Component.extend({
             fetch(`${host}/LiveApp/streams/${name}.mp4`, {method:'HEAD'}).then((response) => {
               if (response.status == 200) {
                 //mp4 exists, play it
+                console.log("found mp4 stream");
                 this.initializePlayer(name, "mp4");
               } else {
                     console.log("No stream found");
