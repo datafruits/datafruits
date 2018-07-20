@@ -15,7 +15,7 @@ export default Component.extend({
     this.set('streamName', ENV.STREAM_NAME);
   },
 
-  autoplay: false,
+  autoPlay: true,
 
   videoStreamActive: true,
 
@@ -71,33 +71,27 @@ export default Component.extend({
 
 
     if (this.get('autoPlay')) {
-
       player.play();
-
     }
-
   },
 
-  //ask if adaptive m3u8 file
-  //
-  didInsertElement(){
-    if(!this.isMobile()){
-      this.set('autoPlay', true);
-    }
+  fetchStream(){
+    this.set('videoStreamActive', true);
+
     let name = this.get('streamName');
     let host = this.get('streamHost');
     fetch(`${host}/LiveApp/streams/${name}_adaptive.m3u8`, {method:'HEAD'}).then((response) => {
       if (response.status == 200) {
-        //// adaptive m3u8 existslay it
+        //// adaptive m3u8 exists, play it
         console.log("found adaptive m3u8 stream");
-        this.initializePlayer(`${name}_adaptive`, "m3u8");
+        this.get('initializePlayer').call(this, `${name}_adaptive`, "m3u8");
       } else {
         //adaptive m3u8 not exists, try m3u8 exists.
         fetch(`${host}/LiveApp/streams/${name}.m3u8`, {method:'HEAD'}).then((response) => {
           if (response.status == 200) {
             //m3u8 exists, play it
             console.log("found m3u8 stream");
-            this.initializePlayer(name, "m3u8");
+            this.get('initializePlayer').call(this, name, "m3u8");
           } else {
             //no m3u8 exists, try vod file
 
@@ -105,9 +99,10 @@ export default Component.extend({
               if (response.status == 200) {
                 //mp4 exists, play it
                 console.log("found mp4 stream");
-                this.initializePlayer(name, "mp4");
+                this.get('initializePlayer').call(this, name, "mp4");
               } else {
-                    console.log("No stream found");
+                console.log("No stream found");
+                this.set('videoStreamActive', false);
               }
             }).catch(function(err) {
               console.log("Error: " + err);
@@ -121,5 +116,9 @@ export default Component.extend({
     }).catch(function(err) {
       console.log("Error: " + err);
     });
+  },
+
+  didInsertElement(){
+    this.get('fetchStream').call(this);
   }
 });
