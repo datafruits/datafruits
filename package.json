@@ -17,7 +17,7 @@
   "dependencies": {
     "active-model-adapter": "^2.2.0",
     "bootstrap-sass": "^3.3.7",
-    "broccoli-asset-rev": "^2.4.5",
+    "broccoli-asset-rev": "^2.7.0",
     "broccoli-babel-transpiler": "^6.0.0",
     "broccoli-es6modules": "^1.2.2",
     "broccoli-merge-trees": "^2.0.0",
@@ -67,7 +67,7 @@
     "videojs-contrib-hls": "^5.14.1"
   },
   "engines": {
-    "node": ">= 4"
+    "node": "6.* || 8.* || >= 10.*"
   },
   "private": true,
   "ember-addon": {
@@ -76,8 +76,10 @@
     ]
   },
   "devDependencies": {
-    "ember-cli": "2.18.2",
+    "ember-cli": "~3.3.0",
     "ember-i18n": "^5.2.0",
-    "ember-videojs-hls": "^0.0.2"
+    "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-videojs-hls": "^0.0.2",
+    "qunit-dom": "^0.6.2"
   }
 }
