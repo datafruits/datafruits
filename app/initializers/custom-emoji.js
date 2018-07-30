@@ -37,6 +37,14 @@ export function initialize(/* application */) {
       uc_output: "",
       shortnames: [":trekkie:", ":trekkietrax:"],
       keywords: ["trekkie", "trekkietrax"]
+    },
+    ":datafruits:": {
+      custom: true,
+      uc_base: "datafruits",
+      uc_output: "",
+      shortnames: [":datafruits:", ":datacoin:"],
+      keywords: ["datafruits", "datacoin"],
+      extension: "gif"
     }
   };
   Object.keys(customEmojis).forEach(emoji => {
