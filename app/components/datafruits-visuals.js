@@ -1,13 +1,11 @@
 //import $ from 'jquery';
 import Component from '@ember/component';
-//import { later } from '@ember/runloop';
+import { later, run } from '@ember/runloop';
 import ENV from "datafruits13/config/environment";
 import videojs from "npm:video.js";
 
 export default Component.extend({
   classNames: ['visuals'],
-  // googleApiKey: ENV.GOOGLE_API_KEY,
-  // youtubeChannelId: ENV.YOUTUBE_CHANNEL_ID,
 
   init() {
     this._super(...arguments);
@@ -15,9 +13,10 @@ export default Component.extend({
     this.set('streamName', ENV.STREAM_NAME);
   },
 
-  autoplay: false,
+  autoplay: true,
 
   videoStreamActive: false,
+  videoActivated: false,
 
   isMobile() {
     if( navigator.userAgent.match(/Android/i)
@@ -35,74 +34,78 @@ export default Component.extend({
     }
   },
 
-  initializePlayer(name, extension) {
-    this.set("videoStreamActive", true);
-    let type;
-    let liveStream = false;
-    let host = this.get('streamHost');
-    if (extension == "mp4") {
-      type = "video/mp4";
-      liveStream = false;
-    }
-    else if (extension == "m3u8") {
-      type = "application/x-mpegURL";
-      liveStream = true;
-    }
-    else {
-      console.log("Unknown extension: " + extension);
-      this.set("videoStreamActive", false);
-      return;
-    }
+  initializePlayer() {
+    let name = this.get('streamName');
+    let extension = this.get('extension');
+    run(() => {
+      let type;
+      let host = this.get('streamHost');
+      let streamUrl = `${host}/LiveApp/streams/${name}.${extension}`;
+      if (extension == "mp4") {
+        type = "video/mp4";
+      }
+      else if (extension == "m3u8") {
+        type = "application/x-mpegURL";
+      }
+      else {
+        console.log("Unknown extension: " + extension);
+        this.set("videoStreamActive", false);
+        return;
+      }
 
-    let preview = name;
-    if (name.endsWith("_adaptive")) {
-      preview = name.substring(0, name.indexOf("_adaptive"));
-    }
+      let preview = name;
+      if (name.endsWith("_adaptive")) {
+        preview = name.substring(0, name.indexOf("_adaptive"));
+      }
 
-    let player = videojs('video-player', {
-      poster: `previews/${preview}.png`
+      let player = videojs('video-player', {
+        poster: `previews/${preview}.png`
 
+      });
+
+      console.log(streamUrl);
+      player.src({
+        src: streamUrl,
+        type: type
+      });
+
+
+      if (this.get('autoPlay')) {
+
+        player.play();
+
+      }
+      this.set('videoActivated', true);
     });
-
-    player.src({
-      src: `${host}/LiveApp/streams/${name}.${extension}`,
-      type: type
-    });
-
-
-    if (this.get('autoPlay')) {
-
-      player.play();
-
-    }
 
   },
 
-  //ask if adaptive m3u8 file
-  //
-  didInsertElement(){
-    if(!this.isMobile()){
-      this.set('autoPlay', true);
-    }
+  streamIsActive(name, extension){
+    this.set("videoStreamActive", true);
+    this.set('streamName', name);
+    this.set('extension', extension);
+  },
+
+  fetchStream(){
     let name = this.get('streamName');
     let host = this.get('streamHost');
     fetch(`${host}/LiveApp/streams/${name}_adaptive.m3u8`, {method:'HEAD'}).then((response) => {
       if (response.status == 200) {
         //// adaptive m3u8 existslay it
-        this.initializePlayer(`${name}_adaptive`, "m3u8");
+        this.streamIsActive(`${name}_adaptive`, "m3u8");
       } else {
         //adaptive m3u8 not exists, try m3u8 exists.
         fetch(`${host}/LiveApp/streams/${name}.m3u8`, {method:'HEAD'}).then((response) => {
           if (response.status == 200) {
             //m3u8 exists, play it
-            this.initializePlayer(name, "m3u8");
+            this.streamIsActive(name, "m3u8");
           } else {
             //no m3u8 exists, try vod file
 
             fetch(`${host}/LiveApp/streams/${name}.mp4`, {method:'HEAD'}).then((response) => {
               if (response.status == 200) {
                 //mp4 exists, play it
-                this.initializePlayer(name, "mp4");
+                this.streamIsActive(name, "mp4");
               } else {
                     console.log("No stream found");
               }
@@ -118,5 +121,24 @@ export default Component.extend({
     }).catch(function(err) {
       console.log("Error: " + err);
     });
+  },
+
+  didRender(){
+    if(this.get("videoStreamActive")){
+      this.initializePlayer();
+    }else {
+      later(()=> {
+        this.fetchStream();
+      }, 5000);
+    }
+  },
+
+  //ask if adaptive m3u8 file
+  //
+  didInsertElement(){
+    if(!this.isMobile()){
+      this.set('autoPlay', true);
+    }
+    this.fetchStream();
   }
 });
