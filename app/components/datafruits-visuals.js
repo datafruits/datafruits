@@ -129,7 +129,7 @@ export default Component.extend({
     }else {
       later(()=> {
         this.fetchStream();
-      }, 5000);
+      }, 15000);
     }
   },
 
