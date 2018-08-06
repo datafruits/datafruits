@@ -63,9 +63,7 @@
     "emojione": "git://github.com/mcfiredrill/emojione#custom-emoji",
     "eslint-plugin-ember": "^5.0.3",
     "fullcalendar": "^3.1.0",
-    "loader.js": "^4.2.3",
-    "video.js": "^6.7.3",
-    "videojs-contrib-hls": "^5.14.1"
+    "loader.js": "^4.2.3"
   },
   "engines": {
     "node": ">= 4"
@@ -77,7 +75,9 @@
     ]
   },
   "devDependencies": {
+    "ember-auto-import": "^1.2.5",
     "ember-i18n": "^5.2.0",
-    "ember-videojs-hls": "^0.0.2"
+    "video.js": "^7.1.0",
+    "videojs-contrib-hls": "^5.14.1"
   }
 }

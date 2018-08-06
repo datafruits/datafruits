@@ -2,7 +2,8 @@
 import Component from '@ember/component';
 import { later, run } from '@ember/runloop';
 import ENV from "datafruits13/config/environment";
-import videojs from "npm:video.js";
+import videojs from "video.js";
+import "videojs-contrib-hls";
 
 export default Component.extend({
   classNames: ['visuals'],
@@ -35,7 +36,7 @@ export default Component.extend({
   },
 
   initializePlayer() {
-    let name = this.get('streamName');
+    let name = this.get('stream');
     let extension = this.get('extension');
     run(() => {
       let type;
@@ -82,7 +83,7 @@ export default Component.extend({
 
   streamIsActive(name, extension){
     this.set("videoStreamActive", true);
-    this.set('streamName', name);
+    this.set('stream', name);
     this.set('extension', extension);
   },
 
