@@ -17,7 +17,7 @@
   "dependencies": {
     "active-model-adapter": "^2.2.0",
     "bootstrap-sass": "^3.3.7",
-    "broccoli-asset-rev": "^2.4.5",
+    "broccoli-asset-rev": "^3.0.0",
     "broccoli-babel-transpiler": "^6.0.0",
     "broccoli-es6modules": "^1.2.2",
     "broccoli-merge-trees": "^2.0.0",
