@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import _ from 'lodash';
+import pagedArray from 'ember-cli-pagination/computed/paged-array';
 
 export default Component.extend({
   init(){
@@ -36,6 +37,16 @@ export default Component.extend({
     },
     selectLabel(label) {
       this.get('selectedLabels').addObject(label.get('name'));
-    }
-  }
+	  this.set('page', 1);
+    },
+	resetPagination(){
+	  this.set('page', 1);
+	}
+  },
+  queryParams: ["page", "perPage", "filteredPage"],
+  page: 1,
+  perPage: 20,
+  filteredPage: 1,
+  pagedTracks: pagedArray('tracks', {pageBinding: "page", perPageBinding: "perPage"}),
+  pagedFilteredResults: pagedArray('filteredResults', {pageBinding: "page", perPageBinding: "perPage"})
 });

@@ -1,20 +1,23 @@
-{{input class="search-tracks" autofocus="autofocus" value=filterText escape-press='clearSearch' placeholder="Search podcasts"}}
+{{input class="search-tracks" autofocus="autofocus" value=filterText escape-press='clearSearch' placeholder="Search podcasts" input=(action "resetPagination")}}
 {{#power-select-multiple
     placeholder="Search by tag..."
     options=labelNames
     selected=selectedLabels
     renderInPlace=true
     onchange=(action (mut selectedLabels))
+	oninput=(action "resetPagination")
     as |label|
 }}
   {{label}}
 {{/power-select-multiple}}
 {{#if isSearching}}
-  {{#each filteredResults as |track|}}
+  {{#each pagedFilteredResults as |track|}}
     {{podcast-track cdnUrl=track.cdnUrl title=track.title labels=track.labels selectLabel="selectLabel"}}
   {{/each}}
+  {{page-numbers content=pagedFilteredResults}}
 {{else}}
-  {{#each tracks as |track|}}
+  {{#each pagedTracks as |track|}}
     {{podcast-track cdnUrl=track.cdnUrl title=track.title labels=track.labels selectLabel="selectLabel"}}
   {{/each}}
-{{/if}}
+  {{page-numbers content=pagedTracks}}
+{{/if}} 
