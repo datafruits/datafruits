@@ -22,7 +22,10 @@ export default {
     'description': 'Interested in DJing and hosting your own radio show on datafruits.fm? Just fill out this form and we will get back to you ASAP.',
     'email': 'Email',
     'username': 'Desired username',
-
+    'link_to_mix': "Link to a 1-2 hour mix you've made",
+    'interval': "Would you like to do a daily, weekly, bi-weekly or monthly show?",
+    "time": "what time would you like to do a show? typical shows are 2 hours. e.g. sundays at 3pm-5pm PST",
+    "error": "There was an error sending your application! Please check the error messages and try again."
   },
   'about_datafruits': "Datafruits is a netradio and netlabel founded in 2012 by Tony Miller (mcfiredrill). Its mission is to bring you the world's strangest electronic sounds and bring together the electronic music communities around the world.",
   'code_of_conduct': 'Code Of Conduct',

@@ -1,60 +1,91 @@
 {{title "DJ on DATAFRUITS.FM"}}
 <div class="main-content">
-  <h1 id="myModalLabel">{{t "djinquiry.heading"}}</h1>
+  <h1 id="myModalLabel">
+    <img src="{{random-loading-spinner}}">
+    {{t "djinquiry.heading"}}
+    <img src="{{random-loading-spinner}}">
+  </h1>
   <div class="modal-body">
     <p>
       {{t "djinquiry.description"}}
     </p>
     <p>
+      {{#if model.errors}}
+        <div class="error-message">
+          {{t "djinquiry.error"}}
+        </div>
+      {{/if}}
       <form {{action "submit" on="submit"}}>
         <div>
-          <label>{{t "djinquiry.email"}}</label>{{input value=model.email}}
+          <label>{{t "djinquiry.email"}}</label>
+          <br />
+          {{input value=model.email}}
+          {{#if model.errors.email}}
+            {{#each model.errors.email as |error|}}
+              <div class="error">
+                {{error.attribute}}{{error.message}}
+              </div>
+            {{/each}}
+          {{/if}}
         </div>
         <div>
-          <label>{{t "djinquiry.username"}}</label>{{input value=model.username}}
+          <label>{{t "djinquiry.username"}}</label>
+          <br />
+          {{input value=model.username}}
+          {{#if model.errors.username}}
+            {{#each model.errors.username as |error|}}
+              <div class="error">
+                {{error.attribute}}{{error.message}}
+              </div>
+            {{/each}}
+          {{/if}}
         </div>
         <div>
-          <label>Link to a 1-2 hour mix you've made</label>{{input value=model.link}}
+          <label>{{t "djinquiry.link_to_mix"}}</label>
+          <br />
+          {{input value=model.link}}
+          {{#if model.errors.link}}
+            {{#each model.errors.link as |error|}}
+              <div class="error">
+                {{error.attribute}}{{error.message}}
+              </div>
+            {{/each}}
+          {{/if}}
         </div>
         <div>
-          <label>Would you like to do a weekly, bi-weekly or monthly show?</label>
-          {{#power-select
-            selected=model.interval
-            options=intervals
-            onchange=(action (mut model.interval))
-            as |name|
-            }}
-            {{name}}
-          {{/power-select}}
-
+          <label>{{t "djinquiry.interval"}}</label>
+          <br />
+          <select onchange={{action "setInterval"}} value="target.value">
+            {{#each intervals as |interval|}}
+              {{#if (eq model.interval interval)}}
+                <option value={{interval}} selected="selected">{{interval}}</option>
+              {{else}}
+                <option value={{interval}}>{{interval}}</option>
+              {{/if}}
+            {{/each}}
+          </select>
         </div>
         <div>
-          <label>what time would you like to do a show? typical shows are 2 hours. e.g. sundays at 3pm-5pm PST</label>
-          {{#power-select
-            selected=dayOfWeek
-            options=intervals
-            onchange=(action (mut model.interval))
-            as |name|
-            }}
-            {{name}}
-          {{/power-select}}
+          <label>{{t "djinquiry.time"}}</label>
+          <br />
+          {{textarea value=model.desiredTime}}
+          {{#if model.errors.desiredTime}}
+            {{#each model.errors.desiredTime as |error|}}
+              <div class="error">
+                {{error.attribute}}{{error.message}}
+              </div>
+            {{/each}}
+          {{/if}}
         </div>
         <div>
           <label>Any other questions or comments?</label>
-          {{input type="text" value=model.otherComment}}
+          <br />
+          {{textarea value=model.otherComment}}
         </div>
         <div>
           <input type="submit" value="Send" class="cool-button">
         </div>
       </form>
     </p>
-  </div>
-  <div class="modal-footer">
-    <ul class="social-icons">
-      <li><a href="http://twitter.com/datafruits" class="lsf-icon" title="twitter" target="_blank"></a></li>
-      <li><a href="http://github.com/datafruits" class="lsf-icon" title="github" target="_blank"></a></li>
-      <li><a href="http://soundcloud.com/datafruits" class="lsf-icon" title="soundcloud" target="_blank"></a></li>
-      <li><a href="mailto:info@datafruits.fm" class="lsf-icon" title="mail" target="_blank"></a></li>
-    </ul>
   </div>
 </div>
