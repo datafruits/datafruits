@@ -84,7 +84,7 @@
           {{textarea value=model.otherComment}}
         </div>
         <div>
-          <input type="submit" value="Send" class="cool-button">
+          <input type="submit" value="Send" class="cool-button" disabled={{model.isSaving}}>
         </div>
       </form>
     </p>
