@@ -25,6 +25,7 @@ export default {
     'link_to_mix': "Link to a 1-2 hour mix you've made",
     'interval': "Would you like to do a daily, weekly, bi-weekly or monthly show?",
     "time": "what time would you like to do a show? typical shows are 2 hours. e.g. sundays at 3pm-5pm PST",
+    "other": "Any other questions or comments?",
     "error": "There was an error sending your application! Please check the error messages and try again.",
     "thanks": "Thanks for your application! We'll reply to your email as soon as possible."
   },
