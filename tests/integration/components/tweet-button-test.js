@@ -1,19 +1,21 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('tweet-button', 'Integration | Component | tweet button', {
-  integration: true
-});
+module('Integration | Component | tweet button', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-  this.set("text", "hey this is the tweet")
-  window.twttr = { widgets: { load: function(){} } };
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
+    this.set("text", "hey this is the tweet")
+    window.twttr = { widgets: { load: function(){} } };
 
-  this.render(hbs`{{tweet-button data-text=text}}`);
+    await render(hbs`{{tweet-button data-text=text}}`);
 
-  assert.equal(this.$().text().trim(), 'Tweet');
+    assert.dom('*').hasText('Tweet');
+  });
 });

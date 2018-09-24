@@ -11,7 +11,7 @@ export default Controller.extend({
       this.set('model.interval', interval);
     },
     submit(){
-      let hostApplication = this.get('model');
+      let hostApplication = this.model;
       hostApplication.set('timeZone', jstz.determine().name());
       hostApplication.save();
     }

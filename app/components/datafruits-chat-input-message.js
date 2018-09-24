@@ -10,9 +10,9 @@ export default Component.extend({
   joinedUsers: oneWay('chat.joinedUsers'),
   actions: {
     sendMessage(){
-      const message = this.get('inputMessage');
+      const message = this.inputMessage;
       if(message){
-        this.get('chat').push("new:msg", { user: this.get('username'), body: message, timestamp: Date.now() });
+        this.chat.push("new:msg", { user: this.username, body: message, timestamp: Date.now() });
         this.set('inputMessage', '');
       }
     }
@@ -65,8 +65,8 @@ export default Component.extend({
         match: /\b(\w{2,})$/,
         search: (term, callback) => {
           let matches;
-          matches = this.get('joinedUsers').filter((word) => {
-            return (word.indexOf(term) === 0) && (word !== this.get('username'));
+          matches = this.joinedUsers.filter((word) => {
+            return (word.indexOf(term) === 0) && (word !== this.username);
           });
           callback(matches);
         },

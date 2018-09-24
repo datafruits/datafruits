@@ -2,7 +2,7 @@
 import Service from '@ember/service';
 import ArrayProxy from '@ember/array/proxy';
 import { A } from '@ember/array';
-import {Socket/*, LongPoller*/} from "phoenix";
+import { Socket/*, LongPoller*/ } from "phoenix";
 import ENV from "datafruits13/config/environment";
 
 export default Service.extend({

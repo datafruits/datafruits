@@ -14,7 +14,7 @@ export default Component.extend({
       }
     },
     adjustScrolling(){
-      if(this.get('willAutoscroll')){
+      if(this.willAutoscroll){
         $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
       }
     }

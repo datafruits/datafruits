@@ -16,7 +16,6 @@ export default {
   'blog': '블로그',
   'shop': '샵',
   'subscribe': '구독하기',
-  'djinquiry': 'DJ문의',
   'djinquiry': {
     'title': 'DJ문의',
     'heading': 'Want to have your own show on Datafruits?',

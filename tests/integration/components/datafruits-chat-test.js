@@ -1,17 +1,19 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render, find } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('datafruits-chat', 'Integration | Component | datafruits chat', {
-  integration: true
-});
+module('Integration | Component | datafruits chat', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  assert.expect(1);
+  test('it renders', async function(assert) {
+    assert.expect(1);
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{datafruits-chat}}`);
+    await render(hbs`{{datafruits-chat}}`);
 
-  assert.equal(this.$().text().trim(), 'Join chatroom');
+    assert.dom('*').hasText('Join chatroom');
+  });
 });
