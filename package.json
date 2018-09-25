@@ -51,7 +51,7 @@
     "ember-lazy-image": "0.0.15",
     "ember-load-initializers": "^1.1.0",
     "ember-lodash": "^4.17.5",
-    "ember-metrics": "^0.12.1",
+    "ember-metrics": "https://github.com/poteto/ember-metrics.git",
     "ember-page-title": "^3.2.2",
     "ember-power-select": "^1.8.5",
     "ember-resolver": "^4.0.0",
