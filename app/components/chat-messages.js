@@ -9,7 +9,7 @@ export default Component.extend({
       if(this.scrolledToBottom()){
         this.set('willAutoscroll', true);
       }else{
-        this.sendAction("newMessagesAvailable");
+        this.get("newMessagesAvailable")();
         this.set('willAutoscroll', false);
       }
     },
