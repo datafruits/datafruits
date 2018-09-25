@@ -14,6 +14,7 @@ export default Service.extend({
     this.chan.push(message, object);
   },
   init() {
+    this._super(...arguments);
     let socket = new Socket(ENV.CHAT_SOCKET_URL, {
 
       logger: function logger(/*kind, msg, data*/) {
