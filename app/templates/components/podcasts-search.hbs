@@ -1,4 +1,4 @@
-{{input class="search-tracks" autofocus="autofocus" value=filterText escape-press='clearSearch' placeholder="Search podcasts"}}
+{{input class="search-tracks" autofocus="autofocus" value=filterText escape-press=(action 'clearSearch') placeholder="Search podcasts"}}
 {{#power-select-multiple
     placeholder="Search by tag..."
     options=labelNames
