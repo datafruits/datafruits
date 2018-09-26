@@ -52,7 +52,7 @@
     "ember-load-initializers": "^1.1.0",
     "ember-lodash": "^4.17.5",
     "ember-metrics": "https://github.com/poteto/ember-metrics.git",
-    "ember-page-title": "^3.2.2",
+    "ember-page-title": "4.0.5",
     "ember-power-select": "^1.8.5",
     "ember-resolver": "^4.0.0",
     "ember-source": "~3.4.0",
