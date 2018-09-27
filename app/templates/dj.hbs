@@ -11,7 +11,7 @@
       <h2>Upcoming shows</h2>
       {{#each model.upcomingShows as |show|}}
         {{#link-to "show" show}}{{show.title}}{{/link-to}}
-        <span>{{show.start}}</span>
+        <span>{{format-date show.start}}</span>
       {{/each}}
     </div>
   </div>
