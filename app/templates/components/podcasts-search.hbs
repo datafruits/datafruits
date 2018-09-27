@@ -1,5 +1,4 @@
-{{input class="search-tracks" autofocus="autofocus" value=filterText escape-press='clearSearch' placeholder="Search podcasts" input=(action "resetPagination")}}
-{{input class="search-tracks" autofocus="autofocus" value=filterText escape-press=(action 'clearSearch') placeholder="Search podcasts"}}
+{{input class="search-tracks" autofocus="autofocus" value=filterText escape-press=(action 'clearSearch') placeholder="Search podcasts" input=(action "resetPagination")}}
 {{#power-select-multiple
     placeholder="Search by tag..."
     options=labelNames
@@ -36,4 +35,4 @@
   {{#if (lt meta.page meta.total_pages)}}
 	  <span class="pagination">{{#link-to "podcasts" (query-params page=(inc meta.page))}}»{{/link-to}}</span>
   {{/if}}
-{{/if}} 
+{{/if}}
