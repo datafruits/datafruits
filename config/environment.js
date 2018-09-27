@@ -27,7 +27,7 @@ module.exports = function(environment) {
     },
 
     fastboot: {
-      hostWhitelist: ['streampusher.com', 'datafruits.streampusher.com', 'datafruits.tumblr.com']
+      hostWhitelist: ['streampusher.com', 'datafruits.streampusher.com', 'datafruits.tumblr.com', 'datafruits.fm', 'www.datafruits.fm', /^localhost:\d+$/]
     },
 
     moment: {
@@ -49,9 +49,11 @@ module.exports = function(environment) {
         config: {
           id: 'UA-28868734-1',
           // Use `analytics_debug.js` in development
-          debug: environment === 'development',
+          //debug: environment === 'development',
+          debug: false,
           // Use verbose tracing of GA events
-          trace: environment === 'development',
+          //trace: environment === 'development',
+          trace: false,
           // Ensure development env hits aren't sent to GA
           sendHitTask: environment !== 'development'
         }

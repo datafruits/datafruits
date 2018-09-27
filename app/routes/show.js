@@ -2,7 +2,7 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   model(params) {
-    return this.store.find('scheduled-show', params.id);
+    return this.store.findRecord('scheduled-show', params.id);
   },
 
   afterModel: function(model) {

@@ -9,7 +9,7 @@ export default DS.Model.extend({
   labels: DS.hasMany('label'),
   podcast: DS.belongsTo('podcast'),
   labelNames: computed('labels', function(){
-    return this.get('labels').map((label) => {
+    return this.labels.map((label) => {
       return label.get('name');
     });
   })

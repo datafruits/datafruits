@@ -2,7 +2,7 @@
 import Service from '@ember/service';
 import ArrayProxy from '@ember/array/proxy';
 import { A } from '@ember/array';
-import {Socket/*, LongPoller*/} from "phoenix";
+import { Socket/*, LongPoller*/ } from "phoenix";
 import ENV from "datafruits13/config/environment";
 
 export default Service.extend({
@@ -14,6 +14,7 @@ export default Service.extend({
     this.chan.push(message, object);
   },
   init() {
+    this._super(...arguments);
     let socket = new Socket(ENV.CHAT_SOCKET_URL, {
 
       logger: function logger(/*kind, msg, data*/) {
