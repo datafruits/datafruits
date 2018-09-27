@@ -14,12 +14,12 @@ export default Component.extend({
   joinedUsers: oneWay('chat.joinedUsers'),
   actions: {
     toggleGifsEnabled(){
-      this.get("chat").toggleProperty("gifsEnabled");
+      this.chat.toggleProperty("gifsEnabled");
     },
     enterChat(){
       this.set('isJoiningChat', true);
-      const nick = this.get('nick').trim();
-      this.get('chat').push("authorize", { user: nick, timestamp: Date.now() });
+      const nick = this.nick.trim();
+      this.chat.push("authorize", { user: nick, timestamp: Date.now() });
     },
     newMessagesAvailable(){
       this.set("newMessagesBelow", true);
@@ -34,7 +34,7 @@ export default Component.extend({
     }else{
       this.set("newMessagesBelow", true);
     }
-    this.get('chat').set('scrollTop', $('#messages')[0].scrollTop);
+    this.chat.set('scrollTop', $('#messages')[0].scrollTop);
   },
   didInsertElement(){
     var onScroll = this._onScroll.bind(this);

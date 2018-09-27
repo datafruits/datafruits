@@ -514,7 +514,18 @@ a:hover {
 }
 
 form {
-  color: black;
+  label {
+    color: yellow;
+  }
+  textarea, select {
+    color: black;
+  }
+  .error {
+    color: red;
+    background: white;
+    border-radius: 3px;
+    padding: 2px;
+  }
 }
 
 .grid-item {

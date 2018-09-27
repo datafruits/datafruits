@@ -9,12 +9,12 @@ export default Component.extend({
       if(this.scrolledToBottom()){
         this.set('willAutoscroll', true);
       }else{
-        this.sendAction("newMessagesAvailable");
+        this.get("newMessagesAvailable")();
         this.set('willAutoscroll', false);
       }
     },
     adjustScrolling(){
-      if(this.get('willAutoscroll')){
+      if(this.willAutoscroll){
         $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
       }
     }

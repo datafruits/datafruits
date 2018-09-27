@@ -8,17 +8,17 @@ export default TumblrPost.extend({
   caption: DS.attr(),
   player: DS.attr(),
   captionSafe: computed('caption', function(){
-    return htmlSafe(this.get('caption'));
+    return htmlSafe(this.caption);
   }),
   playerSafe: computed('player', function(){
-    return htmlSafe(this.get('player')[2].embed_code);
+    return htmlSafe(this.player[2].embed_code);
   }),
   embedSafe: computed('embed', function(){
-    return htmlSafe(this.get('embed'));
+    return htmlSafe(this.embed);
   }),
   body: DS.attr(),
   embed: DS.attr(),
   bodySafe: computed('body', function(){
-    return htmlSafe(this.get('body'));
+    return htmlSafe(this.body);
   }),
 });

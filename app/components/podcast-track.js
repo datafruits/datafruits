@@ -4,7 +4,7 @@ import $ from 'jquery';
 
 export default Component.extend({
   init(){
-    this.get("eventBus").subscribe("trackPlayed", this, "onTrackPlayed");
+    this.eventBus.subscribe("trackPlayed", this, "onTrackPlayed");
     this._super(...arguments);
   },
   eventBus: service(),
@@ -13,13 +13,13 @@ export default Component.extend({
       var stream = {
         mp3: this.cdnUrl
       };
-      if(this.get("paused") !== true){
+      if(this.paused !== true){
         $("#radio-player").jPlayer("setMedia", stream);
       }
       $("#radio-player").jPlayer("play");
       this.set("playing", true);
       this.set("paused", false);
-      this.get('eventBus').publish("trackPlayed", this);
+      this.eventBus.publish("trackPlayed", this);
     },
     pause: function(){
       $("#radio-player").jPlayer("pause");
@@ -32,7 +32,7 @@ export default Component.extend({
   },
   onTrackPlayed: function(event){
     if(this !== event){
-      if(!(this.get('isDestroyed') || this.get('isDestroying'))) {
+      if(!(this.isDestroyed || this.isDestroying)) {
         this.set("playing", false);
       }
     }

@@ -7,11 +7,11 @@ import $ from 'jquery';
 export default Component.extend({
   title: "",
   init(){
-    this.get("eventBus").subscribe("trackPlayed", this, "onTrackPlayed");
+    this.eventBus.subscribe("trackPlayed", this, "onTrackPlayed");
     this._super(...arguments);
   },
   isLive: computed('title', function(){
-    return this.get('title').startsWith("LIVE");
+    return this.title.startsWith("LIVE");
   }),
   pollRadioTitle() {
     let _this = this;
@@ -21,7 +21,7 @@ export default Component.extend({
     }, 10000);
   },
   setRadioTitle() {
-    if(!this.get('playingPodcast')){
+    if(!this.playingPodcast){
       let url = $('#radio-player').data('icecast-json').toString();
 
       $.get(url).done((data) => {

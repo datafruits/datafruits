@@ -35,11 +35,11 @@ export default Component.extend({
   },
 
   initializePlayer() {
-    let name = this.get('streamName');
-    let extension = this.get('extension');
+    let name = this.streamName;
+    let extension = this.extension;
     run(() => {
       let type;
-      let host = this.get('streamHost');
+      let host = this.streamHost;
       let streamUrl = `${host}/LiveApp/streams/${name}.${extension}`;
       if (extension == "mp4") {
         type = "video/mp4";
@@ -70,7 +70,7 @@ export default Component.extend({
       });
 
 
-      if (this.get('autoPlay')) {
+      if (this.autoPlay) {
 
         player.play();
 
@@ -87,8 +87,8 @@ export default Component.extend({
   },
 
   fetchStream(){
-    let name = this.get('streamName');
-    let host = this.get('streamHost');
+    let name = this.streamName;
+    let host = this.streamHost;
     fetch(`${host}/LiveApp/streams/${name}_adaptive.m3u8`, {method:'HEAD'}).then((response) => {
       if (response.status == 200) {
         //// adaptive m3u8 existslay it
@@ -124,7 +124,7 @@ export default Component.extend({
   },
 
   didRender(){
-    if(this.get("videoStreamActive")){
+    if(this.videoStreamActive){
       this.initializePlayer();
     }else {
       later(()=> {

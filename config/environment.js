@@ -27,7 +27,7 @@ module.exports = function(environment) {
     },
 
     fastboot: {
-      hostWhitelist: ['streampusher.com', 'datafruits.streampusher.com', 'datafruits.tumblr.com']
+      hostWhitelist: ['streampusher.com', 'datafruits.streampusher.com', 'datafruits.tumblr.com', 'datafruits.fm', 'www.datafruits.fm', /^localhost:\d+$/]
     },
 
     moment: {
