@@ -35,7 +35,6 @@ export default Component.extend({
       this.set('filterText', '');
     },
     selectLabel(label) {
-<<<<<<< HEAD
       this.get('selectedLabels').addObject(label.get('name'));
 	  this.set('page', 1);
     },
@@ -45,9 +44,4 @@ export default Component.extend({
   },
   queryParams: ["page"],
   page: 1,
-=======
-      this.selectedLabels.addObject(label.get('name'));
-    }
-  }
->>>>>>> bd47a29299fcf5aba3a6426e665c2da5a1e756db
 });
