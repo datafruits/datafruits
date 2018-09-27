@@ -11,6 +11,7 @@ export default {
   'chat': 'Chat',
   'podcasts': 'Podcast',
   'timetable': 'Timetable',
+  'djs': 'DJs',
   'label': 'Label',
   'about': 'About',
   'blog': 'Blog',

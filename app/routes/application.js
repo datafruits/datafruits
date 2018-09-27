@@ -6,7 +6,7 @@ export default Route.extend({
   i18n: service(),
   fastboot: service(),
   model(){
-    return this.store.queryRecord('scheduled-show', {next: true});
+//    return this.store.queryRecord('scheduled-show', {next: true});
   },
   afterModel(){
     if(!this.get('fastboot.isFastBoot')){
