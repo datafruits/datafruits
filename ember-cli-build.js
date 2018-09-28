@@ -1,10 +1,11 @@
-/* eslint-env node */
+'use strict';
+
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var fingerprintOptions = {
-    enabled: true
-    //exclude: ['datafruits']
+    enabled: true,
+    exclude: ['assets/images/emojis/*']
   };
 
   var app = new EmberApp(defaults, {
@@ -17,10 +18,6 @@ module.exports = function(defaults) {
 
     emberFullCalendar: {
       scheduler: false
-    },
-
-    dotEnv: {
-      clientAllowedKeys: ['CHAT_SOCKET_URL']
     },
 
     'ember-bootstrap': {

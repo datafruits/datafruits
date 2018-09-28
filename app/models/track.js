@@ -1,9 +1,16 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
 
 export default DS.Model.extend({
-  audio_file_name: DS.attr(),
-  cdn_url: DS.attr(),
+  audioFileName: DS.attr(),
+  cdnUrl: DS.attr(),
   title: DS.attr(),
-  podcast_published_date: DS.attr(),
-  labels: DS.attr()
+  podcastPublishedDate: DS.attr(),
+  labels: DS.hasMany('label'),
+  podcast: DS.belongsTo('podcast'),
+  labelNames: computed('labels', function(){
+    return this.labels.map((label) => {
+      return label.get('name');
+    });
+  })
 });

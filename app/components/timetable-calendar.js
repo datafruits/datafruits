@@ -1,21 +1,12 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
-  occurrences: [],
-  eventSources: ["https://datafruits.streampusher.com/scheduled_shows.json"],
-  timezone: function(){
-    return jstz.determine().name();
-  },
-  header: {
-    left: 'prev,next today',
-    center: 'title',
-    right: 'month,agendaWeek,agendaDay'
-  },
-  nowIndicator: true,
-
-  actions: {
-    goToEvent: function(calEvent){
-      this.sendAction('showEvent', calEvent);
-    },
-  },
+export default Component.extend({
+  eventSources: [
+    {
+      url: "https://datafruits.streampusher.com/scheduled_shows.json",
+      data: {
+        fullcalendar: true
+      }
+    }
+  ],
 });

@@ -1,89 +1,144 @@
-/* global $, gapi */
-import Ember from 'ember';
+//import $ from 'jquery';
+import Component from '@ember/component';
+import { later, run } from '@ember/runloop';
 import ENV from "datafruits13/config/environment";
+import videojs from "npm:video.js";
 
-export default Ember.Component.extend({
-  // googleApiKey: "AIzaSyA2tCCcRl5itJoSLRL-COoHXwpyMAX9raQ",
-  // youtubeChannelId: "UChjo2k-w5UhvroZU0xqVcsg",
-  googleApiKey: ENV.GOOGLE_API_KEY,
-  youtubeChannelId: ENV.YOUTUBE_CHANNEL_ID,
-  ytid: "",
-  playerVars: {
-    autoplay: 1,
-    mute: 1,
-    volume: 0,
-    controls: 0,
-    enablejsapi: 1,
-    rel: 0, // disable related videos
-    showinfo: 0,
-    autohide: 1,
-    fs: 0, // disable fullscreen button
-    playsinline: 1,
-    disablekb: 1,
-    // iv_load_policy: 3,
-    // modestbranding: 1,
-  },
-
+export default Component.extend({
   classNames: ['visuals'],
-  pollYoutubeApi: function(){
+
+  init() {
+    this._super(...arguments);
+    this.set('streamHost', ENV.STREAM_HOST);
+    this.set('streamName', ENV.STREAM_NAME);
   },
-  pollVjApi: function(){
-    var _this = this;
-    Ember.run.later(function() {
-      _this.setVisuals();
-      _this.pollVjApi();
-    }, 10000);
+
+  autoplay: true,
+
+  videoStreamActive: false,
+  videoActivated: false,
+
+  isMobile() {
+    if( navigator.userAgent.match(/Android/i)
+      || navigator.userAgent.match(/webOS/i)
+      || navigator.userAgent.match(/iPhone/i)
+      || navigator.userAgent.match(/iPad/i)
+      || navigator.userAgent.match(/iPod/i)
+      || navigator.userAgent.match(/BlackBerry/i)
+      || navigator.userAgent.match(/Windows Phone/i)
+    ){
+
+      return true;
+    } else {
+      return false;
+    }
   },
-  setVisuals: function(){
-    var url = "https://datafruits.streampusher.com/vj/enabled.json";
-    Ember.$.get(url, function(data){
-      var vj_enabled = data.vj_enabled;
-      if(vj_enabled === true){
-        $(".visuals").show();
-      }else{
-        $(".visuals").hide();
+
+  initializePlayer() {
+    let name = this.streamName;
+    let extension = this.extension;
+    run(() => {
+      let type;
+      let host = this.streamHost;
+      let streamUrl = `${host}/LiveApp/streams/${name}.${extension}`;
+      if (extension == "mp4") {
+        type = "video/mp4";
       }
-    });
-  },
-  searchYoutube: function(){
-    var channelId = this.youtubeChannelId;
-    var request = gapi.client.youtube.search.list({
-      part: 'snippet',
-      channelId: channelId,
-      maxResults: 1,
-      type: 'video',
-      eventType: 'live'
-
-    });
-
-    request.then((response) => {
-      if(response.result.pageInfo.totalResults === 0){
-        /*console.log("no live stream at the moment");*/
-      }else{
-        var videoId = response.result.items[0].id.videoId;
-        /*console.log("live stream: "+videoId);*/
-        this.set("ytid", videoId);
+      else if (extension == "m3u8") {
+        type = "application/x-mpegURL";
       }
-    }, function(/*reason*/) {
-      /*console.log('Error: ' + reason.result.error.message);*/
+      else {
+        console.log("Unknown extension: " + extension);
+        this.set("videoStreamActive", false);
+        return;
+      }
+
+      let preview = name;
+      if (name.endsWith("_adaptive")) {
+        preview = name.substring(0, name.indexOf("_adaptive"));
+      }
+
+      let player = videojs('video-player', {
+        poster: `previews/${preview}.png`
+
+      });
+
+      console.log(streamUrl);
+      player.src({
+        src: streamUrl,
+        type: type
+      });
+
+
+      if (this.autoPlay) {
+
+        player.play();
+
+      }
+      this.set('videoActivated', true);
     });
 
   },
-  setup: function(){
-    this.setVisuals();
-    this.pollVjApi();
-    $.getScript("https://apis.google.com/js/client.js", () => {
-      // Keep checking until the library is loaded
-      var googleApiKey = this.googleApiKey;
-      var searchYoutube = this.searchYoutube.bind(this);
-      (function checkIfLoaded() {
-        if (gapi.client){
-          gapi.client.setApiKey(googleApiKey);
-          gapi.client.load('youtube', 'v3').then(searchYoutube);
-        }else{
-          window.setTimeout(checkIfLoaded, 10);
-        }
-      })();
+
+  streamIsActive(name, extension){
+    this.set("videoStreamActive", true);
+    this.set('streamName', name);
+    this.set('extension', extension);
+  },
+
+  fetchStream(){
+    let name = this.streamName;
+    let host = this.streamHost;
+    fetch(`${host}/LiveApp/streams/${name}_adaptive.m3u8`, {method:'HEAD'}).then((response) => {
+      if (response.status == 200) {
+        //// adaptive m3u8 existslay it
+        this.streamIsActive(`${name}_adaptive`, "m3u8");
+      } else {
+        //adaptive m3u8 not exists, try m3u8 exists.
+        fetch(`${host}/LiveApp/streams/${name}.m3u8`, {method:'HEAD'}).then((response) => {
+          if (response.status == 200) {
+            //m3u8 exists, play it
+            this.streamIsActive(name, "m3u8");
+          } else {
+            //no m3u8 exists, try vod file
+
+            fetch(`${host}/LiveApp/streams/${name}.mp4`, {method:'HEAD'}).then((response) => {
+              if (response.status == 200) {
+                //mp4 exists, play it
+                this.streamIsActive(name, "mp4");
+              } else {
+                    console.log("No stream found");
+              }
+            }).catch(function(err) {
+              console.log("Error: " + err);
+            });
+          }
+        }).catch(function(err) {
+          console.log("Error: " + err);
+        });
+      }
+
+    }).catch(function(err) {
+      console.log("Error: " + err);
     });
-  }.on('didInsertElement')
+  },
+
+  didRender(){
+    if(this.videoStreamActive){
+      this.initializePlayer();
+    }else {
+      later(()=> {
+        this.fetchStream();
+      }, 15000);
+    }
+  },
+
+  //ask if adaptive m3u8 file
+  //
+  didInsertElement(){
+    if(!this.isMobile()){
+      this.set('autoPlay', true);
+    }
+    this.fetchStream();
+  }
 });

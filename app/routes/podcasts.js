@@ -1,24 +1,21 @@
-import Ember from 'ember';
-import fetch from 'fetch';
+import App from '../app';
+import Route from '@ember/routing/route';
+import { hash } from 'rsvp';
 
-export default Ember.Route.extend({
-  model(){
-    return Ember.RSVP.hash({
-      podcasts: fetch('https://datafruits.streampusher.com/podcasts/datafruits.json')
-        .then(function(response){
-          return response.json().then(function(json){
-            return json.podcast.tracks;
-          });
-        }),
-      labels: fetch('https://datafruits.streampusher.com/labels.json')
-        .then(function(response){
-          return response.json().then(function(json){
-            let labelNames = json.labels.map(function(label){
-              return label.name;
-            });
-            return labelNames;
-          });
-        })
+export default Route.extend({
+  queryParams: {
+    page: {
+      refreshModel: true
+    }
+  },
+  model(params){
+	  params.page = params.page || 1;
+      return this.store.queryRecord('podcast', { name: 'datafruits', page: params.page }).then((podcast) => {
+    	return hash({
+		  tracks: podcast.get('tracks'),
+		  meta: App.storeMeta['podcast'],
+      	  labels: this.store.findAll('label'),
+      })
     });
   }
 });

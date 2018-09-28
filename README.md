@@ -3,8 +3,10 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/datafruits/datafruits.svg)](https://greenkeeper.io/)
 [![Build](https://travis-ci.org/datafruits/datafruits.svg?branch=master)](https://travis-ci.org/datafruits/datafruits/)
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+frontend for datafruits application.
+
+## Trello board
+https://trello.com/b/loemZkpB/datafruits-website
 
 ## Prerequisites
 
@@ -36,6 +38,12 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 * `ember test`
 * `ember test --server`
+
+### Linting
+
+* `npm run lint:hbs`
+* `npm run lint:js`
+* `npm run lint:js -- --fix`
 
 ### Building
 

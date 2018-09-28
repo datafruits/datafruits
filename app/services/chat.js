@@ -1,16 +1,20 @@
-import Ember from 'ember';
-import {Socket/*, LongPoller*/} from "phoenix";
+//import Ember from 'ember';
+import Service from '@ember/service';
+import ArrayProxy from '@ember/array/proxy';
+import { A } from '@ember/array';
+import { Socket/*, LongPoller*/ } from "phoenix";
 import ENV from "datafruits13/config/environment";
 
-export default Ember.Service.extend({
-  joinedUsers: Ember.ArrayProxy.create({ content: Ember.A() }),
-  messages: Ember.ArrayProxy.create({ content: Ember.A() }),
+export default Service.extend({
+  joinedUsers: ArrayProxy.create({ content: A() }),
+  messages: ArrayProxy.create({ content: A() }),
   joinedChat: false,
   gifsEnabled: true,
   push(message, object) {
     this.chan.push(message, object);
   },
   init() {
+    this._super(...arguments);
     let socket = new Socket(ENV.CHAT_SOCKET_URL, {
 
       logger: function logger(/*kind, msg, data*/) {

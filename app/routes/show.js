@@ -1,12 +1,8 @@
-import Ember from 'ember';
-import fetch from 'fetch';
+import Route from '@ember/routing/route';
 
-export default Ember.Route.extend({
+export default Route.extend({
   model(params) {
-    return fetch('https://datafruits.streampusher.com/scheduled_shows/'+params.id+'.json')
-    .then(function(response){
-      return response.json();
-    });
+    return this.store.findRecord('scheduled-show', params.id);
   },
 
   afterModel: function(model) {
@@ -40,7 +36,7 @@ export default Ember.Route.extend({
        type: 'meta',
        attrs: {
          name: 'twitter:title',
-         content: model.title
+         content: `datafruits.fm - ${model.title}`
        },
      },
      {

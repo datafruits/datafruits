@@ -1,22 +1,24 @@
-import Ember from 'ember';
 import emojiStrategy from "../emojiStrategy";
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
+import { oneWay } from '@ember/object/computed';
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: "span",
-  chat: Ember.inject.service(),
-  username: Ember.computed.oneWay('chat.username'),
-  joinedUsers: Ember.computed.oneWay('chat.joinedUsers'),
+  chat: service(),
+  username: oneWay('chat.username'),
+  joinedUsers: oneWay('chat.joinedUsers'),
   actions: {
     sendMessage(){
-      const message = this.get('inputMessage');
+      const message = this.inputMessage;
       if(message){
-        this.get('chat').push("new:msg", { user: this.get('username'), body: message, timestamp: Date.now() });
+        this.chat.push("new:msg", { user: this.username, body: message, timestamp: Date.now() });
         this.set('inputMessage', '');
       }
     }
   },
 
-  setupTextComplete: function(){
+  didInsertElement(){
     $("#input-message").textcomplete([
       {
         id: "emojis",
@@ -46,10 +48,14 @@ export default Ember.Component.extend({
           callback(newResults);
         },
         template: function (shortname) {
-          return '<img class="emojione" src="//cdn.jsdelivr.net/emojione/assets/png/'+emojiStrategy[shortname].unicode+'.png"> :'+shortname+':';
+          if(emojiStrategy[shortname].custom){
+            return '<img class="emojione" src="/assets/images/emojis/'+emojiStrategy[shortname].unicode+'.png"> '+shortname;
+          }else{
+            return '<img class="emojione" src="//cdn.jsdelivr.net/emojione/assets/png/'+emojiStrategy[shortname].unicode+'.png"> '+shortname;
+          }
         },
         replace: function (shortname) {
-          return ':'+shortname+': ';
+          return shortname;
         },
         index: 1,
         maxCount: 10
@@ -59,8 +65,8 @@ export default Ember.Component.extend({
         match: /\b(\w{2,})$/,
         search: (term, callback) => {
           let matches;
-          matches = this.get('joinedUsers').filter((word) => {
-            return (word.indexOf(term) === 0) && (word !== this.get('username'));
+          matches = this.joinedUsers.filter((word) => {
+            return (word.indexOf(term) === 0) && (word !== this.username);
           });
           callback(matches);
         },
@@ -73,5 +79,5 @@ export default Ember.Component.extend({
       footer: '<a href="http://www.emoji.codes" target="_blank">Browse All<span class="arrow">»</span></a>',
       className: 'emoji-autocomplete'
     });
-  }.on('didInsertElement')
+  }
 });

@@ -1,10 +1,29 @@
-import Ember from 'ember';
+import EmberRouter from '@ember/routing/router';
+import { inject as service } from '@ember/service';
+import { scheduleOnce } from '@ember/runloop';
 import config from './config/environment';
-import googlePageview from './mixins/google-pageview';
 
-const Router = Ember.Router.extend(googlePageview, {
+const Router = EmberRouter.extend({
   location: config.locationType,
-  rootURL: config.rootURL
+  rootURL: config.rootURL,
+  metrics: service(),
+
+  didTransition() {
+    this._super(...arguments);
+    if (typeof FastBoot === 'undefined') {
+      this._trackPage();
+    }
+  },
+
+  _trackPage() {
+    scheduleOnce('afterRender', this, () => {
+      const page = this.url;
+      const title = this.getWithDefault('currentRouteName', 'unknown');
+
+      this.metrics.trackPage({ page, title });
+    });
+  }
+
 });
 
 Router.map(function() {

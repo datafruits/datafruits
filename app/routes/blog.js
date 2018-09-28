@@ -1,13 +1,16 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
+import { schedule } from '@ember/runloop';
+import $ from 'jquery';
 
-export default Ember.Route.extend({
-  fastboot: Ember.inject.service(),
+export default Route.extend({
+  fastboot: service(),
   model: function(){
     return this.store.findAll('tumblr-post');
   },
   setupController: function(controller, model){
     this._super(controller, model);
-    Ember.run.schedule('afterRender', this, function () {
+    schedule('afterRender', this, function () {
       if(!this.get('fastboot.isFastBoot')){
         $('.grid').masonry({
           // options
