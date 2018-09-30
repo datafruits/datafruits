@@ -15,14 +15,9 @@ export default Route.extend({
       //timezone: this.get('timezone').getTimezone()
       timezone: "Asia/Tokyo"
     };
-    this.store.query('scheduled-show', query).then((shows) => {
+    return this.store.query('scheduled-show', query).then((shows) => {
       return shows;
     });
   },
-  actions: {
-    showEvent: function(show){
-      this.transitionTo('show', show);
-    }
-  }
 
 });

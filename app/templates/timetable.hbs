@@ -1,6 +1,9 @@
 {{title "Timetable"}}
 <div class="main-content">
   <p>
-    {{timetable-calendar showEvent='showEvent' occurrences=model}}
+    {{timetable-calendar showEvent=(action "showEvent") occurrences=model
+    onAddOccurrence=(action "calendarAddOccurrence")
+    onUpdateOccurrence=(action "calendarUpdateOccurrence")
+    onRemoveOccurrence=(action "calendarRemoveOccurrence")}}
   </p>
 </div>
