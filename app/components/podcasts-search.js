@@ -36,11 +36,11 @@ export default Component.extend({
     },
     selectLabel(label) {
       this.get('selectedLabels').addObject(label.get('name'));
-	  this.set('page', 1);
+      this.set('page', 1);
     },
-	resetPagination(){
-	  this.set('page', 1);
-	}
+    resetPagination(){
+      this.set('page', 1);
+    }
   },
   queryParams: ["page"],
   page: 1,

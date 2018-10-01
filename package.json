@@ -40,7 +40,7 @@
     "ember-cli-qunit": "^4.0.0",
     "ember-cli-release": "^1.0.0-beta.2",
     "ember-cli-rollbar": "git://github.com/mcfiredrill/ember-cli-rollbar#update-for-fastboot-1.0",
-    "ember-cli-sass": "6.1.2",
+    "ember-cli-sass": "8.0.1",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-uglify": "^1.2.0",
@@ -84,9 +84,10 @@
     "ember-composable-helpers": "^2.1.0",
     "ember-i18n": "^5.2.0",
     "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-truth-helpers": "^1.3.0",
+    "ember-truth-helpers": "2.1.0",
     "ember-videojs-hls": "^0.0.2",
     "phoenix": "1.2",
-    "qunit-dom": "^0.7.1"
+    "qunit-dom": "^0.7.1",
+    "sass": "^1.14.1"
   }
 }
