@@ -39,7 +39,7 @@
     "ember-cli-qunit": "^4.0.0",
     "ember-cli-release": "^1.0.0-beta.2",
     "ember-cli-rollbar": "git://github.com/mcfiredrill/ember-cli-rollbar#update-for-fastboot-1.0",
-    "ember-cli-sass": "6.1.2",
+    "ember-cli-sass": "8.0.1",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-uglify": "^1.2.0",
