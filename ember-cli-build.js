@@ -16,10 +16,6 @@ module.exports = function(defaults) {
       useScss: true, // for ember-cli-sass
     },
 
-    emberFullCalendar: {
-      scheduler: false
-    },
-
     'ember-bootstrap': {
       'bootstrapVersion': 3,
       'importBootstrapFont': true,
