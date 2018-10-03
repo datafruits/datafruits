@@ -1,19 +1,17 @@
-<!-- {{full-calendar
-  eventSources=eventSources
-  defaultView='month'
-  editable=false
-  eventClick=(action 'goToEvent')
-  timezone=timezone header=header nowIndicator=nowIndicator
-  }} -->
-{{as-calendar
+{{#as-calendar
   occurrences=occurrences
   defaultTimeZoneQuery="New York|London|Dubai|Hong Kong"
   dayStartingTime="9:00"
   dayEndingTime="18:00"
   timeSlotDuration="00:30"
-  eventClick=showEvent
   onAddOccurrence=onAddOccurrence
   onRemoveOccurrence=onRemoveOccurrence
   onUpdateOccurrence=onUpdateOccurrence
-  }}
-
+  as |occurrence timetable calendar|}}
+    {{#as-calendar/occurrence
+    model=occurrence
+    timeSlotHeight=timetable.calendar.timeSlotHeight
+    timeSlotDuration=timetable.calendar.timeSlotDuration as |model|}}
+      <h1 class="as-calendar-occurrence__title" style={{titleStyle}}>{{#link-to 'show' model.content.id}}{{model.title}}{{/link-to}}</h1>
+    {{/as-calendar/occurrence}}
+{{/as-calendar}}
