@@ -10,8 +10,9 @@
   as |occurrence timetable calendar|}}
     {{#as-calendar/occurrence
     model=occurrence
-    timeSlotHeight=timetable.calendar.timeSlotHeight
-    timeSlotDuration=timetable.calendar.timeSlotDuration as |model|}}
+    isMonthView=occurrence.calendar.isMonthView
+    timeSlotHeight=calendar.timeSlotHeight
+    timeSlotDuration=calendar.timeSlotDuration as |model|}}
       <h1 class="as-calendar-occurrence__title" style={{titleStyle}}>{{#link-to 'show' model.content.id}}{{model.title}}{{/link-to}}</h1>
     {{/as-calendar/occurrence}}
 {{/as-calendar}}
