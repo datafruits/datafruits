@@ -1,0 +1,24 @@
+.as-calendar-timetable--month {
+  .as-calendar-occurrence {
+    position: initial;
+  }
+}
+
+.as-calendar-occurrence {
+  background-color: $pink;
+  border-left: 2px solid $blue;
+  border-bottom: 2px dotted $blue;
+}
+
+/* -total- hax */
+.as-calendar-timetable__slot-item:hover {
+  background: rgba(0,0,0,0);
+  cursor: auto;
+  & .as-calendar-timetable__slot-item-time {
+    display: none;
+  }
+}
+
+.as-calendar-timetable__slot-item--is-disabled:hover {
+  background: #f2f2f2;
+}

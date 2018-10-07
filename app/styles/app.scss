@@ -1,9 +1,11 @@
+@import "colors.scss";
 @import "loading-spinner.scss";
 @import "ember-bootstrap/bootstrap";
 
 @import "font-awesome";
 @import 'addons/ember-calendar/paint-core';
 @import 'addons/ember-calendar/main';
+@import "calendar.scss";
 
 @font-face {
   font-family: 'Condiment';
@@ -11,11 +13,6 @@
     url('/vendor/Condiment-Regular.ttf')
     format('truetype');
 }
-
-$green:  #82ffa5;
-$yellow: #fff94f;
-$pink: #e992ff;
-$blue:  #00b4ff;
 
 a {
   cursor: pointer;
