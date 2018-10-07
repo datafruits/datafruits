@@ -1,12 +1,8 @@
 {{#as-calendar
   occurrences=occurrences
-  defaultTimeZoneQuery="New York|London|Dubai|Hong Kong"
-  dayStartingTime="9:00"
-  dayEndingTime="18:00"
+  dayStartingTime="0:00"
+  dayEndingTime="23:00"
   timeSlotDuration="00:30"
-  onAddOccurrence=onAddOccurrence
-  onRemoveOccurrence=onRemoveOccurrence
-  onUpdateOccurrence=onUpdateOccurrence
   as |occurrence timetable calendar|}}
     {{#as-calendar/occurrence
     model=occurrence
