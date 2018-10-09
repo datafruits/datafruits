@@ -55,7 +55,7 @@
     "ember-page-title": "4.0.5",
     "ember-power-select": "^1.8.5",
     "ember-resolver": "^4.0.0",
-    "ember-source": "~3.4.0",
+    "ember-source": "~3.5.0",
     "ember-tumblr": "0.8.1",
     "ember-welcome-page": "^3.0.0",
     "emojione": "git://github.com/mcfiredrill/emojione#custom-emoji",
