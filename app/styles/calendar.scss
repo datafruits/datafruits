@@ -1,3 +1,11 @@
+.as-calendar {
+  background: $yellow;
+}
+
+.as-calendar-timetable--month .as-calendar-timetable__day {
+  border: 1px dotted $blue;
+}
+
 .as-calendar-timetable--month {
   .as-calendar-occurrence {
     position: initial;
@@ -8,6 +16,9 @@
   background-color: $pink;
   border-left: 2px solid $blue;
   border-bottom: 2px dotted $blue;
+  &__title {
+    font-size: 1.5rem;
+  }
 }
 
 /* -total- hax */
@@ -21,4 +32,18 @@
 
 .as-calendar-timetable__slot-item--is-disabled:hover {
   background: #f2f2f2;
+}
+
+.as-calendar-header {
+  background-color: $pink;
+  border-bottom: 1px dotted $blue;
+  &__status {
+    font-size: 4rem;
+    font-weight: 600;
+    color: $yellow;
+  }
+}
+
+.as-calendar-timetable__row--highlighted {
+  background-color: $green;
 }
