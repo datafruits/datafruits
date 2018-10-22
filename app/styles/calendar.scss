@@ -1,5 +1,5 @@
 .as-calendar {
-  background: $yellow;
+  background: lighten($yellow, 20%);
 }
 
 .as-calendar-timetable--month .as-calendar-timetable__day {
@@ -9,6 +9,11 @@
 .as-calendar-timetable--month {
   .as-calendar-occurrence {
     position: initial;
+  }
+  .occurrences li {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
 
@@ -46,4 +51,39 @@
 
 .as-calendar-timetable__row--highlighted {
   background-color: $green;
+  color: $yellow;
+}
+
+.as-calendar-timetable__column-item--highlighted {
+  background: $blue;
+  color: white;
+}
+
+.as-calendar-timetable__column-item--clickable:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.as-calendar-timetable__slot-labels {
+  background: $pink;
+}
+
+.as-calendar-timetable__slot-label {
+  color: $yellow;
+}
+
+.as-calendar-timetable__now-time {
+  color: white;
+}
+
+.as-calendar-header__nav-group-action, .as-calendar-header__nav-group-type {
+  background: lighten($blue, 20%);
+  color: white;
+  &:hover {
+    background: $blue;
+  }
+  &--current {
+    background: $green;
+    color: $yellow;
+  }
 }
