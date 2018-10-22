@@ -83,7 +83,7 @@
     background: $blue;
   }
   &--current {
-    background: $green;
+    background: $green !important;
     color: $yellow;
   }
 }
