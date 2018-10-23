@@ -77,10 +77,17 @@
 }
 
 .as-calendar-header__nav-group-action, .as-calendar-header__nav-group-type {
-  background: lighten($blue, 20%);
+  &--current-period {
+    background: $green !important;
+    color: $yellow;
+  }
+}
+
+.as-calendar-header__nav-group-action, .as-calendar-header__nav-group-type {
+  background: lighten($blue, 20%) !important;
   color: white;
   &:hover {
-    background: $blue;
+    background: $blue !important;
   }
   &--current {
     background: $green !important;
