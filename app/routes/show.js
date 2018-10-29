@@ -50,7 +50,7 @@ export default Route.extend({
        type: 'meta',
        attrs: {
          name: 'twitter:image',
-         content: model.image_url
+         content: model.imageUrl
        },
      },
    ];
