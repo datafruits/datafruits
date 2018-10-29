@@ -49,7 +49,7 @@
     "ember-font-awesome": "^3.0.3",
     "ember-fullcalendar": "git://github.com/scoutforpets/ember-fullcalendar",
     "ember-lazy-image": "0.0.15",
-    "ember-load-initializers": "^1.1.0",
+    "ember-load-initializers": "^2.0.0",
     "ember-lodash": "^4.17.5",
     "ember-metrics": "https://github.com/poteto/ember-metrics.git",
     "ember-page-title": "4.0.5",
