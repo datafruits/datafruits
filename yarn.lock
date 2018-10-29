@@ -4561,7 +4561,7 @@ ember-cli-babel@^5.0.0, ember-cli-babel@^5.1.6, ember-cli-babel@^5.1.7:
     ember-cli-version-checker "^1.0.2"
     resolve "^1.1.2"
 
-ember-cli-babel@^6.0.0, ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.1.0, ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0, ember-cli-babel@^6.12.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.17.0, ember-cli-babel@^6.3.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.7.2, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2, ember-cli-babel@^6.9.0:
+ember-cli-babel@^6.0.0, ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0, ember-cli-babel@^6.12.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.17.0, ember-cli-babel@^6.3.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.7.2, ember-cli-babel@^6.8.1, ember-cli-babel@^6.8.2, ember-cli-babel@^6.9.0:
   version "6.17.2"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.17.2.tgz#f0d53d2fb95e70c15d8db84760d045f88f458f69"
   integrity sha512-9KcCvF1PcelEFTSiJ/Ld20tfuW9acMkwHC/xINLsmwqJVDbm3oEqWtiFDZ5ebaC278O5I0GqNJWJLYNoWMNZ8g==
@@ -4655,15 +4655,7 @@ ember-cli-get-component-path-option@^1.0.0:
   resolved "https://registry.yarnpkg.com/ember-cli-get-component-path-option/-/ember-cli-get-component-path-option-1.0.0.tgz#0d7b595559e2f9050abed804f1d8eff1b08bc771"
   integrity sha1-DXtZVVni+QUKvtgE8djv8bCLx3E=
 
-ember-cli-head@^0.3.0:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/ember-cli-head/-/ember-cli-head-0.3.1.tgz#a407df4880f235280371c437bb5b0b5cbdaea646"
-  integrity sha1-pAffSIDyNSgDccQ3u1sLXL2upkY=
-  dependencies:
-    ember-cli-babel "^6.1.0"
-    ember-cli-htmlbars "^2.0.1"
-
-ember-cli-head@^0.4.0:
+ember-cli-head@^0.4.0, ember-cli-head@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/ember-cli-head/-/ember-cli-head-0.4.1.tgz#28b7ee86439746640834b232a3b34ab1329f3cf3"
   integrity sha512-MIgshw5nGil7Q/TU4SDRCsgsiA3wPC9WqOig/g1LlHTNXjR4vH7s/ddG7GTfK5Kt4ZQHJEUDXpd/lIbdBkIQ/Q==
@@ -4750,13 +4742,13 @@ ember-cli-lodash-subset@^1.0.7:
   resolved "https://registry.yarnpkg.com/ember-cli-lodash-subset/-/ember-cli-lodash-subset-1.0.12.tgz#af2e77eba5dcb0d77f3308d3a6fd7d3450f6e537"
   integrity sha1-ry5366XcsNd/MwjTpv19NFD25Tc=
 
-ember-cli-meta-tags@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-meta-tags/-/ember-cli-meta-tags-4.1.0.tgz#3751f3fec02639eb7cf350d95e6b846e626fcf72"
-  integrity sha1-N1Hz/sAmOet881DZXmuEbmJvz3I=
+ember-cli-meta-tags@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-meta-tags/-/ember-cli-meta-tags-5.1.0.tgz#3017484f3ea3e1eed9ecbff595c44f007b18e85f"
+  integrity sha512-Xw1KuQMNgpHoqWZatYi39GJ5NJi4iUmF6LHpjHcfzFGvL0LBeKqnpiB3XovpRyn4NGIUa60r6hzDOHr8Ym+xaQ==
   dependencies:
     ember-cli-babel "^6.6.0"
-    ember-cli-head "^0.3.0"
+    ember-cli-head "^0.4.1"
     ember-cli-htmlbars "^2.0.1"
 
 ember-cli-moment-shim@3.5.0:
