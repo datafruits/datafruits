@@ -71,7 +71,7 @@ export default Route.extend({
        type: 'meta',
        attrs: {
          name: 'twitter:player:height',
-         content: "480"
+         content: "80"
        },
      },
    ];
