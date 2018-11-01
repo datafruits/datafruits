@@ -15,7 +15,7 @@ export default Route.extend({
        type: 'meta',
        attrs: {
          name: 'twitter:card',
-         content: 'summary_large_image'
+         content: 'player'
        },
      },
      {
@@ -51,6 +51,27 @@ export default Route.extend({
        attrs: {
          name: 'twitter:image',
          content: model.imageUrl
+       },
+     },
+     {
+       type: 'meta',
+       attrs: {
+         name: 'twitter:player',
+         content: "https://datafruits.fm/container"
+       },
+     },
+     {
+       type: 'meta',
+       attrs: {
+         name: 'twitter:player:width',
+         content: "480"
+       },
+     },
+     {
+       type: 'meta',
+       attrs: {
+         name: 'twitter:player:height',
+         content: "480"
        },
      },
    ];

@@ -15,7 +15,7 @@
     {{podcast-track cdnUrl=track.cdnUrl title=track.title labels=track.labels selectLabel="selectLabel"}}
   {{/each}}
   {{#each (range 1 meta.total_pages) as |number| }}
-    {{link-to number "podcasts" (query-params page=number)}}
+    {{link-to number "home.podcasts" (query-params page=number)}}
   {{/each}}
 {{else}}
   {{#each tracks as |track|}}
@@ -23,16 +23,16 @@
   {{/each}}
 
   {{#if (gt meta.page 1)}}
-    <span class="pagination">{{#link-to "podcasts" (query-params page=(dec meta.page))}}«{{/link-to}}</span>
+    <span class="pagination">{{#link-to "home.podcasts" (query-params page=(dec meta.page))}}«{{/link-to}}</span>
   {{/if}}
   {{#each (range 1 (inc meta.total_pages)) as |number| }}
     {{#if (eq number meta.page)}}
 	  {{number}}
 	{{else}}
-      <span class="pagination">{{link-to number "podcasts" (query-params page=number)}}</span>
+      <span class="pagination">{{link-to number "home.podcasts" (query-params page=number)}}</span>
 	{{/if}}
   {{/each}}
   {{#if (lt meta.page meta.total_pages)}}
-	  <span class="pagination">{{#link-to "podcasts" (query-params page=(inc meta.page))}}»{{/link-to}}</span>
+	  <span class="pagination">{{#link-to "home.podcasts" (query-params page=(inc meta.page))}}»{{/link-to}}</span>
   {{/if}}
 {{/if}}

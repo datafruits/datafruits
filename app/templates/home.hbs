@@ -1,0 +1,49 @@
+<section class="flexbox-container">
+  <nav class="navbar navbar-default custom-navbar" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse navbar-left" id="navbar-navigation">
+      <ul class="nav navbar-nav">
+        <li>
+          {{#link-to 'home.chat'}}{{t "chat"}}{{/link-to}}
+        </li>
+        <li>
+          {{#link-to 'home.podcasts'}}{{t "podcasts"}}{{/link-to}}
+        </li>
+        <li>
+          {{#link-to 'home.timetable'}}{{t 'timetable'}}{{/link-to}}
+        </li>
+        <li>
+          <a href="http://releases.datafruits.fm/" target="_blank">{{t 'label'}}</a>
+        </li>
+        <li>
+          {{#link-to 'home.about'}}{{t 'about'}}{{/link-to}}
+        </li>
+        <li>
+          {{#link-to 'home'}}{{t 'blog'}}{{/link-to}}
+        </li>
+        <li>
+          <a href="https://cooltrash.shop/" target="_blank">{{t 'shop'}}</a>
+        </li>
+        <li>
+          {{#link-to 'home.subscribe'}}{{t 'subscribe'}}{{/link-to}}
+        </li>
+        <li>
+          {{#link-to 'home.dj-inquiry'}}{{t 'djinquiry.title'}}{{/link-to}}
+        </li>
+      </ul>
+    </div>
+    {{#link-to 'home'}}<img id="circle-logo" src="/assets/images/logo.png" />{{/link-to}}
+  </nav>
+  {{#link-to 'home'}}<h1 id="logo">datafruits.fm</h1>{{/link-to}}
+  {{outlet}}
+  {{datafruits-player nextShow=model}}
+  {{locale-selector selectedLocale=locale setLocale=(action "setLocale")}}
+</section>
+{{datafruits-visuals}}
