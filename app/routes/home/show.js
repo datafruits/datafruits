@@ -5,12 +5,12 @@ export default Route.extend({
     return this.store.findRecord('scheduled-show', params.id);
   },
 
-  afterModel: function(model) {
+  afterModel(model) {
    this.setHeadTags(model);
   },
 
-  setHeadTags: function (model) {
-   var headTags = [
+  setHeadTags(model) {
+   const headTags = [
      {
        type: 'meta',
        attrs: {
