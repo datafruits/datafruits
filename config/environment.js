@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'datafruits13',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' http://localhost:3000 http://datafruits.streampusher.com http://datafruits.streampusher.com:8000 ws://hotdog-lounge.herokuapp.com ws://localhost:4000 https://api.tumblr.com",
+    contentSecurityPolicy: { 'connect-src': "'self' http://localhost:3000 http://datafruits.streampusher.com http://datafruits.streampusher.com:8000 ws://hotdog-lounge.herokuapp.com ws://localhost:4000 https://api.tumblr.com http://vj.datafruits.fm",
                              'media-src': "http://datafruits.streampusher.com:8000 http://relay.datafruits.fm:8000",
                              'script-src': "'self' http://www.youtube.com http://s.ytimg.com",
                              'child-src': "http://www.youtube.com"},
