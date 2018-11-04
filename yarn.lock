@@ -9329,9 +9329,9 @@ quick-temp@^0.1.0, quick-temp@^0.1.2, quick-temp@^0.1.3, quick-temp@^0.1.5, quic
     underscore.string "~3.3.4"
 
 qunit-dom@^0.8.0:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/qunit-dom/-/qunit-dom-0.8.1.tgz#3fe224342e6185309b270d6aee70e88b65395b7f"
-  integrity sha512-jfeI+KgynUgvovS4E0YGg4gdK8cxNZEEsez925gsEekcq2sg/bJR070DTJEDGS263TwQ2j9ly7Y3nYs+ZMntzw==
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/qunit-dom/-/qunit-dom-0.8.0.tgz#a735e7f6ec2e9d08ec5bb695b3d52c97011e69b8"
+  integrity sha512-GGIJnDUCQI8bxxz1yD4sBAQOWlS9JxnWsVpGtkzz/D0GHooc3AkOdjpQq/55WfmJl8pG8uHKqTy0eKse6fbSpw==
   dependencies:
     broccoli-funnel "^2.0.0"
     broccoli-merge-trees "^3.0.1"
@@ -9999,6 +9999,7 @@ sander@^0.2.1:
 sane@^2.5.2:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/sane/-/sane-2.5.2.tgz#b4dc1861c21b427e929507a3e751e2a2cb8ab3fa"
+  integrity sha1-tNwYYcIbQn6SlQej51HiosuKs/o=
   dependencies:
     anymatch "^2.0.0"
     capture-exit "^1.2.0"
@@ -10795,6 +10796,7 @@ tmp@0.0.28:
 tmp@0.0.33, tmp@^0.0.33:
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.33.tgz#6d34335889768d21b2bcda0aa277ced3b1bfadf9"
+  integrity sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==
   dependencies:
     os-tmpdir "~1.0.2"
 
