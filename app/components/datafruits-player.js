@@ -73,6 +73,7 @@ export default Component.extend({
         playTry = true;
       },
       supplied: 'mp3, oga',
+      volume: 0.5,
       wmode: 'window',
       playing: function() {
         $('.jp-loading').hide();
