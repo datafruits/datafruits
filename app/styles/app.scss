@@ -1,5 +1,6 @@
 @import "colors.scss";
 @import "loading-spinner.scss";
+@import "container.scss";
 @import "ember-bootstrap/bootstrap";
 
 @import "font-awesome";
@@ -591,6 +592,27 @@ div.jp-seeking-bg {
   background: url("/assets/images/seeking.gif");
 }
 /* end progress */
+
+.jp-volume-controls {
+  position: relative;
+}
+
+.jp-volume-bar {
+  position: absolute;
+  overflow: hidden;
+  background: $blue;
+  top: 0px;
+  left: 22px;
+  width: 200px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.jp-volume-bar-value {
+  background: $yellow;
+  width: 0px;
+  height: 28px;
+}
 
 .locale-selector {
   @media screen and (min-device-width: 480px) {

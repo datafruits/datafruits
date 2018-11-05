@@ -40,7 +40,7 @@ export default Component.extend({
     run(() => {
       let type;
       let host = this.streamHost;
-      let streamUrl = `${host}/LiveApp/streams/${name}.${extension}`;
+      let streamUrl = `${host}/hls/${name}.${extension}`;
       if (extension == "mp4") {
         type = "video/mp4";
       }
@@ -89,25 +89,25 @@ export default Component.extend({
   fetchStream(){
     let name = this.streamName;
     let host = this.streamHost;
-    fetch(`${host}/LiveApp/streams/${name}_adaptive.m3u8`, {method:'HEAD'}).then((response) => {
+    fetch(`${host}/hls/${name}_adaptive.m3u8`, {method:'HEAD'}).then((response) => {
       if (response.status == 200) {
         //// adaptive m3u8 existslay it
         this.streamIsActive(`${name}_adaptive`, "m3u8");
       } else {
         //adaptive m3u8 not exists, try m3u8 exists.
-        fetch(`${host}/LiveApp/streams/${name}.m3u8`, {method:'HEAD'}).then((response) => {
+        fetch(`${host}/hls/${name}.m3u8`, {method:'HEAD'}).then((response) => {
           if (response.status == 200) {
             //m3u8 exists, play it
             this.streamIsActive(name, "m3u8");
           } else {
             //no m3u8 exists, try vod file
 
-            fetch(`${host}/LiveApp/streams/${name}.mp4`, {method:'HEAD'}).then((response) => {
+            fetch(`${host}/hls/${name}.mp4`, {method:'HEAD'}).then((response) => {
               if (response.status == 200) {
                 //mp4 exists, play it
                 this.streamIsActive(name, "mp4");
               } else {
-                    console.log("No stream found");
+                console.log("No stream found");
               }
             }).catch(function(err) {
               console.log("Error: " + err);

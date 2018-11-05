@@ -1,0 +1,11 @@
+<div id="radio-player" data-icecast-json="https://streampusher-relay.club/status-json.xsl"></div>
+<div id="jp_container">
+  <a class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
+  <a class="jp-pause" href="javascript:;" tabindex="1">❚❚</a>
+  <a class="jp-loading" href="javascript:;" tabindex="1" style="display:none;">↻</a>
+  {{#if error}}
+    <span>{{error}}</span>
+  {{else}}
+    <span>Now playing: </span><span class="jp-title">{{title}}</span>
+  {{/if}}
+</div>
