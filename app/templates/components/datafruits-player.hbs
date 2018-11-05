@@ -20,4 +20,11 @@
   {{else if nextShow}}
     <span id="next-show">Next live on air: {{#link-to 'home.show' nextShow}}{{nextShow.title}}{{/link-to}}</span>
   {{/if}}
+  <span class="jp-volume-controls">
+    <a class="jp-mute" href="javascript:;" tabindex="1"><i class="fa fa-volume-up"></i></a>
+    <a class="jp-unmute" href="javascript:;" tabindex="1"><i class="fa fa-volume-off"></i></a>
+    <div class="jp-volume-bar">
+      <div class="jp-volume-bar-value"></div>
+    </div>
+  </span>
 </div>
