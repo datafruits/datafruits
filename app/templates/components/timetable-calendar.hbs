@@ -3,6 +3,9 @@
   dayStartingTime="0:00"
   dayEndingTime="23:00"
   timeSlotDuration="00:30"
+  onNavigate=(action "calendarNavigate")
+  onTypeChange=calendarTypeChange
+  type=view
   as |occurrence timetable calendar|}}
     {{#as-calendar/occurrence
     model=occurrence

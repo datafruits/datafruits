@@ -2,13 +2,35 @@ import Route from '@ember/routing/route';
 import moment from 'moment';
 
 export default Route.extend({
+  queryParams: {
+    start: {
+      refreshModel: true
+    },
+    end: {
+      refreshModel: true
+    },
+    view: {
+    }
+  },
   model(params) {
     // return fetch('https://datafruits.streampusher.com/scheduled_shows.json?start=2017-08-27&end=2017-10-08&timezone=Asia%2FTokyo&_=1505527326508')
     // .then(function(response){
     //   return response.json();
     // });
-    let start = moment().startOf('month').startOf('week').format('YYYY-MM-DD');
-    let end = moment().endOf('month').endOf('week').format('YYYY-MM-DD');
+    let start;
+    let end;
+    if(params.start){
+      start = params.start;
+    }else {
+      start = moment().startOf('month').startOf('week').format('YYYY-MM-DD');
+      //this.get('controller').set('start', start);
+    }
+    if(params.end){
+      end = params.end;
+    }else{
+      end = moment().endOf('month').endOf('week').format('YYYY-MM-DD');
+      //this.get('controller').set('end', end);
+    }
 
     let query = {
       start: start,

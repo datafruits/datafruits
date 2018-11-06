@@ -1,6 +1,10 @@
 {{title "Timetable"}}
 <div class="main-content">
   <p>
-    {{timetable-calendar occurrences=model}}
+    {{timetable-calendar
+    occurrences=model
+    view=view
+    reloadCalendar=(action "reloadCalendar")
+    calendarTypeChange=(action "calendarTypeChange")}}
   </p>
 </div>
