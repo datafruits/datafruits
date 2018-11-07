@@ -25,7 +25,11 @@ export default Route.extend({
     }, 60000);
   },
 
-  setHeadTags(model) {
+  afterModel() {
+   this.setHeadTags();
+  },
+
+  setHeadTags() {
    const headTags = [
      {
        type: 'meta',
