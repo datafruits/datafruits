@@ -1,7 +1,6 @@
 import Route from '@ember/routing/route';
 import { later } from '@ember/runloop';
 import { inject as service } from '@ember/service';
-import ENV from 'datafruits13/config/environment';
 
 export default Route.extend({
   i18n: service(),
