@@ -60,6 +60,64 @@ module.exports = function(environment) {
       },
     ],
 
+    headTags: [
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:card',
+          content: 'player'
+        },
+      },
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:site',
+          content: '@datafruits'
+        },
+      },
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:creator',
+          content: '@datafruits'
+        },
+      },
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:title',
+          content: `datafruits.fm`
+        },
+      },
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:description',
+          content: 'its just a website'
+        },
+      },
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:player',
+          content: "https://datafruits.fm/container"
+        },
+      },
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:player:width',
+          content: "480"
+        },
+      },
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:player:height',
+          content: "80"
+        },
+      },
+    ],
 
     CHAT_SOCKET_URL: process.env.CHAT_SOCKET_URL,
     GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,

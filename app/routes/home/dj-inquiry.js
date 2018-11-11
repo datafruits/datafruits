@@ -8,5 +8,12 @@ export default Route.extend({
       hostApplication = this.store.createRecord('host-application');
     }
     return hostApplication;
+  },
+  afterModel() {
+   this.setHeadTags();
+  },
+
+  setHeadTags() {
+    this.set('headTags', [])
   }
 });

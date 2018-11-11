@@ -1,4 +1,5 @@
 import Route from '@ember/routing/route';
+import ENV from 'datafruits13/config/environment';
 
 export default Route.extend({
   model(params) {
@@ -10,28 +11,7 @@ export default Route.extend({
   },
 
   setHeadTags(model) {
-   const headTags = [
-     {
-       type: 'meta',
-       attrs: {
-         name: 'twitter:card',
-         content: 'player'
-       },
-     },
-     {
-       type: 'meta',
-       attrs: {
-         name: 'twitter:site',
-         content: '@datafruits'
-       },
-     },
-     {
-       type: 'meta',
-       attrs: {
-         name: 'twitter:creator',
-         content: '@datafruits'
-       },
-     },
+   const headTags = ENV.headTags.concat([
      {
        type: 'meta',
        attrs: {
@@ -53,28 +33,7 @@ export default Route.extend({
          content: model.imageUrl
        },
      },
-     {
-       type: 'meta',
-       attrs: {
-         name: 'twitter:player',
-         content: "https://datafruits.fm/container"
-       },
-     },
-     {
-       type: 'meta',
-       attrs: {
-         name: 'twitter:player:width',
-         content: "480"
-       },
-     },
-     {
-       type: 'meta',
-       attrs: {
-         name: 'twitter:player:height',
-         content: "80"
-       },
-     },
-   ];
+   ]);
 
    this.set('headTags', headTags);
   }
