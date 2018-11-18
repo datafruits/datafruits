@@ -8,14 +8,13 @@ export default Route.extend({
       refreshModel: true
     }
   },
-  model(params){
+  model: async function(params){
     params.page = params.page || 1;
-    return this.store.queryRecord('podcast', { name: 'datafruits', page: params.page }).then((podcast) => {
-      return hash({
-        tracks: podcast.get('tracks'),
-        meta: App.storeMeta['podcast'],
-        labels: this.store.findAll('label'),
-      })
-    });
+    const podcast = await this.store.queryRecord('podcast', { name: 'datafruits', page: params.page });
+    return hash({
+      tracks: podcast.get('tracks'),
+      meta: App.storeMeta['podcast'],
+      labels: this.store.findAll('label'),
+    })
   }
 });
