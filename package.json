@@ -87,7 +87,7 @@
     "ember-truth-helpers": "2.1.0",
     "ember-videojs-hls": "^0.0.2",
     "phoenix": "1.2",
-    "qunit-dom": "^0.7.1",
+    "qunit-dom": "^0.8.1",
     "sass": "^1.14.1"
   }
 }
