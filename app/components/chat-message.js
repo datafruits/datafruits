@@ -11,16 +11,16 @@ export default Component.extend({
     return this.message.body.match(this.imgRegex)[0];
   }),
   willRender() {
-    this.get("setupAutoscroll")();
+    this.setupAutoscroll();
   },
   didInsertElement() {
     this._super(...arguments);
     if(this.$("img").length > 0){
       this.$("img")[0].onload = () => {
-        this.get("adjustScrolling")();
+        this.adjustScrolling();
       };
     }else{
-      this.get("adjustScrolling")();
+      this.adjustScrolling();
     }
   }
 });

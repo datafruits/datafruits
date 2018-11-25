@@ -35,7 +35,7 @@ export default Component.extend({
       this.set('filterText', '');
     },
     selectLabel(label) {
-      this.get('selectedLabels').addObject(label.get('name'));
+      this.selectedLabels.addObject(label.get('name'));
       this.set('page', 1);
     },
     resetPagination(){
