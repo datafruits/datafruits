@@ -59,7 +59,7 @@
     "ember-tumblr": "0.8.1",
     "ember-welcome-page": "^3.0.0",
     "emojione": "git://github.com/mcfiredrill/emojione#custom-emoji",
-    "eslint-plugin-ember": "^6.0.0",
+    "eslint-plugin-ember": "6.0.1",
     "fullcalendar": "^3.1.0",
     "loader.js": "^4.2.3",
     "video.js": "^6.7.3",
