@@ -48,7 +48,13 @@ export default Component.extend({
     this.set('playingPodcast', true);
   },
   actions: {
-    playLiveStream: function(){
+    playButtonMouseEnter(){
+      this.set('playButtonHover', true);
+    },
+    playButtonMouseOut(){
+      this.set('playButtonHover', false);
+    },
+    playLiveStream(){
       $("#radio-player").jPlayer("setMedia", this.stream);
       $("#radio-player").jPlayer("play");
       this.set('playingPodcast', false);
@@ -56,7 +62,7 @@ export default Component.extend({
     },
   },
   classNames: ['radio-bar'],
-  classNameBindings: ['playingPodcast', 'isLive'],
+  classNameBindings: ['playingPodcast', 'isLive', 'playButtonHover:bleed:pink-bg'],
   playingPodcast: false,
   eventBus: service(),
   didInsertElement(){
