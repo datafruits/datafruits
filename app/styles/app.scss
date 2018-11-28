@@ -581,6 +581,22 @@ form {
   color: $yellow;
   text-transform: uppercase;
   padding: 2px;
+  &:hover {
+    background: repeating-linear-gradient(
+    90deg,
+    $green,
+    $green 20px,
+    $pink 20px,
+    $pink 40px,
+    $yellow 40px,
+    $yellow 60px,
+    $blue 60px,
+    $blue 80px
+    );
+
+    background-size: 200% 200%;
+    animation: stripes 3s infinite;
+  }
 }
 
 @import "ember-power-select";
