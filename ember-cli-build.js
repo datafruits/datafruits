@@ -12,6 +12,10 @@ module.exports = function(defaults) {
     // Add options here
     fingerprint: fingerprintOptions,
 
+    babel: {
+      plugins: [ require('ember-auto-import/babel-plugin') ]
+    },
+
     emberCliFontAwesome: {
       useScss: true
     },

@@ -1,8 +1,6 @@
-//import $ from 'jquery';
 import Component from '@ember/component';
 import { later, run } from '@ember/runloop';
 import ENV from "datafruits13/config/environment";
-import videojs from "video.js";
 
 export default Component.extend({
   classNames: ['visuals'],
@@ -34,7 +32,9 @@ export default Component.extend({
     }
   },
 
-  initializePlayer() {
+  initializePlayer: async function() {
+    const module = await import("video.js");
+    const videojs = module.default;
     let name = this.streamName;
     let extension = this.extension;
     run(() => {
@@ -110,12 +110,14 @@ export default Component.extend({
   },
 
   didRender(){
-    if(this.videoStreamActive){
-      this.initializePlayer();
-    }else {
-      later(()=> {
-        this.fetchStream();
-      }, 15000);
+    if(!this.get('fastboot.isFastBoot')){
+      if(this.videoStreamActive){
+        this.initializePlayer();
+      }else {
+        later(()=> {
+          this.fetchStream();
+        }, 15000);
+      }
     }
   },
 
