@@ -519,6 +519,13 @@ a:hover {
   z-index: -999;
   width: 100vw;
   height: 100vh;
+  video {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100vw;
+    margin: 0 auto;
+  }
 }
 
 .chat {

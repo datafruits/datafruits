@@ -1,8 +1,6 @@
-//import $ from 'jquery';
 import Component from '@ember/component';
 import { later, run } from '@ember/runloop';
 import ENV from "datafruits13/config/environment";
-import videojs from "npm:video.js";
 
 export default Component.extend({
   classNames: ['visuals'],
@@ -34,7 +32,9 @@ export default Component.extend({
     }
   },
 
-  initializePlayer() {
+  initializePlayer: async function() {
+    const module = await import("video.js");
+    const videojs = module.default;
     let name = this.streamName;
     let extension = this.extension;
     run(() => {
@@ -54,9 +54,6 @@ export default Component.extend({
       }
 
       let preview = name;
-      if (name.endsWith("_adaptive")) {
-        preview = name.substring(0, name.indexOf("_adaptive"));
-      }
 
       let player = videojs('video-player', {
         poster: `previews/${preview}.png`
@@ -89,29 +86,18 @@ export default Component.extend({
   fetchStream(){
     let name = this.streamName;
     let host = this.streamHost;
-    fetch(`${host}/hls/${name}_adaptive.m3u8`, {method:'HEAD'}).then((response) => {
+    fetch(`${host}/hls/${name}.m3u8`, {method:'HEAD'}).then((response) => {
       if (response.status == 200) {
-        //// adaptive m3u8 existslay it
-        this.streamIsActive(`${name}_adaptive`, "m3u8");
+        this.streamIsActive(`${name}`, "m3u8");
       } else {
-        //adaptive m3u8 not exists, try m3u8 exists.
-        fetch(`${host}/hls/${name}.m3u8`, {method:'HEAD'}).then((response) => {
-          if (response.status == 200) {
-            //m3u8 exists, play it
-            this.streamIsActive(name, "m3u8");
-          } else {
-            //no m3u8 exists, try vod file
+        //no m3u8 exists, try vod file
 
-            fetch(`${host}/hls/${name}.mp4`, {method:'HEAD'}).then((response) => {
-              if (response.status == 200) {
-                //mp4 exists, play it
-                this.streamIsActive(name, "mp4");
-              } else {
-                console.log("No stream found");
-              }
-            }).catch(function(err) {
-              console.log("Error: " + err);
-            });
+        fetch(`${host}/hls/${name}.mp4`, {method:'HEAD'}).then((response) => {
+          if (response.status == 200) {
+            //mp4 exists, play it
+            this.streamIsActive(name, "mp4");
+          } else {
+            console.log("No stream found");
           }
         }).catch(function(err) {
           console.log("Error: " + err);
@@ -124,12 +110,14 @@ export default Component.extend({
   },
 
   didRender(){
-    if(this.videoStreamActive){
-      this.initializePlayer();
-    }else {
-      later(()=> {
-        this.fetchStream();
-      }, 15000);
+    if(!this.get('fastboot.isFastBoot')){
+      if(this.videoStreamActive){
+        this.initializePlayer();
+      }else {
+        later(()=> {
+          this.fetchStream();
+        }, 15000);
+      }
     }
   },
 
