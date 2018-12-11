@@ -98,6 +98,9 @@ export default Component.extend({
             this.streamIsActive(name, "mp4");
           } else {
             console.log("No stream found");
+            later(()=> {
+              this.fetchStream();
+            }, 15000);
           }
         }).catch(function(err) {
           console.log("Error: " + err);
