@@ -1,4 +1,4 @@
-import emojione from 'npm:emojione';
+import emojione from 'emojione';
 
 export function initialize(/* application */) {
   // application.inject('route', 'foo', 'service:foo');

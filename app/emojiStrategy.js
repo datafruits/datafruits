@@ -1,4 +1,4 @@
-import emojione from 'npm:emojione';
+import emojione from 'emojione';
 
 const emojiStrategy = {};
 
