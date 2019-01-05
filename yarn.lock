@@ -4486,6 +4486,15 @@ ember-concurrency@^0.8.12, ember-concurrency@^0.8.7:
     ember-cli-babel "^6.8.2"
     ember-maybe-import-regenerator "^0.1.5"
 
+ember-concurrency@^0.8.26:
+  version "0.8.26"
+  resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-0.8.26.tgz#7aeaa5c00e87903a57726823efe68787a83154b0"
+  integrity sha512-4GrtZdNKUMTsRbWzYwmUFXW+9pqab+78smw9Nn4ECUl1yuzIyHVcV7zKsgxgPISIGwrY6HwhgmFBCxipyyYP5w==
+  dependencies:
+    babel-core "^6.24.1"
+    ember-cli-babel "^6.8.2"
+    ember-maybe-import-regenerator "^0.1.5"
+
 ember-copy@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ember-copy/-/ember-copy-1.0.0.tgz#426554ba6cf65920f31d24d0a3ca2cb1be16e4aa"
@@ -4588,7 +4597,7 @@ ember-get-config@^0.2.3:
     broccoli-file-creator "^1.1.1"
     ember-cli-babel "^6.3.0"
 
-ember-getowner-polyfill@^2.0.0, ember-getowner-polyfill@^2.2.0:
+ember-getowner-polyfill@^2.0.0, ember-getowner-polyfill@^2.0.1, ember-getowner-polyfill@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-2.2.0.tgz#38e7dccbcac69d5ec694000329ec0b2be651d2b2"
   dependencies:
@@ -4715,6 +4724,15 @@ ember-page-title@4.0.5:
     ember-cli-head "^0.4.0"
     ember-cli-htmlbars "^2.0.1"
     ember-copy "^1.0.0"
+
+ember-parachute@^0.3.8:
+  version "0.3.8"
+  resolved "https://registry.yarnpkg.com/ember-parachute/-/ember-parachute-0.3.8.tgz#484b4a3ce04b5d217715fcf8968f7cb3ba667e44"
+  integrity sha512-LVGI56mxOxPZjafpJUE5rEvIqkvjUIQEhXhwURb2xjou8uWZoRO8b9DEo0ucVWiDUPQ0YuJ1KWGN/VDfJOmDiA==
+  dependencies:
+    ember-assign-polyfill "^2.0.1"
+    ember-cli-babel "^6.0.0"
+    ember-getowner-polyfill "^2.0.1"
 
 ember-popper@^0.9.0:
   version "0.9.1"

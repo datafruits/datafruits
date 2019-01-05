@@ -9,6 +9,8 @@
       <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">Podcasts.app</a>
       <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">RSS</a>
     </p>
-    {{podcasts-search tracks=model.tracks labels=model.labels meta=model.meta}}
+    {{podcasts-search
+      tracks=model.tracks labels=model.labels meta=model.meta
+      updateSearch=(action "updateSearch") selectedTags=tags searchParams=searchParams}}
   </div>
 </div>
