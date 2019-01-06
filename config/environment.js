@@ -39,9 +39,13 @@ module.exports = function(environment) {
       defaultFallback: true
     },
 
-    // rollbar: {
-    //   accessToken: process.env.ROLLBAR_TOKEN,
-    // },
+    emberRollbarClient: {
+      accessToken: process.env.ROLLBAR_TOKEN,
+      // By default Rollbar logging is enabled in every environment except test and development.
+      // Here is an example if you want to use it only in production
+      enabled: environment === 'production'
+    },
+
     metricsAdapters: [
       {
         name: 'GoogleAnalytics',
