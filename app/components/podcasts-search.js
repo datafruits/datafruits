@@ -28,9 +28,6 @@ export default Component.extend({
       return label.get('name');
     });
   }),
-  isSearching: computed('filterText', 'selectedLabels.[]', function() {
-    return this.filterText !== "" || this.selectedLabels.length !== 0;
-  }),
   observeQuery: observer('filterText', function(){
     debounce(this, () => {
       this.get('updateSearch')(this.get('filterText'), this.get('selectedLabels'));
@@ -45,9 +42,6 @@ export default Component.extend({
     clearSearch() {
       this.set('filterText', '');
     },
-    // labelsChanged(label, labels){
-    //   this.selectedLabels.pushObject(label);
-    // },
     selectLabel(label) {
       this.selectedLabels.pushObject(label.get('name'));
       this.set('page', 1);
@@ -56,6 +50,5 @@ export default Component.extend({
       this.set('page', 1);
     },
   },
-  //queryParams: ["page"],
   page: 1,
 });
