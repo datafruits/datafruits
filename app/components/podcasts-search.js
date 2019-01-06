@@ -18,8 +18,8 @@ export default Component.extend({
       }
     }
     const searchParams = this.get('searchParams');
-    if(query){
-      this.set('filterText', query);
+    if(searchParams.query){
+      this.set('filterText', searchParams.query);
     }
   },
   filterText: '',
