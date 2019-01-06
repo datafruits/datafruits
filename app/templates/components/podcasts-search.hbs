@@ -15,7 +15,7 @@
     <p>Loading...</p>
   {{else}}
     {{#each loader.data.tracks as |track|}}
-      {{podcast-track cdnUrl=track.cdnUrl title=track.title labels=track.labels selectLabel="selectLabel"}}
+      {{podcast-track cdnUrl=track.cdnUrl title=track.title labels=track.labels selectLabel=(action "selectLabel")}}
     {{/each}}
   {{/if}}
 {{/podcasts-loader}}
