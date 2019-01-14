@@ -9,7 +9,10 @@ export default {
   //
   // "key.with.interpolation": "Text with {{anInterpolation}}"
   'chat': 'Chat',
-  'podcasts': 'Podcast',
+  'podcasts': {
+    'title': 'Podcast',
+    'no_result': 'No results. Musta been the onion salad dressing.'
+  },
   'timetable': 'Timetable',
   'label': 'Label',
   'about': 'About',
@@ -31,5 +34,6 @@ export default {
   },
   'about_datafruits': "Datafruits is a netradio and netlabel founded in 2012 by Tony Miller (mcfiredrill). Its mission is to bring you the world's strangest electronic sounds and bring together the electronic music communities around the world.",
   'code_of_conduct': 'Code Of Conduct',
-  'what_is_datafruits': 'What is datafruits...'
+  'what_is_datafruits': 'What is datafruits...',
+  'loading': 'Loading...'
 };

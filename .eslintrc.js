@@ -1,5 +1,7 @@
 module.exports = {
   root: true,
+  parser: 'babel-eslint',
+
   parserOptions: {
     ecmaVersion: 2017,
     sourceType: 'module'
@@ -26,6 +28,7 @@ module.exports = {
     // node files
     {
       files: [
+        '.eslintrc.js',
         '.template-lintrc.js',
         'ember-cli-build.js',
         'testem.js',

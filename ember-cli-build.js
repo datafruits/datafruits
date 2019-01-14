@@ -16,6 +16,14 @@ module.exports = function(defaults) {
       useScss: true, // for ember-cli-sass
     },
 
+    babel: {
+      plugins: [ require('ember-auto-import/babel-plugin') ]
+    },
+
+    emberCliFontAwesome: {
+      useScss: true
+    },
+
     'ember-bootstrap': {
       'bootstrapVersion': 3,
       'importBootstrapFont': true,

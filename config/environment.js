@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'datafruits13',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' http://localhost:3000 http://datafruits.streampusher.com http://datafruits.streampusher.com:8000 ws://hotdog-lounge.herokuapp.com ws://localhost:4000 https://api.tumblr.com",
+    contentSecurityPolicy: { 'connect-src': "'self' http://localhost:3000 http://datafruits.streampusher.com http://datafruits.streampusher.com:8000 ws://hotdog-lounge.herokuapp.com ws://localhost:4000 https://api.tumblr.com https://vj.datafruits.fm",
                              'media-src': "http://datafruits.streampusher.com:8000 http://relay.datafruits.fm:8000",
                              'script-src': "'self' http://www.youtube.com http://s.ytimg.com",
                              'child-src': "http://www.youtube.com"},
@@ -39,9 +39,13 @@ module.exports = function(environment) {
       defaultFallback: true
     },
 
-    // rollbar: {
-    //   accessToken: process.env.ROLLBAR_TOKEN,
-    // },
+    emberRollbarClient: {
+      accessToken: process.env.ROLLBAR_TOKEN,
+      // By default Rollbar logging is enabled in every environment except test and development.
+      // Here is an example if you want to use it only in production
+      enabled: environment === 'production'
+    },
+
     metricsAdapters: [
       {
         name: 'GoogleAnalytics',
@@ -60,6 +64,64 @@ module.exports = function(environment) {
       },
     ],
 
+    headTags: [
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:card',
+          content: 'player'
+        },
+      },
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:site',
+          content: '@datafruits'
+        },
+      },
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:creator',
+          content: '@datafruits'
+        },
+      },
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:title',
+          content: `datafruits.fm`
+        },
+      },
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:description',
+          content: 'its just a website'
+        },
+      },
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:player',
+          content: "https://datafruits.fm/container"
+        },
+      },
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:player:width',
+          content: "480"
+        },
+      },
+      {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:player:height',
+          content: "80"
+        },
+      },
+    ],
 
     CHAT_SOCKET_URL: process.env.CHAT_SOCKET_URL,
     GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,

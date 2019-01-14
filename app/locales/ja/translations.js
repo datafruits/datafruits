@@ -1,6 +1,9 @@
 export default {
   'chat': 'チャット',
-  'podcasts': 'ポッドキャスト',
+  'podcasts': {
+    'title': 'ポッドキャスト',
+    'no_result': '結果なし。もしかしてオニオンサラダドレッシングかもしれないでした。'
+  },
   'timetable': 'タイムテーブル',
   'label': 'レーベル',
   'about': 'datafruitsとは？',
@@ -9,20 +12,21 @@ export default {
   'subscribe': 'メールマガ登録',
   'djinquiry': {
     'title': 'DJ案件',
-    'heading': 'Want to have your own show on Datafruits?',
-    'description': 'Interested in DJing and hosting your own radio show on datafruits.fm? Just fill out this form and we will get back to you ASAP.',
+    'heading': 'Datafruitsで番組をやっていませんか？',
+    'description': 'DJや自分の番組をやりたい方、是非以降のフォームを送信して下さい。すぐ返信します。',
     'email': 'メール',
-    'username': 'Desired username',
-    'link_to_mix': "Link to a 1-2 hour mix you've made",
-    'interval': "Would you like to do a daily, weekly, bi-weekly or monthly show?",
-    "time": "what time would you like to do a show? typical shows are 2 hours. e.g. sundays at 3pm-5pm PST",
-    "other": "Any other questions or comments?",
-    "error": "There was an error sending your application! Please check the error messages and try again.",
+    'username': '希望ユーザ名',
+    'link_to_mix': "自分で作った1〜2時間ミックスのリンクを教えてください",
+    'interval': "毎日、毎週、隔週、または毎月第の番組をいかがでしょうか？",
+    "time": "希望の時間は何でしょうか?",
+    "other": "他の質問やコメント",
+    "error": "エラーが発行されました。もう一度送信してみて下さい。",
     "thanks": "ありがとうございます！"
   },
   'about_datafruits': "Datafruitsは2012年にTony Miller (mcfiredrill)さんが初めたネットラジオとネットレーベルではあります。Datafruitsのミッションは世界の不思議な音楽を紹介するし世界の音楽コミュニティーを団結させます。",
   'code_of_conduct': 'Code Of Conduct',
-  'what_is_datafruits': 'datafruitsとは...'
+  'what_is_datafruits': 'datafruitsとは...',
+  'loading': 'ロード中。。。'
   // "some.translation.key": "Text for some.translation.key",
   //
   // "a": {
