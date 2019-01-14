@@ -14,7 +14,6 @@ export default Component.extend({
 
   didReceiveAttrs() {
     let query = this.get('query');
-    console.log('fetching more data...');
     this.get('fetchData').perform(query);
   },
 
