@@ -25,8 +25,8 @@ export const PodcastQueryParams = new QueryParams({
 
 export default Controller.extend(PodcastQueryParams.Mixin, {
   queryParamsChanged: computed.or('queryParamsState.{page,query,tags}.changed'),
-  searchParams: computed('query', 'tags', function(){
-    return { query: this.get('query'), tags: this.get('tags') };
+  searchParams: computed('query', 'tags', 'page', function(){
+    return { query: this.query, tags: this.tags, page: this.page };
   }),
   actions: {
     updateSearch(query, tags){
