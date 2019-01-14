@@ -30,9 +30,9 @@ export default Controller.extend(PodcastQueryParams.Mixin, {
   }),
   actions: {
     updateSearch(query, tags){
-      console.log('updateSearch');
       this.set('query', query);
       this.set('tags', tags);
+      this.set('page', 1);
     }
   }
 });

@@ -3,7 +3,6 @@ import { computed, observer } from '@ember/object';
 import { debounce } from '@ember/runloop';
 import { isEmpty } from '@ember/utils';
 import { isArray } from '@ember/array';
-import _ from 'lodash';
 
 export default Component.extend({
   init(){
@@ -44,11 +43,6 @@ export default Component.extend({
     },
     selectLabel(label) {
       this.selectedLabels.pushObject(label.get('name'));
-      this.set('page', 1);
     },
-    resetPagination(){
-      this.set('page', 1);
-    },
-  },
-  page: 1,
+  }
 });
