@@ -20,7 +20,7 @@ export default Component.extend({
 
   fetchData: task(function*(query) {
     yield timeout(1000);
-    let podcasts = this.get('store').queryRecord('podcast', query).then((podcast) => {
+    let podcasts = this.store.queryRecord('podcast', query).then((podcast) => {
       return hash({
         tracks: podcast.get('tracks'),
         meta: App.storeMeta['podcast'],
