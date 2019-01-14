@@ -20,6 +20,8 @@
   {{else}}
     {{#each loader.data.tracks as |track|}}
       {{podcast-track cdnUrl=track.cdnUrl title=track.title labels=track.labels selectLabel=(action "selectLabel")}}
+    {{else}}
+      {{t "podcasts.no_result"}}
     {{/each}}
 
     {{#if (gt loader.data.meta.page 1)}}

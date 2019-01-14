@@ -1,6 +1,9 @@
 export default {
   'chat': 'チャット',
-  'podcasts': 'ポッドキャスト',
+  'podcasts': {
+    'title': 'ポッドキャスト',
+    'no_result': '結果なし。もしかしてオニオンサラダドレッシングかもしれないでした。'
+  },
   'timetable': 'タイムテーブル',
   'label': 'レーベル',
   'about': 'datafruitsとは？',

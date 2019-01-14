@@ -9,7 +9,10 @@ export default {
   //
   // "key.with.interpolation": "Text with {{anInterpolation}}"
   'chat': 'Chat',
-  'podcasts': 'Podcast',
+  'podcasts': {
+    'title': 'Podcast',
+    'no_result': 'No results. Musta been the onion salad dressing.'
+  },
   'timetable': 'Timetable',
   'label': 'Label',
   'about': 'About',

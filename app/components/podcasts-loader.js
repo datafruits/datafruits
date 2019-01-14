@@ -2,6 +2,7 @@ import App from '../app';
 import Component from '@ember/component';
 import { task, timeout } from 'ember-concurrency';
 import { inject as service } from '@ember/service';
+import { computed, observer } from '@ember/object';
 import { hash } from 'rsvp';
 
 export default Component.extend({
