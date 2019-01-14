@@ -9,7 +9,10 @@ export default {
   //
   // "key.with.interpolation": "Text with {{anInterpolation}}"
   'chat': '채팅',
-  'podcasts': '팟캐스트',
+  'podcasts': {
+    'title': '팟캐스트',
+    'no_result': '결과없음. 혹시 오니언 샐러드 드레싱일지도 모르겠네요'
+  },
   'timetable': '타임 테이블',
   'label': '레이블',
   'about': '우리에 관하여',

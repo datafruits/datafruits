@@ -1,11 +1,25 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
-import _ from 'lodash';
+import { computed, observer } from '@ember/object';
+import { debounce } from '@ember/runloop';
+import { isEmpty } from '@ember/utils';
+import { isArray } from '@ember/array';
 
 export default Component.extend({
   init(){
     this._super(...arguments);
     this.selectedLabels = [];
+    const selectedTags = this.get('selectedTags');
+    if(!isEmpty(selectedTags)){
+      if(isArray(selectedTags)){
+        this.set('selectedLabels', this.get('selectedTags'));
+      }else{
+        this.set('selectedLabels', this.get('selectedTags').split(","));
+      }
+    }
+    const searchParams = this.get('searchParams');
+    if(searchParams.query){
+      this.set('filterText', searchParams.query);
+    }
   },
   filterText: '',
   labelNames: computed('labels', function(){
@@ -13,35 +27,22 @@ export default Component.extend({
       return label.get('name');
     });
   }),
-  isSearching: computed('filterText', 'selectedLabels.[]', function() {
-    return this.filterText !== "" || this.selectedLabels.length !== 0;
+  observeQuery: observer('filterText', function(){
+    debounce(this, () => {
+      this.get('updateSearch')(this.get('filterText'), this.get('selectedLabels'));
+    }, 500);
   }),
-  filteredResults: computed('filterText', 'selectedLabels.[]', function() {
-    let filter = this.filterText;
-    let labels = this.selectedLabels;
-    return this.tracks.filter(function(track) {
-      if(labels.length != 0){
-        if(_.intersection(track.get('labelNames'), labels).length == labels.length){
-          return track.get('title').toLowerCase().indexOf(filter) !== -1;
-        }else {
-          return false;
-        }
-      }
-      return track.get('title').toLowerCase().indexOf(filter) !== -1;
-    });
+  observeLabels: observer('selectedLabels.[]', function(){
+    debounce(this, () => {
+      this.get('updateSearch')(this.get('filterText'), this.get('selectedLabels'));
+    }, 100);
   }),
   actions: {
     clearSearch() {
       this.set('filterText', '');
     },
     selectLabel(label) {
-      this.selectedLabels.addObject(label.get('name'));
-      this.set('page', 1);
+      this.selectedLabels.pushObject(label.get('name'));
     },
-    resetPagination(){
-      this.set('page', 1);
-    }
-  },
-  queryParams: ["page"],
-  page: 1,
+  }
 });

@@ -1,38 +1,41 @@
-{{input class="search-tracks" autofocus="autofocus" value=filterText escape-press=(action 'clearSearch') placeholder="Search podcasts" input=(action "resetPagination")}}
+{{input class="search-tracks"
+  autofocus="autofocus"
+  value=filterText
+  escape-press=(action 'clearSearch')
+  placeholder="Search podcasts"}}
 {{#power-select-multiple
     placeholder="Search by tag..."
     options=labelNames
     selected=selectedLabels
     renderInPlace=true
     onchange=(action (mut selectedLabels))
-	oninput=(action "resetPagination")
     as |label|
 }}
   {{label}}
 {{/power-select-multiple}}
-{{#if isSearching}}
-  {{#each filteredResults as |track|}}
-    {{podcast-track cdnUrl=track.cdnUrl title=track.title labels=track.labels selectLabel="selectLabel"}}
-  {{/each}}
-  {{#each (range 1 meta.total_pages) as |number| }}
-    {{link-to number "home.podcasts" (query-params page=number)}}
-  {{/each}}
-{{else}}
-  {{#each tracks as |track|}}
-    {{podcast-track cdnUrl=track.cdnUrl title=track.title labels=track.labels selectLabel="selectLabel"}}
-  {{/each}}
 
-  {{#if (gt meta.page 1)}}
-    <span class="pagination">{{#link-to "home.podcasts" (query-params page=(dec meta.page))}}«{{/link-to}}</span>
+{{#podcasts-loader query=searchParams as |loader|}}
+  {{#if loader.isRunning}}
+    <p>Loading...</p>
+  {{else}}
+    {{#each loader.data.tracks as |track|}}
+      {{podcast-track cdnUrl=track.cdnUrl title=track.title labels=track.labels selectLabel=(action "selectLabel")}}
+    {{else}}
+      {{t "podcasts.no_result"}}
+    {{/each}}
+
+    {{#if (gt loader.data.meta.page 1)}}
+      <span class="pagination">{{#link-to "home.podcasts" (query-params page=(dec loader.data.meta.page))}}«{{/link-to}}</span>
+    {{/if}}
+    {{#each (range 1 (inc loader.data.meta.total_pages)) as |number| }}
+      {{#if (eq number loader.data.meta.page)}}
+            {{number}}
+          {{else}}
+        <span class="pagination">{{link-to number "home.podcasts" (query-params page=number)}}</span>
+          {{/if}}
+    {{/each}}
+    {{#if (lt loader.data.meta.page loader.data.meta.total_pages)}}
+      <span class="pagination">{{#link-to "home.podcasts" (query-params page=(inc loader.data.meta.page))}}»{{/link-to}}</span>
+    {{/if}}
   {{/if}}
-  {{#each (range 1 (inc meta.total_pages)) as |number| }}
-    {{#if (eq number meta.page)}}
-	  {{number}}
-	{{else}}
-      <span class="pagination">{{link-to number "home.podcasts" (query-params page=number)}}</span>
-	{{/if}}
-  {{/each}}
-  {{#if (lt meta.page meta.total_pages)}}
-	  <span class="pagination">{{#link-to "home.podcasts" (query-params page=(inc meta.page))}}»{{/link-to}}</span>
-  {{/if}}
-{{/if}}
+{{/podcasts-loader}}
