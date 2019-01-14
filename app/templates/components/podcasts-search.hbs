@@ -16,7 +16,7 @@
 
 {{#podcasts-loader query=searchParams as |loader|}}
   {{#if loader.isRunning}}
-    <p>Loading...</p>
+    <p>{{t "loading"}}</p>
   {{else}}
     {{#each loader.data.tracks as |track|}}
       {{podcast-track cdnUrl=track.cdnUrl title=track.title labels=track.labels selectLabel=(action "selectLabel")}}
