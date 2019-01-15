@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 import QueryParams from 'ember-parachute';
 
 export const TimetableQueryParams = new QueryParams({
@@ -13,6 +14,9 @@ export const TimetableQueryParams = new QueryParams({
 });
 
 export default Controller.extend(TimetableQueryParams.Mixin, {
+  query: computed('start', 'view', function(){
+    return { start: this.start, view: this.view };
+  }),
   actions: {
     reloadCalendar(params){
       this.set('start', params.start);
