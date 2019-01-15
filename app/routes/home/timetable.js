@@ -2,16 +2,6 @@ import Route from '@ember/routing/route';
 import moment from 'moment';
 
 export default Route.extend({
-  queryParams: {
-    start: {
-      refreshModel: true
-    },
-    end: {
-      refreshModel: true
-    },
-    view: {
-    }
-  },
   model(params) {
     // return fetch('https://datafruits.streampusher.com/scheduled_shows.json?start=2017-08-27&end=2017-10-08&timezone=Asia%2FTokyo&_=1505527326508')
     // .then(function(response){

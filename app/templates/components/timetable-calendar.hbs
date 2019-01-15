@@ -3,15 +3,21 @@
   dayStartingTime="0:00"
   dayEndingTime="23:00"
   timeSlotDuration="00:30"
-  onNavigate=(action "calendarNavigate")
-  onTypeChange=calendarTypeChange
   type=view
-  as |occurrence timetable calendar|}}
+  onNavigate=(action "calendarNavigate")
+  onClickOccurrence=(action "calendarClickOccurrence")
+  onAddOccurrence=(action "calendarAddOccurrence")
+  onUpdateOccurrence=(action "calendarUpdateOccurrence")
+  onEditOccurrence=(action "calendarEditOccurrence")
+  onRemoveOccurrence=(action "calendarRemoveOccurrence")
+  startingDate=startingDate
+  onTypeChange=onTypeChange
+    as |occurrence timetable calendar|}}
     {{#as-calendar/occurrence
-    model=occurrence
-    isMonthView=occurrence.calendar.isMonthView
-    timeSlotHeight=calendar.timeSlotHeight
-    timeSlotDuration=calendar.timeSlotDuration as |model|}}
+      model=occurrence
+      isMonthView=occurrence.calendar.isMonthView
+      timeSlotHeight=calendar.timeSlotHeight
+      timeSlotDuration=calendar.timeSlotDuration as |model|}}
       <h1 class="as-calendar-occurrence__title" style={{titleStyle}}>{{#link-to 'home.show' model.content.id}}{{model.title}}{{/link-to}}</h1>
     {{/as-calendar/occurrence}}
 {{/as-calendar}}
