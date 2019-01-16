@@ -15,12 +15,11 @@ export default Component.extend({
     this.get('fetchData').perform(query);
   },
 
-  didInsertElement(){
-    document.getElementsByClassName("as-calendar-timetable__content")[0]
-      .classList.add('bleed')
-  },
-
   fetchData: task(function*(query) {
+    if(document.getElementsByClassName("as-calendar-timetable__main").length){
+      document.getElementsByClassName("as-calendar-timetable__main")[0]
+        .classList.add('bleed')
+    }
     yield timeout(1000);
     query.timezone = jstz.determine().name();
     const start = query.start;
@@ -35,7 +34,7 @@ export default Component.extend({
       return shows;
     });
     let resolvedShows = yield shows;
-    document.getElementsByClassName("as-calendar-timetable__content")[0]
+    document.getElementsByClassName("as-calendar-timetable__main")[0]
       .classList.remove('bleed')
     return this.set('data', resolvedShows);
   }).restartable()
