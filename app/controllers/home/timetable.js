@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import QueryParams from 'ember-parachute';
+import moment from 'moment';
 
 export const TimetableQueryParams = new QueryParams({
   start: {
