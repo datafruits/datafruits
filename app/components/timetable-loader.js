@@ -5,6 +5,7 @@ import moment from 'moment';
 
 export default Component.extend({
   store: service(),
+  fastboot: service(),
   tagName: '',
   init() {
     this._super(...arguments);
@@ -18,9 +19,11 @@ export default Component.extend({
 
   fetchData: task(function*(query) {
     // FIXME document not available in fastboot!
-    if(document.getElementsByClassName("as-calendar-timetable__main").length){
-      document.getElementsByClassName("as-calendar-timetable__main")[0]
-        .classList.add('bleed')
+    if(!this.get('fastboot.isFastBoot')){
+      if(document.getElementsByClassName("as-calendar-timetable__main").length){
+        document.getElementsByClassName("as-calendar-timetable__main")[0]
+          .classList.add('bleed')
+      }
     }
     yield timeout(1000);
     query.timezone = jstz.determine().name();
@@ -36,8 +39,10 @@ export default Component.extend({
       return shows;
     });
     let resolvedShows = yield shows;
-    document.getElementsByClassName("as-calendar-timetable__main")[0]
-      .classList.remove('bleed')
+    if(!this.get('fastboot.isFastBoot')){
+      document.getElementsByClassName("as-calendar-timetable__main")[0]
+        .classList.remove('bleed')
+    }
     return this.set('data', resolvedShows);
   }).restartable()
 });
