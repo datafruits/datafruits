@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { alias } from '@ember/object/computed';
 
 export default DS.Model.extend({
   start: DS.attr(),
@@ -7,6 +8,9 @@ export default DS.Model.extend({
   imageUrl: DS.attr(),
   thumbImageUrl: DS.attr(),
   description: DS.attr(),
+
   htmlDescription: DS.attr(),
-  tweetContent: DS.attr()
+  tweetContent: DS.attr(),
+  startsAt: alias('start'),
+  endsAt: alias('end')
 });

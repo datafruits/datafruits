@@ -12,16 +12,16 @@ module.exports = function(defaults) {
     // Add options here
     fingerprint: fingerprintOptions,
 
+    'ember-font-awesome': {
+      useScss: true, // for ember-cli-sass
+    },
+
     babel: {
       plugins: [ require('ember-auto-import/babel-plugin') ]
     },
 
     emberCliFontAwesome: {
       useScss: true
-    },
-
-    emberFullCalendar: {
-      scheduler: false
     },
 
     'ember-bootstrap': {

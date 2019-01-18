@@ -1,4 +1,3 @@
-$base-line-height: 100px;
 $spin-duration: 1.5s;
 
 @keyframes spin {
@@ -12,8 +11,8 @@ $spin-duration: 1.5s;
 
 .loading {
   border-radius: 50%;
-  width: $base-line-height;
-  height: $base-line-height;
+  width: 100px;
+  height: 100px;
   border: 2rem solid #ddd;
   border-top-color: white;
   animation: spin $spin-duration infinite linear;
