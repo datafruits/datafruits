@@ -5,8 +5,5 @@ export default ApplicationAdapter.extend({
     if(query.next){
       return `${this.urlPrefix()}/scheduled_shows/next`;
     }
-  },
-  // urlForFindRecord(id){
-  //   return `${this.urlPrefix()}/scheduled_shows/${id}.json`;
-  // }
+  }
 });
