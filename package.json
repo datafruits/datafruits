@@ -72,7 +72,7 @@
     ]
   },
   "devDependencies": {
-    "@ember/jquery": "^0.5.2",
+    "@ember/jquery": "^0.6.0",
     "@ember/optional-features": "^0.6.3",
     "babel-eslint": "^10.0.1",
     "ember-auto-import": "1.2.18",
