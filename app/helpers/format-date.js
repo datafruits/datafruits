@@ -1,5 +1,5 @@
 import { helper } from '@ember/component/helper';
-//import moment from 'moment';
+import moment from 'moment';
 
 export function formatDate(time) {
   var timeZone = jstz.determine();
