@@ -2,7 +2,6 @@
   "name": "datafruits",
   "dependencies": {
     "jquery": ">=2.0.0",
-    "jsTimezoneDetect": "~1.0.6",
     "loader.js": "ember-cli/loader.js#3.2.1",
     "qunit": "~1.18.0",
     "jquery-textcomplete": "~0.8.1",

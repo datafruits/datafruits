@@ -11,7 +11,6 @@ module.exports = {
   ],
   globals: {
     "$": false,
-    "jstz": false,
     "twttr": false,
     "emojione": false
   },

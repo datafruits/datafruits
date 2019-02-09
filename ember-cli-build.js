@@ -47,7 +47,6 @@ module.exports = function(defaults) {
   //   //app.import(app.bowerDirectory + '/jplayer/dist/jplayer/jquery.jplayer.js');
   //   app.import(app.bowerDirectory + '/jquery-textcomplete/dist/jquery.textcomplete.min.js');
   // }
-  app.import(app.bowerDirectory + '/jsTimezoneDetect/jstz.min.js');
 
   app.import('/vendor/emojione_autocomplete.css');
 
