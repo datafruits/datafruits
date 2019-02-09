@@ -11,7 +11,12 @@ export default Route.extend({
   afterModel(){
     if(!this.get('fastboot.isFastBoot')){
       let locales = this.get('i18n.locales');
-      let language = navigator.languages[0] || navigator.language || navigator.userLanguage;
+      let language;
+      if(navigator.languages){
+        language = navigator.languages[0];
+      }else {
+        language = navigator.language || navigator.userLanguage;
+      }
       language = locales.includes(language.toLowerCase()) ? language : 'en';
 
       this.set('i18n.locale', language)
