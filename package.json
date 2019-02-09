@@ -58,6 +58,7 @@
     "ember-welcome-page": "^3.0.0",
     "emojione": "git://github.com/mcfiredrill/emojione#custom-emoji",
     "eslint-plugin-ember": "6.1.0",
+    "fastboot-app-server": "^1.1.2-beta.1",
     "loader.js": "^4.2.3",
     "video.js": "7.2.4"
   },
