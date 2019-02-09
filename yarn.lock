@@ -1533,6 +1533,11 @@ atob@^2.1.1:
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
+autolink-js@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/autolink-js/-/autolink-js-1.0.2.tgz#2fb443ab8b101ab1591560cc699b2a5c33f0bdf3"
+  integrity sha1-L7RDq4sQGrFZFWDMaZsqXDPwvfM=
+
 aws-sign2@~0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.6.0.tgz#14342dd38dbcc94d0e5b87d763cd63612c0e794f"

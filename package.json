@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "active-model-adapter": "^2.2.0",
+    "autolink-js": "^1.0.2",
     "bootstrap-sass": "^3.3.7",
     "broccoli-asset-rev": "^2.7.0",
     "broccoli-babel-transpiler": "^6.0.0",
