@@ -7,6 +7,7 @@ import $ from 'jquery';
 export default Component.extend({
   playingPodcast: false,
   title: "",
+  muted: false,
   playerState: "paused", //"playing", "loading"
   playButtonPressed: false,
   paused: computed('playerState', function(){
@@ -91,6 +92,16 @@ export default Component.extend({
         // reload stream
         audioTag.src = "https://streampusher-relay.club/datafruits.mp3";
       }
+    },
+    mute(){
+      let audioTag = document.getElementById("radio-player");
+      audioTag.muted = true;
+      this.set('muted', true);
+    },
+    unmute(){
+      let audioTag = document.getElementById("radio-player");
+      audioTag.muted = false;
+      this.set('muted', false);
     }
   },
   classNames: ['radio-bar'],

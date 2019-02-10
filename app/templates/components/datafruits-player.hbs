@@ -33,8 +33,11 @@
     <span id="next-show">Next live on air: {{#link-to 'home.show' nextShow}}{{nextShow.title}}{{/link-to}}</span>
   {{/if}}
   <span class="jp-volume-controls">
-    <a class="jp-mute" {{action "mute"}} tabindex="1"><i class="fa fa-volume-up"></i></a>
-    <a class="jp-unmute" {{action "unmute"}} tabindex="1"><i class="fa fa-volume-off"></i></a>
+    {{#if muted}}
+      <a class="jp-unmute" {{action "unmute"}} tabindex="1"><i class="fa fa-volume-off"></i></a>
+    {{else}}
+      <a class="jp-mute" {{action "mute"}} tabindex="1"><i class="fa fa-volume-up"></i></a>
+    {{/if}}
     <div class="jp-volume-bar">
       <div class="jp-volume-bar-value"></div>
     </div>
