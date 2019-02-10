@@ -4,7 +4,6 @@
     "jquery": ">=2.0.0",
     "loader.js": "ember-cli/loader.js#3.2.1",
     "qunit": "~1.18.0",
-    "jquery-textcomplete": "~0.8.1",
     "masonry": "masonry-layout#^4.2.0",
     "imagesloaded": "^4.1.1",
     "jPlayer": "jplayer#^2.9.2"

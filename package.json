@@ -62,6 +62,7 @@
     "fastboot-app-server": "^1.1.2-beta.1",
     "jstimezonedetect": "^1.0.6",
     "loader.js": "^4.2.3",
+    "textcomplete": "^0.17.1",
     "video.js": "7.2.4"
   },
   "engines": {
