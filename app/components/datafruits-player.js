@@ -5,7 +5,19 @@ import { later, run } from '@ember/runloop';
 import $ from 'jquery';
 
 export default Component.extend({
+  playingPodcast: false,
   title: "",
+  playerState: "paused", //"playing", "loading"
+  playButtonPressed: false,
+  paused: computed('playerState', function(){
+    return this.playerState === 'paused';
+  }),
+  playing: computed('playerState', function(){
+    return this.playerState === 'playing';
+  }),
+  loading: computed('playerState', function(){
+    return this.playerState === 'loading';
+  }),
   init(){
     this.eventBus.subscribe("trackPlayed", this, "onTrackPlayed");
     this._super(...arguments);
@@ -22,7 +34,7 @@ export default Component.extend({
   },
   setRadioTitle() {
     if(!this.playingPodcast){
-      let url = $('#radio-player').data('icecast-json').toString();
+      let url = "https://streampusher-relay.club/status-json.xsl";
 
       $.get(url).done((data) => {
         let datafruits = data.icestats.source.find((s) => {
@@ -55,68 +67,56 @@ export default Component.extend({
       this.set('playButtonHover', false);
     },
     playLiveStream(){
-      $("#radio-player").jPlayer("setMedia", this.stream);
-      $("#radio-player").jPlayer("play");
+      // $("#radio-player").jPlayer("setMedia", this.stream);
+      // $("#radio-player").jPlayer("play");
       this.set('playingPodcast', false);
       this.setRadioTitle();
     },
+    play(){
+      let audioTag = document.getElementById("radio-player");
+      console.log(`readyState: ${audioTag.readyState}`);
+      if(audioTag.readyState === 0){
+        this.set('playerState', 'loading');
+      }
+      audioTag.play();
+      this.set('playButtonHover', false);
+      this.set('playButtonPressed', true);
+    },
+    pause(){
+      let audioTag = document.getElementById("radio-player");
+      audioTag.pause();
+      this.set('playButtonPressed', false);
+      this.set('playerState', 'paused');
+      if(this.playingPodcast === false){
+        // reload stream
+        audioTag.src = "https://streampusher-relay.club/datafruits.mp3";
+      }
+    }
   },
   classNames: ['radio-bar'],
   classNameBindings: ['playingPodcast', 'isLive', 'playButtonHover:bleed:pink-bg'],
   playingPodcast: false,
   eventBus: service(),
   didInsertElement(){
-    let _this = this;
-    this.stream = {
-      mp3: 'https://streampusher-relay.club/datafruits.mp3',
-      oga: 'https://streampusher-relay.club/datafruits.ogg'
-    };
-
-    let playTry = false;
-    $('#radio-player').jPlayer({
-      ready: function () {
-        $(this).jPlayer('setMedia', _this.stream).jPlayer("play");
-        playTry = true;
-      },
-      supplied: 'mp3, oga',
-      volume: 0.5,
-      wmode: 'window',
-      playing: function() {
-        $('.jp-loading').hide();
-      },
-      pause: function() {
-        if (_this.get('playingPodcast') === false) {
-          $(this).jPlayer("clearMedia");
-          $(this).jPlayer("setMedia", _this.stream);
-        }
-      },
-      error: function(/*event*/) {
-        /*console.log('jPlayer error: '+ event.jPlayer.error.type);*/
-        _this.set('error', "There was an error playing the stream. Trying again in a second...");
-
-        $('jp-pause').hide();
-        $('jp-loading').hide();
-
-        if(playTry === true){
-          $(this).jPlayer('setMedia', _this.stream).jPlayer('play');
-        }
-      },
-      waiting: function() {
-        $('.jp-loading').show();
-        $('.jp-play').hide();
-        $('.jp-pause').hide();
-      },
-      loadeddata: function() {
-        $('.jp-loading').hide();
-      },
-      solution: 'html, flash',
-      cssSelectorAncestor: ""
+    let audioTag = document.getElementById("radio-player");
+    audioTag.addEventListener("loadstart", () => {
+      console.log('loadstart');
+      if(this.get('playButtonPressed') === true){
+        this.set('playerState', 'loading');
+      }
+    });
+    audioTag.addEventListener("canplay", () => {
+      console.log('canplay');
+    });
+    audioTag.addEventListener("pause", () => {
+      this.set('playerState', 'paused');
+      console.log('pause');
+    });
+    audioTag.addEventListener("playing", () => {
+      this.set('playerState', 'playing');
+      console.log('playing');
     });
     this.setRadioTitle();
     this.pollRadioTitle();
   },
-  didRender(){
-    $("#radio-player").jPlayer("option", "cssSelector.seekBar", ".jp-seek-bar");
-    $("#radio-player").jPlayer("option", "cssSelector.playBar", ".jp-play-bar");
-  }
 });

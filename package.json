@@ -69,11 +69,6 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "private": true,
-  "ember-addon": {
-    "paths": [
-      "lib/fastboot-import"
-    ]
-  },
   "devDependencies": {
     "@ember/jquery": "^0.5.2",
     "@ember/optional-features": "^0.6.3",

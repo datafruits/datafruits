@@ -1,9 +1,0 @@
-{
-  "name": "datafruits",
-  "dependencies": {
-    "jquery": ">=2.0.0",
-    "loader.js": "ember-cli/loader.js#3.2.1",
-    "qunit": "~1.18.0",
-    "jPlayer": "jplayer#^2.9.2"
-  }
-}
