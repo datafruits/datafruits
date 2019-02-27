@@ -39,6 +39,7 @@ Router.map(function() {
   });
   this.route('container', {path: '/container'}, function(){
   });
+  this.route('not-found', {path: '/*path'});
 });
 
 export default Router;
