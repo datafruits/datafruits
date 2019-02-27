@@ -79,7 +79,7 @@ export default Component.extend({
         playTry = true;
       },
       supplied: 'mp3, oga',
-      volume: 0.5,
+      volume: localStorage.getItem('datafruits-volume') || 0.5,
       wmode: 'window',
       playing: function() {
         $('.jp-loading').hide();
@@ -110,7 +110,10 @@ export default Component.extend({
         $('.jp-loading').hide();
       },
       solution: 'html, flash',
-      cssSelectorAncestor: ""
+      cssSelectorAncestor: "",
+	  volumechange: function(e){
+		localStorage.setItem('datafruits-volume', e.jPlayer.options.volume);
+	  }
     });
     this.setRadioTitle();
     this.pollRadioTitle();
