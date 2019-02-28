@@ -111,9 +111,9 @@ export default Component.extend({
       },
       solution: 'html, flash',
       cssSelectorAncestor: "",
-	  volumechange: function(e){
-		localStorage.setItem('datafruits-volume', e.jPlayer.options.volume);
-	  }
+	    volumechange: function(e){
+		    localStorage.setItem('datafruits-volume', e.jPlayer.options.volume);
+	    }
     });
     this.setRadioTitle();
     this.pollRadioTitle();
