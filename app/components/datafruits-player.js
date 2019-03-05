@@ -8,6 +8,7 @@ export default Component.extend({
   playingPodcast: false,
   title: "",
   muted: false,
+  showingVolumeControl: false,
   playerState: "paused", //"playing", "loading"
   playButtonPressed: false,
   paused: computed('playerState', function(){
@@ -102,6 +103,9 @@ export default Component.extend({
       let audioTag = document.getElementById("radio-player");
       audioTag.muted = false;
       this.set('muted', false);
+    },
+    toggleVolumeControl(){
+      this.toggleProperty('showingVolumeControl');
     }
   },
   classNames: ['radio-bar'],

@@ -32,14 +32,14 @@
   {{else if nextShow}}
     <span id="next-show">Next live on air: {{#link-to 'home.show' nextShow}}{{nextShow.title}}{{/link-to}}</span>
   {{/if}}
-  <span class="jp-volume-controls">
+  <span class="jp-volume-controls" {{action 'toggleVolumeControl' on='mouseEnter'}}>
     {{#if muted}}
       <a class="jp-unmute" {{action "unmute"}} tabindex="1"><i class="fa fa-volume-off"></i></a>
     {{else}}
       <a class="jp-mute" {{action "mute"}} tabindex="1"><i class="fa fa-volume-up"></i></a>
     {{/if}}
-    <div class="jp-volume-bar">
-      <div class="jp-volume-bar-value"></div>
-    </div>
+    {{#if showingVolumeControl}}
+      <input type="range" min="0" max="1">
+    {{/if}}
   </span>
 </div>

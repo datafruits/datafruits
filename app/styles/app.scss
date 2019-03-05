@@ -652,6 +652,9 @@ div.jp-seeking-bg {
 
 .jp-volume-controls {
   position: relative;
+  input {
+    transform: rotate(270deg);
+  }
 }
 
 .jp-volume-bar {
