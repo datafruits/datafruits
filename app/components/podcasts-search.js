@@ -27,7 +27,7 @@ export default Component.extend({
       return label.get('name');
     });
   }),
-  gbserveQuery: observer('filterText', function(){
+  observeQuery: observer('filterText', function(){
     debounce(this, () => {
       this.get('updateSearch')(this.get('filterText'), this.get('selectedLabels'));
     }, 500);

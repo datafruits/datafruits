@@ -39,7 +39,7 @@
       <a class="jp-mute" {{action "mute"}} tabindex="1"><i class="fa fa-volume-up"></i></a>
     {{/if}}
     {{#if showingVolumeControl}}
-      <input type="range" min="0" max="1">
+      <input class="volume-control" type="range" min="0" max="1" step="0.1" value={{volume}}>
     {{/if}}
   </span>
 </div>

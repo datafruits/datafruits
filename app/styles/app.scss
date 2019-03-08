@@ -654,6 +654,9 @@ div.jp-seeking-bg {
   position: relative;
   input {
     transform: rotate(270deg);
+    /* height and width are switched since its rotated */
+    height: 20px;
+    width: 100px;
   }
 }
 
