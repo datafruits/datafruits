@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "active-model-adapter": "^2.2.0",
+    "autolink-js": "^1.0.2",
     "bootstrap-sass": "^3.3.7",
     "broccoli-asset-rev": "^2.7.0",
     "broccoli-babel-transpiler": "^6.0.0",
@@ -59,18 +60,15 @@
     "emojione": "git://github.com/mcfiredrill/emojione#custom-emoji",
     "eslint-plugin-ember": "6.1.0",
     "fastboot-app-server": "^1.1.2-beta.1",
+    "jstimezonedetect": "^1.0.6",
     "loader.js": "^4.2.3",
+    "textcomplete": "^0.17.1",
     "video.js": "7.2.4"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
   },
   "private": true,
-  "ember-addon": {
-    "paths": [
-      "lib/fastboot-import"
-    ]
-  },
   "devDependencies": {
     "@ember/jquery": "^0.5.2",
     "@ember/optional-features": "^0.6.3",

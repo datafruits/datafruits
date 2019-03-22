@@ -652,6 +652,88 @@ div.jp-seeking-bg {
 
 .jp-volume-controls {
   position: relative;
+  input.volume-control {
+    position: absolute;
+    transform: rotate(270deg);
+    /* height and width are switched since its rotated */
+    height: 20px;
+    width: 100px;
+    position: absolute;
+    top: -59px;
+    left: -40px;
+  }
+  input[type=range] {
+    -webkit-appearance: none;
+    height: 100%;
+    background: none;
+    border: none;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    height: 100%;
+    width: 8.4px;
+    cursor: pointer;
+    background: $pink;
+    border-radius: 5px;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    height: 36px;
+    width: 16px;
+    border-radius: 5px;
+    background: $yellow;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -8px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: $pink;
+  }
+  input[type=range]::-moz-range-track {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    background: $pink;
+    border-radius: 5px;
+  }
+  input[type=range]::-moz-range-thumb {
+    height: 36px;
+    width: 16px;
+    border-radius: 5px;
+    background: $yellow;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: $pink;
+    border-radius: 5px;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: $pink;
+    border-radius: 5px;
+  }
+  input[type=range]::-ms-thumb {
+    height: 36px;
+    width: 16px;
+    border-radius: 5px;
+    background: $yellow;
+    cursor: pointer;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: $pink;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: $pink;
+  }
 }
 
 .jp-volume-bar {
@@ -686,4 +768,12 @@ div.jp-seeking-bg {
     display: none;
     visibility: hidden;
   }
+}
+
+.textcomplete-dropdown {
+  top: 175px;
+}
+
+audio {
+  display: none;
 }
