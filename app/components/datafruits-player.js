@@ -1,7 +1,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
-import { observer } from '@ember/object';
 import { later, run } from '@ember/runloop';
 import $ from 'jquery';
 
@@ -63,10 +62,6 @@ export default Component.extend({
     this.set('title', track.title);
     this.set('playingPodcast', true);
   },
-  setVolume: observer('volume', function(){
-    let audioTag = document.getElementById("radio-player");
-    audioTag.volume = this.volume;
-  }),
   actions: {
     playButtonMouseEnter(){
       this.set('playButtonHover', true);
@@ -112,6 +107,12 @@ export default Component.extend({
     },
     toggleVolumeControl(){
       this.toggleProperty('showingVolumeControl');
+    },
+    volumeChanged(e){
+      console.log(e.target.value);
+      this.set('volume', e.target.value);
+      let audioTag = document.getElementById("radio-player");
+      audioTag.volume = this.volume;
     }
   },
   classNames: ['radio-bar'],
