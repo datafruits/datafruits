@@ -2,7 +2,7 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { later, run } from '@ember/runloop';
-import $ from 'jquery';
+import fetch from 'fetch';
 
 export default Component.extend({
   playingPodcast: false,
@@ -39,17 +39,19 @@ export default Component.extend({
     if(!this.playingPodcast){
       let url = "https://streampusher-relay.club/status-json.xsl";
 
-      $.get(url).done((data) => {
-        let datafruits = data.icestats.source.find((s) => {
-          return s.server_name == "datafruits.ogg";
-        });
-        let title = datafruits.title;
-        if(title.substring(0, 3) === " - "){
-          title = title.slice(3);
-        }
-        run(() => {
-          this.set('error', null);
-          this.set('title', title);
+      fetch(url).then((response) => {
+        response.json().then((json) => {
+          let datafruits = json.icestats.source.find((s) => {
+            return s.server_name == "datafruits.ogg";
+          });
+          let title = datafruits.title;
+          if(title.substring(0, 3) === " - "){
+            title = title.slice(3);
+          }
+          run(() => {
+            this.set('error', null);
+            this.set('title', title);
+          });
         });
       }).fail((data, textStatus) => {
         console.log(data);
@@ -61,6 +63,10 @@ export default Component.extend({
     this.set('error', null);
     this.set('title', track.title);
     this.set('playingPodcast', true);
+
+    let audioTag = document.getElementById("radio-player");
+    audioTag.src = track.cdnUrl;
+    audioTag.play();
   },
   actions: {
     playButtonMouseEnter(){
