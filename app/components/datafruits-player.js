@@ -53,9 +53,8 @@ export default Component.extend({
             this.set('title', title);
           });
         });
-      }).fail((data, textStatus) => {
-        console.log(data);
-        console.log(textStatus);
+      }).catch((error) => {
+        console.log(error);
       });
     }
   },
@@ -76,8 +75,6 @@ export default Component.extend({
       this.set('playButtonHover', false);
     },
     playLiveStream(){
-      // $("#radio-player").jPlayer("setMedia", this.stream);
-      // $("#radio-player").jPlayer("play");
       this.set('playingPodcast', false);
       this.setRadioTitle();
     },
