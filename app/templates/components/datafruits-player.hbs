@@ -30,7 +30,7 @@
       </div>
     </div>
   {{else if nextShow}}
-    <span id="next-show">Next live on air: {{#link-to 'home.show' nextShow}}{{nextShow.title}}{{/link-to}}</span>
+  <span id="next-show">{{t "next_broadcast"}} {{#link-to 'home.show' nextShow}}{{nextShow.title}}{{/link-to}}</span>
   {{/if}}
   <span class="jp-volume-controls" {{action 'toggleVolumeControl' on='mouseEnter'}}>
     {{#if muted}}
