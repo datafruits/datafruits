@@ -11,7 +11,7 @@ export default Component.extend({
     calendarNavigate(event){
       console.log(`on navigate: ${event.start}, ${event.end}`);
       let start = event.start.format('YYYY-MM-DD');
-      this.get('reloadCalendar')({ start: start, view: event.view});
+      this.reloadCalendar({ start: start, view: event.view});
     }
   }
 });

@@ -14,8 +14,8 @@ export default Component.extend({
   },
 
   didReceiveAttrs() {
-    let query = this.get('query');
-    this.get('fetchData').perform(query);
+    let query = this.query;
+    this.fetchData.perform(query);
   },
 
   fetchData: task(function*(query) {

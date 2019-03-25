@@ -8,15 +8,15 @@ export default Component.extend({
   init(){
     this._super(...arguments);
     this.selectedLabels = [];
-    const selectedTags = this.get('selectedTags');
+    const selectedTags = this.selectedTags;
     if(!isEmpty(selectedTags)){
       if(isArray(selectedTags)){
-        this.set('selectedLabels', this.get('selectedTags'));
+        this.set('selectedLabels', this.selectedTags);
       }else{
-        this.set('selectedLabels', this.get('selectedTags').split(","));
+        this.set('selectedLabels', this.selectedTags.split(","));
       }
     }
-    const searchParams = this.get('searchParams');
+    const searchParams = this.searchParams;
     if(searchParams.query){
       this.set('filterText', searchParams.query);
     }
@@ -29,12 +29,12 @@ export default Component.extend({
   }),
   observeQuery: observer('filterText', function(){
     debounce(this, () => {
-      this.get('updateSearch')(this.get('filterText'), this.get('selectedLabels'));
+      this.updateSearch(this.filterText, this.selectedLabels);
     }, 500);
   }),
   observeLabels: observer('selectedLabels.[]', function(){
     debounce(this, () => {
-      this.get('updateSearch')(this.get('filterText'), this.get('selectedLabels'));
+      this.updateSearch(this.filterText, this.selectedLabels);
     }, 100);
   }),
   actions: {

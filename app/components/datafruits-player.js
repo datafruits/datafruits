@@ -126,7 +126,7 @@ export default Component.extend({
     let audioTag = document.getElementById("radio-player");
     audioTag.addEventListener("loadstart", () => {
       console.log('loadstart');
-      if(this.get('playButtonPressed') === true){
+      if(this.playButtonPressed === true){
         this.set('playerState', 'loading');
       }
     });
