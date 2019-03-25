@@ -1,5 +1,4 @@
 import Component from '@ember/component';
-import $ from 'jquery';
 
 export default Component.extend({
   tagName: "ul",
@@ -15,11 +14,15 @@ export default Component.extend({
     },
     adjustScrolling(){
       if(this.willAutoscroll){
-        $('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
+        const messages = document.findById('messages');
+        //$('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
+        messages.scrollTop = messages.scrollHeight;
       }
     }
   },
   scrolledToBottom() {
-    return $('#messages')[0].scrollHeight - $('#messages')[0].scrollTop - $('#messages').outerHeight() < 1;
+    const messages = document.findById('messages');
+    const messagesHeight = messages.getBoundingClientRect().height;
+    return messages.scrollHeight - messages.scrollTop - messagesHeight < 1;
   },
 });

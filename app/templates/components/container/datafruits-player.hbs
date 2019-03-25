@@ -1,8 +1,23 @@
-<div id="radio-player" data-icecast-json="https://streampusher-relay.club/status-json.xsl"></div>
+<audio preload id="radio-player">
+  <source src="https://streampusher-relay.club/datafruits.mp3" type="audio/mp3">
+  <source src="https://streampusher-relay.club/datafruits.ogg" type="audio/ogg">
+  <p>Your browser doesn't support HTML5 audio. Here is
+     a <a href="myAudio.mp4">link to the audio</a> instead.</p>
+</audio>
 <div id="jp_container">
-  <a class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
-  <a class="jp-pause" href="javascript:;" tabindex="1">❚❚</a>
-  <a class="jp-loading" href="javascript:;" tabindex="1" style="display:none;">↻</a>
+  {{#if playingPodcast}}
+    <a {{action "playLiveStream"}}>return to live stream</a>
+  {{/if}}
+  {{#if loading}}
+    <a class="jp-loading" href="javascript:;" tabindex="1">↻</a>
+  {{else if playing}}
+    <a class="jp-pause" {{action "pause"}} tabindex="1">❚❚</a>
+  {{else if paused}}
+    <a onMouseEnter={{action "playButtonMouseEnter"}}
+       onMouseLeave={{action "playButtonMouseOut"}}
+       {{action "play"}}
+       class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
+  {{/if}}
   {{#if error}}
     <span>{{error}}</span>
   {{else}}
