@@ -5678,9 +5678,10 @@ ember-maybe-in-element@^0.1.3:
   dependencies:
     ember-cli-babel "^6.11.0"
 
-"ember-metrics@https://github.com/poteto/ember-metrics.git":
-  version "0.12.1"
-  resolved "https://github.com/poteto/ember-metrics.git#1963fc05cbc15c1109b32e7f436962033e61c5f0"
+ember-metrics@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/ember-metrics/-/ember-metrics-0.13.0.tgz#1dccf74c0cd628f6dcabce076d81258e9a8bd7af"
+  integrity sha512-N/EHwqfKzthe7wPK4Rz0MYCl9pxvC+Ld/WhZD/guyeHyHFIYlwI3f1RVyEcWEZ4+m2HcNYafK2QVl8d6Ff1aAg==
   dependencies:
     broccoli-funnel "^1.0.1"
     ember-cli-babel "^6.6.0"
