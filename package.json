@@ -82,7 +82,7 @@
     "ember-i18n": "^5.2.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-metrics": "^0.13.0",
-    "ember-parachute": "^0.3.8",
+    "ember-parachute": "1.0.2",
     "ember-qunit": "^3.4.1",
     "ember-rollbar-client": "^0.8.0",
     "ember-truth-helpers": "2.1.0",
