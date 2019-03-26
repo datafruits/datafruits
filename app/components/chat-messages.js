@@ -14,14 +14,14 @@ export default Component.extend({
     },
     adjustScrolling(){
       if(this.willAutoscroll){
-        const messages = document.findById('messages');
+        const messages = document.getElementById('messages');
         //$('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
         messages.scrollTop = messages.scrollHeight;
       }
     }
   },
   scrolledToBottom() {
-    const messages = document.findById('messages');
+    const messages = document.getElementById('messages');
     const messagesHeight = messages.getBoundingClientRect().height;
     return messages.scrollHeight - messages.scrollTop - messagesHeight < 1;
   },

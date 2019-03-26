@@ -39,7 +39,7 @@ export default Component.extend({
   },
   didInsertElement(){
     var onScroll = this._onScroll.bind(this);
-    const messages = document.findElementById('messages');
+    const messages = document.getElementById('messages');
     this.$("#messages").bind('touchmove', onScroll);
     this.$("#messages").bind('scroll', onScroll);
     messages.scrollTop = this.get('chat.scrollTop');
