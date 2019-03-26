@@ -1,6 +1,5 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import { schedule } from '@ember/runloop';
 import $ from 'jquery';
 import ENV from 'datafruits13/config/environment';
 
