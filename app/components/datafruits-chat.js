@@ -35,7 +35,7 @@ export default Component.extend({
     }else{
       this.set("newMessagesBelow", true);
     }
-    this.chat.set('scrollTop', $('#messages')[0].scrollTop);
+    this.chat.set('scrollTop', document.findById('messages').scrollTop);
   },
   didInsertElement(){
     var onScroll = this._onScroll.bind(this);
