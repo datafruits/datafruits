@@ -12,6 +12,7 @@ export default Component.extend({
   playerState: "paused", //"playing", "loading"
   playButtonPressed: false,
   volume: 0.8,
+  oldVolume: 0.8,
   paused: computed('playerState', function(){
     return this.playerState === 'paused';
   }),
@@ -80,7 +81,6 @@ export default Component.extend({
     },
     play(){
       let audioTag = document.getElementById("radio-player");
-      console.log(`readyState: ${audioTag.readyState}`);
       if(audioTag.readyState === 0){
         this.set('playerState', 'loading');
       }
@@ -102,17 +102,19 @@ export default Component.extend({
       let audioTag = document.getElementById("radio-player");
       audioTag.muted = true;
       this.set('muted', true);
+      this.set('oldVolume', this.volume);
+      this.set('volume', 0.0);
     },
     unmute(){
       let audioTag = document.getElementById("radio-player");
       audioTag.muted = false;
       this.set('muted', false);
+      this.set('volume', this.oldVolume);
     },
     toggleVolumeControl(){
       this.toggleProperty('showingVolumeControl');
     },
     volumeChanged(e){
-      console.log(e.target.value);
       this.set('volume', e.target.value);
       let audioTag = document.getElementById("radio-player");
       audioTag.volume = this.volume;
@@ -125,21 +127,15 @@ export default Component.extend({
   didInsertElement(){
     let audioTag = document.getElementById("radio-player");
     audioTag.addEventListener("loadstart", () => {
-      console.log('loadstart');
       if(this.playButtonPressed === true){
         this.set('playerState', 'loading');
       }
     });
-    audioTag.addEventListener("canplay", () => {
-      console.log('canplay');
-    });
     audioTag.addEventListener("pause", () => {
       this.set('playerState', 'paused');
-      console.log('pause');
     });
     audioTag.addEventListener("playing", () => {
       this.set('playerState', 'playing');
-      console.log('playing');
     });
     this.setRadioTitle();
     this.pollRadioTitle();
