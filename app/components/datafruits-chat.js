@@ -6,7 +6,7 @@ export default Component.extend({
   chat: service(),
   classNames: ['main-content'],
   gifsEnabled: oneWay('chat.gifsEnabled'),
-  newMessagesBelow: false,
+  newMessagesBelow: false, // TODO move this to chat service
   isJoiningChat: false,
   joinedChat: oneWay('chat.joinedChat'),
   messages: oneWay('chat.messages'),
