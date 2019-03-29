@@ -1,3 +1,4 @@
+import { or } from '@ember/object/computed';
 import Controller from '@ember/controller';
 import QueryParams from 'ember-parachute';
 import { computed } from '@ember/object';
@@ -24,7 +25,7 @@ export const PodcastQueryParams = new QueryParams({
 });
 
 export default Controller.extend(PodcastQueryParams.Mixin, {
-  queryParamsChanged: computed.or('queryParamsState.{page,query,tags}.changed'),
+  queryParamsChanged: or('queryParamsState.{page,query,tags}.changed'),
   searchParams: computed('query', 'tags', 'page', function(){
     return { query: this.query, tags: this.tags, page: this.page };
   }),

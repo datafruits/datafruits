@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+import jstz from 'jstimezonedetect';
 
 export default Controller.extend({
   init() {

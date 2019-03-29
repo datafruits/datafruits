@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import { task, timeout } from 'ember-concurrency';
 import { inject as service } from '@ember/service';
 import moment from 'moment';
+import jstz from 'jstimezonedetect';
 
 export default Component.extend({
   store: service(),
@@ -13,8 +14,8 @@ export default Component.extend({
   },
 
   didReceiveAttrs() {
-    let query = this.get('query');
-    this.get('fetchData').perform(query);
+    let query = this.query;
+    this.fetchData.perform(query);
   },
 
   fetchData: task(function*(query) {

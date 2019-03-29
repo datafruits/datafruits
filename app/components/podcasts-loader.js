@@ -2,7 +2,7 @@ import App from '../app';
 import Component from '@ember/component';
 import { task, timeout } from 'ember-concurrency';
 import { inject as service } from '@ember/service';
-import { computed, observer } from '@ember/object';
+import { computed } from '@ember/object';
 import { hash } from 'rsvp';
 
 export default Component.extend({
@@ -14,8 +14,8 @@ export default Component.extend({
   },
 
   didReceiveAttrs() {
-    let query = this.get('query');
-    this.get('fetchData').perform(query);
+    let query = this.query;
+    this.fetchData.perform(query);
   },
 
   fetchData: task(function*(query) {

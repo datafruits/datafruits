@@ -1,13 +1,23 @@
-<div id="radio-player" data-icecast-json="https://streampusher-relay.club/status-json.xsl"></div>
+<audio preload id="radio-player">
+  <source src="https://streampusher-relay.club/datafruits.mp3" type="audio/mp3">
+  <source src="https://streampusher-relay.club/datafruits.ogg" type="audio/ogg">
+  <p>Your browser doesn't support HTML5 audio. Here is
+     a <a href="myAudio.mp4">link to the audio</a> instead.</p>
+</audio>
 <div id="jp_container">
-  {{#if playingPodcast }}
+  {{#if playingPodcast}}
     <a {{action "playLiveStream"}}>return to live stream</a>
   {{/if}}
-  <a onMouseEnter={{action "playButtonMouseEnter"}}
-     onMouseLeave={{action "playButtonMouseOut"}}
-     class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
-  <a class="jp-pause" href="javascript:;" tabindex="1">❚❚</a>
-  <a class="jp-loading" href="javascript:;" tabindex="1" style="display:none;">↻</a>
+  {{#if loading}}
+    <a class="jp-loading" href="javascript:;" tabindex="1">↻</a>
+  {{else if playing}}
+    <a class="jp-pause" {{action "pause"}} tabindex="1">❚❚</a>
+  {{else if paused}}
+    <a onMouseEnter={{action "playButtonMouseEnter"}}
+       onMouseLeave={{action "playButtonMouseOut"}}
+       {{action "play"}}
+       class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
+  {{/if}}
   {{#if error}}
     <span>{{error}}</span>
   {{else}}
@@ -20,13 +30,18 @@
       </div>
     </div>
   {{else if nextShow}}
-    <span id="next-show">Next live on air: {{#link-to 'home.show' nextShow}}{{nextShow.title}}{{/link-to}}</span>
+  <span id="next-show">{{t "next_broadcast"}} {{#link-to 'home.show' nextShow}}{{nextShow.title}}{{/link-to}}</span>
   {{/if}}
-  <span class="jp-volume-controls">
-    <a class="jp-mute" href="javascript:;" tabindex="1"><i class="fa fa-volume-up"></i></a>
-    <a class="jp-unmute" href="javascript:;" tabindex="1"><i class="fa fa-volume-off"></i></a>
-    <div class="jp-volume-bar">
-      <div class="jp-volume-bar-value"></div>
-    </div>
+  <span class="jp-volume-controls" {{action 'toggleVolumeControl' on='mouseEnter'}}>
+    {{#if muted}}
+      <a class="jp-unmute" {{action "unmute"}} tabindex="1"><i class="fa fa-volume-off"></i></a>
+    {{else}}
+      <a class="jp-mute" {{action "mute"}} tabindex="1"><i class="fa fa-volume-up"></i></a>
+    {{/if}}
+    {{#if showingVolumeControl}}
+      <input class="volume-control" type="range" min="0" max="1" step="0.1"
+       oninput={{action 'volumeChanged'}}
+       value={{volume}}>
+    {{/if}}
   </span>
 </div>
