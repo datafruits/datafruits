@@ -770,6 +770,15 @@ div.jp-seeking-bg {
   }
 }
 
+#not-found{
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+#not-found-spin{
+  animation: spin 1.5s infinite linear;
+}
+
 .textcomplete-dropdown {
   top: 175px;
 }

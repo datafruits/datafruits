@@ -11,7 +11,7 @@ export default Component.extend({
   showingVolumeControl: false,
   playerState: "paused", //"playing", "loading"
   playButtonPressed: false,
-  volume: 0.8,
+  volume: localStorage.getItem('datafruits-volume') || 0.8,
   oldVolume: 0.8,
   paused: computed('playerState', function(){
     return this.playerState === 'paused';
@@ -104,18 +104,21 @@ export default Component.extend({
       this.set('muted', true);
       this.set('oldVolume', this.volume);
       this.set('volume', 0.0);
+      localStorage.setItem('datafruits-volume', this.volume);
     },
     unmute(){
       let audioTag = document.getElementById("radio-player");
       audioTag.muted = false;
       this.set('muted', false);
       this.set('volume', this.oldVolume);
+      localStorage.setItem('datafruits-volume', this.volume);
     },
     toggleVolumeControl(){
       this.toggleProperty('showingVolumeControl');
     },
     volumeChanged(e){
       this.set('volume', e.target.value);
+      localStorage.setItem('datafruits-volume', this.volume);
       let audioTag = document.getElementById("radio-player");
       audioTag.volume = this.volume;
     }
