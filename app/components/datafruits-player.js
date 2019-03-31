@@ -5,13 +5,16 @@ import { later, run } from '@ember/runloop';
 import fetch from 'fetch';
 
 export default Component.extend({
+  classNames: ['radio-bar'],
+  classNameBindings: ['playingPodcast', 'isLive', 'playButtonHover:bleed:pink-bg'],
+  eventBus: service(),
+  fastboot: service(),
   playingPodcast: false,
   title: "",
   muted: false,
   showingVolumeControl: false,
   playerState: "paused", //"playing", "loading"
   playButtonPressed: false,
-  volume: localStorage.getItem('datafruits-volume') || 0.8,
   oldVolume: 0.8,
   paused: computed('playerState', function(){
     return this.playerState === 'paused';
@@ -24,6 +27,9 @@ export default Component.extend({
   }),
   init(){
     this.eventBus.subscribe("trackPlayed", this, "onTrackPlayed");
+    if(!this.get('fastboot.isFastBoot')){
+      this.set('volume', localStorage.getItem('datafruits-volume') || 0.8);
+    }
     this._super(...arguments);
   },
   isLive: computed('title', function(){
@@ -123,24 +129,22 @@ export default Component.extend({
       audioTag.volume = this.volume;
     }
   },
-  classNames: ['radio-bar'],
-  classNameBindings: ['playingPodcast', 'isLive', 'playButtonHover:bleed:pink-bg'],
-  playingPodcast: false,
-  eventBus: service(),
   didInsertElement(){
-    let audioTag = document.getElementById("radio-player");
-    audioTag.addEventListener("loadstart", () => {
-      if(this.playButtonPressed === true){
-        this.set('playerState', 'loading');
-      }
-    });
-    audioTag.addEventListener("pause", () => {
-      this.set('playerState', 'paused');
-    });
-    audioTag.addEventListener("playing", () => {
-      this.set('playerState', 'playing');
-    });
-    this.setRadioTitle();
-    this.pollRadioTitle();
+    if(!this.get('fastboot.isFastBoot')){
+      let audioTag = document.getElementById("radio-player");
+      audioTag.addEventListener("loadstart", () => {
+        if(this.playButtonPressed === true){
+          this.set('playerState', 'loading');
+        }
+      });
+      audioTag.addEventListener("pause", () => {
+        this.set('playerState', 'paused');
+      });
+      audioTag.addEventListener("playing", () => {
+        this.set('playerState', 'playing');
+      });
+      this.setRadioTitle();
+      this.pollRadioTitle();
+    }
   },
 });
