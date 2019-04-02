@@ -24,7 +24,9 @@
   {{#if playingPodcast }}
     <div class='jp-progress'>
       <div class='jp-seek-bar'>
-        <div class='jp-play-bar'></div>
+        <input class="seek-bar" type="range"
+         oninput={{action 'seek'}}
+         value={{playTime}}>
       </div>
     </div>
   {{else if nextShow}}

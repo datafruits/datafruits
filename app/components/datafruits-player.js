@@ -127,6 +127,12 @@ export default Component.extend({
       localStorage.setItem('datafruits-volume', this.volume);
       let audioTag = document.getElementById("radio-player");
       audioTag.volume = this.volume;
+    },
+    seek(e){
+      let audioTag = document.getElementById("radio-player");
+      const time = audioTag.duration * (e.target.value / 100);
+
+      audioTag.currentTime = time;
     }
   },
   didInsertElement(){
@@ -142,6 +148,11 @@ export default Component.extend({
       });
       audioTag.addEventListener("playing", () => {
         this.set('playerState', 'playing');
+      });
+      audioTag.addEventListener("timeupdate", () => {
+        const value = (100 / audioTag.duration) * audioTag.currentTime;
+
+        this.set('playTime', value);
       });
       this.setRadioTitle();
       this.pollRadioTitle();
