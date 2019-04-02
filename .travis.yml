@@ -23,7 +23,6 @@ before_install:
 
 install:
   - yarn install --non-interactive
-  - bower install
 
 script:
   - yarn lint:js
