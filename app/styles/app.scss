@@ -1,12 +1,15 @@
 @import "colors.scss";
 @import "loading-spinner.scss";
 @import "container.scss";
+@import "stripe-animation.scss";
 @import "ember-bootstrap/bootstrap";
 
 @import "font-awesome";
 @import 'addons/ember-calendar/paint-core';
 @import 'addons/ember-calendar/main';
 @import "calendar.scss";
+
+@import "player.scss";
 
 @font-face {
   font-family: 'Condiment';
@@ -98,12 +101,6 @@ form#enter-chat {
   }
 }
 
-@keyframes stripes {
-  100% {
-    background-position: 100% 100%;
-  }
-}
-
 @keyframes textshadowfade {
   from {
     text-shadow: $green -1px -1px, $green -2px -2px, $green -3px -3px, $green -4px -4px, $green -5px -5px, $green -6px -6px, $green -7px -7px, $green -8px -8px, $green -9px -9px, $green -10px -10px, $green -11px -11px, $green -12px -12px, $green -13px -13px, $green -14px -14px, $green -15px -15px;
@@ -189,56 +186,8 @@ div.radio-bar {
   }
 }
 
-div.radio-bar.is-live {
-  background-image: url("/assets/images/pink_sparkles.gif");
-}
-
-.playing-podcast {
-  background: $green !important;
-}
-
-div.radio-bar a:hover {
-  text-decoration:none;
-}
-
-#jp_container {
-  position:relative;
-}
-
 .bleed {
-  background: repeating-linear-gradient(
-  90deg,
-  $green,
-  $green 20px,
-  $pink 20px,
-  $pink 40px,
-  $yellow 40px,
-  $yellow 60px,
-  $blue 60px,
-  $blue 80px
-  );
-
-  background-size: 200% 200%;
-  animation: stripes 15s infinite;
-}
-
-.jp-loading {
-  display: inline-block;
-  animation: rotation 0.7s linear infinite;
-}
-
-.jp-title {
-  font-style: italic;
-  text-shadow: #333 1px 1px 1px;
-  color: yellow;
-}
-
-.jp-play, .podcast-controls {
-  display: inline-block;
-  transition: all 0.25s ease-in-out;
-  &:hover {
-    transform: rotate(10deg) scale(1.3);
-  }
+  @include stripe-animation;
 }
 
 #chat-area {
@@ -590,20 +539,7 @@ form {
   text-transform: uppercase;
   padding: 2px;
   &:hover {
-    background: repeating-linear-gradient(
-    90deg,
-    $green,
-    $green 20px,
-    $pink 20px,
-    $pink 40px,
-    $yellow 40px,
-    $yellow 60px,
-    $blue 60px,
-    $blue 80px
-    );
-
-    background-size: 200% 200%;
-    animation: stripes 3s infinite;
+    @include stripe-animation;
   }
 }
 
@@ -621,136 +557,6 @@ form {
 .fc-center {
   text-shadow: 3px 3px 3px #333, 7px 7px 0 #ff00fc;
   transform: rotate(-3.5deg);
-}
-
-/* progress */
-div.jp-progress {
-  overflow:hidden;
-  background-color: #fdff68;
-}
-div.jp-progress {
-  top:32px;
-  height:15px;
-}
-div.jp-seek-bar {
-  background: url("/assets/images/jplayer.png") 0 -29px repeat-x ;
-  width:0px;
-  height:100%;
-  cursor: pointer;
-}
-div.jp-play-bar {
-  background: url("/assets/images/jplayer.png") 0 -45px repeat-x;
-  width:0px;
-  height:100%;
-}
-
-/* The seeking class is added/removed inside jPlayer */
-div.jp-seeking-bg {
-  background: url("/assets/images/seeking.gif");
-}
-/* end progress */
-
-.jp-volume-controls {
-  position: relative;
-  input.volume-control {
-    position: absolute;
-    transform: rotate(270deg);
-    /* height and width are switched since its rotated */
-    height: 20px;
-    width: 100px;
-    position: absolute;
-    top: -59px;
-    left: -40px;
-  }
-  input[type=range] {
-    -webkit-appearance: none;
-    height: 100%;
-    background: none;
-    border: none;
-  }
-  input[type=range]:focus {
-    outline: none;
-  }
-  input[type=range]::-webkit-slider-runnable-track {
-    height: 100%;
-    width: 8.4px;
-    cursor: pointer;
-    background: $pink;
-    border-radius: 5px;
-  }
-  input[type=range]::-webkit-slider-thumb {
-    height: 36px;
-    width: 16px;
-    border-radius: 5px;
-    background: $yellow;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -8px;
-  }
-  input[type=range]:focus::-webkit-slider-runnable-track {
-    background: $pink;
-  }
-  input[type=range]::-moz-range-track {
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-    background: $pink;
-    border-radius: 5px;
-  }
-  input[type=range]::-moz-range-thumb {
-    height: 36px;
-    width: 16px;
-    border-radius: 5px;
-    background: $yellow;
-    cursor: pointer;
-  }
-  input[type=range]::-ms-track {
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-    background: transparent;
-    border-color: transparent;
-    border-width: 16px 0;
-    color: transparent;
-  }
-  input[type=range]::-ms-fill-lower {
-    background: $pink;
-    border-radius: 5px;
-  }
-  input[type=range]::-ms-fill-upper {
-    background: $pink;
-    border-radius: 5px;
-  }
-  input[type=range]::-ms-thumb {
-    height: 36px;
-    width: 16px;
-    border-radius: 5px;
-    background: $yellow;
-    cursor: pointer;
-  }
-  input[type=range]:focus::-ms-fill-lower {
-    background: $pink;
-  }
-  input[type=range]:focus::-ms-fill-upper {
-    background: $pink;
-  }
-}
-
-.jp-volume-bar {
-  position: absolute;
-  overflow: hidden;
-  background: $blue;
-  top: 0px;
-  left: 22px;
-  width: 200px;
-  height: 28px;
-  cursor: pointer;
-}
-
-.jp-volume-bar-value {
-  background: $yellow;
-  width: 0px;
-  height: 28px;
 }
 
 .locale-selector {
@@ -781,8 +587,4 @@ div.jp-seeking-bg {
 
 .textcomplete-dropdown {
   top: 175px;
-}
-
-audio {
-  display: none;
 }

@@ -22,10 +22,11 @@
     <span>Now playing: </span><span class="jp-title">{{title}}</span>
   {{/if}}
   {{#if playingPodcast }}
-    <div class='jp-progress'>
-      <div class='jp-seek-bar'>
-        <div class='jp-play-bar'></div>
-      </div>
+    <div class='seek'>
+      <input class="seek-bar" type="range"
+       step="any"
+       oninput={{action 'seek'}}
+       value={{playTime}}>
     </div>
   {{else if nextShow}}
   <span id="next-show">{{t "next_broadcast"}} {{#link-to 'home.show' nextShow}}{{nextShow.title}}{{/link-to}}</span>

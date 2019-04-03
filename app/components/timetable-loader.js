@@ -19,7 +19,6 @@ export default Component.extend({
   },
 
   fetchData: task(function*(query) {
-    // FIXME document not available in fastboot!
     if(!this.get('fastboot.isFastBoot')){
       if(document.getElementsByClassName("as-calendar-timetable__main").length){
         document.getElementsByClassName("as-calendar-timetable__main")[0]
