@@ -16,6 +16,7 @@ export default Component.extend({
   playerState: "paused", //"playing", "loading"
   playButtonPressed: false,
   oldVolume: 0.8,
+  playTime: 0.0,
   paused: computed('playerState', function(){
     return this.playerState === 'paused';
   }),
@@ -69,6 +70,7 @@ export default Component.extend({
     this.set('error', null);
     this.set('title', track.title);
     this.set('playingPodcast', true);
+    this.set('playTime', 0.0);
 
     let audioTag = document.getElementById("radio-player");
     audioTag.src = track.cdnUrl;
@@ -140,7 +142,11 @@ export default Component.extend({
       let audioTag = document.getElementById("radio-player");
       audioTag.addEventListener("loadstart", () => {
         if(this.playButtonPressed === true){
-          this.set('playerState', 'loading');
+          this.set('playerState', 'seeking');
+        }
+        if(document.getElementsByClassName("seek").length){
+          document.getElementsByClassName("seek")[0]
+            .classList.add('seeking');
         }
       });
       audioTag.addEventListener("pause", () => {
@@ -153,6 +159,18 @@ export default Component.extend({
         const value = (100 / audioTag.duration) * audioTag.currentTime;
 
         this.set('playTime', value);
+      });
+      audioTag.addEventListener("seeking", () => {
+        if(document.getElementsByClassName("seek").length){
+          document.getElementsByClassName("seek")[0]
+            .classList.add('seeking');
+        }
+      });
+      audioTag.addEventListener("canplay", () => {
+        if(document.getElementsByClassName("seek").length){
+          document.getElementsByClassName("seek")[0]
+            .classList.remove('seeking');
+        }
       });
       this.setRadioTitle();
       this.pollRadioTitle();
