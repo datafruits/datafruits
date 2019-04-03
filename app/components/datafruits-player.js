@@ -172,6 +172,7 @@ export default Component.extend({
             .classList.remove('seeking');
         }
       });
+      audioTag.volume = this.volume;
       this.setRadioTitle();
       this.pollRadioTitle();
     }
