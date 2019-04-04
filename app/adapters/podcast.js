@@ -1,7 +1,7 @@
 import ApplicationAdapter from './application';
 
 export default ApplicationAdapter.extend({
-  urlForQueryRecord(query){
+  urlForQueryRecord(){
     return `${this.urlPrefix()}/podcasts/datafruits`;
   }
 });
