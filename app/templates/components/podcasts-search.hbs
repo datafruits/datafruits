@@ -2,13 +2,14 @@
   autofocus="autofocus"
   value=filterText
   escape-press=(action 'clearSearch')
-  placeholder="Search podcasts"}}
+  placeholder="Search podcasts"
+  key-up=(action 'filterText')}}
 {{#power-select-multiple
     placeholder="Search by tag..."
     options=labelNames
     selected=selectedLabels
     renderInPlace=true
-    onchange=(action (mut selectedLabels))
+    onchange=(action 'selectedLabels')
     as |label|
 }}
   {{label}}
