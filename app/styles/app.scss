@@ -609,9 +609,6 @@ form {
 
 .locale-selector {
   @media screen and (min-device-width: 480px) {
-    position: absolute;
-    bottom: 3px;
-    right: 20px;
     select {
       background: $pink;
       color: white;

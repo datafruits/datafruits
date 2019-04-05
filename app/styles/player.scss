@@ -1,3 +1,8 @@
+.radio-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 div.radio-bar.is-live {
   background-image: url("/assets/images/pink_sparkles.gif");
 }
@@ -8,10 +13,6 @@ div.radio-bar.is-live {
 
 div.radio-bar a:hover {
   text-decoration:none;
-}
-
-#jp_container {
-  position:relative;
 }
 
 .jp-loading {

@@ -3,7 +3,8 @@
   {{sp-nav toggleMenu=(action "toggleMenu") menuOpen=menuOpen}}
   {{#link-to 'home'}}<h1 id="logo">datafruits.fm</h1>{{/link-to}}
   {{outlet}}
-  {{datafruits-player nextShow=model}}
-  {{locale-selector selectedLocale=locale setLocale=(action "setLocale")}}
+  {{#datafruits-player nextShow=model}}
+    {{locale-selector selectedLocale=locale setLocale=(action "setLocale")}}
+  {{/datafruits-player}}
 </section>
 {{datafruits-visuals}}
