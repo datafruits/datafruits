@@ -2,7 +2,7 @@
 import Service from '@ember/service';
 import ArrayProxy from '@ember/array/proxy';
 import { A } from '@ember/array';
-import { Socket/*, LongPoller*/ } from "phoenix";
+import { Socket, Presence } from "phoenix";
 import ENV from "datafruits13/config/environment";
 
 export default Service.extend({
@@ -57,11 +57,9 @@ export default Service.extend({
       this.messages.pushObject(msg);
     });
 
-    var self = this;
-    this.chan.on("authorized", function (msg) {
-      self.set("username", msg.user);
-      self.set("joinedChat", true);
-      //Ember.$('#input-message').focus();
+    this.chan.on("authorized", (msg) => {
+      this.set("username", msg.user);
+      this.set("joinedChat", true);
     });
 
     this.chan.on("notauthorized", function(msg) {
@@ -89,6 +87,17 @@ export default Service.extend({
 
     this.chan.on("user:entered", function (/*msg*/) {
       //user entered room, but nick not authorized yet
+    });
+
+    let presences = {};
+    this.chan.on("presence_state", state => {
+      presences = Presence.syncState(presences, state);
+      console.log(`presence_state: ${presences}`);
+    });
+
+    this.chan.on("presence_diff", diff => {
+      presences = Presence.syncDiff(presences, diff);
+      console.log(`presence_diff: ${presences}`);
     });
   }
 });
