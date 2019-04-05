@@ -1,4 +1,3 @@
-//import Ember from 'ember';
 import Service from '@ember/service';
 import ArrayProxy from '@ember/array/proxy';
 import { A } from '@ember/array';
@@ -7,7 +6,6 @@ import { computed } from '@ember/object';
 import ENV from "datafruits13/config/environment";
 
 export default Service.extend({
-  //joinedUsers: ArrayProxy.create({ content: A() }),
   joinedUsers: computed('presences', function(){
     return Object.keys(this.presences);
   }),
@@ -24,8 +22,7 @@ export default Service.extend({
 
       logger: function logger(/*kind, msg, data*/) {
         //console.log(kind + ": " + msg, data);
-      },
-      params: { user_id: "123" }
+      }
     });
 
     socket.connect();
@@ -75,20 +72,14 @@ export default Service.extend({
       if(msg.user !== null){
         let leftMessage = { user: msg.user, body: ' left the chat :dash:', timestamp: msg.timestamp };
         this.messages.pushObject(leftMessage);
-        //this.joinedUsers.removeObject(msg.user);
       }
     });
 
     this.chan.on("user:authorized", (msg) => {
       let joinedMessage = { user: msg.user, body: ' joined the chat :raising_hand:', timestamp: msg.timestamp };
       this.messages.pushObject(joinedMessage);
-      //this.joinedUsers.pushObject(msg.user);
-      //addToUserList(msg.user);
     });
 
-    this.chan.on("join", (msg) => {
-      //this.joinedUsers.pushObjects(msg.users);
-    });
 
     this.chan.on("user:entered", function (/*msg*/) {
       //user entered room, but nick not authorized yet
@@ -97,16 +88,11 @@ export default Service.extend({
     this.chan.on("presence_state", state => {
       let presences = this.presences;
       this.set('presences', Presence.syncState(presences, state));
-      console.log(`presence_state`);
-      console.log(presences);
-      //this.joinedUsers.pushObjects(Object.keys(presences));
     });
 
     this.chan.on("presence_diff", diff => {
       let presences = this.presences;
       this.set('presences', Presence.syncDiff(presences, diff));
-      console.log(`presence_diff: ${presences}`);
-      console.log(presences);
     });
   }
 });
