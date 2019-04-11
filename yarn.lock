@@ -5689,9 +5689,9 @@ ember-jquery-legacy@^1.0.0:
   dependencies:
     ember-cli-babel "^6.6.0"
 
-"ember-lazy-image@https://github.com/mcfiredrill/ember-lazy-image":
+"ember-lazy-image@https://github.com/mcfiredrill/ember-lazy-image#update-dependencies":
   version "0.0.14"
-  resolved "https://github.com/mcfiredrill/ember-lazy-image#1e24f6663704a4329d9f52be9a9be3ae65a9ff7a"
+  resolved "https://github.com/mcfiredrill/ember-lazy-image#17b986c5520dbebfea160cd7487742952dc1653b"
   dependencies:
     ember-cli-babel "^7.1.2"
     ember-in-viewport "3.3.0"
