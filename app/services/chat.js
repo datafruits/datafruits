@@ -56,7 +56,9 @@ export default Service.extend({
     });
 
     this.chan.on("new:msg", (msg) => {
-      this.messages.pushObject(msg);
+      if (this.joinedChat) {
+        this.messages.pushObject(msg);
+      }
     });
 
     this.chan.on("authorized", (msg) => {
