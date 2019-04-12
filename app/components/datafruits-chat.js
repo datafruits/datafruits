@@ -19,7 +19,8 @@ export default Component.extend({
     enterChat(){
       this.set('isJoiningChat', true);
       const nick = this.nick.trim();
-      this.chat.push("authorize", { user: nick, timestamp: Date.now() });
+      const pass = this.pass;
+      this.attrs.authenticate(nick, pass);
     },
     newMessagesAvailable(){
       this.set("newMessagesBelow", true);

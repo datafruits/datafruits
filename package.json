@@ -85,6 +85,7 @@
     "ember-parachute": "1.0.2",
     "ember-qunit": "^3.4.1",
     "ember-rollbar-client": "^0.8.0",
+    "ember-simple-auth": "^1.8.2",
     "ember-truth-helpers": "2.1.0",
     "phoenix": "1.2",
     "qunit-dom": "^0.8.0",

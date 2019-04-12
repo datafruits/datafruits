@@ -22,6 +22,7 @@
   {{else}}
     <form align='center' id="enter-chat">
       {{input type="text" name="nick" value=nick autocorrect="off" autocapitalize="none" placeholder="nickname"}}
+      {{input type="password" name="pass" value=pass autocorrect="off" autocapitalize="none" placeholder="password"}}
       <button class="cool-button" disabled={{isJoiningChat}} {{action 'enterChat'}}>Join chatroom</button>
     </form>
   {{/if}}

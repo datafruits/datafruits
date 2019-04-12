@@ -1,5 +1,5 @@
 {{#unless fastboot.isFastBoot}}
-  {{datafruits-chat}}
+  {{datafruits-chat authenticate=(action "authenticate")}}
 {{else}}
 <div class="main-content">
   <div class="loading-container">
