@@ -27,22 +27,26 @@ export default Component.extend({
       return label.get('name');
     });
   }),
-  observeQuery: observer('filterText', function(){
-    debounce(this, () => {
-      this.updateSearch(this.filterText, this.selectedLabels);
-    }, 500);
-  }),
-  observeLabels: observer('selectedLabels.[]', function(){
-    debounce(this, () => {
-      this.updateSearch(this.filterText, this.selectedLabels);
-    }, 100);
-  }),
   actions: {
     clearSearch() {
       this.set('filterText', '');
     },
     selectLabel(label) {
       this.selectedLabels.pushObject(label.get('name'));
+      debounce(this, () => {        
+        this.updateSearch(this.filterText, this.selectedLabels);
+      }, 100);
     },
+    filterText() {
+      debounce(this, () => {
+        this.updateSearch(this.filterText, this.selectedLabels);
+      }, 500);
+    },
+    selectedLabels(e) {
+      this.set('selectedLabels', e);
+      debounce(this, () => {        
+        this.updateSearch(this.filterText, this.selectedLabels);
+      }, 100);
+    }
   }
 });
