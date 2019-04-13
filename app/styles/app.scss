@@ -588,3 +588,7 @@ form {
 .textcomplete-dropdown {
   top: 175px;
 }
+
+.patron:hover {
+  @include stripe-animation;
+}

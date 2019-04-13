@@ -9,6 +9,12 @@
       <li>{{#link-to 'home.coc'}}{{t "code_of_conduct"}}{{/link-to}}</li>
       <li><a href="https://patreon.com/datafruits" target="_blank" rel="noopener">Patreon</a></li>
     </ul>
+    <h2>{{t "thanks_patrons"}}</h2>
+    <ul>
+      {{#each model as |patron|}}
+        <li class="patron">{{patron.name}}</li>
+      {{/each}}
+    </ul>
   </div>
   <div class="modal-footer">
     <ul class="social-icons">
