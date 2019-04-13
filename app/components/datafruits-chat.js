@@ -22,26 +22,26 @@ export default Component.extend({
     },
     newMessagesAvailable(){
       this.set("newMessagesBelow", true);
-    }
+    },
+    onScroll(){
+      if(this.scrolledToBottom()){
+        this.set("newMessagesBelow", false);
+      }else{
+        this.set("newMessagesBelow", true);
+      }
+      this.chat.set('scrollTop', document.getElementById('messages').scrollTop);
+    },
   },
   scrolledToBottom() {
-    const messages = document.findById('messages');
+    const messages = document.getElementById('messages');
     const messagesHeight = messages.getBoundingClientRect().height;
     return messages.scrollHeight - messages.scrollTop - messagesHeight < 1;
   },
-  _onScroll(){
-    if(this.scrolledToBottom()){
-      this.set("newMessagesBelow", false);
-    }else{
-      this.set("newMessagesBelow", true);
-    }
-    this.chat.set('scrollTop', document.findById('messages').scrollTop);
-  },
   didInsertElement(){
-    var onScroll = this._onScroll.bind(this);
+    //var onScroll = this._onScroll.bind(this);
     const messages = document.getElementById('messages');
-    this.$("#messages").bind('touchmove', onScroll);
-    this.$("#messages").bind('scroll', onScroll);
+    // this.$("#messages").bind('touchmove', onScroll);
+    // this.$("#messages").bind('scroll', onScroll);
     messages.scrollTop = this.get('chat.scrollTop');
   }
 });

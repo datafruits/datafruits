@@ -1,8 +1,15 @@
 import Component from '@ember/component';
+import { debounce } from '@ember/runloop';
 
 export default Component.extend({
   tagName: "ul",
   elementId: "messages",
+  touchMove(){
+    this.onScroll();
+  },
+  scroll(){
+    this.onScroll();
+  },
   actions: {
     setupAutoscroll(){
       if(this.scrolledToBottom()){
@@ -25,4 +32,11 @@ export default Component.extend({
     const messagesHeight = messages.getBoundingClientRect().height;
     return messages.scrollHeight - messages.scrollTop - messagesHeight < 1;
   },
+  didInsertElement(){
+    this.element.addEventListener("scroll", () => {
+      debounce(this, () => {
+        this.onScroll();
+      }, 500);
+    });
+  }
 });
