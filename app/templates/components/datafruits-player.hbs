@@ -1,8 +1,6 @@
 <audio preload id="radio-player">
   <source src="https://streampusher-relay.club/datafruits.mp3" type="audio/mp3">
   <source src="https://streampusher-relay.club/datafruits.ogg" type="audio/ogg">
-  <p>Your browser doesn't support HTML5 audio. Here is
-     a <a href="myAudio.mp4">link to the audio</a> instead.</p>
 </audio>
 <div id="jp_container">
   {{#if playingPodcast}}
@@ -24,10 +22,11 @@
     <span>Now playing: </span><span class="jp-title">{{title}}</span>
   {{/if}}
   {{#if playingPodcast }}
-    <div class='jp-progress'>
-      <div class='jp-seek-bar'>
-        <div class='jp-play-bar'></div>
-      </div>
+    <div class='seek'>
+      <input class="seek-bar" type="range"
+       step="any"
+       oninput={{action 'seek'}}
+       value={{playTime}}>
     </div>
   {{else if nextShow}}
   <span id="next-show">{{t "next_broadcast"}} {{#link-to 'home.show' nextShow}}{{nextShow.title}}{{/link-to}}</span>

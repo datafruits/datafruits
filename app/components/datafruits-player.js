@@ -5,14 +5,18 @@ import { later, run } from '@ember/runloop';
 import fetch from 'fetch';
 
 export default Component.extend({
+  classNames: ['radio-bar'],
+  classNameBindings: ['playingPodcast', 'isLive', 'playButtonHover:bleed:pink-bg'],
+  eventBus: service(),
+  fastboot: service(),
   playingPodcast: false,
   title: "",
   muted: false,
   showingVolumeControl: false,
   playerState: "paused", //"playing", "loading"
   playButtonPressed: false,
-  volume: 0.8,
   oldVolume: 0.8,
+  playTime: 0.0,
   paused: computed('playerState', function(){
     return this.playerState === 'paused';
   }),
@@ -24,6 +28,9 @@ export default Component.extend({
   }),
   init(){
     this.eventBus.subscribe("trackPlayed", this, "onTrackPlayed");
+    if(!this.get('fastboot.isFastBoot')){
+      this.set('volume', localStorage.getItem('datafruits-volume') || 0.8);
+    }
     this._super(...arguments);
   },
   isLive: computed('title', function(){
@@ -63,6 +70,7 @@ export default Component.extend({
     this.set('error', null);
     this.set('title', track.title);
     this.set('playingPodcast', true);
+    this.set('playTime', 0.0);
 
     let audioTag = document.getElementById("radio-player");
     audioTag.src = track.cdnUrl;
@@ -104,40 +112,69 @@ export default Component.extend({
       this.set('muted', true);
       this.set('oldVolume', this.volume);
       this.set('volume', 0.0);
+      localStorage.setItem('datafruits-volume', this.volume);
     },
     unmute(){
       let audioTag = document.getElementById("radio-player");
       audioTag.muted = false;
       this.set('muted', false);
       this.set('volume', this.oldVolume);
+      localStorage.setItem('datafruits-volume', this.volume);
     },
     toggleVolumeControl(){
       this.toggleProperty('showingVolumeControl');
     },
     volumeChanged(e){
       this.set('volume', e.target.value);
+      localStorage.setItem('datafruits-volume', this.volume);
       let audioTag = document.getElementById("radio-player");
       audioTag.volume = this.volume;
+    },
+    seek(e){
+      let audioTag = document.getElementById("radio-player");
+      const time = audioTag.duration * (e.target.value / 100);
+
+      audioTag.currentTime = time;
     }
   },
-  classNames: ['radio-bar'],
-  classNameBindings: ['playingPodcast', 'isLive', 'playButtonHover:bleed:pink-bg'],
-  playingPodcast: false,
-  eventBus: service(),
   didInsertElement(){
-    let audioTag = document.getElementById("radio-player");
-    audioTag.addEventListener("loadstart", () => {
-      if(this.playButtonPressed === true){
-        this.set('playerState', 'loading');
-      }
-    });
-    audioTag.addEventListener("pause", () => {
-      this.set('playerState', 'paused');
-    });
-    audioTag.addEventListener("playing", () => {
-      this.set('playerState', 'playing');
-    });
-    this.setRadioTitle();
-    this.pollRadioTitle();
+    if(!this.get('fastboot.isFastBoot')){
+      let audioTag = document.getElementById("radio-player");
+      audioTag.addEventListener("loadstart", () => {
+        if(this.playButtonPressed === true){
+          this.set('playerState', 'seeking');
+        }
+        if(document.getElementsByClassName("seek").length){
+          document.getElementsByClassName("seek")[0]
+            .classList.add('seeking');
+        }
+      });
+      audioTag.addEventListener("pause", () => {
+        this.set('playerState', 'paused');
+      });
+      audioTag.addEventListener("playing", () => {
+        this.set('playerState', 'playing');
+      });
+      audioTag.addEventListener("timeupdate", () => {
+        const value = (100 / audioTag.duration) * audioTag.currentTime;
+
+        this.set('playTime', value);
+      });
+      audioTag.addEventListener("seeking", () => {
+        if(document.getElementsByClassName("seek").length){
+          document.getElementsByClassName("seek")[0]
+            .classList.add('seeking');
+        }
+      });
+      audioTag.addEventListener("canplay", () => {
+        if(document.getElementsByClassName("seek").length){
+          document.getElementsByClassName("seek")[0]
+            .classList.remove('seeking');
+        }
+      });
+      audioTag.volume = this.volume;
+      this.setRadioTitle();
+      this.pollRadioTitle();
+    }
   },
 });

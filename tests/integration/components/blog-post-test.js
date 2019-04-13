@@ -14,14 +14,5 @@ module('Integration | Component | blog post', function(hooks) {
     await render(hbs`{{blog-post}}`);
 
     assert.dom('*').hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      {{#blog-post}}
-        template block text
-      {{/blog-post}}
-    `);
-
-    assert.dom('*').hasText('template block text');
   });
 });
