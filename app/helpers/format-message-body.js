@@ -1,7 +1,8 @@
 import Ember from 'ember';
-import emojione from 'npm:emojione';
+import emojione from 'emojione';
 import { helper } from '@ember/component/helper';
 import { htmlSafe } from '@ember/string';
+import 'autolink-js';
 
 export function formatMessageBody(params/*, hash*/) {
   let message = Ember.Handlebars.Utils.escapeExpression(params[0]);

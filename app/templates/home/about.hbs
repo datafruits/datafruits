@@ -1,0 +1,53 @@
+{{title "about"}}
+<div class="main-content">
+  <h1 id="myModalLabel">DATAFRUITSとは。。。？</h1>
+  <div class="modal-body">
+    <p>
+      {{t "about_datafruits"}}
+    </p>
+    <ul>
+      <li>{{#link-to 'home.coc'}}{{t "code_of_conduct"}}{{/link-to}}</li>
+      <li><a href="https://patreon.com/datafruits" target="_blank" rel="noopener">Patreon</a></li>
+    </ul>
+    <h2>{{t "thanks_patrons"}}</h2>
+    <ul>
+      {{#each model as |patron|}}
+        <li class="patron">{{patron.name}}</li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <ul class="social-icons">
+      <li>
+        <a href="http://twitter.com/datafruits" title="twitter" target="_blank" rel="noopener">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://github.com/datafruits" title="github" target="_blank" rel="noopener">
+          <i class="fa fa-github"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://soundcloud.com/datafruits" title="soundcloud" target="_blank" rel="noopener">
+          <i class="fa fa-soundcloud"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://mixcloud.com/datafruits" title="mixcloud" target="_blank" rel="noopener">
+          <i class="fa fa-mixcloud"></i>
+        </a>
+      </li>
+      <li>
+        <a href="http://instagram.com/datafruits" title="instagram" target="_blank" rel="noopener">
+          <i class="fa fa-instagram"></i>
+        </a>
+      </li>
+      <li>
+        <a href="mailto:info@datafruits.fm" title="mail" target="_blank" rel="noopener">
+          <i class="fa fa-envelope"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

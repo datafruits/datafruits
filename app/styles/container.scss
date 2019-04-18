@@ -1,0 +1,12 @@
+.twitter-card-container {
+  height: 100vh;
+  .logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  #circle-logo {
+    display: block;
+    visibility: visible;
+  }
+}

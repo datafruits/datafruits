@@ -1,0 +1,11 @@
+{{title "Timetable"}}
+<div class="main-content">
+  <p>
+    {{timetable-calendar
+      onTypeChange=(action "calendarTypeChange")
+      reloadCalendar=(action "reloadCalendar")
+      query=query
+      startingDate=start
+      view=view}}
+  </p>
+</div>

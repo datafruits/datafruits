@@ -1,0 +1,22 @@
+@keyframes stripes {
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@mixin stripe-animation {
+  background: repeating-linear-gradient(
+  90deg,
+  $green,
+  $green 20px,
+  $pink 20px,
+  $pink 40px,
+  $yellow 40px,
+  $yellow 60px,
+  $blue 60px,
+  $blue 80px
+  );
+
+  background-size: 200% 200%;
+  animation: stripes 15s infinite;
+}

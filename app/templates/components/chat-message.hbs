@@ -6,14 +6,14 @@
     {{format-message-user message.user}}
   </span>
   <span class="message-body">
-      {{format-message-body message.body}}
+    {{format-message-body message.body}}
   </span>
 </li>
 {{#if gifsEnabled}}
   {{#if hasImage}}
     <li class="message">
       <span class="message-body">
-        {{lazy-image url=imgUrl errorText='Image failed to load.'}}
+        {{lazy-image url=imgUrl errorText="Image failed to load."}}
       </span>
     </li>
   {{/if}}

@@ -11,6 +11,7 @@ node_modules/
 /node_modules/
 
 # misc
+/.pnp*
 /.sass-cache
 /connect.lock
 /coverage/
@@ -18,8 +19,6 @@ node_modules/
 
 npm-debug.log*
 testem.log
-
-.env
 
 yarn-error.log
 /npm-debug.log*

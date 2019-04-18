@@ -1,0 +1,217 @@
+div.radio-bar.is-live {
+  background-image: url("/assets/images/pink_sparkles.gif");
+}
+
+.playing-podcast {
+  background: $green !important;
+}
+
+div.radio-bar a:hover {
+  text-decoration:none;
+}
+
+#jp_container {
+  position:relative;
+}
+
+.jp-loading {
+  display: inline-block;
+  animation: rotation 0.7s linear infinite;
+}
+
+.jp-title {
+  font-style: italic;
+  text-shadow: #333 1px 1px 1px;
+  color: yellow;
+}
+
+.jp-play, .podcast-controls {
+  display: inline-block;
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    transform: rotate(10deg) scale(1.3);
+  }
+}
+
+/* progress */
+.seek {
+  width: 100%;
+  height: 20px;
+  input[type=range] {
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 20px;
+    cursor: pointer;
+    background: $yellow;
+    border-radius: 1.3px;
+    border: none;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    height: 25px;
+    width: 25px;
+    border-radius: 3px;
+    background: $pink;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -2px;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 20px;
+    cursor: pointer;
+    background: $yellow;
+    border-radius: 1.3px;
+    border: none;
+  }
+  input[type=range]::-moz-range-thumb {
+    height: 25px;
+    width: 25px;
+    border-radius: 3px;
+    background: $pink;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -2px;
+    border: none;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 20px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: $pink;
+    border-radius: 3px;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: $pink;
+    border-radius: 3px;
+  }
+  input[type=range]::-ms-thumb {
+    height: 25px;
+    width: 25px;
+    border-radius: 3px;
+    background: $yellow;
+    cursor: pointer;
+  }
+  &.seeking {
+    @include stripe-animation;
+    input[type=range] {
+      background: none;
+      border: none;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      background: none;
+    }
+    input[type=range]::-moz-range-track {
+      background: none;
+    }
+    input[type=range]::-ms-fill-lower {
+      background: none;
+    }
+    input[type=range]::-ms-fill-upper {
+      background: none;
+    }
+  }
+}
+
+/* end progress */
+
+.jp-volume-controls {
+  position: relative;
+  input.volume-control {
+    position: absolute;
+    transform: rotate(270deg);
+    /* height and width are switched since its rotated */
+    height: 20px;
+    width: 100px;
+    position: absolute;
+    top: -59px;
+    left: -40px;
+  }
+  input[type=range] {
+    -webkit-appearance: none;
+    height: 100%;
+    background: none;
+    border: none;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    height: 100%;
+    width: 8.4px;
+    cursor: pointer;
+    background: $pink;
+    border-radius: 5px;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    height: 36px;
+    width: 16px;
+    border-radius: 5px;
+    background: $yellow;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -8px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: $pink;
+  }
+  input[type=range]::-moz-range-track {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    background: $pink;
+    border-radius: 5px;
+  }
+  input[type=range]::-moz-range-thumb {
+    height: 36px;
+    width: 16px;
+    border-radius: 5px;
+    background: $yellow;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: $pink;
+    border-radius: 5px;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: $pink;
+    border-radius: 5px;
+  }
+  input[type=range]::-ms-thumb {
+    height: 36px;
+    width: 16px;
+    border-radius: 5px;
+    background: $yellow;
+    cursor: pointer;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: $pink;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: $pink;
+  }
+}
+
+audio {
+  display: none;
+}

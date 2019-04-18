@@ -1,0 +1,96 @@
+.as-calendar {
+  background: lighten($yellow, 20%);
+}
+
+.as-calendar-timetable--month .as-calendar-timetable__day {
+  border: 1px dotted $blue;
+}
+
+.as-calendar-timetable--month {
+  .as-calendar-occurrence {
+    position: initial;
+  }
+  .occurrences li {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.as-calendar-occurrence {
+  background-color: $pink;
+  border-left: 2px solid $blue;
+  border-bottom: 2px dotted $blue;
+  &__title {
+    font-size: 1.5rem;
+  }
+}
+
+/* -total- hax */
+.as-calendar-timetable__slot-item:hover {
+  background: rgba(0,0,0,0);
+  cursor: auto;
+  & .as-calendar-timetable__slot-item-time {
+    display: none;
+  }
+}
+
+.as-calendar-timetable__slot-item--is-disabled:hover {
+  background: #f2f2f2;
+}
+
+.as-calendar-header {
+  background-color: $pink;
+  border-bottom: 1px dotted $blue;
+  &__status {
+    font-size: 4rem;
+    font-weight: 600;
+    color: $yellow;
+  }
+}
+
+.as-calendar-timetable__row--highlighted {
+  background-color: $green;
+  color: $yellow;
+}
+
+.as-calendar-timetable__column-item--highlighted {
+  background: $blue;
+  color: white;
+}
+
+.as-calendar-timetable__column-item--clickable:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.as-calendar-timetable__slot-labels {
+  background: $pink;
+}
+
+.as-calendar-timetable__slot-label {
+  color: $yellow;
+}
+
+.as-calendar-timetable__now-time {
+  color: white;
+}
+
+.as-calendar-header__nav-group-action, .as-calendar-header__nav-group-type {
+  &--current-period {
+    background: $green !important;
+    color: $yellow;
+  }
+}
+
+.as-calendar-header__nav-group-action, .as-calendar-header__nav-group-type {
+  background: lighten($blue, 20%) !important;
+  color: white;
+  &:hover {
+    background: $blue !important;
+  }
+  &--current {
+    background: $green !important;
+    color: $yellow;
+  }
+}

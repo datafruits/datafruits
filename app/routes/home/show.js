@@ -1,37 +1,17 @@
 import Route from '@ember/routing/route';
+import ENV from 'datafruits13/config/environment';
 
 export default Route.extend({
   model(params) {
     return this.store.findRecord('scheduled-show', params.id);
   },
 
-  afterModel: function(model) {
+  afterModel(model) {
    this.setHeadTags(model);
   },
 
-  setHeadTags: function (model) {
-   var headTags = [
-     {
-       type: 'meta',
-       attrs: {
-         name: 'twitter:card',
-         content: 'summary_large_image'
-       },
-     },
-     {
-       type: 'meta',
-       attrs: {
-         name: 'twitter:site',
-         content: '@datafruits'
-       },
-     },
-     {
-       type: 'meta',
-       attrs: {
-         name: 'twitter:creator',
-         content: '@datafruits'
-       },
-     },
+  setHeadTags(model) {
+   const headTags = ENV.headTags.concat([
      {
        type: 'meta',
        attrs: {
@@ -50,10 +30,10 @@ export default Route.extend({
        type: 'meta',
        attrs: {
          name: 'twitter:image',
-         content: model.image_url
+         content: model.imageUrl
        },
      },
-   ];
+   ]);
 
    this.set('headTags', headTags);
   }

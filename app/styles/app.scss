@@ -1,5 +1,15 @@
+@import "colors.scss";
 @import "loading-spinner.scss";
+@import "container.scss";
+@import "stripe-animation.scss";
 @import "ember-bootstrap/bootstrap";
+
+@import "font-awesome";
+@import 'addons/ember-calendar/paint-core';
+@import 'addons/ember-calendar/main';
+@import "calendar.scss";
+
+@import "player.scss";
 
 @font-face {
   font-family: 'Condiment';
@@ -7,11 +17,6 @@
     url('/vendor/Condiment-Regular.ttf')
     format('truetype');
 }
-
-$green:  #82ffa5;
-$yellow: #fff94f;
-$pink: #e992ff;
-$blue:  #00b4ff;
 
 a {
   cursor: pointer;
@@ -114,6 +119,24 @@ form#enter-chat {
   }
 }
 
+@keyframes colorfade {
+  from {
+    color: $green;
+  }
+  30% {
+    color: $pink;
+  }
+  60% {
+    color: $blue;
+  }
+  90% {
+    color: $yellow;
+  }
+  to {
+    color: $green;
+  }
+}
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);
@@ -122,25 +145,6 @@ form#enter-chat {
     transform: rotate(360deg);
   }
 }
-
-@keyframes slideup {
-  0% {
-    bottom: -110px;
-  }
-  10% {
-    bottom: -5px;
-  }
-  35% {
-    bottom: -5px;
-  }
-  40% {
-    bottom: -110px;
-  }
-  100% {
-    bottom: -110px;
-  }
-}
-
 
 nav {
   background: $pink !important;
@@ -164,7 +168,6 @@ nav {
 }
 
 div.radio-bar {
-  background:$pink;
   width:100%;
   padding:5px;
   color:white;
@@ -177,33 +180,14 @@ div.radio-bar {
       display: none;
     }
   }
+
+  &.pink-bg {
+    background:$pink;
+  }
 }
 
-div.radio-bar.is-live {
-  background-image: url("/assets/images/pink_sparkles.gif");
-}
-
-.playing-podcast {
-  background: $green !important;
-}
-
-div.radio-bar a:hover {
-  text-decoration:none;
-}
-
-#jp_container {
-  position:relative;
-}
-
-.jp-loading {
-  display: inline-block;
-  animation: rotation 0.7s linear infinite;
-}
-
-.jp-title {
-  font-style: italic;
-  text-shadow: #333 1px 1px 1px;
-  color: yellow;
+.bleed {
+  @include stripe-animation;
 }
 
 #chat-area {
@@ -283,6 +267,7 @@ input {
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+  transition: all 0.10s ease-in-out;
 
   &:hover,
   &:focus {
@@ -484,6 +469,13 @@ a:hover {
   z-index: -999;
   width: 100vw;
   height: 100vh;
+  video {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100vw;
+    margin: 0 auto;
+  }
 }
 
 .chat {
@@ -546,6 +538,9 @@ form {
   color: $yellow;
   text-transform: uppercase;
   padding: 2px;
+  &:hover {
+    @include stripe-animation;
+  }
 }
 
 @import "ember-power-select";
@@ -564,33 +559,6 @@ form {
   transform: rotate(-3.5deg);
 }
 
-/* progress */
-div.jp-progress {
-  overflow:hidden;
-  background-color: #fdff68;
-}
-div.jp-progress {
-  top:32px;
-  height:15px;
-}
-div.jp-seek-bar {
-  background: url("/assets/images/jplayer.png") 0 -29px repeat-x ;
-  width:0px;
-  height:100%;
-  cursor: pointer;
-}
-div.jp-play-bar {
-  background: url("/assets/images/jplayer.png") 0 -45px repeat-x;
-  width:0px;
-  height:100%;
-}
-
-/* The seeking class is added/removed inside jPlayer */
-div.jp-seeking-bg {
-  background: url("/assets/images/seeking.gif");
-}
-/* end progress */
-
 .locale-selector {
   @media screen and (min-device-width: 480px) {
     position: absolute;
@@ -606,4 +574,21 @@ div.jp-seeking-bg {
     display: none;
     visibility: hidden;
   }
+}
+
+#not-found{
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+#not-found-spin{
+  animation: spin 1.5s infinite linear;
+}
+
+.textcomplete-dropdown {
+  top: 175px;
+}
+
+.patron:hover {
+  @include stripe-animation;
 }
