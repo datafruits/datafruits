@@ -3,7 +3,7 @@
 
 **Global**: `Ember.Handlebars`
 
-**Location**: `app/helpers/format-message-body.js` at line 7
+**Location**: `app/helpers/format-message-body.js` at line 8
 
 ```js
 

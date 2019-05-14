@@ -1,27 +1,17 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-  eventSources: [
-    {
-      url: "https://datafruits.streampusher.com/scheduled_shows.json",
-      data: {
-        fullcalendar: true
-      }
-    }
-  ],
-  timezone: function(){
-    return jstz.determine().name();
-  },
-  header: {
-    left: 'prev,next today',
-    center: 'title',
-    right: 'month,agendaWeek,agendaDay'
-  },
-  nowIndicator: true,
-
   actions: {
-    goToEvent: function(calEvent){
-      this.sendAction('showEvent', calEvent);
-    },
-  },
+    calendarRemoveOccurrence(){},
+    calendarEditOccurrence(){},
+    calendarUpdateOccurrence(){},
+    calendarAddOccurrence(){},
+    calendarClickOccurrence(){},
+    onTypeChange(){},
+    calendarNavigate(event){
+      console.log(`on navigate: ${event.start}, ${event.end}`);
+      let start = event.start.format('YYYY-MM-DD');
+      this.reloadCalendar({ start: start, view: event.view});
+    }
+  }
 });

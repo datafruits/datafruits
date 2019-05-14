@@ -1,12 +1,14 @@
-//import Ember from 'ember';
 import Service from '@ember/service';
 import ArrayProxy from '@ember/array/proxy';
 import { A } from '@ember/array';
-import { Socket/*, LongPoller*/ } from "phoenix";
+import { Socket, Presence } from "phoenix";
+import { computed } from '@ember/object';
 import ENV from "datafruits13/config/environment";
 
 export default Service.extend({
-  joinedUsers: ArrayProxy.create({ content: A() }),
+  joinedUsers: computed('presences', function(){
+    return Object.keys(this.presences);
+  }),
   messages: ArrayProxy.create({ content: A() }),
   joinedChat: false,
   gifsEnabled: true,
@@ -15,12 +17,12 @@ export default Service.extend({
   },
   init() {
     this._super(...arguments);
+    this.set('presences', {});
     let socket = new Socket(ENV.CHAT_SOCKET_URL, {
 
       logger: function logger(/*kind, msg, data*/) {
         //console.log(kind + ": " + msg, data);
-      },
-      params: { user_id: "123" }
+      }
     });
 
     socket.connect();
@@ -57,11 +59,9 @@ export default Service.extend({
       this.messages.pushObject(msg);
     });
 
-    var self = this;
-    this.chan.on("authorized", function (msg) {
-      self.set("username", msg.user);
-      self.set("joinedChat", true);
-      //Ember.$('#input-message').focus();
+    this.chan.on("authorized", (msg) => {
+      this.set("username", msg.user);
+      this.set("joinedChat", true);
     });
 
     this.chan.on("notauthorized", function(msg) {
@@ -72,23 +72,27 @@ export default Service.extend({
       if(msg.user !== null){
         let leftMessage = { user: msg.user, body: ' left the chat :dash:', timestamp: msg.timestamp };
         this.messages.pushObject(leftMessage);
-        this.joinedUsers.removeObject(msg.user);
       }
     });
 
     this.chan.on("user:authorized", (msg) => {
       let joinedMessage = { user: msg.user, body: ' joined the chat :raising_hand:', timestamp: msg.timestamp };
       this.messages.pushObject(joinedMessage);
-      this.joinedUsers.pushObject(msg.user);
-      //addToUserList(msg.user);
     });
 
-    this.chan.on("join", (msg) => {
-      this.joinedUsers.pushObjects(msg.users);
-    });
 
     this.chan.on("user:entered", function (/*msg*/) {
       //user entered room, but nick not authorized yet
+    });
+
+    this.chan.on("presence_state", state => {
+      let presences = this.presences;
+      this.set('presences', Presence.syncState(presences, state));
+    });
+
+    this.chan.on("presence_diff", diff => {
+      let presences = this.presences;
+      this.set('presences', Presence.syncDiff(presences, diff));
     });
   }
 });

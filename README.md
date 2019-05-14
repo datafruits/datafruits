@@ -22,8 +22,7 @@ You will need the following things properly installed on your computer.
 
 * `git clone <repository-url>` this repository
 * `cd datafruits13`
-* `npm install`
-* `bower install`
+* `yarn install`
 
 ## Running / Development
 
