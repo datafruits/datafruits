@@ -11,14 +11,12 @@
       <h2>Upcoming shows</h2>
       <table>
         <tbody>
-          {{#each model.upcomingShows as |show|}}
-            <tr>
-              <td>
-                {{#link-to "home.show" show}}{{show.title}}{{/link-to}}
-                <span>{{format-date show.start}}</span>
-              </td>
-            </tr>
-          {{/each}}
+          <tr>
+            <td>
+              {{#link-to "home.show" model.nextShow}}{{model.nextShow.title}}{{/link-to}}
+              <span>{{format-date model.nextShow.start}}</span>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
