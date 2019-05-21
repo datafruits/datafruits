@@ -9,10 +9,16 @@
     </div>
     <div class="col-md-6">
       <h2>Upcoming shows</h2>
-      {{#each model.upcomingShows as |show|}}
-        {{#link-to "show" show}}{{show.title}}{{/link-to}}
-        <span>{{format-date show.start}}</span>
-      {{/each}}
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              {{#link-to "home.show" model.nextShow}}{{model.nextShow.title}}{{/link-to}}
+              <span>{{format-date model.nextShow.start}}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
   <div class="row">
