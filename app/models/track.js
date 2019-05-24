@@ -8,6 +8,7 @@ export default DS.Model.extend({
   podcastPublishedDate: DS.attr(),
   labels: DS.hasMany('label'),
   podcast: DS.belongsTo('podcast'),
+  scheduledShow: DS.belongsTo('scheduled-show'),
   dj: DS.belongsTo('dj'),
   labelNames: computed('labels', function(){
     return this.labels.map((label) => {

@@ -29,7 +29,14 @@ export default {
   'what_is_datafruits': 'datafruitsとは...',
   'loading': 'ロード中。。。',
   'next_broadcast': '次の生放送: ',
-  'now_playing': 'Now playing'
+  'now_playing': 'Now playing',
+  'dj': {
+    'podcasts': 'ポッドキャスト',
+    'upcoming_shows': '次の生放送予定'
+  },
+  'show': {
+    'archive': 'アーカイブを聴く',
+  }
   // "some.translation.key": "Text for some.translation.key",
   //
   // "a": {

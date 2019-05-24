@@ -8,7 +8,7 @@
       </p>
     </div>
     <div class="col-md-6">
-      <h2>Upcoming shows</h2>
+      <h2>{{t "dj.upcoming_shows"}}</h2>
       <table>
         <tbody>
           <tr>
@@ -22,10 +22,12 @@
     </div>
   </div>
   <div class="row">
-    <h2>Podcasts</h2>
+    <h2>{{t "dj.podcasts"}}</h2>
     {{#each model.tracks as |track|}}
       {{podcast-track
-        cdnUrl=track.cdnUrl title=track.title labels=track.labels selectLabel="browseLabel"}}
+        cdnUrl=track.cdnUrl title=track.title labels=track.labels
+        scheduledShow=track.scheduledShow
+        selectLabel=(action "browseLabel")}}
     {{/each}}
   </div>
   <div class="row">

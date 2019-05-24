@@ -11,6 +11,14 @@
     <p>
       {{html-safe-string model.htmlDescription}}
     </p>
+    {{#if model.tracks}}
+      <h2>{{ t "show.archive"}}</h2>
+    {{/if}}
+    {{#each model.tracks as |track|}}
+      {{podcast-track
+        cdnUrl=track.cdnUrl title=track.title labels=track.labels
+        selectLabel=(action "browseLabel")}}
+    {{/each}}
   </div>
   <div class="modal-footer">
     {{tweet-button data-text=model.tweetContent}}

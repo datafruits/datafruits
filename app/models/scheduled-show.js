@@ -8,6 +8,7 @@ export default DS.Model.extend({
   imageUrl: DS.attr(),
   thumbImageUrl: DS.attr(),
   description: DS.attr(),
+  tracks: DS.hasMany('track'),
 
   htmlDescription: DS.attr(),
   tweetContent: DS.attr(),
