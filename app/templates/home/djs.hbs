@@ -2,8 +2,8 @@
   <div class="row">
     {{#each model as |dj|}}
       <div class="col-md-4">
-        <h2>{{#link-to 'home.dj' dj.username}}{{dj.username}}{{/link-to}}</h2>
-        <img src={{model.imageThumbUrl}} alt={{model.username}}>
+        <h2>{{#link-to "home.dj" dj.username}}{{dj.username}}{{/link-to}}</h2>
+        <img src={{dj.imageThumbUrl}} alt={{dj.username}}>
       </div>
     {{/each}}
   </div>
