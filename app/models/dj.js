@@ -4,6 +4,8 @@ import { computed } from '@ember/object';
 export default DS.Model.extend({
   username: DS.attr(),
   imageUrl: DS.attr(),
+  imageThumbUrl: DS.attr(),
+  imageMediumUrl: DS.attr(),
   bio: DS.attr(),
   links: DS.hasMany('link'),
   tracks: DS.hasMany('track'),
