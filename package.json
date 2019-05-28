@@ -65,7 +65,7 @@
     "video.js": "7.2.4"
   },
   "engines": {
-    "node": "6.* || 8.* || >= 10.*"
+    "node": "10.15.3"
   },
   "private": true,
   "devDependencies": {
