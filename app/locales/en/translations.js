@@ -39,5 +39,12 @@ export default {
   'what_is_datafruits': 'What is datafruits...',
   'loading': 'Loading...',
   'next_broadcast': 'Next live on air: ',
-  'now_playing': 'Now playing'
+  'now_playing': 'Now playing',
+  'dj': {
+    'podcasts': 'Podcasts',
+    'upcoming_shows': 'Upcoming show'
+  },
+  'show': {
+    'archive': 'Listen back to the podcast',
+  }
 };

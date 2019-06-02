@@ -4,8 +4,14 @@
   {{else}}
     <a class="podcast-controls" {{action "play"}}>▶︎</a>
   {{/if}}
-  <a href="{{cdnUrl}}" download><i class="fa fa-download"></i></a>
-  {{title}}
+  <a href={{cdnUrl}} download><i class="fa fa-download"></i></a>
+  {{#if scheduledShow}}
+    {{#link-to "home.show" scheduledShow.id}}
+      {{title}}
+    {{/link-to}}
+  {{else}}
+    {{title}}
+  {{/if}}
   {{#each labels as |label|}}
     <a class="track-label" {{action selectLabel label}}>{{label.name}}</a>
   {{/each}}
