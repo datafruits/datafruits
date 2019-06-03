@@ -2,6 +2,6 @@ import ApplicationAdapter from './application';
 
 export default ApplicationAdapter.extend({
   urlForQueryRecord(query){
-    return `${this.urlPrefix()}/djs/${query.filter.name}`;
+    return `${this.urlPrefix()}/djs/${query.name}`;
   },
 });
