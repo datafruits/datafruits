@@ -23,11 +23,13 @@
 }
 
 @font-face {
-  font-family: "debussy";
-  src:
-    url('/vendor/debussy.woff')
-    format('woff');
+  font-family: 'Debussy';
+  src: url('/vendor/hinted-Debussy.woff2') format('woff2'),
+  url('/vendor/hinted-Debussy.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
 }
+
 
 a {
   cursor: pointer;
