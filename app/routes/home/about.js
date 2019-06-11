@@ -16,6 +16,7 @@ export default Route.extend({
       {name: "GLORIA and KEN"},
       {name: "Izzy J"},
       {name: "Jeffrey Hawkins"},
+      {name: "kat"},
       {name: "Ross"},
       {name: "Sean"},
       {name: "sofie mikhaylova"},
