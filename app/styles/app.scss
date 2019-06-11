@@ -23,10 +23,10 @@
 }
 
 @font-face {
-  font-family: 'Debussy';
+  font-family: "debussy";
   src:
-    url('/vendor/debussy.ttf')
-    format('truetype');
+    url('/vendor/debussy.woff')
+    format('woff');
 }
 
 a {
@@ -49,10 +49,11 @@ body {
   overflow:hidden;
   margin:0;
   background-attachment:fixed;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 h1#logo {
-  font-family: 'Debussy', sans;
+  font-family: 'debussy', sans-serif;
   transform: rotate(-3deg);
   font-size: 3em;
   color: white;
@@ -111,7 +112,6 @@ form#enter-chat {
     margin-right: 10px;
   }
   input {
-    margin-top: 5px;
     font-size: 2rem;
   }
 }
@@ -232,6 +232,9 @@ nav {
       }
     }
   }
+  ul.subnav > li > a {
+    font-size: 24px;
+  }
 }
 
 .navbar ul > li > a {
@@ -330,6 +333,7 @@ input {
   -o-transition: border linear .2s, box-shadow linear .2s;
   transition: border linear .2s, box-shadow linear .2s;
   color: black;
+  padding: 3px 0 10px 0;
 }
 
 .cool-button {
