@@ -5,6 +5,7 @@ export default {
     'no_result': '結果なし。もしかしてオニオンサラダドレッシングかもしれないでした。'
   },
   'timetable': 'タイムテーブル',
+  'radio': 'ラジオ',
   'label': 'レーベル',
   'about': 'datafruitsとは？',
   'blog': 'ブログ',

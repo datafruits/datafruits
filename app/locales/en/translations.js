@@ -14,6 +14,7 @@ export default {
     'no_result': 'No results. Musta been the onion salad dressing.'
   },
   'timetable': 'Timetable',
+  'radio': 'Radio',
   'label': 'Label',
   'about': 'About',
   'blog': 'Blog',

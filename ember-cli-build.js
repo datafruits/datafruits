@@ -44,7 +44,7 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  app.import('/vendor/Condiment-Regular.ttf');
+  app.import('/vendor/debussy.woff');
 
   return app.toTree();
 };

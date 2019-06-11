@@ -22,7 +22,7 @@
   border-left: 2px solid $blue;
   border-bottom: 2px dotted $blue;
   &__title {
-    font-size: 1.5rem;
+    font-size: 16px;
   }
 }
 
@@ -42,8 +42,11 @@
 .as-calendar-header {
   background-color: $pink;
   border-bottom: 1px dotted $blue;
+  &__nav {
+    padding-bottom: 0;
+  }
   &__status {
-    font-size: 4rem;
+    font-size: 30px;
     font-weight: 600;
     color: $yellow;
   }
@@ -86,6 +89,7 @@
 .as-calendar-header__nav-group-action, .as-calendar-header__nav-group-type {
   background: lighten($blue, 20%) !important;
   color: white;
+  font-size: 18px;
   &:hover {
     background: $blue !important;
   }
