@@ -1,0 +1,45 @@
+<nav class="navbar sp" role="navigation">
+  <button {{action toggleMenu}} type="button" class="navbar-toggle collapsed">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="fa fa-bars" aria-hidden="true"></span>
+  </button>
+  {{#if menuOpen}}
+    <ul>
+      <li class="subnav">
+        <span class="submenu-title" href="#">
+          {{t "radio"}}
+        </span>
+        <ul class="subnav">
+          <li>
+            {{#link-to 'home.podcasts'}}{{t "podcasts.title"}}{{/link-to}}
+          </li>
+          <li>
+            {{#link-to 'home.timetable'}}{{t 'timetable'}}{{/link-to}}
+          </li>
+          <li>
+            {{#link-to 'home.dj-inquiry'}}{{t 'djinquiry.title'}}{{/link-to}}
+          </li>
+        </ul>
+      </li>
+      <li>
+        {{#link-to 'home.chat'}}{{t "chat"}}{{/link-to}}
+      </li>
+      <li>
+        <a href="http://releases.datafruits.fm/" target="_blank">{{t 'label'}}</a>
+      </li>
+      <li>
+        {{#link-to 'home.about'}}{{t 'about'}}{{/link-to}}
+      </li>
+      <li>
+        {{#link-to 'home'}}{{t 'blog'}}{{/link-to}}
+      </li>
+      <li>
+        <a href="https://cooltrash.shop/" target="_blank">{{t 'shop'}}</a>
+      </li>
+      <li>
+        {{#link-to 'home.subscribe'}}{{t 'subscribe'}}{{/link-to}}
+      </li>
+    </ul>
+  {{/if}}
+  {{#link-to 'home'}}<img id="circle-logo" src="/assets/images/logo.png" />{{/link-to}}
+</nav>

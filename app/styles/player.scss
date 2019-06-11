@@ -28,6 +28,7 @@ div.radio-bar a:hover {
 .jp-play, .podcast-controls {
   display: inline-block;
   transition: all 0.25s ease-in-out;
+  text-decoration: none;
   &:hover {
     transform: rotate(10deg) scale(1.3);
   }
