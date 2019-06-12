@@ -24,7 +24,7 @@
       {{#link-to 'home.subscribe'}}{{t 'subscribe'}}{{/link-to}}
     </li>
   </ul>
-  {{#if submenuOpen}}
+  {{#liquid-if submenuOpen class="subnav-transition"}}
     <ul class="subnav">
       <li>
         {{#link-to 'home.podcasts'}}{{t "podcasts.title"}}{{/link-to}}
@@ -36,6 +36,6 @@
         {{#link-to 'home.dj-inquiry'}}{{t 'djinquiry.title'}}{{/link-to}}
       </li>
     </ul>
-  {{/if}}
+  {{/liquid-if}}
   {{#link-to 'home'}}<img id="circle-logo" src="/assets/images/logo.png" />{{/link-to}}
 </nav>
