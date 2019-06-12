@@ -17,23 +17,6 @@
          {{action "play"}}
          class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
     {{/if}}
-    {{#if error}}
-      <span>{{error}}</span>
-    {{else}}
-      <span>Now playing: </span><span class="jp-title">{{title}}</span>
-    {{/if}}
-  </div>
-  <div>
-    {{#if playingPodcast}}
-      <div class='seek'>
-        <input class="seek-bar" type="range"
-         step="any"
-         oninput={{action 'seek'}}
-         value={{playTime}}>
-      </div>
-    {{else if nextShow}}
-    <span id="next-show">{{t "next_broadcast"}} {{#link-to 'home.show' nextShow}}{{nextShow.title}}{{/link-to}}</span>
-    {{/if}}
     <span class="jp-volume-controls" {{action 'toggleVolumeControl' on='mouseEnter'}}>
       {{#if muted}}
         <a class="jp-unmute" {{action "unmute"}} tabindex="1"><i class="fa fa-volume-off"></i></a>
@@ -46,6 +29,23 @@
          value={{volume}}>
       {{/if}}
     </span>
+    {{#if error}}
+      <span>{{error}}</span>
+    {{else}}
+      <span>Now playing: </span><span class="jp-title">{{title}}</span>
+    {{/if}}
+  </div>
+  <div class="next-show-and-locale">
+    {{#if playingPodcast}}
+      <div class='seek'>
+        <input class="seek-bar" type="range"
+         step="any"
+         oninput={{action 'seek'}}
+         value={{playTime}}>
+      </div>
+    {{else if nextShow}}
+    <span id="next-show">{{t "next_broadcast"}} {{#link-to 'home.show' nextShow}}{{nextShow.title}}{{/link-to}}</span>
+    {{/if}}
     {{yield}}
   </div>
 </div>
