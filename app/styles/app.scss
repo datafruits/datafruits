@@ -204,6 +204,12 @@ nav {
       color: white;
       text-shadow: 0 1px 0 #777777;
       line-height: 25px;
+      .fa {
+        transition: 0.1s linear;
+      }
+      .fa:hover {
+        transform: rotate(90deg);
+      }
     }
   }
   .subnav ul > li > a {
