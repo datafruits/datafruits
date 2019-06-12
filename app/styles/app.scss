@@ -204,6 +204,9 @@ nav {
       color: white;
       text-shadow: 0 1px 0 #777777;
       line-height: 25px;
+      &:hover {
+        color: white;
+      }
       .fa {
         transition: 0.1s linear;
       }
