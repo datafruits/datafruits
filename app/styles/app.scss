@@ -113,9 +113,6 @@ form#enter-chat {
     text-shadow: #333 1px 1px 1px;
     margin-right: 10px;
   }
-  input {
-    font-size: 2rem;
-  }
 }
 
 @keyframes textshadowfade {
@@ -204,6 +201,9 @@ nav {
       color: white;
       text-shadow: 0 1px 0 #777777;
       line-height: 25px;
+      &:hover {
+        color: white;
+      }
       .fa {
         transition: 0.1s linear;
       }
@@ -319,7 +319,6 @@ li.userlist-item {
 
 input#input-message {
   width: 80%;
-  padding: 18px 0 18px 10px;
 }
 
 .message-timestamp {
@@ -349,7 +348,8 @@ input {
   -o-transition: border linear .2s, box-shadow linear .2s;
   transition: border linear .2s, box-shadow linear .2s;
   color: black;
-  padding: 3px 0 10px 0;
+  padding: 5px;
+  vertical-align: middle;
 }
 
 .cool-button {
