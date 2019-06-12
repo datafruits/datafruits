@@ -15,6 +15,7 @@ export default {
   },
   'timetable': 'Timetable',
   'djs': 'DJs',
+  'radio': 'Radio',
   'label': 'Label',
   'about': 'About',
   'blog': 'Blog',

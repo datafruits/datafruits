@@ -2,7 +2,6 @@
 @import "loading-spinner.scss";
 @import "container.scss";
 @import "stripe-animation.scss";
-@import "ember-bootstrap/bootstrap";
 
 @import "font-awesome";
 @import 'addons/ember-calendar/paint-core';
@@ -11,12 +10,26 @@
 
 @import "player.scss";
 
-@font-face {
-  font-family: 'Condiment';
-  src:
-    url('/vendor/Condiment-Regular.ttf')
-    format('truetype');
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
 }
+
+@font-face {
+  font-family: 'Debussy';
+  src: url('/vendor/hinted-Debussy.woff2') format('woff2'),
+  url('/vendor/hinted-Debussy.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
 
 a {
   cursor: pointer;
@@ -38,29 +51,34 @@ body {
   overflow:hidden;
   margin:0;
   background-attachment:fixed;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 h1#logo {
-  font-family: 'Condiment', cursive;
+  font-family: 'debussy', sans-serif;
+  transform: rotate(-3deg);
   font-size: 3em;
   color: white;
   position:absolute;
   z-index: 1000;
   right: 5px;
   top: 0;
-  @media screen and (min-device-width: 480px) {
+  margin: 15px 0 0 0;
+  display: none;
+  visibility: hidden;
+  @media (min-width: 480px) {
     animation: textshadowfade 5s infinite;
   }
-  @media only screen and (max-device-width: 480px) {
-    display: none;
-    visibility: hidden;
+  @media (min-width: 768px) {
+    display: block;
+    visibility: visible;
   }
 }
 
 #circle-logo {
   display: none;
   visibility: hidden;
-  @media only screen and (max-device-width: 480px) {
+  @media only screen and (max-width: 480px) {
     display: block;
     visibility: visible;
     height: 50px;
@@ -96,7 +114,6 @@ form#enter-chat {
     margin-right: 10px;
   }
   input {
-    margin-top: 5px;
     font-size: 2rem;
   }
 }
@@ -146,24 +163,92 @@ form#enter-chat {
   }
 }
 
+//mobile, small screen
+nav.pc {
+  display: none;
+  visibility: hidden;
+}
+
 nav {
   background: $pink !important;
+  overflow: hidden;
   width: 100%;
   font-size: 1.8rem;
   z-index: 1000;
   border: 0 !important;
+  padding-bottom: 20px;
+
+  position: relative;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    li {
+      width: 100%;
+      border-top: 5px dashed white;
+    }
+  }
+  margin-bottom: 20px;
+  .navbar-toggle {
+    display: inline-block;
+    color: white;
+    background: transparent;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  .subnav {
+    ul {
+    }
+    .submenu-title {
+      color: white;
+      text-shadow: 0 1px 0 #777777;
+      line-height: 25px;
+    }
+  }
+  .subnav ul > li > a {
+    font-size: 18px;
+    margin-left: 20px;
+  }
 }
 
-.navbar .nav > li > a {
+//larger screen
+@media (min-width: 768px) {
+  nav.pc {
+    display: block;
+    visibility: visible;
+  }
+  nav.sp {
+    display: none;
+    visibility: hidden;
+  }
+  nav {
+    .navbar-toggle {
+      display: none;
+    }
+    ul {
+      margin: 10px 0 0 10px;
+      li {
+        width: auto;
+        border: none;
+      }
+    }
+  }
+  ul.subnav > li > a {
+    font-size: 24px;
+  }
+}
+
+.navbar ul > li > a {
   float: none;
-  padding: 10px 15px 10px;
+  padding: 10px 15px 10px 0;
   color: white;
   text-decoration: none;
   text-shadow: 0 1px 0 #777777;
   line-height: 25px;
 }
 
-.navbar .nav > li > a:hover {
+.navbar ul > li > a:hover {
   color: darken(white, 20%);
 }
 
@@ -221,6 +306,7 @@ li.userlist-item {
 
 input#input-message {
   width: 80%;
+  padding: 18px 0 18px 10px;
 }
 
 .message-timestamp {
@@ -250,10 +336,11 @@ input {
   -o-transition: border linear .2s, box-shadow linear .2s;
   transition: border linear .2s, box-shadow linear .2s;
   color: black;
+  padding: 3px 0 10px 0;
 }
 
 .cool-button {
-  font-size: 1.5rem;
+  font-size: 18px;
   background-color: $blue;
   border: 1px solid white;
   border-radius: 3px;
@@ -262,7 +349,7 @@ input {
   display: inline-block;
   font-weight: 600;
   line-height: 1;
-  padding: 0.6em 0.5em;
+  padding: 5px;
   text-decoration: none;
   user-select: none;
   vertical-align: middle;
@@ -310,13 +397,6 @@ input {
   }
 }
 
-#actions {
-  font-size: 14px;
-  position: absolute;
-  right: 5px;
-  top: 5px;
-}
-
 .modal-content {
   background: $pink;
   color: yellow;
@@ -329,36 +409,6 @@ input {
 
 img.emojione {
   height: 3ex !important;
-}
-
-/* this makes the collapsed navbar appear on the left instead of right */
-.custom-navbar .fa {font-size:25px}
-
-@media only screen and (max-width:767px) {
-  .custom-navbar .navbar-right {
-      float: right;
-      padding-right: 15px;
-  }
-  .custom-navbar .nav.navbar-nav.navbar-right li {
-      float: right;
-  }
-    .custom-navbar .nav.navbar-nav.navbar-right li > a {
-      padding:8px 5px;
-  }
-  .custom-navbar .navbar-toggle {
-      float: left
-  }
-  .custom-navbar .navbar-header {
-      float: left;
-      width: auto!important;
-  }
-  .custom-navbar .navbar-collapse {
-      clear: both;
-      float: none;
-  }
-  #actions {
-    display: none;
-  }
 }
 
 a {
@@ -397,14 +447,6 @@ a:hover {
   // flex-shrink: 1;
   // flex-basis: auto;
   // flex: 1 1 auto;
-  nav {
-    @media only screen and (min-device-width: 480px) {
-      flex: 0.05;
-      justify-content: center;
-      display: flex;
-      flex-direction: column;
-    }
-  }
   .main-content {
     color: white;
     text-shadow: #333 1px 1px 1px;
@@ -595,4 +637,9 @@ form {
 
 .dj-title {
   font-size: 28px;
+}
+
+.show-title {
+  font-size: 30px;
+  font-family: "debussy", sans-serf;
 }
