@@ -4,6 +4,9 @@ export default {
     'title': 'ポッドキャスト',
     'no_result': '結果なし。もしかしてオニオンサラダドレッシングかもしれないでした。'
   },
+  'djs': {
+    'title': 'DJs'
+  },
   'timetable': 'タイムテーブル',
   'radio': 'ラジオ',
   'label': 'レーベル',
