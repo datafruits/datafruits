@@ -207,7 +207,7 @@ nav {
       .fa {
         transition: 0.1s linear;
       }
-      .fa:hover {
+      .fa.rotated {
         transform: rotate(90deg);
       }
     }
