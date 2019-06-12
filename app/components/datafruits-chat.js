@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import { oneWay } from '@ember/object/computed';
+import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import $ from 'jquery';
 
@@ -9,9 +10,13 @@ export default Component.extend({
   gifsEnabled: oneWay('chat.gifsEnabled'),
   newMessagesBelow: false,
   isJoiningChat: false,
+  nick: "",
   joinedChat: oneWay('chat.joinedChat'),
   messages: oneWay('chat.messages'),
   joinedUsers: oneWay('chat.joinedUsers'),
+  disableJoinButton: computed('isJoiningChat', 'nick', function(){
+    return this.nick.length < 1 || this.isJoiningChat === true;
+  }),
   actions: {
     toggleGifsEnabled(){
       this.chat.toggleProperty("gifsEnabled");
