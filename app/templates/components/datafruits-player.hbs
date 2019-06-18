@@ -3,7 +3,7 @@
   <source src="https://streampusher-relay.club/datafruits.ogg" type="audio/ogg">
 </audio>
 <div class="radio-container">
-  <div>
+  <div class="now-playing">
     {{#if playingPodcast}}
       <a {{action "playLiveStream"}}>return to live stream</a>
     {{/if}}
@@ -32,7 +32,7 @@
     {{#if error}}
       <span>{{error}}</span>
     {{else}}
-      <span>Now playing: </span><span class="jp-title">{{title}}</span>
+      <span class="jp-title">{{title}}</span>
     {{/if}}
   </div>
   <div class="next-show-and-locale">

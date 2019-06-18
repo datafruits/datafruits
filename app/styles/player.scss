@@ -1,6 +1,16 @@
 .radio-container {
+  @media (max-width: 480px) {
+    font-size: 18px;
+  }
   display: flex;
   justify-content: space-between;
+  margin-left: 5px;
+  .now-playing {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 div.radio-bar.is-live {
