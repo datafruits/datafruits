@@ -3,7 +3,7 @@
   <source src="https://streampusher-relay.club/datafruits.ogg" type="audio/ogg">
 </audio>
 <div class="radio-container">
-  <div class="now-playing">
+  <div class="player-controls">
     {{#if playingPodcast}}
       <a {{action "playLiveStream"}}>return to live stream</a>
     {{/if}}
@@ -29,6 +29,8 @@
          value={{volume}}>
       {{/if}}
     </span>
+  </div>
+  <div class="now-playing">
     {{#if error}}
       <span>{{error}}</span>
     {{else}}

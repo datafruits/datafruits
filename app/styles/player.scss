@@ -5,6 +5,12 @@
   display: flex;
   justify-content: space-between;
   margin-left: 5px;
+  .player-controls {
+    min-width: 50px;
+    @media (min-width: 768px) {
+      min-width: 65px;
+    }
+  }
   .now-playing {
     width: 100%;
     white-space: nowrap;
