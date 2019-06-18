@@ -2,6 +2,8 @@ import Component from '@ember/component';
 
 export default Component.extend({
   didInsertElement(){
-    twttr.widgets.load();
+    if(window.twttr){
+      window.twttr.widgets.load();
+    }
   }
 });
