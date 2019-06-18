@@ -36,16 +36,19 @@
     {{/if}}
   </div>
   <div class="next-show-and-locale">
-    {{#if playingPodcast}}
-      <div class='seek'>
-        <input class="seek-bar" type="range"
-         step="any"
-         oninput={{action 'seek'}}
-         value={{playTime}}>
-      </div>
-    {{else if nextShow}}
-    <span id="next-show">{{t "next_broadcast"}} {{#link-to 'home.show' nextShow}}{{nextShow.title}}{{/link-to}}</span>
+    {{#if nextShow}}
+      <span id="next-show">{{t "next_broadcast"}} {{#link-to 'home.show' nextShow}}{{nextShow.title}}{{/link-to}}</span>
     {{/if}}
     {{yield}}
   </div>
 </div>
+{{#if playingPodcast}}
+  <div class='seek'>
+    <div class='seek-bar-wrapper'>
+      <input class="seek-bar" type="range"
+                              step="any"
+                              oninput={{action 'seek'}}
+                              value={{playTime}}>
+    </div>
+  </div>
+{{/if}}
