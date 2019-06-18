@@ -161,12 +161,16 @@ export default Component.extend({
         this.set('playTime', value);
       });
       audioTag.addEventListener("seeking", () => {
-        if(document.getElementsByClassName("seek").length){
-          document.getElementsByClassName("seek")[0]
+        if(document.getElementsByClassName("seek-bar-wrapper").length){
+          document.getElementsByClassName("seek-bar-wrapper")[0]
             .classList.add('seeking');
         }
       });
       audioTag.addEventListener("canplay", () => {
+        if(document.getElementsByClassName("seek-bar-wrapper").length){
+          document.getElementsByClassName("seek-bar-wrapper")[0]
+            .classList.remove('seeking');
+        }
         if(document.getElementsByClassName("seek").length){
           document.getElementsByClassName("seek")[0]
             .classList.remove('seeking');
