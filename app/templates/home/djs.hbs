@@ -1,7 +1,7 @@
 <div class="main-content">
-  <div class="row">
+  <div class="djs">
     {{#each model as |dj|}}
-      <div class="col-md-4">
+      <div class="dj">
         <h2>{{#link-to "home.dj" dj.username}}{{dj.username}}{{/link-to}}</h2>
         <img src={{dj.imageThumbUrl}} alt={{dj.username}}>
       </div>

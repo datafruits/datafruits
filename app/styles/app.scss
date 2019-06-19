@@ -621,6 +621,14 @@ form {
   @include stripe-animation;
 }
 
+.djs {
+  display: flex;
+  flex-wrap: wrap;
+  .dj {
+    margin: 0 5px;
+  }
+}
+
 .dj-title {
   font-size: 28px;
   font-family: "debussy", sans-serf;
