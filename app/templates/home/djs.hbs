@@ -2,7 +2,7 @@
   <div class="djs">
     {{#each model as |dj|}}
       <div class="dj">
-        <h2>{{#link-to "home.dj" dj.username}}{{dj.username}}{{/link-to}}</h2>
+        <h2 class="name">{{#link-to "home.dj" dj.username}}{{dj.username}}{{/link-to}}</h2>
         <img src={{dj.imageThumbUrl}} alt={{dj.username}}>
       </div>
     {{/each}}

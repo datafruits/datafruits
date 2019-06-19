@@ -625,7 +625,20 @@ form {
   display: flex;
   flex-wrap: wrap;
   .dj {
-    margin: 0 5px;
+    margin: 5px 5px;
+    background: $pink;
+    border-radius: 5px;
+    width: 150px;
+    .name {
+      font-family: 'debussy', sans-serif;
+      margin-top: 5px;
+      margin-bottom: 4px;
+      margin-left: 5px;
+    }
+    img {
+      border-radius: 5px;
+      vertical-align: bottom;
+    }
   }
 }
 
