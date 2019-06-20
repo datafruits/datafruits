@@ -1,10 +1,12 @@
 .radio-container {
-  @media (max-width: 480px) {
-    font-size: 18px;
-  }
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   margin-left: 5px;
+  @media (max-width: 480px) {
+    font-size: 18px;
+    flex-direction: column;
+  }
   .player-controls {
     min-width: 50px;
     @media (min-width: 768px) {
@@ -12,7 +14,8 @@
     }
   }
   .now-playing {
-    width: 100%;
+    flex-grow: 1;
+    margin-left: 5px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
