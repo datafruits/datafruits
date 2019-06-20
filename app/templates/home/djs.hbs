@@ -3,7 +3,11 @@
     {{#each model as |dj|}}
       <div class="dj">
         <h2 class="name">{{#link-to "home.dj" dj.username}}{{dj.username}}{{/link-to}}</h2>
-        <img src={{dj.imageThumbUrl}} alt={{dj.username}}>
+        {{#if (eq dj.imageThumbUrl null)}}
+          <img src="/assets/images/dj_placeholder.png" alt={{dj.username}}>
+        {{else}}
+          <img src={{dj.imageThumbUrl}} alt={{dj.username}}>
+        {{/if}}
       </div>
     {{/each}}
   </div>
