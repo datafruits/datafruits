@@ -572,6 +572,7 @@ form {
   padding: 2px;
   &:hover {
     @include stripe-animation;
+    font-style: italic;
   }
 }
 
