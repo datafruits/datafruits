@@ -35,6 +35,16 @@ export default Route.extend({
      },
    ]);
 
+   if(model.tracks){
+     headTags.push({
+       type: 'meta',
+       attrs: {
+         name: 'twitter:player',
+         content: `https://datafruits.fm/container/shows/${model.id}`
+       },
+     });
+   }
+
    this.set('headTags', headTags);
   }
 });
