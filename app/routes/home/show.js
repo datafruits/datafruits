@@ -11,40 +11,40 @@ export default Route.extend({
   },
 
   setHeadTags(model) {
-   const headTags = ENV.headTags.concat([
-     {
+   const headTags = {
+     title: {
        type: 'meta',
        attrs: {
          name: 'twitter:title',
          content: `datafruits.fm - ${model.title}`
        },
      },
-     {
+     description: {
        type: 'meta',
        attrs: {
          name: 'twitter:description',
          content: model.description
        },
      },
-     {
+     image: {
        type: 'meta',
        attrs: {
          name: 'twitter:image',
          content: model.imageUrl
        },
      },
-   ]);
+   };
 
    if(model.tracks){
-     headTags.push({
+     headTags['player'] = {
        type: 'meta',
        attrs: {
          name: 'twitter:player',
          content: `https://datafruits.fm/container/shows/${model.id}`
        },
-     });
+     };
    }
 
-   this.set('headTags', headTags);
+   this.set('headTags', Object.values({ ...ENV.headTags, ...headTags }));
   }
 });

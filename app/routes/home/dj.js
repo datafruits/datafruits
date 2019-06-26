@@ -6,36 +6,37 @@ export default Route.extend({
     return this.store.queryRecord('dj', { name: params.name });
 
   },
+
   afterModel(model) {
    this.setHeadTags(model);
   },
 
   setHeadTags(model) {
-   const headTags = ENV.headTags.concat([
-     {
+   const headTags = {
+     title: {
        type: 'meta',
        attrs: {
          name: 'twitter:title',
          content: `datafruits.fm - ${model.username}`
        },
      },
-     {
+     description: {
        type: 'meta',
        attrs: {
          name: 'twitter:description',
          content: model.bio
        },
      },
-     {
+     image: {
        type: 'meta',
        attrs: {
          name: 'twitter:image',
          content: model.imageUrl
        },
      },
-   ]);
+   };
 
-   this.set('headTags', headTags);
+   this.set('headTags', Object.values({ ...ENV.headTags, ...headTags }));
   },
 
   serialize(dj) {
