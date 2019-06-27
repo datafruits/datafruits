@@ -34,6 +34,13 @@ export default Route.extend({
          content: model.imageUrl
        },
      },
+    card: {
+      type: 'meta',
+      attrs: {
+        name: 'twitter:card',
+        content: 'summary_large_image'
+      },
+    },
    };
 
    this.set('headTags', Object.values({ ...ENV.headTags, ...headTags }));
