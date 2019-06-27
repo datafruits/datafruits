@@ -37,10 +37,11 @@ export default Component.extend({
     return this.title.startsWith("LIVE");
   }),
   pollRadioTitle() {
-    let _this = this;
-    later(function() {
-      _this.setRadioTitle();
-      _this.pollRadioTitle();
+    later(() => {
+      if(this.playingPodcast === false){
+        this.setRadioTitle();
+        this.pollRadioTitle();
+      }
     }, 10000);
   },
   setRadioTitle() {
