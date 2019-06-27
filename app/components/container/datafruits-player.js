@@ -17,6 +17,5 @@ export default DatafruitsPlayer.extend({
 
     let audioTag = document.getElementById("radio-player");
     audioTag.src = track.cdnUrl;
-    audioTag.play();
   }
 });
