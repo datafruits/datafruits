@@ -40,6 +40,7 @@ Router.map(function() {
     this.route('chat');
   });
   this.route('container', {path: '/container'}, function(){
+    this.route('show', {path: '/shows/:id'});
   });
   this.route('not-found', {path: '/*path'});
 });

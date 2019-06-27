@@ -2,32 +2,46 @@
   <source src="https://streampusher-relay.club/datafruits.mp3" type="audio/mp3">
   <source src="https://streampusher-relay.club/datafruits.ogg" type="audio/ogg">
 </audio>
-<div id="jp_container">
-  {{#if loading}}
-    <a class="jp-loading" href="javascript:;" tabindex="1">↻</a>
-  {{else if playing}}
-    <a class="jp-pause" {{action "pause"}} tabindex="1">❚❚</a>
-  {{else if paused}}
-    <a onMouseEnter={{action "playButtonMouseEnter"}}
-       onMouseLeave={{action "playButtonMouseOut"}}
-       {{action "play"}}
-       class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
-  {{/if}}
-  {{#if error}}
-    <span>{{error}}</span>
-  {{else}}
-    <span>Now playing: </span><span class="jp-title">{{title}}</span>
-  {{/if}}
-  <span class="jp-volume-controls" {{action 'toggleVolumeControl' on='mouseEnter'}}>
-    {{#if muted}}
-      <a class="jp-unmute" {{action "unmute"}} tabindex="1"><i class="fa fa-volume-off"></i></a>
+<div class="radio-container">
+  <div class="player-controls">
+    {{#if loading}}
+      <a class="jp-loading" href="javascript:;" tabindex="1">↻</a>
+    {{else if playing}}
+      <a class="jp-pause" {{action "pause"}} tabindex="1">❚❚</a>
+    {{else if paused}}
+      <a onMouseEnter={{action "playButtonMouseEnter"}}
+         onMouseLeave={{action "playButtonMouseOut"}}
+         {{action "play"}}
+         class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
+    {{/if}}
+    <span class="jp-volume-controls" {{action 'toggleVolumeControl' on='mouseEnter'}}>
+      {{#if muted}}
+        <a class="jp-unmute" {{action "unmute"}} tabindex="1"><i class="fa fa-volume-off"></i></a>
+      {{else}}
+        <a class="jp-mute" {{action "mute"}} tabindex="1"><i class="fa fa-volume-up"></i></a>
+      {{/if}}
+      {{#if showingVolumeControl}}
+        <input class="volume-control" type="range" min="0" max="1" step="0.1"
+         oninput={{action 'volumeChanged'}}
+         value={{volume}}>
+      {{/if}}
+    </span>
+  </div>
+  <div class="now-playing">
+    {{#if error}}
+      <span>{{error}}</span>
     {{else}}
-      <a class="jp-mute" {{action "mute"}} tabindex="1"><i class="fa fa-volume-up"></i></a>
+      <span class="jp-title">{{title}}</span>
     {{/if}}
-    {{#if showingVolumeControl}}
-      <input class="volume-control" type="range" min="0" max="1" step="0.1"
-       oninput={{action 'volumeChanged'}}
-       value={{volume}}>
-    {{/if}}
-  </span>
+  </div>
 </div>
+{{#if playingPodcast}}
+  <div class='seek'>
+    <div class='seek-bar-wrapper'>
+      <input class="seek-bar" type="range"
+                              step="any"
+                              oninput={{action 'seek'}}
+                              value={{playTime}}>
+    </div>
+  </div>
+{{/if}}

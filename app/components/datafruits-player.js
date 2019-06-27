@@ -44,7 +44,7 @@ export default Component.extend({
     }, 10000);
   },
   setRadioTitle() {
-    if(!this.playingPodcast){
+    if(this.playingPodcast === false){
       let url = "https://streampusher-relay.club/status-json.xsl";
 
       fetch(url).then((response) => {
