@@ -12,35 +12,35 @@ export default Route.extend({
   },
 
   setHeadTags(model) {
-   const headTags = {
-     title: {
-       type: 'meta',
-       attrs: {
-         name: 'twitter:title',
-         content: `datafruits.fm - ${model.username}`
-       },
-     },
-     description: {
-       type: 'meta',
-       attrs: {
-         name: 'twitter:description',
-         content: model.bio
-       },
-     },
-     image: {
-       type: 'meta',
-       attrs: {
-         name: 'twitter:image',
-         content: model.imageUrl
-       },
-     },
-    card: {
-      type: 'meta',
-      attrs: {
-        name: 'twitter:card',
-        content: 'summary_large_image'
+    const headTags = {
+      title: {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:title',
+          content: `datafruits.fm - ${model.username}`
+        },
       },
-    },
+      description: {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:description',
+          content: model.bio
+        },
+      },
+      image: {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:image',
+          content: model.imageUrl
+        },
+      },
+      card: {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:card',
+          content: 'summary_large_image'
+        },
+      },
    };
 
    this.set('headTags', Object.values({ ...ENV.headTags, ...headTags }));
