@@ -19,15 +19,16 @@ export default Route.extend({
           content: `datafruits.fm - ${model.title}`
         },
       },
-      description: {
+    };
+    if(model.description){
+      headTags['description'] = {
         type: 'meta',
         attrs: {
           name: 'twitter:description',
           content: model.description
         },
-      },
-    };
-
+      }
+    }
     if(model.tracks){
       headTags['player'] = {
         type: 'meta',
@@ -36,7 +37,7 @@ export default Route.extend({
           content: `https://datafruits.fm/container/shows/${model.id}`
         },
       };
-    }
+    } //else change cardType to large image?
     if(model.imageUrl){
       headTags['image'] = {
         type: 'meta',
