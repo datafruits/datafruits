@@ -11,30 +11,44 @@ export default Route.extend({
   },
 
   setHeadTags(model) {
-   const headTags = ENV.headTags.concat([
-     {
-       type: 'meta',
-       attrs: {
-         name: 'twitter:title',
-         content: `datafruits.fm - ${model.title}`
-       },
-     },
-     {
-       type: 'meta',
-       attrs: {
-         name: 'twitter:description',
-         content: model.description
-       },
-     },
-     {
-       type: 'meta',
-       attrs: {
-         name: 'twitter:image',
-         content: model.imageUrl
-       },
-     },
-   ]);
+    const headTags = {
+      title: {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:title',
+          content: `datafruits.fm - ${model.title}`
+        },
+      },
+    };
+    if(model.description){
+      headTags['description'] = {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:description',
+          content: model.description
+        },
+      }
+    }
+    if(model.tracks){
+      headTags['player'] = {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:player',
+          content: `https://datafruits.fm/container/shows/${model.id}`
+        },
+      };
+    } //else change cardType to large image?
+    if(model.imageUrl){
+      headTags['image'] = {
+        type: 'meta',
+        attrs: {
+          name: 'twitter:image',
+          content: model.imageUrl
+        },
+      }
+    }
 
-   this.set('headTags', headTags);
+    // TODO extract this to a function...
+    this.set('headTags', Object.values({ ...ENV.headTags, ...headTags }));
   }
 });

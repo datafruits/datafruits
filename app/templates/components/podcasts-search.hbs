@@ -20,6 +20,7 @@
   {{else}}
     {{#each loader.data.tracks as |track|}}
       {{podcast-track cdnUrl=track.cdnUrl title=track.title
+        scheduledShow=track.scheduledShow
         labels=track.labels selectLabel=(action "selectLabel")}}
     {{else}}
       {{t "podcasts.no_result"}}

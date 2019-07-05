@@ -14,6 +14,6 @@ export default Route.extend({
 
   setHeadTags() {
     const headTags = ENV.headTags;
-    this.set('headTags', headTags);
+    this.set('headTags', Object.values(headTags));
   },
 });

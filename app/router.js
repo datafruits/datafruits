@@ -8,11 +8,13 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL,
   metrics: service(),
 
-  didTransition() {
+  init() {
     this._super(...arguments);
-    if (typeof FastBoot === 'undefined') {
-      this._trackPage();
-    }
+    this.on('routeDidChange', () =>  {
+      if (typeof FastBoot === 'undefined') {
+        this._trackPage();
+      }
+    });
   },
 
   _trackPage() {
@@ -35,9 +37,12 @@ Router.map(function() {
     this.route('show', {path: '/shows/:id'});
     this.route('dj-inquiry');
     this.route('coc');
+    this.route('djs');
+    this.route('dj', { path: '/djs/:name' });
     this.route('chat');
   });
   this.route('container', {path: '/container'}, function(){
+    this.route('show', {path: '/shows/:id'});
   });
   this.route('not-found', {path: '/*path'});
 });

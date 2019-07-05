@@ -1,7 +1,13 @@
 {{title model.title}}
 <div class="main-content">
-  <h1 class="modal-title" id="myModalLabel">{{model.title}}</h1>
-  <h2 class="modal-title" id="myModalLabel">{{format-date model.start}}</h2>
+  <h1 class="show-title" id="myModalLabel">{{model.title}}</h1>
+  <h2>
+    Hosted by:
+    {{#each model.djs as |dj|}}
+      <span class="dj-title">{{#link-to "home.dj" dj.username}}{{dj.username}}{{/link-to}} </span>
+    {{/each}}
+  </h2>
+  <h3 class="modal-title" id="myModalLabel">{{format-date model.start}}</h3>
   <div class="modal-body">
     {{#if model.thumbImageUrl}}
       <div class="show-image">
@@ -11,6 +17,14 @@
     <p>
       {{html-safe-string model.htmlDescription}}
     </p>
+    {{#if model.tracks}}
+      <h2>{{ t "show.archive"}}</h2>
+    {{/if}}
+    {{#each model.tracks as |track|}}
+      {{podcast-track
+        cdnUrl=track.cdnUrl title=track.title labels=track.labels
+        selectLabel=(action "browseLabel")}}
+    {{/each}}
   </div>
   <div class="modal-footer">
     {{tweet-button data-text=model.tweetContent}}

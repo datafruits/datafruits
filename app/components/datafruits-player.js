@@ -37,14 +37,15 @@ export default Component.extend({
     return this.title.startsWith("LIVE");
   }),
   pollRadioTitle() {
-    let _this = this;
-    later(function() {
-      _this.setRadioTitle();
-      _this.pollRadioTitle();
+    later(() => {
+      if(this.playingPodcast === false){
+        this.setRadioTitle();
+        this.pollRadioTitle();
+      }
     }, 10000);
   },
   setRadioTitle() {
-    if(!this.playingPodcast){
+    if(this.playingPodcast === false){
       let url = "https://streampusher-relay.club/status-json.xsl";
 
       fetch(url).then((response) => {
@@ -161,12 +162,16 @@ export default Component.extend({
         this.set('playTime', value);
       });
       audioTag.addEventListener("seeking", () => {
-        if(document.getElementsByClassName("seek").length){
-          document.getElementsByClassName("seek")[0]
+        if(document.getElementsByClassName("seek-bar-wrapper").length){
+          document.getElementsByClassName("seek-bar-wrapper")[0]
             .classList.add('seeking');
         }
       });
       audioTag.addEventListener("canplay", () => {
+        if(document.getElementsByClassName("seek-bar-wrapper").length){
+          document.getElementsByClassName("seek-bar-wrapper")[0]
+            .classList.remove('seeking');
+        }
         if(document.getElementsByClassName("seek").length){
           document.getElementsByClassName("seek")[0]
             .classList.remove('seeking');

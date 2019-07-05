@@ -13,7 +13,11 @@ export default {
     'title': '팟캐스트',
     'no_result': '결과없음. 혹시 오니언 샐러드 드레싱일지도 모르겠네요'
   },
+  'djs': {
+    'title': 'DJs'
+  },
   'timetable': '타임 테이블',
+  'radio': '라디오',
   'label': '레이블',
   'about': '우리에 관하여',
   'blog': '블로그',
