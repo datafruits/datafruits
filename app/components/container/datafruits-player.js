@@ -3,7 +3,7 @@ import DatafruitsPlayer from '../datafruits-player';
 export default DatafruitsPlayer.extend({
   track: null,
   didInsertElement(){
-    if(this.get('track')){
+    if(this.track){
       this.set('playingPodcast', true);
       this._super(...arguments);
       this.playTrack();
