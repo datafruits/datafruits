@@ -63,7 +63,7 @@
     "video.js": "7.2.4"
   },
   "engines": {
-    "node": "8.* || >= 10.*"
+    "node": "10.x"
   },
   "private": true,
   "devDependencies": {
