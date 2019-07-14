@@ -52,7 +52,6 @@
     "ember-power-select": "2.3.4",
     "ember-resolver": "^4.0.0",
     "ember-source": "~3.10.0",
-    "ember-tumblr": "0.11.0",
     "ember-welcome-page": "^4.0.0",
     "emojione": "git://github.com/mcfiredrill/emojione#custom-emoji",
     "eslint-plugin-ember": "^6.2.0",

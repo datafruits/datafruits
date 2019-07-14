@@ -656,3 +656,21 @@ form {
   font-size: 30px;
   font-family: "debussy", sans-serf;
 }
+
+.upcoming-shows {
+  display: flex;
+  .upcoming-show {
+    margin: 5px;
+    background: #e992ff;
+    border-radius: 5px;
+  }
+}
+
+.latest-podcasts {
+  display: flex;
+  .latest-podcast {
+    margin: 5px;
+    background: #e992ff;
+    border-radius: 5px;
+  }
+}
