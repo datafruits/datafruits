@@ -1,0 +1,13 @@
+{{#if showingDatafruits}}
+  [{{currentDatafruit.name}}]: {{currentDatafruit.content}}
+  <button {{action "addDatafruit"}} class="cool-button">add datafruit</button>
+{{else}}
+  we need your datafruit. please add it.
+  <form {{action "submit" on="submit"}}>
+    {{input value=datafruit.name placeholder="your name" autocorrect="off" autocapitalize="none" }}
+    {{input value=datafruit.content placeholder="your datafruit"}}
+    <input
+      type="submit"
+      value="Datafruit!" class="cool-button" disabled={{isSubmittable}}>
+  </form>
+{{/if}}
