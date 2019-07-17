@@ -4932,10 +4932,10 @@ ember-cli-eslint@^5.1.0:
     rsvp "^4.6.1"
     walk-sync "^1.0.0"
 
-ember-cli-fastboot@2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/ember-cli-fastboot/-/ember-cli-fastboot-2.1.2.tgz#84c2fb352bdae59714f03408c39ac467b99b2047"
-  integrity sha512-gdiVFbJVtrpZEn+aEgGL8Ds2UaAHaA+43Dr/lxAS8CjuDv2TzTay+EEcYCl9BCDys7IE/oqbp6yy7Q49b/Lc7w==
+ember-cli-fastboot@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-fastboot/-/ember-cli-fastboot-2.1.1.tgz#3890e76f93a132d9eef189c78d18562b421594f2"
+  integrity sha512-qn3QcyDEbcc1/z2gPymwzTu3laSlou2WS3ZmUzlZz3wBi8WmIonzv5+i9ImjhPOP256MaIOnmdpSLi9QH45wbg==
   dependencies:
     broccoli-concat "^3.7.1"
     broccoli-funnel "^2.0.1"
@@ -4946,8 +4946,8 @@ ember-cli-fastboot@2.1.2:
     ember-cli-lodash-subset "2.0.1"
     ember-cli-preprocess-registry "^3.1.2"
     ember-cli-version-checker "^3.0.0"
-    fastboot "^2.0.0"
-    fastboot-express-middleware "^2.0.0"
+    fastboot "^1.2.0"
+    fastboot-express-middleware "^1.2.0"
     fastboot-transform "^0.1.3"
     fs-extra "^7.0.0"
     json-stable-stringify "^1.0.1"
