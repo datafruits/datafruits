@@ -8,6 +8,10 @@ export default {
   // },
   //
   // "key.with.interpolation": "Text with {{anInterpolation}}"
+  'home': {
+    'upcoming_shows': '근일 방송 예정',
+    'latest_podcasts': '최신 포드캐스트'
+  },
   'chat': '채팅',
   'podcasts': {
     'title': '팟캐스트',

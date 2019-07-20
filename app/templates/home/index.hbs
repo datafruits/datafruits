@@ -1,25 +1,38 @@
 <div class="main-content">
-  <h2>UPCOMING SHOWS</h2>
+  <h2>{{t "home.upcoming_shows"}}</h2>
   <div class="upcoming-shows">
     {{#each model.upcomingShows as |show|}}
-      <div class="show">
-        {{show.title}}
+      <div class="upcoming-show">
+        {{#link-to "home.show" show.id}}
+          {{show.title}}
+        {{/link-to}}
+        <div class="show-time">
+          {{format-date model.start}}
+        </div>
         <div class="show-image">
-          {{#if show.thumbImageUrl}}
-            <img src={{model.thumbImageUrl}} alt={{show.title}}>
-          {{else}}
-            <img src="/assets/images/dj_placeholder.png" alt={{show.title}}>
-          {{/if}}
+          {{#link-to "home.show" show.id}}
+            {{#if show.thumbImageUrl}}
+              <img src={{show.thumbImageUrl}} alt={{show.title}}>
+            {{else}}
+              <img src="/assets/images/show_placeholder.jpg" alt={{show.title}}>
+            {{/if}}
+          {{/link-to}}
         </div>
       </div>
     {{/each}}
   </div>
-  <h2>LATEST PODCASTS</h2>
+  <h2>{{t "home.latest_podcasts"}}</h2>
   <div class="latest-podcasts">
     {{#each model.latestPodcasts as |track|}}
       <div class="latest-podcast">
+        {{#link-to "home.show" track.scheduledShow.id}}
+          {{#if track.scheduledShow.thumbImageUrl}}
+            <img src={{track.scheduledShow.thumbImageUrl}} alt={{track.title}}>
+          {{else}}
+            <img src="/assets/images/show_placeholder.jpg" alt={{track.title}}>
+          {{/if}}
+        {{/link-to}}
         {{#link-to 'home.show' track.scheduledShow.id}}
-          <img src={{track.scheduledShow.thumbImageUrl}} alt={{track.scheduledShow.title}}>
           {{track.title}}
         {{/link-to}}
       </div>
