@@ -13,8 +13,10 @@
           {{#link-to "home.show" show.id}}
             {{#if show.thumbImageUrl}}
               <img src={{show.thumbImageUrl}} alt={{show.title}}>
+            {{else if show.host.imageUrl}}
+              <img width="300" height="300" src={{show.host.imageUrl}} alt={{show.title}}>
             {{else}}
-              <img src="/assets/images/show_placeholder.jpg" alt={{show.title}}>
+              <img width="300" height="300" src="/assets/images/show_placeholder.jpg" alt={{show.title}}>
             {{/if}}
           {{/link-to}}
         </div>
@@ -27,7 +29,7 @@
       <div class="latest-podcast">
         {{#link-to "home.show" track.scheduledShow.id}}
           {{#if track.scheduledShow.thumbImageUrl}}
-            <img src={{track.scheduledShow.thumbImageUrl}} alt={{track.title}}>
+            <img width="300" height="300" src={{track.scheduledShow.thumbImageUrl}} alt={{track.title}}>
           {{else}}
             <img src="/assets/images/show_placeholder.jpg" alt={{track.title}}>
           {{/if}}

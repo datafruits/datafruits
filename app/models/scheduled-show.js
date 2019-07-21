@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
 import { alias } from '@ember/object/computed';
 
 export default DS.Model.extend({
@@ -10,6 +11,9 @@ export default DS.Model.extend({
   description: DS.attr(),
   tracks: DS.hasMany('track'),
   djs: DS.hasMany('dj'),
+  host: computed('djs', function(){
+    return this.djs.get('firstObject');
+  }),
 
   htmlDescription: DS.attr(),
   tweetContent: DS.attr(),
