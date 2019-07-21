@@ -29,7 +29,7 @@ export default Component.extend({
         var results = [];
         var results2 = [];
         var results3 = [];
-        $.each(emojiStrategy,function(shortname,data) {
+        for(let [shortname, data] of Object.entries(emojiStrategy)) {
           if(shortname.indexOf(term) > -1) { results.push(shortname); }
           else {
             if((data.aliases !== null) && (data.aliases.indexOf(term) > -1)) {
@@ -39,7 +39,7 @@ export default Component.extend({
               results3.push(shortname);
             }
           }
-        });
+        };
         if(term.length >= 3) {
           results.sort(function(a,b) { return (a.length > b.length); });
           results2.sort(function(a,b) { return (a.length > b.length); });
