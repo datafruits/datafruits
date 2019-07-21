@@ -1,6 +1,10 @@
 <div id="chat-room">
   <div id="chat-area">
-    {{chat-messages messages=messages gifsEnabled=gifsEnabled newMessagesAvailable=(action "newMessagesAvailable")}}
+    {{chat-messages
+      messages=messages
+      gifsEnabled=gifsEnabled
+      newMessagesAvailable=(action "newMessagesAvailable")
+      onScroll=(action "onScroll")}}
     {{#if newMessagesBelow}}
       <div id="new-messages-below">
         <span>New messages below.</span>

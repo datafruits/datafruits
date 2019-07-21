@@ -2,13 +2,12 @@ import Component from '@ember/component';
 import { oneWay } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
-import $ from 'jquery';
 
 export default Component.extend({
   chat: service(),
   classNames: ['main-content'],
   gifsEnabled: oneWay('chat.gifsEnabled'),
-  newMessagesBelow: false,
+  newMessagesBelow: false, // TODO move this to chat service
   isJoiningChat: false,
   nick: "",
   joinedChat: oneWay('chat.joinedChat'),
@@ -28,23 +27,26 @@ export default Component.extend({
     },
     newMessagesAvailable(){
       this.set("newMessagesBelow", true);
-    }
+    },
+    onScroll(){
+      if(this.scrolledToBottom()){
+        this.set("newMessagesBelow", false);
+      }else{
+        this.set("newMessagesBelow", true);
+      }
+      this.chat.set('scrollTop', document.getElementById('messages').scrollTop);
+    },
   },
   scrolledToBottom() {
-    return $('#messages')[0].scrollHeight - $('#messages')[0].scrollTop - $('#messages').outerHeight() < 1;
-  },
-  _onScroll(){
-    if(this.scrolledToBottom()){
-      this.set("newMessagesBelow", false);
-    }else{
-      this.set("newMessagesBelow", true);
-    }
-    this.chat.set('scrollTop', $('#messages')[0].scrollTop);
+    const messages = document.getElementById('messages');
+    const messagesHeight = messages.getBoundingClientRect().height;
+    return messages.scrollHeight - messages.scrollTop - messagesHeight < 1;
   },
   didInsertElement(){
-    var onScroll = this._onScroll.bind(this);
-    this.$("#messages").bind('touchmove', onScroll);
-    this.$("#messages").bind('scroll', onScroll);
-    this.$("#messages")[0].scrollTop = this.get('chat.scrollTop');
+    //var onScroll = this._onScroll.bind(this);
+    const messages = document.getElementById('messages');
+    // this.$("#messages").bind('touchmove', onScroll);
+    // this.$("#messages").bind('scroll', onScroll);
+    messages.scrollTop = this.get('chat.scrollTop');
   }
 });

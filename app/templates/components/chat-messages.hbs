@@ -1,6 +1,9 @@
 {{#each messages as |message|}}
-  {{chat-message message=message gifsEnabled=gifsEnabled
-  newMessagesAvailable=newMessagesAvailable
-  setupAutoscroll=(action "setupAutoscroll")
-  adjustScrolling=(action "adjustScrolling")}}
+  {{chat-message
+    message=message
+    gifsEnabled=gifsEnabled
+    newMessagesAvailable=newMessagesAvailable
+    setupAutoscroll=(action "setupAutoscroll")
+    adjustScrolling=(action "adjustScrolling")
+  }}
 {{/each}}

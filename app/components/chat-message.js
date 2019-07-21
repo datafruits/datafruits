@@ -15,8 +15,8 @@ export default Component.extend({
   },
   didInsertElement() {
     this._super(...arguments);
-    if(this.$("img").length > 0){
-      this.$("img")[0].onload = () => {
+    if(this.element.getElementsByClassName("chat-image").length > 0){
+      this.element.getElementsByClassName("chat-image")[0].onload = () => {
         this.adjustScrolling();
       };
     }else{
