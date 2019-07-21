@@ -29,14 +29,14 @@
     "ember-cli-dependency-checker": "^3.1.0",
     "ember-cli-dotenv": "^2.0.0",
     "ember-cli-eslint": "^5.1.0",
-    "ember-cli-fastboot": "2.0.4",
+    "ember-cli-fastboot": "2.1.1",
     "ember-cli-htmlbars": "^3.0.1",
     "ember-cli-htmlbars-inline-precompile": "^2.1.0",
     "ember-cli-inject-live-reload": "2.0.1",
     "ember-cli-meta-tags": "5.1.0",
     "ember-cli-qunit": "^4.0.0",
     "ember-cli-release": "^1.0.0-beta.2",
-    "ember-cli-sass": "8.0.1",
+    "ember-cli-sass": "10.0.1",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-uglify": "^1.2.0",
@@ -52,18 +52,17 @@
     "ember-power-select": "2.3.4",
     "ember-resolver": "^4.0.0",
     "ember-source": "~3.10.0",
-    "ember-tumblr": "0.11.0",
     "ember-welcome-page": "^4.0.0",
     "emojione": "git://github.com/mcfiredrill/emojione#custom-emoji",
     "eslint-plugin-ember": "^6.2.0",
-    "fastboot-app-server": "^1.1.2-beta.1",
+    "fastboot-app-server": "2.0.0",
     "jstimezonedetect": "^1.0.6",
     "loader.js": "^4.2.3",
     "textcomplete": "^0.17.1",
     "video.js": "7.2.4"
   },
   "engines": {
-    "node": "8.* || >= 10.*"
+    "node": "10.x"
   },
   "private": true,
   "devDependencies": {

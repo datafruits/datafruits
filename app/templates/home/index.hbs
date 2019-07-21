@@ -1,7 +1,43 @@
 <div class="main-content">
-  <div class="blog grid">
-    {{#each model as |post|}}
-      {{blog-post post=post}}
+  <h2>{{t "home.upcoming_shows"}}</h2>
+  <div class="upcoming-shows">
+    {{#each model.upcomingShows as |show|}}
+      <div class="upcoming-show">
+        {{#link-to "home.show" show.id}}
+          {{show.title}}
+        {{/link-to}}
+        <div class="show-time">
+          {{format-date show.start}}
+        </div>
+        <div class="show-image">
+          {{#link-to "home.show" show.id}}
+            {{#if show.thumbImageUrl}}
+              <img src={{show.thumbImageUrl}} alt={{show.title}}>
+            {{else if show.host.imageUrl}}
+              <img width="300" height="300" src={{show.host.imageUrl}} alt={{show.title}}>
+            {{else}}
+              <img width="300" height="300" src="/assets/images/show_placeholder.jpg" alt={{show.title}}>
+            {{/if}}
+          {{/link-to}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  <h2>{{t "home.latest_podcasts"}}</h2>
+  <div class="latest-podcasts">
+    {{#each model.latestPodcasts as |track|}}
+      <div class="latest-podcast">
+        {{#link-to "home.show" track.scheduledShow.id}}
+          {{#if track.scheduledShow.thumbImageUrl}}
+            <img width="300" height="300" src={{track.scheduledShow.thumbImageUrl}} alt={{track.title}}>
+          {{else}}
+            <img src="/assets/images/show_placeholder.jpg" alt={{track.title}}>
+          {{/if}}
+        {{/link-to}}
+        {{#link-to 'home.show' track.scheduledShow.id}}
+          {{track.title}}
+        {{/link-to}}
+      </div>
     {{/each}}
   </div>
 </div>
