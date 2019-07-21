@@ -1,4 +1,8 @@
 export default {
+  'home': {
+    'upcoming_shows': '近日放送予定',
+    'latest_podcasts': '最新ポッドキャスト'
+  },
   'chat': 'チャット',
   'podcasts': {
     'title': 'ポッドキャスト',
