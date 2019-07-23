@@ -11,8 +11,10 @@
   <div class="modal-body">
     {{#if model.thumbImageUrl}}
       <div class="show-image">
-        <img src="{{model.thumbImageUrl}}"/ >
+        <img src="{{model.thumbImageUrl}}" alt="{{model.title}}">
       </div>
+    {{else if model.dj.imageMediumUrl}}
+      <img src="{{model.dj.imageMediumUrl}}" alt="{{model.dj.username}}">
     {{/if}}
     <p>
       {{html-safe-string model.htmlDescription}}
