@@ -13,8 +13,8 @@
       <div class="show-image">
         <img src="{{model.thumbImageUrl}}" alt="{{model.title}}">
       </div>
-    {{else if model.dj.imageMediumUrl}}
-      <img src="{{model.dj.imageMediumUrl}}" alt="{{model.dj.username}}">
+    {{else if model.host.imageMediumUrl}}
+      <img src="{{model.host.imageMediumUrl}}" alt="{{model.dj.username}}">
     {{/if}}
     <p>
       {{html-safe-string model.htmlDescription}}
