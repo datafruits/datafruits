@@ -12,7 +12,7 @@
         <div class="show-image">
           {{#link-to "home.show" show.id}}
             {{#if show.thumbImageUrl}}
-              <img src={{show.thumbImageUrl}} alt={{show.title}}>
+              <img width="300" height="300" src={{show.thumbImageUrl}} alt={{show.title}}>
             {{else if show.host.imageUrl}}
               <img width="300" height="300" src={{show.host.imageUrl}} alt={{show.title}}>
             {{else}}
