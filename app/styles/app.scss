@@ -682,3 +682,11 @@ form {
     flex-direction: column;
   }
 }
+
+.secret {
+  color: $blue;
+  text-shadow: none;
+  &:hover {
+    color: $yellow;
+  }
+}
