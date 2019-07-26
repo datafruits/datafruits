@@ -5,6 +5,12 @@
     <a class="podcast-controls" {{action "play"}}>▶︎</a>
   {{/if}}
   <a href={{cdnUrl}} download><i class="fa fa-download"></i></a>
+  {{#if soundcloudKey}}
+    <a class="podcast-controls" href={{soundcloudKey}} target="_blank"><i class="fa fa-soundcloud"></i></a>
+  {{/if}}
+  {{#if mixcloudKey}}
+    <a class="podcast-controls" href={{mixcloudKey}} target="_blank"><i class="fa fa-mixcloud"></i></a>
+  {{/if}}
   {{#if scheduledShow}}
     {{#link-to "home.show" scheduledShow.id}}
       {{title}}

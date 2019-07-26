@@ -4,6 +4,8 @@ import { computed } from '@ember/object';
 export default DS.Model.extend({
   audioFileName: DS.attr(),
   cdnUrl: DS.attr(),
+  soundcloudKey: DS.attr(),
+  mixcloudKey: DS.attr(),
   title: DS.attr(),
   podcastPublishedDate: DS.attr(),
   labels: DS.hasMany('label'),

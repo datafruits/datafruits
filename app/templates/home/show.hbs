@@ -25,6 +25,8 @@
     {{#each model.tracks as |track|}}
       {{podcast-track
         cdnUrl=track.cdnUrl title=track.title labels=track.labels
+        soundcloudKey=track.soundcloudKey
+        mixcloudKey=track.mixcloudKey
         selectLabel=(action "browseLabel")}}
     {{/each}}
   </div>
