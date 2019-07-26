@@ -3,7 +3,7 @@ import ENV from 'datafruits13/config/environment';
 
 export default Route.extend({
   model(params) {
-    return this.store.findRecord('scheduled-show', params.id);
+    return this.store.loadRecord('scheduled-show', params.id);
   },
 
   afterModel(model) {

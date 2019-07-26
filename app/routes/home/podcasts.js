@@ -13,8 +13,7 @@ export default Route.extend({
     });
     return hash({
       tracks: podcast.get('tracks'),
-      meta: App.storeMeta['podcast'],
-      labels: this.store.findAll('label'),
+      labels: this.store.loadRecords('label'),
     })
   }
 });
