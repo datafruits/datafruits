@@ -80,7 +80,7 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-metrics": "^0.13.0",
     "ember-parachute": "1.0.2",
-    "ember-qunit": "4.4.1",
+    "ember-qunit": "4.5.0",
     "ember-rollbar-client": "^0.8.0",
     "ember-truth-helpers": "2.1.0",
     "eslint-plugin-node": "^9.0.1",
