@@ -40,7 +40,8 @@ export default {
     "error": "There was an error sending your application! Please check the error messages and try again.",
     "thanks": "Thanks for your application! We'll reply to your email as soon as possible."
   },
-  'about_datafruits': "Datafruits is a netradio and netlabel founded in 2012 by Tony Miller (mcfiredrill). Its mission is to bring you the world's strangest electronic sounds and bring together the electronic music communities around the world.",
+  'just_a_website': "It's just a website.",
+  'about_datafruits': "Datafruits is a netradio and label founded in 2012 by Tony Miller (mcfiredrill). Its mission is to bring you the world's strangest sounds and bring together the music communities around the world.",
   'thanks_patrons': "THANKS TO ALL THE PATRONS!",
   'code_of_conduct': 'Code Of Conduct',
   'what_is_datafruits': 'What is datafruits...',

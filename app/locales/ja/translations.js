@@ -31,6 +31,7 @@ export default {
     "error": "エラーが発行されました。もう一度送信してみて下さい。",
     "thanks": "ありがとうございます！"
   },
+  'just_a_website': "それはただのウェブサイトです。",
   'about_datafruits': "Datafruitsは2012年にTony Miller (mcfiredrill)さんが初めたネットラジオとネットレーベルではあります。Datafruitsのミッションは世界の不思議な音楽を紹介するし世界の音楽コミュニティーを団結させます。",
   'thanks_patrons': "Patronのみんなさん有難う御座います",
   'code_of_conduct': 'Code Of Conduct',
