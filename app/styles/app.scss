@@ -442,7 +442,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
-    overflow-y: scroll;
+    overflow: auto;
     @media (min-width: 768px) {
       padding: 0 2rem 0 2rem;
     }
@@ -450,6 +450,7 @@ a:hover {
       flex: 8;
       display: flex;
       flex-direction: column;
+      overflow: auto;
       #chat-area {
         position: relative;
         display: flex;
