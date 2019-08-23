@@ -78,7 +78,7 @@
     "ember-data-storefront": "^0.17.0",
     "ember-i18n": "^5.2.0",
     "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-metrics": "^0.13.0",
+    "ember-metrics": "^0.14.0",
     "ember-parachute": "1.0.2",
     "ember-qunit": "4.4.1",
     "ember-rollbar-client": "^0.8.0",
