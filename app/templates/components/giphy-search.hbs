@@ -1,0 +1,10 @@
+{{input type="text" id="giphy-search-term" autocomplete="off" value=searchTerm}}
+{{#giphy-loader query=query as |loader|}}
+  {{#if loader.isRunning}}
+    <p>{{t "loading"}}</p>
+  {{else}}
+    {{#each loader.data.gifs as |gif|}}
+      <img alt={{gif.name}} src="{{gif.url}}" >
+    {{/each}}
+  {{/if}}
+{{/giphy-loader}}
