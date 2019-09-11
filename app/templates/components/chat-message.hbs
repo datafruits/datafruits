@@ -13,7 +13,11 @@
   {{#if hasImage}}
     <li class="message">
       <span class="message-body">
-        {{lazy-image url=imgUrl errorText="Image failed to load." class="chat-image"}}
+        <LazyImage
+          @url={{imgUrl}}
+          @errorText="Image failed to load."
+          class="chat-image"
+        />
       </span>
     </li>
   {{/if}}

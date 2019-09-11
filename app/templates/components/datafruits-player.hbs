@@ -1,56 +1,99 @@
-<audio preload id="radio-player">
-  <source src="https://streampusher-relay.club/datafruits.mp3" type="audio/mp3">
-  <source src="https://streampusher-relay.club/datafruits.ogg" type="audio/ogg">
+<audio preload="" id="radio-player">
+  <source
+    src="https://streampusher-relay.club/datafruits.mp3"
+    type="audio/mp3"
+  />
+  <source
+    src="https://streampusher-relay.club/datafruits.ogg"
+    type="audio/ogg"
+  />
 </audio>
 <div class="radio-container">
   <div class="player-controls">
     {{#if playingPodcast}}
-      <a {{action "playLiveStream"}}>return to live stream</a>
+      <a {{action "playLiveStream"}}>
+        return to live stream
+      </a>
     {{/if}}
     {{#if loading}}
-      <a class="jp-loading" href="javascript:;" tabindex="1">↻</a>
+      <a class="jp-loading" href="javascript:;" tabindex="1">
+        ↻
+      </a>
     {{else if playing}}
-      <a class="jp-pause" {{action "pause"}} tabindex="1">❚❚</a>
+      <a class="jp-pause" tabindex="1" {{action "pause"}}>
+        ❚❚
+      </a>
     {{else if paused}}
-      <a onMouseEnter={{action "playButtonMouseEnter"}}
-         onMouseLeave={{action "playButtonMouseOut"}}
-         {{action "play"}}
-         class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
+      <a
+        onMouseEnter={{action "playButtonMouseEnter"}}
+        onMouseLeave={{action "playButtonMouseOut"}}
+        class="jp-play"
+        href="javascript:;"
+        tabindex="1"
+        {{action "play"}}
+      >
+        ▶︎
+      </a>
     {{/if}}
-    <span class="jp-volume-controls" {{action 'toggleVolumeControl' on='mouseEnter'}}>
+    <span
+      class="jp-volume-controls"
+      {{action "toggleVolumeControl" on="mouseEnter"}}
+    >
       {{#if muted}}
-        <a class="jp-unmute" {{action "unmute"}} tabindex="1"><i class="fa fa-volume-off"></i></a>
+        <a class="jp-unmute" tabindex="1" {{action "unmute"}}>
+          <i class="fa fa-volume-off"></i>
+        </a>
       {{else}}
-        <a class="jp-mute" {{action "mute"}} tabindex="1"><i class="fa fa-volume-up"></i></a>
+        <a class="jp-mute" tabindex="1" {{action "mute"}}>
+          <i class="fa fa-volume-up"></i>
+        </a>
       {{/if}}
       {{#if showingVolumeControl}}
-        <input class="volume-control" type="range" min="0" max="1" step="0.1"
-         oninput={{action 'volumeChanged'}}
-         value={{volume}}>
+        <input
+          class="volume-control"
+          type="range"
+          min="0"
+          max="1"
+          step="0.1"
+          oninput={{action "volumeChanged"}}
+          value={{volume}}
+        />
       {{/if}}
     </span>
   </div>
   <div class="now-playing">
     {{#if error}}
-      <span>{{error}}</span>
+      <span>
+        {{error}}
+      </span>
     {{else}}
-      <span class="jp-title">{{title}}</span>
+      <span class="jp-title">
+        {{title}}
+      </span>
     {{/if}}
   </div>
   <div class="next-show-and-locale">
     {{#if nextShow}}
-      <span id="next-show">{{t "next_broadcast"}} {{#link-to 'home.show' nextShow}}{{nextShow.title}}{{/link-to}}</span>
+      <span id="next-show">
+        {{t "next_broadcast"}}
+        <LinkTo @route="home.show" @model={{nextShow}}>
+          {{nextShow.title}}
+        </LinkTo>
+      </span>
     {{/if}}
     {{yield}}
   </div>
 </div>
 {{#if playingPodcast}}
-  <div class='seek'>
-    <div class='seek-bar-wrapper'>
-      <input class="seek-bar" type="range"
-                              step="any"
-                              oninput={{action 'seek'}}
-                              value={{playTime}}>
+  <div class="seek">
+    <div class="seek-bar-wrapper">
+      <input
+        class="seek-bar"
+        type="range"
+        step="any"
+        oninput={{action "seek"}}
+        value={{playTime}}
+      />
     </div>
   </div>
 {{/if}}

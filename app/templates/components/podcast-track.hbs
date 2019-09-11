@@ -1,24 +1,36 @@
 <div class="podcast">
   {{#if playing}}
-    <a class="podcast-controls" {{action "pause"}}>❚❚</a>
+    <a class="podcast-controls" {{action "pause"}}>
+      ❚❚
+    </a>
   {{else}}
-    <a class="podcast-controls" {{action "play"}}>▶︎</a>
+    <a class="podcast-controls" {{action "play"}}>
+      ▶︎
+    </a>
   {{/if}}
-  <a href={{cdnUrl}} download><i class="fa fa-download"></i></a>
+  <a href={{cdnUrl}} download="">
+    <i class="fa fa-download"></i>
+  </a>
   {{#if soundcloudKey}}
-    <a class="podcast-controls" href={{soundcloudKey}} target="_blank"><i class="fa fa-soundcloud"></i></a>
+    <a class="podcast-controls" href={{soundcloudKey}} target="_blank">
+      <i class="fa fa-soundcloud"></i>
+    </a>
   {{/if}}
   {{#if mixcloudKey}}
-    <a class="podcast-controls" href={{mixcloudKey}} target="_blank"><i class="fa fa-mixcloud"></i></a>
+    <a class="podcast-controls" href={{mixcloudKey}} target="_blank">
+      <i class="fa fa-mixcloud"></i>
+    </a>
   {{/if}}
   {{#if scheduledShow}}
-    {{#link-to "home.show" scheduledShow.id}}
+    <LinkTo @route="home.show" @model={{scheduledShow.id}}>
       {{title}}
-    {{/link-to}}
+    </LinkTo>
   {{else}}
     {{title}}
   {{/if}}
   {{#each labels as |label|}}
-    <a class="track-label" {{action selectLabel label}}>{{label.name}}</a>
+    <a class="track-label" {{action selectLabel label}}>
+      {{label.name}}
+    </a>
   {{/each}}
 </div>
