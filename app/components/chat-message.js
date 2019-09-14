@@ -16,7 +16,8 @@ export default Component.extend({
   didInsertElement() {
     this._super(...arguments);
     if(this.element.getElementsByClassName("chat-image").length > 0){
-      this.element.getElementsByClassName("chat-image")[0].onload = () => {
+      this.element.getElementsByClassName("chat-image")[1].onload = () => {
+        console.log('image loaded, scrolling to compensate for image');
         this.adjustScrolling();
       };
     }else{
