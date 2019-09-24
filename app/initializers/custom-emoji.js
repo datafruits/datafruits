@@ -45,6 +45,13 @@ export function initialize(/* application */) {
       shortnames: [":datafruits:", ":datacoin:"],
       keywords: ["datafruits", "datacoin"],
       extension: "gif"
+    },
+    ":salad_dressing:": {
+      custom: true,
+      uc_base: "salad_dressing",
+      uc_output: "",
+      shortnames: [":salad_dressing:", ":onion_salad_dressing:", ":saladdressing:", ":onionsaladdressing:"],
+      keywords: ["salad", "dressing"]
     }
   };
   Object.keys(customEmojis).forEach(emoji => {
