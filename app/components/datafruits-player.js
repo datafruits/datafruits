@@ -17,6 +17,8 @@ export default Component.extend({
   playButtonPressed: false,
   oldVolume: 0.8,
   playTime: 0.0,
+  totalTime: 0.0,
+  currentTime: 0.0,
   paused: computed('playerState', function(){
     return this.playerState === 'paused';
   }),
@@ -160,6 +162,8 @@ export default Component.extend({
         const value = (100 / audioTag.duration) * audioTag.currentTime;
 
         this.set('playTime', value);
+        this.set('currentTime', audioTag.currentTime);
+        this.set('totalTime', audioTag.duration);
       });
       audioTag.addEventListener("seeking", () => {
         if(document.getElementsByClassName("seek-bar-wrapper").length){

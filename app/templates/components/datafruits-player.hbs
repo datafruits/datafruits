@@ -52,5 +52,8 @@
                               oninput={{action 'seek'}}
                               value={{playTime}}>
     </div>
+    <div>
+      {{format-time currentTime}} / {{format-time totalTime}}
+    </div>
   </div>
 {{/if}}
