@@ -17,6 +17,7 @@ export default Route.extend({
       {name: "Izzy J"},
       {name: "Jeffrey Hawkins"},
       {name: "kat"},
+      {name: "Mary Hourani"},
       {name: "Phil Montville"},
       {name: "Ross"},
       {name: "Ronan"},
