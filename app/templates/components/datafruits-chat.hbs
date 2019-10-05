@@ -7,9 +7,16 @@
       onScroll=(action "onScroll")}}
     {{#if newMessagesBelow}}
       <div id="new-messages-below">
-        <span>New messages below.</span>
+        <span>{{t "chat.new_messages"}}</span>
       </div>
     {{/if}}
+    {{#network-status as |status|}}
+      {{#if status.isOffline}}
+        <div id="offline">
+          <span>{{t "chat.offline"}}</span>
+        </div>
+      {{/if}}
+    {{/network-status}}
     <ul id="userlist">
       {{#each joinedUsers as |joinedUser|}}
         {{user-list-item user=joinedUser}}
