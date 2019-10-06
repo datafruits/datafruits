@@ -58,5 +58,8 @@ export default {
   },
   'show': {
     'archive': 'Listen back to the podcast',
+  },
+  'player': {
+    'play_button_label': 'play'
   }
 };

@@ -49,6 +49,9 @@ export default {
   },
   'show': {
     'archive': 'アーカイブを聴く',
+  },
+  'player': {
+    'play_button_label': '再生'
   }
   // "some.translation.key": "Text for some.translation.key",
   //
