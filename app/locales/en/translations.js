@@ -12,7 +12,11 @@ export default {
     'upcoming_shows': 'UPCOMING SHOWS',
     'latest_podcasts': 'LATEST PODCASTS'
   },
-  'chat': 'Chat',
+  'chat': {
+    'title': 'Chat',
+    'new_messages': 'New messages below.',
+    'offline': "You appear to be offline. I guess you won't be able to chat. Musta been the onion salad dressing"
+  },
   'podcasts': {
     'title': 'Podcast',
     'no_result': 'No results. Musta been the onion salad dressing.'
