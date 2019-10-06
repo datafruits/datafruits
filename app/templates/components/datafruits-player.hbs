@@ -13,9 +13,11 @@
       <a class="jp-pause" {{action "pause"}} tabindex="1">❚❚</a>
     {{else if paused}}
       <a onMouseEnter={{action "playButtonMouseEnter"}}
-         onMouseLeave={{action "playButtonMouseOut"}}
-         {{action "play"}}
-         class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
+        onMouseLeave={{action "playButtonMouseOut"}}
+        aria-label={{t "player.play_button_label"}}
+        role="button"
+        {{action "play"}}
+        class="jp-play" href="#" tabindex="1">▶︎</a>
     {{/if}}
     <span class="jp-volume-controls" {{action 'toggleVolumeControl' on='mouseEnter'}}>
       {{#if muted}}
