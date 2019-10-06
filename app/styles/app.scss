@@ -443,6 +443,9 @@ a:hover {
     flex-direction: column;
     min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
     overflow: auto;
+    @media (max-width: 480px) {
+      margin-top: 35px;
+    }
     @media (min-width: 768px) {
       padding: 0 2rem 0 2rem;
     }
@@ -492,6 +495,10 @@ a:hover {
     justify-content: center;
     display: flex;
     flex-direction: column;
+    @media (max-width: 480px) {
+      position: fixed;
+      top: 50px;
+    }
   }
 }
 
