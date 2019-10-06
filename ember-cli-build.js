@@ -24,10 +24,11 @@ module.exports = function(defaults) {
       useScss: true
     },
 
-    'ember-bootstrap': {
-      'bootstrapVersion': 3,
-      'importBootstrapFont': true,
-      'importBootstrapCSS': false
+    'esw-cache-fallback': {
+      patterns: [
+        'https://datafruits.streampusher.com/(.+)',
+        'https://dongles.streampusher-relay.club/(.+)'
+      ],
     }
   });
 
