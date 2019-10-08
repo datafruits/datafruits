@@ -1,14 +1,13 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
-import { later, run } from '@ember/runloop';
-import fetch from 'fetch';
 
 export default Component.extend({
   classNames: ['radio-bar'],
   classNameBindings: ['playingPodcast', 'isLive', 'playButtonHover:bleed:pink-bg'],
   eventBus: service(),
   fastboot: service(),
+  metadata: service(),
   playingPodcast: false,
   title: "",
   muted: false,
@@ -28,6 +27,7 @@ export default Component.extend({
   }),
   init(){
     this.eventBus.subscribe("trackPlayed", this, "onTrackPlayed");
+    this.eventBus.subscribe("metadataUpdate", this, "setRadioTitle");
     if(!this.get('fastboot.isFastBoot')){
       this.set('volume', localStorage.getItem('datafruits-volume') || 0.8);
     }
@@ -36,35 +36,9 @@ export default Component.extend({
   isLive: computed('title', function(){
     return this.title.startsWith("LIVE");
   }),
-  pollRadioTitle() {
-    later(() => {
-      if(this.playingPodcast === false){
-        this.setRadioTitle();
-        this.pollRadioTitle();
-      }
-    }, 10000);
-  },
   setRadioTitle() {
     if(this.playingPodcast === false){
-      let url = "https://streampusher-relay.club/status-json.xsl";
-
-      fetch(url).then((response) => {
-        response.json().then((json) => {
-          let datafruits = json.icestats.source.find((s) => {
-            return s.server_name == "datafruits.ogg";
-          });
-          let title = datafruits.title;
-          if(title.substring(0, 3) === " - "){
-            title = title.slice(3);
-          }
-          run(() => {
-            this.set('error', null);
-            this.set('title', title);
-          });
-        });
-      }).catch((error) => {
-        console.log(error);
-      });
+      this.set('title', this.metadata.title);
     }
   },
   onTrackPlayed(track){
@@ -179,7 +153,6 @@ export default Component.extend({
       });
       audioTag.volume = this.volume;
       this.setRadioTitle();
-      this.pollRadioTitle();
     }
   },
 });
