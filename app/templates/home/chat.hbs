@@ -1,12 +1,12 @@
 {{#unless fastboot.isFastBoot}}
   {{datafruits-chat}}
 {{else}}
-<div class="main-content">
-  <div class="loading-container">
-    <img src="{{random-loading-spinner}}">
+  <div class="main-content">
+    <div class="loading-container">
+      <img src="{{random-loading-spinner}}">
+    </div>
+    <div class="loading-container">
+      <h1>{{random-loading-message}}</h1>
+    </div>
   </div>
-  <div class="loading-container">
-    <h1>{{random-loading-message}}</h1>
-  </div>
-</div>
 {{/unless}}
