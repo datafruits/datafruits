@@ -6043,6 +6043,14 @@ ember-service-worker-cache-fallback@^0.6.2:
     broccoli-merge-trees "^3.0.2"
     broccoli-plugin "^1.3.1"
 
+ember-service-worker-cache-first@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/ember-service-worker-cache-first/-/ember-service-worker-cache-first-0.6.3.tgz#7e73fbe3d0da773dd245ebe3ccdd33e417b010fc"
+  integrity sha512-ahgHIWJCX0S3e17SI8/u6hvxdfXCsBPL3GcGt/WdMAxlLi+3ERyeGyiIpBDfJMMqrgt3bYVHtnv+dYFDnC6mdA==
+  dependencies:
+    broccoli-merge-trees "^3.0.2"
+    broccoli-plugin "^1.3.1"
+
 ember-service-worker-index@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/ember-service-worker-index/-/ember-service-worker-index-0.7.0.tgz#2ac9d2f8ebe39d59380bfd26ecc86f817761e958"

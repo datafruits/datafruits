@@ -24,10 +24,17 @@ module.exports = function(defaults) {
       useScss: true
     },
 
+    'esw-cache-first': {
+      patterns: [
+        'fonts/fontawesome(.+)',
+      ],
+      version: '1'
+    },
+
     'esw-cache-fallback': {
       patterns: [
         'https://datafruits.streampusher.com/(.+)',
-        'https://dongles.streampusher-relay.club/(.+)'
+        'https://dongles.streampusher-relay.club/(.+)',
       ],
     }
   });
