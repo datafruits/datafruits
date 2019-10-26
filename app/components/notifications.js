@@ -1,10 +1,12 @@
-import Service from '@ember/service';
+import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 
-export default Service.extend({
+export default Component.extend({
   socket: service(),
-  init() {
+  didInsertElement(){
     this._super(...arguments);
+    let socket = this.socket.socket;
+
     if("Notification" in window){
       Notification.requestPermission();
       let notificationsChannel = socket.channel("notifications", {});
@@ -12,16 +14,16 @@ export default Service.extend({
       notificationsChannel.join().receive("ignore", function () {
         return console.log("auth error");
       }).receive("ok", function () {
-        return console.log("metadata join ok");
+        return console.log("notification channel join ok");
       }).receive("timeout", function () {
         return console.log("Connection interruption");
       });
 
-      metadataChannel.on("notification", (notification) => {
-        console.log(notification);
-        //this.set('title', metadata.message);
-        //this.eventBus.publish("metadataUpdate", metadata.message);
-        new Notification(notification);
+      notificationsChannel.on("notification", (notification) => {
+        console.log(notification.message);
+        const icon = "/assets/images/logo.png";
+        const body = notification.message;
+        new Notification("DATAFRUITS.FM", { body, icon });
       });
     }
   }

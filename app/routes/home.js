@@ -5,7 +5,6 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
   i18n: service(),
   fastboot: service(),
-  notification: service(),
   model(){
     return this.store.queryRecord('scheduled-show', {next: true});
   },
