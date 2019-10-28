@@ -39,6 +39,10 @@ html {
   height:100%;
 }
 
+html, body {
+  overflow:hidden;
+}
+
 .main {
   height: 100%;
 }
@@ -48,7 +52,6 @@ body {
   background: $blue;
   height:100%;
   position: relative;
-  overflow:hidden;
   margin:0;
   background-attachment:fixed;
   font-family: Helvetica, Arial, sans-serif;
@@ -427,6 +430,7 @@ a:hover {
 
 .flexbox-container {
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   display: flex;
   flex-direction: column;
   // these are flex items
