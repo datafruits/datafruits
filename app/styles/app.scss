@@ -525,11 +525,6 @@ a:hover {
   }
 }
 
-.chat {
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
-}
-
 .podcast-controls, .fa-download {
   font-size: 21px;
   color: $green;
