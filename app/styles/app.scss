@@ -515,6 +515,7 @@ a:hover {
   z-index: -999;
   width: 100vw;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   video {
     position: absolute;
     top: 50px;
@@ -526,6 +527,7 @@ a:hover {
 
 .chat {
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 
 .podcast-controls, .fa-download {
