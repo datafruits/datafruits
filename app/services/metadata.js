@@ -20,7 +20,7 @@ export default Service.extend({
     });
 
     metadataChannel.on("metadata", (metadata) => {
-      console.log(metadata);
+      console.log(`metadata channel: ${metadata.message}`);
       this.set('title', metadata.message);
       this.eventBus.publish("metadataUpdate", metadata.message);
     });

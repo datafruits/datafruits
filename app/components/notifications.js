@@ -21,7 +21,7 @@ export default Component.extend({
       });
 
       notificationsChannel.on("notification", (notification) => {
-        console.log(notification.message);
+        console.log(`notification channel: ${notification.message}`);
         const icon = "/assets/images/logo.png";
         const body = notification.message;
         new Notification("DATAFRUITS.FM", { body, icon });
