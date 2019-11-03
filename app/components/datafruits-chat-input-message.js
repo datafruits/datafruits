@@ -77,7 +77,7 @@ export default Component.extend({
     const editor = new Textarea(document.getElementById('input-message'));
     let emojiTextcomplete = new Textcomplete(editor, {
       dropdown: {
-        maxCount: 5,
+        maxCount: 25,
         placement: 'top'
       }
     });
