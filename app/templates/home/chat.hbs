@@ -1,7 +1,7 @@
 {{#unless fastboot.isFastBoot}}
-  {{#network-status as |status|}}
-    {{datafruits-chat networkStatus=status}}
-  {{/network-status}}
+  <NetworkStatus as |status|>
+    <DatafruitsChat @networkStatus={{status}} />
+  </NetworkStatus>
 {{else}}
   <div class="main-content">
     <div class="loading-container">
