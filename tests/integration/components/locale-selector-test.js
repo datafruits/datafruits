@@ -1,27 +1,27 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, find } from '@ember/test-helpers';
+import { render, fillIn } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | locale selector', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
+    this.set('setLocaleAction', () => {});
 
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.on('myAction', function(val) { ... });
+    await render(hbs`<LocaleSelector @setLocale={{action setLocaleAction}} />`);
 
-    await render(hbs`{{locale-selector}}`);
+    assert.dom('*').hasText('English 日本語 한국어 Español');
+  });
 
-    assert.dom('*').hasText('');
+  test('it calls passed in setLocale action', async function(assert) {
+    this.set('setLocaleAction', (actual) => {
+      let expected = 'kr';
+      assert.equal(actual, expected, 'selected locale is passed to setLocale action');
+    });
 
-    // Template block usage:
-    await render(hbs`
-      {{#locale-selector}}
-        template block text
-      {{/locale-selector}}
-    `);
+    await render(hbs`<LocaleSelector @setLocale={{action setLocaleAction}} />`);
 
-    assert.dom('*').hasText('template block text');
+    await fillIn('select', 'kr');
   });
 });
