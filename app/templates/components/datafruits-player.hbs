@@ -28,8 +28,10 @@
         onMouseEnter={{action "playButtonMouseEnter"}}
         onMouseLeave={{action "playButtonMouseOut"}}
         class="jp-play"
-        href="javascript:;"
+        href="#"
         tabindex="1"
+        role="button"
+        aria-label={{t "player.play_button_label"}}
         {{action "play"}}
       >
         ▶︎

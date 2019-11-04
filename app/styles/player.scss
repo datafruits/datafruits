@@ -5,7 +5,9 @@
   margin-left: 5px;
   @media (max-width: 480px) {
     font-size: 18px;
-    flex-direction: column;
+    .player-controls {
+      font-size: 30px;
+    }
   }
   .player-controls {
     min-width: 50px;

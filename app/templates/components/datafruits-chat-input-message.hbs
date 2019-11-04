@@ -6,6 +6,6 @@
   placeholder="enter your message here..."
   @autofocus="autofocus"
 />
-<button class="cool-button" {{action "sendMessage"}}>
+<button class="cool-button" {{action "sendMessage"}} disabled={{isOffline}}>
   Send
 </button>
