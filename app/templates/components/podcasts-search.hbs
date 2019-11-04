@@ -1,45 +1,68 @@
-{{input class="search-tracks"
-  autofocus="autofocus"
-  value=filterText
-  escape-press=(action 'clearSearch')
-  placeholder="Search podcasts"}}
-{{#power-select-multiple
-    placeholder="Search by tag..."
-    options=labelNames
-    selected=selectedLabels
-    renderInPlace=true
-    onchange=(action (mut selectedLabels))
-    as |label|
-}}
+<Input
+  class="search-tracks"
+  @autofocus="autofocus"
+  @value={{filterText}}
+  @escape-press={{action "clearSearch"}}
+  placeholder="Search podcasts"
+/>
+<PowerSelectMultiple
+  placeholder="Search by tag..."
+  @options={{labelNames}}
+  @selected={{selectedLabels}}
+  @renderInPlace={{true}}
+  @onchange={{action (mut selectedLabels)}} as |label|
+>
   {{label}}
-{{/power-select-multiple}}
-
-{{#podcasts-loader query=searchParams as |loader|}}
+</PowerSelectMultiple>
+<PodcastsLoader @query={{searchParams}} as |loader|>
   {{#if loader.isRunning}}
-    <p>{{t "loading"}}</p>
+    <p>
+      {{t "loading"}}
+    </p>
   {{else}}
     {{#each loader.data.tracks as |track|}}
-      {{podcast-track cdnUrl=track.cdnUrl title=track.title
-        scheduledShow=track.scheduledShow
-        soundcloudKey=track.soundcloudKey
-        mixcloudKey=track.mixcloudKey
-        labels=track.labels selectLabel=(action "selectLabel")}}
+      <PodcastTrack
+        @cdnUrl={{track.cdnUrl}}
+        @title={{track.title}}
+        @scheduledShow={{track.scheduledShow}}
+        @soundcloudKey={{track.soundcloudKey}}
+        @mixcloudKey={{track.mixcloudKey}}
+        @labels={{track.labels}}
+        @selectLabel={{action "selectLabel"}}
+      />
     {{else}}
       {{t "podcasts.no_result"}}
     {{/each}}
-
     {{#if (gt loader.data.meta.page 1)}}
-      <span class="pagination">{{#link-to "home.podcasts" (query-params page=(dec loader.data.meta.page))}}«{{/link-to}}</span>
+      <span class="pagination">
+        <LinkTo
+          @route="home.podcasts"
+          @query={{hash page=(dec loader.data.meta.page)}}
+        >
+          «
+        </LinkTo>
+      </span>
     {{/if}}
-    {{#each (range 1 (inc loader.data.meta.total_pages)) as |number| }}
+    {{#each (range 1 (inc loader.data.meta.total_pages)) as |number|}}
       {{#if (eq number loader.data.meta.page)}}
+        {{number}}
+      {{else}}
+        <span class="pagination">
+          <LinkTo @route="home.podcasts" @query={{hash page=number}}>
             {{number}}
-          {{else}}
-        <span class="pagination">{{link-to number "home.podcasts" (query-params page=number)}}</span>
-          {{/if}}
+          </LinkTo>
+        </span>
+      {{/if}}
     {{/each}}
     {{#if (lt loader.data.meta.page loader.data.meta.total_pages)}}
-      <span class="pagination">{{#link-to "home.podcasts" (query-params page=(inc loader.data.meta.page))}}»{{/link-to}}</span>
+      <span class="pagination">
+        <LinkTo
+          @route="home.podcasts"
+          @query={{hash page=(inc loader.data.meta.page)}}
+        >
+          »
+        </LinkTo>
+      </span>
     {{/if}}
   {{/if}}
-{{/podcasts-loader}}
+</PodcastsLoader>

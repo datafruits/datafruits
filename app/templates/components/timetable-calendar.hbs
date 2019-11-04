@@ -1,25 +1,30 @@
-{{#timetable-loader query=query as |loader|}}
-  {{#as-calendar
-    occurrences=loader.data
-    dayStartingTime="0:00"
-    dayEndingTime="23:00"
-    timeSlotDuration="00:30"
-    type=view
-    onNavigate=(action "calendarNavigate")
-    onClickOccurrence=(action "calendarClickOccurrence")
-    onAddOccurrence=(action "calendarAddOccurrence")
-    onUpdateOccurrence=(action "calendarUpdateOccurrence")
-    onEditOccurrence=(action "calendarEditOccurrence")
-    onRemoveOccurrence=(action "calendarRemoveOccurrence")
-    startingDate=startingDate
-    onTypeChange=onTypeChange
-      as |occurrence timetable calendar|}}
-      {{#as-calendar/occurrence
-        model=occurrence
-        isMonthView=occurrence.calendar.isMonthView
-        timeSlotHeight=calendar.timeSlotHeight
-        timeSlotDuration=calendar.timeSlotDuration as |model|}}
-        <h1 class="as-calendar-occurrence__title" style={{titleStyle}}>{{#link-to 'home.show' model.content.id}}{{model.title}}{{/link-to}}</h1>
-      {{/as-calendar/occurrence}}
-  {{/as-calendar}}
-{{/timetable-loader}}
+<TimetableLoader @query={{query}} as |loader|>
+  <AsCalendar
+    @occurrences={{loader.data}}
+    @dayStartingTime="0:00"
+    @dayEndingTime="23:00"
+    @timeSlotDuration="00:30"
+    @type={{view}}
+    @onNavigate={{action "calendarNavigate"}}
+    @onClickOccurrence={{action "calendarClickOccurrence"}}
+    @onAddOccurrence={{action "calendarAddOccurrence"}}
+    @onUpdateOccurrence={{action "calendarUpdateOccurrence"}}
+    @onEditOccurrence={{action "calendarEditOccurrence"}}
+    @onRemoveOccurrence={{action "calendarRemoveOccurrence"}}
+    @startingDate={{startingDate}}
+    @onTypeChange={{onTypeChange}} as |occurrence timetable calendar|
+  >
+    <AsCalendar::Occurrence
+      @model={{occurrence}}
+      @isMonthView={{occurrence.calendar.isMonthView}}
+      @timeSlotHeight={{calendar.timeSlotHeight}}
+      @timeSlotDuration={{calendar.timeSlotDuration}} as |model|
+    >
+      <h1 class="as-calendar-occurrence__title" style={{titleStyle}}>
+        <LinkTo @route="home.show" @model={{model.content.id}}>
+          {{model.title}}
+        </LinkTo>
+      </h1>
+    </AsCalendar::Occurrence>
+  </AsCalendar>
+</TimetableLoader>

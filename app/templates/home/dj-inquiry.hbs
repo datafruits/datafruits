@@ -1,9 +1,9 @@
 {{title (t "djinquiry.title")}}
 <div class="main-content">
   <h1 id="myModalLabel">
-    <img src="{{random-loading-spinner}}">
+    <img src="{{random-loading-spinner}}" />
     {{t "djinquiry.heading"}}
-    <img src="{{random-loading-spinner}}">
+    <img src="{{random-loading-spinner}}" />
   </h1>
   <div class="modal-body">
     <p>
@@ -18,73 +18,102 @@
         {{/if}}
         <form {{action "submit" on="submit"}}>
           <div>
-            <label>{{t "djinquiry.email"}}</label>
+            <label>
+              {{t "djinquiry.email"}}
+            </label>
             <br />
-            {{input value=model.email}}
+            <Input @value={{model.email}} />
             {{#if model.errors.email}}
               {{#each model.errors.email as |error|}}
                 <div class="error">
-                  <span>{{error.message}}</span>
+                  <span>
+                    {{error.message}}
+                  </span>
                 </div>
               {{/each}}
             {{/if}}
           </div>
           <div>
-            <label>{{t "djinquiry.username"}}</label>
+            <label>
+              {{t "djinquiry.username"}}
+            </label>
             <br />
-            {{input value=model.username}}
+            <Input @value={{model.username}} />
             {{#if model.errors.username}}
               {{#each model.errors.username as |error|}}
                 <div class="error">
-                  <span>{{error.message}}</span>
+                  <span>
+                    {{error.message}}
+                  </span>
                 </div>
               {{/each}}
             {{/if}}
           </div>
           <div>
-            <label>{{t "djinquiry.link_to_mix"}}</label>
+            <label>
+              {{t "djinquiry.link_to_mix"}}
+            </label>
             <br />
-            {{input value=model.link}}
+            <Input @value={{model.link}} />
             {{#if model.errors.link}}
               {{#each model.errors.link as |error|}}
                 <div class="error">
-                  <span>{{error.message}}</span>
+                  <span>
+                    {{error.message}}
+                  </span>
                 </div>
               {{/each}}
             {{/if}}
           </div>
           <div>
-            <label>{{t "djinquiry.interval"}}</label>
+            <label>
+              {{t "djinquiry.interval"}}
+            </label>
             <br />
             <select onchange={{action "setInterval"}} value="target.value">
               {{#each intervals as |interval|}}
                 {{#if (eq model.interval interval)}}
-                  <option value={{interval}} selected="selected">{{interval}}</option>
+                  <option value={{interval}} selected="selected">
+                    {{interval}}
+                  </option>
                 {{else}}
-                  <option value={{interval}}>{{interval}}</option>
+                  <option value={{interval}}>
+                    {{interval}}
+                  </option>
                 {{/if}}
               {{/each}}
             </select>
           </div>
           <div>
-            <label>{{t "djinquiry.time"}}</label>
+            <label>
+              {{t "djinquiry.time"}}
+            </label>
             <br />
-            {{textarea value=model.desiredTime}}
+            <Textarea @value={{model.desiredTime}} />
             {{#if model.errors.desiredTime}}
               {{#each model.errors.desiredTime as |error|}}
                 <div class="error">
-                  <span>{{error.message}}</span>
+                  <span>
+                    {{error.message}}
+                  </span>
                 </div>
               {{/each}}
             {{/if}}
           </div>
           <div>
-            <label>{{t "djinquiry.other"}}</label>
+            <label>
+              {{t "djinquiry.other"}}
+            </label>
             <br />
-            {{textarea value=model.otherComment}}
+            <Textarea @value={{model.otherComment}} />
           </div>
           <div>
-            <input type="submit" value="Send" class="cool-button" disabled={{model.isSaving}}>
+            <input
+              type="submit"
+              value="Send"
+              class="cool-button"
+              disabled={{model.isSaving}}
+            />
           </div>
         </form>
       </p>

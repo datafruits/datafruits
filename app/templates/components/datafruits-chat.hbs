@@ -1,10 +1,11 @@
 <div id="chat-room">
   <div id="chat-area">
-    {{chat-messages
-      messages=messages
-      gifsEnabled=gifsEnabled
-      newMessagesAvailable=(action "newMessagesAvailable")
-      onScroll=(action "onScroll")}}
+    <ChatMessages
+      @messages={{messages}}
+      @gifsEnabled={{gifsEnabled}}
+      @newMessagesAvailable={{action "newMessagesAvailable"}}
+      @onScroll={{action "onScroll"}}
+    />
     {{#if newMessagesBelow}}
       <div id="new-messages-below">
         <span>{{t "chat.new_messages"}}</span>
@@ -17,30 +18,34 @@
     {{/if}}
     <ul id="userlist">
       {{#each joinedUsers as |joinedUser|}}
-        {{user-list-item user=joinedUser}}
+        <UserListItem @user={{joinedUser}} />
       {{/each}}
     </ul>
   </div>
 </div>
 <div id="controls">
   {{#if joinedChat}}
-    <form align='center' id="send-message">
-      {{datafruits-chat-input-message isOffline=networkStatus.isOffline}}
-      <button class="cool-button" {{action 'toggleGifsEnabled'}}>
+    <form align="center" id="send-message">
+      <DatafruitsChatInputMessage  @isOffline={{networkStatus.isOffline}} />
+      <button class="cool-button" {{action "toggleGifsEnabled"}}>
         {{images-enabled-button-label gifsEnabled}}
       </button>
     </form>
   {{else}}
-    <form align='center' id="enter-chat">
-      {{input
-        type="text"
-        name="nick"
-        value=nick autocorrect="off" autocapitalize="none"
-        placeholder="nickname"}}
+    <form align="center" id="enter-chat">
+      <Input
+        @type="text"
+        @name="nick"
+        @value={{nick}}
+        @autocorrect="off"
+        @autocapitalize="none"
+        placeholder="nickname"
+      />
       <button
         class="cool-button"
         disabled={{or disableJoinButton networkStatus.isOffline}}
-        {{action 'enterChat'}}>
+        {{action "enterChat"}}
+      >
         Join chatroom
       </button>
     </form>
