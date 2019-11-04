@@ -1,42 +1,69 @@
 <div class="main-content">
-  <h2>{{t "home.upcoming_shows"}}</h2>
+  <h2>
+    {{t "home.upcoming_shows"}}
+  </h2>
   <div class="upcoming-shows">
     {{#each model.upcomingShows as |show|}}
       <div class="upcoming-show">
-        {{#link-to "home.show" show.id}}
+        <LinkTo @route="home.show" @model={{show.id}}>
           {{show.title}}
-        {{/link-to}}
+        </LinkTo>
         <div class="show-time">
           {{format-date show.start}}
         </div>
         <div class="show-image">
-          {{#link-to "home.show" show.id}}
+          <LinkTo @route="home.show" @model={{show.id}}>
             {{#if show.thumbImageUrl}}
-              <img width="300" height="300" src={{show.thumbImageUrl}} alt={{show.title}}>
+              <img
+                width="300"
+                height="300"
+                src={{show.thumbImageUrl}}
+                alt={{show.title}}
+              />
             {{else if show.host.imageUrl}}
-              <img width="300" height="300" src={{show.host.imageUrl}} alt={{show.title}}>
+              <img
+                width="300"
+                height="300"
+                src={{show.host.imageUrl}}
+                alt={{show.title}}
+              />
             {{else}}
-              <img width="300" height="300" src="/assets/images/show_placeholder.jpg" alt={{show.title}}>
+              <img
+                width="300"
+                height="300"
+                src="/assets/images/show_placeholder.jpg"
+                alt={{show.title}}
+              />
             {{/if}}
-          {{/link-to}}
+          </LinkTo>
         </div>
       </div>
     {{/each}}
   </div>
-  <h2>{{t "home.latest_podcasts"}}</h2>
+  <h2>
+    {{t "home.latest_podcasts"}}
+  </h2>
   <div class="latest-podcasts">
     {{#each model.latestPodcasts as |track|}}
       <div class="latest-podcast">
-        {{#link-to "home.show" track.scheduledShow.id}}
+        <LinkTo @route="home.show" @model={{track.scheduledShow.id}}>
           {{#if track.scheduledShow.thumbImageUrl}}
-            <img width="300" height="300" src={{track.scheduledShow.thumbImageUrl}} alt={{track.title}}>
+            <img
+              width="300"
+              height="300"
+              src={{track.scheduledShow.thumbImageUrl}}
+              alt={{track.title}}
+            />
           {{else}}
-            <img src="/assets/images/show_placeholder.jpg" alt={{track.title}}>
+            <img
+              src="/assets/images/show_placeholder.jpg"
+              alt={{track.title}}
+            />
           {{/if}}
-        {{/link-to}}
-        {{#link-to 'home.show' track.scheduledShow.id}}
+        </LinkTo>
+        <LinkTo @route="home.show" @model={{track.scheduledShow.id}}>
           {{track.title}}
-        {{/link-to}}
+        </LinkTo>
       </div>
     {{/each}}
   </div>
