@@ -11,6 +11,7 @@ export default Route.extend({
       {name: "DJ oven"},
       {name: "Drongo Unchained"},
       {name: "Erin tanner"},
+      {name: "Evan Higgins"},
       {name: "Gia"},
       {name: "Ginger Steve"},
       {name: "GLORIA and KEN"},
