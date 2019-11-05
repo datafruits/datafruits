@@ -1,3 +1,4 @@
+/* eslint ember/no-observers: 0 */
 import Component from '@ember/component';
 import { computed, observer } from '@ember/object';
 import { debounce } from '@ember/runloop';

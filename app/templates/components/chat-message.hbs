@@ -13,9 +13,10 @@
   {{#if hasImage}}
     <li class="message">
       <span class="message-body">
-        <LazyImage
+        <ChatLazyImage
           @url={{imgUrl}}
           @errorText="Image failed to load."
+          @adjustScrolling={{adjustScrolling}}
           class="chat-image"
         />
       </span>
