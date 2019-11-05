@@ -39,7 +39,7 @@ export default Component.extend({
               results3.push(shortname);
             }
           }
-        };
+        }
         if(term.length >= 3) {
           results.sort(function(a,b) { return (a.length > b.length); });
           results2.sort(function(a,b) { return (a.length > b.length); });
