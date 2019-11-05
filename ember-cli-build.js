@@ -12,6 +12,8 @@ module.exports = function(defaults) {
     // Add options here
     fingerprint: fingerprintOptions,
 
+    hinting: false,
+
     'ember-font-awesome': {
       useScss: true, // for ember-cli-sass
     },
