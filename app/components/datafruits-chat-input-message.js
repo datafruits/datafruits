@@ -23,7 +23,7 @@ export default Component.extend({
     let emojiComplete = {
       id: "emojis",
       //match: /\B:([\-+\w]*)$/,
-      match: /(^|\s):([a-z0-9+\-\_]*)$/,
+      match: /(^|\s):([a-z0-9+\-_]*)$/,
 
       search: function (term, callback) {
         var results = [];
