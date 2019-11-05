@@ -1,7 +1,6 @@
-
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, find } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('helper:random-loading-spinner', function(hooks) {
@@ -9,11 +8,9 @@ module('helper:random-loading-spinner', function(hooks) {
 
   // Replace this with your real tests.
   test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
+    await render(hbs`{{random-loading-spinner}}`);
 
-    await render(hbs`{{random-loading-spinner inputValue}}`);
-
-    assert.dom('*').hasText('1234');
+    assert.ok(true);
   });
 });
 

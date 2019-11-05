@@ -89,6 +89,7 @@
     "ember-service-worker-cache-first": "^0.6.3",
     "ember-service-worker-index": "^0.7.0",
     "ember-truth-helpers": "2.1.0",
+    "ember-web-app": "^3.0.1",
     "eslint-plugin-node": "^9.0.1",
     "phoenix": "1.2",
     "qunit-dom": "^0.8.4",

@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { isEmpty } from '@ember/utils';
 
 export default Component.extend({
   classNames: ['radio-bar'],
@@ -34,7 +35,8 @@ export default Component.extend({
     this._super(...arguments);
   },
   isLive: computed('title', function(){
-    return this.title.startsWith("LIVE");
+    const title = this.title;
+    return !isEmpty(title) && title.startsWith("LIVE");
   }),
   setRadioTitle() {
     if(this.playingPodcast === false){
