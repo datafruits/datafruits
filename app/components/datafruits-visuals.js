@@ -49,7 +49,7 @@ export default Component.extend({
         type = "application/x-mpegURL";
       }
       else {
-        console.log("Unknown extension: " + extension);
+        console.log("Unknown extension: " + extension); // eslint-disable-line no-console
         this.set("videoStreamActive", false);
         return;
       }
@@ -61,7 +61,7 @@ export default Component.extend({
 
       });
 
-      console.log(streamUrl);
+      console.log(streamUrl); // eslint-disable-line no-console
       player.src({
         src: streamUrl,
         type: type
@@ -98,18 +98,18 @@ export default Component.extend({
             //mp4 exists, play it
             this.streamIsActive(name, "mp4");
           } else {
-            console.log("No stream found");
+            console.log("No stream found"); // eslint-disable-line no-console
             later(()=> {
               this.fetchStream();
             }, 15000);
           }
         }).catch(function(err) {
-          console.log("Error: " + err);
+          console.log("Error: " + err); // eslint-disable-line no-console
         });
       }
 
     }).catch(function(err) {
-      console.log("Error: " + err);
+      console.log("Error: " + err); // eslint-disable-line no-console
     });
   },
 
