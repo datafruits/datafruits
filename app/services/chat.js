@@ -26,7 +26,7 @@ export default Service.extend({
     this.chan.join().receive("ignore", function () {
       //return console.log("auth error");
     }).receive("ok", function () {
-      return console.log("chat join ok");
+      return console.log("chat join ok"); // eslint-disable-line no-console
     }).receive("timeout", function () {
       //return console.log("Connection interruption");
     });
