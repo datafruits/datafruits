@@ -15,7 +15,11 @@ export default {
   'chat': {
     'title': 'Chat',
     'new_messages': 'New messages below.',
-    'offline': "You appear to be offline. I guess you won't be able to chat. Musta been the onion salad dressing"
+    'offline': "You appear to be offline. I guess you won't be able to chat. Musta been the onion salad dressing",
+    'send': "Send",
+    'message_placeholder': "enter your message here...",
+    'join': "Join chat",
+    'nickname': "nickname"
   },
   'podcasts': {
     'title': 'Podcast',

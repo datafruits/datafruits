@@ -39,14 +39,14 @@
         @value={{nick}}
         @autocorrect="off"
         @autocapitalize="none"
-        placeholder="nickname"
+        placeholder={{t "chat.nickname"}}
       />
       <button
         class="cool-button"
         disabled={{or disableJoinButton networkStatus.isOffline}}
         {{action "enterChat"}}
       >
-        Join chatroom
+        {{t "chat.join"}}
       </button>
     </form>
   {{/if}}

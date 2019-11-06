@@ -15,7 +15,11 @@ export default {
   'chat': {
     'title': '채팅',
     'new_messages': '신규 메시지 밑에 있습니다.',
-    'offline': "오프라인 상태인 것 같아요. 채팅이 안 될 것 같아요.혹시 양파 샐러드 드레싱일지도 몰랐어요."
+    'offline': "오프라인 상태인 것 같아요. 채팅이 안 될 것 같아요.혹시 양파 샐러드 드레싱일지도 몰랐어요.",
+    'send': "송신",
+    'message_placeholder': "여기에 당신의 메시지를 입력하시오...",
+    'join': "잡담을 나누다",
+    'nickname': "별명"
   },
   'podcasts': {
     'title': '팟캐스트',
