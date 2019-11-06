@@ -13,15 +13,15 @@ export default Component.extend({
       let notificationsChannel = socket.channel("notifications", {});
 
       notificationsChannel.join().receive("ignore", function () {
-        return console.log("auth error");
+        return console.log("auth error"); // eslint-disable-line no-console
       }).receive("ok", function () {
-        return console.log("notification channel join ok");
+        return console.log("notification channel join ok"); // eslint-disable-line no-console
       }).receive("timeout", function () {
-        return console.log("Connection interruption");
+        return console.log("Connection interruption"); // eslint-disable-line no-console
       });
 
       notificationsChannel.on("notification", (notification) => {
-        console.log(`notification channel: ${notification.message}`);
+        console.log(`notification channel: ${notification.message}`); // eslint-disable-line no-console
         const icon = "/assets/images/logo.png";
         const body = notification.message;
         new Notification("DATAFRUITS.FM", { body, icon });

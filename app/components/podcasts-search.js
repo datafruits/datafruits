@@ -5,6 +5,8 @@ import { debounce } from '@ember/runloop';
 import { isEmpty } from '@ember/utils';
 import { isArray } from '@ember/array';
 
+/* eslint-disable ember/no-observers */
+
 export default Component.extend({
   init(){
     this._super(...arguments);

@@ -24,7 +24,7 @@ export default Component.extend({
   },
 
   updateStatus(){
-    console.log('setting offline status');
+    console.log('setting offline status'); // eslint-disable-line no-console
     this.set('isOffline', !navigator.onLine);
   }
 
