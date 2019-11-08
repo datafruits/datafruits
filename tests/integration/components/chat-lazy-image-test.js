@@ -10,17 +10,11 @@ module('Integration | Component | chat-lazy-image', function(hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<ChatLazyImage />`);
+    const adjustScrolling = function(){};
+    this.set('adjustScrolling', adjustScrolling);
+
+    await render(hbs`<ChatLazyImage @adjustScrolling={{action adjustScrolling}} />`);
 
     assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <ChatLazyImage>
-        template block text
-      </ChatLazyImage>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });
