@@ -29,6 +29,6 @@ module('Integration | Component | datafruits chat', function(hooks) {
     this.set('networkStatus.isOffline', true);
     await render(hbs`<DatafruitsChat @networkStatus={{this.networkStatus}} />`);
 
-    assert.dom('*').hasText("You appear to be offline. I guess you won't be able to chat. Musta been the onion salad dressing Join chatroom");
+    assert.dom('*').hasText("You appear to be offline. I guess you won't be able to chat. Musta been the onion salad dressing Join chat");
   });
 });
