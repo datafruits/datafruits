@@ -21,7 +21,7 @@ module('Integration | Component | datafruits chat', function(hooks) {
 
     await render(hbs`<DatafruitsChat />`);
 
-    assert.dom('*').hasText('Join chatroom');
+    assert.dom('*').hasText('Join chat');
   });
 
   test('it has offline message', async function(assert) {
