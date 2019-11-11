@@ -6,11 +6,11 @@
   placeholder="Search podcasts"
 />
 <PowerSelectMultiple
-  placeholder="Search by tag..."
+  @placeholder="Search by tag..."
   @options={{labelNames}}
   @selected={{selectedLabels}}
   @renderInPlace={{true}}
-  @onchange={{action (mut selectedLabels)}} as |label|
+  @onChange={{action (mut selectedLabels)}} as |label|
 >
   {{label}}
 </PowerSelectMultiple>

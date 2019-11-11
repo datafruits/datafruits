@@ -49,7 +49,7 @@
     "ember-lodash": "^4.17.5",
     "ember-moment": "^7.8.1",
     "ember-page-title": "4.0.5",
-    "ember-power-select": "2.3.4",
+    "ember-power-select": "3.0.4",
     "ember-resolver": "^4.0.0",
     "ember-source": "~3.12.0",
     "ember-welcome-page": "^4.0.0",
