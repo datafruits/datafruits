@@ -1,11 +1,16 @@
-import Component from '@ember/component';
+import classic from 'ember-classic-decorator';
+import { tagName } from '@ember-decorators/component';
 import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 
-export default Component.extend({
-  tagName: '',
-  socket: service(),
-  didInsertElement(){
-    this._super(...arguments);
+@classic
+@tagName('')
+export default class Notifications extends Component {
+  @service
+  socket;
+
+  didInsertElement() {
+    super.didInsertElement(...arguments);
     let socket = this.socket.socket;
 
     if("Notification" in window){
@@ -28,4 +33,4 @@ export default Component.extend({
       });
     }
   }
-});
+}

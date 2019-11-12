@@ -1,12 +1,19 @@
+import classic from 'ember-classic-decorator';
 import Service from '@ember/service';
 import { inject as service } from '@ember/service';
 
-export default Service.extend({
-  eventBus: service(),
-  socket: service(),
-  title: "",
+@classic
+export default class MetadataService extends Service {
+  @service
+  eventBus;
+
+  @service
+  socket;
+
+  title = "";
+
   init() {
-    this._super(...arguments);
+    super.init(...arguments);
     let socket = this.socket.socket;
 
     let metadataChannel = socket.channel("metadata", {});
@@ -25,4 +32,4 @@ export default Service.extend({
       this.eventBus.publish("metadataUpdate", metadata.message);
     });
   }
-});
+}
