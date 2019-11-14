@@ -1,15 +1,44 @@
 import Component from '@ember/component';
 import { later, run } from '@ember/runloop';
+import { inject as service } from '@ember/service';
+import { task, timeout } from 'ember-concurrency';
 import ENV from "datafruits13/config/environment";
 import fetch from 'fetch';
 
 export default Component.extend({
   classNames: ['visuals'],
+  socket: service(),
 
   init() {
     this._super(...arguments);
     this.set('streamHost', ENV.STREAM_HOST);
     this.set('streamName', ENV.STREAM_NAME);
+
+    let socket = this.socket.socket;
+
+    let vjChannel = socket.channel("vj", {});
+
+    vjChannel.join().receive("ignore", function () {
+      return console.log("auth error");
+    }).receive("ok", function () {
+      return console.log("vj join ok");
+    }).receive("timeout", function () {
+      return console.log("Connection interruption");
+    });
+
+    vjChannel.on("vj", (vj) => {
+      let enabled = vj.message
+      console.log(`vj channel: ${enabled}`);
+      if(enabled){
+       this.set('videoStreamActive', true);
+       this.fetchStream.perform();
+      }else{
+       this.set('videoStreamActive', false);
+       this.fetchStream.cancelAll();
+      }
+      //this.set('title', vj.message);
+      //this.eventBus.publish("vjUpdate", vj.message);
+    });
   },
 
   autoplay: true,
@@ -84,7 +113,7 @@ export default Component.extend({
     this.set('extension', extension);
   },
 
-  fetchStream(){
+  fetchStream: task(function * () {
     let name = this.streamName;
     let host = this.streamHost;
     fetch(`${host}/hls/${name}.m3u8`, {method:'HEAD'}).then((response) => {
@@ -99,9 +128,10 @@ export default Component.extend({
             this.streamIsActive(name, "mp4");
           } else {
             console.log("No stream found");
-            later(()=> {
-              this.fetchStream();
-            }, 15000);
+            //later(()=> {
+            yield timeout(15000);
+            this.fetchStream();
+            //}, 15000);
           }
         }).catch(function(err) {
           console.log("Error: " + err);
@@ -111,17 +141,18 @@ export default Component.extend({
     }).catch(function(err) {
       console.log("Error: " + err);
     });
-  },
+  }),
 
   didRender(){
     if(!this.get('fastboot.isFastBoot')){
       if(this.videoStreamActive){
         this.initializePlayer();
-      }else {
-        later(()=> {
-          this.fetchStream();
-        }, 15000);
       }
+      // }else {
+      //   later(()=> {
+      //     this.fetchStream();
+      //   }, 15000);
+      // }
     }
   },
 
@@ -131,6 +162,6 @@ export default Component.extend({
     if(!this.isMobile()){
       this.set('autoPlay', true);
     }
-    this.fetchStream();
+    //this.fetchStream();
   }
 });
