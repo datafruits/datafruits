@@ -2,11 +2,25 @@
   <div class="djs">
     {{#each model as |dj|}}
       <div class="dj">
-        <h2 class="name">{{#link-to "home.dj" dj.username}}{{dj.username}}{{/link-to}}</h2>
+        <h2 class="name">
+          <LinkTo @route="home.dj" @model={{dj.username}}>
+            {{dj.username}}
+          </LinkTo>
+        </h2>
         {{#if (eq dj.imageThumbUrl null)}}
-          <img width="150" height="150" src="/assets/images/dj_placeholder.png" alt={{dj.username}}>
+          <img
+            width="150"
+            height="150"
+            src="/assets/images/dj_placeholder.png"
+            alt={{dj.username}}
+          />
         {{else}}
-          <img width="150" height="150" src={{dj.imageThumbUrl}} alt={{dj.username}}>
+          <img
+            width="150"
+            height="150"
+            src={{dj.imageThumbUrl}}
+            alt={{dj.username}}
+          />
         {{/if}}
       </div>
     {{/each}}

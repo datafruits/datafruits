@@ -1,5 +1,11 @@
-{{input type="text" id="input-message" autocomplete="off" value=inputMessage
-  placeholder="enter your message here..." autofocus="autofocus"}}
-<button class="cool-button" {{action 'sendMessage'}} disabled={{isOffline}}>
-  Send
+<Input
+  @type="text"
+  @id="input-message"
+  @autocomplete="off"
+  @value={{inputMessage}}
+  placeholder={{t "chat.message_placeholder"}}
+  @autofocus="autofocus"
+/>
+<button class="cool-button" {{action "sendMessage"}} disabled={{isOffline}}>
+  {{t "chat.send"}}
 </button>

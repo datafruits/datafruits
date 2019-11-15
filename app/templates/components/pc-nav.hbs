@@ -1,44 +1,74 @@
 <nav class="navbar pc" role="navigation">
   <ul>
     <li class="subnav">
-      <a class="submenu-title" href="#" {{action toggleSubMenu on="mouseEnter"}}>
-        {{t "radio"}}<span class="fa fa-arrow-circle-o-right {{if submenuOpen "rotated"}}" aria-hidden="true"></span>
+      <a
+        class="submenu-title"
+        href="#"
+        {{action toggleSubMenu on="mouseEnter"}}
+      >
+        {{t "radio"}}
+        <span
+          class="fa fa-arrow-circle-o-right {{if submenuOpen "rotated"}}"
+          aria-hidden="true"
+        ></span>
       </a>
     </li>
     <li>
-      {{#link-to 'home.chat'}}{{t "chat.title"}}{{/link-to}}
+      <LinkTo @route="home.chat">
+        {{t "chat.title"}}
+      </LinkTo>
     </li>
     <li>
-      <a href="http://releases.datafruits.fm/" target="_blank" rel="noopener">{{t 'label'}}</a>
+      <a href="http://releases.datafruits.fm/" target="_blank" rel="noopener">
+        {{t "label"}}
+      </a>
     </li>
     <li>
-      {{#link-to 'home.about'}}{{t 'about'}}{{/link-to}}
+      <LinkTo @route="home.about">
+        {{t "about"}}
+      </LinkTo>
     </li>
     <li>
-      {{#link-to 'home'}}{{t 'blog'}}{{/link-to}}
+      <LinkTo @route="home">
+        {{t "blog"}}
+      </LinkTo>
     </li>
     <li>
-      <a href="https://cooltrash.shop/" target="_blank" rel="noopener">{{t 'shop'}}</a>
+      <a href="https://cooltrash.shop/" target="_blank" rel="noopener">
+        {{t "shop"}}
+      </a>
     </li>
     <li>
-      {{#link-to 'home.subscribe'}}{{t 'subscribe'}}{{/link-to}}
+      <LinkTo @route="home.subscribe">
+        {{t "subscribe"}}
+      </LinkTo>
     </li>
   </ul>
   {{#if submenuOpen}}
     <ul class="subnav">
       <li>
-        {{#link-to 'home.djs'}}{{t "djs.title"}}{{/link-to}}
+        <LinkTo @route="home.djs">
+          {{t "djs.title"}}
+        </LinkTo>
       </li>
       <li>
-        {{#link-to 'home.podcasts'}}{{t "podcasts.title"}}{{/link-to}}
+        <LinkTo @route="home.podcasts">
+          {{t "podcasts.title"}}
+        </LinkTo>
       </li>
       <li>
-        {{#link-to 'home.timetable'}}{{t 'timetable'}}{{/link-to}}
+        <LinkTo @route="home.timetable">
+          {{t "timetable"}}
+        </LinkTo>
       </li>
       <li>
-        {{#link-to 'home.dj-inquiry'}}{{t 'djinquiry.title'}}{{/link-to}}
+        <LinkTo @route="home.dj-inquiry">
+          {{t "djinquiry.title"}}
+        </LinkTo>
       </li>
     </ul>
   {{/if}}
-  {{#link-to 'home'}}<img id="circle-logo" src="/assets/images/logo.png" />{{/link-to}}
+  <LinkTo @route="home">
+    <img id="circle-logo" src="/assets/images/logo.png" />
+  </LinkTo>
 </nav>
