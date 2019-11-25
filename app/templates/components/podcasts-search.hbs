@@ -1,19 +1,23 @@
-<Input
-  class="search-tracks"
-  @autofocus="autofocus"
-  @value={{filterText}}
-  @escape-press={{action "clearSearch"}}
-  placeholder="Search podcasts"
-/>
-<PowerSelectMultiple
-  @placeholder="Search by tag..."
-  @options={{labelNames}}
-  @selected={{selectedLabels}}
-  @renderInPlace={{true}}
-  @onChange={{action (mut selectedLabels)}} as |label|
->
-  {{label}}
-</PowerSelectMultiple>
+<form role="search" aria-label={{ t "podcasts.text_search.label"}}>
+  <Input
+    class="search-tracks"
+    @autofocus="autofocus"
+    @value={{filterText}}
+    @escape-press={{action "clearSearch"}}
+    placeholder="Search podcasts"
+  />
+</form>
+<form role="search" aria-label={{ t "podcasts.tag_search.label"}}>
+  <PowerSelectMultiple
+    @placeholder="Search by tag..."
+    @options={{labelNames}}
+    @selected={{selectedLabels}}
+    @renderInPlace={{true}}
+    @onChange={{action (mut selectedLabels)}} as |label|
+  >
+    {{label}}
+  </PowerSelectMultiple>
+</form>
 <PodcastsLoader @query={{searchParams}} as |loader|>
   {{#if loader.isRunning}}
     <p>

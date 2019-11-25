@@ -23,7 +23,13 @@ export default {
   },
   'podcasts': {
     'title': 'Podcast',
-    'no_result': 'No results. Musta been the onion salad dressing.'
+    'no_result': 'No results. Musta been the onion salad dressing.',
+    'text_search': {
+      'label': 'Search by free text'
+    },
+    'tag_search': {
+      'label': 'Search by tags'
+    },
   },
   'timetable': 'Timetable',
   'djs': {
