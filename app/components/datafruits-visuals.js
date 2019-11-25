@@ -111,11 +111,19 @@ export default Component.extend({
     this.set("videoStreamActive", true);
     this.set('streamName', name);
     this.set('extension', extension);
+    this.fetchStream.cancelAll();
   },
 
-  fetchStream: task(function * () {
+  fetchStream: task(function* (query) {
     let name = this.streamName;
     let host = this.streamHost;
+    while (true) {
+      yield _checkIfStreamIsActive(name, host);
+      yield timeout(15000);
+    }
+  }).restartable(),
+
+  _checkIfStreamIsActive(name, host){
     fetch(`${host}/hls/${name}.m3u8`, {method:'HEAD'}).then((response) => {
       if (response.status == 200) {
         this.streamIsActive(`${name}`, "m3u8");
@@ -129,8 +137,8 @@ export default Component.extend({
           } else {
             console.log("No stream found");
             //later(()=> {
-            yield timeout(15000);
-            this.fetchStream();
+            //yield timeout(15000);
+            //this.fetchStream();
             //}, 15000);
           }
         }).catch(function(err) {
@@ -141,7 +149,7 @@ export default Component.extend({
     }).catch(function(err) {
       console.log("Error: " + err); // eslint-disable-line no-console
     });
-  }),
+  }
 
   didRender(){
     if(!this.get('fastboot.isFastBoot')){
