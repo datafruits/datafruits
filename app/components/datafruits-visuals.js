@@ -114,11 +114,11 @@ export default Component.extend({
     this.fetchStream.cancelAll();
   },
 
-  fetchStream: task(function* (query) {
+  fetchStream: task(function* () {
     let name = this.streamName;
     let host = this.streamHost;
     while (true) {
-      yield _checkIfStreamIsActive(name, host);
+      yield this._checkIfStreamIsActive(name, host);
       yield timeout(15000);
     }
   }).restartable(),
@@ -149,7 +149,7 @@ export default Component.extend({
     }).catch(function(err) {
       console.log("Error: " + err); // eslint-disable-line no-console
     });
-  }
+  },
 
   didRender(){
     if(!this.get('fastboot.isFastBoot')){
