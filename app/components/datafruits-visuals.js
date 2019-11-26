@@ -154,20 +154,12 @@ export default Component.extend({
       if(this.videoStreamActive){
         this.initializePlayer();
       }
-      // }else {
-      //   later(()=> {
-      //     this.fetchStream();
-      //   }, 15000);
-      // }
     }
   },
 
-  //ask if adaptive m3u8 file
-  //
   didInsertElement(){
     if(!this.isMobile()){
       this.set('autoPlay', true);
     }
-    //this.fetchStream();
   }
 });
