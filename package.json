@@ -16,6 +16,7 @@
     "test": "ember test"
   },
   "dependencies": {
+    "@bugsnag/js": "^6.4.3",
     "active-model-adapter": "^2.2.0",
     "autolink-js": "^1.0.2",
     "broccoli-asset-rev": "^3.0.0",
@@ -82,7 +83,6 @@
     "ember-metrics": "^0.13.0",
     "ember-parachute": "1.0.2",
     "ember-qunit": "4.4.1",
-    "ember-rollbar-client": "^0.8.0",
     "ember-service-worker": "^0.8.0",
     "ember-service-worker-asset-cache": "^0.6.4",
     "ember-service-worker-cache-fallback": "^0.6.2",
