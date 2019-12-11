@@ -10,7 +10,8 @@ export default {
   // "key.with.interpolation": "Text with {{anInterpolation}}"
   'home': {
     'upcoming_shows': 'UPCOMING SHOWS',
-    'latest_podcasts': 'LATEST PODCASTS'
+    'latest_podcasts': 'LATEST PODCASTS',
+    'events': 'EVENTS'
   },
   'chat': {
     'title': 'Chat',

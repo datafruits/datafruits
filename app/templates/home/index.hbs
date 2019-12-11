@@ -1,5 +1,22 @@
 <div class="main-content">
   <h2>
+    {{t "home.events"}}
+  </h2>
+  <div>
+    {{#each model.blogPosts as |post|}}
+      <div>
+        <h3>
+          <LinkTo @route="home.blogs" @model={{post.id}}>
+            {{post.title}}
+          </LinkTo>
+        </h3>
+        <div>
+          {{post.body}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+  <h2>
     {{t "home.upcoming_shows"}}
   </h2>
   <div class="upcoming-shows">
