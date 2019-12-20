@@ -502,10 +502,13 @@ a:hover {
       }
     }
     #controls {
-       flex: 1;
-       justify-content: center;
-       display: flex;
-       flex-direction: column;
+      flex: 2;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      @media (min-width: 768px) {
+        flex: 1;
+      }
     }
   }
   .radio-bar {

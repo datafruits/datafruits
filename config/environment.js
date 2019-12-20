@@ -128,7 +128,8 @@ module.exports = function(environment) {
     YOUTUBE_CHANNEL_ID: process.env.YOUTUBE_CHANNEL_ID,
     STREAM_HOST: process.env.STREAM_HOST,
     STREAM_NAME: process.env.STREAM_NAME,
-    BUGSNAG_KEY: process.env.BUGSNAG_KEY
+    BUGSNAG_KEY: process.env.BUGSNAG_KEY,
+    API_HOST: process.env.API_HOST
   };
 
   if (environment === 'development') {
