@@ -4,16 +4,7 @@
   </h2>
   <div>
     {{#each model.blogPosts as |post|}}
-      <div>
-        <h3>
-          <LinkTo @route="home.blogs" @model={{post.id}}>
-            {{post.title}}
-          </LinkTo>
-        </h3>
-        <div>
-          {{post.body}}
-        </div>
-      </div>
+      <BlogPost @post={{post}} />
     {{/each}}
   </div>
   <h2>

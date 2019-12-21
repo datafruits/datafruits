@@ -40,7 +40,7 @@ Router.map(function() {
     this.route('djs');
     this.route('dj', { path: '/djs/:name' });
     this.route('chat');
-    this.route('blogs', { path: '/blogs/:id' });
+    this.route('blogs.show', { path: '/blogs/:id' });
   });
   this.route('container', {path: '/container'}, function(){
     this.route('show', {path: '/shows/:id'});
