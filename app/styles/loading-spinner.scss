@@ -9,15 +9,6 @@ $spin-duration: 1.5s;
   }
 }
 
-.loading {
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  border: 2rem solid #ddd;
-  border-top-color: white;
-  animation: spin $spin-duration infinite linear;
-}
-
 .loading-container{
   display: flex;
   align-items: center;

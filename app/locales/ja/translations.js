@@ -3,10 +3,18 @@ export default {
     'upcoming_shows': '近日放送予定',
     'latest_podcasts': '最新ポッドキャスト'
   },
-  'chat': 'チャット',
+  'chat': {
+    'title': 'チャット',
+    'new_messages': '新着メッセージ下にあります.',
+    'offline': "オフライン状態のようです。 チャット出来ないと思います。もしかしてオニオンサラダドレッシングかもしれませんでした。",
+    'send': "送信",
+    'message_placeholder': "メッセージをここに入力してください",
+    'join': "チャットに参加",
+    'nickname': "ニックネーム"
+  },
   'podcasts': {
     'title': 'ポッドキャスト',
-    'no_result': '結果なし。もしかしてオニオンサラダドレッシングかもしれないでした。'
+    'no_result': '結果なしです。もしかしてオニオンサラダドレッシングかもしれませんでした。'
   },
   'djs': {
     'title': 'DJs'
@@ -45,6 +53,9 @@ export default {
   },
   'show': {
     'archive': 'アーカイブを聴く',
+  },
+  'player': {
+    'play_button_label': '再生'
   }
   // "some.translation.key": "Text for some.translation.key",
   //

@@ -1,10 +1,22 @@
 <section class="flexbox-container">
-  {{pc-nav toggleSubMenu=(action "toggleSubMenu") submenuOpen=submenuOpen}}
-  {{sp-nav toggleMenu=(action "toggleMenu") menuOpen=menuOpen}}
-  {{#link-to 'home'}}<h1 id="logo">datafruits.fm</h1>{{/link-to}}
+  <PcNav
+    @toggleSubMenu={{action "toggleSubMenu"}}
+    @submenuOpen={{submenuOpen}}
+  />
+  <SpNav @toggleMenu={{action "toggleMenu"}} @menuOpen={{menuOpen}} />
+  <LinkTo @route="home">
+    <h1 id="logo">
+      datafruits.fm
+    </h1>
+  </LinkTo>
   {{outlet}}
-  {{#datafruits-player nextShow=model}}
-    {{locale-selector selectedLocale=locale setLocale=(action "setLocale")}}
-  {{/datafruits-player}}
+  <DatafruitsPlayer @nextShow={{model}}>
+    <LocaleSelector
+      @selectedLocale={{locale}}
+      @setLocale={{action "setLocale"}}
+    />
+  </DatafruitsPlayer>
 </section>
-{{datafruits-visuals}}
+<DatafruitsVisuals />
+<Notifications />
+<WindowResizeHandler />

@@ -31,7 +31,7 @@ export default Component.extend({
     let emojiComplete = {
       id: "emojis",
       //match: /\B:([\-+\w]*)$/,
-      match: /(^|\s):([a-z0-9+\-\_]*)$/,
+      match: /(^|\s):([a-z0-9+\-_]*)$/,
 
       search: function (term, callback) {
         var results = [];
@@ -47,7 +47,7 @@ export default Component.extend({
               results3.push(shortname);
             }
           }
-        };
+        }
         if(term.length >= 3) {
           results.sort(function(a,b) { return (a.length > b.length); });
           results2.sort(function(a,b) { return (a.length > b.length); });
@@ -85,7 +85,7 @@ export default Component.extend({
     const editor = new Textarea(document.getElementById('input-message'));
     let emojiTextcomplete = new Textcomplete(editor, {
       dropdown: {
-        maxCount: 5,
+        maxCount: 25,
         placement: 'top'
       }
     });

@@ -1,6 +1,8 @@
 <nav class="navbar sp" role="navigation">
-  <button {{action toggleMenu}} type="button" class="navbar-toggle collapsed">
-    <span class="sr-only">Toggle navigation</span>
+  <button type="button" class="navbar-toggle collapsed" {{action toggleMenu}}>
+    <span class="sr-only">
+      Toggle navigation
+    </span>
     <span class="fa fa-bars" aria-hidden="true"></span>
   </button>
   {{#if menuOpen}}
@@ -11,38 +13,60 @@
         </span>
         <ul class="subnav">
           <li>
-            {{#link-to 'home.djs'}}{{t "djs.title"}}{{/link-to}}
+            <LinkTo @route="home.djs">
+              {{t "djs.title"}}
+            </LinkTo>
           </li>
           <li>
-            {{#link-to 'home.podcasts'}}{{t "podcasts.title"}}{{/link-to}}
+            <LinkTo @route="home.podcasts">
+              {{t "podcasts.title"}}
+            </LinkTo>
           </li>
           <li>
-            {{#link-to 'home.timetable'}}{{t 'timetable'}}{{/link-to}}
+            <LinkTo @route="home.timetable">
+              {{t "timetable"}}
+            </LinkTo>
           </li>
           <li>
-            {{#link-to 'home.dj-inquiry'}}{{t 'djinquiry.title'}}{{/link-to}}
+            <LinkTo @route="home.dj-inquiry">
+              {{t "djinquiry.title"}}
+            </LinkTo>
           </li>
         </ul>
       </li>
       <li>
-        {{#link-to 'home.chat'}}{{t "chat"}}{{/link-to}}
+        <LinkTo @route="home.chat">
+          {{t "chat.title"}}
+        </LinkTo>
       </li>
       <li>
-        <a href="http://releases.datafruits.fm/" target="_blank">{{t 'label'}}</a>
+        <a href="http://releases.datafruits.fm/" target="_blank" rel="noopener">
+          {{t "label"}}
+        </a>
       </li>
       <li>
-        {{#link-to 'home.about'}}{{t 'about'}}{{/link-to}}
+        <LinkTo @route="home.about">
+          {{t "about"}}
+        </LinkTo>
       </li>
       <li>
-        {{#link-to 'home'}}{{t 'blog'}}{{/link-to}}
+        <LinkTo @route="home">
+          {{t "blog"}}
+        </LinkTo>
       </li>
       <li>
-        <a href="https://cooltrash.shop/" target="_blank">{{t 'shop'}}</a>
+        <a href="https://cooltrash.shop/" target="_blank" rel="noopener">
+          {{t "shop"}}
+        </a>
       </li>
       <li>
-        {{#link-to 'home.subscribe'}}{{t 'subscribe'}}{{/link-to}}
+        <LinkTo @route="home.subscribe">
+          {{t "subscribe"}}
+        </LinkTo>
       </li>
     </ul>
   {{/if}}
-  {{#link-to 'home'}}<img id="circle-logo" src="/assets/images/logo.png" />{{/link-to}}
+  <LinkTo @route="home" @aria-label={{t 'blog'}}>
+    <img id="circle-logo" src="/assets/images/logo.png" />
+  </LinkTo>
 </nav>

@@ -1,11 +1,12 @@
 import Service from '@ember/service';
 import ArrayProxy from '@ember/array/proxy';
 import { A } from '@ember/array';
-import { Socket, Presence } from "phoenix";
 import { computed } from '@ember/object';
-import ENV from "datafruits13/config/environment";
+import { inject as service } from '@ember/service';
+import { Presence } from "phoenix";
 
 export default Service.extend({
+  socket: service(),
   joinedUsers: computed('presences', function(){
     return Object.keys(this.presences);
   }),
@@ -18,31 +19,14 @@ export default Service.extend({
   init() {
     this._super(...arguments);
     this.set('presences', {});
-    let socket = new Socket(ENV.CHAT_SOCKET_URL, {
-
-      logger: function logger(/*kind, msg, data*/) {
-        //console.log(kind + ": " + msg, data);
-      }
-    });
-
-    socket.connect();
-
-    socket.onOpen(function (/*ev*/) {
-      //return console.log("OPEN", ev);
-    });
-    socket.onError(function (/*ev*/) {
-      //return console.log("ERROR", ev);
-    });
-    socket.onClose(function (/*e*/) {
-      //return console.log("CLOSE", e);
-    });
+    let socket = this.socket.socket;
 
     this.chan = socket.channel("rooms:lobby", {});
 
     this.chan.join().receive("ignore", function () {
       //return console.log("auth error");
     }).receive("ok", function () {
-      //return console.log("join ok");
+      return console.log("chat join ok"); // eslint-disable-line no-console
     }).receive("timeout", function () {
       //return console.log("Connection interruption");
     });

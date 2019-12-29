@@ -1,32 +1,53 @@
 <div id="chat-room">
   <div id="chat-area">
-    {{chat-messages
-      messages=messages
-      gifsEnabled=gifsEnabled
-      newMessagesAvailable=(action "newMessagesAvailable")
-      onScroll=(action "onScroll")}}
+    <ChatMessages
+      @messages={{messages}}
+      @gifsEnabled={{gifsEnabled}}
+      @newMessagesAvailable={{action "newMessagesAvailable"}}
+      @onScroll={{action "onScroll"}}
+    />
     {{#if newMessagesBelow}}
       <div id="new-messages-below">
-        <span>New messages below.</span>
+        <span>{{t "chat.new_messages"}}</span>
+      </div>
+    {{/if}}
+    {{#if networkStatus.isOffline}}
+      <div id="offline">
+        <span>{{t "chat.offline"}}</span>
       </div>
     {{/if}}
     <ul id="userlist">
       {{#each joinedUsers as |joinedUser|}}
-        {{user-list-item user=joinedUser}}
+        <UserListItem @user={{joinedUser}} />
       {{/each}}
     </ul>
   </div>
 </div>
 <div id="controls">
   {{#if joinedChat}}
-    <form align='center' id="send-message">
-      {{datafruits-chat-input-message}}
-      <button class="cool-button" {{action 'toggleGifsEnabled'}}>{{images-enabled-button-label gifsEnabled}}</button>
+    <form align="center" id="send-message">
+      <DatafruitsChatInputMessage  @isOffline={{networkStatus.isOffline}} />
+      <button class="cool-button" {{action "toggleGifsEnabled"}}>
+        {{images-enabled-button-label gifsEnabled}}
+      </button>
     </form>
   {{else}}
-    <form align='center' id="enter-chat">
-      {{input type="text" name="nick" value=nick autocorrect="off" autocapitalize="none" placeholder="nickname"}}
-      <button class="cool-button" disabled={{disableJoinButton}} {{action 'enterChat'}}>Join chatroom</button>
+    <form align="center" id="enter-chat">
+      <Input
+        @type="text"
+        @name="nick"
+        @value={{nick}}
+        @autocorrect="off"
+        @autocapitalize="none"
+        placeholder={{t "chat.nickname"}}
+      />
+      <button
+        class="cool-button"
+        disabled={{or disableJoinButton networkStatus.isOffline}}
+        {{action "enterChat"}}
+      >
+        {{t "chat.join"}}
+      </button>
     </form>
   {{/if}}
 </div>

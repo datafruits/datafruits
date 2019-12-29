@@ -1,10 +1,17 @@
 {{#if showingGifSearch}}
-  {{giphy-search sendGif=(action "sendGif")}}
+  <GiphySearch @sendGif={{action "sendGif"}} />
 {{else}}
   <button class="cool-button" {{action 'showGifSearch'}}>GIF</button>
 {{/if}}
-{{input type="text" id="input-message" autocomplete="off" value=inputMessage
-  placeholder="enter your message here..." autofocus="autofocus"}}
-<button class="cool-button" {{action 'sendMessage'}} id="send-message">
-  Send
+<Input
+  @type="text"
+  @id="input-message"
+  @autocomplete="off"
+  @value={{inputMessage}}
+  placeholder={{t "chat.message_placeholder"}}
+  @autofocus="autofocus"
+/>
+<button class="cool-button" {{action 'sendMessage'}} id="send-message"
+  disabled={{isOffline}}>
+  {{t "chat.send"}}
 </button>

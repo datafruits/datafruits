@@ -12,6 +12,8 @@ module.exports = function(defaults) {
     // Add options here
     fingerprint: fingerprintOptions,
 
+    hinting: false,
+
     'ember-font-awesome': {
       useScss: true, // for ember-cli-sass
     },
@@ -24,10 +26,18 @@ module.exports = function(defaults) {
       useScss: true
     },
 
-    'ember-bootstrap': {
-      'bootstrapVersion': 3,
-      'importBootstrapFont': true,
-      'importBootstrapCSS': false
+    'esw-cache-first': {
+      patterns: [
+        'fonts/fontawesome(.+)',
+      ],
+      version: '1'
+    },
+
+    'esw-cache-fallback': {
+      patterns: [
+        'https://datafruits.streampusher.com/(.+)',
+        'https://dongles.streampusher-relay.club/(.+)',
+      ],
     }
   });
 

@@ -127,7 +127,9 @@ module.exports = function(environment) {
     GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
     YOUTUBE_CHANNEL_ID: process.env.YOUTUBE_CHANNEL_ID,
     STREAM_HOST: process.env.STREAM_HOST,
-    STREAM_NAME: process.env.STREAM_NAME
+    STREAM_NAME: process.env.STREAM_NAME,
+    BUGSNAG_KEY: process.env.BUGSNAG_KEY,
+    API_HOST: process.env.API_HOST
   };
 
   if (environment === 'development') {

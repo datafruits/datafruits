@@ -3,7 +3,7 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   gifsEnabled: true,
-  imgRegex: /https?:\/\/(?:[a-z0-9\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpg|gif|png)/,
+  imgRegex: /https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpg|gif|png|webp)(\?.*$)*/,
   hasImage: computed('message.body', function(){
     return this.imgRegex.test(this.message.body);
   }),
@@ -15,12 +15,6 @@ export default Component.extend({
   },
   didInsertElement() {
     this._super(...arguments);
-    if(this.element.getElementsByClassName("chat-image").length > 0){
-      this.element.getElementsByClassName("chat-image")[0].onload = () => {
-        this.adjustScrolling();
-      };
-    }else{
-      this.adjustScrolling();
-    }
+    this.adjustScrolling();
   }
 });

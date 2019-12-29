@@ -8,7 +8,7 @@ module('Unit | Serializer | application', function(hooks) {
 
   // Replace this with your real tests.
   test('it serializes records', function(assert) {
-    let record = run(() => this.owner.lookup('service:store').createRecord('application'));
+    let record = run(() => this.owner.lookup('service:store').createRecord('track'));
 
     let serializedRecord = record.serialize();
 
