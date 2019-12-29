@@ -13,6 +13,7 @@ export default Component.extend({
     sendGif(gif){
       this.set('inputMessage', gif.url);
       this.set('showingGifSearch', false);
+      this.element.querySelector("#send-message").focus();
     },
     showGifSearch(){
       this.set('showingGifSearch', true);
