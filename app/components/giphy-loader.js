@@ -10,7 +10,6 @@ export default Component.extend({
 
   store: service(),
   fetchData: task(function*(query) {
-    console.log(`query in gif`);
     yield timeout(1000);
     let gifs = this.store.query('gif', { query })
     let resolvedGifs = yield gifs;

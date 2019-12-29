@@ -1,8 +1,3 @@
-{{#if showingGifSearch}}
-  <GiphySearch @sendGif={{action "sendGif"}} />
-{{else}}
-  <button class="cool-button" {{action 'showGifSearch'}}>GIF</button>
-{{/if}}
 <Input
   @type="text"
   @id="input-message"
@@ -11,7 +6,22 @@
   placeholder={{t "chat.message_placeholder"}}
   @autofocus="autofocus"
 />
-<button class="cool-button" {{action 'sendMessage'}} id="send-message"
-  disabled={{isOffline}}>
+<button
+  type="submit"
+  class="cool-button"
+  id="send-message-button"
+  disabled={{isOffline}}
+  {{action "sendMessage"}}>
   {{t "chat.send"}}
 </button>
+{{#if showingGifSearch}}
+  <div class="gif-search">
+    <button class="cool-button"
+      {{action "closeGifSearch"}}>
+      <i class="fa fa-times"></i>
+    </button>
+    <GiphySearch @sendGif={{action "sendGif"}} />
+  </div>
+{{else}}
+  <button class="cool-button" {{action 'showGifSearch'}}>GIF</button>
+{{/if}}

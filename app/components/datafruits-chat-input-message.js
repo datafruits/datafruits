@@ -10,10 +10,13 @@ export default Component.extend({
   username: oneWay('chat.username'),
   joinedUsers: oneWay('chat.joinedUsers'),
   actions: {
+    closeGifSearch(){
+      this.set('showingGifSearch', false);
+    },
     sendGif(gif){
       this.set('inputMessage', gif.url);
       this.set('showingGifSearch', false);
-      this.element.querySelector("#send-message").focus();
+      this.element.querySelector("#send-message-button").focus();
     },
     showGifSearch(){
       this.set('showingGifSearch', true);
