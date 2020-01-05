@@ -13,6 +13,6 @@ module('Integration | Component | datafruits chat input message', function(hooks
 
     await render(hbs`{{datafruits-chat-input-message}}`);
 
-    assert.dom('*').hasText('Send');
+    assert.dom('*').hasText('Send GIF');
   });
 });

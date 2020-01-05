@@ -712,3 +712,15 @@ form {
     color: $yellow;
   }
 }
+
+.gif-button {
+  all: unset;
+}
+
+.gif-preview {
+  cursor: pointer;
+    border: solid 2px #eee;
+  &:hover {
+    border: dashed 2px $yellow;
+  }
+}
