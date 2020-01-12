@@ -1,6 +1,5 @@
 import DS from 'ember-data';
-import { computed } from '@ember/object';
-const { Model } = DS;
+import { computed } from '@ember/object'; const { Model } = DS;
 import { htmlSafe } from '@ember/template';
 
 export default Model.extend({
@@ -10,5 +9,6 @@ export default Model.extend({
   }),
   title: computed('blogPostBodies.[]', function(){
     return this.blogPostBodies.firstObject.title;
-  })
+  }),
+  publishedAt: DS.attr()
 });
