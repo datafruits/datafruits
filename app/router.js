@@ -34,12 +34,13 @@ Router.map(function() {
     this.route('podcasts');
     this.route('about');
     this.route('subscribe');
-    this.route('show', {path: '/shows/:id'});
+    this.route('show', { path: '/shows/:id' });
     this.route('dj-inquiry');
     this.route('coc');
     this.route('djs');
     this.route('dj', { path: '/djs/:name' });
     this.route('chat');
+    this.route('blogs.show', { path: '/blogs/:id' });
   });
   this.route('container', {path: '/container'}, function(){
     this.route('show', {path: '/shows/:id'});

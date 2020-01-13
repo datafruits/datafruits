@@ -1,5 +1,13 @@
 <div class="main-content">
   <h2>
+    {{t "home.events"}}
+  </h2>
+  <div>
+    {{#each model.blogPosts as |post|}}
+      <BlogPostPreview @post={{post}} />
+    {{/each}}
+  </div>
+  <h2>
     {{t "home.upcoming_shows"}}
   </h2>
   <div class="upcoming-shows">
