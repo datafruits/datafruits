@@ -705,6 +705,18 @@ form {
   }
 }
 
+.blog-posts {
+  display: flex;
+  flex-wrap: wrap;
+  .blog-post-preview {
+    margin: 5px;
+    background: $pink;
+    border-radius: 5px;
+    min-width: 300px;
+    width: 300px;
+  }
+}
+
 .secret {
   color: $blue;
   text-shadow: none;

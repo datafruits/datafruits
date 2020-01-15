@@ -2,9 +2,9 @@
   <h2>
     {{t "home.events"}}
   </h2>
-  <div>
+  <div class="blog-posts">
     {{#each model.blogPosts as |post|}}
-      <BlogPostPreview @post={{post}} />
+      <BlogPostPreview @post={{post}} class="blog-post-preview" />
     {{/each}}
   </div>
   <h2>
