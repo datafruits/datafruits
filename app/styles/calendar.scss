@@ -21,6 +21,7 @@
   background-color: $pink;
   border-left: 2px solid $blue;
   border-bottom: 2px dotted $blue;
+  overflow: hidden;
   &__title {
     font-size: 16px;
   }
