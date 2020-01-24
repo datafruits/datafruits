@@ -1,14 +1,14 @@
 <div id="not-found">
   <div id="not-found-spin">
     <h1>
-      404!
+      {{t "404.title"}}
     </h1>
-    <img src="{{random-loading-spinner}}" />
+    <img src={{random-loading-spinner}} alt={{t "loading"}}>
   </div>
   <h1>
-    Page not found
+    {{t "404.message"}}
   </h1>
   <LinkTo @route="home">
-    back to safety
+    {{t "404.return_linktext"}}
   </LinkTo>
 </div>

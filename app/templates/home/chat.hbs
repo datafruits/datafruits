@@ -1,8 +1,4 @@
-{{#unless fastboot.isFastBoot}}
-  <NetworkStatus as |status|>
-    <DatafruitsChat @networkStatus={{status}} />
-  </NetworkStatus>
-{{else}}
+{{#if fastboot.isFastBoot}}
   <div class="main-content">
     <div class="loading-container">
       <img alt={{t "loading"}} src={{random-loading-spinner}}>
@@ -11,4 +7,8 @@
       <h1>{{random-loading-message}}</h1>
     </div>
   </div>
-{{/unless}}
+{{else}}
+  <NetworkStatus as |status|>
+    <DatafruitsChat @networkStatus={{status}} />
+  </NetworkStatus>
+{{/if}}

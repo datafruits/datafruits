@@ -1,7 +1,7 @@
 <nav class="navbar sp" role="navigation">
   <button type="button" class="navbar-toggle collapsed" {{action toggleMenu}}>
     <span class="sr-only">
-      Toggle navigation
+      {{t "nav_toggle"}}
     </span>
     <span class="fa fa-bars" aria-hidden="true"></span>
   </button>
@@ -66,7 +66,7 @@
       </li>
     </ul>
   {{/if}}
-  <LinkTo @route="home" @aria-label={{t 'blog'}}>
-    <img id="circle-logo" src="/assets/images/logo.png" />
+  <LinkTo @route="home" @aria-label={{t "blog"}}>
+    <img id="circle-logo" src="/assets/images/logo.png" alt={{t "site_title"}}>
   </LinkTo>
 </nav>

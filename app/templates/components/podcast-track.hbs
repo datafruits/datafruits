@@ -1,11 +1,11 @@
 <div class="podcast">
   {{#if playing}}
-    <a class="podcast-controls" {{action "pause"}}>
-      ❚❚
+    <a class="podcast-controls" {{action "pause"}} href="#">
+      {{t "player.pause"}}
     </a>
   {{else}}
-    <a class="podcast-controls" {{action "play"}}>
-      ▶︎
+    <a class="podcast-controls" {{action "play"}} href="#">
+      {{t "player.play"}}
     </a>
   {{/if}}
   <a href={{cdnUrl}} download="">
@@ -29,7 +29,7 @@
     {{title}}
   {{/if}}
   {{#each labels as |label|}}
-    <a class="track-label" {{action selectLabel label}}>
+    <a class="track-label" {{action selectLabel label}} href="#">
       {{label.name}}
     </a>
   {{/each}}
