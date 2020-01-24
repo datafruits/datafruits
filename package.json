@@ -62,9 +62,6 @@
     "textcomplete": "^0.17.1",
     "video.js": "7.2.4"
   },
-  "engines": {
-    "node": "10.x"
-  },
   "private": true,
   "devDependencies": {
     "@ember/optional-features": "^0.7.0",
