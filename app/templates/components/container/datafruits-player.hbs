@@ -19,21 +19,19 @@
         {{t "player.pause"}}
       </a>
     {{else if paused}}
-      <a
+      <a {{action "play"}}
         onMouseEnter={{action "playButtonMouseEnter"}}
         onMouseLeave={{action "playButtonMouseOut"}}
         class="jp-play"
         href="javascript:;"
         tabindex="1"
-        {{action "play"}}
       >
         {{t "player.play"}}
       </a>
     {{/if}}
-    <span
+    <span {{action "toggleVolumeControl" on="mouseEnter"}}
       class="jp-volume-controls"
       role="button"
-      {{action "toggleVolumeControl" on="mouseEnter"}}
     >
       {{#if muted}}
         {{!-- template-lint-disable no-nested-interactive --}}
