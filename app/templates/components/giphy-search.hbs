@@ -1,0 +1,22 @@
+<Input
+  @type="text"
+  @id="giphy-search-term"
+  placeholder="search for gifs..."
+  @autocomplete="off"
+  @value={{searchTerm}}
+/>
+<GiphyLoader @query={{query}} as |loader|>
+  {{#if loader.isRunning}}
+    <p>{{t "loading"}}</p>
+  {{else}}
+    {{#each loader.data as |gif|}}
+      <button class="gif-button" {{action sendGif gif}}>
+        <img
+          class="gif-preview"
+          alt={{gif.name}}
+          src={{gif.previewUrl}}
+          >
+      </button>
+    {{/each}}
+  {{/if}}
+</GiphyLoader>

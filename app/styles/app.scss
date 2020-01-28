@@ -502,10 +502,13 @@ a:hover {
       }
     }
     #controls {
-       flex: 1;
-       justify-content: center;
-       display: flex;
-       flex-direction: column;
+      flex: 2;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      @media (min-width: 768px) {
+        flex: 1;
+      }
     }
   }
   .radio-bar {
@@ -702,10 +705,40 @@ form {
   }
 }
 
+.blog-posts {
+  display: flex;
+  flex-wrap: wrap;
+  .blog-post-preview {
+    margin: 5px;
+    background: $pink;
+    border-radius: 5px;
+    min-width: 300px;
+    width: 300px;
+  }
+}
+
 .secret {
   color: $blue;
   text-shadow: none;
   &:hover {
     color: $yellow;
+  }
+}
+
+.gif-button {
+  all: unset;
+}
+
+.gif-preview {
+  cursor: pointer;
+    border: solid 2px #eee;
+  &:hover {
+    border: dashed 2px $yellow;
+  }
+}
+
+.blog-post {
+  img {
+    max-width: 500px;
   }
 }

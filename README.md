@@ -29,6 +29,15 @@ You will need the following things properly installed on your computer.
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
+If you want to develop against local versions of
+[streampusher](https://github.com/streampusher/) or [hotdog
+lounge (the chat server)](https://github.com/datafruits/hotdog_lounge) you can
+edit these values in the `.env` file, and restart the server.
+```
+CHAT_SOCKET_URL="wss://localhost:4000/socket"
+API_HOST='https://localhost:3000'
+```
+
 ### Code Generators
 
 Make use of the many generators for code, try `ember help generate` for more details

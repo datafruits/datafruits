@@ -3,7 +3,7 @@
     {{#each model as |dj|}}
       <div class="dj">
         <h2 class="name">
-          <LinkTo @route="home.dj" @model={{dj.username}}>
+          <LinkTo @route="home.dj" @model={{dj.username}} @title={{dj.username}}>
             {{dj.username}}
           </LinkTo>
         </h2>
