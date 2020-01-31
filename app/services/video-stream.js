@@ -1,16 +1,47 @@
 import Service from '@ember/service';
-import { later, run } from '@ember/runloop';
+import { run } from '@ember/runloop';
+import { inject as service } from '@ember/service';
+import { task, timeout } from 'ember-concurrency';
 import ENV from "datafruits13/config/environment";
 import fetch from 'fetch';
 
 export default Service.extend({
+  socket: service(),
+  active: false,
+
   init() {
     this._super(...arguments);
     this.set('streamHost', ENV.STREAM_HOST);
     this.set('streamName', ENV.STREAM_NAME);
-  },
 
-  active: false,
+    let socket = this.socket.socket;
+
+    let vjChannel = socket.channel("vj", {});
+
+    vjChannel.join().receive("ignore", function () {
+      return console.log("auth error"); // eslint-disable-line no-console
+    }).receive("ok", function () {
+      return console.log("vj join ok"); // eslint-disable-line no-console
+    }).receive("timeout", function () {
+      return console.log("Connection interruption"); // eslint-disable-line no-console
+    });
+
+    vjChannel.on("vj", (vj) => {
+      let enabled = vj.message;
+      console.log(`vj channel: ${enabled}`);
+      if(enabled === '1'){
+        this.set('videoStreamActive', true);
+        console.log('performing tasks');
+        this.fetchStream.perform();
+      }else{
+        this.set('videoStreamActive', false);
+        console.log('cancelling tasks');
+        this.fetchStream.cancelAll();
+      }
+      //this.set('title', vj.message);
+      //this.eventBus.publish("vjUpdate", vj.message);
+    });
+  },
 
   initializePlayer: async function() {
     const module = await import("video.js");
@@ -53,15 +84,7 @@ export default Service.extend({
 
   },
 
-  streamIsActive(name, extension){
-    this.set("active", true);
-    this.set('streamName', name);
-    this.set('extension', extension);
-  },
-
-  fetchStream(){
-    let name = this.streamName;
-    let host = this.streamHost;
+  _checkIfStreamIsActive(name, host){
     fetch(`${host}/hls/${name}.m3u8`, {method:'HEAD'}).then((response) => {
       if (response.status == 200) {
         this.streamIsActive(`${name}`, "m3u8");
@@ -74,9 +97,6 @@ export default Service.extend({
             this.streamIsActive(name, "mp4");
           } else {
             console.log("No stream found"); // eslint-disable-line no-console
-            later(()=> {
-              this.fetchStream();
-            }, 15000);
           }
         }).catch(function(err) {
           console.log("Error: " + err); // eslint-disable-line no-console
@@ -87,4 +107,20 @@ export default Service.extend({
       console.log("Error: " + err); // eslint-disable-line no-console
     });
   },
+
+  streamIsActive(name, extension){
+    this.set("videoStreamActive", true);
+    this.set('streamName', name);
+    this.set('extension', extension);
+    this.fetchStream.cancelAll();
+  },
+
+  fetchStream: task(function* () {
+    let name = this.streamName;
+    let host = this.streamHost;
+    while (true) {
+      yield this._checkIfStreamIsActive(name, host);
+      yield timeout(15000);
+    }
+  }).restartable(),
 });
