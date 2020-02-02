@@ -42,7 +42,7 @@ Router.map(function() {
     this.route('chat');
     this.route('blogs.show', { path: '/blogs/:id' });
   });
-  this.route('container', {path: '/container'}, function(){
+  this.route('container',  function(){
     this.route('show', {path: '/shows/:id'});
   });
   this.route('not-found', {path: '/*path'});
