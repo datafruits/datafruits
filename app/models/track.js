@@ -1,5 +1,5 @@
 import DS from 'ember-data';
-import { computed } from '@ember/object';
+import { mapBy } from '@ember/object/computed';
 
 export default DS.Model.extend({
   audioFileName: DS.attr(),
@@ -12,9 +12,5 @@ export default DS.Model.extend({
   podcast: DS.belongsTo('podcast'),
   scheduledShow: DS.belongsTo('scheduled-show', { inverse: null }),
   dj: DS.belongsTo('dj'),
-  labelNames: computed('labels', function(){
-    return this.labels.map((label) => {
-      return label.get('name');
-    });
-  })
+  labelNames: mapBy('labels', 'name'),
 });
