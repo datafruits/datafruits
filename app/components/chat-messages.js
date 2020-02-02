@@ -34,9 +34,7 @@ export default Component.extend({
   },
   didInsertElement(){
     this.element.addEventListener("scroll", () => {
-      debounce(this, () => {
-        this.onScroll();
-      }, 500);
+      debounce(this, this.onScroll, 500);
     });
   }
 });

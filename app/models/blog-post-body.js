@@ -12,6 +12,8 @@ export default Model.extend({
   previewImage: computed('blogPostImages.[]', function(){
     if(this.body) {
       return this.blogPostImages.firstObject;
+    }else{
+      return null;
     }
   }),
   renderedBody: DS.attr(),
