@@ -1,3 +1,4 @@
+/* global require */
 const FastBootAppServer = require('fastboot-app-server');
 
 const setCacheHeader = (request, response, next) => {

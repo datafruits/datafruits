@@ -1,3 +1,4 @@
+/* global Ember */
 import ENV from "datafruits13/config/environment";
 
 export async function initialize(/* application */) {

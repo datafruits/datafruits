@@ -18,12 +18,14 @@ const Router = EmberRouter.extend({
   },
 
   _trackPage() {
-    scheduleOnce('afterRender', this, () => {
-      const page = this.url;
-      const title = this.getWithDefault('currentRouteName', 'unknown');
+    scheduleOnce('afterRender', this, this._trackPageCallback);
+  },
 
-      this.metrics.trackPage({ page, title });
-    });
+  _trackPageCallback() {
+    const page = this.url;
+    const title = this.getWithDefault('currentRouteName', 'unknown');
+
+    this.metrics.trackPage({ page, title });
   }
 
 });
