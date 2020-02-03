@@ -88,7 +88,7 @@
     "fastboot-app-server": "2.0.0",
     "jstimezonedetect": "^1.0.6",
     "loader.js": "^4.2.3",
-    "phoenix": "1.2",
+    "phoenix": "1.4.12",
     "qunit-dom": "1.0.0",
     "sass": "^1.14.1",
     "textcomplete": "^0.17.1",
