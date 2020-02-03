@@ -71,7 +71,7 @@
     "ember-page-title": "4.0.5",
     "ember-parachute": "1.0.2",
     "ember-power-select": "3.0.4",
-    "ember-qunit": "4.4.1",
+    "ember-qunit": "4.5.0",
     "ember-resolver": "^4.0.0",
     "ember-service-worker": "^0.8.0",
     "ember-service-worker-asset-cache": "^0.6.4",
