@@ -18,12 +18,14 @@ const Router = EmberRouter.extend({
   },
 
   _trackPage() {
-    scheduleOnce('afterRender', this, () => {
-      const page = this.url;
-      const title = this.getWithDefault('currentRouteName', 'unknown');
+    scheduleOnce('afterRender', this, this._trackPageCallback);
+  },
 
-      this.metrics.trackPage({ page, title });
-    });
+  _trackPageCallback() {
+    const page = this.url;
+    const title = this.getWithDefault('currentRouteName', 'unknown');
+
+    this.metrics.trackPage({ page, title });
   }
 
 });
@@ -42,7 +44,7 @@ Router.map(function() {
     this.route('chat');
     this.route('blogs.show', { path: '/blogs/:id' });
   });
-  this.route('container', {path: '/container'}, function(){
+  this.route('container',  function(){
     this.route('show', {path: '/shows/:id'});
   });
   this.route('not-found', {path: '/*path'});

@@ -7,20 +7,10 @@ module('Integration | Component | blog-post-preview', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set('post', { blogPostBodies: [] });
 
-    await render(hbs`<BlogPostPreview />`);
+    await render(hbs`<BlogPostPreview @post={{post}} />`);
 
     assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <BlogPostPreview>
-        template block text
-      </BlogPostPreview>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });
