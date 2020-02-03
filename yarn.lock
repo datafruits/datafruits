@@ -1680,16 +1680,17 @@
     ember-cli-babel "^6.12.0"
     ember-cli-htmlbars-inline-precompile "^1.0.0"
 
-"@ember/test-helpers@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-1.5.0.tgz#a480181c412778294e317c256d04ca52e63c813a"
-  integrity sha512-RrS0O3VlDASMsI6v9nxUgO0k8EJGy1nzz/1HgiScbu8LbCpPj4Mp8S82yT/olXA3TShu7c/RfLZHjlN/iRW2OA==
+"@ember/test-helpers@^1.6.0":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-1.7.1.tgz#cc22a954b3b46856518f034bd492a74e0482389f"
+  integrity sha512-+ioumnanSRJzZ0ZH30FIkB0r41UhVyuWQ9R9Yp1phDWJQDLumxg+25WDr40relwcH6z0Cn6LIEzeTVujO/0Rww==
   dependencies:
     broccoli-debug "^0.6.5"
     broccoli-funnel "^2.0.2"
     ember-assign-polyfill "^2.6.0"
-    ember-cli-babel "^7.4.3"
+    ember-cli-babel "^7.7.3"
     ember-cli-htmlbars-inline-precompile "^2.1.0"
+    ember-test-waiters "^1.1.1"
 
 "@embroider/core@0.4.3", "@embroider/core@^0.4.3":
   version "0.4.3"
@@ -5893,7 +5894,7 @@ ember-cli-babel@^7.0.0:
     ensure-posix-path "^1.0.2"
     semver "^5.5.0"
 
-ember-cli-babel@^7.1.0, ember-cli-babel@^7.4.3, ember-cli-babel@^7.5.0:
+ember-cli-babel@^7.1.0, ember-cli-babel@^7.5.0:
   version "7.7.3"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.7.3.tgz#f94709f6727583d18685ca6773a995877b87b8a0"
   integrity sha512-/LWwyKIoSlZQ7k52P+6agC7AhcOBqPJ5C2u27qXHVVxKvCtg6ahNuRk/KmfZmV4zkuw4EjTZxfJE1PzpFyHkXg==
@@ -6820,16 +6821,16 @@ ember-power-select@3.0.4:
     ember-text-measurer "^0.5.0"
     ember-truth-helpers "^2.1.0"
 
-ember-qunit@4.4.1:
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/ember-qunit/-/ember-qunit-4.4.1.tgz#3654cadf9fa7e2287fe7b61fc7f19c3eb06222b5"
-  integrity sha512-RYyEqn3UpwLri4+lL9sFdDp1uPa0AfN587661iKm7r3kTAzYHxZE7jRsBDIejhgSH2kVSky0+Q9Y7oLULYiM/Q==
+ember-qunit@4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/ember-qunit/-/ember-qunit-4.5.0.tgz#ebb62430bf5c6fb3307f1e7a612b9ab83390e8ae"
+  integrity sha512-T4VtcsbTJsVRPH8kIg1L/qPCkHX0WchsHzxSRJW+3Tw4ZPtYvgB99wJ8A81fBZUO0eF7UNHL/j583U5LgDGsHw==
   dependencies:
-    "@ember/test-helpers" "^1.5.0"
+    "@ember/test-helpers" "^1.6.0"
     broccoli-funnel "^2.0.2"
     broccoli-merge-trees "^3.0.2"
     common-tags "^1.4.0"
-    ember-cli-babel "^7.5.0"
+    ember-cli-babel "^7.8.0"
     ember-cli-test-loader "^2.2.0"
     qunit "^2.9.2"
 
@@ -6993,6 +6994,14 @@ ember-template-recast@^4.0.0:
     slash "^3.0.0"
     tmp "^0.1.0"
     workerpool "^5.0.2"
+
+ember-test-waiters@^1.1.1:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/ember-test-waiters/-/ember-test-waiters-1.2.0.tgz#c12ead4313934c24cff41857020cacdbf8e6effe"
+  integrity sha512-aEw7YuutLuJT4NUuPTNiGFwgTYl23ThqmBxSkfFimQAn+keWjAftykk3dlFELuhsJhYW/S8YoVjN0bSAQRLNtw==
+  dependencies:
+    ember-cli-babel "^7.11.0"
+    semver "^6.3.0"
 
 ember-text-measurer@^0.5.0:
   version "0.5.0"
