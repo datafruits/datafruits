@@ -8,9 +8,14 @@
     muted
   >
     <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a web browser that
-      <a href="http://videojs.com/html5-video-support/" target="_blank" rel="noopener">
-        supports HTML5 video
+      {{t "player.compatibility.warning"}}
+      {{!-- template-lint-disable no-nested-interactive --}}
+      <a
+        href="http://videojs.com/html5-video-support/"
+        target="_blank"
+        rel="noopener"
+      >
+        {{t "player.compatibility.linktext"}}
       </a>
     </p>
   </video>

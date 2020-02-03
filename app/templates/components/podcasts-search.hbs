@@ -43,7 +43,7 @@
           @route="home.podcasts"
           @query={{hash page=(dec loader.data.meta.page)}}
         >
-          «
+          {{t "podcasts.pagination_prev"}}
         </LinkTo>
       </span>
     {{/if}}
@@ -64,7 +64,7 @@
           @route="home.podcasts"
           @query={{hash page=(inc loader.data.meta.page)}}
         >
-          »
+          {{t "podcasts.pagination_next"}}
         </LinkTo>
       </span>
     {{/if}}

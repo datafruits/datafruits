@@ -57,6 +57,10 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+.hide {
+  display: none;
+}
+
 h1#logo {
   font-family: 'debussy', sans-serif;
   transform: rotate(-3deg);
@@ -705,6 +709,18 @@ form {
   }
 }
 
+.blog-posts {
+  display: flex;
+  flex-wrap: wrap;
+  .blog-post-preview {
+    margin: 5px;
+    background: $pink;
+    border-radius: 5px;
+    min-width: 300px;
+    width: 300px;
+  }
+}
+
 .secret {
   color: $blue;
   text-shadow: none;
@@ -722,5 +738,11 @@ form {
     border: solid 2px #eee;
   &:hover {
     border: dashed 2px $yellow;
+  }
+}
+
+.blog-post {
+  img {
+    max-width: 500px;
   }
 }

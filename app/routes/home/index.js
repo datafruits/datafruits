@@ -21,7 +21,8 @@ export default Route.extend({
       }),
       latestPodcasts: podcast.get('tracks').then((tracks) => {
         return tracks.slice(0,6);
-      })
+      }),
+      blogPosts: this.store.findAll('blogPost')
     });
   },
 
