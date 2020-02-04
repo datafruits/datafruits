@@ -10,7 +10,7 @@ export default class Router extends EmberRouter {
   metrics;
 
   init() {
-    this._super(...arguments);
+    super.init();
     this.on('routeDidChange', () =>  {
       if (typeof FastBoot === 'undefined') {
         this._trackPage();
@@ -29,7 +29,7 @@ export default class Router extends EmberRouter {
     this.metrics.trackPage({ page, title });
   }
 
-};
+}
 
 Router.map(function() {
   this.route('home', { path: '/' }, function(){
