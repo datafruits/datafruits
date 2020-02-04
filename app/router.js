@@ -3,9 +3,9 @@ import { inject as service } from '@ember/service';
 import { scheduleOnce } from '@ember/runloop';
 import config from './config/environment';
 
-const Router = EmberRouter.extend({
-  location: config.locationType,
-  rootURL: config.rootURL,
+export default class Router extends EmberRouter {
+  location = config.locationType;
+  rootURL = config.rootURL;
   metrics: service(),
 
   init() {
@@ -28,7 +28,7 @@ const Router = EmberRouter.extend({
     this.metrics.trackPage({ page, title });
   }
 
-});
+};
 
 Router.map(function() {
   this.route('home', { path: '/' }, function(){
@@ -49,5 +49,3 @@ Router.map(function() {
   });
   this.route('not-found', {path: '/*path'});
 });
-
-export default Router;
