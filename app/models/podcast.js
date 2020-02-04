@@ -1,8 +1,8 @@
-import DS from 'ember-data';
+import Model, { attr, hasMany } from '@ember-data/model';
 
-export default DS.Model.extend({
-  title: DS.attr(),
-  url: DS.attr(),
-  meta: DS.attr(),
-  tracks: DS.hasMany('track')
+export default Model.extend({
+  title: attr(),
+  url: attr(),
+  meta: attr(),
+  tracks: hasMany('track')
 });

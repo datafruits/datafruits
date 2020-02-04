@@ -15,6 +15,6 @@ module('Integration | Component | chat-lazy-image', function(hooks) {
 
     await render(hbs`<ChatLazyImage @adjustScrolling={{action adjustScrolling}} />`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom(this.element).hasText('');
   });
 });
