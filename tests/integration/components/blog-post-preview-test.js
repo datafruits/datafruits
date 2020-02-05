@@ -11,6 +11,6 @@ module('Integration | Component | blog-post-preview', function(hooks) {
 
     await render(hbs`<BlogPostPreview @post={{post}} />`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom(this.element).hasText('');
   });
 });

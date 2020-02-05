@@ -1,5 +1,4 @@
-import DS from 'ember-data';
-const { JSONAPISerializer } = DS;
+import JSONAPISerializer from '@ember-data/serializer/json-api';
 
 export default JSONAPISerializer.extend({
   normalizeQueryResponse(store, primaryModelClass, payload/*, id, requestType*/) {

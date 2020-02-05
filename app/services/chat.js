@@ -1,8 +1,7 @@
-import Service from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import ArrayProxy from '@ember/array/proxy';
 import { A } from '@ember/array';
 import { computed } from '@ember/object';
-import { inject as service } from '@ember/service';
 import { Presence } from "phoenix";
 
 export default Service.extend({
