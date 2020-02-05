@@ -1,6 +1,7 @@
 {
   "name": "datafruits13",
   "version": "0.0.0",
+  "private": true,
   "description": "Small description for datafruits13 goes here",
   "repository": "",
   "license": "MIT",
@@ -16,17 +17,11 @@
     "start": "ember server",
     "test": "ember test"
   },
-  "engines": {
-    "node": "10.x"
-  },
-  "ember": {
-    "edition": "octane"
-  },
-  "private": true,
   "devDependencies": {
     "@bugsnag/js": "^6.4.3",
-    "@ember/optional-features": "^1.1.0",
+    "@ember/optional-features": "^1.3.0",
     "@glimmer/component": "^1.0.0",
+    "@glimmer/tracking": "^1.0.0",
     "active-model-adapter": "^2.2.0",
     "autolink-js": "^1.0.2",
     "babel-eslint": "^10.0.3",
@@ -95,5 +90,11 @@
     "sass": "^1.14.1",
     "textcomplete": "^0.17.1",
     "video.js": "7.2.4"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "ember": {
+    "edition": "octane"
   }
 }
