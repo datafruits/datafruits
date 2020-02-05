@@ -1,8 +1,7 @@
-import DS from 'ember-data';
-const { Model } = DS;
+import Model, { attr } from '@ember-data/model';
 
 export default Model.extend({
-  slug: DS.attr(),
-  url: DS.attr(),
-  previewUrl: DS.attr()
+  slug: attr(),
+  url: attr(),
+  previewUrl: attr()
 });

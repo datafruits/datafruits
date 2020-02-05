@@ -1,5 +1,4 @@
-import DS from 'ember-data';
-const { JSONAPIAdapter } = DS;
+import JSONAPIAdapter from '@ember-data/adapter/json-api';
 
 export default JSONAPIAdapter.extend({
   // https://api.giphy.com/v1/gifs/search?api_key=OJAyf3JHblNAu9hHhmccbPrH4wCN0pJQ&q=garfield&limit=25&offset=0&rating=G&lang=en

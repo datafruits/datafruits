@@ -1,6 +1,6 @@
-import DS from 'ember-data';
+import Model, { belongsTo, attr } from '@ember-data/model';
 
-export default DS.Model.extend({
-  dj: DS.belongsTo('dj'),
-  url: DS.attr()
+export default Model.extend({
+  dj: belongsTo('dj'),
+  url: attr()
 });

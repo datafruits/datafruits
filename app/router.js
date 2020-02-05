@@ -3,23 +3,24 @@ import { inject as service } from '@ember/service';
 import { scheduleOnce } from '@ember/runloop';
 import config from './config/environment';
 
-const Router = EmberRouter.extend({
-  location: config.locationType,
-  rootURL: config.rootURL,
-  metrics: service(),
+export default class Router extends EmberRouter {
+  location = config.locationType;
+  rootURL = config.rootURL;
+  @service
+  metrics;
 
   init() {
-    this._super(...arguments);
+    super.init();
     this.on('routeDidChange', () =>  {
       if (typeof FastBoot === 'undefined') {
         this._trackPage();
       }
     });
-  },
+  }
 
   _trackPage() {
     scheduleOnce('afterRender', this, this._trackPageCallback);
-  },
+  }
 
   _trackPageCallback() {
     const page = this.url;
@@ -28,7 +29,7 @@ const Router = EmberRouter.extend({
     this.metrics.trackPage({ page, title });
   }
 
-});
+}
 
 Router.map(function() {
   this.route('home', { path: '/' }, function(){
@@ -49,5 +50,3 @@ Router.map(function() {
   });
   this.route('not-found', {path: '/*path'});
 });
-
-export default Router;
