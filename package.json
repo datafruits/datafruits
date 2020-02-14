@@ -77,7 +77,7 @@
     "ember-service-worker-index": "^0.7.0",
     "ember-source": "~3.15.0",
     "ember-truth-helpers": "2.1.0",
-    "ember-web-app": "^3.0.1",
+    "ember-web-app": "^4.0.0",
     "ember-welcome-page": "^4.0.0",
     "emojione": "git://github.com/mcfiredrill/emojione#custom-emoji",
     "eslint-plugin-ember": "7.7.2",
