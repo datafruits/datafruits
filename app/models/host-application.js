@@ -7,5 +7,6 @@ export default Model.extend({
   interval: attr(),
   desiredTime: attr(),
   otherComment: attr(),
-  timeZone: attr()
+  timeZone: attr(),
+  homepageUrl: attr(),
 });
