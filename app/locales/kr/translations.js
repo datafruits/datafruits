@@ -42,6 +42,7 @@ export default {
     'email': '이메일',
     'username': '원하는 사용자 이름',
     'link_to_mix': "자신이 제작한1-2 시간에 섞어 링크.",
+    'homepage_url': "홈페이지 또는 SNS 계정으로 연결",
     'interval': "매일, 매주, 격주 또는 매월 제 방송하는 것은 어떻습니까?",
     "time": "원하는 시간은 무엇입니까?",
     "other": "다른 질문이나 코멘트",

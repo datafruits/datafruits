@@ -74,6 +74,7 @@ export default {
     'email': 'Email',
     'username': 'Desired username',
     'link_to_mix': "Link to a 1-2 hour mix you've made",
+    'homepage_url': "Link to your homepage or SNS account",
     'interval': "Would you like to do a daily, weekly, bi-weekly or monthly show?",
     "time": "what time would you like to do a show? typical shows are 2 hours. e.g. sundays at 3pm-5pm PST",
     "other": "Any other questions or comments?",
