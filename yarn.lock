@@ -6665,9 +6665,9 @@ ember-basic-dropdown@^2.0.5:
     ember-maybe-in-element "^0.4.0"
     ember-truth-helpers "2.1.0"
 
-"ember-calendar@https://github.com/mcfiredrill/ember-calendar#add-marzubovs-fork":
+"ember-calendar@https://github.com/mcfiredrill/ember-calendar#develop":
   version "0.5.0"
-  resolved "https://github.com/mcfiredrill/ember-calendar#292e6587ad49269276215021a70b5cad8bbc6bbb"
+  resolved "https://github.com/mcfiredrill/ember-calendar#acb6048fbbb25e3297af6086ffbb2c42cf33bf88"
   dependencies:
     ember-auto-import "^1.2.13"
     ember-cli-babel "7.1.3"

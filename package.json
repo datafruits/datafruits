@@ -30,7 +30,7 @@
     "broccoli-es6modules": "^1.2.2",
     "broccoli-merge-trees": "^2.0.0",
     "ember-auto-import": "1.5.3",
-    "ember-calendar": "https://github.com/mcfiredrill/ember-calendar#add-marzubovs-fork",
+    "ember-calendar": "https://github.com/mcfiredrill/ember-calendar#develop",
     "ember-cli": "~3.15.2",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^7.13.0",
