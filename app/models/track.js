@@ -1,5 +1,5 @@
 import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
-import { computed } from '@ember/object';
+import { mapBy } from '@ember/object/computed';
 
 export default Model.extend({
   audioFileName: attr(),
@@ -12,9 +12,5 @@ export default Model.extend({
   podcast: belongsTo('podcast'),
   scheduledShow: belongsTo('scheduled-show', { inverse: null }),
   dj: belongsTo('dj'),
-  labelNames: computed('labels', function(){
-    return this.labels.map((label) => {
-      return label.get('name');
-    });
-  })
+  labelNames: mapBy('labels', 'name'),
 });
