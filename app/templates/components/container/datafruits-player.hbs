@@ -16,7 +16,7 @@
       </a>
     {{else if playing}}
       <a class="jp-pause" tabindex="1" {{action "pause"}}>
-        {{t "player.pause"}}
+        {{t (if this.isLive "player.stop" "player.pause")}}
       </a>
     {{else if paused}}
       <a {{action "play"}}
