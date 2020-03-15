@@ -31,15 +31,14 @@ export default Component.extend({
     });
   }),
   observeQuery: observer('filterText', function(){
-    debounce(this, () => {
-      this.updateSearch(this.filterText, this.selectedLabels);
-    }, 500);
+    debounce(this, this.search, 500);
   }),
   observeLabels: observer('selectedLabels.[]', function(){
-    debounce(this, () => {
-      this.updateSearch(this.filterText, this.selectedLabels);
-    }, 100);
+    debounce(this, this.search, 100);
   }),
+  search(){
+    this.updateSearch(this.filterText, this.selectedLabels);
+  },
   actions: {
     clearSearch() {
       this.set('filterText', '');

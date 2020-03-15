@@ -7,20 +7,10 @@ module('Integration | Component | giphy-search', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set('sendGif', () => {});
 
-    await render(hbs`<GiphySearch />`);
+    await render(hbs`<GiphySearch @sendGif={{sendGif}} />`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <GiphySearch>
-        template block text
-      </GiphySearch>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.ok(this.element);
   });
 });

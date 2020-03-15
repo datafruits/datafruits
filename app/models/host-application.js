@@ -1,11 +1,12 @@
-import DS from 'ember-data';
+import Model, { attr } from '@ember-data/model';
 
-export default DS.Model.extend({
-  username: DS.attr(),
-  email: DS.attr(),
-  link: DS.attr(),
-  interval: DS.attr(),
-  desiredTime: DS.attr(),
-  otherComment: DS.attr(),
-  timeZone: DS.attr()
+export default Model.extend({
+  username: attr(),
+  email: attr(),
+  link: attr(),
+  interval: attr(),
+  desiredTime: attr(),
+  otherComment: attr(),
+  timeZone: attr(),
+  homepageUrl: attr(),
 });

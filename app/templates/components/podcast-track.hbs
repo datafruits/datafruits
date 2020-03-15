@@ -1,18 +1,23 @@
 <div class="podcast">
   {{#if playing}}
-    <a class="podcast-controls" {{action "pause"}}>
-      ❚❚
+    <a class="podcast-controls" {{action "pause"}} href="#">
+      {{t "player.pause"}}
     </a>
   {{else}}
-    <a class="podcast-controls" {{action "play"}}>
-      ▶︎
+    <a class="podcast-controls" {{action "play"}} href="#">
+      {{t "player.play"}}
     </a>
   {{/if}}
   <a href={{cdnUrl}} download="">
     <i class="fa fa-download"></i>
   </a>
   {{#if soundcloudKey}}
-    <a class="podcast-controls" href={{soundcloudKey}} target="_blank" rel="noopener">
+    <a
+      class="podcast-controls"
+      href={{soundcloudKey}}
+      target="_blank"
+      rel="noopener"
+    >
       <i class="fa fa-soundcloud"></i>
     </a>
   {{/if}}
@@ -29,7 +34,7 @@
     {{title}}
   {{/if}}
   {{#each labels as |label|}}
-    <a class="track-label" {{action selectLabel label}}>
+    <a class="track-label" {{action selectLabel label}} href="#">
       {{label.name}}
     </a>
   {{/each}}

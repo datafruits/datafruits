@@ -1,20 +1,16 @@
-import DS from 'ember-data';
-import { computed } from '@ember/object';
+import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
+import { mapBy } from '@ember/object/computed';
 
-export default DS.Model.extend({
-  audioFileName: DS.attr(),
-  cdnUrl: DS.attr(),
-  soundcloudKey: DS.attr(),
-  mixcloudKey: DS.attr(),
-  title: DS.attr(),
-  podcastPublishedDate: DS.attr(),
-  labels: DS.hasMany('label'),
-  podcast: DS.belongsTo('podcast'),
-  scheduledShow: DS.belongsTo('scheduled-show', { inverse: null }),
-  dj: DS.belongsTo('dj'),
-  labelNames: computed('labels', function(){
-    return this.labels.map((label) => {
-      return label.get('name');
-    });
-  })
+export default Model.extend({
+  audioFileName: attr(),
+  cdnUrl: attr(),
+  soundcloudKey: attr(),
+  mixcloudKey: attr(),
+  title: attr(),
+  podcastPublishedDate: attr(),
+  labels: hasMany('label'),
+  podcast: belongsTo('podcast'),
+  scheduledShow: belongsTo('scheduled-show', { inverse: null }),
+  dj: belongsTo('dj'),
+  labelNames: mapBy('labels', 'name'),
 });

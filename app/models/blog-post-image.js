@@ -1,9 +1,8 @@
-import DS from 'ember-data';
-const { Model } = DS;
+import Model, { belongsTo, attr } from '@ember-data/model';
 
 export default Model.extend({
-  blogPostBody: DS.belongsTo('blog-post-body'),
-  imageFileName: DS.attr(),
-  cdnUrl: DS.attr(),
-  s3Url: DS.attr()
+  blogPostBody: belongsTo('blog-post-body'),
+  imageFileName: attr(),
+  cdnUrl: attr(),
+  s3Url: attr()
 });

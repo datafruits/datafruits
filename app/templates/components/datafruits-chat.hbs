@@ -41,10 +41,9 @@
         @autocapitalize="none"
         placeholder={{t "chat.nickname"}}
       />
-      <button
+      <button {{action "enterChat"}}
         class="cool-button"
         disabled={{or disableJoinButton networkStatus.isOffline}}
-        {{action "enterChat"}}
       >
         {{t "chat.join"}}
       </button>

@@ -27,21 +27,21 @@
                 height="300"
                 src={{show.thumbImageUrl}}
                 alt={{show.title}}
-              />
+              >
             {{else if show.host.imageUrl}}
               <img
                 width="300"
                 height="300"
                 src={{show.host.imageUrl}}
                 alt={{show.title}}
-              />
+              >
             {{else}}
               <img
                 width="300"
                 height="300"
                 src="/assets/images/show_placeholder.jpg"
                 alt={{show.title}}
-              />
+              >
             {{/if}}
           </LinkTo>
         </div>
@@ -61,12 +61,12 @@
               height="300"
               src={{track.scheduledShow.thumbImageUrl}}
               alt={{track.title}}
-            />
+            >
           {{else}}
             <img
               src="/assets/images/show_placeholder.jpg"
               alt={{track.title}}
-            />
+            >
           {{/if}}
         </LinkTo>
         <LinkTo @route="home.show" @model={{track.scheduledShow.id}}>
