@@ -11,6 +11,7 @@
   </LinkTo>
   {{outlet}}
   <DatafruitsPlayer @nextShow={{model}}>
+    <DjDonateButton />
     <LocaleSelector
       @selectedLocale={{locale}}
       @setLocale={{action "setLocale"}}
