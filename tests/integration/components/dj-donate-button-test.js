@@ -12,15 +12,6 @@ module('Integration | Component | dj-donate-button', function(hooks) {
 
     await render(hbs`<DjDonateButton />`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <DjDonateButton>
-        template block text
-      </DjDonateButton>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.element.textContent.trim(), 'DONATE');
   });
 });
