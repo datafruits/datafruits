@@ -54,5 +54,6 @@ export default {
   'thanks_patrons': "모든 PATRONS 감사합니다!",
   'loading': '로드 중...',
   'next_broadcast': '다음 생방송: ',
-  'now_playing': 'Now playing'
+  'now_playing': 'Now playing',
+  'donate': 'DONATE',
 };
