@@ -1,9 +1,11 @@
 import Service from '@ember/service';
 import { later, run } from '@ember/runloop';
+import { inject as service } from '@ember/service';
 import ENV from "datafruits13/config/environment";
 import fetch from 'fetch';
 
 export default Service.extend({
+  rollbar: service(),
   init() {
     this._super(...arguments);
     this.set('streamHost', ENV.STREAM_HOST);
@@ -46,9 +48,17 @@ export default Service.extend({
         type: type
       });
 
+      let promise = player.play();
 
-
-      player.play();
+      if (promise !== undefined) {
+        promise.then(function() {
+          console.log('video autoplayed');// eslint-disable-line no-console
+        }).catch(function(error) {
+          // Autoplay was prevented.
+          console.log(`video autoplay failed: ${error}`);// eslint-disable-line no-console
+          this.get('rollbar').error(`video autoplay failed: ${error}`);
+        });
+      }
     });
 
   },
