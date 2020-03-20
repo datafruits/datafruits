@@ -80,7 +80,7 @@
     "ember-web-app": "^4.0.0",
     "ember-welcome-page": "^4.0.0",
     "emojione": "git://github.com/mcfiredrill/emojione#custom-emoji",
-    "eslint-plugin-ember": "7.10.1",
+    "eslint-plugin-ember": "7.11.0",
     "eslint-plugin-node": "11.0.0",
     "fastboot-app-server": "2.0.0",
     "jstimezonedetect": "^1.0.6",
