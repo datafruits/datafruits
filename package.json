@@ -91,6 +91,9 @@
     "textcomplete": "^0.17.1",
     "video.js": "7.2.4"
   },
+  "fastbootDependencies": [
+    "crypto"
+  ],
   "engines": {
     "node": "10.x"
   },
