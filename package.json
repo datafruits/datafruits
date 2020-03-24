@@ -66,7 +66,7 @@
     "ember-moment": "^7.8.1",
     "ember-page-title": "5.2.0",
     "ember-parachute": "1.0.2",
-    "ember-power-select": "3.0.4",
+    "ember-power-select": "4.0.0",
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^7.0.0",
     "ember-rollbar-client": "^0.9.0",
