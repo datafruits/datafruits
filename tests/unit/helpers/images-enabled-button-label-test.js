@@ -1,4 +1,4 @@
-import { imagesEnabledButtonLabel } from 'datafruits13/helpers/images-enabled-button-label';
+import { imagesEnabledButtonLabel } from '../../../app/helpers/images-enabled-button-label';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | images enabled button label', function() {

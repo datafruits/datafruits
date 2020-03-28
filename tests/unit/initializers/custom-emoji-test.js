@@ -1,6 +1,6 @@
 import Application from '@ember/application';
 
-import { initialize } from 'datafruits13/initializers/custom-emoji';
+import { initialize } from '../../../app/initializers/custom-emoji';
 import { module, test } from 'qunit';
 import { run } from '@ember/runloop';
 

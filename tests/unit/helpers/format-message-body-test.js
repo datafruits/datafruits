@@ -1,4 +1,4 @@
-import { formatMessageBody } from 'datafruits13/helpers/format-message-body';
+import { formatMessageBody } from '../../../app/helpers/format-message-body';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | format message body', function() {

@@ -1,4 +1,4 @@
-import { formatMessageTimestamp } from 'datafruits13/helpers/format-message-timestamp';
+import { formatMessageTimestamp } from '../../../app/helpers/format-message-timestamp';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | format message timestamp', function() {

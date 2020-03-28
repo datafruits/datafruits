@@ -1,5 +1,4 @@
-
-import { htmlSafeString } from 'datafruits13/helpers/html-safe-string';
+import { htmlSafeString } from '../../../app/helpers/html-safe-string';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | html safe string', function() {
@@ -9,4 +8,3 @@ module('Unit | Helper | html safe string', function() {
     assert.ok(result);
   });
 });
-
