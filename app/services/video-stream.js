@@ -38,9 +38,12 @@ export default Service.extend({
       let preview = name;
 
       let player = videojs('video-player', {
-        poster: `previews/${preview}.png`
+        poster: `previews/${preview}.png`,
+        userActive: false
 
       });
+
+      this.set('player', player);
 
       console.log(streamUrl); // eslint-disable-line no-console
       player.src({
@@ -48,19 +51,39 @@ export default Service.extend({
         type: type
       });
 
+      player.userActive(false);
+
       let promise = player.play();
 
       if (promise !== undefined) {
-        promise.then(function() {
+        promise.then(() => {
           console.log('video autoplayed');// eslint-disable-line no-console
-        }).catch(function(error) {
+          player.userActive(false);
+        }).catch((error) => {
           // Autoplay was prevented.
           console.log(`video autoplay failed: ${error}`);// eslint-disable-line no-console
+          player.userActive(false);
           this.get('rollbar').error(`video autoplay failed: ${error}`);
         });
       }
     });
 
+  },
+
+  play(){
+    let player = this.player;
+    let promise = player.play();
+    if (promise !== undefined) {
+      promise.then(() => {
+        console.log('video played');// eslint-disable-line no-console
+        player.userActive(false);
+      }).catch((error) => {
+        // Autoplay was prevented.
+        console.log(`video play failed: ${error}`);// eslint-disable-line no-console
+        player.userActive(false);
+        this.get('rollbar').error(`video autoplay failed: ${error}`);
+      });
+    }
   },
 
   streamIsActive(name, extension){
