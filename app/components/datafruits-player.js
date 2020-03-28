@@ -78,7 +78,7 @@ export default Component.extend({
       audioTag.pause();
       this.set('playButtonPressed', false);
       this.set('playerState', 'paused');
-      if(this.playingPodcast === false || this.isLive){
+      if(this.playingPodcast === false){
         // reload stream
         audioTag.src = "https://streampusher-relay.club/datafruits.mp3";
       }
