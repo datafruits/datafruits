@@ -1,4 +1,4 @@
-import { htmlSafeString } from '../../../app/helpers/html-safe-string';
+import { htmlSafeString } from 'datafruits/helpers/html-safe-string';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | html safe string', function() {

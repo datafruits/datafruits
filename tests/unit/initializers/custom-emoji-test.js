@@ -1,6 +1,6 @@
 import Application from '@ember/application';
 
-import { initialize } from '../../../app/initializers/custom-emoji';
+import { initialize } from 'datafruits/initializers/custom-emoji';
 import { module, test } from 'qunit';
 import { run } from '@ember/runloop';
 
@@ -9,7 +9,7 @@ module('Unit | Initializer | custom emoji', function(hooks) {
     this.TestApplication = Application.extend();
     this.TestApplication.initializer({
       name: 'initializer under test',
-      initialize
+      initialize,
     });
 
     this.application = this.TestApplication.create({ autoboot: false });
