@@ -9,6 +9,7 @@ export default Component.extend({
   eventBus: service(),
   fastboot: service(),
   metadata: service(),
+  videoStream: service(),
   playingPodcast: false,
   title: "",
   muted: false,
@@ -72,6 +73,9 @@ export default Component.extend({
       audioTag.play();
       this.set('playButtonHover', false);
       this.set('playButtonPressed', true);
+
+      // play video for mobile
+      this.videoStream.play();
     },
     pause(){
       let audioTag = document.getElementById("radio-player");
