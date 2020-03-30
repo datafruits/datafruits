@@ -27,7 +27,7 @@
     "broccoli-asset-rev": "^3.0.0",
     "broccoli-babel-transpiler": "^6.0.0",
     "broccoli-es6modules": "^1.2.2",
-    "broccoli-merge-trees": "^2.0.0",
+    "broccoli-merge-trees": "^4.2.0",
     "ember-auto-import": "1.5.3",
     "ember-calendar": "https://github.com/mcfiredrill/ember-calendar#develop",
     "ember-cli": "~3.15.2",
