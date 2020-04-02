@@ -63,9 +63,9 @@ export default Service.extend({
       this.messages.pushObject(joinedMessage);
     });
 
-
-    this.chan.on("user:entered", function (/*msg*/) {
-      //user entered room, but nick not authorized yet
+    // user banned
+    this.chan.on("disconnect", (/*msg*/) => {
+      this.set("joinedChat", false);
     });
 
     this.chan.on("presence_state", state => {
