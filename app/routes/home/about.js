@@ -3,8 +3,10 @@ import Route from '@ember/routing/route';
 export default Route.extend({
   model(){
     return [
+      {name: "Ali Cat"},
       {name: "Anthony Volodkin"},
       {name: "ben franchuk"},
+      {name: "Casey Primozic"},
       {name: "calgames"},
       {name: "Chris Romero"},
       {name: "Dannel Jurado"},
@@ -19,6 +21,7 @@ export default Route.extend({
       {name: "Jeffrey Hawkins"},
       {name: "kat"},
       {name: "Mary Hourani"},
+      {name: "Nicholas Subramaniam"},
       {name: "Phil Montville"},
       {name: "Ross"},
       {name: "Ronan"},
