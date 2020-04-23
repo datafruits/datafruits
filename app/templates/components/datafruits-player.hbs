@@ -16,9 +16,8 @@
       </a>
     {{/if}}
     {{#if loading}}
-      <a class="jp-loading" href="javascript:;" tabindex="1">
-        {{t "player.loading"}}
-      </a>
+      <div class="player-loading">
+      </div>
     {{else if playing}}
       <a class="jp-pause" tabindex="1" {{action "pause"}}>
         {{t (if this.playingPodcast "player.pause" "player.stop")}}

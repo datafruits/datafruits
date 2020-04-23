@@ -9,9 +9,20 @@ $spin-duration: 1.5s;
   }
 }
 
-.loading-container{
+.loading-container {
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin-top: 50px;
+}
+
+.player-loading {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 3px solid rgba(255,255,0,.3);
+  border-radius: 50%;
+  border-top-color: yellow;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
 }
