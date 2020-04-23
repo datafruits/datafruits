@@ -67,12 +67,12 @@ export default Component.extend({
     },
     play(){
       let audioTag = document.getElementById("radio-player");
-      if(audioTag.readyState === 0){
-        this.set('playerState', 'loading');
-      }
       if(this.playingPodcast === false){
         // reload stream
         audioTag.src = "https://streampusher-relay.club/datafruits.mp3";
+      }
+      if(audioTag.readyState === 0){
+        this.set('playerState', 'loading');
       }
       audioTag.play();
       this.set('playButtonHover', false);
@@ -124,6 +124,9 @@ export default Component.extend({
       audioTag.addEventListener("loadstart", () => {
         if(this.playButtonPressed === true){
           this.set('playerState', 'seeking');
+          if(audioTag.readyState === 0){
+            this.set('playerState', 'loading');
+          }
         }
         if(document.getElementsByClassName("seek").length){
           document.getElementsByClassName("seek")[0]
