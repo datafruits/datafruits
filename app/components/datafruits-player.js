@@ -70,6 +70,10 @@ export default Component.extend({
       if(audioTag.readyState === 0){
         this.set('playerState', 'loading');
       }
+      if(this.playingPodcast === false){
+        // reload stream
+        audioTag.src = "https://streampusher-relay.club/datafruits.mp3";
+      }
       audioTag.play();
       this.set('playButtonHover', false);
       this.set('playButtonPressed', true);
@@ -82,10 +86,6 @@ export default Component.extend({
       audioTag.pause();
       this.set('playButtonPressed', false);
       this.set('playerState', 'paused');
-      if(this.playingPodcast === false){
-        // reload stream
-        audioTag.src = "https://streampusher-relay.club/datafruits.mp3";
-      }
     },
     mute(){
       let audioTag = document.getElementById("radio-player");

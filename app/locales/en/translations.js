@@ -111,6 +111,7 @@ export default {
     'return_to_live': 'return to live stream',
     'loading': '↻',
     'pause': '❚❚',
+    'stop': '▇',
     'play': '▶︎',
     'compatibility': {
       'warning': 'To view this video please enable JavaScript, and consider upgrading to a web browser that',
