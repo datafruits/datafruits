@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { observer } from '@ember/object';
+import { observer } from '@ember/object'; //eslint-disable-line ember/no-observers
 import { debounce } from '@ember/runloop';
 
 export default Component.extend({
