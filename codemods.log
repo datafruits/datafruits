@@ -14,3 +14,103 @@
 2020-02-04T06:21:14.370Z [warn] WARNING: {{title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/coc.hbs
 2020-02-04T06:21:14.562Z [warn] WARNING: {{title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/dj-inquiry.hbs
 2020-02-04T06:21:14.573Z [warn] WARNING: {{format-message-user}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/components/user-list-item.hbs
+2020-04-24T06:40:55.682Z [info] [app/controllers/home/show.js]: SUCCESS
+2020-04-24T06:40:56.018Z [warn] [app/locales/es/config.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:55.778Z [info] [app/controllers/home/timetable.js]: SUCCESS
+2020-04-24T06:40:55.826Z [warn] [app/emojiStrategy.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:55.858Z [warn] [app/helpers/format-date.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:55.880Z [warn] [app/helpers/format-message-body.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:55.899Z [warn] [app/helpers/format-message-timestamp.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:55.934Z [warn] [app/helpers/format-message-user.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:55.972Z [warn] [app/helpers/html-safe-string.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:55.984Z [warn] [app/helpers/images-enabled-button-label.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:55.996Z [warn] [app/helpers/random-loading-message.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:56.011Z [warn] [app/helpers/random-loading-spinner.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:56.066Z [warn] [app/initializers/custom-emoji.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:56.073Z [warn] [app/locales/en/config.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:56.262Z [warn] [app/locales/en/translations.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:56.438Z [info] [app/models/podcast.js]: SUCCESS
+2020-04-24T06:40:56.306Z [warn] [app/locales/es/translations.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:56.364Z [warn] [app/locales/ja/config.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:56.416Z [warn] [app/locales/ja/translations.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:56.423Z [warn] [app/locales/kr/config.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:56.451Z [warn] [app/locales/kr/translations.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:56.686Z [info] [app/models/blog-post-body.js]: SUCCESS
+2020-04-24T06:40:56.752Z [info] [app/models/blog-post-image.js]: SUCCESS
+2020-04-24T06:40:56.796Z [info] [app/models/blog-post.js]: SUCCESS
+2020-04-24T06:40:56.887Z [info] [app/models/dj.js]: SUCCESS
+2020-04-24T06:40:56.926Z [info] [app/models/gif.js]: SUCCESS
+2020-04-24T06:40:56.979Z [info] [app/models/host-application.js]: SUCCESS
+2020-04-24T06:40:57.006Z [info] [app/models/label.js]: SUCCESS
+2020-04-24T06:40:57.025Z [info] [app/models/link.js]: SUCCESS
+2020-04-24T06:40:57.116Z [info] [app/components/container/datafruits-player.js]: SUCCESS
+2020-04-24T06:40:57.170Z [info] [app/routes/home.js]: SUCCESS
+2020-04-24T06:40:56.591Z [info] [app/models/scheduled-show.js]: SUCCESS
+2020-04-24T06:40:56.654Z [info] [app/models/track.js]: SUCCESS
+2020-04-24T06:40:56.798Z [info] [app/routes/application.js]: SUCCESS
+2020-04-24T06:40:56.821Z [info] [app/routes/container/show.js]: SUCCESS
+2020-04-24T06:40:56.882Z [info] [app/routes/home/about.js]: SUCCESS
+2020-04-24T06:40:56.951Z [info] [app/routes/home/blogs/show.js]: SUCCESS
+2020-04-24T06:40:56.997Z [info] [app/routes/home/chat.js]: SUCCESS
+2020-04-24T06:40:57.016Z [info] [app/routes/home/coc.js]: SUCCESS
+2020-04-24T06:40:57.039Z [info] [app/routes/home/dj-inquiry.js]: SUCCESS
+2020-04-24T06:40:57.117Z [info] [app/routes/home/dj.js]: SUCCESS
+2020-04-24T06:40:57.141Z [info] [app/routes/home/djs.js]: SUCCESS
+2020-04-24T06:40:57.256Z [info] [app/routes/home/index.js]: SUCCESS
+2020-04-24T06:40:57.297Z [info] [app/components/podcast-track.js]: SUCCESS
+2020-04-24T06:40:57.388Z [info] [app/adapters/application.js]: SUCCESS
+2020-04-24T06:40:57.367Z [info] [app/components/sp-nav.js]: SUCCESS
+2020-04-24T06:40:57.482Z [info] [app/components/timetable-calendar.js]: SUCCESS
+2020-04-24T06:40:57.710Z [info] [app/components/timetable-loader.js]: SUCCESS
+2020-04-24T06:40:57.764Z [info] [app/components/tweet-button.js]: SUCCESS
+2020-04-24T06:40:57.781Z [info] [app/components/user-list-item.js]: SUCCESS
+2020-04-24T06:40:57.832Z [info] [app/components/window-resize-handler.js]: SUCCESS
+2020-04-24T06:40:57.859Z [info] [app/controllers/application.js]: SUCCESS
+2020-04-24T06:40:57.886Z [info] [app/controllers/home/chat.js]: SUCCESS
+2020-04-24T06:40:57.922Z [warn] [app/controllers/home/dj-inquiry.js]: FAILURE 
+Validation errors: 
+	[submit]: Transform not supported - action name matches one of the lifecycle hooks. Rename and try again. See https://github.com/scalvert/ember-native-class-codemod/issues/34 for more details
+2020-04-24T06:40:57.940Z [info] [app/controllers/home/dj.js]: SUCCESS
+2020-04-24T06:40:57.960Z [info] [app/controllers/home/index.js]: SUCCESS
+2020-04-24T06:40:58.027Z [info] [app/controllers/home.js]: SUCCESS
+2020-04-24T06:40:58.111Z [info] [app/controllers/home/podcasts.js]: SUCCESS
+2020-04-24T06:40:57.287Z [info] [app/routes/home/podcasts.js]: SUCCESS
+2020-04-24T06:40:57.501Z [info] [app/routes/home/show.js]: SUCCESS
+2020-04-24T06:40:57.559Z [info] [app/routes/home/subscribe.js]: SUCCESS
+2020-04-24T06:40:57.575Z [info] [app/routes/home/timetable.js]: SUCCESS
+2020-04-24T06:40:57.593Z [info] [app/routes/not-found.js]: SUCCESS
+2020-04-24T06:40:57.639Z [info] [app/serializers/application.js]: SUCCESS
+2020-04-24T06:40:57.707Z [info] [app/serializers/gif.js]: SUCCESS
+2020-04-24T06:40:57.859Z [warn] [app/services/chat.js]: FAILURE 
+Validation errors: 
+	[messages]: Transform not supported - need option '--decorators=true' or the property type CallExpression can not be transformed
+	[messages]: Transform not supported - value has modifiers like 'property' or 'meta'
+2020-04-24T06:40:57.898Z [info] [app/services/event-bus.js]: SUCCESS
+2020-04-24T06:40:57.963Z [info] [app/services/metadata.js]: SUCCESS
+2020-04-24T06:40:58.016Z [info] [app/services/socket.js]: SUCCESS
+2020-04-24T06:40:58.232Z [info] [app/services/video-stream.js]: SUCCESS
+2020-04-24T06:40:57.516Z [info] [app/adapters/blog-post.js]: SUCCESS
+2020-04-24T06:40:57.577Z [info] [app/adapters/dj.js]: SUCCESS
+2020-04-24T06:40:57.619Z [info] [app/adapters/gif.js]: SUCCESS
+2020-04-24T06:40:57.653Z [info] [app/adapters/host-application.js]: SUCCESS
+2020-04-24T06:40:57.685Z [info] [app/adapters/label.js]: SUCCESS
+2020-04-24T06:40:57.754Z [info] [app/adapters/podcast.js]: SUCCESS
+2020-04-24T06:40:57.787Z [info] [app/adapters/scheduled-show.js]: SUCCESS
+2020-04-24T06:40:57.916Z [info] [app/components/blog-post.js]: SUCCESS
+2020-04-24T06:40:58.002Z [info] [app/components/blog-post-preview.js]: SUCCESS
+2020-04-24T06:40:58.055Z [info] [app/components/chat-lazy-image.js]: SUCCESS
+2020-04-24T06:40:58.181Z [info] [app/components/chat-message.js]: SUCCESS
+2020-04-24T06:40:58.256Z [info] [app/components/chat-messages.js]: SUCCESS
+2020-04-24T06:40:57.527Z [info] [app/components/datafruits-chat-input-message.js]: SUCCESS
+2020-04-24T06:40:57.773Z [info] [app/components/datafruits-chat.js]: SUCCESS
+2020-04-24T06:40:58.147Z [info] [app/components/datafruits-player.js]: SUCCESS
+2020-04-24T06:40:58.233Z [info] [app/components/datafruits-visuals.js]: SUCCESS
+2020-04-24T06:40:58.256Z [warn] [app/components/dj-donate-button.js]: SKIPPED Could not find runtime data NO_RUNTIME_DATA
+2020-04-24T06:40:58.284Z [info] [app/components/giphy-loader.js]: SUCCESS
+2020-04-24T06:40:58.309Z [info] [app/components/giphy-search.js]: SUCCESS
+2020-04-24T06:40:58.334Z [info] [app/components/locale-selector.js]: SUCCESS
+2020-04-24T06:40:58.364Z [info] [app/components/network-status.js]: SUCCESS
+2020-04-24T06:40:58.411Z [info] [app/components/notifications.js]: SUCCESS
+2020-04-24T06:40:58.438Z [info] [app/components/pc-nav.js]: SUCCESS
+2020-04-24T06:40:58.476Z [info] [app/components/podcasts-loader.js]: SUCCESS
+2020-04-24T06:40:58.554Z [info] [app/components/podcasts-search.js]: SUCCESS

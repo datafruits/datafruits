@@ -1,11 +1,15 @@
+import classic from 'ember-classic-decorator';
+import { observes } from '@ember-decorators/object';
 /* eslint ember/no-observers: 0 */
 import LazyImage from 'ember-lazy-image/components/lazy-image'
-import { observer } from '@ember/object';
+import '@ember/object';
 
-export default LazyImage.extend({
-  adjustScrollingIfImageLoaded: observer('loaded', function(){
+@classic
+export default class ChatLazyImage extends LazyImage {
+  @observes('loaded')
+  adjustScrollingIfImageLoaded() {
     if(this.loaded === true){
       this.adjustScrolling();
     }
-  })
-});
+  }
+}

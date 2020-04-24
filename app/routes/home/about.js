@@ -1,7 +1,9 @@
+import classic from 'ember-classic-decorator';
 import Route from '@ember/routing/route';
 
-export default Route.extend({
-  model(){
+@classic
+export default class AboutRoute extends Route {
+  model() {
     return [
       {name: "Ali Cat"},
       {name: "Anthony Volodkin"},
@@ -33,4 +35,4 @@ export default Route.extend({
       {name: "Veepy"},
     ];
   }
-});
+}

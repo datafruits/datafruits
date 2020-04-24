@@ -1,50 +1,72 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import classic from 'ember-classic-decorator';
+import { classNames, classNameBindings } from '@ember-decorators/component';
+import { action, computed } from '@ember/object';
 import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import { isEmpty } from '@ember/utils';
 
-export default Component.extend({
-  classNames: ['radio-bar'],
-  classNameBindings: ['playingPodcast', 'isLive', 'playButtonHover:bleed:pink-bg'],
-  eventBus: service(),
-  fastboot: service(),
-  metadata: service(),
-  videoStream: service(),
-  playingPodcast: false,
-  title: "",
-  muted: false,
-  showingVolumeControl: false,
-  playerState: "paused", //"playing", "loading"
-  playButtonPressed: false,
-  oldVolume: 0.8,
-  playTime: 0.0,
-  paused: computed('playerState', function(){
+@classic
+@classNames('radio-bar')
+@classNameBindings('playingPodcast', 'isLive', 'playButtonHover:bleed:pink-bg')
+export default class DatafruitsPlayer extends Component {
+  @service
+  eventBus;
+
+  @service
+  fastboot;
+
+  @service
+  metadata;
+
+  @service
+  videoStream;
+
+  playingPodcast = false;
+  title = "";
+  muted = false;
+  showingVolumeControl = false;
+  playerState = "paused"; //"playing", "loading"
+  playButtonPressed = false;
+  oldVolume = 0.8;
+  playTime = 0.0;
+
+  @computed('playerState')
+  get paused() {
     return this.playerState === 'paused';
-  }),
-  playing: computed('playerState', function(){
+  }
+
+  @computed('playerState')
+  get playing() {
     return this.playerState === 'playing';
-  }),
-  loading: computed('playerState', function(){
+  }
+
+  @computed('playerState')
+  get loading() {
     return this.playerState === 'loading';
-  }),
-  init(){
+  }
+
+  init() {
     this.eventBus.subscribe("trackPlayed", this, "onTrackPlayed");
     this.eventBus.subscribe("metadataUpdate", this, "setRadioTitle");
     if(!this.get('fastboot.isFastBoot')){
       this.set('volume', localStorage.getItem('datafruits-volume') || 0.8);
     }
-    this._super(...arguments);
-  },
-  isLive: computed('title', function(){
+    super.init(...arguments);
+  }
+
+  @computed('title')
+  get isLive() {
     const title = this.title;
     return !isEmpty(title) && title.startsWith("LIVE");
-  }),
+  }
+
   setRadioTitle() {
     if(this.playingPodcast === false){
       this.set('title', this.metadata.title);
     }
-  },
-  onTrackPlayed(track){
+  }
+
+  onTrackPlayed(track) {
     this.set('error', null);
     this.set('title', track.title);
     this.set('playingPodcast', true);
@@ -53,72 +75,91 @@ export default Component.extend({
     let audioTag = document.getElementById("radio-player");
     audioTag.src = track.cdnUrl;
     audioTag.play();
-  },
-  actions: {
-    playButtonMouseEnter(){
-      this.set('playButtonHover', true);
-    },
-    playButtonMouseOut(){
-      this.set('playButtonHover', false);
-    },
-    playLiveStream(){
-      this.set('playingPodcast', false);
-      this.setRadioTitle();
-    },
-    play(){
-      let audioTag = document.getElementById("radio-player");
-      if(this.playingPodcast === false){
-        // reload stream
-        audioTag.src = "https://streampusher-relay.club/datafruits.mp3";
-      }
-      if(audioTag.readyState === 0){
-        this.set('playerState', 'loading');
-      }
-      audioTag.play();
-      this.set('playButtonHover', false);
-      this.set('playButtonPressed', true);
+  }
 
-      // play video for mobile
-      this.videoStream.play();
-    },
-    pause(){
-      let audioTag = document.getElementById("radio-player");
-      audioTag.pause();
-      this.set('playButtonPressed', false);
-      this.set('playerState', 'paused');
-    },
-    mute(){
-      let audioTag = document.getElementById("radio-player");
-      audioTag.muted = true;
-      this.set('muted', true);
-      this.set('oldVolume', this.volume);
-      this.set('volume', 0.0);
-      localStorage.setItem('datafruits-volume', this.volume);
-    },
-    unmute(){
-      let audioTag = document.getElementById("radio-player");
-      audioTag.muted = false;
-      this.set('muted', false);
-      this.set('volume', this.oldVolume);
-      localStorage.setItem('datafruits-volume', this.volume);
-    },
-    toggleVolumeControl(){
-      this.toggleProperty('showingVolumeControl');
-    },
-    volumeChanged(e){
-      this.set('volume', e.target.value);
-      localStorage.setItem('datafruits-volume', this.volume);
-      let audioTag = document.getElementById("radio-player");
-      audioTag.volume = this.volume;
-    },
-    seek(e){
-      let audioTag = document.getElementById("radio-player");
-      const time = audioTag.duration * (e.target.value / 100);
+  @action
+  playButtonMouseEnter() {
+    this.set('playButtonHover', true);
+  }
 
-      audioTag.currentTime = time;
+  @action
+  playButtonMouseOut() {
+    this.set('playButtonHover', false);
+  }
+
+  @action
+  playLiveStream() {
+    this.set('playingPodcast', false);
+    this.setRadioTitle();
+  }
+
+  @action
+  play() {
+    let audioTag = document.getElementById("radio-player");
+    if(this.playingPodcast === false){
+      // reload stream
+      audioTag.src = "https://streampusher-relay.club/datafruits.mp3";
     }
-  },
-  didInsertElement(){
+    if(audioTag.readyState === 0){
+      this.set('playerState', 'loading');
+    }
+    audioTag.play();
+    this.set('playButtonHover', false);
+    this.set('playButtonPressed', true);
+
+    // play video for mobile
+    this.videoStream.play();
+  }
+
+  @action
+  pause() {
+    let audioTag = document.getElementById("radio-player");
+    audioTag.pause();
+    this.set('playButtonPressed', false);
+    this.set('playerState', 'paused');
+  }
+
+  @action
+  mute() {
+    let audioTag = document.getElementById("radio-player");
+    audioTag.muted = true;
+    this.set('muted', true);
+    this.set('oldVolume', this.volume);
+    this.set('volume', 0.0);
+    localStorage.setItem('datafruits-volume', this.volume);
+  }
+
+  @action
+  unmute() {
+    let audioTag = document.getElementById("radio-player");
+    audioTag.muted = false;
+    this.set('muted', false);
+    this.set('volume', this.oldVolume);
+    localStorage.setItem('datafruits-volume', this.volume);
+  }
+
+  @action
+  toggleVolumeControl() {
+    this.toggleProperty('showingVolumeControl');
+  }
+
+  @action
+  volumeChanged(e) {
+    this.set('volume', e.target.value);
+    localStorage.setItem('datafruits-volume', this.volume);
+    let audioTag = document.getElementById("radio-player");
+    audioTag.volume = this.volume;
+  }
+
+  @action
+  seek(e) {
+    let audioTag = document.getElementById("radio-player");
+    const time = audioTag.duration * (e.target.value / 100);
+
+    audioTag.currentTime = time;
+  }
+
+  didInsertElement() {
     if(!this.get('fastboot.isFastBoot')){
       let audioTag = document.getElementById("radio-player");
       audioTag.addEventListener("loadstart", () => {
@@ -163,5 +204,5 @@ export default Component.extend({
       audioTag.volume = this.volume;
       this.setRadioTitle();
     }
-  },
-});
+  }
+}

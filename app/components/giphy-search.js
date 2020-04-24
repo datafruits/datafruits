@@ -1,12 +1,17 @@
+import classic from 'ember-classic-decorator';
+import { observes } from '@ember-decorators/object';
 import Component from '@ember/component';
-import { observer } from '@ember/object'; //eslint-disable-line ember/no-observers
+import '@ember/object'; //eslint-disable-line ember/no-observers
 import { debounce } from '@ember/runloop';
 
-export default Component.extend({
-  observeQuery: observer('searchTerm', function(){ //eslint-disable-line ember/no-observers
+@classic
+export default class GiphySearch extends Component {
+  @observes('searchTerm')
+  observeQuery() { //eslint-disable-line ember/no-observers
     debounce(this, this.setQuery, 500);
-  }),
-  setQuery(){
+  }
+
+  setQuery() {
     this.set('query', this.searchTerm)
   }
-});
+}

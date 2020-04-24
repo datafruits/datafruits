@@ -1,15 +1,18 @@
+import classic from 'ember-classic-decorator';
+import { observes } from '@ember-decorators/object';
+import { action, computed } from '@ember/object';
 /* eslint ember/no-observers: 0 */
 import Component from '@ember/component';
-import { computed, observer } from '@ember/object';
 import { debounce } from '@ember/runloop';
 import { isEmpty } from '@ember/utils';
 import { isArray } from '@ember/array';
 
 /* eslint-disable ember/no-observers */
 
-export default Component.extend({
-  init(){
-    this._super(...arguments);
+@classic
+export default class PodcastsSearch extends Component {
+  init() {
+    super.init(...arguments);
     this.selectedLabels = [];
     const selectedTags = this.selectedTags;
     if(!isEmpty(selectedTags)){
@@ -23,28 +26,38 @@ export default Component.extend({
     if(searchParams.query){
       this.set('filterText', searchParams.query);
     }
-  },
-  filterText: '',
-  labelNames: computed('labels', function(){
+  }
+
+  filterText = '';
+
+  @computed('labels')
+  get labelNames() {
     return this.labels.map(function(label){
       return label.get('name');
     });
-  }),
-  observeQuery: observer('filterText', function(){
-    debounce(this, this.search, 500);
-  }),
-  observeLabels: observer('selectedLabels.[]', function(){
-    debounce(this, this.search, 100);
-  }),
-  search(){
-    this.updateSearch(this.filterText, this.selectedLabels);
-  },
-  actions: {
-    clearSearch() {
-      this.set('filterText', '');
-    },
-    selectLabel(label) {
-      this.selectedLabels.pushObject(label.get('name'));
-    },
   }
-});
+
+  @observes('filterText')
+  observeQuery() {
+    debounce(this, this.search, 500);
+  }
+
+  @observes('selectedLabels.[]')
+  observeLabels() {
+    debounce(this, this.search, 100);
+  }
+
+  search() {
+    this.updateSearch(this.filterText, this.selectedLabels);
+  }
+
+  @action
+  clearSearch() {
+    this.set('filterText', '');
+  }
+
+  @action
+  selectLabel(label) {
+    this.selectedLabels.pushObject(label.get('name'));
+  }
+}

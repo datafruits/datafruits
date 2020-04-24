@@ -1,8 +1,17 @@
+import classic from 'ember-classic-decorator';
 import Model, { belongsTo, attr } from '@ember-data/model';
 
-export default Model.extend({
-  blogPostBody: belongsTo('blog-post-body'),
-  imageFileName: attr(),
-  cdnUrl: attr(),
-  s3Url: attr()
-});
+@classic
+export default class BlogPostImage extends Model {
+  @belongsTo('blog-post-body')
+  blogPostBody;
+
+  @attr()
+  imageFileName;
+
+  @attr()
+  cdnUrl;
+
+  @attr()
+  s3Url;
+}

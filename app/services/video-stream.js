@@ -1,20 +1,24 @@
+import classic from 'ember-classic-decorator';
 import Service from '@ember/service';
 import { later, run } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 import ENV from "datafruits13/config/environment";
 import fetch from 'fetch';
 
-export default Service.extend({
-  rollbar: service(),
+@classic
+export default class VideoStreamService extends Service {
+  @service
+  rollbar;
+
   init() {
-    this._super(...arguments);
+    super.init(...arguments);
     this.set('streamHost', ENV.STREAM_HOST);
     this.set('streamName', ENV.STREAM_NAME);
-  },
+  }
 
-  active: false,
+  active = false;
 
-  initializePlayer: async function() {
+  async initializePlayer() {
     const module = await import("video.js");
     const videojs = module.default;
     let name = this.streamName;
@@ -68,9 +72,9 @@ export default Service.extend({
       }
     });
 
-  },
+  }
 
-  play(){
+  play() {
     let player = this.player;
     let promise = player.play();
     if (promise !== undefined) {
@@ -84,15 +88,15 @@ export default Service.extend({
         this.get('rollbar').error(`video autoplay failed: ${error}`);
       });
     }
-  },
+  }
 
-  streamIsActive(name, extension){
+  streamIsActive(name, extension) {
     this.set("active", true);
     this.set('streamName', name);
     this.set('extension', extension);
-  },
+  }
 
-  fetchStream(){
+  fetchStream() {
     let name = this.streamName;
     let host = this.streamHost;
     fetch(`${host}/hls/${name}.m3u8`, {method:'HEAD'}).then((response) => {
@@ -119,5 +123,5 @@ export default Service.extend({
     }).catch(function(err) {
       console.log("Error: " + err); // eslint-disable-line no-console
     });
-  },
-});
+  }
+}

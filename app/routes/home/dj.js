@@ -1,15 +1,17 @@
+import classic from 'ember-classic-decorator';
 import Route from '@ember/routing/route';
 import ENV from 'datafruits13/config/environment';
 
-export default Route.extend({
+@classic
+export default class DjRoute extends Route {
   model(params) {
     return this.store.queryRecord('dj', { name: params.name });
 
-  },
+  }
 
   afterModel(model) {
    this.setHeadTags(model);
-  },
+  }
 
   setHeadTags(model) {
     const headTags = {
@@ -44,11 +46,11 @@ export default Route.extend({
    };
 
    this.set('headTags', Object.values({ ...ENV.headTags, ...headTags }));
-  },
+  }
 
   serialize(dj) {
     return {
       name: dj.get('name')
     };
   }
-});
+}
