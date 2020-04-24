@@ -1,5 +1,8 @@
+import classic from 'ember-classic-decorator';
 import Model, { attr } from '@ember-data/model';
 
-export default Model.extend({
-  name: attr()
-});
+@classic
+export default class Label extends Model {
+  @attr()
+  name;
+}

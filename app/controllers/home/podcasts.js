@@ -1,7 +1,8 @@
+import classic from 'ember-classic-decorator';
+import { action, computed } from '@ember/object';
 import { or } from '@ember/object/computed';
 import Controller from '@ember/controller';
 import QueryParams from 'ember-parachute';
-import { computed } from '@ember/object';
 
 export const PodcastQueryParams = new QueryParams({
   page: {
@@ -24,16 +25,20 @@ export const PodcastQueryParams = new QueryParams({
   }
 });
 
-export default Controller.extend(PodcastQueryParams.Mixin, {
-  queryParamsChanged: or('queryParamsState.{page,query,tags}.changed'),
-  searchParams: computed('query', 'tags', 'page', function(){
+@classic
+export default class PodcastsController extends Controller.extend(PodcastQueryParams.Mixin) {
+  @or('queryParamsState.{page,query,tags}.changed')
+  queryParamsChanged;
+
+  @computed('query', 'tags', 'page')
+  get searchParams() {
     return { query: this.query, tags: this.tags, page: this.page };
-  }),
-  actions: {
-    updateSearch(query, tags){
-      this.set('query', query);
-      this.set('tags', tags);
-      this.set('page', 1);
-    }
   }
-});
+
+  @action
+  updateSearch(query, tags) {
+    this.set('query', query);
+    this.set('tags', tags);
+    this.set('page', 1);
+  }
+}

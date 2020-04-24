@@ -1,7 +1,9 @@
+import classic from 'ember-classic-decorator';
 import ApplicationAdapter from './application';
 
-export default ApplicationAdapter.extend({
-  urlForQueryRecord(query){
+@classic
+export default class Dj extends ApplicationAdapter {
+  urlForQueryRecord(query) {
     return `${this.urlPrefix()}/djs/${query.name}`;
-  },
-});
+  }
+}

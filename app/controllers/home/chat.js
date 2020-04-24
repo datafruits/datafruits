@@ -1,10 +1,15 @@
-import Controller from '@ember/controller';
-import { inject as service } from '@ember/service';
+import classic from 'ember-classic-decorator';
 import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
+import Controller from '@ember/controller';
 
-export default Controller.extend({
-  fastboot: service(),
-  isNotFastboot: computed('fastboot', function(){
+@classic
+export default class ChatController extends Controller {
+  @service
+  fastboot;
+
+  @computed('fastboot')
+  get isNotFastboot() {
     return !this.get('fastboot.isFastBoot');
-  }),
-});
+  }
+}

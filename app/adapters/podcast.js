@@ -1,7 +1,9 @@
+import classic from 'ember-classic-decorator';
 import ApplicationAdapter from './application';
 
-export default ApplicationAdapter.extend({
-  urlForQueryRecord(){
+@classic
+export default class Podcast extends ApplicationAdapter {
+  urlForQueryRecord() {
     return `${this.urlPrefix()}/podcasts/datafruits`;
   }
-});
+}

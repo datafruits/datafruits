@@ -1,8 +1,10 @@
+import classic from 'ember-classic-decorator';
 import Route from '@ember/routing/route';
 import { hash } from 'rsvp';
 
-export default Route.extend({
-  model: async function(params){
+@classic
+export default class PodcastsRoute extends Route {
+  async model(params) {
     params.page = params.page || 1;
     const podcast = await this.store.queryRecord('podcast', {
       name: 'datafruits',
@@ -15,4 +17,4 @@ export default Route.extend({
       labels: this.store.loadRecords('label'),
     })
   }
-});
+}

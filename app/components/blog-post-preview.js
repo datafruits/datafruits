@@ -1,10 +1,15 @@
-import Component from '@ember/component';
+import classic from 'ember-classic-decorator';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 
-export default Component.extend({
-  i18n: service(),
-  body: computed('i18n.locale', function(){
+@classic
+export default class BlogPostPreview extends Component {
+  @service
+  i18n;
+
+  @computed('i18n.locale')
+  get body() {
     let body = this.post.blogPostBodies.filter( (body) => {
       return body.language == this.i18n.locale;
     }).firstObject;
@@ -14,5 +19,5 @@ export default Component.extend({
       }).firstObject;
     }
     return body;
-  }),
-});
+  }
+}
