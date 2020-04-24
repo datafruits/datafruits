@@ -60,7 +60,7 @@
     "ember-i18n": "^5.2.0",
     "ember-lazy-image": "https://github.com/mcfiredrill/ember-lazy-image#update-dependencies",
     "ember-load-initializers": "^2.1.1",
-    "ember-lodash": "^4.17.5",
+    "ember-lodash": "^4.19.5",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-metrics": "^0.13.0",
     "ember-moment": "^7.8.1",
