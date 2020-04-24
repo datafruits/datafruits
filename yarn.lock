@@ -6811,7 +6811,7 @@ ember-cli-babel@^6.0.0, ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.11.0, 
     ember-cli-version-checker "^2.1.2"
     semver "^5.5.0"
 
-ember-cli-babel@^6.10.0, ember-cli-babel@^6.16.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.7.2:
+ember-cli-babel@^6.16.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.7.2:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.18.0.tgz#3f6435fd275172edeff2b634ee7b29ce74318957"
   integrity sha512-7ceC8joNYxY2wES16iIBlbPSxwKDBhYwC8drU3ZEvuPDMwVv1KzxCNu1fvxyFEBWhwaRNTUxSCsEVoTd9nosGA==
@@ -7798,6 +7798,18 @@ ember-local-storage@^1.0.0:
     ember-cli-version-checker "^2.1.0"
     ember-copy "^1.0.0"
 
+ember-lodash@4.19.5:
+  version "4.19.5"
+  resolved "https://registry.yarnpkg.com/ember-lodash/-/ember-lodash-4.19.5.tgz#489293aceb25c8b165e9b0b802c4bd1e3a4cda37"
+  integrity sha512-3NMtKvEMpipaxRuf5jbihQ5iGWnZyYssxLd0xDbqzxTU/3rHhnDIVS3+qPnw5AT0iH+hjlFlk1M4Ekv/K8a+bw==
+  dependencies:
+    broccoli-debug "^0.6.1"
+    broccoli-funnel "^2.0.1"
+    broccoli-merge-trees "^3.0.0"
+    broccoli-string-replace "^0.1.1"
+    ember-cli-babel "^7.0.0"
+    lodash-es "^4.17.4"
+
 ember-lodash@^4.17.4:
   version "4.19.4"
   resolved "https://registry.yarnpkg.com/ember-lodash/-/ember-lodash-4.19.4.tgz#3e76e6cb04c9312c2158180bf16d7983aae05774"
@@ -7808,18 +7820,6 @@ ember-lodash@^4.17.4:
     broccoli-merge-trees "^3.0.0"
     broccoli-string-replace "^0.1.1"
     ember-cli-babel "^7.0.0"
-    lodash-es "^4.17.4"
-
-ember-lodash@^4.17.5:
-  version "4.18.0"
-  resolved "https://registry.yarnpkg.com/ember-lodash/-/ember-lodash-4.18.0.tgz#45de700d6a4f68f1cd62888d90b50aa6477b9a83"
-  integrity sha1-Rd5wDWpPaPHNYoiNkLUKpkd7moM=
-  dependencies:
-    broccoli-debug "^0.6.1"
-    broccoli-funnel "^2.0.1"
-    broccoli-merge-trees "^2.0.0"
-    broccoli-string-replace "^0.1.1"
-    ember-cli-babel "^6.10.0"
     lodash-es "^4.17.4"
 
 ember-macro-helpers@^2.1.0:
