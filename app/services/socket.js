@@ -1,10 +1,12 @@
+import classic from 'ember-classic-decorator';
 import Service from '@ember/service';
 import { Socket } from "phoenix";
 import ENV from "datafruits13/config/environment";
 
-export default Service.extend({
+@classic
+export default class SocketService extends Service {
   init() {
-    this._super(...arguments);
+    super.init(...arguments);
     this.set('socket', new Socket(ENV.CHAT_SOCKET_URL, {
 
       logger: function logger(/*kind, msg, data*/) {
@@ -23,4 +25,4 @@ export default Service.extend({
       //return console.log("CLOSE", e);
     });
   }
-});
+}

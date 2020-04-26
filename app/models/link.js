@@ -1,6 +1,11 @@
-import DS from 'ember-data';
+import classic from 'ember-classic-decorator';
+import Model, { belongsTo, attr } from '@ember-data/model';
 
-export default DS.Model.extend({
-  dj: DS.belongsTo('dj'),
-  url: DS.attr()
-});
+@classic
+export default class Link extends Model {
+  @belongsTo('dj')
+  dj;
+
+  @attr()
+  url;
+}

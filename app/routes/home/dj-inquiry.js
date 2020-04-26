@@ -1,7 +1,9 @@
+import classic from 'ember-classic-decorator';
 import Route from '@ember/routing/route';
 
-export default Route.extend({
-  model(){
+@classic
+export default class DjInquiryRoute extends Route {
+  model() {
     let hostApplication;
     hostApplication = this.store.peekAll('host-application').get('firstObject');
     if(!hostApplication){
@@ -9,4 +11,4 @@ export default Route.extend({
     }
     return hostApplication;
   }
-});
+}

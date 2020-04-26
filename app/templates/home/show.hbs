@@ -4,7 +4,7 @@
     {{model.title}}
   </h1>
   <h2>
-    Hosted by:
+    {{t "show.hosted_prefix"}}
     {{#each model.djs as |dj|}}
       <span class="dj-title">
         <LinkTo @route="home.dj" @model={{dj.username}}>
@@ -19,10 +19,10 @@
   <div class="modal-body">
     {{#if model.thumbImageUrl}}
       <div class="show-image">
-        <img src="{{model.thumbImageUrl}}" alt="{{model.title}}" />
+        <img src={{model.thumbImageUrl}} alt={{model.title}}>
       </div>
     {{else if model.host.imageMediumUrl}}
-      <img src="{{model.host.imageMediumUrl}}" alt="{{model.dj.username}}" />
+      <img src={{model.host.imageMediumUrl}} alt={{model.dj.username}}>
     {{/if}}
     <p>
       {{html-safe-string model.htmlDescription}}
@@ -44,6 +44,6 @@
     {{/each}}
   </div>
   <div class="modal-footer">
-    <TweetButton data-text={{model.tweetContent}} />
+    <TweetButton @text={{model.tweetContent}} />
   </div>
 </div>

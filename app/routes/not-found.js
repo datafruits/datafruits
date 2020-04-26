@@ -1,7 +1,9 @@
+import classic from 'ember-classic-decorator';
 import Route from '@ember/routing/route'
 
-export default Route.extend({
-  redirect: function () {
+@classic
+export default class NotFoundRoute extends Route {
+  redirect() {
       this.transitionTo('/not-found');
   }
-});
+}

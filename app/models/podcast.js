@@ -1,8 +1,17 @@
-import DS from 'ember-data';
+import classic from 'ember-classic-decorator';
+import Model, { attr, hasMany } from '@ember-data/model';
 
-export default DS.Model.extend({
-  title: DS.attr(),
-  url: DS.attr(),
-  meta: DS.attr(),
-  tracks: DS.hasMany('track')
-});
+@classic
+export default class Podcast extends Model {
+  @attr()
+  title;
+
+  @attr()
+  url;
+
+  @attr()
+  meta;
+
+  @hasMany('track')
+  tracks;
+}

@@ -1,25 +1,51 @@
-import emojiStrategy from "../emojiStrategy";
-import Component from '@ember/component';
+import classic from 'ember-classic-decorator';
+import { action } from '@ember/object';
+import { tagName } from '@ember-decorators/component';
 import { inject as service } from '@ember/service';
 import { oneWay } from '@ember/object/computed';
+import emojiStrategy from "../emojiStrategy";
+import Component from '@ember/component';
 import { Textcomplete, Textarea } from 'textcomplete';
 
-export default Component.extend({
-  tagName: "span",
-  chat: service(),
-  username: oneWay('chat.username'),
-  joinedUsers: oneWay('chat.joinedUsers'),
-  actions: {
-    sendMessage(){
-      const message = this.inputMessage;
-      if(message){
-        this.chat.push("new:msg", { user: this.username, body: message, timestamp: Date.now() });
-        this.set('inputMessage', '');
-      }
-    }
-  },
+@classic
+@tagName("span")
+export default class DatafruitsChatInputMessage extends Component {
+  @service
+  chat;
 
-  didInsertElement(){
+  @oneWay('chat.username')
+  username;
+
+  @oneWay('chat.joinedUsers')
+  joinedUsers;
+
+  @action
+  closeGifSearch() {
+    this.set('showingGifSearch', false);
+  }
+
+  @action
+  sendGif(gif) {
+    this.set('inputMessage', gif.url);
+    this.set('showingGifSearch', false);
+    this.element.querySelector("#send-message-button").focus();
+  }
+
+  @action
+  showGifSearch() {
+    this.set('showingGifSearch', true);
+  }
+
+  @action
+  sendMessage() {
+    const message = this.inputMessage;
+    if(message){
+      this.chat.push("new:msg", { user: this.username, body: message, timestamp: Date.now() });
+      this.set('inputMessage', '');
+    }
+  }
+
+  didInsertElement() {
     let emojiComplete = {
       id: "emojis",
       //match: /\B:([\-+\w]*)$/,
@@ -83,4 +109,4 @@ export default Component.extend({
     });
     emojiTextcomplete.register([emojiComplete, usernameComplete]);
   }
-});
+}

@@ -57,6 +57,10 @@ body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+.hide {
+  display: none;
+}
+
 h1#logo {
   font-family: 'debussy', sans-serif;
   transform: rotate(-3deg);
@@ -502,10 +506,13 @@ a:hover {
       }
     }
     #controls {
-       flex: 1;
-       justify-content: center;
-       display: flex;
-       flex-direction: column;
+      flex: 2;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      @media (min-width: 768px) {
+        flex: 1;
+      }
     }
   }
   .radio-bar {
@@ -529,6 +536,8 @@ a:hover {
     top: 50px;
     left: 0;
     width: 100vw;
+    height: 100vh;
+    object-fit: cover;
     margin: 0 auto;
   }
 }
@@ -702,6 +711,18 @@ form {
   }
 }
 
+.blog-posts {
+  display: flex;
+  flex-wrap: wrap;
+  .blog-post-preview {
+    margin: 5px;
+    background: $pink;
+    border-radius: 5px;
+    min-width: 300px;
+    width: 300px;
+  }
+}
+
 .secret {
   color: $blue;
   text-shadow: none;
@@ -709,3 +730,53 @@ form {
     color: $yellow;
   }
 }
+
+.gif-button {
+  all: unset;
+}
+
+.gif-preview {
+  cursor: pointer;
+    border: solid 2px #eee;
+  &:hover {
+    border: dashed 2px $yellow;
+  }
+}
+
+.blog-post {
+  img {
+    max-width: 500px;
+  }
+}
+
+.donate-button {
+  font-size: 18px;
+  background-color: $green;
+  border: 1px solid white;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+  padding: 5px;
+  margin-right: 20px;
+  text-decoration: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  transition: all 0.10s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-color: darken($green, 15%);
+    border: 1px solid darken(white, 15%);
+    color: #fff;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
+

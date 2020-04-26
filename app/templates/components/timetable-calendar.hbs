@@ -4,6 +4,7 @@
     @dayStartingTime="0:00"
     @dayEndingTime="23:00"
     @timeSlotDuration="00:30"
+    @nowTimeLabelFormat="h:mm a"
     @type={{view}}
     @onNavigate={{action "calendarNavigate"}}
     @onClickOccurrence={{action "calendarClickOccurrence"}}
@@ -20,8 +21,9 @@
       @timeSlotHeight={{calendar.timeSlotHeight}}
       @timeSlotDuration={{calendar.timeSlotDuration}} as |model|
     >
+      {{!-- template-lint-disable no-inline-styles --}}
       <h1 class="as-calendar-occurrence__title" style={{titleStyle}}>
-        <LinkTo @route="home.show" @model={{model.content.id}}>
+        <LinkTo @route="home.show" @model={{model.content.id}} @title={{model.title}}>
           {{model.title}}
         </LinkTo>
       </h1>

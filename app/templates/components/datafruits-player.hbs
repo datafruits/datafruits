@@ -2,29 +2,28 @@
   <source
     src="https://streampusher-relay.club/datafruits.mp3"
     type="audio/mp3"
-  />
+  >
   <source
     src="https://streampusher-relay.club/datafruits.ogg"
     type="audio/ogg"
-  />
+  >
 </audio>
 <div class="radio-container">
   <div class="player-controls">
     {{#if playingPodcast}}
-      <a {{action "playLiveStream"}}>
-        return to live stream
+      <a href="javascript:;" {{action "playLiveStream"}}>
+        {{t "player.return_to_live"}}
       </a>
     {{/if}}
     {{#if loading}}
-      <a class="jp-loading" href="javascript:;" tabindex="1">
-        ↻
-      </a>
+      <div class="player-loading">
+      </div>
     {{else if playing}}
       <a class="jp-pause" tabindex="1" {{action "pause"}}>
-        ❚❚
+        {{t (if this.playingPodcast "player.pause" "player.stop")}}
       </a>
     {{else if paused}}
-      <a
+      <a {{action "play"}}
         onMouseEnter={{action "playButtonMouseEnter"}}
         onMouseLeave={{action "playButtonMouseOut"}}
         class="jp-play"
@@ -32,16 +31,16 @@
         tabindex="1"
         role="button"
         aria-label={{t "player.play_button_label"}}
-        {{action "play"}}
       >
-        ▶︎
+        {{t "player.play"}}
       </a>
     {{/if}}
-    <span
+    <span {{action "toggleVolumeControl" on="mouseEnter"}}
       class="jp-volume-controls"
-      {{action "toggleVolumeControl" on="mouseEnter"}}
+      role="button"
     >
       {{#if muted}}
+        {{!-- template-lint-disable no-nested-interactive --}}
         <a class="jp-unmute" tabindex="1" {{action "unmute"}}>
           <i class="fa fa-volume-off"></i>
         </a>
@@ -59,7 +58,7 @@
           step="0.1"
           oninput={{action "volumeChanged"}}
           value={{volume}}
-        />
+        >
       {{/if}}
     </span>
   </div>
@@ -95,7 +94,7 @@
         step="any"
         oninput={{action "seek"}}
         value={{playTime}}
-      />
+      >
     </div>
   </div>
 {{/if}}

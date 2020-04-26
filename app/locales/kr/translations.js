@@ -15,7 +15,11 @@ export default {
   'chat': {
     'title': '채팅',
     'new_messages': '신규 메시지 밑에 있습니다.',
-    'offline': "오프라인 상태인 것 같아요. 채팅이 안 될 것 같아요.혹시 양파 샐러드 드레싱일지도 몰랐어요."
+    'offline': "오프라인 상태인 것 같아요. 채팅이 안 될 것 같아요.혹시 양파 샐러드 드레싱일지도 몰랐어요.",
+    'send': "송신",
+    'message_placeholder': "여기에 당신의 메시지를 입력하시오...",
+    'join': "잡담을 나누다",
+    'nickname': "별명"
   },
   'podcasts': {
     'title': '팟캐스트',
@@ -38,6 +42,7 @@ export default {
     'email': '이메일',
     'username': '원하는 사용자 이름',
     'link_to_mix': "자신이 제작한1-2 시간에 섞어 링크.",
+    'homepage_url': "홈페이지 또는 SNS 계정으로 연결",
     'interval': "매일, 매주, 격주 또는 매월 제 방송하는 것은 어떻습니까?",
     "time": "원하는 시간은 무엇입니까?",
     "other": "다른 질문이나 코멘트",
@@ -49,5 +54,6 @@ export default {
   'thanks_patrons': "모든 PATRONS 감사합니다!",
   'loading': '로드 중...',
   'next_broadcast': '다음 생방송: ',
-  'now_playing': 'Now playing'
+  'now_playing': 'Now playing',
+  'donate': 'DONATE',
 };

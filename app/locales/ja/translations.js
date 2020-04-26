@@ -6,7 +6,11 @@ export default {
   'chat': {
     'title': 'チャット',
     'new_messages': '新着メッセージ下にあります.',
-    'offline': "オフライン状態のようです。 チャット出来ないと思います。もしかしてオニオンサラダドレッシングかもしれませんでした。"
+    'offline': "オフライン状態のようです。 チャット出来ないと思います。もしかしてオニオンサラダドレッシングかもしれませんでした。",
+    'send': "送信",
+    'message_placeholder': "メッセージをここに入力してください",
+    'join': "チャットに参加",
+    'nickname': "ニックネーム"
   },
   'podcasts': {
     'title': 'ポッドキャスト',
@@ -29,6 +33,7 @@ export default {
     'email': 'メール',
     'username': '希望ユーザ名',
     'link_to_mix': "自分で作った1〜2時間ミックスのリンクを教えてください",
+    'homepage_url': "ホームページまたはSNSアカウント",
     'interval': "毎日、毎週、隔週、または毎月第の番組をいかがでしょうか？",
     "time": "希望の時間は何でしょうか?",
     "other": "他の質問やコメント",
@@ -52,7 +57,8 @@ export default {
   },
   'player': {
     'play_button_label': '再生'
-  }
+  },
+  'donate': '寄付する',
   // "some.translation.key": "Text for some.translation.key",
   //
   // "a": {

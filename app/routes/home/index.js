@@ -1,12 +1,16 @@
-import Route from '@ember/routing/route';
+import classic from 'ember-classic-decorator';
 import { inject as service } from '@ember/service';
+import Route from '@ember/routing/route';
 import ENV from 'datafruits13/config/environment';
 import { hash } from 'rsvp';
 import moment from 'moment';
 
-export default Route.extend({
-  fastboot: service(),
-  model: async function(){
+@classic
+export default class IndexRoute extends Route {
+  @service
+  fastboot;
+
+  async model() {
     let query = {
       start: moment().format('YYYY-MM-DD'),
       end: moment().endOf('month').add(1, 'month').format('YYYY-MM-DD')
@@ -21,16 +25,17 @@ export default Route.extend({
       }),
       latestPodcasts: podcast.get('tracks').then((tracks) => {
         return tracks.slice(0,6);
-      })
+      }),
+      blogPosts: this.store.findAll('blogPost')
     });
-  },
+  }
 
   afterModel() {
    this.setHeadTags();
-  },
+  }
 
   setHeadTags() {
     const headTags = ENV.headTags;
     this.set('headTags', Object.values(headTags));
-  },
-});
+  }
+}

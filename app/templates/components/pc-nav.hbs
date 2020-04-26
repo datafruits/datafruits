@@ -1,16 +1,16 @@
 <nav class="navbar pc" role="navigation">
   <ul>
     <li class="subnav">
-      <a
+      <a {{action toggleSubMenu on="mouseEnter"}}
         class="submenu-title"
         href="#"
-        {{action toggleSubMenu on="mouseEnter"}}
       >
         {{t "radio"}}
         <span
           class="fa fa-arrow-circle-o-right {{if submenuOpen "rotated"}}"
           aria-hidden="true"
-        ></span>
+        >
+        </span>
       </a>
     </li>
     <li>
@@ -69,6 +69,6 @@
     </ul>
   {{/if}}
   <LinkTo @route="home">
-    <img id="circle-logo" src="/assets/images/logo.png" />
+    <img id="circle-logo" src="/assets/images/logo.png" alt={{t "site_title"}}>
   </LinkTo>
 </nav>

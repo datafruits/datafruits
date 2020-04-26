@@ -6,11 +6,12 @@
   <SpNav @toggleMenu={{action "toggleMenu"}} @menuOpen={{menuOpen}} />
   <LinkTo @route="home">
     <h1 id="logo">
-      datafruits.fm
+      {{t "site_title_fm"}}
     </h1>
   </LinkTo>
   {{outlet}}
   <DatafruitsPlayer @nextShow={{model}}>
+    <DjDonateButton />
     <LocaleSelector
       @selectedLocale={{locale}}
       @setLocale={{action "setLocale"}}

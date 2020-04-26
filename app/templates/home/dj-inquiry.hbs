@@ -1,9 +1,9 @@
 {{title (t "djinquiry.title")}}
 <div class="main-content">
   <h1 id="myModalLabel">
-    <img src="{{random-loading-spinner}}" />
+    <img src={{random-loading-spinner}} alt={{t "loading"}}>
     {{t "djinquiry.heading"}}
-    <img src="{{random-loading-spinner}}" />
+    <img src={{random-loading-spinner}} alt={{t "loading"}}>
   </h1>
   <div class="modal-body">
     <p>
@@ -21,7 +21,7 @@
             <label>
               {{t "djinquiry.email"}}
             </label>
-            <br />
+            <br>
             <Input @value={{model.email}} />
             {{#if model.errors.email}}
               {{#each model.errors.email as |error|}}
@@ -37,7 +37,7 @@
             <label>
               {{t "djinquiry.username"}}
             </label>
-            <br />
+            <br>
             <Input @value={{model.username}} />
             {{#if model.errors.username}}
               {{#each model.errors.username as |error|}}
@@ -53,7 +53,7 @@
             <label>
               {{t "djinquiry.link_to_mix"}}
             </label>
-            <br />
+            <br>
             <Input @value={{model.link}} />
             {{#if model.errors.link}}
               {{#each model.errors.link as |error|}}
@@ -67,9 +67,16 @@
           </div>
           <div>
             <label>
+              {{t "djinquiry.homepage_url"}}
+            </label>
+            <br>
+            <Input @value={{model.homepageUrl}} />
+          </div>
+          <div>
+            <label>
               {{t "djinquiry.interval"}}
             </label>
-            <br />
+            <br>
             <select onchange={{action "setInterval"}} value="target.value">
               {{#each intervals as |interval|}}
                 {{#if (eq model.interval interval)}}
@@ -88,7 +95,7 @@
             <label>
               {{t "djinquiry.time"}}
             </label>
-            <br />
+            <br>
             <Textarea @value={{model.desiredTime}} />
             {{#if model.errors.desiredTime}}
               {{#each model.errors.desiredTime as |error|}}
@@ -104,7 +111,7 @@
             <label>
               {{t "djinquiry.other"}}
             </label>
-            <br />
+            <br>
             <Textarea @value={{model.otherComment}} />
           </div>
           <div>
@@ -113,14 +120,14 @@
               value="Send"
               class="cool-button"
               disabled={{model.isSaving}}
-            />
+            >
           </div>
         </form>
       </p>
     {{else}}
       <p>
-        <img src="/assets/images/thanks.gif" />
-        <br />
+        <img src="/assets/images/thanks.gif" alt={{t "thanks"}}>
+        <br>
         {{t "djinquiry.thanks"}}
       </p>
     {{/if}}
