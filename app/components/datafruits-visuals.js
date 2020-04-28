@@ -14,6 +14,9 @@ export default class DatafruitsVisuals extends Component {
   @oneWay('videoStream.active')
   videoStreamActive;
 
+  @oneWay('videoStream.mode')
+  videoStreamMode; // off, bg, tv
+
   didRender() {
     if(!this.get('fastboot.isFastBoot')){
       if(this.videoStreamActive){

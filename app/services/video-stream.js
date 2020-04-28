@@ -14,6 +14,7 @@ export default class VideoStreamService extends Service {
     super.init(...arguments);
     this.set('streamHost', ENV.STREAM_HOST);
     this.set('streamName', ENV.STREAM_NAME);
+    this.set('mode', 'bg');
   }
 
   active = false;
