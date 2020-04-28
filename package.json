@@ -88,7 +88,7 @@
     "jstimezonedetect": "^1.0.6",
     "loader.js": "^4.2.3",
     "phoenix": "1.4.14",
-    "qunit-dom": "1.1.0",
+    "qunit-dom": "1.2.0",
     "sass": "^1.14.1",
     "textcomplete": "^0.17.1",
     "video.js": "7.7.5"
