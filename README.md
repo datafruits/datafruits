@@ -10,10 +10,8 @@ frontend for datafruits application.
 You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with NPM)
-* [Bower](https://bower.io/)
+* [Node.js](https://nodejs.org/) (with yarn)
 * [Ember CLI](https://ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
 
 ## Installation
 
