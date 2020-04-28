@@ -5,9 +5,6 @@
 
 frontend for datafruits application.
 
-## Trello board
-https://trello.com/b/loemZkpB/datafruits-website
-
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
