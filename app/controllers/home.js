@@ -7,12 +7,12 @@ import Controller from '@ember/controller';
 @classic
 export default class HomeController extends Controller {
   @service
-  i18n;
+  intl;
 
   @service
   router;
 
-  @oneWay('i18n.locale')
+  @oneWay('intl.locale')
   locale;
 
   menuOpen = false;
@@ -28,7 +28,7 @@ export default class HomeController extends Controller {
 
   @action
   setLocale(locale) {
-    this.set('i18n.locale', locale);
+    this.set('intl.locale', locale);
   }
 
   @action

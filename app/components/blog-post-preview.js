@@ -6,12 +6,12 @@ import Component from '@ember/component';
 @classic
 export default class BlogPostPreview extends Component {
   @service
-  i18n;
+  intl;
 
-  @computed('i18n.locale')
+  @computed('intl.locale')
   get body() {
     let body = this.post.blogPostBodies.filter( (body) => {
-      return body.language == this.i18n.locale;
+      return body.language == this.intl.locale;
     }).firstObject;
     if(!body) {
       body = this.post.blogPostBodies.filter( (body) => {

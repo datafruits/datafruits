@@ -6,7 +6,7 @@ import { later } from '@ember/runloop';
 @classic
 export default class HomeRoute extends Route {
   @service
-  i18n;
+  intl;
 
   @service
   fastboot;
@@ -17,7 +17,7 @@ export default class HomeRoute extends Route {
 
   afterModel() {
     if(!this.get('fastboot.isFastBoot')){
-      let locales = this.get('i18n.locales');
+      let locales = this.get('intl.locales');
       let language;
       if(navigator.languages){
         language = navigator.languages[0];
@@ -26,7 +26,7 @@ export default class HomeRoute extends Route {
       }
       language = locales.includes(language.toLowerCase()) ? language : 'en';
 
-      this.set('i18n.locale', language)
+      this.set('intl.locale', language)
     }
   }
 
