@@ -1,31 +1,24 @@
-import classic from 'ember-classic-decorator';
-import { tagName } from '@ember-decorators/component';
-import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import { task, timeout } from 'ember-concurrency';
+import { inject as service } from '@ember/service';
 import moment from 'moment';
 import jstz from 'jstimezonedetect';
 
-@classic
-@tagName('')
-export default class TimetableLoader extends Component {
-  @service
-  store;
-
-  @service
-  fastboot;
-
+export default Component.extend({
+  store: service(),
+  fastboot: service(),
+  tagName: '',
   init() {
-    super.init(...arguments);
+    this._super(...arguments);
     this.data = [];
-  }
+  },
 
   didReceiveAttrs() {
     let query = this.query;
     this.fetchData.perform(query);
-  }
+  },
 
-  @(task(function*(query) {
+  fetchData: task(function*(query) {
     if(!this.get('fastboot.isFastBoot')){
       if(document.getElementsByClassName("as-calendar-timetable__main").length){
         document.getElementsByClassName("as-calendar-timetable__main")[0]
@@ -51,6 +44,5 @@ export default class TimetableLoader extends Component {
         .classList.remove('bleed')
     }
     return this.set('data', resolvedShows);
-  }).restartable())
-  fetchData;
-}
+  }).restartable()
+});
