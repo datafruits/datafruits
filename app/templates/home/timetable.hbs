@@ -2,11 +2,11 @@
 <div class="main-content">
   <p>
     <TimetableCalendar
-      @onTypeChange={{action "calendarTypeChange"}}
+      @onCalendarTypeChange={{action "calendarTypeChange"}}
       @reloadCalendar={{action "reloadCalendar"}}
-      @query={{query}}
-      @startingDate={{start}}
-      @view={{view}}
+      @query={{this.query}}
+      @startingDate={{this.start}}
+      @view={{this.view}}
     />
   </p>
 </div>

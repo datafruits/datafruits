@@ -1,19 +1,19 @@
-<TimetableLoader @query={{query}} as |loader|>
+<TimetableLoader @query={{@query}} as |loader|>
   <AsCalendar
     @occurrences={{loader.data}}
     @dayStartingTime="0:00"
     @dayEndingTime="23:00"
     @timeSlotDuration="00:30"
     @nowTimeLabelFormat="h:mm a"
-    @type={{view}}
+    @type={{@view}}
     @onNavigate={{action "calendarNavigate"}}
     @onClickOccurrence={{action "calendarClickOccurrence"}}
     @onAddOccurrence={{action "calendarAddOccurrence"}}
     @onUpdateOccurrence={{action "calendarUpdateOccurrence"}}
     @onEditOccurrence={{action "calendarEditOccurrence"}}
     @onRemoveOccurrence={{action "calendarRemoveOccurrence"}}
-    @startingDate={{startingDate}}
-    @onTypeChange={{onTypeChange}} as |occurrence timetable calendar|
+    @startingDate={{@startingDate}}
+    @onTypeChange={{@onCalendarTypeChange}} as |occurrence timetable calendar|
   >
     <AsCalendar::Occurrence
       @model={{occurrence}}
