@@ -77,7 +77,7 @@
     "ember-service-worker-cache-fallback": "^0.6.2",
     "ember-service-worker-cache-first": "^0.6.3",
     "ember-service-worker-index": "^0.7.0",
-    "ember-source": "~3.15.0",
+    "ember-source": "~3.18.1",
     "ember-truth-helpers": "2.1.0",
     "ember-web-app": "^4.0.0",
     "ember-welcome-page": "^4.0.0",
