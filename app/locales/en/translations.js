@@ -10,6 +10,8 @@ export default {
   // "key.with.interpolation": "Text with {{anInterpolation}}"
   'site_title': 'datafruits',
   'site_title_fm': 'datafruits.fm',
+  'pagination_prev': '«',
+  'pagination_next': '»',
   'home': {
     'upcoming_shows': 'UPCOMING SHOWS',
     'latest_podcasts': 'LATEST PODCASTS',
@@ -41,8 +43,6 @@ export default {
   'podcasts': {
     'title': 'Podcast',
     'no_result': 'No results. Musta been the onion salad dressing.',
-    'pagination_prev': '«',
-    'pagination_next': '»',
     'text_search': {
       'label': 'Search by free text'
     },
