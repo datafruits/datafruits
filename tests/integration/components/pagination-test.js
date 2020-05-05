@@ -9,18 +9,11 @@ module('Integration | Component | pagination', function(hooks) {
   test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
+    this.meta = { page: 1, total_pages: 10 };
+    this.route = "home.djs";
 
-    await render(hbs`<Pagination />`);
+    await render(hbs`<Pagination @meta={{this.meta}} @route={{this.route}} />`);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <Pagination>
-        template block text
-      </Pagination>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom(this.element).hasText('1 2 3 4 5 6 7 8 9 10 »');
   });
 });
