@@ -8670,9 +8670,9 @@ emoji-regex@^8.0.0:
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
   integrity sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
 
-"emojione@git://github.com/mcfiredrill/emojione#custom-emoji":
+"emojione@git://github.com/mcfiredrill/emojione#animated-emoji":
   version "3.1.2"
-  resolved "git://github.com/mcfiredrill/emojione#b60ae69e98789588fa35276bf7e97d1291c6ebbb"
+  resolved "git://github.com/mcfiredrill/emojione#a67c80945bd4fcb885e953d13f9b030019a06afb"
 
 emojis-list@^2.0.0:
   version "2.1.0"
