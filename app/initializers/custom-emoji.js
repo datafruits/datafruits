@@ -40,6 +40,7 @@ export function initialize(/* application */) {
     },
     ":datafruits:": {
       custom: true,
+      animated: true,
       uc_base: "datafruits",
       uc_output: "",
       shortnames: [":datafruits:", ":datacoin:"],
@@ -52,6 +53,14 @@ export function initialize(/* application */) {
       uc_output: "",
       shortnames: [":salad_dressing:", ":onion_salad_dressing:", ":saladdressing:", ":onionsaladdressing:"],
       keywords: ["salad", "dressing"]
+    },
+    ":trash:": {
+      custom: true,
+      animated: true,
+      uc_base: "cooltrash",
+      uc_output: "",
+      shortnames: [":trash:", ":cooltrash:"],
+      keywords: ["trash", "cooltrash"]
     }
   };
   Object.keys(customEmojis).forEach(emoji => {
