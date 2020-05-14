@@ -30,6 +30,7 @@ export default class AboutRoute extends Route {
       {name: "Sean"},
       {name: "sofie mikhaylova"},
       {name: "STRIDER"},
+      {name: "Takashi Kawano"},
       {name: "takuma chiba"},
       {name: "Timelord SFX"},
       {name: "Veepy"},

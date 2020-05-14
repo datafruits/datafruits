@@ -82,7 +82,7 @@
     "ember-truth-helpers": "2.1.0",
     "ember-web-app": "^4.0.0",
     "ember-welcome-page": "^4.0.0",
-    "emojione": "git://github.com/mcfiredrill/emojione#custom-emoji",
+    "emojione": "git://github.com/mcfiredrill/emojione#animated-emoji",
     "eslint-plugin-ember": "7.10.1",
     "eslint-plugin-node": "11.1.0",
     "fastboot-app-server": "2.0.0",
