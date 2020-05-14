@@ -59,7 +59,6 @@
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "7.1.0",
     "ember-font-awesome": "4.0.0-alpha.4",
-    "ember-i18n": "^5.2.0",
     "ember-intl": "^4.3.2",
     "ember-lazy-image": "https://github.com/mcfiredrill/ember-lazy-image#update-dependencies",
     "ember-load-initializers": "^2.1.1",
