@@ -43,7 +43,8 @@ export default class VideoStreamService extends Service {
 
       let player = videojs('video-player', {
         poster: `previews/${preview}.png`,
-        userActive: false
+        userActive: false,
+        controls: false
 
       });
 
