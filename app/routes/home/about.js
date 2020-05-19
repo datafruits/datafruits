@@ -5,7 +5,9 @@ import Route from '@ember/routing/route';
 export default class AboutRoute extends Route {
   model() {
     return [
+      {name: "Aaron R. Brown"},
       {name: "Ali Cat"},
+      {name: "Axl Herevia"},
       {name: "Anthony Volodkin"},
       {name: "ben franchuk"},
       {name: "Casey Primozic"},
@@ -14,6 +16,7 @@ export default class AboutRoute extends Route {
       {name: "Dannel Jurado"},
       {name: "DJ oven"},
       {name: "Drongo Unchained"},
+      {name: "E G"},
       {name: "Erin tanner"},
       {name: "Evan Higgins"},
       {name: "Gia"},
@@ -21,6 +24,7 @@ export default class AboutRoute extends Route {
       {name: "GLORIA and KEN"},
       {name: "Izzy J"},
       {name: "Jeffrey Hawkins"},
+      {name: "Jesse Erickson"},
       {name: "kat"},
       {name: "Mary Hourani"},
       {name: "Nicholas Subramaniam"},
@@ -32,6 +36,7 @@ export default class AboutRoute extends Route {
       {name: "STRIDER"},
       {name: "Takashi Kawano"},
       {name: "takuma chiba"},
+      {name: "Tank Jr."},
       {name: "Timelord SFX"},
       {name: "Veepy"},
     ];
