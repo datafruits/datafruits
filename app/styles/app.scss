@@ -743,6 +743,12 @@ form {
   }
 }
 
+.gif-preview-big {
+    display: block;
+    margin: 0 auto;
+    background: blue;
+}
+
 .blog-post {
   img {
     max-width: 500px;
@@ -779,4 +785,3 @@ form {
     opacity: 0.5;
   }
 }
-
