@@ -159,6 +159,10 @@ div.radio-bar a:hover {
 
 .jp-volume-controls {
   position: relative;
+  .jp-unmute {
+    display: inline-block;
+    width: 1em;
+  }
   input.volume-control {
     position: absolute;
     transform: rotate(270deg);
@@ -166,7 +170,7 @@ div.radio-bar a:hover {
     height: 20px;
     width: 100px;
     position: absolute;
-    top: -59px;
+    top: -69px;
     left: -40px;
   }
   input[type=range] {
@@ -276,4 +280,3 @@ div.radio-bar {
     background:$pink;
   }
 }
-

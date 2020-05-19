@@ -56,6 +56,7 @@ module.exports = function(defaults) {
 
   app.import('/vendor/hinted-Debussy.woff2');
   app.import('/vendor/hinted-Debussy.woff');
+  app.import('node_modules/video.js/dist/video-js.min.css');
 
   return app.toTree();
 };

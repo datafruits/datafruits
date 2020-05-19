@@ -2,6 +2,7 @@ import classic from 'ember-classic-decorator';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { oneWay } from '@ember/object/computed';
+import { debounce } from '@ember/runloop';
 import Controller from '@ember/controller';
 
 @classic
@@ -41,6 +42,10 @@ export default class HomeController extends Controller {
 
   @action
   toggleSubMenu() {
-    this.toggleProperty('submenuOpen');
+    debounce(this, 'toggleSubMenuOnce', 500, true);
+  }
+
+  toggleSubMenuOnce() {
+      this.toggleProperty('submenuOpen');
   }
 }
