@@ -4,20 +4,22 @@ import { later, run } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 import ENV from "datafruits13/config/environment";
 import fetch from 'fetch';
+import { tracked } from '@glimmer/tracking';
 
 @classic
 export default class VideoStreamService extends Service {
   @service
   rollbar;
 
+  @tracked mode = 'bg';
+
+  active = false;
+
   init() {
     super.init(...arguments);
     this.set('streamHost', ENV.STREAM_HOST);
     this.set('streamName', ENV.STREAM_NAME);
-    this.set('mode', 'bg');
   }
-
-  active = false;
 
   async initializePlayer() {
     const module = await import("video.js");
@@ -124,5 +126,14 @@ export default class VideoStreamService extends Service {
     }).catch(function(err) {
       console.log("Error: " + err); // eslint-disable-line no-console
     });
+  }
+
+  toggleMode(){
+    if(this.mode === 'bg'){
+      this.mode = 'tv';
+    }else{
+      this.mode = 'bg';
+    }
+    console.log(this.mode);
   }
 }

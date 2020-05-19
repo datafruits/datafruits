@@ -1,0 +1,22 @@
+<video
+  id="video-player"
+  class="video-js vjs-default-skin vjs-16-9 vjs-big-play-centered"
+  controls=""
+  preload="auto"
+  data-setup="{'fluid': true}"
+  playsinline
+  style={{@styleProperties}}
+  muted
+>
+  <p class="vjs-no-js">
+    {{t "player.compatibility.warning"}}
+    {{!-- template-lint-disable no-nested-interactive --}}
+    <a
+      href="http://videojs.com/html5-video-support/"
+      target="_blank"
+      rel="noopener"
+    >
+      {{t "player.compatibility.linktext"}}
+    </a>
+  </p>
+</video>
