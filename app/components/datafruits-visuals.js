@@ -11,12 +11,14 @@ import { tracked } from '@glimmer/tracking';
 @classic
 @classNames('visuals')
 export default class DatafruitsVisuals extends Component {
+  @tracked draggable = false;
   @tracked top = 0;
   @tracked left = 0;
   @tracked width = '100vw';
   @tracked height = '100vh';
+  @tracked zIndex = '-999';
   get styleProperties() {
-    return `top: ${this.top}; left: ${this.left}; width: ${this.width}; height: ${this.height}`;
+    return `top: ${this.top}px !important; left: ${this.left}px !important; width: ${this.width} !important; height: ${this.height} !important; z-index: ${this.zIndex}`;
   }
 
   @service
@@ -34,10 +36,12 @@ export default class DatafruitsVisuals extends Component {
       this.draggable = true;
       this.width = "300px";
       this.height = "300px";
+      this.zIndex = '1';
     }else{
       this.draggable = false;
       this.width = "100vw";
       this.height = "100vh";
+      this.zIndex = '-999';
     }
   }
 
@@ -78,8 +82,10 @@ export default class DatafruitsVisuals extends Component {
   dragEnd(event) {
     console.log('dragEnd');
     console.log(event);
-    this.set('left', event.clientX);
-    this.set('top', event.clientY);
+    if(this.videoStreamMode === "tv"){
+      this.left = event.clientX;
+      this.top = event.clientY;
+    }
     //this.element.style = `top: ${this.x}; left: ${this.y}`;
   }
 }
