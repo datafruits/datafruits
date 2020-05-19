@@ -535,8 +535,8 @@ a:hover {
     position: absolute;
     top: 50px;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100vw !important;
+    height: 100vh !important;
     object-fit: cover;
     margin: 0 auto;
   }
