@@ -4,15 +4,54 @@ import { inject as service } from '@ember/service';
 import { oneWay } from '@ember/object/computed';
 import Component from '@ember/component';
 import { later } from '@ember/runloop';
+//import computedStyle from 'ember-computed-style';
+import { observes } from '@ember-decorators/object';
+import { tracked } from '@glimmer/tracking';
 
 @classic
 @classNames('visuals')
 export default class DatafruitsVisuals extends Component {
+  @tracked draggable = false;
+  @tracked top = 0;
+  @tracked left = 0;
+  @tracked width = '100vw';
+  @tracked height = '100vh';
+  @tracked zIndex = '-999';
+  get styleProperties() {
+    return `top: ${this.top}px !important; left: ${this.left}px !important; width: ${this.width} !important; height: ${this.height} !important; z-index: ${this.zIndex}`;
+  }
+
   @service
   videoStream;
 
   @oneWay('videoStream.active')
   videoStreamActive;
+
+  @oneWay('videoStream.mode')
+  videoStreamMode; // off, bg, tv
+
+  @observes('videoStreamMode')
+  setTvMode() {
+    if(this.videoStreamMode === 'tv'){
+      this.draggable = true;
+      this.width = "300px";
+      this.height = "300px";
+      this.zIndex = '1';
+    }else{
+      this.draggable = false;
+      this.width = "100vw";
+      this.height = "100vh";
+      this.zIndex = '-999';
+    }
+  }
+
+  // @tracked x;
+  // @tracked y;
+  //init(){
+    //this.style = computedStyle('styleProperties');
+    // this.attributeBindings = this.style;
+  //   super.init(...arguments);
+  // }
 
   didRender() {
     if(!this.get('fastboot.isFastBoot')){
@@ -28,5 +67,25 @@ export default class DatafruitsVisuals extends Component {
 
   didInsertElement() {
     this.videoStream.fetchStream();
+  }
+
+  dragStart(event) {
+    console.log('dragStart');
+    console.log(event);
+  }
+
+  drag(event) {
+    console.log('drag');
+    console.log(event);
+  }
+
+  dragEnd(event) {
+    console.log('dragEnd');
+    console.log(event);
+    if(this.videoStreamMode === "tv"){
+      this.left = event.clientX;
+      this.top = event.clientY;
+    }
+    //this.element.style = `top: ${this.x}; left: ${this.y}`;
   }
 }

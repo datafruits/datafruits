@@ -531,6 +531,9 @@ a:hover {
   width: 100vw;
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
+  .video-js {
+    background: none;
+  }
   video {
     position: absolute;
     top: 50px;

@@ -13,6 +13,9 @@ export default class HomeController extends Controller {
   @service
   router;
 
+  @service
+  videoStream;
+
   @oneWay('i18n.locale')
   locale;
 
