@@ -8,6 +8,12 @@ import Component from '@ember/component';
 @classic
 @classNames('main-content')
 export default class DatafruitsChat extends Component {
+
+  @oneWay('chatText.color') color;
+
+  @service
+  chatText;
+
   @service
   chat;
 
