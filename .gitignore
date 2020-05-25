@@ -32,3 +32,6 @@ yarn-error.log
 
 # annoying mac file
 /.DS_Store
+
+# vscode `experimentalDecorators` syntax-highlighting
+tsconfig.json

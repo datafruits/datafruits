@@ -34,6 +34,7 @@ export default {
     'join': "Join chat",
     'nickname': "nickname",
     'gif': 'GIF',
+    'color': 'Adjust font color'
   },
   '404': {
     'title': '404!',

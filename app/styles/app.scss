@@ -275,6 +275,11 @@ nav {
   text-shadow: #333 1px 1px 1px;
 }
 
+#chat-text-options input[type=color] {
+  height: 16px;
+  padding: 0%;
+}
+
 #messages {
   width: 100vw;
   margin:0;
