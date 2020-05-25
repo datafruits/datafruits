@@ -275,7 +275,11 @@ nav {
   text-shadow: #333 1px 1px 1px;
 }
 
+#chat-text-options {
+  width: 6%;
+}
 #chat-text-options input[type=color] {
+  width: 60%;
   height: 16px;
   padding: 0%;
 }
