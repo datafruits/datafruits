@@ -1,6 +1,10 @@
 <div id="chat-text-options" class="cool-button">
   <div title={{t "chat.color"}}>
-    <input type="color" oninput={{action "selectedColor"}}>
-    <span>🅰️</span>
+    <input 
+      type="color"
+      value="yellow"
+      oninput={{action "selectedColor"}}
+    >
+    <span style={{this.style}}>🗚</span>
   </div>
 </div>
