@@ -3,7 +3,7 @@
     <input 
       type="color"
       value="#fff940"
-      oninput={{action "selectedColor"}}
+      {{on "input" this.selectedColor}}
     >
     <span style={{this.style}}>🗚</span>
   </div>
