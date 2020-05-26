@@ -297,6 +297,10 @@ nav {
   //height: 100%;
 }
 
+.message-body a {
+  color: inherit
+}
+
 #userlist {
   width: 20vw;
   @media only screen and (max-device-width: 480px) {
