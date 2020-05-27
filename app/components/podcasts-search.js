@@ -60,4 +60,7 @@ export default class PodcastsSearch extends Component {
   selectLabel(label) {
     this.selectedLabels.pushObject(label.get('name'));
   }
+
+  @action
+  nop() {}
 }
