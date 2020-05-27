@@ -2,6 +2,7 @@ import classic from 'ember-classic-decorator';
 import Service from '@ember/service';
 import { later, run } from '@ember/runloop';
 import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 import ENV from "datafruits13/config/environment";
 import fetch from 'fetch';
 
@@ -16,7 +17,7 @@ export default class VideoStreamService extends Service {
     this.set('streamName', ENV.STREAM_NAME);
   }
 
-  active = false;
+  @tracked active = false;
 
   async initializePlayer() {
     const module = await import("video.js");
@@ -35,7 +36,7 @@ export default class VideoStreamService extends Service {
       }
       else {
         console.log("Unknown extension: " + extension); // eslint-disable-line no-console
-        this.set("active", false);
+        this.active = false;
         return;
       }
 
@@ -92,7 +93,7 @@ export default class VideoStreamService extends Service {
   }
 
   streamIsActive(name, extension) {
-    this.set("active", true);
+    this.active = true;
     this.set('streamName', name);
     this.set('extension', extension);
   }
@@ -112,6 +113,8 @@ export default class VideoStreamService extends Service {
             this.streamIsActive(name, "mp4");
           } else {
             console.log("No stream found"); // eslint-disable-line no-console
+            //disable video here??
+            this.active = false;
             later(()=> {
               this.fetchStream();
             }, 15000);
