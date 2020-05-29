@@ -28,6 +28,8 @@
     "broccoli-babel-transpiler": "^6.0.0",
     "broccoli-es6modules": "^1.2.2",
     "broccoli-merge-trees": "^2.0.0",
+    "corber": "1.4.3",
+    "corber-ember-livereload": "^0.0.2",
     "ember-auto-import": "1.5.3",
     "ember-calendar": "https://github.com/mcfiredrill/ember-calendar#develop",
     "ember-classic-decorator": "^1.0.8",
