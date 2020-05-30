@@ -1,43 +1,47 @@
-<form role="search" aria-label={{ t "podcasts.text_search.label"}}
-{{action "nop" on="submit"}}>
-  <Input
-    class="search-tracks"
-    @autofocus="autofocus"
-    @value={{filterText}}
-    @escape-press={{action "clearSearch"}}
-    placeholder="Search podcasts"
-  />
-</form>
-<form role="search" aria-label={{ t "podcasts.tag_search.label"}}>
-  <PowerSelectMultiple
-    @placeholder="Search by tag..."
-    @options={{labelNames}}
-    @selected={{selectedLabels}}
-    @renderInPlace={{true}}
-    @onChange={{action (mut selectedLabels)}} as |label|
-  >
-    {{label}}
-  </PowerSelectMultiple>
-</form>
-<PodcastsLoader @query={{searchParams}} as |loader|>
-  {{#if loader.isRunning}}
-    <p>
-      {{t "loading"}}
-    </p>
-  {{else}}
-    {{#each loader.data.tracks as |track|}}
-      <PodcastTrack
-        @cdnUrl={{track.cdnUrl}}
-        @title={{track.title}}
-        @scheduledShow={{track.scheduledShow}}
-        @soundcloudKey={{track.soundcloudKey}}
-        @mixcloudKey={{track.mixcloudKey}}
-        @labels={{track.labels}}
-        @selectLabel={{action "selectLabel"}}
-      />
+<div id="podcast-search-forms">
+  <form role="search" aria-label={{ t "podcasts.text_search.label"}}
+  {{action "nop" on="submit"}}>
+    <Input
+      id="search-tracks"
+      @autofocus="autofocus"
+      @value={{filterText}}
+      @escape-press={{action "clearSearch"}}
+      placeholder="Search podcasts"
+    />
+  </form>
+  <form role="search" aria-label={{ t "podcasts.tag_search.label"}}>
+    <PowerSelectMultiple
+      @placeholder="Search by tag..."
+      @options={{labelNames}}
+      @selected={{selectedLabels}}
+      @renderInPlace={{true}}
+      @onChange={{action (mut selectedLabels)}} as |label|
+    >
+      {{label}}
+    </PowerSelectMultiple>
+  </form>
+</div>
+<div id="podcast-search-results">
+  <PodcastsLoader @query={{searchParams}} as |loader|>
+    {{#if loader.isRunning}}
+      <p>
+        {{t "loading"}}
+      </p>
     {{else}}
-      {{t "podcasts.no_result"}}
-    {{/each}}
-    <Pagination @meta={{loader.data.meta}} @route="home.podcasts" />
-  {{/if}}
-</PodcastsLoader>
+      {{#each loader.data.tracks as |track|}}
+        <PodcastTrack
+          @cdnUrl={{track.cdnUrl}}
+          @title={{track.title}}
+          @scheduledShow={{track.scheduledShow}}
+          @soundcloudKey={{track.soundcloudKey}}
+          @mixcloudKey={{track.mixcloudKey}}
+          @labels={{track.labels}}
+          @selectLabel={{action "selectLabel"}}
+        />
+      {{else}}
+        {{t "podcasts.no_result"}}
+      {{/each}}
+      <Pagination @meta={{loader.data.meta}} @route="home.podcasts" />
+    {{/if}}
+  </PodcastsLoader>
+</div>

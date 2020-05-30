@@ -427,6 +427,28 @@ a:hover {
   font-size:12px;
 }
 
+#search-tracks {
+  text-shadow: inherit;
+}
+
+#podcast-search-forms form {
+  margin-bottom: 1em;
+}
+
+#podcast-search-forms input {
+  margin-right: .5em;
+  margin-bottom: .5em;
+  width: 20rem;
+}
+
+#podcast-search-forms div {
+  margin-top: -1em;
+  width: 20rem;
+}
+
+#podcast-search-results {
+}
+
 .podcast-controls {
   text-decoration: none;
   cursor: pointer;
