@@ -32,3 +32,6 @@ yarn-error.log
 
 # annoying mac file
 /.DS_Store
+
+# IDE-specific settings
+.vscode
