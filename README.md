@@ -1,6 +1,7 @@
 # datafruits
 
 ![CI](https://github.com/datafruits/datafruits/workflows/CI/badge.svg)
+[![codecov](https://codecov.io/gh/datafruits/datafruits/branch/master/graph/badge.svg)](https://codecov.io/gh/datafruits/datafruits)
 
 frontend for datafruits application.
 
