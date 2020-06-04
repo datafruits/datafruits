@@ -39,14 +39,12 @@ jobs:
         run: yarn build
 
       # Store build output for deployment
-      - name: Compress build output
-        run: tar -czfv build.tar.gz dist fastboot fastboot_server Procfile
       - name: Upload build output
         if: github.event_name == 'push' && contains(github.ref, 'master')
         uses: actions/upload-artifact@v1
         with:
           name: build
-          path: build.tar.gz
+          path: dist
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -105,8 +103,12 @@ jobs:
         uses: actions/download-artifact@v1
         with:
           name: build
-      - name: Extract build output
-        run: tar -xzfv build/build.tar.gz
       # Replace this with your deployment step
       - name: Verify build output exists
-        run: ls
+        shell: bash
+        run: |
+          BUILD_DIR=build/dist
+          if test -f "$BUILD_DIR"; then
+              echo "$BUILD_DIR exists and contains:"
+              echo "$(ls $BUILD_DIR)"
+          fi
