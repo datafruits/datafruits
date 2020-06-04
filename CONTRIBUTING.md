@@ -11,3 +11,9 @@ Check the issues for issues that are labeled "Good for new contributors" for a g
 ## Have an idea for a new feature.
 
 Feel free to submit a new issue with your idea!
+
+## Submitting a PR
+
+Please don't make unrelated changes in the same PR. This makes it much more difficult to review.
+
+The more focused your PR is the better chance it has of being merged quickly.
