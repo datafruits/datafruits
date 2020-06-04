@@ -78,7 +78,6 @@ jobs:
 
       # Lint
       - name: Lint files
-        continue-on-error: true
         run: |
           yarn lint:js
           yarn lint:hbs
