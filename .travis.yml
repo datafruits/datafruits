@@ -24,6 +24,17 @@ before_install:
 install:
   - yarn install --non-interactive
 
-script:
-  - yarn lint:js
-  - yarn test
+jobs:
+  include:
+    - stage: Tests
+      name: Lint
+      script:
+        - yarn lint:js
+        # - yarn lint:hbs
+    - script: yarn coverage && bash <(curl -s https://codecov.io/bash)
+      name: Test & Upload Coverage
+    - script:
+        - yarn global install @lhci/cli@0.4.x
+        - yarn build --environment=production
+        - lhci autorun --upload.target=temporary-public-storage
+      name: Create lighthouse report
