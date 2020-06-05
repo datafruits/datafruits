@@ -35,5 +35,5 @@ jobs:
     - script:
         - yarn global add @lhci/cli@0.4.x
         - yarn build --environment=production
-        - lhci autorun --upload.target=temporary-public-storage
+        - lhci autorun --config-path=config/lighthouserc.js
       name: Create Lighthouse Report
