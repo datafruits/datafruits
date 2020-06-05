@@ -126,17 +126,12 @@ jobs:
 
       # Install dependencies
       - name: Install dependencies
-        run: |
-          yarn
-          yarn global add @lhci/cli@0.4.x
-
-      # Build & create lhci directory
-      - name: Build
-        run: |
-          mkdir lhci
+        run: yarn
 
       - name: Run Lighthouse
-        run: yarn lighthouse
+        run: |
+          mkdir lhci
+          yarn lighthouse
         continue-on-error: true
 
       - name: Store generated report
