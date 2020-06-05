@@ -33,11 +33,10 @@ jobs:
     - script:
         - yarn coverage
         - bash <(curl -s https://codecov.io/bash)
-      if: branch = master
+      if: type = push
       name: Test & Upload Coverage
     - script:
-        - yarn global add @lhci/cli@0.4.x
         - mkdir lhci
         - yarn build --environment=production
-        - lhci autorun --config-path=config/lighthouserc.js --upload.target=temporary-public-storage
+        - yarn lighthouse --upload.target=temporary-public-storage
       name: Create Lighthouse Report

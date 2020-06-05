@@ -96,8 +96,9 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           fail_ci_if_error: true
+
   lighthouse:
-    name: Generate Lighthouse Report
+    name: Lighthouse Score
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -134,8 +135,11 @@ jobs:
         run: |
           mkdir lhci
           yarn build --environment=production
+
       - name: Run Lighthouse
-        run: lhci autorun --config-path=config/lighthouserc.js
+        run: yarn lighthouse
+        continue-on-error: true
+
       - name: Store generated report
         uses: actions/upload-artifact@v2
         with:

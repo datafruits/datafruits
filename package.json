@@ -16,12 +16,14 @@
     "lint:js": "eslint .",
     "start": "ember server",
     "test": "ember test",
-    "coverage": "cross-env COVERAGE=true ember test"
+    "coverage": "cross-env COVERAGE=true ember test",
+    "lighthouse": "lhci autorun --config-path=config/lighthouserc.js"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.3.0",
     "@glimmer/component": "^1.0.0",
     "@glimmer/tracking": "^1.0.0",
+    "@lhci/cli": "0.4.1",
     "active-model-adapter": "^2.2.0",
     "autolink-js": "^1.0.2",
     "babel-eslint": "^8.0.0",
