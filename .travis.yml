@@ -18,7 +18,7 @@ env:
     # See the following for details:
     # https://git.io/vdao3
     # https://docs.travis-ci.com/user/reference/overview/#virtualisation-environment-vs-operating-system
-    - JOBS=1
+    - JOBS=2
 
 install:
   - yarn install --non-interactive
@@ -30,10 +30,14 @@ jobs:
       script:
         - yarn lint:js
         # - yarn lint:hbs
-    - script: yarn coverage && bash <(curl -s https://codecov.io/bash)
+    - script:
+        - yarn coverage
+        - bash <(curl -s https://codecov.io/bash)
+      if: branch = master
       name: Test & Upload Coverage
     - script:
         - yarn global add @lhci/cli@0.4.x
+        - mkdir lhci
         - yarn build --environment=production
-        - lhci autorun --config-path=config/lighthouserc.js
+        - lhci autorun --config-path=config/lighthouserc.js --upload.target=temporary-public-storage
       name: Create Lighthouse Report
