@@ -3,8 +3,9 @@ language: node_js
 node_js:
   - "10"
 
-sudo: false
-dist: trusty
+os: linux
+arch: arm64
+dist: xenial
 
 addons:
   chrome: stable
@@ -14,8 +15,12 @@ cache:
 
 env:
   global:
-    # See https://git.io/vdao3 for details.
-    - JOBS=1
+    # Reduce ember's parallel-ness to 2,
+    # the number of cores available on travis.
+    # See the following for details:
+    # https://git.io/vdao3
+    # https://docs.travis-ci.com/user/reference/overview/#virtualisation-environment-vs-operating-system
+    - JOBS=2
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
@@ -34,7 +39,7 @@ jobs:
     - script: yarn coverage && bash <(curl -s https://codecov.io/bash)
       name: Test & Upload Coverage
     - script:
-        - yarn global install @lhci/cli@0.4.x
+        - yarn global add @lhci/cli@0.4.x
         - yarn build --environment=production
         - lhci autorun --upload.target=temporary-public-storage
       name: Create lighthouse report
