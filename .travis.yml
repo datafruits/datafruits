@@ -18,7 +18,7 @@ env:
     # See the following for details:
     # https://git.io/vdao3
     # https://docs.travis-ci.com/user/reference/overview/#virtualisation-environment-vs-operating-system
-    - JOBS=2
+    - JOBS=1
 
 install:
   - yarn install --non-interactive
