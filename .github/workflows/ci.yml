@@ -134,7 +134,6 @@ jobs:
       - name: Build
         run: |
           mkdir lhci
-          yarn build --environment=production
 
       - name: Run Lighthouse
         run: yarn lighthouse

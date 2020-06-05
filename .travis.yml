@@ -37,6 +37,5 @@ jobs:
       name: Test & Upload Coverage
     - script:
         - mkdir lhci
-        - yarn build --environment=production
         - yarn lighthouse --upload.target=temporary-public-storage
       name: Create Lighthouse Report
