@@ -24,6 +24,8 @@ install:
   - yarn install --non-interactive
 
 jobs:
+  allow_failures:
+    - name: Create Lighthouse Report
   include:
     - stage: Tests
       name: Lint
