@@ -36,6 +36,10 @@ jobs:
       if: type = push
       name: Test & Upload Coverage
     - script:
+        - yarn test
+      if: type != push
+      name: Test
+    - script:
         - mkdir lhci
         - yarn lighthouse --upload.target=temporary-public-storage
       name: Create Lighthouse Report
