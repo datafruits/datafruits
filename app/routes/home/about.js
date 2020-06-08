@@ -1,7 +1,5 @@
-import classic from 'ember-classic-decorator';
 import Route from '@ember/routing/route';
 
-@classic
 export default class AboutRoute extends Route {
   model() {
     return [
@@ -19,6 +17,7 @@ export default class AboutRoute extends Route {
       {name: "E G"},
       {name: "Erin tanner"},
       {name: "Evan Higgins"},
+      {name: "five star hotel"},
       {name: "Gia"},
       {name: "Ginger Steve"},
       {name: "GLORIA and KEN"},
