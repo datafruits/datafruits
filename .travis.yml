@@ -3,27 +3,45 @@ language: node_js
 node_js:
   - "10"
 
-sudo: false
-dist: trusty
+os: linux
+dist: xenial
 
 addons:
   chrome: stable
 
-cache:
-  yarn: true
+cache: yarn
 
 env:
   global:
-    # See https://git.io/vdao3 for details.
-    - JOBS=1
-
-before_install:
-  - curl -o- -L https://yarnpkg.com/install.sh | bash
-  - export PATH=$HOME/.yarn/bin:$PATH
+    # Reduce ember's parallel-ness to 2,
+    # the number of cores available on travis.
+    # See the following for details:
+    # https://git.io/vdao3
+    # https://docs.travis-ci.com/user/reference/overview/#virtualisation-environment-vs-operating-system
+    - JOBS=2
 
 install:
   - yarn install --non-interactive
 
-script:
-  - yarn lint:js
-  - yarn test
+jobs:
+  allow_failures:
+    - name: Create Lighthouse Report
+  include:
+    - stage: Tests
+      name: Lint
+      script:
+        - yarn lint:js
+        # - yarn lint:hbs
+    - script:
+        - yarn coverage
+        - bash <(curl -s https://codecov.io/bash)
+      if: type = push
+      name: Test & Upload Coverage
+    - script:
+        - yarn test
+      if: type != push
+      name: Test
+    - script:
+        - mkdir lhci
+        - yarn lighthouse --upload.target=temporary-public-storage
+      name: Create Lighthouse Report
