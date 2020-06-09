@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import Service from '@ember/service';
 import { later, run } from '@ember/runloop';
 import { inject as service } from '@ember/service';
@@ -6,16 +5,12 @@ import { tracked } from '@glimmer/tracking';
 import ENV from "datafruits13/config/environment";
 import fetch from 'fetch';
 
-@classic
 export default class VideoStreamService extends Service {
   @service
   rollbar;
 
-  init() {
-    super.init(...arguments);
-    this.set('streamHost', ENV.STREAM_HOST);
-    this.set('streamName', ENV.STREAM_NAME);
-  }
+  streamHost = ENV.STREAM_HOST;
+  streamName = ENV.STREAM_NAME;
 
   @tracked active = false;
 
@@ -59,6 +54,8 @@ export default class VideoStreamService extends Service {
 
       player.userActive(false);
 
+      player.tech().on('retryplaylist', this.errorHandler);
+
       let promise = player.play();
 
       if (promise !== undefined) {
@@ -74,6 +71,12 @@ export default class VideoStreamService extends Service {
       }
     });
 
+  }
+
+  errorHandler(event) {
+    console.log('there was an error');
+    console.log(event);
+    this.active = false;
   }
 
   play() {

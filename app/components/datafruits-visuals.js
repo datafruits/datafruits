@@ -1,9 +1,9 @@
 import classic from 'ember-classic-decorator';
 import { classNames } from '@ember-decorators/component';
 import { inject as service } from '@ember/service';
-import { oneWay } from '@ember/object/computed';
 import Component from '@ember/component';
 import { later } from '@ember/runloop';
+import { tracked } from '@glimmer/tracking';
 
 @classic
 @classNames('visuals')
@@ -11,12 +11,13 @@ export default class DatafruitsVisuals extends Component {
   @service
   videoStream;
 
-  @oneWay('videoStream.active')
-  videoStreamActive;
+  get videoStreamActive() {
+    return this.videoStream.active;
+  }
 
   didRender() {
     if(!this.get('fastboot.isFastBoot')){
-      if(this.videoStreamActive){
+      if(this.videoStream.active){
         this.videoStream.initializePlayer();
       }else {
         later(()=> {
