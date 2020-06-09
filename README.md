@@ -1,8 +1,6 @@
 # datafruits
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/datafruits/datafruits.svg)](https://greenkeeper.io/)
 ![Build](https://github.com/actions/datafruits/workflows/CI/badge.svg)
-
 
 frontend for datafruits application.
 
