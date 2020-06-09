@@ -1,6 +1,6 @@
 # datafruits
 
-[![Build](https://travis-ci.org/datafruits/datafruits.svg?branch=master)](https://travis-ci.org/datafruits/datafruits/)
+![Build](https://github.com/actions/datafruits/workflows/CI/badge.svg)
 
 frontend for datafruits application.
 
