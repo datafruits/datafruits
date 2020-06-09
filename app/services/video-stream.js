@@ -58,6 +58,8 @@ export default class VideoStreamService extends Service {
 
       player.userActive(false);
 
+      player.tech().on('retryplaylist', this.errorHandler.bind(this));
+
       let promise = player.play();
 
       if (promise !== undefined) {
@@ -73,6 +75,14 @@ export default class VideoStreamService extends Service {
       }
     });
 
+  }
+
+  errorHandler(event) {
+    console.log('retryplaylist handler:');
+    console.log(event);
+    this.set("active", false);
+    this.get("player").dispose();
+    this.set("player", null);
   }
 
   play() {
