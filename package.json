@@ -69,7 +69,6 @@
     "ember-load-initializers": "^2.1.1",
     "ember-lodash": "4.19.5",
     "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-metrics": "^0.13.0",
     "ember-moment": "^7.8.1",
     "ember-page-title": "5.2.1",
     "ember-parachute": "1.0.2",
