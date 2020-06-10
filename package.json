@@ -100,6 +100,9 @@
     "textcomplete": "^0.18.1",
     "video.js": "^7.8.2"
   },
+  "resolutions": {
+    "babel-plugin-ember-modules-api-polyfill": "2.13.0"
+  },
   "fastbootDependencies": [
     "crypto"
   ],
