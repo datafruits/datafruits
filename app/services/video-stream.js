@@ -77,9 +77,7 @@ export default class VideoStreamService extends Service {
 
   }
 
-  errorHandler(event) {
-    console.log('retryplaylist handler:');
-    console.log(event);
+  errorHandler(/*event*/) {
     this.set("active", false);
     this.get("player").dispose();
     this.set("player", null);
