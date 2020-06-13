@@ -20,7 +20,7 @@ export default class BlogPostBody extends Model {
   @attr()
   body;
 
-  @computed('blogPostImages.[]')
+  @computed('blogPostImages.[]', 'body')
   get previewImage() {
     if(this.body) {
       return this.blogPostImages.firstObject;
