@@ -48,7 +48,7 @@ export default class DatafruitsPlayer extends Component {
   init() {
     this.eventBus.subscribe("trackPlayed", this, "onTrackPlayed");
     this.eventBus.subscribe("metadataUpdate", this, "setRadioTitle");
-    if(!this.get('fastboot.isFastBoot')){
+    if(!this.fastboot.isFastBoot){
       this.set('volume', localStorage.getItem('datafruits-volume') || 0.8);
     }
     super.init(...arguments);
@@ -160,7 +160,7 @@ export default class DatafruitsPlayer extends Component {
   }
 
   didInsertElement() {
-    if(!this.get('fastboot.isFastBoot')){
+    if(!this.fastboot.isFastBoot){
       let audioTag = document.getElementById("radio-player");
       audioTag.addEventListener("loadstart", () => {
         if(this.playButtonPressed === true){

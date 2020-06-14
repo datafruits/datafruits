@@ -68,7 +68,7 @@ export default class VideoStreamService extends Service {
           // Autoplay was prevented.
           console.log(`video autoplay failed: ${error}`);// eslint-disable-line no-console
           player.userActive(false);
-          this.get('rollbar').error(`video autoplay failed: ${error}`);
+          this.rollbar.error(`video autoplay failed: ${error}`);
         });
       }
     });
@@ -86,7 +86,7 @@ export default class VideoStreamService extends Service {
         // Autoplay was prevented.
         console.log(`video play failed: ${error}`);// eslint-disable-line no-console
         player.userActive(false);
-        this.get('rollbar').error(`video autoplay failed: ${error}`);
+        this.rollbar.error(`video autoplay failed: ${error}`);
       });
     }
   }

@@ -9,13 +9,16 @@ import { later } from '@ember/runloop';
 @classNames('visuals')
 export default class DatafruitsVisuals extends Component {
   @service
+  fastboot;
+
+  @service
   videoStream;
 
   @oneWay('videoStream.active')
   videoStreamActive;
 
   didRender() {
-    if(!this.get('fastboot.isFastBoot')){
+    if(!this.fastboot.isFastBoot){
       if(this.videoStreamActive){
         this.videoStream.initializePlayer();
       }else {
