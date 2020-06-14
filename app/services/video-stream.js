@@ -79,7 +79,7 @@ export default class VideoStreamService extends Service {
 
   errorHandler(/*event*/) {
     this.set("active", false);
-    this.get("player").dispose();
+    this.player.dispose();
     this.set("player", null);
   }
 

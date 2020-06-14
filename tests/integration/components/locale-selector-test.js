@@ -16,12 +16,12 @@ module('Integration | Component | locale selector', function(hooks) {
 
   test('it calls passed in setLocale action', async function(assert) {
     this.set('setLocaleAction', (actual) => {
-      let expected = 'kr';
+      let expected = 'ko';
       assert.equal(actual, expected, 'selected locale is passed to setLocale action');
     });
 
     await render(hbs`<LocaleSelector @setLocale={{action setLocaleAction}} />`);
 
-    await fillIn('select', 'kr');
+    await fillIn('select', 'ko');
   });
 });
