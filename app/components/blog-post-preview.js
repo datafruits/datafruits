@@ -1,6 +1,6 @@
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
-import Component from '@glimmer/component';
+import Component from '@ember/component';
 
 export default class BlogPostPreview extends Component {
   @service
