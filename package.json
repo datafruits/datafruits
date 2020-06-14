@@ -82,7 +82,7 @@
     "ember-service-worker-cache-first": "^0.6.3",
     "ember-service-worker-index": "^0.7.0",
     "ember-sinon-qunit": "^5.0.0",
-    "ember-source": "~3.15.0",
+    "ember-source": "~3.19.0",
     "ember-truth-helpers": "2.1.0",
     "ember-web-app": "^4.0.0",
     "ember-welcome-page": "^4.0.0",
