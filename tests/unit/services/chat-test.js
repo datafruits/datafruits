@@ -33,9 +33,9 @@ module('Unit | Service | chat', function (hooks) {
   test('it lets you log in if you\'re cool', function (assert) {
      let { chatService, lobbyChannel } = setup(this);
 
-    lobbyChannel.dispatch("authorized", { user: "daniel \"cool guy\" fridkin" });
+    lobbyChannel.dispatch("authorized", { user: "cassandra is cool B)" });
 
-    assert.equal(chatService.username, "daniel \"cool guy\" fridkin");
+    assert.equal(chatService.username, "cassandra is cool B)");
     assert.ok(chatService.joinedChat);
 
   });
@@ -55,13 +55,13 @@ module('Unit | Service | chat', function (hooks) {
 
      let { chatService, lobbyChannel } = setup(this);
 
-    lobbyChannel.dispatch("user:left", { user: "lame_nerd23", timestamp: "before the party started" });
+    lobbyChannel.dispatch("user:left", { user: "nerd23", timestamp: "before the party started" });
     assert.equal(chatService.messages.content
       .filter(t => t instanceof Object)
       .filter(t => (
         t.body &&
         t.timestamp === "before the party started" &&
-        t.user === "lame_nerd23"
+        t.user === "nerd23"
       ))
       .length, 1
     );
