@@ -19,7 +19,7 @@ export default Component.extend({
   },
 
   fetchData: task(function*(query) {
-    if(!this.get('fastboot.isFastBoot')){
+    if(!this.fastboot.isFastBoot){
       if(document.getElementsByClassName("as-calendar-timetable__main").length){
         document.getElementsByClassName("as-calendar-timetable__main")[0]
           .classList.add('bleed')
@@ -39,7 +39,7 @@ export default Component.extend({
       return shows;
     });
     let resolvedShows = yield shows;
-    if(!this.get('fastboot.isFastBoot')){
+    if(!this.fastboot.isFastBoot){
       document.getElementsByClassName("as-calendar-timetable__main")[0]
         .classList.remove('bleed')
     }

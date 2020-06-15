@@ -16,6 +16,8 @@ node_modules/
 /connect.lock
 /coverage/
 /libpeerconnection.log
+/lhci
+.lighthouseci
 
 npm-debug.log*
 testem.log
@@ -32,6 +34,3 @@ yarn-error.log
 
 # annoying mac file
 /.DS_Store
-
-# IDE-specific settings
-.vscode

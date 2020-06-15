@@ -34,11 +34,6 @@ module.exports = function(environment) {
       includeTimezone: "subset"
     },
 
-    i18n: {
-      defaultLocale: 'en',
-      defaultFallback: true
-    },
-
     emberRollbarClient: {
       accessToken: process.env.ROLLBAR_TOKEN,
       // By default Rollbar logging is enabled in every environment except test and development.

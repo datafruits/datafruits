@@ -58,6 +58,8 @@ export default class VideoStreamService extends Service {
 
       player.userActive(false);
 
+      player.tech().on('retryplaylist', this.errorHandler.bind(this));
+
       let promise = player.play();
 
       if (promise !== undefined) {
@@ -68,11 +70,17 @@ export default class VideoStreamService extends Service {
           // Autoplay was prevented.
           console.log(`video autoplay failed: ${error}`);// eslint-disable-line no-console
           player.userActive(false);
-          this.get('rollbar').error(`video autoplay failed: ${error}`);
+          this.rollbar.error(`video autoplay failed: ${error}`);
         });
       }
     });
 
+  }
+
+  errorHandler(/*event*/) {
+    this.set("active", false);
+    this.player.dispose();
+    this.set("player", null);
   }
 
   play() {
@@ -86,7 +94,7 @@ export default class VideoStreamService extends Service {
         // Autoplay was prevented.
         console.log(`video play failed: ${error}`);// eslint-disable-line no-console
         player.userActive(false);
-        this.get('rollbar').error(`video autoplay failed: ${error}`);
+        this.rollbar.error(`video autoplay failed: ${error}`);
       });
     }
   }

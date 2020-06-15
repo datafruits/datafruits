@@ -8,12 +8,12 @@ export default class BlogPost extends Model {
   @hasMany('blog-post-body')
   blogPostBodies;
 
-  @computed('blogPostBodies.[]')
+  @computed('blogPostBodies.{[],firstObject.renderedBody}')
   get body() {
     return htmlSafe(this.blogPostBodies.firstObject.renderedBody);
   }
 
-  @computed('blogPostBodies.[]')
+  @computed('blogPostBodies.{[],firstObject.title}')
   get title() {
     return this.blogPostBodies.firstObject.title;
   }
