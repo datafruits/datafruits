@@ -1,30 +1,74 @@
-<div id="podcast-search-forms">
-  <form role="search" aria-label={{ t "podcasts.text_search.label"}}
-  {{action "nop" on="submit"}}>
-    <Input
-      id="search-tracks"
-      @autofocus="autofocus"
-      @value={{filterText}}
-      @escape-press={{action "clearSearch"}}
-      placeholder="Search podcasts"
-    />
-  </form>
-  <form role="search" aria-label={{ t "podcasts.tag_search.label"}}>
-    <PowerSelectMultiple
-      @placeholder="Search by tag..."
-      @options={{labelNames}}
-      @selected={{selectedLabels}}
-      @renderInPlace={{true}}
-      @onChange={{action (mut selectedLabels)}} as |label|
-    >
-      {{label}}
-    </PowerSelectMultiple>
-  </form>
+<div id="podcast-search-controls">
+  <div id="podcast-search-forms">
+    <form role="search" aria-label={{ t "podcasts.text_search.label"}}
+    {{action "nop" on="submit"}}>
+    <label for="search-tracks">{{t "home.podcasts.title_search"}}</label>
+      <Input
+        id="search-tracks"
+        name="search-tracks"
+        @autofocus="autofocus"
+        @value={{filterText}}
+        @escape-press={{action "clearSearch"}}
+        placeholder={{t "home.podcasts.title_placeholder"}}
+      />
+    </form>
+    <form role="search" aria-label={{ t "podcasts.tag_search.label"}}>
+      <label for="tag_search">{{t "home.podcasts.tag_search"}}</label>
+      <PowerSelectMultiple
+        name="tag_search"
+        @placeholder={{t "home.podcasts.tag_placeholder"}}
+        @options={{labelNames}}
+        @selected={{selectedLabels}}
+        @renderInPlace={{true}}
+        @onChange={{action (mut selectedLabels)}} as |label|
+      >
+        {{label}}
+      </PowerSelectMultiple>
+    </form>
+  </div>
+  <div id="rss-feeds">
+    <h4>{{t "home.podcasts.subscribe_request"}}</h4>
+    <ul>
+      <li>
+        <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">
+          {{t "home.podcasts.link_itunes"}}
+        </a>
+      </li>
+      <li>
+        <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml">
+          {{t "home.podcasts.link_overcast"}}
+        </a>
+      </li>
+      <li>
+        <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">
+          {{t "home.podcasts.link_podcastsapp"}}
+        </a>
+      </li>
+      <li>
+        <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">
+          {{t "home.podcasts.link_rss"}}
+        </a>
+      </li>
+    </ul>
+    <ul id="fruits-container">
+      <li>🍇</li>
+      <li>🍉</li>
+      <li>🍋</li>
+      <li>🍏</li>
+      <li>🍊</li>
+      <li>🍍</li>
+      <li>🍒</li>
+      <li>🍐</li>
+      <li>🍎</li>
+      <li>🍌</li>
+      <li>🍈</li>
+    </ul>
+  </div>
 </div>
 <div id="podcast-search-results">
   <PodcastsLoader @query={{searchParams}} as |loader|>
     {{#if loader.isRunning}}
-      <p>
+      <p id="podcast-search-loading">
         {{t "loading"}}
       </p>
     {{else}}
