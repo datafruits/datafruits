@@ -1,7 +1,11 @@
 export default {
   'home': {
     'upcoming_shows': '近日放送予定',
-    'latest_podcasts': '最新ポッドキャスト'
+    'latest_podcasts': '最新ポッドキャスト',
+    'podcasts': {
+      'title_search': 'タイトルで検索',
+      'tag_search': 'タグで検索'
+    }
   },
   'chat': {
     'title': 'チャット',

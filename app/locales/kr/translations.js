@@ -10,7 +10,11 @@ export default {
   // "key.with.interpolation": "Text with {{anInterpolation}}"
   'home': {
     'upcoming_shows': '근일 방송 예정',
-    'latest_podcasts': '최신 포드캐스트'
+    'latest_podcasts': '최신 포드캐스트',
+    'podcasts': {
+      'title_search': '제목으로 검색',
+      'tag_search': '태그로 검색'
+    }
   },
   'chat': {
     'title': '채팅',

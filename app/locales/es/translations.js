@@ -6,6 +6,8 @@ export default {
     'podcasts': {
       'title': 'PÓDCASTS',
       'subscribe_request': 'Suscríbase al pódcast datafruits.fm',
+      'title_search': 'Buscar por título',
+      'tag_search': 'Buscar por etiqueta',
     },
   },
   'chat': {

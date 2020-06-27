@@ -23,6 +23,10 @@ export default {
       'link_overcast': 'Overcast',
       'link_podcastsapp': 'Podcasts.app',
       'link_rss': 'RSS',
+      'title_search': 'Search by title',
+      'title_placeholder': 'terrible tuesday w tchan',
+      'tag_search': 'Search by tag',
+      'tag_placeholder': 'disco, house, grime, any song ...'
     },
   },
   'chat': {
