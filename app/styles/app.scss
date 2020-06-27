@@ -431,6 +431,12 @@ a:hover {
   text-shadow: inherit;
 }
 
+#rss-feeds li {
+  display: inline;
+  margin-left: .5em;
+  margin-right: .5em;
+}
+
 #podcast-search-forms form {
   margin-bottom: 1em;
 }
