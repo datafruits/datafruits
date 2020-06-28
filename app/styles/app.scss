@@ -688,6 +688,7 @@ form {
 .upcoming-shows {
   display: flex;
   flex-wrap: wrap;
+  flex-shrink: 0;
   .upcoming-show {
     margin: 5px;
     background: $green;
@@ -700,6 +701,7 @@ form {
 .latest-podcasts {
   display: flex;
   flex-wrap: wrap;
+  flex-shrink: 0;
   .latest-podcast {
     margin: 5px;
     background: $pink;
@@ -714,6 +716,7 @@ form {
 .blog-posts {
   display: flex;
   flex-wrap: wrap;
+  flex-shrink: 0;
   .blog-post-preview {
     margin: 5px;
     background: $pink;
