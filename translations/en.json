@@ -15,6 +15,7 @@
     "podcasts": {
       "title": "PODCASTS",
       "subscribe_request": "Subscribe to the datafruits.fm podcast",
+      "search_title": "Search for podcasts by genre tags or show title",
       "link_itunes": "iTunes",
       "link_overcast": "Overcast",
       "link_podcastsapp": "Podcasts.app",

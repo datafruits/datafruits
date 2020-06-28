@@ -1,31 +1,4 @@
 <div id="podcast-search-controls">
-  <div id="podcast-search-forms">
-    <form role="search" aria-label={{ t "podcasts.text_search.label"}}
-    {{action "nop" on="submit"}}>
-    <label for="search-tracks">{{t "home.podcasts.title_search"}}</label>
-      <Input
-        id="search-tracks"
-        name="search-tracks"
-        @autofocus="autofocus"
-        @value={{filterText}}
-        @escape-press={{action "clearSearch"}}
-        placeholder={{t "home.podcasts.title_placeholder"}}
-      />
-    </form>
-    <form role="search" aria-label={{ t "podcasts.tag_search.label"}}>
-      <label for="tag_search">{{t "home.podcasts.tag_search"}}</label>
-      <PowerSelectMultiple
-        name="tag_search"
-        @placeholder={{t "home.podcasts.tag_placeholder"}}
-        @options={{labelNames}}
-        @selected={{selectedLabels}}
-        @renderInPlace={{true}}
-        @onChange={{action (mut selectedLabels)}} as |label|
-      >
-        {{label}}
-      </PowerSelectMultiple>
-    </form>
-  </div>
   <div id="rss-feeds">
     <h4>{{t "home.podcasts.subscribe_request"}}</h4>
     <ul>
@@ -66,6 +39,34 @@
       <li>🍈</li>
       <li>🍓</li>
     </ul>
+  </div>
+  <h4>{{t "home.podcasts.search_title"}}</h4>
+  <div id="podcast-search-forms">
+    <form role="search" aria-label={{ t "podcasts.text_search.label"}}
+    {{action "nop" on="submit"}}>
+    <label for="search-tracks">{{t "home.podcasts.title_search"}}</label>
+      <Input
+        id="search-tracks"
+        name="search-tracks"
+        @autofocus="autofocus"
+        @value={{filterText}}
+        @escape-press={{action "clearSearch"}}
+        placeholder={{t "home.podcasts.title_placeholder"}}
+      />
+    </form>
+    <form role="search" aria-label={{ t "podcasts.tag_search.label"}}>
+      <label for="tag_search">{{t "home.podcasts.tag_search"}}</label>
+      <PowerSelectMultiple
+        name="tag_search"
+        @placeholder={{t "home.podcasts.tag_placeholder"}}
+        @options={{labelNames}}
+        @selected={{selectedLabels}}
+        @renderInPlace={{true}}
+        @onChange={{action (mut selectedLabels)}} as |label|
+      >
+        {{label}}
+      </PowerSelectMultiple>
+    </form>
   </div>
 </div>
 <div id="podcast-search-results">

@@ -432,28 +432,23 @@ a:hover {
 }
 
 #fruits-container {
-  margin-left: -2.1em;
-  font-size: 110%;
-}
-#subscribe-request {
-  margin-left: 1em;
-  margin-top: -.5em;
+  // margin-left: -2.1em;
+  // font-size: 110%;
 }
 
 /* contains the search controls and rss feeds */
 #podcast-search-controls {
-  display: inline-flex;
+  width: 50%;
   margin-bottom: 1.5em;
+  border: .4em dotted #5fdc82;
 }
 
 #rss-feeds,
 #podcast-search-forms {
-  border: .4em dotted #5fdc82;
-  padding-left: 1em;
-  padding-right: 1em;
+  width: 100%;
 }
 
-#rss-feeds h4 {
+#podcast-search-controls h4 {
   text-align: center;
   color: white;
 }
@@ -464,18 +459,17 @@ a:hover {
 
 #rss-feeds li {
   display: inline;
-  padding-right: 1em;
-
+  // padding-right: 1em;
 }
 
 #podcast-search-forms {
   margin-right: 1em;
 }
 
-#podcast-search-forms form {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
+// #podcast-search-forms form {
+//   margin-top: 1em;
+//   margin-bottom: 1em;
+// }
 
 #podcast-search-forms label {
   font-family: sans-serif;
