@@ -8,8 +8,8 @@ export default class ChatController extends Controller {
   @service
   fastboot;
 
-  @computed('fastboot')
+  @computed('fastboot.isFastBoot')
   get isNotFastboot() {
-    return !this.get('fastboot.isFastBoot');
+    return !this.fastboot.isFastBoot;
   }
 }

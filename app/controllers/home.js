@@ -1,19 +1,19 @@
-import classic from 'ember-classic-decorator';
-import { action } from '@ember/object';
-import { inject as service } from '@ember/service';
-import { oneWay } from '@ember/object/computed';
-import { debounce } from '@ember/runloop';
-import Controller from '@ember/controller';
+import classic from "ember-classic-decorator";
+import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
+import { oneWay } from "@ember/object/computed";
+import { debounce } from "@ember/runloop";
+import Controller from "@ember/controller";
 
 @classic
 export default class HomeController extends Controller {
   @service
-  i18n;
+  intl;
 
   @service
   router;
 
-  @oneWay('i18n.locale')
+  @oneWay("intl.locale")
   locale;
 
   menuOpen = false;
@@ -21,28 +21,28 @@ export default class HomeController extends Controller {
 
   init() {
     super.init(...arguments);
-    this.router.on('routeWillChange', () => {
-      this.set('menuOpen', false);
-      this.set('submenuOpen', false);
+    this.router.on("routeWillChange", () => {
+      this.set("menuOpen", false);
+      this.set("submenuOpen", false);
     });
   }
 
   @action
   setLocale(locale) {
-    this.set('i18n.locale', locale);
+    this.set("intl.locale", locale);
   }
 
   @action
   toggleMenu() {
-    this.toggleProperty('menuOpen');
+    this.toggleProperty("menuOpen");
   }
 
   @action
   toggleSubMenu() {
-    debounce(this, 'toggleSubMenuOnce', 500, true);
+    debounce(this, "toggleSubMenuOnce", 500, true);
   }
 
   toggleSubMenuOnce() {
-      this.toggleProperty('submenuOpen');
+    this.toggleProperty("submenuOpen");
   }
 }

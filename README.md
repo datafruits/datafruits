@@ -1,6 +1,6 @@
 # datafruits
 
-![Build](https://github.com/actions/datafruits/workflows/CI/badge.svg)
+[![Build Status](https://github.com/datafruits/datafruits/workflows/CI/badge.svg)](https://github.com/datafruits/datafruits/actions?workflow=CI)
 
 frontend for datafruits application.
 
