@@ -432,14 +432,15 @@ a:hover {
 }
 
 #fruits-container {
-  margin-left: -2em;
-  color: yellow;
+  margin-left: -2.1em;
+  font-size: 110%;
 }
 #subscribe-request {
   margin-left: 1em;
   margin-top: -.5em;
 }
 
+/* contains the search controls and rss feeds */
 #podcast-search-controls {
   display: inline-flex;
   margin-bottom: 1.5em;
@@ -447,22 +448,26 @@ a:hover {
 
 #rss-feeds,
 #podcast-search-forms {
-  border: .4em dotted yellow;
-}
-
-#podcast-search-forms,
-#rss-feeds {
+  border: .4em dotted #5fdc82;
   padding-left: 1em;
   padding-right: 1em;
 }
+
 #rss-feeds h4 {
   text-align: center;
-  color: yellow;
+  color: white;
 }
+
+#rss-feeds a {
+  font-size: 130%;
+}
+
 #rss-feeds li {
   display: inline;
   padding-right: 1em;
+
 }
+
 #podcast-search-forms {
   margin-right: 1em;
 }
@@ -470,6 +475,11 @@ a:hover {
 #podcast-search-forms form {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+#podcast-search-forms label {
+  font-family: sans-serif;
+  color: white;
 }
 
 #podcast-search-forms input {
