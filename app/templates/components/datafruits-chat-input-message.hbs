@@ -14,15 +14,30 @@
 >
   {{t "chat.send"}}
 </button>
+<div class="gif-preview-big">
+  <!--<LazyImage
+    @url={{focusedGif}}
+    @errorText="Image failed to load."
+  />
+  {{lazy-image url='https://picsum.photos/200/300'}}
+--><!--
+  <GifBigPreviewLazyImage viewportSpy="true" @url={{focusedGif}} />-->
+  <h5>img url:{{focusedGif}} </h5>
+  <img src={{focusedGif}}>
+</div>
 {{#if showingGifSearch}}
   <div class="gif-search">
-    <button {{action "closeGifSearch"}}
-      class="cool-button"
-    >
-      <i class="fa fa-times"></i>
-    </button>
-    <GiphySearch @sendGif={{action "sendGif"}} />
+    <h3>find a nice gif!
+      <button {{action "closeGifSearch"}}
+      class="cool-button">
+        close
+        <i class="fa fa-times"></i>
+      </button>
+    </h3>
+
+    <GiphySearch @sendGif={{action "sendGif"}} @updateBigGifPreview={{action "updateBigGifPreview"}}/>
   </div>
+
 {{else}}
   <button class="cool-button" {{action "showGifSearch"}}>{{t "chat.gif"}}</button>
 {{/if}}

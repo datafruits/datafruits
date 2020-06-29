@@ -24,6 +24,14 @@ export default class DatafruitsChatInputMessage extends Component {
     this.set('showingGifSearch', false);
   }
 
+
+  @action
+  updateBigGifPreview(gif){
+
+    this.set('focusedGif', gif.url);
+    //this.set('shouldShowBigPreview', abc);
+  }
+
   @action
   sendGif(gif) {
     this.set('inputMessage', gif.url);
