@@ -27,7 +27,7 @@ export default class DatafruitsChat extends Component {
   @oneWay('chat.joinedUsers')
   joinedUsers;
 
-  @computed('isJoiningChat', 'nick')
+  @computed('isJoiningChat', 'nick.length')
   get disableJoinButton() {
     return this.nick.length < 1 || this.isJoiningChat === true;
   }
@@ -70,6 +70,6 @@ export default class DatafruitsChat extends Component {
     const messages = document.getElementById('messages');
     // this.$("#messages").bind('touchmove', onScroll);
     // this.$("#messages").bind('scroll', onScroll);
-    messages.scrollTop = this.get('chat.scrollTop');
+    messages.scrollTop = this.chat.scrollTop;
   }
 }
