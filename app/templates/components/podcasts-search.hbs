@@ -1,7 +1,7 @@
 <div id="podcast-search-controls">
-  <div id="rss-feeds">
-    <h4>{{t "home.podcasts.subscribe_request"}}</h4>
-    <ul id="rss-links">
+  <div id="podcast-subscribe">
+    <h4>{{t "home.podcasts.subscribe_title"}}</h4>
+    <ul id="subscribe-links">
       <li>
         <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">
           {{t "home.podcasts.link_itunes"}}
@@ -25,8 +25,8 @@
     </ul>
   </div>
   <hr/>
-  <h4>{{t "home.podcasts.search_title"}}</h4>
   <div id="podcast-search-forms">
+    <h4>{{t "home.podcasts.search_title"}}</h4>
     <form role="search" aria-label={{ t "podcasts.text_search.label"}}
     {{action "nop" on="submit"}}>
     <label for="search-tracks">{{t "home.podcasts.title_search"}}</label>

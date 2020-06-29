@@ -431,40 +431,27 @@ a:hover {
   text-shadow: inherit;
 }
 
-/* contains the search controls and rss feeds */
-#podcast-search-controls {
-  margin-bottom: 1.5em;
-  border: .4em dotted $green;
-}
-
-
-#rss-links {
+#podcast-subscribe,
+#podcast-search-forms {
+  width: 100%;
+  padding: 1em;
   display: flex;
+}
+
+#subscribe-links {
   justify-content: space-around;
-  padding: 0;
 }
 
-#podcast-search-controls h4 {
-  text-align: center;
-  color: white;
-}
-
-#podcast-search-controls hr {
-  border: none;
-  border-top: thick dotted $green;
-}
-
-#rss-feeds a {
-  font-size: 110%;
-}
-
-#rss-feeds li {
+#subscribe-links li {
   display: inline;
 }
 
-#rss-feeds,
-#podcast-search-forms {
-  width: 100%;
+#subscribe-links a {
+  font-size: 130%;
+}
+
+#podcast-search-forms form {
+  width: 40%;
 }
 
 #podcast-search-forms label {
@@ -473,9 +460,24 @@ a:hover {
 }
 
 #podcast-search-forms input {
-  width: 96%;
+  width: 90%;
 }
 
+#podcast-search-controls {
+  margin-bottom: 1.5em;
+  border: .4em dotted $green;
+}
+
+#podcast-search-controls h4 {
+  padding-left: 1em;
+  padding-right: 1em;
+  color: white;
+}
+
+#podcast-search-controls hr {
+  border: none;
+  border-top: thick dotted $green;
+}
 
 #podcast-search-results .ember-view {
   padding-top: .1em;

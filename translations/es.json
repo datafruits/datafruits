@@ -9,8 +9,8 @@
     "events": "EVENTOS",
     "podcasts": {
       "title": "PÓDCASTS",
-      "subscribe_request": "Suscríbase al pódcast datafruits.fm",
-      "search_title": "Busque podcasts por etiquetas de género o muestre el título",
+      "subscribe_title": "Suscribir",
+      "search_title": "Buscar",
       "title_search": "Buscar por título",
       "tag_search": "Buscar por etiqueta"
     }

@@ -3,8 +3,10 @@
     "upcoming_shows": "근일 방송 예정",
     "latest_podcasts": "최신 포드캐스트",
     "podcasts": {
-      "title_search": "제목으로 검색",
-      "tag_search": "태그로 검색"
+      "subscribe_title": "구독",
+      "search_title": "검색",
+      "title_search": "표제",
+      "tag_search": "꼬리표"
     }
   },
   "chat": {
