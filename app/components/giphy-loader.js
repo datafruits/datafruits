@@ -13,9 +13,9 @@ export default class GiphyLoader extends Component {
   @service
   store;
 
-  @(task(function*(query) {
+  @(task(function* (query) {
     yield timeout(1000);
-    let gifs = this.store.query('gif', { query })
+    let gifs = this.store.query('gif', { query });
     let resolvedGifs = yield gifs;
     return this.set('data', resolvedGifs);
   }).restartable())

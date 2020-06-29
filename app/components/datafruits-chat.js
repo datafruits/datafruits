@@ -16,7 +16,7 @@ export default class DatafruitsChat extends Component {
 
   newMessagesBelow = false; // TODO move this to chat service
   isJoiningChat = false;
-  nick = "";
+  nick = '';
 
   @oneWay('chat.joinedChat')
   joinedChat;
@@ -34,27 +34,27 @@ export default class DatafruitsChat extends Component {
 
   @action
   toggleGifsEnabled() {
-    this.chat.toggleProperty("gifsEnabled");
+    this.chat.toggleProperty('gifsEnabled');
   }
 
   @action
   enterChat() {
     this.set('isJoiningChat', true);
     const nick = this.nick.trim();
-    this.chat.push("authorize", { user: nick, timestamp: Date.now() });
+    this.chat.push('authorize', { user: nick, timestamp: Date.now() });
   }
 
   @action
   newMessagesAvailable() {
-    this.set("newMessagesBelow", true);
+    this.set('newMessagesBelow', true);
   }
 
   @action
   onScroll() {
-    if(this.scrolledToBottom()){
-      this.set("newMessagesBelow", false);
-    }else{
-      this.set("newMessagesBelow", true);
+    if (this.scrolledToBottom()) {
+      this.set('newMessagesBelow', false);
+    } else {
+      this.set('newMessagesBelow', true);
     }
     this.chat.set('scrollTop', document.getElementById('messages').scrollTop);
   }

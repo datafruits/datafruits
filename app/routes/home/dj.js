@@ -6,11 +6,10 @@ import ENV from 'datafruits13/config/environment';
 export default class DjRoute extends Route {
   model(params) {
     return this.store.queryRecord('dj', { name: params.name });
-
   }
 
   afterModel(model) {
-   this.setHeadTags(model);
+    this.setHeadTags(model);
   }
 
   setHeadTags(model) {
@@ -19,38 +18,38 @@ export default class DjRoute extends Route {
         type: 'meta',
         attrs: {
           name: 'twitter:title',
-          content: `datafruits.fm - ${model.username}`
+          content: `datafruits.fm - ${model.username}`,
         },
       },
       description: {
         type: 'meta',
         attrs: {
           name: 'twitter:description',
-          content: model.bio
+          content: model.bio,
         },
       },
       image: {
         type: 'meta',
         attrs: {
           name: 'twitter:image',
-          content: model.imageUrl
+          content: model.imageUrl,
         },
       },
       card: {
         type: 'meta',
         attrs: {
           name: 'twitter:card',
-          content: 'summary_large_image'
+          content: 'summary_large_image',
         },
       },
-   };
+    };
 
-   this.set('headTags', Object.values({ ...ENV.headTags, ...headTags }));
+    this.set('headTags', Object.values({ ...ENV.headTags, ...headTags }));
   }
 
   serialize(dj) {
     return {
-      name: dj.get('name')
+      name: dj.get('name'),
     };
   }
 }

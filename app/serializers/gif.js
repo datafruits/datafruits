@@ -3,12 +3,12 @@ import JSONAPISerializer from '@ember-data/serializer/json-api';
 
 @classic
 export default class Gif extends JSONAPISerializer {
-  normalizeQueryResponse(store, primaryModelClass, payload/*, id, requestType*/) {
+  normalizeQueryResponse(store, primaryModelClass, payload /*, id, requestType*/) {
     payload.data.map((gif) => {
       gif.attributes = {
-        "preview-url": gif.images.fixed_width_small.url,
+        'preview-url': gif.images.fixed_width_small.url,
         url: gif.images.original.url,
-        slug: gif.slug
+        slug: gif.slug,
       };
       return gif;
     });

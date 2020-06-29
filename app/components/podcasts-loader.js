@@ -22,7 +22,7 @@ export default class PodcastsLoader extends Component {
     this.fetchData.perform(query);
   }
 
-  @(task(function*(query) {
+  @(task(function* (query) {
     yield timeout(1000);
     let podcasts = this.store.queryRecord('podcast', query).then((podcast) => {
       return hash({

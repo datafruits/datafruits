@@ -1,33 +1,30 @@
 import classic from 'ember-classic-decorator';
 import Service from '@ember/service';
-import ENV from "datafruits13/config/environment";
-
+import ENV from 'datafruits13/config/environment';
 
 class MockBase {
-
   constructor(opts) {
     this.opts = opts;
   }
   onOpen(cb) {
-      return this.onOpenHandler = cb;
+    return (this.onOpenHandler = cb);
   }
 
   onError(cb) {
-      return this.onErrorHandler = cb;
+    return (this.onErrorHandler = cb);
   }
 
   onClose(cb) {
-    return this.onCloseHandler = cb;
+    return (this.onCloseHandler = cb);
   }
 }
 
 class MockChannel extends MockBase {
-
   receiveHandlers = {};
-  eventHandlers = {}
+  eventHandlers = {};
 
   constructor(topic, opts) {
-    super(opts)
+    super(opts);
     this.topic = topic;
   }
 
@@ -41,15 +38,15 @@ class MockChannel extends MockBase {
   }
 
   on(event, cb) {
-    if (event === "notauthorized") {
+    if (event === 'notauthorized') {
       // testem doesn't like window.alert
       // Also: using an arrow function to preserve
       // "this" keyword
-      this.eventHandlers[event] = msg => {
+      this.eventHandlers[event] = (msg) => {
         // I guess this means that "new:msg" has to be
         // declared before "nothauthorized" but...
-        this.eventHandlers["new:msg"](msg.error)
-      }
+        this.eventHandlers['new:msg'](msg.error);
+      };
       return;
     }
     this.eventHandlers[event] = cb;
@@ -58,15 +55,13 @@ class MockChannel extends MockBase {
   dispatch(eventName, args) {
     this.eventHandlers[eventName](args);
   }
-
 }
 
 class MockSocket extends MockBase {
-
-  channels = {}
+  channels = {};
 
   constructor(endpoint, opts) {
-    super(opts)
+    super(opts);
     this.endpoint = endpoint;
   }
 
@@ -80,19 +75,20 @@ class MockSocket extends MockBase {
     }
     return this.channels[description];
   }
-
 }
 
 @classic
 export default class MockSocketService extends Service {
   init() {
     super.init(...arguments);
-    this.set('socket', new MockSocket(ENV.CHAT_SOCKET_URL, {
-
-      logger: function logger(/*kind, msg, data*/) {
-        //console.log(kind + ": " + msg, data);
-      }
-    }));
+    this.set(
+      'socket',
+      new MockSocket(ENV.CHAT_SOCKET_URL, {
+        logger: function logger(/*kind, msg, data*/) {
+          //console.log(kind + ": " + msg, data);
+        },
+      }),
+    );
     this.socket.connect();
 
     this.socket.onOpen(function (/*ev*/) {

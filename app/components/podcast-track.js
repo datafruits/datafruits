@@ -6,7 +6,7 @@ import Component from '@ember/component';
 @classic
 export default class PodcastTrack extends Component {
   init() {
-    this.eventBus.subscribe("trackPlayed", this, "onTrackPlayed");
+    this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
     super.init(...arguments);
   }
 
@@ -15,22 +15,22 @@ export default class PodcastTrack extends Component {
 
   @action
   play() {
-    this.set("playing", true);
-    this.set("paused", false);
-    this.eventBus.publish("trackPlayed", this);
+    this.set('playing', true);
+    this.set('paused', false);
+    this.eventBus.publish('trackPlayed', this);
   }
 
   @action
   pause() {
-    this.set("playing", false);
-    this.set("paused", true);
-    this.eventBus.publish("trackPaused", this);
+    this.set('playing', false);
+    this.set('paused', true);
+    this.eventBus.publish('trackPaused', this);
   }
 
   onTrackPlayed(event) {
-    if(this !== event){
-      if(!(this.isDestroyed || this.isDestroying)) {
-        this.set("playing", false);
+    if (this !== event) {
+      if (!(this.isDestroyed || this.isDestroying)) {
+        this.set('playing', false);
       }
     }
   }

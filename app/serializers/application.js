@@ -10,6 +10,6 @@ export default class Application extends ActiveModelSerializer {
 
   normalizeResponse(store, primaryModelClass, payload) {
     App.storeMeta[primaryModelClass.modelName] = payload.meta; //ember data only allows meta data on 'query', this adds support for all other methods
-      return super.normalizeResponse(...arguments);
+    return super.normalizeResponse(...arguments);
   }
 }

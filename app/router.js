@@ -6,8 +6,8 @@ export default class Router extends EmberRouter {
   rootURL = config.rootURL;
 }
 
-Router.map(function() {
-  this.route('home', { path: '/' }, function(){
+Router.map(function () {
+  this.route('home', { path: '/' }, function () {
     this.route('timetable');
     this.route('podcasts');
     this.route('about');
@@ -20,8 +20,8 @@ Router.map(function() {
     this.route('chat');
     this.route('blogs.show', { path: '/blogs/:id' });
   });
-  this.route('container',  function(){
-    this.route('show', {path: '/shows/:id'});
+  this.route('container', function () {
+    this.route('show', { path: '/shows/:id' });
   });
-  this.route('not-found', {path: '/*path'});
+  this.route('not-found', { path: '/*path' });
 });

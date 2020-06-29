@@ -4,7 +4,7 @@ import ApplicationAdapter from './application';
 @classic
 export default class ScheduledShow extends ApplicationAdapter {
   urlForQueryRecord(query) {
-    if(query.next){
+    if (query.next) {
       return `${this.urlPrefix()}/scheduled_shows/next`;
     }
   }

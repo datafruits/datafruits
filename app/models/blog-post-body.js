@@ -22,9 +22,9 @@ export default class BlogPostBody extends Model {
 
   @computed('blogPostImages.[]', 'body')
   get previewImage() {
-    if(this.body) {
+    if (this.body) {
       return this.blogPostImages.firstObject;
-    }else{
+    } else {
       return null;
     }
   }

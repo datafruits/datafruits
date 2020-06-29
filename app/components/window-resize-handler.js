@@ -8,7 +8,9 @@ export default class WindowResizeHandler extends Component {
   didInsertElement() {
     super.didInsertElement(...arguments);
 
-    let _resize = () => { this.handleResize() };
+    let _resize = () => {
+      this.handleResize();
+    };
     this.set('_resize', _resize);
     window.addEventListener('resize', _resize);
     this.handleResize();
