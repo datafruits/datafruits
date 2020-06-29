@@ -59,28 +59,46 @@ jobs:
     needs: lighthouse
     steps:
       - uses: actions/checkout@v2
-      - name: Download branch report
-        uses: actions/download-artifact
+      - name: Download PR Report
+        uses: actions/download-artifact@v2
         with:
           name: lighthouse-report
           path: branch-report
-      - name: Get latest run ID
+
+      - name: Download Base Report
         run: |
-          echo "::set-env name=LATEST_RUN_URL::(curl \
-            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/runs?branch=master&status=completed" \
-            | jq '.workflow_runs[0].url')"
-      - name: Get archive download url
-        run: |
-          echo "::set-env name=DOWNLOAD_URL::(curl \
-            "$LATEST_RUN_URL/artifacts" | \
-            jq '.artifacts[] | select(.name == "lighthouse-report").archive_download_url'"
-      - name: Download archive
-        run: |
-          curl -v -L \
+          # Get the URL of the latest run on master
+          export RUNS_URL="https://api.github.com/repos/$GITHUB_REPOSITORY/actions/runs?branch=master&status=completed"
+          export LATEST_RUN_URL=$(curl $RUNS_URL | jq -r '.workflow_runs[0].url')
+
+          # Get the url of the lighthouse report
+          export ARTIFACT_URL=$(curl $LATEST_RUN_URL/artifacts \
+          | jq -r '.artifacts[] | select(.name == "lighthouse-report").archive_download_url')
+
+          # Download the lighthouse report
+          curl -L \
           -u $GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }} \
           -o master-report.zip \
-          $DOWNLOAD_URL
-      - name: Extract archive
-        run: mkdir master-report && unzip master-report.zip -d master-report
-      - name: Christ i hope this works
-        run: ls && ls branch-report && ls master-report
+          $ARTIFACT_URL
+
+          # Extract the report
+          mkdir master-report
+          unzip master-report.zip -d master-report
+          rm master-report.zip
+
+      - name: Compare Reports
+        id: compare-reports
+        run: |
+          # Surely there is a better way to grep this
+          export PR_FILE=$(find branch-report | grep lighthouse | grep json)
+          export BASE_FILE=$(find master-report | grep lighthouse | grep json)
+
+          # Run the comparison script
+          node scripts/compare-lighthouse.js
+
+      - name: Comment on PR
+        uses: marocchino/sticky-pull-request-comment@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          header: lighthouse
+          path: comment.md
