@@ -434,7 +434,7 @@ a:hover {
 /* contains the search controls and rss feeds */
 #podcast-search-controls {
   margin-bottom: 1.5em;
-  border: .4em dotted #5fdc82;
+  border: .4em dotted $green;
 }
 
 
@@ -451,7 +451,7 @@ a:hover {
 
 #podcast-search-controls hr {
   border: none;
-  border-top: thick dotted #5fdc82;
+  border-top: thick dotted $green;
 }
 
 #rss-feeds a {
