@@ -12,7 +12,7 @@ env:
 
 jobs:
   lighthouse:
-    name: Compare Lighthouse Score
+    name: Generate Lighthouse Score
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -53,4 +53,34 @@ jobs:
         with:
           name: lighthouse-report
           path: lhci
-# TODO: Compare metrics
+  compare-score:
+    name: Compare Lighthouse Score
+    runs-on: ubuntu-latest
+    needs: lighthouse
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download branch report
+        uses: actions/download-artifact
+        with:
+          name: lighthouse-report
+          path: branch-report
+      - name: Get latest run ID
+        run: |
+          echo "::set-env name=LATEST_RUN_URL::(curl \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/runs?branch=master&status=completed" \
+            | jq '.workflow_runs[0].url')"
+      - name: Get archive download url
+        run: |
+          echo "::set-env name=DOWNLOAD_URL::(curl \
+            "$LATEST_RUN_URL/artifacts" | \
+            jq '.artifacts[] | select(.name == "lighthouse-report").archive_download_url'"
+      - name: Download archive
+        run: |
+          curl -v -L \
+          -u $GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }} \
+          -o master-report.zip \
+          $DOWNLOAD_URL
+      - name: Extract archive
+        run: mkdir master-report && unzip master-report.zip -d master-report
+      - name: Christ i hope this works
+        run: ls && ls branch-report && ls master-report
