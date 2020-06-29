@@ -107,6 +107,13 @@
     "compatibility": {
       "warning": "To view this video please enable JavaScript, and consider upgrading to a web browser that",
       "linktext": "supports HTML5 video"
+    },
+    "title": {
+      "play": "Begin playback",
+      "stop": "Stop playback",
+      "mute": "Click to mute",
+      "unmute": "Click to unmute",
+      "now_playing": "Now playing back earlier recording"
     }
   },
   "about_page": {

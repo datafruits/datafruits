@@ -18,7 +18,7 @@ export default class _DatafruitsPlayer extends DatafruitsPlayer {
   playTrack() {
     const track = this.track;
     this.set('error', null);
-    this.set('title', track.title);
+    // this.set('title', track.title);
     this.set('playTime', 0.0);
 
     let audioTag = document.getElementById("radio-player");
