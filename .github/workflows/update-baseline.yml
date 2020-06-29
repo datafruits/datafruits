@@ -56,4 +56,4 @@ jobs:
         with:
           name: lighthouse-report
           path: lhci
-# TODO: other metrics
+# TODO: bundle size

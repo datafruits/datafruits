@@ -102,3 +102,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           header: lighthouse
           path: comment.md
+# TODO: bundle size
