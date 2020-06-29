@@ -38,6 +38,28 @@ module.exports = function(defaults) {
         'https://datafruits.streampusher.com/(.+)',
         'https://dongles.streampusher-relay.club/(.+)',
       ],
+    },
+
+    postcssOptions: {
+      compile: {
+        extension: 'scss',
+        enabled: true,
+        parser: require('postcss-scss'),
+        plugins: [
+          {
+            module: require('@csstools/postcss-sass'),
+            options: {
+              includePaths: [
+                'node_modules/ember-power-select',
+                'node_modules/ember-calendar',
+                'node_modules/font-awesome/scss',
+              ],
+            },
+
+          },
+          require('tailwindcss')('./app/tailwind/config.js')
+        ]
+      }
     }
   });
 
