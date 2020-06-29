@@ -25,6 +25,7 @@ export default class AboutRoute extends Route {
       {name: "Jeffrey Hawkins"},
       {name: "Jesse Erickson"},
       {name: "kat"},
+      {name: "KILLED in CARS"},
       {name: "Mary Hourani"},
       {name: "Nicholas Subramaniam"},
       {name: "Phil Montville"},
