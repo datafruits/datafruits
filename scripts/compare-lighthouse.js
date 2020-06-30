@@ -17,23 +17,49 @@ const diffKeys = Object.keys(prData).filter(
   (id) => baseData[id].score !== prData[id].score
 );
 
+const percentDiffs = [];
+const scoreDiffs = [];
+
 const generateTableRow = (id) => {
   const { score: prScore, title, description } = prData[id];
   const { score: baseScore } = baseData[id];
 
-  const scoreDiff = Math.round(((prScore - baseScore) / baseScore) * 100);
-  const scoreDiffText = scoreDiff > 0 ? `+${scoreDiff}%` : `${scoreDiff}%`;
+  const scoreDiff = prScore - baseScore;
+  const percentDiff = Math.round((scoreDiff / baseScore) * 100);
+  const percentDiffText =
+    percentDiff > 0 ? `+${percentDiff}%` : `${percentDiff}%`;
 
-  return `| ${title} | ${baseScore} | ${prScore} | ${scoreDiffText} | ${description} |`;
+  scoreDiffs.push(scoreDiff);
+  percentDiffs.push(percentDiff);
+
+  return `| ${title} | ${baseScore} | ${prScore} | ${percentDiffText} | ${description} |`;
 };
 
 const tableHeader = `| Audit | \`master\` | \`${process.env.GITHUB_REF}\` | Diff. % | Description |`;
 const tableData = diffKeys.map((id) => generateTableRow(id)).join("\n");
 
-const introText = "This PR impacts the following lighthouse metrics:\n";
-const commentOutput = [introText, tableHeader, "|-|-|-|-|-|", tableData].join(
-  "\n"
-);
+const avgPercentDiff =
+  Math.round(
+    (percentDiffs.reduce((a, b) => a + b, 0) / percentDiffs.length) * 100
+  ) / 100;
+const avgScoreDiff =
+  Math.round(
+    (scoreDiffs.reduce((a, b) => a + b, 0) / scoreDiffs.length) * 100
+  ) / 100;
+
+const introText = `This PR impacts the following lighthouse metrics (avg. diff: ${avgScoreDiff} (${avgPercentDiff}%)):`;
+const collapsibleText =
+  "<details><summary>Click to expand</summary></details>\n<p>\n";
+const outroText = "\n</p></details>";
+
+const commentOutput = [
+  introText,
+  collapsibleText,
+  tableHeader,
+  "|-|-|-|-|-|",
+  tableData,
+  outroText,
+].join("\n");
 
 const outFile = path.resolve(process.cwd(), "comment.md");
 
