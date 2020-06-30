@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | gif-preview', function(hooks) {
@@ -9,18 +9,17 @@ module('Integration | Component | gif-preview', function(hooks) {
   test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set("gif", { name: "test", previewUrl: "test.gif" });
+    this.set("sendGif", (actual) => {
+      let expected = this.gif;
+      assert.deepEqual(actual, expected, "gif is passed to sendGif action");
+    });
 
-    await render(hbs`<GifPreview />`);
+    await render(hbs`<GifPreview @gif={{this.gif}} @sendGif={{this.sendGif}}/>`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.equal(this.element.querySelector('img').getAttribute('src'), this.gif.previewUrl);
 
-    // Template block usage:
-    await render(hbs`
-      <GifPreview>
-        template block text
-      </GifPreview>
-    `);
+    await click(".gif-button");
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });
