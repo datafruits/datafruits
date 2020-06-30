@@ -1,3 +1,5 @@
+@tailwind base;
+
 @import "colors.scss";
 @import "loading-spinner.scss";
 @import "container.scss";
@@ -9,6 +11,8 @@
 @import "calendar.scss";
 
 @import "player.scss";
+
+@tailwind components;
 
 /* Screen reader only */
 .sr-only {
@@ -780,3 +784,4 @@ form {
   }
 }
 
+@tailwind utilities;
