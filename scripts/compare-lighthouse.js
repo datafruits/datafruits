@@ -47,9 +47,8 @@ const avgScoreDiff =
     (scoreDiffs.reduce((a, b) => a + b, 0) / scoreDiffs.length) * 100
   ) / 100;
 
-const introText = `This PR impacts the following lighthouse metrics (avg. diff: ${avgScoreDiff} (${avgPercentDiff}%)):`;
-const collapsibleText =
-  "<details><summary>Click to expand</summary></details>\n<p>\n";
+const introText = `This PR impacts the following lighthouse metrics:`;
+const collapsibleText = `<details><summary>avg. diff: ${avgScoreDiff} (${avgPercentDiff}%)</summary>\n<p>\n`;
 const outroText = "\n</p></details>";
 
 const commentOutput = [
