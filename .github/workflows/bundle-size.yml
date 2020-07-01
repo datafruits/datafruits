@@ -13,7 +13,7 @@ env:
 jobs:
   bundle-size:
     # https://github.community/t/duplicate-checks-on-push-and-pull-request-simultaneous-event/18012/5
-    if: github.event_name == ‘push’ || github.event.pull_request.head.repo.full_name != {{ github.repository }}
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != {{ github.repository }}
     name: Analyze bundle size
     runs-on: ubuntu-latest
     steps:
