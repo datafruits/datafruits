@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
-const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const EmberApp = require("ember-cli/lib/broccoli/ember-app");
 
-module.exports = function(defaults) {
+module.exports = function (defaults) {
   var fingerprintOptions = {
     enabled: true,
-    exclude: ['assets/images/emojis/*']
+    exclude: ["assets/images/emojis/*"],
   };
 
   var app = new EmberApp(defaults, {
@@ -14,31 +14,33 @@ module.exports = function(defaults) {
 
     hinting: false,
 
-    'ember-font-awesome': {
+    "ember-font-awesome": {
       useScss: true, // for ember-cli-sass
     },
 
+    "bundle-analyzer": {
+      ignore: ["*fastboot*"],
+    },
+
     babel: {
-      plugins: [ require('ember-auto-import/babel-plugin') ]
+      plugins: [require("ember-auto-import/babel-plugin")],
     },
 
     emberCliFontAwesome: {
-      useScss: true
+      useScss: true,
     },
 
-    'esw-cache-first': {
-      patterns: [
-        'fonts/fontawesome(.+)',
-      ],
-      version: '1'
+    "esw-cache-first": {
+      patterns: ["fonts/fontawesome(.+)"],
+      version: "1",
     },
 
-    'esw-cache-fallback': {
+    "esw-cache-fallback": {
       patterns: [
-        'https://datafruits.streampusher.com/(.+)',
-        'https://dongles.streampusher-relay.club/(.+)',
+        "https://datafruits.streampusher.com/(.+)",
+        "https://dongles.streampusher-relay.club/(.+)",
       ],
-    }
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
@@ -54,9 +56,9 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  app.import('/vendor/hinted-Debussy.woff2');
-  app.import('/vendor/hinted-Debussy.woff');
-  app.import('node_modules/video.js/dist/video-js.min.css');
+  app.import("/vendor/hinted-Debussy.woff2");
+  app.import("/vendor/hinted-Debussy.woff");
+  app.import("node_modules/video.js/dist/video-js.min.css");
 
   return app.toTree();
 };
