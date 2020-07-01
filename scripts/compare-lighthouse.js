@@ -60,7 +60,7 @@ const commentOutput = [
   outroText,
 ].join("\n");
 
-const outFile = path.resolve(process.cwd(), "comment.md");
+const outFile = path.resolve(process.cwd(), "comment-lighthouse.md");
 
 fs.writeFileSync(outFile, commentOutput);
 console.log(`Successfully wrote results to ${outFile}!`);

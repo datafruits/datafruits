@@ -1,0 +1,102 @@
+name: Bundle Size
+
+on: [push, pull_request]
+
+# Reduce ember's parallel-ness to 2,
+# the number of cores available on github actions.
+# See the following for details:
+# https://git.io/vdao3
+# https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners#supported-runners-and-hardware-resources
+env:
+  JOBS: 2
+
+jobs:
+  bundle-size:
+    # https://github.community/t/duplicate-checks-on-push-and-pull-request-simultaneous-event/18012/5
+    if: github.event_name == ‘push’ || github.event.pull_request.head.repo.full_name != {{ github.repository }}
+    name: Analyze bundle size
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      # Install the correct version of node
+      - name: Detect Node version
+        run: echo "##[set-output name=version;]$(cat .nvmrc)"
+        id: nvmrc
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "${{ steps.nvmrc.outputs.version }}"
+
+      # Restore yarn cache from between builds
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Restore dependencies from cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      # Install dependencies
+      - name: Install dependencies
+        run: yarn
+
+      - name: Check bundle size
+        run: yarn bundle-size
+
+      - name: Store generated report
+        uses: actions/upload-artifact@v2
+        with:
+          name: bundle-size
+          path: bundle-size.json
+  compare-bundle-size:
+    # Only run on PR, not push
+    if: github.event_name == 'pull_request'
+    name: Compare Bundle Size
+    runs-on: ubuntu-latest
+    needs: lighthouse
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download PR Report
+        uses: actions/download-artifact@v2
+        with:
+          name: bundle-size
+          path: bundle-size-branch.json
+      - name: Download Base Report
+        run: |
+          # Get the URL of the latest run on master
+          export RUNS_URL="https://api.github.com/repos/$GITHUB_REPOSITORY/actions/runs?branch=master&status=completed"
+          export LATEST_RUN_URL=$(curl $RUNS_URL | jq -r '.workflow_runs[0].url')
+
+          # Get the url of the bundle size report
+          export ARTIFACT_URL=$(curl $LATEST_RUN_URL/artifacts \
+          | jq -r '.artifacts[] | select(.name == "bundle-size").archive_download_url')
+
+          # Download the report
+          curl -L \
+          -u $GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }} \
+          -o bundle-size-master.zip \
+          $ARTIFACT_URL
+
+          # Extract the report
+          unzip bundle-size-master.zip
+          rm master-report.zip
+
+      - name: Compare Reports
+        id: compare-reports
+        run: |
+          export PR_FILE="./bundle-size-branch.json"
+          export BASE_FILE="./bundle-size-master.json"
+
+          # Run the comparison script
+          node scripts/compare-bundle-size.js
+
+      - name: Comment on PR
+        uses: marocchino/sticky-pull-request-comment@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          header: bundle
+          path: comment-bundle.md

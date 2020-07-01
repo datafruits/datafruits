@@ -4,7 +4,7 @@ module.exports = {
       method: 'node',
       headful: false,
       url: 'http://localhost:4200',
-      startServerCommand: 'ember serve environment=production',
+      startServerCommand: 'ember serve -prod',
       startServerReadyPattern: 'Build successful',
       startServerReadyTimeout: 75000,
       settings: {

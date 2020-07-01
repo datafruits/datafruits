@@ -1,4 +1,4 @@
-name: Test
+name: Lint & Test
 
 on: [push, pull_request]
 
@@ -11,8 +11,10 @@ env:
   JOBS: 2
 
 jobs:
-  lint:
-    name: Lint
+  lint-js:
+    # https://github.community/t/duplicate-checks-on-push-and-pull-request-simultaneous-event/18012/5
+    if: github.event_name == ‘push’ || github.event.pull_request.head.repo.full_name != {{ github.repository }}
+    name: Lint JS
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -43,12 +45,47 @@ jobs:
         run: yarn
 
       # Lint
-      - name: Lint files
-        run: |
-          yarn lint:js
-  #          yarn lint:hbs
+      - name: Lint JS
+        run: yarn lint:js
+  lint-hbs:
+    # https://github.community/t/duplicate-checks-on-push-and-pull-request-simultaneous-event/18012/5
+    if: github.event_name == ‘push’ || github.event.pull_request.head.repo.full_name != {{ github.repository }}
+    name: Lint HBS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
+      # Install the correct version of node
+      - name: Detect Node version
+        run: echo "##[set-output name=version;]$(cat .nvmrc)"
+        id: nvmrc
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "${{ steps.nvmrc.outputs.version }}"
+
+      # Restore yarn cache from between builds
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Restore dependencies from cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      # Install dependencies
+      - name: Install dependencies
+        run: yarn
+
+      # Lint
+      - name: Lint HBS
+        run: yarn lint:hbs
   test:
+    # https://github.community/t/duplicate-checks-on-push-and-pull-request-simultaneous-event/18012/5
+    if: github.event_name == ‘push’ || github.event.pull_request.head.repo.full_name != {{ github.repository }}
     name: Test
     runs-on: ubuntu-latest
     steps:
@@ -92,7 +129,6 @@ jobs:
 
       # Upload coverage info to codecov
       - name: Upload coverage info
-        if: github.event_name == 'push'
         uses: codecov/codecov-action@v1
         with:
           fail_ci_if_error: true

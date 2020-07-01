@@ -16,8 +16,11 @@ node_modules/
 /connect.lock
 /coverage/
 /libpeerconnection.log
+
+# Stats
 /lhci
 .lighthouseci
+bundle-size.json
 
 npm-debug.log*
 testem.log

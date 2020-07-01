@@ -1,6 +1,6 @@
-name: Check PR Diffs
+name: Lighthouse
 
-on: pull_request
+on: [push, pull_request]
 
 # Reduce ember's parallel-ness to 2,
 # the number of cores available on github actions.
@@ -12,6 +12,8 @@ env:
 
 jobs:
   lighthouse:
+    # https://github.community/t/duplicate-checks-on-push-and-pull-request-simultaneous-event/18012/5
+    if: github.event_name == ‘push’ || github.event.pull_request.head.repo.full_name != {{ github.repository }}
     name: Generate Lighthouse Score
     runs-on: ubuntu-latest
     steps:
@@ -53,7 +55,9 @@ jobs:
         with:
           name: lighthouse-report
           path: lhci
-  compare-score:
+  compare-lighthouse:
+    # Only run on PR, not push
+    if: github.event_name == 'pull_request'
     name: Compare Lighthouse Score
     runs-on: ubuntu-latest
     needs: lighthouse
@@ -101,4 +105,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           header: lighthouse
-          path: comment.md
+          path: comment-lighthouse.md
