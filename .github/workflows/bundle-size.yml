@@ -13,7 +13,7 @@ env:
 jobs:
   bundle-size:
     # https://github.community/t/duplicate-checks-on-push-and-pull-request-simultaneous-event/18012/5
-    if: github.event_name == ‘push’ || github.event.pull_request.head.repo.full_name != {{ github.repository }}
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository
     name: Analyze bundle size
     runs-on: ubuntu-latest
     steps:
@@ -57,7 +57,7 @@ jobs:
     if: github.event_name == 'pull_request'
     name: Compare Bundle Size
     runs-on: ubuntu-latest
-    needs: lighthouse
+    needs: bundle-size
     steps:
       - uses: actions/checkout@v2
       - name: Download PR Report
