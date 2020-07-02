@@ -1,7 +1,13 @@
 {
   "home": {
-    "upcoming_shows": "근일 방송 예정",
-    "latest_podcasts": "최신 포드캐스트"
+    "upcoming_shows": "다음 스케줄",
+    "latest_podcasts": "최근 팟캐스트",
+    "podcasts": {
+      "subscribe_title": "구독",
+      "search_title": "검색",
+      "title_search": "제목으로 검색",
+      "tag_search": "태그로 검색"
+    }
   },
   "chat": {
     "title": "채팅",
