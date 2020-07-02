@@ -1,11 +1,11 @@
-<section class="flexbox-container">
+<section class="h-handle-resize flex flex-col">
   <PcNav
     @toggleSubMenu={{action "toggleSubMenu"}}
     @submenuOpen={{submenuOpen}}
   />
   <SpNav @toggleMenu={{action "toggleMenu"}} @menuOpen={{menuOpen}} />
   <LinkTo @route="home">
-    <h1 id="logo">
+    <h1 class="font-debussy">
       {{t "site_title_fm"}}
     </h1>
   </LinkTo>
