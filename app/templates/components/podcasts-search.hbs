@@ -29,28 +29,32 @@
     <h4>{{t "home.podcasts.search_title"}}</h4>
     <form role="search" aria-label={{ t "podcasts.text_search.label"}}
     {{action "nop" on="submit"}}>
-    <label for="search-tracks">{{t "home.podcasts.title_search"}}</label>
-      <Input
+      <div class="podcast-search-group">
+        <label for="search-tracks">{{t "home.podcasts.title_search"}}</label>
+        <Input
         id="search-tracks"
         name="search-tracks"
         @autofocus="autofocus"
         @value={{filterText}}
         @escape-press={{action "clearSearch"}}
         placeholder={{t "home.podcasts.title_placeholder"}}
-      />
+        />
+      </div>
     </form>
     <form role="search" aria-label={{ t "podcasts.tag_search.label"}}>
-      <label for="tag_search">{{t "home.podcasts.tag_search"}}</label>
-      <PowerSelectMultiple
-        name="tag_search"
-        @placeholder={{t "home.podcasts.tag_placeholder"}}
-        @options={{labelNames}}
-        @selected={{selectedLabels}}
-        @renderInPlace={{true}}
-        @onChange={{action (mut selectedLabels)}} as |label|
-      >
-        {{label}}
-      </PowerSelectMultiple>
+      <div class="podcast-search-group">
+        <label for="tag_search">{{t "home.podcasts.tag_search"}}</label>
+        <PowerSelectMultiple
+          name="tag_search"
+          @placeholder={{t "home.podcasts.tag_placeholder"}}
+          @options={{labelNames}}
+          @selected={{selectedLabels}}
+          @renderInPlace={{true}}
+          @onChange={{action (mut selectedLabels)}} as |label|
+        >
+          {{label}}
+        </PowerSelectMultiple>
+      </div>
     </form>
   </div>
 </div>
