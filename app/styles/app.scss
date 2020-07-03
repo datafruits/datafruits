@@ -427,6 +427,72 @@ a:hover {
   font-size:12px;
 }
 
+#search-tracks {
+  text-shadow: inherit;
+}
+
+#podcast-subscribe,
+#podcast-search-forms {
+  width: 100%;
+  padding: 1em;
+  display: flex;
+}
+
+#subscribe-links {
+  justify-content: space-around;
+}
+
+#subscribe-links li {
+  display: inline;
+}
+
+#subscribe-links a {
+  font-size: 130%;
+}
+
+.podcast-search-group {
+  width: 100%;
+}
+
+#podcast-search-forms form {
+  width: 25%;
+}
+
+#podcast-search-forms label {
+  font-family: sans-serif;
+  color: white;
+}
+
+#podcast-search-forms input {
+  width: 90%;
+}
+
+#podcast-search-controls {
+  margin-bottom: 1.5em;
+  border: .4em dotted $green;
+}
+
+#podcast-search-controls h4 {
+  padding-left: 1em;
+  padding-right: 1em;
+  color: white;
+}
+
+#podcast-search-controls hr {
+  border: none;
+  border-top: thick dotted $green;
+}
+
+#podcast-search-results .ember-view {
+  padding-top: .1em;
+  padding-bottom: .1em;
+}
+
+#podcast-search-loading, 
+#podcast-search-results {
+  margin-top: -1em;
+}
+
 .podcast-controls {
   text-decoration: none;
   cursor: pointer;
