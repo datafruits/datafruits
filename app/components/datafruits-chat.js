@@ -31,6 +31,10 @@ export default class DatafruitsChat extends Component {
 
   @computed('isJoiningChat', 'nick.length')
 
+  @action agreeChanged() {
+    /* place holder function makes form validation work */
+  }
+
   get disableJoinButton() {
     let hasAgreed = false
     if (this.agreeToCoC === true && this.nick.length > 1) {

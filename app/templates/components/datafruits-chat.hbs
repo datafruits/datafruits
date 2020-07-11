@@ -36,10 +36,11 @@
       <Input
         @type="checkbox"
         @checked={{agreeToCoC}}
+        {{action 'change' agreeChanged}}
         name="agree-to-coc"
         id="agree-to-coc"
       />
-      <label for="agree-to-coc">I agree to the <a href="/coc">CoC</a></label>
+      <label for="agree-to-coc">{{t "i_agree"}}<abbr title={{t "code_of_conduct"}}><a href="/coc">CoC</a></abbr></label>
       <Input
         @type="text"
         @name="nick"
