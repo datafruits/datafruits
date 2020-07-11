@@ -34,6 +34,13 @@
   {{else}}
     <form align="center" id="enter-chat">
       <Input
+        @type="checkbox"
+        @checked={{agreeToCoC}}
+        name="agree-to-coc"
+        id="agree-to-coc"
+      />
+      <label for="agree-to-coc">I agree to the <a href="/coc">CoC</a></label>
+      <Input
         @type="text"
         @name="nick"
         @value={{nick}}
@@ -43,7 +50,7 @@
       />
       <button {{action "enterChat"}}
         class="cool-button"
-        disabled={{or disableJoinButton networkStatus.isOffline}}
+        disabled={{disableJoinButton}}
       >
         {{t "chat.join"}}
       </button>

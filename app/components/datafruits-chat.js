@@ -3,6 +3,7 @@ import { classNames } from '@ember-decorators/component';
 import { action, computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { oneWay } from '@ember/object/computed';
+import { tracked } from '@glimmer/tracking';
 import Component from '@ember/component';
 
 @classic
@@ -16,7 +17,8 @@ export default class DatafruitsChat extends Component {
 
   newMessagesBelow = false; // TODO move this to chat service
   isJoiningChat = false;
-  nick = "";
+  @tracked nick = "";
+  @tracked agreeToCoC = false;
 
   @oneWay('chat.joinedChat')
   joinedChat;
@@ -28,8 +30,13 @@ export default class DatafruitsChat extends Component {
   joinedUsers;
 
   @computed('isJoiningChat', 'nick.length')
+
   get disableJoinButton() {
-    return this.nick.length < 1 || this.isJoiningChat === true;
+    let hasAgreed = false
+    if (this.agreeToCoC === true && this.nick.length > 1) {
+      hasAgreed = true;
+    }
+    return !hasAgreed || this.isJoiningChat === true;
   }
 
   @action
