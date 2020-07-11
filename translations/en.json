@@ -110,7 +110,8 @@
     },
     "title": {
       "play" : "Begin playback"
-    }
+    },
+    "volume": "volume"
   },
   "about_page": {
     "listenersupport": "Datafruits is listener supported. You can join our patreon and get stickers and other goodies sent to you every 2 months.",

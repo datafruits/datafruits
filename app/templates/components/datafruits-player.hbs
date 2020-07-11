@@ -32,16 +32,17 @@
         class="jp-play"
         href="#"
         tabindex="1"
-        title={{t "player.title.play"}}
+        {{!-- title={{t "player.title.play"}} --}}
         role="button"
         aria-label={{t "player.play_button_label"}}>
         {{t "player.play"}}
       </a>
     {{/if}}
+    <label for="volume-control">{{t 'player.volume'}}</label>
     <span {{action "toggleVolumeControl" on="mouseEnter"}} {{action "toggleVolumeControl" on="mouseLeave"}}
       class="jp-volume-controls"
       role="button"
-      
+      name="volume-control"
     >
       {{#if muted}}
         {{!-- template-lint-disable no-nested-interactive --}}

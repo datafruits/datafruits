@@ -88,7 +88,8 @@
     "compatibility": {
       "warning": "Para ver este video, habilite JavaScript y considere actualizar a un navegador web que",
       "linktext": "admita video HTML5"
-    }
+    },
+    "volume": "volumen"
   },
   "about_page": {
     "listenersupport": "Datafruits es apoyado por sus oyentes. Puedes unirte a nuestro patreon y recibir calcomanías y otras cosas cada 2 meses.",
