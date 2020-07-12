@@ -14,11 +14,16 @@
     "events": "EVENTS",
     "podcasts": {
       "title": "PODCASTS",
-      "subscribe_request": "Subscribe to the datafruits.fm podcast",
+      "subscribe_title": "Subscribe",
+      "search_title": "Search",
       "link_itunes": "iTunes",
       "link_overcast": "Overcast",
       "link_podcastsapp": "Podcasts.app",
-      "link_rss": "RSS"
+      "link_rss": "RSS",
+      "title_search": "Title",
+      "title_placeholder": "terrible tuesday w tchan",
+      "tag_search": "Tag",
+      "tag_placeholder": "disco, house, grime, any song ..."
     }
   },
   "chat": {
