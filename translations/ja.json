@@ -56,8 +56,10 @@
     "archive": "アーカイブを聴く"
   },
   "player": {
-    "play_button_label": "再生",
-    "volume": "ボリューム"
+    "label": {
+      "play": "再生",
+      "volume": "ボリューム"
+    }
   },
   "donate": "寄付する"
 }

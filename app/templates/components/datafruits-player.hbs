@@ -11,35 +11,51 @@
 <div class="radio-container">
   <div class="player-controls">
     {{#if playingPodcast}}
-      <a href="javascript:;" {{action "playLiveStream"}}>
+      <label for="resume-stream">{{t "player.label.play"}}</label>
+      <a id="resume-stream"
+        name="resume-stream"
+        href="javascript:;"
+        {{action "playLiveStream"}}>
         {{t "player.return_to_live"}}
       </a>
     {{/if}}
     {{#if loading}}
-      <div class="player-loading">
+      <label for="loading-stream">{{t "player.label.loading"}}</label>
+      <div id="loading-stream"
+        name="loading-stream"
+        class="player-loading">
       </div>
     {{else if playing}}
-      <a {{action "pause"}}
+      <label for="pause-stream">{{t "player.label.stop"}}</label>
+      <a id="pause-stream"
+        name="pause-stream"
+        {{action "pause"}}
         class="jp-pause"
         tabindex="1"
-        title={{t "player.title.stop"}}>
+        title={{t "player.title.stop"}}
+      >
         {{t (if this.playingPodcast "player.pause" "player.stop")}}
       </a>
     {{else if paused}}
+      <label for="play-stream">{{t "player.label.play"}}</label>
       <a {{action "play"}}
         onMouseEnter={{action "playButtonMouseEnter"}}
         onMouseLeave={{action "playButtonMouseOut"}}
         class="jp-play"
         href="#"
         tabindex="1"
-        {{!-- title={{t "player.title.play"}} --}}
+        title={{t "player.title.play"}}
         role="button"
-        aria-label={{t "player.play_button_label"}}>
+        aria-label={{t "player.title.play"}}
+      >
         {{t "player.play"}}
       </a>
     {{/if}}
-    <label for="volume-control">{{t 'player.volume'}}</label>
-    <span {{action "toggleVolumeControl" on="mouseEnter"}} {{action "toggleVolumeControl" on="mouseLeave"}}
+    <label for="volume-control">{{t 'player.label.volume'}}</label>
+    <span id="volume-control"
+      name="volume-control"
+      {{action "toggleVolumeControl" on="mouseEnter"}}
+      {{action "toggleVolumeControl" on="mouseLeave"}}
       class="jp-volume-controls"
       role="button"
       name="volume-control"
@@ -61,6 +77,7 @@
           min="0"
           max="1"
           step="0.1"
+          title={{t "player.title.volume"}}
           oninput={{action "volumeChanged"}}
           value={{volume}}
         >

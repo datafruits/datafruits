@@ -98,7 +98,6 @@
     "archive": "Listen back to the podcast"
   },
   "player": {
-    "play_button_label": "play",
     "return_to_live": "return to live stream",
     "loading": "↻",
     "pause": "❚❚",
@@ -109,9 +108,18 @@
       "linktext": "supports HTML5 video"
     },
     "title": {
-      "play" : "Begin playback"
+      "play": "Play stream",
+      "volume": "Adjust volume",
+      "stop": "Stop playback",
+      "mute": "Click to mute",
+      "unmute": "Click to unmute",
+      "now_playing": "Now playing back earlier recording"
     },
-    "volume": "volume"
+    "label": {
+      "volume": "volume:",
+      "play": "play:",
+      "loading": "loading:",
+      "stop": "stop:"    }
   },
   "about_page": {
     "listenersupport": "Datafruits is listener supported. You can join our patreon and get stickers and other goodies sent to you every 2 months.",

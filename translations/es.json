@@ -80,7 +80,6 @@
     "archive": "Escucha el pódcast"
   },
   "player": {
-    "play_button_label": "tocar",
     "return_to_live": "volver a la transmisión en vivo",
     "loading": "↻",
     "pause": "❚❚",
@@ -89,7 +88,21 @@
       "warning": "Para ver este video, habilite JavaScript y considere actualizar a un navegador web que",
       "linktext": "admita video HTML5"
     },
-    "volume": "volumen"
+    "title": {
+      "play": "Reproducir stream",
+      "volume": "Ajusta el volúmen",
+      "stop": "Detener la reproducción",
+      "mute": "Haz clic para silenciar",
+      "unmute": "Haz clic para dejar de silenciar",
+      "now_playing": "Ahora reproduciendo grabaciones anteriores"
+    },
+    "label": {
+      "volume": "volumen:",
+      "play": "tocar:",
+      "loading": "cargando:",
+      "stop": "detener:"
+    }
+    
   },
   "about_page": {
     "listenersupport": "Datafruits es apoyado por sus oyentes. Puedes unirte a nuestro patreon y recibir calcomanías y otras cosas cada 2 meses.",
