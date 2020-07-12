@@ -1,4 +1,11 @@
-<select onchange={{action setLocale value="target.value"}}>
+<label id="locale-selector-label"
+  for="locale-selector"
+>
+  {{t "locale"}}
+</label>
+<select id="locale-selector"
+  name="locale-selector"
+  onchange={{action setLocale value="target.value"}}>
   {{#each locales as |localeChoice|}}
     <option
       value={{localeChoice.value}}

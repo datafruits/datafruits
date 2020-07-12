@@ -26,14 +26,20 @@
 <div id="controls">
   {{#if joinedChat}}
     <form align="center" id="send-message">
+      <label for="chat-input-message">{{t "chat.label.input"}}</label>
       <DatafruitsChatInputMessage  @isOffline={{networkStatus.isOffline}} />
-      <button class="cool-button" {{action "toggleGifsEnabled"}}>
+      <button
+        title={{t "chat.titles.img_toggle"}}
+        class="cool-button"
+        {{action "toggleGifsEnabled"}}>
         {{images-enabled-button-label gifsEnabled}}
       </button>
     </form>
   {{else}}
     <form align="center" id="enter-chat">
+      <label for="nick">{{t "chat.label.nick"}}</label>
       <Input
+        id="nick"
         @type="text"
         @name="nick"
         @value={{nick}}
@@ -44,10 +50,14 @@
       <button {{action "enterChat"}}
         class="cool-button"
         disabled={{or disableJoinButton networkStatus.isOffline}}
+        title={{t "chat.titles.enter"}}
       >
         {{t "chat.join"}}
       </button>
-      <button class="cool-button" {{action "toggleGifsEnabled"}}>
+      <button
+        title={{t "chat.titles.img_toggle"}}
+        class="cool-button"
+        {{action "toggleGifsEnabled"}}>
         {{images-enabled-button-label gifsEnabled}}
       </button>
     </form>

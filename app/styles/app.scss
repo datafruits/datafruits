@@ -620,6 +620,10 @@ form {
   transform: rotate(-3.5deg);
 }
 
+#locale-selector-label {
+  font-size: 66%;
+}
+
 .locale-selector {
   font-size: 25px;
   @media screen and (min-device-width: 480px) {
