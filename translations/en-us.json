@@ -107,17 +107,36 @@
   },
   "just_a_website": "It's just a website.",
   "about_datafruits": "Datafruits is a netradio and label founded in 2012 by Tony Miller (mcfiredrill). Its mission is to bring you the world's strangest sounds and bring together the music communities around the world.",
-  "twitter": "Twitter",
-  "tweet": "Tweet",
-  "github": "Github",
-  "soundcloud": "Soundcloud",
-  "mixcloud": "Mixcloud",
-  "instagram": "Instagram",
-  "email": "Email info@datafruits.fm",
+  "twitter": {
+    "title": "Twitter",
+    "aria": "Visit the @datafruits Twitter page"
+  },
+  "github": {
+    "title": "Github",
+    "aria": "Vist the datafruits repo on Github"
+  },
+  "soundcloud": {
+    "title": "Soundcloud",
+    "aria": "Check out the datafruits Soundcloud page"
+  },
+  "mixcloud": {
+    "title": "Mixcloud",
+    "aria": "Check out the datafruits Mixcloud page"
+  },
+  "instagram": {
+    "title": "Instagram",
+    "aria": "Browse posts from datafruits on Instagram"
+  },
+  "email": {
+    "title": "Email info@datafruits.fm",
+    "aria": "Notify datafruits by email"
+  },
   "patron": "Patreon",
+  "patron_aria": "Vist the datafruits.fm Patreon page to learn more about supporting the site",
   "secret": "secret",
   "thanks_patrons": "THANKS TO ALL THE PATRONS!",
   "code_of_conduct": "Code Of Conduct",
+  "code_of_condect_aria": "Read the code of conduct",
   "what_is_datafruits": "What is datafruits...",
   "loading": "Loading...",
   "next_broadcast": "Next live on air: ",
@@ -159,7 +178,8 @@
   "about_page": {
     "listenersupport": "Datafruits is listener supported. You can join our patreon and get stickers and other goodies sent to you every 2 months.",
     "donate_request": "Or if you'd like you can make a one time donation to our paypal.",
-    "donate_linktext": "https://paypal.me/datafruitsfm"
+    "donate_linktext": "https://paypal.me/datafruitsfm",
+    "donate_aria": "Make a donation to datafruits.fm through PayPal"
   },
   "coc": {
     "pledge": {
