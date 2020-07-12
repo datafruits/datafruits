@@ -1,5 +1,5 @@
 <nav class="navbar sp" role="navigation">
-  <button type="button" class="navbar-toggle collapsed" {{action toggleMenu}}>
+  <button type="button" class="navbar-toggle collapsed" {{action toggleMenu}} aria-label={{t "radio_aria"}}>
     <span class="sr-only">
       {{t "nav_toggle"}}
     </span>
@@ -8,49 +8,49 @@
   {{#if menuOpen}}
     <ul>
       <li class="subnav">
-        <span class="submenu-title" href="#">
+        <span class="submenu-title" href="#" aria-label={{t "radio_aria"}}>
           {{t "radio"}}
         </span>
         <ul class="subnav">
           <li>
-            <LinkTo @route="home.djs">
+            <LinkTo @route="home.djs" aria-label={{t "djs.aria"}}>
               {{t "djs.title"}}
             </LinkTo>
           </li>
           <li>
-            <LinkTo @route="home.podcasts">
+            <LinkTo @route="home.podcasts" aria-label={{t "podcasts.aria"}}>
               {{t "podcasts.title"}}
             </LinkTo>
           </li>
           <li>
-            <LinkTo @route="home.timetable">
+            <LinkTo @route="home.timetable" aria-label={{t "timetable_aria"}}>
               {{t "timetable"}}
             </LinkTo>
           </li>
           <li>
-            <LinkTo @route="home.dj-inquiry">
+            <LinkTo @route="home.dj-inquiry" aria-label={{t "djinquiry.aria"}}>
               {{t "djinquiry.title"}}
             </LinkTo>
           </li>
         </ul>
       </li>
       <li>
-        <LinkTo @route="home.chat">
+        <LinkTo @route="home.chat" aria-label={{t "chat.label.aria"}}>>
           {{t "chat.title"}}
         </LinkTo>
       </li>
       <li>
-        <a href="http://releases.datafruits.fm/" target="_blank" rel="noopener">
+        <a href="http://releases.datafruits.fm/" target="_blank" rel="noopener" aria-label={{t "releases.aria"}}>
           {{t "label"}}
         </a>
       </li>
       <li>
-        <LinkTo @route="home.about">
+        <LinkTo @route="home.about" aria-label={{t "about_aria"}}>
           {{t "about"}}
         </LinkTo>
       </li>
       <li>
-        <LinkTo @route="home">
+        <LinkTo @route="home" aria-label={{t "blog_aria"}}>
           {{t "blog"}}
         </LinkTo>
       </li>
@@ -66,7 +66,4 @@
       </li>
     </ul>
   {{/if}}
-  <LinkTo @route="home" @aria-label={{t "blog"}}>
-    <img id="circle-logo" src="/assets/images/logo.png" alt={{t "site_title"}}>
-  </LinkTo>
 </nav>

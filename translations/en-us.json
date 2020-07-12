@@ -39,7 +39,8 @@
     "label": {
       "nick": "nickname",
       "input": "message",
-      "search": "search by tag"
+      "search": "search by tag",
+      "aria": "Visit the datafruits.fm chatroom"
     },
     "titles": {
       "enter": "Enter chat",
@@ -51,6 +52,9 @@
       "gif_close": "Close GIF search"
     }
   },
+  "releases": {
+    "aria": "View EPs and other releases from datafruits.fm"
+  },
   "podcasts": {
     "title": "Podcast",
     "no_result": "No results. Musta been the onion salad dressing.",
@@ -59,20 +63,28 @@
     },
     "tag_search": {
       "label": "Search by tags"
-    }
+    },
+    "aria": "Browse podcasts and past shows"
   },
   "timetable": "Timetable",
+  "timetable_aria": "Browse scheduled shows and events",
   "djs": {
-    "title": "DJs"
+    "title": "DJs",
+    "aria": "Browse DJs who perform on datafruits.fm"
   },
   "nav_toggle": "Toggle navigation",
   "radio": "Radio",
+  "radio_aria": "Explore datafruits.fm radio content",
   "label": "Label",
   "about": "About",
+  "about_aria": "See what datafruits.fm is about",
   "blog": "Blog",
+  "blog_aria": "View the datafruits.fm blog",
   "shop": "Shop",
+  "shop_aria": "Shop for datafruits-related merchandise at cooltrash.shop",
   "thanks": "Thanks!",
   "subscribe": "Subscribe",
+  "subscribe-aria": "Join the datafruits.fm newsletter for occasional updates",
   "newsletter_modal": {
     "title": "DATAFRUITS.FM NEWSLETTER",
     "placeholder_email": "Email",
@@ -90,7 +102,8 @@
     "time": "what time would you like to do a show? typical shows are 2 hours. e.g. sundays at 3pm-5pm PST",
     "other": "Any other questions or comments?",
     "error": "There was an error sending your application! Please check the error messages and try again.",
-    "thanks": "Thanks for your application! We'll reply to your email as soon as possible."
+    "thanks": "Thanks for your application! We'll reply to your email as soon as possible.",
+    "aria": "Apply to DJ on datafruits.fm"
   },
   "just_a_website": "It's just a website.",
   "about_datafruits": "Datafruits is a netradio and label founded in 2012 by Tony Miller (mcfiredrill). Its mission is to bring you the world's strangest sounds and bring together the music communities around the world.",

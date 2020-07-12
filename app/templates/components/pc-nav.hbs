@@ -2,6 +2,7 @@
   <ul>
     <li class="subnav">
       <a {{action toggleSubMenu on="mouseEnter"}}
+        aria-label={{t "radio_aria"}}
         class="submenu-title"
         href="#"
       >
@@ -14,32 +15,32 @@
       </a>
     </li>
     <li>
-      <LinkTo @route="home.chat">
+      <LinkTo @route="home.chat" aria-label={{t "chat.label.aria"}}>
         {{t "chat.title"}}
       </LinkTo>
     </li>
     <li>
-      <a href="http://releases.datafruits.fm/" target="_blank" rel="noopener">
+      <a href="http://releases.datafruits.fm/" target="_blank" rel="noopener" aria-label={{t "releases.aria"}}>
         {{t "label"}}
       </a>
     </li>
     <li>
-      <LinkTo @route="home.about">
+      <LinkTo @route="home.about" aria-label={{t "about_aria"}}>
         {{t "about"}}
       </LinkTo>
     </li>
     <li>
-      <LinkTo @route="home">
+      <LinkTo @route="home" aria-label={{t "blog_aria"}}>
         {{t "blog"}}
       </LinkTo>
     </li>
     <li>
-      <a href="https://cooltrash.shop/" target="_blank" rel="noopener">
+      <a href="https://cooltrash.shop/" target="_blank" rel="noopener" aria-label={{t "shop_aria"}}>
         {{t "shop"}}
       </a>
     </li>
     <li>
-      <LinkTo @route="home.subscribe">
+      <LinkTo @route="home.subscribe" aria-label={{t "subscribe_aria"}}>
         {{t "subscribe"}}
       </LinkTo>
     </li>
@@ -47,28 +48,25 @@
   {{#if submenuOpen}}
     <ul class="subnav">
       <li>
-        <LinkTo @route="home.djs">
+        <LinkTo @route="home.djs" aria-label={{t "djs.aria"}}>
           {{t "djs.title"}}
         </LinkTo>
       </li>
       <li>
-        <LinkTo @route="home.podcasts">
+        <LinkTo @route="home.podcasts" aria-label={{t "podcasts.aria"}}>
           {{t "podcasts.title"}}
         </LinkTo>
       </li>
       <li>
-        <LinkTo @route="home.timetable">
+        <LinkTo @route="home.timetable" aria-label={{t "timetable_aria"}}>
           {{t "timetable"}}
         </LinkTo>
       </li>
       <li>
-        <LinkTo @route="home.dj-inquiry">
+        <LinkTo @route="home.dj-inquiry" aria-label={{t "djinquiry.aria"}}>
           {{t "djinquiry.title"}}
         </LinkTo>
       </li>
     </ul>
   {{/if}}
-  <LinkTo @route="home">
-    <img id="circle-logo" src="/assets/images/logo.png" alt={{t "site_title"}}>
-  </LinkTo>
 </nav>
