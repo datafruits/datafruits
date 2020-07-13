@@ -29,7 +29,7 @@
       <label for="chat-input-message">{{t "chat.label.input"}}</label>
       <DatafruitsChatInputMessage  @isOffline={{networkStatus.isOffline}} />
       <button
-        title={{t "chat.titles.img_toggle"}}
+        title={{if this.gifsEnabled  (t "chat.titles.img_on") (t "chat.titles.img_off") }}
         class="cool-button"
         {{action "toggleGifsEnabled"}}>
         {{images-enabled-button-label gifsEnabled}}
@@ -55,7 +55,7 @@
         {{t "chat.join"}}
       </button>
       <button
-        title={{t "chat.titles.img_toggle"}}
+        title={{if this.gifsEnabled  (t "chat.titles.img_on") (t "chat.titles.img_off") }}
         class="cool-button"
         {{action "toggleGifsEnabled"}}>
         {{images-enabled-button-label gifsEnabled}}

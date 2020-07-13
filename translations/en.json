@@ -46,7 +46,6 @@
       "send": "Send message to chat",
       "img_on": "Images in chat will be displayed",
       "img_off": "Images in chat will not be displayed",
-      "img_toggle": "Set visibility of images in chat",
       "gif": "Share GIF with chat",
       "gif_close": "Close GIF search"
     }
