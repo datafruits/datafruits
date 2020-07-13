@@ -36,11 +36,7 @@ export default class DatafruitsChat extends Component {
   }
 
   get disableJoinButton() {
-    let hasAgreed = false
-    if (this.agreeToCoC === true && this.nick.length > 1) {
-      hasAgreed = true;
-    }
-    return !hasAgreed || this.isJoiningChat === true;
+    return !(this.agreeToCoC && this.nick.length > 1) || this.isJoiningChat;
   }
 
   @action
