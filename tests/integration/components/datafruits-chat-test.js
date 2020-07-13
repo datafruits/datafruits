@@ -21,7 +21,7 @@ module('Integration | Component | datafruits chat', function(hooks) {
 
     await render(hbs`<DatafruitsChat />`);
 
-    assert.dom('*').hasText('I agree with the CoC Join chat Images are off');
+    assert.dom('*').hasText('I have read the CoC and permit the datafruits.fm admins to kick me out of the chat for causing distress to any users or engaging in disruptive behavior Join chat Images are off');
   });
 
   test('it has offline message', async function(assert) {
@@ -29,6 +29,6 @@ module('Integration | Component | datafruits chat', function(hooks) {
     this.set('networkStatus.isOffline', true);
     await render(hbs`<DatafruitsChat @networkStatus={{this.networkStatus}} />`);
 
-    assert.dom('*').hasText("You appear to be offline. I guess you won't be able to chat. Musta been the onion salad dressing I agree with the CoC Join chat Images are off");
+    assert.dom('*').hasText("You appear to be offline. I guess you won't be able to chat. Musta been the onion salad dressing I have read the CoC and permit the datafruits.fm admins to kick me out of the chat for causing distress to any users or engaging in disruptive behavior Join chat Images are off");
   });
 });
