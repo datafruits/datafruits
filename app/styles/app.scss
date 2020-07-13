@@ -106,20 +106,18 @@ form#send-message {
 
 form#enter-chat {
   margin-bottom: 20px;
-  @media only screen and (max-device-width: 480px) {
-    label {
-      display: none;
-    }
-    input {
-      width: 50%;
-    }
-  }
   label {
     color: yellow;
     font-size: 2rem;
     text-shadow: #333 1px 1px 1px;
     margin-right: 10px;
   }
+}
+
+#agree-to-coc-label {
+  font-family: cursive;
+  font-style: italic;
+  font-size: 1rem !important;
 }
 
 @keyframes textshadowfade {

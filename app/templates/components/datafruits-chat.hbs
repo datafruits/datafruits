@@ -33,14 +33,19 @@
     </form>
   {{else}}
     <form align="center" id="enter-chat">
-      <Input
-        @type="checkbox"
-        @checked={{agreeToCoC}}
-        {{action 'change' agreeChanged}}
-        name="agree-to-coc"
-        id="agree-to-coc"
-      />
-      <label for="agree-to-coc">{{t "i_agree"}}<abbr title={{t "code_of_conduct"}}><a href="/coc">CoC</a></abbr></label>
+      <div>
+        <Input
+          @type="checkbox"
+          @checked={{agreeToCoC}}
+          {{action 'change' agreeChanged}}
+          name="agree-to-coc"
+          id="agree-to-coc"
+        />
+        <label id="agree-to-coc-label" for="agree-to-coc">
+          {{t "i_agree_2"}} <abbr title={{t "code_of_conduct"}}><a href="/coc">CoC</a></abbr>
+          {{t "i_agree_1"}}
+        </label>
+      </div>
       <Input
         @type="text"
         @name="nick"
