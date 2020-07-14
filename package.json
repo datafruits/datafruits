@@ -29,7 +29,7 @@
     "babel-eslint": "^10.1.0",
     "babel-plugin-istanbul": "^6.0.0",
     "broccoli-asset-rev": "^3.0.0",
-    "broccoli-babel-transpiler": "^7.4.0",
+    "broccoli-babel-transpiler": "^7.6.0",
     "broccoli-es6modules": "^1.2.2",
     "broccoli-merge-trees": "^4.2.0",
     "cross-env": "7.0.2",
