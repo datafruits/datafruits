@@ -8,12 +8,12 @@ export default class DjDonateButtonComponent extends Component {
 
   @tracked donationLink;
 
-  constructor(){
+  constructor() {
     super(...arguments);
-    this.eventBus.subscribe("donationLinkUpdate", this, "setDonationLink");
+    this.eventBus.subscribe('donationLinkUpdate', this, 'setDonationLink');
   }
 
-  setDonationLink(){
-    this.donationLink =  this.metadata.donationLink;
+  setDonationLink() {
+    this.donationLink = this.metadata.donationLink;
   }
 }

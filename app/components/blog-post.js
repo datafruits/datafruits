@@ -13,7 +13,7 @@ export default class BlogPost extends Component {
     }).firstObject;
     if (!body) {
       body = this.post.blogPostBodies.filter((body) => {
-        return body.language == "en";
+        return body.language == 'en';
       }).firstObject;
     }
     return body;

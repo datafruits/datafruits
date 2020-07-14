@@ -15,15 +15,15 @@ export default class PodcastsSearch extends Component {
     super.init(...arguments);
     this.selectedLabels = [];
     const selectedTags = this.selectedTags;
-    if(!isEmpty(selectedTags)){
-      if(isArray(selectedTags)){
+    if (!isEmpty(selectedTags)) {
+      if (isArray(selectedTags)) {
         this.set('selectedLabels', this.selectedTags);
-      }else{
-        this.set('selectedLabels', this.selectedTags.split(","));
+      } else {
+        this.set('selectedLabels', this.selectedTags.split(','));
       }
     }
     const searchParams = this.searchParams;
-    if(searchParams.query){
+    if (searchParams.query) {
       this.set('filterText', searchParams.query);
     }
   }
@@ -32,7 +32,7 @@ export default class PodcastsSearch extends Component {
 
   @computed('labels')
   get labelNames() {
-    return this.labels.map(function(label){
+    return this.labels.map(function (label) {
       return label.get('name');
     });
   }

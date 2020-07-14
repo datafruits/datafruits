@@ -1,11 +1,11 @@
 import { helper } from '@ember/component/helper';
 
-export function imagesEnabledButtonLabel(params/*, hash*/) {
+export function imagesEnabledButtonLabel(params /*, hash*/) {
   let imagesEnabled = params[0];
-  if(imagesEnabled){
-    return "Images are on";
-  }else{
-    return "Images are off";
+  if (imagesEnabled) {
+    return 'Images are on';
+  } else {
+    return 'Images are off';
   }
 }
 

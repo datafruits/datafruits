@@ -18,11 +18,11 @@ export default class DatafruitsVisuals extends Component {
   videoStreamActive;
 
   didRender() {
-    if(!this.fastboot.isFastBoot){
-      if(this.videoStreamActive){
+    if (!this.fastboot.isFastBoot) {
+      if (this.videoStreamActive) {
         this.videoStream.initializePlayer();
-      }else {
-        later(()=> {
+      } else {
+        later(() => {
           this.videoStream.fetchStream();
         }, 15000);
       }

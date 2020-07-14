@@ -31,8 +31,10 @@ export default class Dj extends Model {
 
   @computed('scheduledShows')
   get nextShow() {
-    return this.scheduledShows.filter((scheduledShow) => {
-      return moment(scheduledShow.start).isSameOrAfter(Date.now());
-    }).get('firstObject');
+    return this.scheduledShows
+      .filter((scheduledShow) => {
+        return moment(scheduledShow.start).isSameOrAfter(Date.now());
+      })
+      .get('firstObject');
   }
 }

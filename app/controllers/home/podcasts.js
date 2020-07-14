@@ -7,7 +7,7 @@ import QueryParams from 'ember-parachute';
 export const PodcastQueryParams = new QueryParams({
   page: {
     defaultValue: 1,
-    refresh: true
+    refresh: true,
   },
   tags: {
     defaultValue: [],
@@ -17,12 +17,12 @@ export const PodcastQueryParams = new QueryParams({
     },
     deserialize(value = '') {
       return value.split(',');
-    }
+    },
   },
   query: {
-    defaultValue: "",
-    refresh: true
-  }
+    defaultValue: '',
+    refresh: true,
+  },
 });
 
 @classic

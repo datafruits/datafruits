@@ -1,7 +1,7 @@
-import classic from "ember-classic-decorator";
-import { inject as service } from "@ember/service";
-import Route from "@ember/routing/route";
-import { later } from "@ember/runloop";
+import classic from 'ember-classic-decorator';
+import { inject as service } from '@ember/service';
+import Route from '@ember/routing/route';
+import { later } from '@ember/runloop';
 
 @classic
 export default class HomeRoute extends Route {
@@ -16,7 +16,7 @@ export default class HomeRoute extends Route {
   }
 
   afterModel() {
-    if(!this.fastboot.isFastBoot){
+    if (!this.fastboot.isFastBoot) {
       let locales = this.intl.locales;
       let language;
       if (navigator.languages) {
@@ -24,9 +24,9 @@ export default class HomeRoute extends Route {
       } else {
         language = navigator.language || navigator.userLanguage;
       }
-      language = locales.includes(language.toLowerCase()) ? language : "en";
+      language = locales.includes(language.toLowerCase()) ? language : 'en';
 
-      this.set("intl.locale", language);
+      this.set('intl.locale', language);
     }
   }
 

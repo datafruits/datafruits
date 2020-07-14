@@ -14,7 +14,7 @@ module.exports = function (/* environment */) {
      * @type {String?}
      * @default "null"
      */
-    fallbackLocale: "en",
+    fallbackLocale: 'en',
 
     /**
      * Path where translations are kept.  This is relative to the project root.
@@ -25,7 +25,7 @@ module.exports = function (/* environment */) {
      * @type {String}
      * @default "'translations'"
      */
-    inputPath: "./translations",
+    inputPath: './translations',
 
     /**
      * Prevents the translations from being bundled with the application code.
