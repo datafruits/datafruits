@@ -32,7 +32,7 @@
         aria-label={{t "player.aria.stop"}}
         {{action "pause"}}
         class="jp-pause"
-        tabindex="1"
+        tabindex="0"
       >
         {{t (if this.playingPodcast "player.pause" "player.stop")}}
       </a>
@@ -41,7 +41,7 @@
         name="play-stream"
         class="jp-play"
         href="#"
-        tabindex="1"
+        tabindex="0"
         role="button"
         aria-label={{t "player.aria.play"}}
         title={{t "player.aria.play"}}
@@ -64,7 +64,7 @@
         {{!-- template-lint-disable no-nested-interactive --}}
         <a 
           class="jp-unmute"
-          tabindex="1"
+          tabindex="0"
           role="button"
           title={{t "player.aria.unmute"}}
           aria-label={{t "player.aria.unmute"}}
@@ -75,7 +75,7 @@
       {{else}}
         <a 
           class="jp-mute"
-          tabindex="1"
+          tabindex="0"
           role="button"
           title={{t "player.aria.mute"}}
           aria-label={{t "player.aria.mute"}}
@@ -90,7 +90,7 @@
           class="volume-control"
           type="range"
           min="0"
-          max="1"
+          max="0"
           step="0.1"
           aria-label={{t "player.aria.volume"}}
           oninput={{action "volumeChanged"}}
