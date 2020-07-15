@@ -62,9 +62,14 @@
     "archive": "アーカイブを聴く"
   },
   "player": {
-    "label": {
+    "aria": {
       "play": "再生",
-      "volume": "ボリューム"
+      "volume": "ボリューム",
+      "stop": "중지",
+      "mute": "음소거",
+      "unmute": "음소거 해제",
+      "return_to_live": "ライブストリームに戻る",
+      "now_playing": "録音を再生しています"
     }
   },
   "locale": "ロケール",

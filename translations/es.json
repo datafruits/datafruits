@@ -91,19 +91,14 @@
       "warning": "Para ver este video, habilite JavaScript y considere actualizar a un navegador web que",
       "linktext": "admita video HTML5"
     },
-    "title": {
+    "aria": {
       "play": "Reproducir stream",
       "volume": "Ajusta el volúmen",
       "stop": "Detener la reproducción",
       "mute": "Haz clic para silenciar",
       "unmute": "Haz clic para dejar de silenciar",
+      "return_to_live": "Regresar a la transmisión en vivo",
       "now_playing": "Ahora reproduciendo grabaciones anteriores"
-    },
-    "label": {
-      "volume": "volumen:",
-      "play": "tocar:",
-      "loading": "cargando:",
-      "stop": "detener:"
     }
   },
   "locale": "lugar",

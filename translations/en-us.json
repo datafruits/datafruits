@@ -158,19 +158,14 @@
       "warning": "To view this video please enable JavaScript, and consider upgrading to a web browser that",
       "linktext": "supports HTML5 video"
     },
-    "title": {
+    "aria": {
       "play": "Play stream",
       "volume": "Adjust volume",
       "stop": "Stop playback",
       "mute": "Click to mute",
       "unmute": "Click to unmute",
+      "return_to_live": "Stop audio playback and resume datafruits.fm stream",
       "now_playing": "Now playing back earlier recording"
-    },
-    "label": {
-      "volume": "volume:",
-      "play": "play:",
-      "loading": "loading:",
-      "stop": "stop:"
     }
   },
   "locale": "locale",

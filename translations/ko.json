@@ -47,9 +47,14 @@
     "thanks": "감사합니다!"
   },
   "player": {
-    "label": {
-      "volume": "음량",
-      "play": "플레이"  
+    "aria": {
+      "play": "스트림 재생",
+      "volume": "음량 조절",
+      "stop": "재생 중지",
+      "mute": "음소거",
+      "unmute": "음소거 해제",
+      "return_to_live": "라이브 스트림으로 돌아 가기",
+      "now_playing": "지금 녹음 재생"
     }
   },
   "locale": "장소",

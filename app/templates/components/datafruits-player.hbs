@@ -11,73 +11,88 @@
 <div class="radio-container">
   <div class="player-controls">
     {{#if playingPodcast}}
-      <label for="resume-stream">{{t "player.label.play"}}</label>
-      <a id="resume-stream"
-        name="resume-stream"
+      <a 
+        aria-label={{t "player.aria.return_to_live"}}
         href="javascript:;"
-        {{action "playLiveStream"}}>
+        role="button"
+        {{action "playLiveStream"}}
+      >
         {{t "player.return_to_live"}}
       </a>
     {{/if}}
     {{#if loading}}
-      <label for="loading-stream">{{t "player.label.loading"}}</label>
       <div id="loading-stream"
         name="loading-stream"
         class="player-loading">
       </div>
     {{else if playing}}
-      <label for="pause-stream">{{t "player.label.stop"}}</label>
       <a id="pause-stream"
         name="pause-stream"
+        role="button"
+        aria-label={{t "player.aria.stop"}}
         {{action "pause"}}
         class="jp-pause"
         tabindex="1"
-        title={{t "player.title.stop"}}
       >
         {{t (if this.playingPodcast "player.pause" "player.stop")}}
       </a>
     {{else if paused}}
-      <label for="play-stream">{{t "player.label.play"}}</label>
-      <a {{action "play"}}
-        onMouseEnter={{action "playButtonMouseEnter"}}
-        onMouseLeave={{action "playButtonMouseOut"}}
+      <a id="play-stream"
+        name="play-stream"
         class="jp-play"
         href="#"
         tabindex="1"
-        title={{t "player.title.play"}}
         role="button"
-        aria-label={{t "player.title.play"}}
+        aria-label={{t "player.aria.play"}}
+        title={{t "player.aria.play"}}
+        {{action "play"}}
+        onMouseEnter={{action "playButtonMouseEnter"}}
+        onMouseLeave={{action "playButtonMouseOut"}}
       >
         {{t "player.play"}}
       </a>
     {{/if}}
-    <label for="volume-control">{{t 'player.label.volume'}}</label>
     <span id="volume-control"
       name="volume-control"
-      {{action "toggleVolumeControl" on="mouseEnter"}}
-      {{action "toggleVolumeControl" on="mouseLeave"}}
-      class="jp-volume-controls"
       role="button"
-      name="volume-control"
+      class="jp-volume-controls"
+      aria-label={{t "player.aria.volume"}}
+      {{action "toggleVolumeControl" on="mouseEnter"}}
+      {{action "toggleVolumeControl" on="mouseLeave"}}      
     >
       {{#if muted}}
         {{!-- template-lint-disable no-nested-interactive --}}
-        <a class="jp-unmute" tabindex="1" {{action "unmute"}} title={{t "player.title.unmute"}}>
+        <a 
+          class="jp-unmute"
+          tabindex="1"
+          role="button"
+          title={{t "player.aria.unmute"}}
+          aria-label={{t "player.aria.unmute"}}
+          {{action "unmute"}}
+        >
           <i class="fa fa-volume-off"></i>
         </a>
       {{else}}
-        <a class="jp-mute" tabindex="1" {{action "mute"}} title={{t "player.title.mute"}}>
+        <a 
+          class="jp-mute"
+          tabindex="1"
+          role="button"
+          title={{t "player.aria.mute"}}
+          aria-label={{t "player.aria.mute"}}
+          {{action "mute"}}
+        >
           <i class="fa fa-volume-up"></i>
         </a>
       {{/if}}
       {{#if showingVolumeControl}}
+        <label for="vol-control">{{this.volume}}</label>
         <input
           class="volume-control"
           type="range"
           min="0"
           max="1"
           step="0.1"
-          title={{t "player.title.volume"}}
+          aria-label={{t "player.aria.volume"}}
           oninput={{action "volumeChanged"}}
           value={{volume}}
         >
