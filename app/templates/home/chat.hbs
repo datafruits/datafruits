@@ -9,6 +9,9 @@
   </div>
 {{else}}
   <NetworkStatus as |status|>
-    <DatafruitsChat @networkStatus={{status}} />
+    <DatafruitsChat
+      @networkStatus={{status}}
+      @authenticate={{fn this.authenticate}}
+    />
   </NetworkStatus>
 {{/if}}

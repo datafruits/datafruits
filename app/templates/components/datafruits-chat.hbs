@@ -41,6 +41,14 @@
         @autocapitalize="none"
         placeholder={{t "chat.nickname"}}
       />
+      <Input
+        @type="password"
+        @name="pass"
+        @value={{pass}}
+        @autocorrect="off"
+        @autocapitalize="none"
+        placeholder={{t "chat.password"}}
+      />
       <button {{action "enterChat"}}
         class="cool-button"
         disabled={{or disableJoinButton networkStatus.isOffline}}
