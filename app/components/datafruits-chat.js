@@ -17,6 +17,7 @@ export default class DatafruitsChat extends Component {
   newMessagesBelow = false; // TODO move this to chat service
   isJoiningChat = false;
   nick = '';
+  pass = '';
 
   @oneWay('chat.joinedChat')
   joinedChat;
@@ -41,7 +42,9 @@ export default class DatafruitsChat extends Component {
   enterChat() {
     this.set('isJoiningChat', true);
     const nick = this.nick.trim();
-    this.chat.push('authorize', { user: nick, timestamp: Date.now() });
+    const pass = this.pass;
+    this.attrs.authenticate(nick, pass);
+    //this.chat.push('authorize', { user: nick, timestamp: Date.now() });
   }
 
   @action
