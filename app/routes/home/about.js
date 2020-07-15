@@ -18,6 +18,7 @@ export default class AboutRoute extends Route {
       { name: 'Erin tanner' },
       { name: 'Evan Higgins' },
       { name: 'five star hotel' },
+      { name: 'Gaiety' },
       { name: 'Gia' },
       { name: 'Ginger Steve' },
       { name: 'GLORIA and KEN' },
