@@ -15,6 +15,10 @@
         target="_blank"
         novalidate=""
       >
+        <aside class="tiny">
+          {{t "newsletter_modal.tiny"}}
+        </aside>
+        <label for="mce-EMAIL">Email address: </label>
         <input
           type="email"
           value=""
@@ -30,9 +34,6 @@
           id="mc-embedded-subscribe"
           class="cool-button"
         >
-        <span class="tiny">
-          {{t "newsletter_modal.tiny"}}
-        </span>
         <div id="mce-responses">
           <div
             class="response hide"
@@ -45,6 +46,7 @@
           >
           </div>
         </div>
+
       </form>
     </div>
     {{!--End mc_embed_signup--}}
