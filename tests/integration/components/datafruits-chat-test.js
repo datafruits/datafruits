@@ -30,7 +30,7 @@ module('Integration | Component | datafruits chat', function (hooks) {
     assert
       .dom('*')
       .hasText(
-        "You appear to be offline. I guess you won't be able to chat. Musta been the onion salad dressing Join chat Images are off",
+        "You appear to be offline. I guess you won't be able to chat. Musta been the onion salad dressing nickname Join chat Images are off",
       );
   });
 });
