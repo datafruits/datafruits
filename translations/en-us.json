@@ -9,6 +9,7 @@
   "pagination_prev": "«",
   "pagination_next": "»",
   "home": {
+    "aria": "Navigate to the homepage",
     "upcoming_shows": "UPCOMING SHOWS",
     "latest_podcasts": "LATEST PODCASTS",
     "events": "EVENTS",

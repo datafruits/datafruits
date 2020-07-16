@@ -4,7 +4,7 @@
     @submenuOpen={{submenuOpen}}
   />
   <SpNav @toggleMenu={{action "toggleMenu"}} @menuOpen={{menuOpen}} />
-  <LinkTo @route="home">
+  <LinkTo aria-label={{t "home.aria"}} @route="home">
     <h1 id="logo">
       {{t "site_title_fm"}}
     </h1>
