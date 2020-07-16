@@ -12,6 +12,7 @@ export default Service.extend({
   messages: ArrayProxy.create({ content: A() }),
   joinedChat: false,
   gifsEnabled: true,
+  token: '',
   push(message, object) {
     this.chan.push(message, object);
   },
@@ -48,6 +49,7 @@ export default Service.extend({
 
     this.chan.on('authorized', (msg) => {
       this.set('username', msg.user);
+      this.set('token', msg.token);
       this.set('joinedChat', true);
     });
 

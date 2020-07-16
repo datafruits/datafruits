@@ -19,6 +19,9 @@ export default class DatafruitsChatInputMessage extends Component {
   @oneWay('chat.joinedUsers')
   joinedUsers;
 
+  @oneWay('chat.token')
+  token;
+
   @action
   closeGifSearch() {
     this.set('showingGifSearch', false);
@@ -40,7 +43,7 @@ export default class DatafruitsChatInputMessage extends Component {
   sendMessage() {
     const message = this.inputMessage;
     if (message) {
-      this.chat.push('new:msg', { user: this.username, body: message, timestamp: Date.now() });
+      this.chat.push('new:msg', { user: this.username, body: message, timestamp: Date.now(), token: this.token });
       this.set('inputMessage', '');
     }
   }
