@@ -5,9 +5,9 @@ import Component from '@ember/component';
 import { debounce } from '@ember/runloop';
 
 @classic
-@tagName("ul")
+@tagName('ul')
 export default class ChatMessages extends Component {
-  elementId = "messages";
+  elementId = 'messages';
 
   touchMove() {
     this.onScroll();
@@ -19,9 +19,9 @@ export default class ChatMessages extends Component {
 
   @action
   setupAutoscroll() {
-    if(this.scrolledToBottom()){
+    if (this.scrolledToBottom()) {
       this.set('willAutoscroll', true);
-    }else{
+    } else {
       this.newMessagesAvailable();
       this.set('willAutoscroll', false);
     }
@@ -29,7 +29,7 @@ export default class ChatMessages extends Component {
 
   @action
   adjustScrolling() {
-    if(this.willAutoscroll){
+    if (this.willAutoscroll) {
       const messages = document.getElementById('messages');
       //$('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
       messages.scrollTop = messages.scrollHeight;
@@ -43,7 +43,7 @@ export default class ChatMessages extends Component {
   }
 
   didInsertElement() {
-    this.element.addEventListener("scroll", () => {
+    this.element.addEventListener('scroll', () => {
       debounce(this, this.onScroll, 500);
     });
   }

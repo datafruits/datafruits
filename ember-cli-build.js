@@ -2,10 +2,10 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-module.exports = function(defaults) {
+module.exports = function (defaults) {
   var fingerprintOptions = {
     enabled: true,
-    exclude: ['assets/images/emojis/*']
+    exclude: ['assets/images/emojis/*'],
   };
 
   var app = new EmberApp(defaults, {
@@ -19,26 +19,21 @@ module.exports = function(defaults) {
     },
 
     babel: {
-      plugins: [ require('ember-auto-import/babel-plugin') ]
+      plugins: [require('ember-auto-import/babel-plugin')],
     },
 
     emberCliFontAwesome: {
-      useScss: true
+      useScss: true,
     },
 
     'esw-cache-first': {
-      patterns: [
-        'fonts/fontawesome(.+)',
-      ],
-      version: '1'
+      patterns: ['fonts/fontawesome(.+)'],
+      version: '1',
     },
 
     'esw-cache-fallback': {
-      patterns: [
-        'https://datafruits.streampusher.com/(.+)',
-        'https://dongles.streampusher-relay.club/(.+)',
-      ],
-    }
+      patterns: ['https://datafruits.streampusher.com/(.+)', 'https://dongles.streampusher-relay.club/(.+)'],
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated

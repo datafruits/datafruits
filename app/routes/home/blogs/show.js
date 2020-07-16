@@ -9,7 +9,7 @@ export default class ShowRoute extends Route {
   }
 
   afterModel(model) {
-   this.setHeadTags(model);
+    this.setHeadTags(model);
   }
 
   setHeadTags(model) {
@@ -18,18 +18,18 @@ export default class ShowRoute extends Route {
         type: 'meta',
         attrs: {
           name: 'twitter:title',
-          content: `datafruits.fm - ${model.title}`
+          content: `datafruits.fm - ${model.title}`,
         },
       },
     };
-    if(model.imageUrl){
+    if (model.imageUrl) {
       headTags['image'] = {
         type: 'meta',
         attrs: {
           name: 'twitter:image',
-          content: model.blogPostBodies.firstObject.previewImage.s3Url
+          content: model.blogPostBodies.firstObject.previewImage.s3Url,
         },
-      }
+      };
     }
 
     // TODO extract this to a function...

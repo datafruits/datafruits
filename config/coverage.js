@@ -1,6 +1,4 @@
 module.exports = {
-  exludes: [
-    "*/fastboot*/**"
-  ],
-  useBabelInstrumenter: true
+  exludes: ['*/fastboot*/**'],
+  useBabelInstrumenter: true,
 };
