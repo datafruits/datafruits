@@ -1,52 +1,51 @@
 <div id="podcast-search-controls">
   <div id="podcast-subscribe">
-    <h4>{{t "home.podcasts.subscribe_title"}}</h4>
+    <h4>{{t "podcasts.subscribe"}}</h4>
     <ul id="subscribe-links">
       <li>
         <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">
-          {{t "home.podcasts.link_itunes"}}
+          {{t "podcasts.links.itunes"}}
         </a>
       </li>
       <li>
         <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml">
-          {{t "home.podcasts.link_overcast"}}
+          {{t "podcasts.links.overcast"}}
         </a>
       </li>
       <li>
         <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">
-          {{t "home.podcasts.link_podcastsapp"}}
+          {{t "podcasts.links.podcastsapp"}}
         </a>
       </li>
       <li>
         <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">
-          {{t "home.podcasts.link_rss"}}
+          {{t "podcasts.links.rss"}}
         </a>
       </li>
     </ul>
   </div>
   <hr/>
   <div id="podcast-search-forms">
-    <h4>{{t "home.podcasts.search_title"}}</h4>
-    <form role="search" aria-label={{ t "podcasts.text_search.label"}}
-    {{action "nop" on="submit"}}>
+    <h4>{{t "podcasts.search"}}</h4>
+    <form role="search" aria-label={{t "podcasts.aria.title"}} {{action "nop" on="submit"}}>
       <div class="podcast-search-group">
-        <label for="search-tracks">{{t "home.podcasts.title_search"}}</label>
+        <label for="search-tracks">{{t "podcasts.labels.title"}}</label>
         <Input
-        id="search-tracks"
-        name="search-tracks"
-        @autofocus="autofocus"
-        @value={{filterText}}
-        @escape-press={{action "clearSearch"}}
-        placeholder={{t "home.podcasts.title_placeholder"}}
+          id="search-tracks"
+          name="search-tracks"
+          @autofocus="autofocus"
+          @value={{filterText}}
+          @escape-press={{action "clearSearch"}}
+          placeholder={{t "podcasts.placeholders.title"}}
         />
       </div>
     </form>
-    <form role="search" aria-label={{ t "podcasts.tag_search.label"}}>
+    <form role="search" aria-label={{t "podcasts.aria.tag"}}>
       <div class="podcast-search-group">
-        <label for="tag_search">{{t "home.podcasts.tag_search"}}</label>
+        <label for="tag_search">{{t "podcasts.labels.tag"}}</label>
         <PowerSelectMultiple
           name="tag_search"
-          @placeholder={{t "home.podcasts.tag_placeholder"}}
+          @placeholder={{t "podcasts.placeholders.title"}}
           @options={{labelNames}}
           @selected={{selectedLabels}}
           @renderInPlace={{true}}

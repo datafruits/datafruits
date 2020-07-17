@@ -2,12 +2,7 @@
   "home": {
     "upcoming_shows": "近日放送予定",
     "latest_podcasts": "最新ポッドキャスト",
-		"podcasts": {
-      "subscribe_title": "申し込む",
-      "search_title": "探す",
-      "title_search": "題名",
-      "tag_search": "鬼ごっこ"
-    }
+    "events": "イベント"
   },
   "chat": {
     "title": "チャット",
@@ -16,22 +11,42 @@
     "send": "送信",
     "message_placeholder": "メッセージをここに入力してください",
     "join": "チャットに参加",
-    "nickname": "ニックネーム"
+    "img_on": "画像あり",
+    "img_off": "画像がオフです",
+    "nickname": "ここにユーザー名を入力してください...",
+    "label": {
+      "nick": "ニックネーム",
+      "input": "メッセージ",
+      "search": "タグで検索",
+      "aria": "datafruits.fmチャットルームにアクセス"
+    },
+    "titles": {
+      "enter": "チャットに入る",
+      "send": "チャットにメッセージを送信",
+      "img_on": "チャット中の画像が表示されます",
+      "img_off": "チャット中の画像は表示されません",
+      "gif": "チャットでGIFを共有する",
+      "gif_close": "GIF検索を閉じる"
+    }
   },
   "podcasts": {
     "title": "ポッドキャスト",
-    "no_result": "結果なしです。もしかしてオニオンサラダドレッシングかもしれませんでした。"
+    "search": "探す",
+    "subscribe": "申し込む",
+    "no_result": "結果なしです。もしかしてオニオンサラダドレッシングかもしれませんでした。",
+    "labels": {
+      "title": "題名",
+      "tag": "鬼ごっこ"
+    }
   },
-  "djs": {
-    "title": "DJs"
-  },
-  "timetable": "タイムテーブル",
-  "radio": "ラジオ",
-  "label": "レーベル",
-  "about": "datafruitsとは？",
-  "blog": "ブログ",
-  "shop": "買い物",
-  "subscribe": "メールマガ登録",
+  "timetable": {"title": "タイムテーブル"},
+  "djs": {"title": "DJs"},
+  "radio": {"title": "ラジオ"},
+  "releases": {"title": "レーベル"},
+  "about": {"title": "datafruitsとは？"},
+  "blog": {"title": "ブログ"},
+  "shop": {"title": "買い物"},
+  "subscribe": {"title": "メールマガ登録"},
   "djinquiry": {
     "title": "DJ案件",
     "heading": "Datafruitsで番組をやっていませんか？",

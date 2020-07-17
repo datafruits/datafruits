@@ -6,45 +6,54 @@
   "home": {
     "upcoming_shows": "PRÓXIMOS PROGRAMAS",
     "latest_podcasts": "ÚLTIMOS PÓDCASTS",
-    "events": "EVENTOS",
-    "podcasts": {
-      "title": "PÓDCASTS",
-      "subscribe_title": "Suscribir",
-      "search_title": "Buscar",
-      "title_search": "Buscar por título",
-      "tag_search": "Buscar por etiqueta"
-    }
+    "events": "EVENTOS"
   },
   "chat": {
+    "title": "Charla",
     "new_messages": "Nuevas mensajes debajo.",
     "offline": "Parece que estás desconectado. Supongo que no podrás chatear. Debe haber sido el aderezo de ensalada de cebolla",
     "send": "Enviar",
     "message_placeholder": "introduzca su mensaje aquí...",
     "join": "Únete al chat",
-    "nickname": "apodo"
+    "img_on": "Las imágenes están en",
+    "img_off": "Las imágenes están apagadas",
+    "nickname": "ingresa tu nombre de usuario aquí...",
+    "label": {
+      "nick": "apodo",
+      "input": "mensaje",
+      "search": "buscar por etiqueta",
+      "aria": "Visita la sala de chat de datafruits.fm"
+    },
+    "titles": {
+      "enter": "Entrar al chat",
+      "send": "Enviar mensaje para chatear",
+      "img_on": "Se mostrarán las imágenes en el chat",
+      "img_off": "Las imágenes en el chat no se mostrarán",
+      "gif": "Compartir GIF con chat",
+      "gif_close": "Cerrar búsqueda de GIF"
+    }
   },
   "podcasts": {
     "title": "Podcast",
+    "search": "Buscar",
+    "header": "BUSCAR",
+    "subscribe": "Suscribir",
     "no_result": "No hay resultados. Debe haber sido el aderezo de ensalada de cebolla.",
-    "text_search": {
-      "label": "Buscar por texto"
-    },
-    "tag_search": {
-      "label": "Buscar por etiquetas"
+    "labels": {
+      "title": "Título",
+      "tag": "Etiqueta"
     }
   },
-  "timetable": "Calendario",
-  "djs": {
-    "title": "DJs"
-  },
+  "timetable": {"title": "Calendario"},
+  "djs": {"title": "DJs"},
   "nav_toggle": "Cambiar navigación",
-  "radio": "Radio",
-  "label": "Sello",
-  "about": "Sobre DF",
-  "blog": "Blog",
-  "shop": "Tienda",
+  "radio": {"title": "Radio"},
+  "releases": {"title": "Sello"},
+  "about": {"title": "Sobre DF"},
+  "blog": {"title": "Blog"},
+  "shop": {"title": "Tienda"},
   "thanks": "Gracias!",
-  "subscribe": "Suscríbase",
+  "subscribe": {"title": "Suscríbase"},
   "newsletter_modal": {
     "title": "BOLETÍN INFORMATIVO DATAFRUITS.FM",
     "placeholder_email": "Email",

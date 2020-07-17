@@ -2,11 +2,11 @@
   <ul>
     <li class="subnav">
       <a {{action toggleSubMenu on="mouseEnter"}}
-        aria-label={{t "radio_aria"}}
+        aria-label={{t "radio.aria"}}
         class="submenu-title"
         href="#"
       >
-        {{t "radio"}}
+        {{t "radio.title"}}
         <span
           class="fa fa-arrow-circle-o-right {{if submenuOpen "rotated"}}"
           aria-hidden="true"
@@ -15,33 +15,33 @@
       </a>
     </li>
     <li>
-      <LinkTo @route="home.chat" aria-label={{t "chat.label.aria"}}>
+      <LinkTo @route="home.chat" aria-label={{t "chat.aria"}}>
         {{t "chat.title"}}
       </LinkTo>
     </li>
     <li>
       <a href="http://releases.datafruits.fm/" target="_blank" rel="noopener" aria-label={{t "releases.aria"}}>
-        {{t "label"}}
+        {{t "releases.title"}}
       </a>
     </li>
     <li>
-      <LinkTo @route="home.about" aria-label={{t "about_aria"}}>
-        {{t "about"}}
+      <LinkTo @route="home.about" aria-label={{t "about.aria"}}>
+        {{t "about.title"}}
       </LinkTo>
     </li>
     <li>
-      <LinkTo @route="home" aria-label={{t "blog_aria"}}>
-        {{t "blog"}}
+      <LinkTo @route="home" aria-label={{t "blog.aria"}}>
+        {{t "blog.title"}}
       </LinkTo>
     </li>
     <li>
-      <a href="https://cooltrash.shop/" target="_blank" rel="noopener" aria-label={{t "shop_aria"}}>
-        {{t "shop"}}
+      <a href="https://cooltrash.shop/" target="_blank" rel="noopener" aria-label={{t "shop.aria"}}>
+        {{t "shop.title"}}
       </a>
     </li>
     <li>
-      <LinkTo @route="home.subscribe" aria-label={{t "subscribe_aria"}}>
-        {{t "subscribe"}}
+      <LinkTo @route="home.subscribe" aria-label={{t "subscribe.aria"}}>
+        {{t "subscribe.title"}}
       </LinkTo>
     </li>
   </ul>
@@ -58,8 +58,8 @@
         </LinkTo>
       </li>
       <li>
-        <LinkTo @route="home.timetable" aria-label={{t "timetable_aria"}}>
-          {{t "timetable"}}
+        <LinkTo @route="home.timetable" aria-label={{t "timetable.aria"}}>
+          {{t "timetable.title"}}
         </LinkTo>
       </li>
       <li>

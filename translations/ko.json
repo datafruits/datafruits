@@ -2,12 +2,7 @@
   "home": {
     "upcoming_shows": "다음 스케줄",
     "latest_podcasts": "최근 팟캐스트",
-    "podcasts": {
-      "subscribe_title": "구독",
-      "search_title": "검색",
-      "title_search": "제목으로 검색",
-      "tag_search": "태그로 검색"
-    }
+    "events": "이벤트"
   },
   "chat": {
     "title": "채팅",
@@ -16,22 +11,42 @@
     "send": "송신",
     "message_placeholder": "여기에 당신의 메시지를 입력하시오...",
     "join": "잡담을 나누다",
-    "nickname": "별명"
+    "img_on": "이미지가 켜져 있습니다",
+    "img_off": "이미지가 꺼져 있습니다",
+    "nickname": "여기에 사용자 이름을 입력...",
+    "label": {
+      "nick": "별명",
+      "input": "메시지",
+      "search": "태그로 검색",
+      "aria": "datafruits.fm 대화방 방문"
+    },
+    "titles": {
+      "enter": "Enter chat",
+      "send": "채팅 메시지 보내기",
+      "img_on": "채팅중인 이미지가 표시됩니다",
+      "img_off": "채팅중인 이미지가 표시되지 않습니다",
+      "gif": "채팅으로 GIF 공유",
+      "gif_close": "GIF 검색 닫기"
+    }
   },
   "podcasts": {
     "title": "팟캐스트",
-    "no_result": "결과없음. 혹시 오니언 샐러드 드레싱일지도 모르겠네요"
+    "search": "검색",
+    "subscribe": "구독",
+    "no_result": "결과없음. 혹시 오니언 샐러드 드레싱일지도 모르겠네요",
+    "labels": {
+      "title": "표제",
+      "tag": "꼬리표"
+    }
   },
-  "djs": {
-    "title": "DJs"
-  },
-  "timetable": "타임 테이블",
-  "radio": "라디오",
-  "label": "레이블",
-  "about": "우리에 관하여",
-  "blog": "블로그",
-  "shop": "샵",
-  "subscribe": "구독하기",
+  "timetable": {"title": "타임 테이블"},
+  "djs": {"title": "DJs"},
+  "radio": {"title": "라디오"},
+  "releases": {"title": "레이블"},
+  "about": {"title": "우리에 관하여"},
+  "blog": {"title": "블로그"},
+  "shop": {"title": "샵"},
+  "subscribe": {"title": "구독하기"},
   "djinquiry": {
     "title": "DJ문의",
     "heading": "datafruits 직접 보고 싶으세요?",

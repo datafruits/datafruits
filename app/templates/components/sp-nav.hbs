@@ -1,5 +1,5 @@
 <nav class="navbar sp" role="navigation">
-  <button type="button" class="navbar-toggle collapsed" {{action toggleMenu}} aria-label={{t "radio_aria"}}>
+  <button type="button" class="navbar-toggle collapsed" {{action toggleMenu}} aria-label={{t "nav_toggle"}}>
     <span class="sr-only">
       {{t "nav_toggle"}}
     </span>
@@ -8,8 +8,8 @@
   {{#if menuOpen}}
     <ul>
       <li class="subnav">
-        <span class="submenu-title" href="#" aria-label={{t "radio_aria"}}>
-          {{t "radio"}}
+        <span class="submenu-title" href="#" aria-label={{t "radio.aria"}}>
+          {{t "radio.title"}}
         </span>
         <ul class="subnav">
           <li>
@@ -23,8 +23,8 @@
             </LinkTo>
           </li>
           <li>
-            <LinkTo @route="home.timetable" aria-label={{t "timetable_aria"}}>
-              {{t "timetable"}}
+            <LinkTo @route="home.timetable" aria-label={{t "timetable.aria"}}>
+              {{t "timetable.title"}}
             </LinkTo>
           </li>
           <li>
@@ -41,27 +41,27 @@
       </li>
       <li>
         <a href="http://releases.datafruits.fm/" target="_blank" rel="noopener" aria-label={{t "releases.aria"}}>
-          {{t "label"}}
+          {{t "release.title"}}
         </a>
       </li>
       <li>
-        <LinkTo @route="home.about" aria-label={{t "about_aria"}}>
-          {{t "about"}}
+        <LinkTo @route="home.about" aria-label={{t "about.aria"}}>
+          {{t "about.title"}}
         </LinkTo>
       </li>
       <li>
-        <LinkTo @route="home" aria-label={{t "blog_aria"}}>
-          {{t "blog"}}
+        <LinkTo @route="home" aria-label={{t "blog.aria"}}>
+          {{t "blog.title"}}
         </LinkTo>
       </li>
       <li>
-        <a href="https://cooltrash.shop/" target="_blank" rel="noopener">
-          {{t "shop"}}
+        <a href="https://cooltrash.shop/" target="_blank" rel="noopener" aria-label={{t "shop.title"}}>
+          {{t "shop.title"}}
         </a>
       </li>
       <li>
-        <LinkTo @route="home.subscribe">
-          {{t "subscribe"}}
+        <LinkTo @route="home.subscribe" aria-label={{t "subscribe.aria"}}>
+          {{t "subscribe.title"}}
         </LinkTo>
       </li>
     </ul>
