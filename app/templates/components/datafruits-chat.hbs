@@ -33,7 +33,7 @@
         class="cool-button"
         {{action "toggleGifsEnabled"}}
       >
-        {{images-enabled-button-label gifsEnabled}}
+        {{t (if this.gifsEnabled  "chat.img_on" "chat.img_off") }}
       </button>
     </form>
   {{else}}
