@@ -39,14 +39,14 @@
       "tag": "鬼ごっこ"
     }
   },
-  "timetable": {"title": "タイムテーブル"},
-  "djs": {"title": "DJs"},
-  "radio": {"title": "ラジオ"},
-  "releases": {"title": "レーベル"},
-  "about": {"title": "datafruitsとは？"},
-  "blog": {"title": "ブログ"},
-  "shop": {"title": "買い物"},
-  "subscribe": {"title": "メールマガ登録"},
+  "timetable": { "title": "タイムテーブル" },
+  "djs": { "title": "DJs" },
+  "radio": { "title": "ラジオ" },
+  "releases": { "title": "レーベル" },
+  "about": { "title": "datafruitsとは？" },
+  "blog": { "title": "ブログ" },
+  "shop": { "title": "買い物" },
+  "subscribe": { "title": "メールマガ登録" },
   "djinquiry": {
     "title": "DJ案件",
     "heading": "Datafruitsで番組をやっていませんか？",

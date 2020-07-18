@@ -39,14 +39,14 @@
       "tag": "꼬리표"
     }
   },
-  "timetable": {"title": "타임 테이블"},
-  "djs": {"title": "DJs"},
-  "radio": {"title": "라디오"},
-  "releases": {"title": "레이블"},
-  "about": {"title": "우리에 관하여"},
-  "blog": {"title": "블로그"},
-  "shop": {"title": "샵"},
-  "subscribe": {"title": "구독하기"},
+  "timetable": { "title": "타임 테이블" },
+  "djs": { "title": "DJs" },
+  "radio": { "title": "라디오" },
+  "releases": { "title": "레이블" },
+  "about": { "title": "우리에 관하여" },
+  "blog": { "title": "블로그" },
+  "shop": { "title": "샵" },
+  "subscribe": { "title": "구독하기" },
   "djinquiry": {
     "title": "DJ문의",
     "heading": "datafruits 직접 보고 싶으세요?",
