@@ -27,7 +27,10 @@
   {{#if joinedChat}}
     <form align="center" id="send-message">
       <label for="chat-input-message">{{t "chat.label.input"}}</label>
-      <DatafruitsChatInputMessage  @isOffline={{networkStatus.isOffline}} />
+      <DatafruitsChatInputMessage id="chat-input-message"
+        name="chat-input-message"
+        @isOffline={{networkStatus.isOffline}}
+      />
       <button
         title={{t (if this.gifsEnabled  "chat.titles.img_on" "chat.titles.img_off") }}
         class="cool-button"
@@ -39,10 +42,9 @@
   {{else}}
     <form align="center" id="enter-chat">
       <label for="nick">{{t "chat.label.nick"}}</label>
-      <Input
-        id="nick"
+      <Input id="nick"
+        name="nick"
         @type="text"
-        @name="nick"
         @value={{nick}}
         @autocorrect="off"
         @autocapitalize="none"
