@@ -16,6 +16,8 @@
     "send": "送信",
     "message_placeholder": "メッセージをここに入力してください",
     "join": "チャットに参加",
+    "login": "Login",
+    "username": "username",
     "nickname": "ニックネーム"
   },
   "podcasts": {

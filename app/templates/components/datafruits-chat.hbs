@@ -1,8 +1,8 @@
 <div id="chat-room">
   <div id="chat-area">
     <ChatMessages
-      @messages={{messages}}
-      @gifsEnabled={{gifsEnabled}}
+      @messages={{this.messages}}
+      @gifsEnabled={{this.gifsEnabled}}
       @newMessagesAvailable={{action "newMessagesAvailable"}}
       @onScroll={{action "onScroll"}}
     />
@@ -24,11 +24,11 @@
   </div>
 </div>
 <div id="controls">
-  {{#if joinedChat}}
+  {{#if this.joinedChat}}
     <form align="center" id="send-message">
-      <DatafruitsChatInputMessage  @isOffline={{networkStatus.isOffline}} />
+      <DatafruitsChatInputMessage  @isOffline={{@networkStatus.isOffline}} />
       <button class="cool-button" {{action "toggleGifsEnabled"}}>
-        {{images-enabled-button-label gifsEnabled}}
+        {{images-enabled-button-label this.gifsEnabled}}
       </button>
     </form>
   {{else}}
@@ -41,23 +41,30 @@
         @autocapitalize="none"
         placeholder={{t "chat.nickname"}}
       />
-      <Input
-        @type="password"
-        @name="pass"
-        @value={{this.pass}}
-        @autocorrect="off"
-        @autocapitalize="none"
-        placeholder={{t "chat.password"}}
-      />
       <button {{action "enterChat"}}
+        type="submit"
         class="cool-button"
-        disabled={{or disableJoinButton networkStatus.isOffline}}
+        disabled={{or this.disableJoinButton @networkStatus.isOffline}}
       >
-        {{t "chat.join"}}
+        {{t "chat.join_anonymously"}}
+      </button>
+      <img src="/assets/images/new.gif"
+           alt="{{ t "new" }}" />
+      <button {{action "toggleLoginModal"}}
+        type="button"
+        class="cool-button"
+      >
+        {{t "chat.login"}}
       </button>
       <button class="cool-button" {{action "toggleGifsEnabled"}}>
-        {{images-enabled-button-label gifsEnabled}}
+        {{images-enabled-button-label this.gifsEnabled}}
       </button>
     </form>
   {{/if}}
 </div>
+{{#if this.showingLoginModal}}
+  <LoginModal
+    @login={{action "enterChat"}}
+    @toggleModal={{action "toggleLoginModal"}}
+  />
+{{/if}}

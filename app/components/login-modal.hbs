@@ -1,0 +1,35 @@
+{{#modal-dialog
+  translucentOverlay=true
+}}
+<button {{on "click" @toggleModal}}
+  type="button"
+  class="cool-button"
+  >
+  X
+</button>
+  <form {{on "submit" (fn this.submit)}}>
+    <Input
+      @type="text"
+      @name="username"
+      @value={{this.username}}
+      @autocorrect="off"
+      @autocapitalize="none"
+      placeholder={{t "chat.username"}}
+    />
+    <Input
+      @type="password"
+      @name="pass"
+      @value={{this.pass}}
+      @autocorrect="off"
+      @autocapitalize="none"
+      placeholder={{t "chat.password"}}
+    />
+    <button
+      type="submit"
+      class="cool-button"
+      disabled={{this.disableJoinButton}}
+    >
+      {{t "chat.login"}}
+    </button>
+  </form>
+{{/modal-dialog}}

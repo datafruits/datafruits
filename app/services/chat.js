@@ -50,7 +50,9 @@ export default Service.extend({
     this.chan.on('authorized', (msg) => {
       this.set('username', msg.user);
       this.set('token', msg.token);
+      console.log('user authorized');
       this.set('joinedChat', true);
+      // fetch currentUser here? ???
     });
 
     this.chan.on('notauthorized', function (msg) {

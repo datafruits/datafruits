@@ -16,6 +16,8 @@
     "send": "송신",
     "message_placeholder": "여기에 당신의 메시지를 입력하시오...",
     "join": "잡담을 나누다",
+    "login": "Login",
+    "username": "username",
     "nickname": "별명"
   },
   "podcasts": {

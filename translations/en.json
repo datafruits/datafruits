@@ -1,4 +1,5 @@
 {
+  "new": "New",
   "404": {
     "title": "404!",
     "message": "Page not found",
@@ -32,7 +33,9 @@
     "offline": "You appear to be offline. I guess you won't be able to chat. Musta been the onion salad dressing",
     "send": "Send",
     "message_placeholder": "enter your message here...",
-    "join": "Join chat",
+    "join_anonymously": "Join chat",
+    "login": "Login",
+    "username": "username",
     "nickname": "nickname",
     "gif": "GIF"
   },

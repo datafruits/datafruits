@@ -8,6 +8,9 @@
 @import 'addons/ember-calendar/main';
 @import "calendar.scss";
 
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+
 @import "player.scss";
 
 /* Screen reader only */
@@ -488,7 +491,7 @@ a:hover {
   padding-bottom: .1em;
 }
 
-#podcast-search-loading, 
+#podcast-search-loading,
 #podcast-search-results {
   margin-top: -1em;
 }
