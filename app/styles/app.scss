@@ -852,3 +852,9 @@ form {
   }
 }
 
+.ember-modal-dialog {
+  background: $blue;
+  .modal-top {
+    background: $pink;
+  }
+}

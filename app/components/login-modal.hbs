@@ -1,12 +1,14 @@
 {{#modal-dialog
   translucentOverlay=true
 }}
-<button {{on "click" @toggleModal}}
-  type="button"
-  class="cool-button"
-  >
-  X
-</button>
+  <div class="modal-top">
+    <button {{on "click" @toggleModal}}
+      type="button"
+      class="cool-button"
+      >
+      X
+    </button>
+  </div>
   <form {{on "submit" (fn this.submit)}}>
     <Input
       @type="text"
