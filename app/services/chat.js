@@ -6,6 +6,7 @@ import { Presence } from 'phoenix';
 
 export default Service.extend({
   socket: service(),
+  session: service(),
   joinedUsers: computed('presences', function () {
     return Object.keys(this.presences);
   }),
@@ -19,6 +20,11 @@ export default Service.extend({
   init() {
     this._super(...arguments);
     this.set('presences', {});
+
+    if (this.session.isAuthenticated) {
+      this.set('joinedChat', true);
+    }
+
     let socket = this.socket.socket;
 
     this.chan = socket.channel('rooms:lobby', {});
