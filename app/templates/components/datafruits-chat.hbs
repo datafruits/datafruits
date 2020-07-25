@@ -33,32 +33,38 @@
     </form>
   {{else}}
     <form align="center" id="enter-chat">
-      <Input
-        @type="text"
-        @name="nick"
-        @value={{this.nick}}
-        @autocorrect="off"
-        @autocapitalize="none"
-        placeholder={{t "chat.nickname"}}
-      />
-      <button {{action "enterChat"}}
-        type="submit"
-        class="cool-button"
-        disabled={{or this.disableJoinButton @networkStatus.isOffline}}
-      >
-        {{t "chat.join_anonymously"}}
-      </button>
-      <img src="/assets/images/new.gif"
-           alt="{{ t "new" }}" />
-      <button {{action "toggleLoginModal"}}
-        type="button"
-        class="cool-button"
-      >
-        {{t "chat.login"}}
-      </button>
-      <button class="cool-button" {{action "toggleGifsEnabled"}}>
-        {{images-enabled-button-label this.gifsEnabled}}
-      </button>
+      <div>
+        <Input
+          @type="text"
+          @name="nick"
+          @value={{this.nick}}
+          @autocorrect="off"
+          @autocapitalize="none"
+          placeholder={{t "chat.nickname"}}
+        />
+        <button {{action "enterChat"}}
+          type="submit"
+          class="cool-button"
+          disabled={{or this.disableJoinButton @networkStatus.isOffline}}
+        >
+          {{t "chat.join_anonymously"}}
+        </button>
+      </div>
+      <div class="flex">
+        <img src="/assets/images/new.gif"
+             alt="{{ t "new" }}" />
+        <button {{action "toggleLoginModal"}}
+             type="button"
+             class="cool-button"
+             >
+             {{t "chat.login"}}
+        </button>
+      </div>
+      <div>
+        <button class="cool-button" {{action "toggleGifsEnabled"}}>
+          {{images-enabled-button-label this.gifsEnabled}}
+        </button>
+      </div>
     </form>
   {{/if}}
 </div>

@@ -109,6 +109,9 @@ form#send-message {
 
 form#enter-chat {
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   @media only screen and (max-device-width: 480px) {
     label {
       display: none;
@@ -854,7 +857,18 @@ form {
 
 .ember-modal-dialog {
   background: $blue;
+  padding: 0;
   .modal-top {
+    padding: 5px;
     background: $pink;
+    border-radius: 8px 8px 0 0;
   }
+  .modal-body {
+    padding: 5px;
+    border-radius: 8px;
+  }
+}
+
+.flex {
+  display: flex;
 }
