@@ -1,7 +1,13 @@
 {
   "home": {
     "upcoming_shows": "近日放送予定",
-    "latest_podcasts": "最新ポッドキャスト"
+    "latest_podcasts": "最新ポッドキャスト",
+		"podcasts": {
+      "subscribe_title": "申し込む",
+      "search_title": "探す",
+      "title_search": "題名",
+      "tag_search": "鬼ごっこ"
+    }
   },
   "chat": {
     "title": "チャット",

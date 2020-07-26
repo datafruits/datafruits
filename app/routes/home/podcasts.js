@@ -10,11 +10,11 @@ export default class PodcastsRoute extends Route {
       name: 'datafruits',
       page: params.page,
       tags: params.tags,
-      query: params.query
+      query: params.query,
     });
     return hash({
       tracks: podcast.get('tracks'),
       labels: this.store.loadRecords('label'),
-    })
+    });
   }
 }

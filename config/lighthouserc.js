@@ -8,16 +8,16 @@ module.exports = {
       startServerReadyPattern: 'Build successful',
       startServerReadyTimeout: 75000,
       settings: {
-        skipAudits: ['is-on-https', 'uses-http2', 'color-contrast', 'redirects-http']
-      }
+        skipAudits: ['is-on-https', 'uses-http2', 'color-contrast', 'redirects-http'],
+      },
     },
     assert: {
-      preset: 'lighthouse:recommended'
+      preset: 'lighthouse:recommended',
     },
     upload: {
       target: 'filesystem',
       outputDir: 'lhci',
-      reportFilenamePattern: 'lighthouse-report-%%DATE%%.%%EXTENSION%%'
+      reportFilenamePattern: 'lighthouse-report-%%DATE%%.%%EXTENSION%%',
     },
   },
 };

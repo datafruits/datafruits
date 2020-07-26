@@ -1,43 +1,84 @@
-<form role="search" aria-label={{ t "podcasts.text_search.label"}}
-{{action "nop" on="submit"}}>
-  <Input
-    class="search-tracks"
-    @autofocus="autofocus"
-    @value={{filterText}}
-    @escape-press={{action "clearSearch"}}
-    placeholder="Search podcasts"
-  />
-</form>
-<form role="search" aria-label={{ t "podcasts.tag_search.label"}}>
-  <PowerSelectMultiple
-    @placeholder="Search by tag..."
-    @options={{labelNames}}
-    @selected={{selectedLabels}}
-    @renderInPlace={{true}}
-    @onChange={{action (mut selectedLabels)}} as |label|
-  >
-    {{label}}
-  </PowerSelectMultiple>
-</form>
-<PodcastsLoader @query={{searchParams}} as |loader|>
-  {{#if loader.isRunning}}
-    <p>
-      {{t "loading"}}
-    </p>
-  {{else}}
-    {{#each loader.data.tracks as |track|}}
-      <PodcastTrack
-        @cdnUrl={{track.cdnUrl}}
-        @title={{track.title}}
-        @scheduledShow={{track.scheduledShow}}
-        @soundcloudKey={{track.soundcloudKey}}
-        @mixcloudKey={{track.mixcloudKey}}
-        @labels={{track.labels}}
-        @selectLabel={{action "selectLabel"}}
-      />
+<div id="podcast-search-controls">
+  <div id="podcast-subscribe">
+    <h4>{{t "home.podcasts.subscribe_title"}}</h4>
+    <ul id="subscribe-links">
+      <li>
+        <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">
+          {{t "home.podcasts.link_itunes"}}
+        </a>
+      </li>
+      <li>
+        <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml">
+          {{t "home.podcasts.link_overcast"}}
+        </a>
+      </li>
+      <li>
+        <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">
+          {{t "home.podcasts.link_podcastsapp"}}
+        </a>
+      </li>
+      <li>
+        <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">
+          {{t "home.podcasts.link_rss"}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <hr/>
+  <div id="podcast-search-forms">
+    <h4>{{t "home.podcasts.search_title"}}</h4>
+    <form role="search" aria-label={{ t "podcasts.text_search.label"}}
+    {{action "nop" on="submit"}}>
+      <div class="podcast-search-group">
+        <label for="search-tracks">{{t "home.podcasts.title_search"}}</label>
+        <Input
+        id="search-tracks"
+        name="search-tracks"
+        @autofocus="autofocus"
+        @value={{filterText}}
+        @escape-press={{action "clearSearch"}}
+        placeholder={{t "home.podcasts.title_placeholder"}}
+        />
+      </div>
+    </form>
+    <form role="search" aria-label={{ t "podcasts.tag_search.label"}}>
+      <div class="podcast-search-group">
+        <label for="tag_search">{{t "home.podcasts.tag_search"}}</label>
+        <PowerSelectMultiple
+          name="tag_search"
+          @placeholder={{t "home.podcasts.tag_placeholder"}}
+          @options={{labelNames}}
+          @selected={{selectedLabels}}
+          @renderInPlace={{true}}
+          @onChange={{action (mut selectedLabels)}} as |label|
+        >
+          {{label}}
+        </PowerSelectMultiple>
+      </div>
+    </form>
+  </div>
+</div>
+<div id="podcast-search-results">
+  <PodcastsLoader @query={{searchParams}} as |loader|>
+    {{#if loader.isRunning}}
+      <p id="podcast-search-loading">
+        {{t "loading"}}
+      </p>
     {{else}}
-      {{t "podcasts.no_result"}}
-    {{/each}}
-    <Pagination @meta={{loader.data.meta}} @route="home.podcasts" />
-  {{/if}}
-</PodcastsLoader>
+      {{#each loader.data.tracks as |track|}}
+        <PodcastTrack
+          @cdnUrl={{track.cdnUrl}}
+          @title={{track.title}}
+          @scheduledShow={{track.scheduledShow}}
+          @soundcloudKey={{track.soundcloudKey}}
+          @mixcloudKey={{track.mixcloudKey}}
+          @labels={{track.labels}}
+          @selectLabel={{action "selectLabel"}}
+        />
+      {{else}}
+        {{t "podcasts.no_result"}}
+      {{/each}}
+      <Pagination @meta={{loader.data.meta}} @route="home.podcasts" />
+    {{/if}}
+  </PodcastsLoader>
+</div>

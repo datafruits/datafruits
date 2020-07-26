@@ -10,7 +10,9 @@ export default class NetworkStatus extends Component {
   didInsertElement() {
     super.didInsertElement(...arguments);
 
-    let _update = () => { this.updateStatus() };
+    let _update = () => {
+      this.updateStatus();
+    };
     this.set('_update', _update);
 
     window.addEventListener('online', _update);

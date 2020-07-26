@@ -6,18 +6,18 @@ import Service from '@ember/service';
 
 const videoStreamStub = Service.extend({
   active: true,
-  initializePlayer(){},
-  fetchStream(){},
+  initializePlayer() {},
+  fetchStream() {},
 });
 
-module('Integration | Component | datafruits visuals', function(hooks) {
+module('Integration | Component | datafruits visuals', function (hooks) {
   setupRenderingTest(hooks);
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(function () {
     this.owner.register('service:video-stream', videoStreamStub);
   });
 
-  test('it renders video if stream is active', async function(assert) {
+  test('it renders video if stream is active', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.on('myAction', function(val) { ... });
 

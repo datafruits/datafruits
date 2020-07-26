@@ -6,11 +6,11 @@ export default class _DatafruitsPlayer extends DatafruitsPlayer {
   track = null;
 
   didInsertElement() {
-    if(this.track){
+    if (this.track) {
       this.set('playingPodcast', true);
       super.didInsertElement(...arguments);
       this.playTrack();
-    }else{
+    } else {
       super.didInsertElement(...arguments);
     }
   }
@@ -21,7 +21,7 @@ export default class _DatafruitsPlayer extends DatafruitsPlayer {
     this.set('title', track.title);
     this.set('playTime', 0.0);
 
-    let audioTag = document.getElementById("radio-player");
+    let audioTag = document.getElementById('radio-player');
     audioTag.src = track.cdnUrl;
   }
 }

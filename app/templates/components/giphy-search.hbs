@@ -10,13 +10,7 @@
     <p>{{t "loading"}}</p>
   {{else}}
     {{#each loader.data as |gif|}}
-      <button class="gif-button" {{action sendGif gif}}>
-        <img
-          class="gif-preview"
-          alt={{gif.name}}
-          src={{gif.previewUrl}}
-        >
-      </button>
+      <GifPreview @gif={{gif}} @sendGif={{action sendGif}}/>
     {{/each}}
   {{/if}}
 </GiphyLoader>
