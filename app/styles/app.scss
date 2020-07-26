@@ -52,12 +52,6 @@ html, body {
 }
 
 body {
-  background-repeat: no-repeat;
-  background: $blue;
-  height:100%;
-  position: relative;
-  margin:0;
-  background-attachment:fixed;
   font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -183,7 +177,6 @@ nav {
   font-size: 1.8rem;
   z-index: 1000;
   border: 0 !important;
-  padding-bottom: 20px;
 
   position: relative;
   ul {

@@ -1,14 +1,18 @@
 <section class="h-handle-resize flex flex-col justify-between">
-  <PcNav
-    @toggleSubMenu={{action "toggleSubMenu"}}
-    @submenuOpen={{submenuOpen}}
-  />
-  <SpNav @toggleMenu={{action "toggleMenu"}} @menuOpen={{menuOpen}} />
-  <LinkTo @route="home">
-    <h1 class="font-debussy">
-      {{t "site_title_fm"}}
-    </h1>
-  </LinkTo>
+  <div class="flex">
+    <PcNav
+      @toggleSubMenu={{action "toggleSubMenu"}}
+      @submenuOpen={{submenuOpen}}
+    />
+    <SpNav @toggleMenu={{action "toggleMenu"}} @menuOpen={{menuOpen}} />
+    <LinkTo
+      class="hidden md:block"
+      @route="home">
+      <h1 class="font-debussy">
+        {{t "site_title_fm"}}
+      </h1>
+    </LinkTo>
+  </div>
   {{outlet}}
   <DatafruitsPlayer @nextShow={{model}}>
     <DjDonateButton />
