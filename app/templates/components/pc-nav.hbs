@@ -1,13 +1,15 @@
-<nav class="navbar pc" role="navigation">
+<nav
+  class="navbar pc bg-df-pink"
+  role="navigation">
   <ul>
     <li class="subnav">
-      <a {{action toggleSubMenu on="mouseEnter"}}
+      <a {{action @toggleSubMenu on="mouseEnter"}}
         class="submenu-title"
         href="#"
       >
         {{t "radio"}}
         <span
-          class="fa fa-arrow-circle-o-right {{if submenuOpen "rotated"}}"
+          class="fa fa-arrow-circle-o-right {{if @submenuOpen "rotated"}}"
           aria-hidden="true"
         >
         </span>
@@ -19,7 +21,7 @@
       </LinkTo>
     </li>
     <li>
-      <a href="http://releases.datafruits.fm/" target="_blank" rel="noopener">
+      <a href="http://releases.datafruits.fm/" target="_blank" rel="noopener noreferrer">
         {{t "label"}}
       </a>
     </li>
@@ -34,7 +36,7 @@
       </LinkTo>
     </li>
     <li>
-      <a href="https://cooltrash.shop/" target="_blank" rel="noopener">
+      <a href="https://cooltrash.shop/" target="_blank" rel="noopener noreferrer">
         {{t "shop"}}
       </a>
     </li>
@@ -44,7 +46,7 @@
       </LinkTo>
     </li>
   </ul>
-  {{#if submenuOpen}}
+  {{#if @submenuOpen}}
     <ul class="subnav">
       <li>
         <LinkTo @route="home.djs">

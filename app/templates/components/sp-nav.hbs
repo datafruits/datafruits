@@ -1,11 +1,13 @@
-<nav class="navbar sp" role="navigation">
-  <button type="button" class="navbar-toggle collapsed" {{action toggleMenu}}>
+<nav
+  class="navbar sp bg-df-pink"
+  role="navigation">
+  <button type="button" class="navbar-toggle collapsed" {{action @toggleMenu}}>
     <span class="sr-only">
       {{t "nav_toggle"}}
     </span>
     <span class="fa fa-bars" aria-hidden="true"></span>
   </button>
-  {{#if menuOpen}}
+  {{#if @menuOpen}}
     <ul>
       <li class="subnav">
         <span class="submenu-title" href="#">
@@ -40,7 +42,7 @@
         </LinkTo>
       </li>
       <li>
-        <a href="http://releases.datafruits.fm/" target="_blank" rel="noopener">
+        <a href="http://releases.datafruits.fm/" target="_blank" rel="noreferrer noopener">
           {{t "label"}}
         </a>
       </li>
@@ -55,7 +57,7 @@
         </LinkTo>
       </li>
       <li>
-        <a href="https://cooltrash.shop/" target="_blank" rel="noopener">
+        <a href="https://cooltrash.shop/" target="_blank" rel="noopener noreferrer">
           {{t "shop"}}
         </a>
       </li>
