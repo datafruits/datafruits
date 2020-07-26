@@ -49,6 +49,9 @@
         >
           {{t "chat.join_anonymously"}}
         </button>
+        <button class="cool-button" {{action "toggleGifsEnabled"}}>
+          {{images-enabled-button-label this.gifsEnabled}}
+        </button>
       </div>
       <div class="flex">
         <img src="/assets/images/new.gif"
@@ -58,11 +61,6 @@
              class="cool-button"
              >
              {{t "chat.login"}}
-        </button>
-      </div>
-      <div>
-        <button class="cool-button" {{action "toggleGifsEnabled"}}>
-          {{images-enabled-button-label this.gifsEnabled}}
         </button>
       </div>
     </form>
