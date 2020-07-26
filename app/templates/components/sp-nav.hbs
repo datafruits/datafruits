@@ -3,7 +3,8 @@
   role="navigation">
   <button
     type="button"
-    class="navbar-toggle collapsed" {{action @toggleMenu}}>
+    class="navbar-toggle collapsed m-3"
+    {{fn @toggleMenu on="click"}}>
     <span class="sr-only">
       {{t "nav_toggle"}}
     </span>
