@@ -1,14 +1,20 @@
 <section class="flexbox-container">
-  <PcNav
-    @toggleSubMenu={{action "toggleSubMenu"}}
-    @submenuOpen={{submenuOpen}}
-  />
-  <SpNav @toggleMenu={{action "toggleMenu"}} @menuOpen={{menuOpen}} />
-  <LinkTo @route="home">
-    <h1 id="logo">
-      {{t "site_title_fm"}}
-    </h1>
-  </LinkTo>
+  <div>
+    <PcNav
+      @toggleSubMenu={{action "toggleSubMenu"}}
+      @submenuOpen={{submenuOpen}}
+    />
+    <SpNav @toggleMenu={{action "toggleMenu"}} @menuOpen={{menuOpen}} />
+    {{#if session.isAuthenticated}}
+      <UserMenu />
+    {{else}}
+      <LinkTo @route="home">
+          <h1 id="logo">
+            {{t "site_title_fm"}}
+          </h1>
+      </LinkTo>
+    {{/if}}
+  </div>
   {{outlet}}
   <DatafruitsPlayer @nextShow={{model}}>
     <DjDonateButton />
