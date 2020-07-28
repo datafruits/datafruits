@@ -34,45 +34,10 @@
   font-style: normal;
 }
 
-
-a {
-  cursor: pointer;
-}
-
-html {
-  height:100%;
-}
-
-html, body {
-  overflow:hidden;
-}
-
-body {
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-.hide {
-  display: none;
-}
-
-h1#logo {
-  font-family: 'debussy', sans-serif;
+.logo {
   transform: rotate(-3deg);
-  font-size: 3em;
-  color: white;
-  position:absolute;
-  z-index: 1000;
-  right: 5px;
-  top: 0;
-  margin: 15px 0 0 0;
-  display: none;
-  visibility: hidden;
   @media (min-width: 480px) {
     animation: textshadowfade 5s infinite;
-  }
-  @media (min-width: 768px) {
-    display: block;
-    visibility: visible;
   }
 }
 
