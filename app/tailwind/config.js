@@ -3,6 +3,7 @@ module.exports = {
   theme: {
     fontFamily: {
       debussy: ['debussy', 'sans-serif'],
+      helvetica: ['Helvetica', 'Arial', 'sans-serif'],
     },
     extend: {
       height: {

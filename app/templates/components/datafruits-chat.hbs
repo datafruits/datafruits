@@ -1,6 +1,7 @@
-<div id="chat-room">
-  <div id="chat-area">
+<div id="" class="flex flex-col flex-grow overflow-auto">
+  <div id="chat-area" class="text-df-yellow font-bold flex flex-row flex-grow min-h-0">
     <ChatMessages
+      class="overflow-y-scroll"
       @messages={{messages}}
       @gifsEnabled={{gifsEnabled}}
       @newMessagesAvailable={{action "newMessagesAvailable"}}

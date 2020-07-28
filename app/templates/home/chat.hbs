@@ -9,6 +9,8 @@
   </div>
 {{else}}
   <NetworkStatus as |status|>
-    <DatafruitsChat @networkStatus={{status}} />
+    <DatafruitsChat
+      class="flex flex-col flex-grow min-h-0 overflow-auto md:px-8"
+      @networkStatus={{status}} />
   </NetworkStatus>
 {{/if}}

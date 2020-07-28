@@ -1,12 +1,10 @@
 import classic from 'ember-classic-decorator';
-import { classNames } from '@ember-decorators/component';
 import { action, computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { oneWay } from '@ember/object/computed';
 import Component from '@ember/component';
 
 @classic
-@classNames('main-content')
 export default class DatafruitsChat extends Component {
   @service
   chat;
