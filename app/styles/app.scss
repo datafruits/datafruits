@@ -617,21 +617,6 @@ form {
   transform: rotate(-3.5deg);
 }
 
-.locale-selector {
-  font-size: 25px;
-  @media screen and (min-device-width: 480px) {
-    select {
-      background: $pink;
-      color: white;
-      border: 1px solid $blue;
-    }
-  }
-  @media only screen and (max-device-width: 480px) {
-    display: none;
-    visibility: hidden;
-  }
-}
-
 #not-found{
   text-align: center;
   color: white;

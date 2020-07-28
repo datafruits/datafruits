@@ -19,6 +19,7 @@
     @nextShow={{model}}>
     <DjDonateButton />
     <LocaleSelector
+      class="text-lg text-white hidden md:block"
       @selectedLocale={{locale.value}}
       @setLocale={{action "setLocale"}}
     />
