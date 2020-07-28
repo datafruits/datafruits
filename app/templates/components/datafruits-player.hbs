@@ -1,4 +1,4 @@
-<audio preload="" id="radio-player">
+<audio preload="" id="radio-player" class="hidden">
   <source
     src="https://streampusher-relay.club/datafruits.mp3"
     type="audio/mp3"
@@ -8,7 +8,7 @@
     type="audio/ogg"
   >
 </audio>
-<div class="radio-container">
+<div class="radio-container flex flex-row justify-between">
   <div class="player-controls">
     {{#if playingPodcast}}
       <a href="javascript:;" {{action "playLiveStream"}}>
@@ -73,15 +73,7 @@
       </span>
     {{/if}}
   </div>
-  <div class="next-show-and-locale">
-    {{#if nextShow}}
-      <span id="next-show">
-        {{t "next_broadcast"}}
-        <LinkTo @route="home.show" @model={{nextShow}}>
-          {{nextShow.title}}
-        </LinkTo>
-      </span>
-    {{/if}}
+  <div class="flex mr-1">
     {{yield}}
   </div>
 </div>

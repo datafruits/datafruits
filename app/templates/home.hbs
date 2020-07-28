@@ -14,7 +14,9 @@
     </LinkTo>
   </div>
   {{outlet}}
-  <DatafruitsPlayer @nextShow={{model}}>
+  <DatafruitsPlayer
+    class="flex-col flex justify-center bg-df-pink text-xl py-5 text-white leading-none"
+    @nextShow={{model}}>
     <DjDonateButton />
     <LocaleSelector
       @selectedLocale={{locale.value}}

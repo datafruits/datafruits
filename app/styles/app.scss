@@ -516,7 +516,7 @@ a:hover {
     // min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
     // overflow: auto;
     @media (min-width: 768px) {
-      padding: 0 2rem 0 2rem;
+      //padding: 0 2rem 0 2rem;
     }
     #chat-room {
       #chat-area {
@@ -531,15 +531,6 @@ a:hover {
         #userlist {
           overflow-y: scroll;
           flex-grow: 1;
-        }
-        #new-messages-below {
-          position: absolute;
-          bottom: 0;
-          color: white;
-          font-size: 14px;
-          background: rgba(170, 170, 170, 0.79);
-          left: 0;
-          width: 100%;
         }
         #offline {
           position: absolute;
@@ -561,12 +552,6 @@ a:hover {
         flex: 1;
       }
     }
-  }
-  .radio-bar {
-    flex: 0.5;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
   }
 }
 

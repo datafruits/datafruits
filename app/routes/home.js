@@ -11,10 +11,6 @@ export default class HomeRoute extends Route {
   @service
   fastboot;
 
-  model() {
-    //return this.store.queryRecord('scheduled-show', {next: true});
-  }
-
   afterModel() {
     if (!this.fastboot.isFastBoot) {
       let locales = this.intl.locales;
