@@ -22,6 +22,7 @@
   font-style: normal;
 }
 
+/* animations seem annoying to do in tailwind without some kind of plugin... */
 .logo {
   transform: rotate(-3deg);
   @media (min-width: 480px) {
@@ -36,32 +37,6 @@
 
 .text-shadow-light {
   text-shadow: 0 1px 0 #777;
-}
-
-#enter-chat {
-  font-size: 2rem;
-}
-
-form#send-message {
-  margin-bottom: 20px;
-}
-
-form#enter-chat {
-  margin-bottom: 20px;
-  @media only screen and (max-device-width: 480px) {
-    label {
-      display: none;
-    }
-    input {
-      width: 50%;
-    }
-  }
-  label {
-    color: yellow;
-    font-size: 2rem;
-    text-shadow: #333 1px 1px 1px;
-    margin-right: 10px;
-  }
 }
 
 @keyframes textshadowfade {
@@ -111,23 +86,6 @@ form#enter-chat {
 
 .bleed {
   @include stripe-animation;
-}
-
-#chat-area {
-  text-shadow: #333 1px 1px 1px;
-}
-
-#messages {
-  width: 100vw;
-  margin:0;
-  border-right: 1px white solid;
-  @media only screen and (max-device-width: 480px) {
-    border-right: none !important;
-  }
-}
-
-#messages-area {
-  //height: 100%;
 }
 
 #userlist {

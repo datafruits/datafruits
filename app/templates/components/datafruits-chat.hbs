@@ -1,7 +1,7 @@
 <div id="" class="flex flex-col flex-grow overflow-auto">
-  <div id="chat-area" class="text-df-yellow font-bold flex flex-row flex-grow min-h-0 relative">
+  <div id="chat-area" class="text-df-yellow font-bold flex flex-row flex-grow min-h-0 relative text-shadow">
     <ChatMessages
-      class="overflow-y-scroll"
+      class="overflow-y-scroll w-screen border-none md:border-r-1 border-white border-solid"
       @messages={{messages}}
       @gifsEnabled={{gifsEnabled}}
       @newMessagesAvailable={{action "newMessagesAvailable"}}
@@ -17,7 +17,7 @@
         <span>{{t "chat.offline"}}</span>
       </div>
     {{/if}}
-    <ul id="userlist" class="ovreflow-y-scroll flex-grow">
+    <ul id="userlist" class="overflow-y-scroll flex-grow">
       {{#each joinedUsers as |joinedUser|}}
         <UserListItem @user={{joinedUser}} />
       {{/each}}
@@ -26,14 +26,14 @@
 </div>
 <div class="flex flex-col justify-center">
   {{#if joinedChat}}
-    <form align="center" id="send-message">
+    <form align="center" class="mb-3">
       <DatafruitsChatInputMessage  @isOffline={{networkStatus.isOffline}} />
       <button class="cool-button" {{action "toggleGifsEnabled"}}>
         {{images-enabled-button-label gifsEnabled}}
       </button>
     </form>
   {{else}}
-    <form align="center" id="enter-chat">
+    <form align="center" class="mb-3">
       <Input
         @type="text"
         @name="nick"
