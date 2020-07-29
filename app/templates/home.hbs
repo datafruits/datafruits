@@ -2,9 +2,11 @@
   <div class="flex bg-df-pink">
     <PcNav
       @toggleSubMenu={{action "toggleSubMenu"}}
-      @submenuOpen={{submenuOpen}}
+      @submenuOpen={{this.submenuOpen}}
     />
-    <SpNav @toggleMenu={{action "toggleMenu"}} @menuOpen={{menuOpen}} />
+    <SpNav
+      @toggleMenu={{action "toggleMenu"}}
+      @menuOpen={{this.menuOpen}} />
     <LinkTo
       class="hidden md:block"
       @route="home">
@@ -16,7 +18,7 @@
   {{outlet}}
   <DatafruitsPlayer
     class="flex-col flex justify-center bg-df-pink text-xl py-5 text-white leading-none"
-    @nextShow={{model}}>
+    >
     <DjDonateButton />
     <LocaleSelector
       class="text-lg text-white hidden md:block"

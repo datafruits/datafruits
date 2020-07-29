@@ -41,18 +41,13 @@
   }
 }
 
-#circle-logo {
-  display: none;
-  visibility: hidden;
-  @media only screen and (max-width: 480px) {
-    display: block;
-    visibility: visible;
-    height: 50px;
-    width: 50px;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
+/* can't do text-shadow in tailwind */
+.text-shadow {
+  text-shadow: #333 1px 1px 1px;
+}
+
+.text-shadow-light {
+  text-shadow: 0 1px 0 #777;
 }
 
 #enter-chat {
@@ -125,103 +120,6 @@ form#enter-chat {
     transform: rotate(360deg);
   }
 }
-
-//mobile, small screen
-nav.pc {
-  display: none;
-  visibility: hidden;
-}
-
-nav {
-  overflow: hidden;
-  width: 100%;
-  font-size: 1.8rem;
-  z-index: 1000;
-  border: 0 !important;
-
-  position: relative;
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    li {
-      width: 100%;
-      border-top: 5px dashed white;
-    }
-  }
-  margin-bottom: 20px;
-  .navbar-toggle {
-    display: inline-block;
-    color: white;
-    background: transparent;
-    border: none;
-    font-size: 25px;
-    cursor: pointer;
-  }
-  .subnav {
-    ul {
-    }
-    .submenu-title {
-      color: white;
-      text-shadow: 0 1px 0 #777777;
-      line-height: 25px;
-      &:hover {
-        color: white;
-      }
-      .fa {
-        transition: 0.1s linear;
-      }
-      .fa.rotated {
-        transform: rotate(90deg);
-      }
-    }
-  }
-  .subnav ul > li > a {
-    font-size: 18px;
-    margin-left: 20px;
-  }
-}
-
-//larger screen
-@media (min-width: 768px) {
-  nav.pc {
-    display: block;
-    visibility: visible;
-  }
-  nav.sp {
-    display: none;
-    visibility: hidden;
-  }
-  nav {
-    .navbar-toggle {
-      display: none;
-    }
-    ul {
-      margin: 10px 0 0 10px;
-      li {
-        width: auto;
-        border: none;
-      }
-    }
-  }
-  ul.subnav > li > a {
-    font-size: 24px;
-  }
-}
-
-.navbar ul > li > a {
-  float: none;
-  padding: 10px 15px 10px 0;
-  color: white;
-  text-decoration: none;
-  text-shadow: 0 1px 0 #777777;
-  line-height: 25px;
-}
-
-.navbar ul > li > a:hover {
-  color: darken(white, 20%);
-}
-
 
 .bleed {
   @include stripe-animation;
