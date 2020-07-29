@@ -17,7 +17,7 @@
         <span>{{t "chat.offline"}}</span>
       </div>
     {{/if}}
-    <ul id="userlist" class="overflow-y-scroll flex-grow">
+    <ul id="userlist" class="overflow-y-scroll flex-grow hidden md:block">
       {{#each joinedUsers as |joinedUser|}}
         <UserListItem @user={{joinedUser}} />
       {{/each}}

@@ -88,16 +88,6 @@
   @include stripe-animation;
 }
 
-#userlist {
-  width: 20vw;
-  @media only screen and (max-device-width: 480px) {
-    display: none;
-  }
-}
-
-li.userlist-item {
-}
-
 input#input-message {
   width: 80%;
 }
