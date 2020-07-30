@@ -1,28 +1,26 @@
-<div id="" class="flex flex-col flex-grow overflow-auto">
-  <div id="chat-area" class="text-df-yellow font-bold flex flex-row flex-grow min-h-0 relative text-shadow">
-    <ChatMessages
-      class="overflow-y-scroll w-screen border-none md:border-r-1 border-white border-solid"
-      @messages={{messages}}
-      @gifsEnabled={{gifsEnabled}}
-      @newMessagesAvailable={{action "newMessagesAvailable"}}
-      @onScroll={{action "onScroll"}}
-    />
-    {{#if newMessagesBelow}}
-      <div class="text-white bg-df-green bg-opacity-75 absolute bottom-0 left-0 w-full">
-        <span>{{t "chat.new_messages"}}</span>
-      </div>
-    {{/if}}
-    {{#if networkStatus.isOffline}}
-      <div id="offline">
-        <span>{{t "chat.offline"}}</span>
-      </div>
-    {{/if}}
-    <ul id="userlist" class="overflow-y-scroll flex-grow hidden md:block">
-      {{#each joinedUsers as |joinedUser|}}
-        <UserListItem @user={{joinedUser}} />
-      {{/each}}
-    </ul>
-  </div>
+<div id="chat-area" class="text-df-yellow font-bold flex flex-row flex-grow min-h-0 relative text-shadow">
+  <ChatMessages
+    class="overflow-y-scroll w-screen border-none md:border-r-1 border-white border-solid"
+    @messages={{messages}}
+    @gifsEnabled={{gifsEnabled}}
+    @newMessagesAvailable={{action "newMessagesAvailable"}}
+    @onScroll={{action "onScroll"}}
+  />
+  {{#if newMessagesBelow}}
+    <div class="text-white bg-df-green bg-opacity-75 absolute bottom-0 left-0 w-full">
+      <span>{{t "chat.new_messages"}}</span>
+    </div>
+  {{/if}}
+  {{#if networkStatus.isOffline}}
+    <div id="offline">
+      <span>{{t "chat.offline"}}</span>
+    </div>
+  {{/if}}
+  <ul id="userlist" class="overflow-y-scroll flex-grow hidden md:block">
+    {{#each joinedUsers as |joinedUser|}}
+      <UserListItem @user={{joinedUser}} />
+    {{/each}}
+  </ul>
 </div>
 <div class="flex flex-col justify-center">
   {{#if joinedChat}}

@@ -1,78 +1,76 @@
-<div class="main-content">
-  <h2>
-    {{t "home.upcoming_shows"}}
-  </h2>
-  <div class="upcoming-shows">
-    {{#each model.upcomingShows as |show|}}
-      <div class="upcoming-show">
-        <LinkTo @route="home.show" @model={{show.id}}>
-          {{show.title}}
-        </LinkTo>
-        <div class="show-time">
-          {{format-date show.start}}
-        </div>
-        <div class="show-image">
-          <LinkTo @route="home.show" @model={{show.id}}>
-            {{#if show.thumbImageUrl}}
-              <img
-                width="300"
-                height="300"
-                src={{show.thumbImageUrl}}
-                alt={{show.title}}
-              >
-            {{else if show.host.imageUrl}}
-              <img
-                width="300"
-                height="300"
-                src={{show.host.imageUrl}}
-                alt={{show.title}}
-              >
-            {{else}}
-              <img
-                width="300"
-                height="300"
-                src="/assets/images/show_placeholder.jpg"
-                alt={{show.title}}
-              >
-            {{/if}}
-          </LinkTo>
-        </div>
+<h2 class="text-2xl text-shadow my-2">
+  {{t "home.upcoming_shows"}}
+</h2>
+<div class="flex flex-wrap flex-shrink-0">
+  {{#each model.upcomingShows as |show|}}
+    <div class="m-3 bg-df-green rounded-lg">
+      <LinkTo @route="home.show" @model={{show.id}}>
+        {{show.title}}
+      </LinkTo>
+      <div class="">
+        {{format-date show.start}}
       </div>
-    {{/each}}
-  </div>
-  <h2>
-    {{t "home.latest_podcasts"}}
-  </h2>
-  <div class="latest-podcasts">
-    {{#each model.latestPodcasts as |track|}}
-      <div class="latest-podcast">
-        <LinkTo @route="home.show" @model={{track.scheduledShow.id}}>
-          {{#if track.scheduledShow.thumbImageUrl}}
+      <div class="">
+        <LinkTo @route="home.show" @model={{show.id}}>
+          {{#if show.thumbImageUrl}}
             <img
               width="300"
               height="300"
-              src={{track.scheduledShow.thumbImageUrl}}
-              alt={{track.title}}
+              src={{show.thumbImageUrl}}
+              alt={{show.title}}
+            >
+          {{else if show.host.imageUrl}}
+            <img
+              width="300"
+              height="300"
+              src={{show.host.imageUrl}}
+              alt={{show.title}}
             >
           {{else}}
             <img
+              width="300"
+              height="300"
               src="/assets/images/show_placeholder.jpg"
-              alt={{track.title}}
+              alt={{show.title}}
             >
           {{/if}}
         </LinkTo>
-        <LinkTo @route="home.show" @model={{track.scheduledShow.id}}>
-          {{track.title}}
-        </LinkTo>
       </div>
-    {{/each}}
-  </div>
-  <h2>
-    {{t "home.events"}}
-  </h2>
-  <div class="blog-posts">
-    {{#each model.blogPosts as |post|}}
-      <BlogPostPreview @post={{post}} class="blog-post-preview" />
-    {{/each}}
-  </div>
+    </div>
+  {{/each}}
+</div>
+<h2 class="text-2xl text-shadow my-2">
+  {{t "home.latest_podcasts"}}
+</h2>
+<div class="latest-podcasts">
+  {{#each model.latestPodcasts as |track|}}
+    <div class="latest-podcast">
+      <LinkTo @route="home.show" @model={{track.scheduledShow.id}}>
+        {{#if track.scheduledShow.thumbImageUrl}}
+          <img
+            width="300"
+            height="300"
+            src={{track.scheduledShow.thumbImageUrl}}
+            alt={{track.title}}
+          >
+        {{else}}
+          <img
+            src="/assets/images/show_placeholder.jpg"
+            alt={{track.title}}
+          >
+        {{/if}}
+      </LinkTo>
+      <LinkTo @route="home.show" @model={{track.scheduledShow.id}}>
+        {{track.title}}
+      </LinkTo>
+    </div>
+  {{/each}}
+</div>
+<h2>
+  {{t "home.events"}}
+</h2>
+<div class="blog-posts">
+  {{#each model.blogPosts as |post|}}
+    <BlogPostPreview @post={{post}} class="blog-post-preview" />
+  {{/each}}
 </div>
