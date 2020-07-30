@@ -42,9 +42,9 @@
 <h2 class="text-2xl text-shadow my-2">
   {{t "home.latest_podcasts"}}
 </h2>
-<div class="latest-podcasts">
+<div class="flex flex-wrap flex-shrink-0">
   {{#each model.latestPodcasts as |track|}}
-    <div class="latest-podcast">
+    <div class="m-3 bg-df-pink rounded-lg flex flex-col">
       <LinkTo @route="home.show" @model={{track.scheduledShow.id}}>
         {{#if track.scheduledShow.thumbImageUrl}}
           <img
@@ -66,11 +66,13 @@
     </div>
   {{/each}}
 </div>
-<h2>
+<h2 class="text-2xl text-shadow my-2">
   {{t "home.events"}}
 </h2>
-<div class="blog-posts">
-  {{#each model.blogPosts as |post|}}
-    <BlogPostPreview @post={{post}} class="blog-post-preview" />
+<div class="flex flex-wrap flex-shrink-0">
+  {{#each this.model.blogPosts as |post|}}
+    <BlogPostPreview
+      @post={{post}}
+      class="m-3 bg-df-pink rounded-lg" />
   {{/each}}
 </div>
