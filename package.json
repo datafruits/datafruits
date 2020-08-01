@@ -88,7 +88,7 @@
     "ember-welcome-page": "^4.0.0",
     "emojione": "git://github.com/mcfiredrill/emojione#animated-emoji",
     "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-ember": "8.9.1",
+    "eslint-plugin-ember": "8.9.2",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "^3.1.4",
     "fastboot-app-server": "2.0.0",
