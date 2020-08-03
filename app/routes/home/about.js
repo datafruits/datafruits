@@ -5,9 +5,11 @@ export default class AboutRoute extends Route {
     return [
       { name: 'Aaron R. Brown' },
       { name: 'Ali Cat' },
+      { name: 'AnawesomewavE' },
       { name: 'Axl Herevia' },
       { name: 'Anthony Volodkin' },
       { name: 'ben franchuk' },
+      { name: 'Braxton' },
       { name: 'Casey Primozic' },
       { name: 'calgames' },
       { name: 'Chris Romero' },
