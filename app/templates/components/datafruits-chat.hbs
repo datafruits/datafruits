@@ -1,6 +1,6 @@
 <div id="chat-area" class="text-df-yellow font-bold flex flex-row flex-grow min-h-0 relative text-shadow">
   <ChatMessages
-    class="overflow-y-scroll w-screen border-none md:border-r-1 border-white border-solid"
+    class="overflow-y-scroll w-screen border-none md:border-r-2 border-white border-solid"
     @messages={{messages}}
     @gifsEnabled={{gifsEnabled}}
     @newMessagesAvailable={{action "newMessagesAvailable"}}
@@ -38,6 +38,7 @@
         @value={{nick}}
         @autocorrect="off"
         @autocapitalize="none"
+        class="text-black border-solid border-1 border-gray-300 rounded-sm"
         placeholder={{t "chat.nickname"}}
       />
       <button {{action "enterChat"}}

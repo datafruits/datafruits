@@ -18,6 +18,7 @@ module.exports = {
         'df-pink': '#e992ff',
         'df-yellow': '#fff94f',
         'df-blue': '#00b4ff',
+        'df-blue-dark': '#007eb3',
         'df-green': '#5fdc82',
       },
     },
