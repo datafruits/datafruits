@@ -110,34 +110,6 @@
   }
 }
 
-.small-cool-button {
-  background-color: $green;
-  border: 1px solid white;
-  border-radius: 3px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 600;
-  line-height: 1;
-  padding: 0.75em 1em;
-  text-decoration: none;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-
-  &:hover,
-  &:focus {
-    background-color: darken($green, 15%);
-    border: 1px solid darken(white, 15%);
-    color: #fff;
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-}
-
 .modal-content {
   background: $pink;
   color: yellow;
