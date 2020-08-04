@@ -94,7 +94,7 @@
 
 .cool-button {
   @apply border-solid border-2 border-white text-lg rounded-sm;
-  @apply text-white font-semibold p-1 leading-none bg-df-blue;
+  @apply text-white font-semibold p-2 leading-none bg-df-blue;
   transition: all 0.10s ease-in-out;
 }
 
@@ -122,6 +122,7 @@
   overflow: scroll;
 }
 
+// some defaults to make things easier
 a {
   @apply text-df-yellow;
 }
@@ -130,60 +131,12 @@ a:hover {
   @apply text-df-yellow-dark;
 }
 
-#search-tracks {
-  text-shadow: inherit;
+h1 {
+  @apply text-2xl font-semibold;
 }
 
-#podcast-subscribe,
-#podcast-search-forms {
-  width: 100%;
-  padding: 1em;
-  display: flex;
-}
-
-#subscribe-links {
-  justify-content: space-around;
-}
-
-#subscribe-links li {
-  display: inline;
-}
-
-#subscribe-links a {
-  font-size: 130%;
-}
-
-.podcast-search-group {
-  width: 100%;
-}
-
-#podcast-search-forms form {
-  width: 25%;
-}
-
-#podcast-search-forms label {
-  font-family: sans-serif;
-  color: white;
-}
-
-#podcast-search-forms input {
-  width: 90%;
-}
-
-#podcast-search-controls {
-  margin-bottom: 1.5em;
-  border: .4em dotted $green;
-}
-
-#podcast-search-controls h4 {
-  padding-left: 1em;
-  padding-right: 1em;
-  color: white;
-}
-
-#podcast-search-controls hr {
-  border: none;
-  border-top: thick dotted $green;
+input {
+  @apply text-black border-solid border-2 border-gray-300 rounded-sm p-1;
 }
 
 #podcast-search-results .ember-view {
@@ -358,6 +311,10 @@ form {
 .ember-power-select-option {
   color: black;
   text-shadow: none;
+}
+
+.ember-power-select-placeholder {
+  text-shadow: none !important;
 }
 
 .fc-center {

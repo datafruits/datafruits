@@ -38,7 +38,7 @@
         @value={{nick}}
         @autocorrect="off"
         @autocapitalize="none"
-        class="text-black border-solid border-1 border-gray-300 rounded-sm"
+        class=""
         placeholder={{t "chat.nickname"}}
       />
       <button {{action "enterChat"}}
@@ -47,7 +47,7 @@
       >
         {{t "chat.join"}}
       </button>
-      <button class="cool-button" {{action "toggleGifsEnabled"}}>
+      <button class="cool-button mt-1 md:m-0" {{action "toggleGifsEnabled"}}>
         {{images-enabled-button-label gifsEnabled}}
       </button>
     </form>
