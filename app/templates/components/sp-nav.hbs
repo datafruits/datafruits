@@ -1,10 +1,10 @@
 <nav
-  class="pb-3 relative flex justify-between w-full md:hidden"
+  class="pb-3 relative flex justify-between w-full md:hidden items-center"
   role="navigation">
   <div>
     <button
       type="button"
-      class="collapsed m-3"
+      class="collapsed mt-3 ml-3 text-xl"
       {{on "click" @toggleMenu}}>
       <span class="sr-only">
         {{t "nav_toggle"}}
@@ -93,7 +93,7 @@
       </ul>
     {{/if}}
   </div>
-  <div>
+  <div class="mt-3 mr-3">
     <LinkTo @route="home" @aria-label={{t "blog"}}>
       <img
         class=""
