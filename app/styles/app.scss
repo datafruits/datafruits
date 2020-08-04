@@ -110,9 +110,9 @@
   }
 }
 
-img.emojione {
-  height: 3ex !important;
-}
+// img.emojione {
+//   height: 3ex !important;
+// }
 
 //chat autofill emoji and username picker
 .dropdown-menu {
@@ -123,16 +123,11 @@ img.emojione {
 }
 
 a {
-  color: $yellow;
+  @apply text-df-yellow;
 }
 
 a:hover {
-  color: darken($yellow, 20%);
-}
-
-.tiny {
-  color: $yellow;
-  font-size:12px;
+  @apply text-df-yellow-dark;
 }
 
 #search-tracks {
