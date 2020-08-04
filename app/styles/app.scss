@@ -139,25 +139,6 @@ input {
   @apply text-black border-solid border-2 border-gray-300 rounded-sm p-1;
 }
 
-#podcast-search-results .ember-view {
-  padding-top: .1em;
-  padding-bottom: .1em;
-}
-
-#podcast-search-loading,
-#podcast-search-results {
-  margin-top: -1em;
-}
-
-.podcast-controls {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.podcast-controls:hover {
-  text-decoration: none;
-}
-
 #timetableModal {
   display: block;
 }
@@ -238,15 +219,6 @@ input {
     object-fit: cover;
     margin: 0 auto;
   }
-}
-
-.podcast-controls, .fa-download {
-  font-size: 21px;
-  color: $green;
-}
-
-.fa-download:hover {
-  color: yellow;
 }
 
 .social-icons {

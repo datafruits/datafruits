@@ -61,7 +61,7 @@
 <div id="podcast-search-results">
   <PodcastsLoader @query={{searchParams}} as |loader|>
     {{#if loader.isRunning}}
-      <p id="podcast-search-loading">
+      <p id="podcast-search-loading" class="">
         {{t "loading"}}
       </p>
     {{else}}

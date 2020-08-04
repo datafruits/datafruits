@@ -1,19 +1,19 @@
-<div class="podcast">
+<div class="py-1">
   {{#if playing}}
-    <a class="podcast-controls" {{action "pause"}} href="#">
+    <a class="text-df-green hover:text-df-yellow text-xl" {{action "pause"}} href="#">
       {{t "player.pause"}}
     </a>
   {{else}}
-    <a class="podcast-controls" {{action "play"}} href="#">
+    <a class="text-df-green hover:text-df-yellow text-xl" {{action "play"}} href="#">
       {{t "player.play"}}
     </a>
   {{/if}}
   <a href={{cdnUrl}} download="">
-    <i class="fa fa-download"></i>
+    <i class="fa fa-download text-df-green hover:text-df-yellow text-xl"></i>
   </a>
   {{#if soundcloudKey}}
     <a
-      class="podcast-controls"
+      class="text-df-green hover:text-df-yellow text-xl"
       href={{soundcloudKey}}
       target="_blank"
       rel="noopener"
@@ -22,7 +22,7 @@
     </a>
   {{/if}}
   {{#if mixcloudKey}}
-    <a class="podcast-controls" href={{mixcloudKey}} target="_blank" rel="noopener">
+    <a class="text-df-green hover:text-df-yellow text-xl" href={{mixcloudKey}} target="_blank" rel="noopener noreferrer">
       <i class="fa fa-mixcloud"></i>
     </a>
   {{/if}}
