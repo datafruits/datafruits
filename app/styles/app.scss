@@ -140,21 +140,11 @@ input {
 }
 
 .visuals {
-  display: block;
-  position: absolute;
-  top: 0;
   z-index: -999;
-  width: 100vw;
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
   video {
-    position: absolute;
-    top: 50px;
-    left: 0;
     width: 100vw !important;
     height: 100vh !important;
-    object-fit: cover;
-    margin: 0 auto;
+    @apply absolute left-0 object-cover;
   }
 }
 
