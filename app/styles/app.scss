@@ -150,16 +150,13 @@ input {
 
 form {
   label {
-    color: yellow;
+    @apply text-df-yellow;
   }
   textarea, select {
-    color: black;
+    @apply text-black;
   }
   .error {
-    color: red;
-    background: white;
-    border-radius: 3px;
-    padding: 2px;
+    @apply text-red bg-white rounded-sm p-1;
   }
 }
 
