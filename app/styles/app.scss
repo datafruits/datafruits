@@ -160,19 +160,6 @@ form {
   }
 }
 
-.grid-item {
-  width: 650px;
-  margin-bottom: 20px;
-  background: lighten($blue, 20%);
-  border: 2px solid lighten($yellow, 10%);
-  padding: 5px;
-  border-radius: 5px;
-  text-align: center;
-  img {
-    width: 100%;
-  }
-}
-
 .track-label {
   background: $pink;
   color: $yellow;
