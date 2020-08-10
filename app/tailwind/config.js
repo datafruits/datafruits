@@ -15,7 +15,7 @@ module.exports = {
         black: colors.black,
         white: colors.white,
         gray: colors.gray,
-        red: colors.red,
+        red: 'red',
         'df-pink': '#e992ff',
         'df-yellow': '#fff94f',
         'df-yellow-dark': '#e8e000',
