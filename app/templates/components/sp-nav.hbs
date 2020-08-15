@@ -93,14 +93,16 @@
       </ul>
     {{/if}}
   </div>
-  <DjDonateButton class="block md:hidden ml-5" />
-  <div class="">
-    <LinkTo @route="home" @aria-label={{t "blog"}}>
-      <img
-        class=""
-        id="circle-logo"
-        src="/assets/images/logo.png"
-        alt={{t "site_title"}}>
-    </LinkTo>
-  </div>
+  {{#if (not @menuOpen)}}
+    <DjDonateButton class="block md:hidden ml-5" />
+    <div class="">
+      <LinkTo @route="home" @aria-label={{t "blog"}}>
+        <img
+          class=""
+          id="circle-logo"
+          src="/assets/images/logo.png"
+          alt={{t "site_title"}}>
+      </LinkTo>
+    </div>
+  {{/if}}
 </nav>
