@@ -116,7 +116,7 @@
 
 //chat autofill emoji and username picker
 .dropdown-menu {
-  @apply bg-df-pink rounded-sm border-4 border-dotted border-df-green overflow-scroll;
+  @apply bg-df-pink rounded-sm border-4 border-dotted border-df-green overflow-scroll h-40;
   img {
     @apply inline;
   }
