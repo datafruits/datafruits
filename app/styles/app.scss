@@ -173,6 +173,10 @@ form {
   }
 }
 
+.rotated {
+  transform: rotate(90deg);
+}
+
 @import "ember-power-select";
 
 .ember-power-select-multiple-option {
