@@ -116,10 +116,10 @@
 
 //chat autofill emoji and username picker
 .dropdown-menu {
-  background-color: $pink;
-  border-radius:14px;
-  border: 8px dotted $green;
-  overflow: scroll;
+  @apply bg-df-pink rounded-sm border-4 border-dotted border-df-green overflow-scroll;
+  img {
+    @apply inline;
+  }
 }
 
 // some defaults to make things easier
@@ -166,10 +166,12 @@ form {
   }
 }
 
-.message-body {
+.message {
   /* for emojis */
-  img {
-    @apply inline;
+  span {
+    img {
+      @apply inline;
+    }
   }
 }
 
