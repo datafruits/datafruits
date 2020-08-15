@@ -8,8 +8,8 @@
     type="audio/ogg"
   >
 </audio>
-<div class="radio-container flex flex-row justify-between items-center md:text-3xl text-shadow">
-  <div class="player-controls">
+<div class="radio-container flex flex-row justify-between items-center text-3xl text-shadow">
+  <div class="player-controls mr-2">
     {{#if playingPodcast}}
       <a href="javascript:;" {{action "playLiveStream"}}>
         {{t "player.return_to_live"}}
@@ -62,7 +62,7 @@
       {{/if}}
     </span>
   </div>
-  <div class="now-playing">
+  <div class="now-playing flex-grow">
     {{#if error}}
       <span>
         {{error}}
@@ -73,7 +73,7 @@
       </span>
     {{/if}}
   </div>
-  <div class="flex mr-1">
+  <div class="flex mr-1 items-center">
     {{yield}}
   </div>
 </div>

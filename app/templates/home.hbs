@@ -19,9 +19,9 @@
     {{outlet}}
   </div>
   <DatafruitsPlayer
-    class="flex-col flex justify-center bg-df-pink text-xl py-5 text-white leading-none"
+    class="flex-col flex justify-center bg-df-pink text-xl py-2 text-white leading-none"
     >
-    <DjDonateButton />
+    <DjDonateButton class="hidden md:block mr-2" />
     <LocaleSelector
       class="text-lg text-white hidden md:block"
       @selectedLocale={{locale.value}}

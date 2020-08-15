@@ -1,23 +1,8 @@
 .radio-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-left: 5px;
-  @media (max-width: 480px) {
-    font-size: 18px;
-    .player-controls {
-      font-size: 30px;
-    }
-  }
   .player-controls {
-    min-width: 50px;
-    @media (min-width: 768px) {
-      min-width: 65px;
-    }
+    flex-basis: 65px;
   }
   .now-playing {
-    flex-grow: 1;
-    margin-left: 5px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
