@@ -95,7 +95,7 @@
 .cool-button {
   @apply border-solid border-2 border-white text-lg rounded-sm;
   @apply text-white font-semibold p-2 leading-none bg-df-blue;
-  transition: all 0.10s ease-in-out;
+  @apply transition-all duration-100 ease-in-out;
 }
 
 .cool-button {
@@ -266,22 +266,9 @@ form {
 }
 
 .donate-button {
-  font-size: 18px;
-  background-color: $green;
-  border: 1px solid white;
-  border-radius: 3px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 600;
-  line-height: 1;
-  padding: 5px;
-  margin-right: 20px;
-  text-decoration: none;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-  transition: all 0.10s ease-in-out;
+  @apply border-solid border-2 border-white text-lg rounded-sm;
+  @apply text-white font-semibold p-2 leading-none bg-df-green;
+  @apply transition-all duration-100 ease-in-out;
 
   &:hover,
   &:focus {
@@ -293,6 +280,18 @@ form {
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
+  }
+}
+
+.donate-button {
+  &:hover,
+  &:focus {
+    @apply bg-df-green-dark;
+    @apply border-solid border-2 border-gray-100;
+  }
+
+  &:disabled {
+    @apply cursor-not-allowed opacity-50;
   }
 }
 

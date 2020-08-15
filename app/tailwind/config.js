@@ -22,6 +22,7 @@ module.exports = {
         'df-blue': '#00b4ff',
         'df-blue-dark': '#007eb3',
         'df-green': '#5fdc82',
+        'df-green-dark': '#2bc456',
       },
     },
   },
