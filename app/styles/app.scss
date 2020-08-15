@@ -166,6 +166,13 @@ form {
   }
 }
 
+.message-body {
+  /* for emojis */
+  img {
+    @apply inline;
+  }
+}
+
 @import "ember-power-select";
 
 .ember-power-select-multiple-option {
