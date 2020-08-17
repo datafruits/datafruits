@@ -2,17 +2,17 @@
   <span class="mr-2">
     {{format-message-timestamp message.timestamp}}
   </span>
-  <span class="mr-2">
+  <span class="mr-2" data-test-username>
     {{format-message-user message.user}}
   </span>
-  <span class="message-body">
+  <span class="" data-test-message-body>
     {{format-message-body message.body}}
   </span>
 </li>
 {{#if gifsEnabled}}
   {{#if hasImage}}
     <li class="message">
-      <span class="message-body">
+      <span class="">
         <ChatLazyImage
           @url={{imgUrl}}
           @errorText="Image failed to load."
