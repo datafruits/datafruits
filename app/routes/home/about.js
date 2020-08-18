@@ -14,6 +14,7 @@ export default class AboutRoute extends Route {
       { name: 'Casey VanAntwerp' },
       { name: 'calgames' },
       { name: 'Chris Romero' },
+      { name: 'claire rennard' },
       { name: 'Dannel Jurado' },
       { name: 'DJ oven' },
       { name: 'Drongo Unchained' },
