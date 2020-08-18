@@ -13,10 +13,11 @@ module('Integration | Component | datafruits player', function (hooks) {
     this.owner.register('service:metadata', metadataStub);
   });
 
-  test('it renders', async function () {
+  test('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.on('myAction', function(val) { ... });
 
     await render(hbs`<DatafruitsPlayer />}`);
+    assert.equal(this.element.textContent.trim().includes('▶︎'), true);
   });
 });
