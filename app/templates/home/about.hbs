@@ -3,10 +3,10 @@
   {{t "just_a_website"}}
 </h1>
 <div>
-  <p>
+  <p class="my-2">
     {{t "about_datafruits"}}
   </p>
-  <ul>
+  <ul class="mb-2">
     <li>
       <LinkTo @route="home.coc">
         {{t "code_of_conduct"}}
@@ -30,7 +30,7 @@
   <h2>
     {{t "thanks_patrons"}}
   </h2>
-  <ul>
+  <ul class="mb-2">
     {{#each model as |patron|}}
       <li class="patron">
         {{patron.name}}
