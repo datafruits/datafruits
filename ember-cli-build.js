@@ -26,6 +26,10 @@ module.exports = function (defaults) {
       useScss: true,
     },
 
+    'ember-service-worker': {
+      versionStrategy: 'every-build',
+    },
+
     'esw-cache-first': {
       patterns: ['fonts/fontawesome(.+)'],
       version: '1',
