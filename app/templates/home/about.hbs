@@ -1,210 +1,208 @@
 {{title "about"}}
-<div class="main-content">
-  <h1 id="myModalLabel">
-    {{t "just_a_website"}}
-  </h1>
-  <div class="modal-body">
-    <p>
-      {{t "about_datafruits"}}
-    </p>
-    <ul>
-      <li>
-        <LinkTo @route="home.coc">
-          {{t "code_of_conduct"}}
-        </LinkTo>
+<h1 id="myModalLabel">
+  {{t "just_a_website"}}
+</h1>
+<div>
+  <p>
+    {{t "about_datafruits"}}
+  </p>
+  <ul>
+    <li>
+      <LinkTo @route="home.coc">
+        {{t "code_of_conduct"}}
+      </LinkTo>
+    </li>
+    <li>
+      <p>
+        {{t "about_page.listenersupport"}}
+      </p>
+      <a href="https://patreon.com/datafruits" target="_blank" rel="noopener">
+        {{t "patron"}}
+      </a>
+      <p>
+        {{t "about_page.donate_request"}}
+      </p>
+      <a href="https://paypal.me/datafruitsfm" target="_blank" rel="noopener">
+        {{t "about_page.donate_linktext"}}
+      </a>
+    </li>
+  </ul>
+  <h2>
+    {{t "thanks_patrons"}}
+  </h2>
+  <ul>
+    {{#each model as |patron|}}
+      <li class="patron">
+        {{patron.name}}
       </li>
-      <li>
-        <p>
-          {{t "about_page.listenersupport"}}
-        </p>
-        <a href="https://patreon.com/datafruits" target="_blank" rel="noopener">
-          {{t "patron"}}
-        </a>
-        <p>
-          {{t "about_page.donate_request"}}
-        </p>
-        <a href="https://paypal.me/datafruitsfm" target="_blank" rel="noopener">
-          {{t "about_page.donate_linktext"}}
-        </a>
-      </li>
-    </ul>
-    <h2>
-      {{t "thanks_patrons"}}
-    </h2>
-    <ul>
-      {{#each model as |patron|}}
-        <li class="patron">
-          {{patron.name}}
-        </li>
-      {{/each}}
-    </ul>
-  </div>
-  <div class="modal-footer">
-    <ul class="social-icons">
-      <li>
-        <a
-          href="http://twitter.com/datafruits"
-          title={{t "twitter"}}
-          target="_blank"
-          rel="noopener"
-        >
-          <i class="fa fa-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://github.com/datafruits"
-          title={{t "github"}}
-          target="_blank"
-          rel="noopener"
-        >
-          <i class="fa fa-github"></i>
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://soundcloud.com/datafruits"
-          title={{t "soundcloud"}}
-          target="_blank"
-          rel="noopener"
-        >
-          <i class="fa fa-soundcloud"></i>
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://mixcloud.com/datafruits"
-          title={{t "mixcloud"}}
-          target="_blank"
-          rel="noopener"
-        >
-          <i class="fa fa-mixcloud"></i>
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://instagram.com/datafruits"
-          title={{t "instagram"}}
-          target="_blank"
-          rel="noopener"
-        >
-          <i class="fa fa-instagram"></i>
-        </a>
-      </li>
-      <li>
-        <a
-          href="mailto:info@datafruits.fm"
-          title={{t "email"}}
-          target="_blank"
-          rel="noopener"
-        >
-          <i class="fa fa-envelope"></i>
-        </a>
-      </li>
-    </ul>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <a href="http://datavegetables.club" class="secret">
-      {{t "secret"}}
-    </a>
-  </div>
+    {{/each}}
+  </ul>
+</div>
+<div class="">
+  <ul class="flex text-2xl justify-around flex-wrap">
+    <li>
+      <a
+        href="http://twitter.com/datafruits"
+        title={{t "twitter"}}
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a
+        href="http://github.com/datafruits"
+        title={{t "github"}}
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fa fa-github"></i>
+      </a>
+    </li>
+    <li>
+      <a
+        href="http://soundcloud.com/datafruits"
+        title={{t "soundcloud"}}
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fa fa-soundcloud"></i>
+      </a>
+    </li>
+    <li>
+      <a
+        href="http://mixcloud.com/datafruits"
+        title={{t "mixcloud"}}
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fa fa-mixcloud"></i>
+      </a>
+    </li>
+    <li>
+      <a
+        href="http://instagram.com/datafruits"
+        title={{t "instagram"}}
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fa fa-instagram"></i>
+      </a>
+    </li>
+    <li>
+      <a
+        href="mailto:info@datafruits.fm"
+        title={{t "email"}}
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <a href="http://datavegetables.club" class="text-df-blue hover:text-df-yellow text-shadow-none">
+    {{t "secret"}}
+  </a>
 </div>

@@ -17,8 +17,8 @@ module('Integration | Component | chat message', function (hooks) {
     this.set('adjustScrolling', adjustScrolling);
     await render(hbs`{{chat-message message=message setupAutoscroll=setupAutoscroll adjustScrolling=adjustScrolling}}`);
 
-    assert.dom('.username').hasText('tony');
-    assert.dom('.message-body').hasText('hey');
+    assert.dom('[data-test-username]').hasText('tony');
+    assert.dom('[data-test-message-body]').hasText('hey');
   });
 
   // Deleted image renders by default test due to old observer code, "called set on destroyed object" and a 4+ year old lazy loading library
@@ -34,8 +34,8 @@ module('Integration | Component | chat message', function (hooks) {
     this.set('adjustScrolling', adjustScrolling);
     await render(hbs`{{chat-message message=message setupAutoscroll=setupAutoscroll adjustScrolling=adjustScrolling}}`);
 
-    assert.dom('.username').hasText('tony');
-    assert.dom('.message-body').hasText('hey a cat http://cat.com/cat.png');
+    assert.dom('[data-test-username]').hasText('tony');
+    assert.dom('[data-test-message-body]').hasText('hey a cat http://cat.com/cat.png');
     assert.equal(this.element.querySelector('a').getAttribute('href'), 'http://cat.com/cat.png');
     assert.equal(this.element.querySelector('img').getAttribute('src'), 'http://cat.com/cat.png');
   });
@@ -55,8 +55,8 @@ module('Integration | Component | chat message', function (hooks) {
       hbs`{{chat-message message=message setupAutoscroll=setupAutoscroll adjustScrolling=adjustScrolling gifsEnabled=gifsEnabled}}`,
     );
 
-    assert.dom('.username').hasText('tony');
-    assert.dom('.message-body').hasText('hey a cat http://cat.com/cat.png');
+    assert.dom('[data-test-username]').hasText('tony');
+    assert.dom('[data-test-message-body]').hasText('hey a cat http://cat.com/cat.png');
     assert.equal(this.element.querySelector('a').getAttribute('href'), 'http://cat.com/cat.png');
     assert.notOk(this.element.querySelector('img'));
   });

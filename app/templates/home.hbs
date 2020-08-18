@@ -1,23 +1,36 @@
-<section class="flexbox-container">
-  <PcNav
-    @toggleSubMenu={{action "toggleSubMenu"}}
-    @submenuOpen={{submenuOpen}}
-  />
-  <SpNav @toggleMenu={{action "toggleMenu"}} @menuOpen={{menuOpen}} />
-  <LinkTo @route="home">
-    <h1 id="logo">
-      {{t "site_title_fm"}}
-    </h1>
-  </LinkTo>
-  {{outlet}}
-  <DatafruitsPlayer @nextShow={{model}}>
-    <DjDonateButton />
+<section class="h-handle-resize flex flex-col justify-between">
+  <div class="flex bg-df-pink mb-5 pb-2">
+    <PcNav
+      @toggleSubMenu={{action "toggleSubMenu"}}
+      @submenuOpen={{this.submenuOpen}}
+    />
+    <SpNav
+      @toggleMenu={{action "toggleMenu"}}
+      @menuOpen={{this.menuOpen}} />
+    <LinkTo
+      class="hidden md:block"
+      @route="home">
+      <h1 class="logo font-debussy text-5xl text-white">
+        {{t "site_title_fm"}}
+      </h1>
+    </LinkTo>
+  </div>
+  <div class="px-5 overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow ">
+    {{outlet}}
+  </div>
+  <DatafruitsPlayer
+    class="flex-col flex justify-center bg-df-pink text-xl py-2 text-white leading-none"
+    >
+    <DjDonateButton class="hidden md:block mr-2" />
     <LocaleSelector
+      class="text-lg text-white hidden md:block"
       @selectedLocale={{locale.value}}
       @setLocale={{action "setLocale"}}
     />
   </DatafruitsPlayer>
 </section>
-<DatafruitsVisuals />
+<DatafruitsVisuals
+  class="block absolute top-0 w-screen h-screen h-handle-resize"
+/>
 <Notifications />
 <WindowResizeHandler />
