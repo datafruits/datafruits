@@ -22,9 +22,9 @@
     {{/each}}
   </ul>
 </div>
-<div class="flex flex-col justify-center items-center">
+<div class="flex flex-col justify-center items-center w-full">
   {{#if joinedChat}}
-    <form align="center" class="mb-3">
+    <form align="center" class="mb-3 w-full">
       <DatafruitsChatInputMessage  @isOffline={{networkStatus.isOffline}} />
       <button class="cool-button" {{action "toggleGifsEnabled"}}>
         {{images-enabled-button-label gifsEnabled}}
