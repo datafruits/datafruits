@@ -26,18 +26,18 @@ module.exports = function (defaults) {
       useScss: true,
     },
 
-    'ember-service-worker': {
-      versionStrategy: 'every-build',
-    },
-
-    'esw-cache-first': {
-      patterns: ['fonts/fontawesome(.+)'],
-      version: '1',
-    },
-
-    'esw-cache-fallback': {
-      patterns: ['https://datafruits.streampusher.com/(.+)', 'https://dongles.streampusher-relay.club/(.+)'],
-    },
+    // 'ember-service-worker': {
+    //   versionStrategy: 'every-build',
+    // },
+    //
+    // 'esw-cache-first': {
+    //   patterns: ['fonts/fontawesome(.+)'],
+    //   version: '1',
+    // },
+    //
+    // 'esw-cache-fallback': {
+    //   patterns: ['https://datafruits.streampusher.com/(.+)', 'https://dongles.streampusher-relay.club/(.+)'],
+    // },
 
     postcssOptions: {
       compile: {

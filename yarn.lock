@@ -2156,14 +2156,6 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@rollup/plugin-replace@2.3.0":
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/@rollup/plugin-replace/-/plugin-replace-2.3.0.tgz#86d88746383e40dd81cffb5216449cc51a734eb9"
-  integrity sha512-rzWAMqXAHC1w3eKpK6LxRqiF4f3qVFaa1sGii6Bp3rluKcwHNOpPt+hWRCmAH6SDEPtbPiLFf0pfNQyHs6Btlg==
-  dependencies:
-    magic-string "^0.25.2"
-    rollup-pluginutils "^2.6.0"
-
 "@simple-dom/document@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@simple-dom/document/-/document-1.4.0.tgz#af60855f957f284d436983798ef1006cca1a1678"
@@ -2350,11 +2342,6 @@
   version "14.0.13"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.13.tgz#ee1128e881b874c371374c1f72201893616417c9"
   integrity sha512-rouEWBImiRaSJsVA+ITTFM6ZxibuAlTuNOCyxVbwreu6k6+ujs7DfnU9o+PShFhET78pMBl3eH+AGSI5eOTkPA==
-
-"@types/node@^12.0.2":
-  version "12.12.47"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.47.tgz#5007b8866a2f9150de82335ca7e24dd1d59bdfb5"
-  integrity sha512-yzBInQFhdY8kaZmqoL2+3U5dSTMrKaYcb561VU+lDzAYvqt+2lojvBEy+hmpSNuXnPTx7m9+04CzWYOUqWME2A==
 
 "@types/node@^9.6.0":
   version "9.6.56"
@@ -4690,22 +4677,6 @@ broccoli-read-compat@^0.1.3:
     rimraf "^2.2.8"
     rsvp "^3.0.18"
 
-broccoli-rollup@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/broccoli-rollup/-/broccoli-rollup-4.0.0.tgz#52cb89b8927ffd08342e995e7cd885ff4578fa52"
-  integrity sha512-bxbWGFtlxICS5To3loKKX+Ov6G84WFdPIZH2of6EJjYyXr4Tm0sG0x1jsa871SFaLX/l9Ki5k2yFggr2E71Hhw==
-  dependencies:
-    "@types/node" "^12.0.2"
-    broccoli-plugin "^2.0.0"
-    fs-tree-diff "^2.0.1"
-    heimdalljs "^0.2.6"
-    heimdalljs-logger "^0.1.10"
-    magic-string "^0.25.2"
-    node-modules-path "^1.0.1"
-    rollup "^1.12.0"
-    symlink-or-copy "^1.2.0"
-    walk-sync "^1.1.3"
-
 broccoli-rollup@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/broccoli-rollup/-/broccoli-rollup-2.1.1.tgz#0b77dc4b7560a53e998ea85f3b56772612d4988d"
@@ -4839,7 +4810,7 @@ broccoli-templater@^2.0.1:
     rimraf "^2.6.2"
     walk-sync "^0.3.3"
 
-broccoli-uglify-sourcemap@^3.1.0, broccoli-uglify-sourcemap@^3.2.0:
+broccoli-uglify-sourcemap@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/broccoli-uglify-sourcemap/-/broccoli-uglify-sourcemap-3.2.0.tgz#d96f1d41f6c18e9a5d49af1a5ab9489cdcac1c6c"
   integrity sha512-kkkn8v7kXdWwnZNekq+3ILuTAGkZoaoEMUYCKoER5/uokuoyTjtdYLHaE7UxHkuPEuLfjvJYv21sCCePZ74/2g==
@@ -7684,56 +7655,6 @@ ember-router-generator@^2.0.0:
     "@babel/parser" "^7.4.5"
     "@babel/traverse" "^7.4.5"
     recast "^0.18.1"
-
-ember-service-worker-asset-cache@^0.6.4:
-  version "0.6.4"
-  resolved "https://registry.yarnpkg.com/ember-service-worker-asset-cache/-/ember-service-worker-asset-cache-0.6.4.tgz#1b3f098a83442c6fc9dbff20f6e231154dde39f2"
-  integrity sha512-DGNbiQc54/8c2+VWSMqRNLi+MYD5GWU6pJr4ddHe3pYLwZ8K1rV3HBIlIdNgJcjdzLJTBgk5F2FYoif2x43hgg==
-  dependencies:
-    broccoli-merge-trees "^3.0.2"
-    broccoli-plugin "^1.3.1"
-    glob "^7.1.3"
-
-ember-service-worker-cache-fallback@^0.6.2:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/ember-service-worker-cache-fallback/-/ember-service-worker-cache-fallback-0.6.2.tgz#3d497487ccc4b46081e7c52b9b06f9920b2da815"
-  integrity sha512-fiK/euoGVL7JhPHBV0x6fU23ic0FpHhRX0TP4G8OkkRzIRA7VlKA+F7lB7lON1MrvysztBEP6ytUZdNM6MBHnw==
-  dependencies:
-    broccoli-merge-trees "^3.0.2"
-    broccoli-plugin "^1.3.1"
-
-ember-service-worker-cache-first@^0.6.3:
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/ember-service-worker-cache-first/-/ember-service-worker-cache-first-0.6.3.tgz#7e73fbe3d0da773dd245ebe3ccdd33e417b010fc"
-  integrity sha512-ahgHIWJCX0S3e17SI8/u6hvxdfXCsBPL3GcGt/WdMAxlLi+3ERyeGyiIpBDfJMMqrgt3bYVHtnv+dYFDnC6mdA==
-  dependencies:
-    broccoli-merge-trees "^3.0.2"
-    broccoli-plugin "^1.3.1"
-
-ember-service-worker-index@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/ember-service-worker-index/-/ember-service-worker-index-0.7.0.tgz#2ac9d2f8ebe39d59380bfd26ecc86f817761e958"
-  integrity sha512-JBTvGIPmKagY8182bLXe6bAbcElLagkkfdhy4KQ7nCH8h0TycJYfWYbrC8HiABayKvb9Slq8WNpOL8GTINiU6A==
-  dependencies:
-    broccoli-merge-trees "^3.0.1"
-    broccoli-plugin "^1.3.1"
-
-ember-service-worker@0.8.4:
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/ember-service-worker/-/ember-service-worker-0.8.4.tgz#81097c3c545f8baa03574a8dfe16fd7b0ad1c521"
-  integrity sha512-+8+urgqSBQFvQdhltY8Hesr/q+KnLySMb9bY88ajt9CFWkgGSeur61YHVFWdtQNWo2JhkkYGW/jJfNw5XTp12A==
-  dependencies:
-    "@rollup/plugin-replace" "2.3.0"
-    broccoli-caching-writer "^3.0.3"
-    broccoli-file-creator "^2.1.1"
-    broccoli-funnel "^2.0.2"
-    broccoli-merge-trees "^3.0.1"
-    broccoli-rollup "4.0.0"
-    broccoli-uglify-sourcemap "^3.2.0"
-    clone "^2.1.2"
-    ember-cli-babel "^7.13.2"
-    glob "^7.1.6"
-    hash-for-dep "^1.5.1"
 
 ember-sinon-qunit@^5.0.0:
   version "5.0.0"
@@ -11694,13 +11615,6 @@ magic-string@^0.24.0:
   dependencies:
     sourcemap-codec "^1.4.1"
 
-magic-string@^0.25.2:
-  version "0.25.7"
-  resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.25.7.tgz#3f497d6fd34c669c6798dcb821f2ef31f5445051"
-  integrity sha512-4CrMT5DOHTDk4HYDlzmwu4FVCcIYI8gauveasrdCu2IKIFOJ3f0v/8MDGJCDL9oD2ppz/Av1b0Nj345H9M+XIA==
-  dependencies:
-    sourcemap-codec "^1.4.4"
-
 magic-string@^0.4.9:
   version "0.4.9"
   resolved "https://registry.yarnpkg.com/magic-string/-/magic-string-0.4.9.tgz#f46e9aaf5959cfbbc88f68a9969cd66d120e1a22"
@@ -14508,7 +14422,7 @@ rollbar@~2.5.5:
   optionalDependencies:
     decache "^3.0.5"
 
-rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.6.0, rollup-pluginutils@^2.8.1:
+rollup-pluginutils@^2.0.1, rollup-pluginutils@^2.8.1:
   version "2.8.2"
   resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.2.tgz#72f2af0748b592364dbd3389e600e5a9444a351e"
   integrity sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==
@@ -15180,7 +15094,7 @@ source-map@~0.7.3:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.3.tgz#5302f8169031735226544092e64981f751750383"
   integrity sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==
 
-sourcemap-codec@^1.4.1, sourcemap-codec@^1.4.4:
+sourcemap-codec@^1.4.1:
   version "1.4.8"
   resolved "https://registry.yarnpkg.com/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz#ea804bd94857402e6992d05a38ef1ae35a9ab4c4"
   integrity sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==
