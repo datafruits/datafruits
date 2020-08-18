@@ -1560,17 +1560,10 @@
     pirates "^4.0.0"
     source-map-support "^0.5.16"
 
-"@babel/runtime@^7.10.2":
+"@babel/runtime@^7.10.2", "@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.0", "@babel/runtime@^7.9.2":
   version "7.10.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.5.tgz#303d8bd440ecd5a491eae6117fd3367698674c5c"
   integrity sha512-otddXKhdNn7d0ptoFRHtMLa8LqDxLYwTjB4nYgM1yy5N6gU/MUf8zqyyLltCH3yAVitBzmwK4us+DD0l/MauAg==
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
-"@babel/runtime@^7.5.5", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.0", "@babel/runtime@^7.9.2":
-  version "7.10.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
-  integrity sha512-6sF3uQw2ivImfVIl62RZ7MXhO2tap69WeWK57vAaimT6AZbE4FbqjdEJIN1UqoD6wI6B+1n9UiagafH1sxjOtg==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -16440,10 +16433,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-"video.js@^6.8.0 || ^7.0.0", video.js@^7.8.3:
-  version "7.8.3"
-  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.8.3.tgz#a32df2b8e5f8d2f6b06d6ccd3bf91c6342a2a365"
-  integrity sha512-u8/1qEZdBeOm7TgBhJg8ab28vd3x62UMaaSnZ79yOMaxCqACP9CzWJT9c3Isfv2jY9BNLBIIft+BqNLTWudtLw==
+"video.js@^6.8.0 || ^7.0.0", video.js@^7.8.4:
+  version "7.8.4"
+  resolved "https://registry.yarnpkg.com/video.js/-/video.js-7.8.4.tgz#645bf40400b413047d2b873c0c65fc8b42128f2a"
+  integrity sha512-XTWWrhfdrk7nTBkqhWKslfXMpUhsDRsZ2L3ISxjuAgadpiomxFV/OARchtwxO+FdnxTm4njJstPmXbVe3F765g==
   dependencies:
     "@babel/runtime" "^7.9.2"
     "@videojs/http-streaming" "1.13.2"
