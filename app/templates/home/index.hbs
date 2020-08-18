@@ -44,7 +44,7 @@
 </h2>
 <div class="flex flex-wrap flex-shrink-0">
   {{#each model.latestPodcasts as |track|}}
-    <div class="m-3 bg-df-pink rounded-lg flex flex-col w-full md:w-1/4 p-2">
+    <div class="m-3 bg-df-pink rounded-lg flex flex-col items-center justify-between w-full md:w-1/4 p-2">
       <LinkTo @route="home.show" @model={{track.scheduledShow.id}}>
         {{#if track.scheduledShow.thumbImageUrl}}
           <img
@@ -73,6 +73,6 @@
   {{#each this.model.blogPosts as |post|}}
     <BlogPostPreview
       @post={{post}}
-      class="m-3 bg-df-pink rounded-lg p-2 w-full md:w-1/4" />
+      class="flex flex-col items-center m-3 bg-df-pink rounded-lg p-2 w-full md:w-1/4" />
   {{/each}}
 </div>
