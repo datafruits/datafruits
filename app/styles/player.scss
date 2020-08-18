@@ -1,6 +1,6 @@
 .radio-container {
   .player-controls {
-    flex-basis: 65px;
+    min-width: 65px;
   }
   .now-playing {
     white-space: nowrap;
