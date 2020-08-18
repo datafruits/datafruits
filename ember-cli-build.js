@@ -32,10 +32,7 @@ module.exports = function (defaults) {
     },
 
     'esw-cache-fallback': {
-      patterns: [
-        'https://datafruits.streampusher.com/(.+)',
-        'https://dongles.streampusher-relay.club/(.+)',
-      ],
+      patterns: ['https://datafruits.streampusher.com/(.+)', 'https://dongles.streampusher-relay.club/(.+)'],
     },
 
     postcssOptions: {
@@ -53,11 +50,10 @@ module.exports = function (defaults) {
                 'node_modules/font-awesome/scss',
               ],
             },
-
           },
-          require('tailwindcss')('./app/tailwind/config.js')
-        ]
-      }
+          require('tailwindcss')('./app/tailwind/config.js'),
+        ],
+      },
     },
   });
 
