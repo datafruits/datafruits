@@ -1,7 +1,7 @@
-<div class="djs">
+<div class="djs flex flex-wrap">
   {{#each model as |dj|}}
-    <div class="dj">
-      <h2 class="name">
+    <div class="dj m-5 bg-df-pink rounded-md">
+      <h2 class="name font-debussy text-xl m-2 overflow-hidden">
         <LinkTo @route="home.dj" @model={{dj.username}} @title={{dj.username}}>
           {{dj.username}}
         </LinkTo>
@@ -10,6 +10,7 @@
         <img
           width="150"
           height="150"
+          class="rounded-b-md align-bottom"
           src="/assets/images/dj_placeholder.png"
           alt={{dj.username}}
         >
@@ -17,6 +18,7 @@
         <img
           width="150"
           height="150"
+          class="rounded-b-md align-bottom"
           src={{dj.imageThumbUrl}}
           alt={{dj.username}}
         >

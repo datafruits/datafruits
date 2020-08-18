@@ -212,36 +212,9 @@ form {
 }
 
 .djs {
-  display: flex;
-  flex-wrap: wrap;
   .dj {
-    margin: 5px 5px;
-    background: $pink;
-    border-radius: 5px;
     width: 150px;
-    .name {
-      font-family: 'debussy', sans-serif;
-      margin-top: 5px;
-      margin-bottom: 4px;
-      margin-left: 5px;
-      overflow: hidden;
-      font-size: 18px;
-    }
-    img {
-      border-radius: 0 0 5px 5px;
-      vertical-align: bottom;
-    }
   }
-}
-
-.dj-title {
-  font-size: 28px;
-  font-family: "debussy", sans-serf;
-}
-
-.show-title {
-  font-size: 30px;
-  font-family: "debussy", sans-serf;
 }
 
 .gif-button {

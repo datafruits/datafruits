@@ -1,11 +1,11 @@
 {{title model.title}}
-<h1 class="show-title" id="myModalLabel">
+<h1 class="font-debussy text-3xl">
   {{model.title}}
 </h1>
 <h2>
   {{t "show.hosted_prefix"}}
   {{#each model.djs as |dj|}}
-    <span class="dj-title">
+    <span class="font-debussy text-xl">
       <LinkTo @route="home.dj" @model={{dj.username}}>
         {{dj.username}}
       </LinkTo>
