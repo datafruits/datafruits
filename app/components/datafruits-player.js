@@ -2,6 +2,7 @@ import classic from 'ember-classic-decorator';
 import { classNameBindings } from '@ember-decorators/component';
 import { action, computed } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { debounce } from '@ember/runloop';
 import Component from '@ember/component';
 import { isEmpty } from '@ember/utils';
 
@@ -140,6 +141,20 @@ export default class DatafruitsPlayer extends Component {
   @action
   toggleVolumeControl() {
     this.toggleProperty('showingVolumeControl');
+  }
+
+  @action
+  showVolumeControl() {
+    this.set('showingVolumeControl', true);
+  }
+
+  @action
+  hideVolumeControl() {
+    debounce(this, this._hideVolumeControl, 2500);
+  }
+
+  _hideVolumeControl() {
+    this.set('showingVolumeControl', false);
   }
 
   @action
