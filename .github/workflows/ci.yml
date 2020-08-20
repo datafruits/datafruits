@@ -34,7 +34,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles("**/yarn.lock") }}
           restore-keys: |
             ${{ runner.os }}-yarn-
 
@@ -71,7 +71,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles("**/yarn.lock") }}
           restore-keys: |
             ${{ runner.os }}-yarn-
 
@@ -92,7 +92,7 @@ jobs:
 
       # Upload coverage info to codecov
       - name: Upload coverage info
-        if: github.event_name == 'push'
+        if: github.event_name == "push"
         uses: codecov/codecov-action@v1
         with:
           fail_ci_if_error: true
@@ -120,7 +120,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles("**/yarn.lock") }}
           restore-keys: |
             ${{ runner.os }}-yarn-
 
@@ -139,3 +139,43 @@ jobs:
         with:
           name: lighthouse-report
           path: lhci
+
+  docker-build:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build docker image
+        run: docker build -t datafruits:$GITHUB_SHA .
+
+      - name: Archive docker image
+        run: docker save datafruits:$GITHUB_SHA | gzip > $GITHUB_SHA-image.tar.gz
+
+      - name: Store archived image
+        uses: actions/upload-artifact@v2
+        with:
+          name: docker-image
+          path: $GITHUB_SHA-image.tar.gz
+
+  docker-publish:
+    name: Publish Docker Image
+    runs-on: ubuntu-latest
+    if: github.ref == "ref/head/master"
+    needs:
+      - docker-build
+      - lint
+      - test
+    steps:
+      - name: Download archived image
+        uses: actions/download-artifact@v2
+        with:
+          name: docker-image
+
+      - name: Extract archived image
+        run: docker load < $GITHUB_SHA-image.tar.gz
+
+      - name: Publish docker image
+        run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_ACCESS_TOKEN }}
+          docker push datafruits:$GITHUB_SHA
