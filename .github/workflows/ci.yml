@@ -34,7 +34,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles("**/yarn.lock") }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
 
@@ -71,7 +71,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles("**/yarn.lock") }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
 
@@ -92,7 +92,7 @@ jobs:
 
       # Upload coverage info to codecov
       - name: Upload coverage info
-        if: github.event_name == "push"
+        if: github.event_name == 'push'
         uses: codecov/codecov-action@v1
         with:
           fail_ci_if_error: true
@@ -120,7 +120,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles("**/yarn.lock") }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
 
@@ -150,18 +150,19 @@ jobs:
         run: docker build -t datafruits:$GITHUB_SHA .
 
       - name: Archive docker image
-        run: docker save datafruits:$GITHUB_SHA | gzip > $GITHUB_SHA-image.tar.gz
+        run: docker save datafruits:$GITHUB_SHA | gzip > image.tar.gz
 
       - name: Store archived image
         uses: actions/upload-artifact@v2
         with:
           name: docker-image
-          path: $GITHUB_SHA-image.tar.gz
+          path: image.tar.gz
+          if-no-files-found: error
 
   docker-publish:
     name: Publish Docker Image
     runs-on: ubuntu-latest
-    if: github.ref == "ref/head/master"
+    if: github.ref == 'ref/head/master'
     needs:
       - docker-build
       - lint
@@ -173,7 +174,7 @@ jobs:
           name: docker-image
 
       - name: Extract archived image
-        run: docker load < $GITHUB_SHA-image.tar.gz
+        run: docker load < image.tar.gz
 
       - name: Publish docker image
         run: |
