@@ -26,7 +26,7 @@
   {{#if joinedChat}}
     <form align="center" class="mb-3 w-full">
       <DatafruitsChatInputMessage  @isOffline={{networkStatus.isOffline}} />
-      <button class="cool-button" {{action "toggleGifsEnabled"}}>
+      <button class="cool-button mt-3 md:m-0" {{action "toggleGifsEnabled"}}>
         {{images-enabled-button-label gifsEnabled}}
       </button>
     </form>
