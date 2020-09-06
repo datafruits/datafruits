@@ -15,7 +15,7 @@
           {{t "djinquiry.error"}}
         </div>
       {{/if}}
-      <form {{action "submit" on="submit"}}>
+      <form {{action "submitApplication" on="submit"}}>
         <div>
           <label>
             {{t "djinquiry.email"}}
@@ -76,7 +76,7 @@
             {{t "djinquiry.interval"}}
           </label>
           <br>
-          <select onchange={{action "setInterval"}} value="target.value">
+          <select onchange={{action "setShowInterval"}} value="target.value">
             {{#each intervals as |interval|}}
               {{#if (eq model.interval interval)}}
                 <option value={{interval}} selected="selected">
@@ -114,14 +114,18 @@
           <Textarea @value={{model.otherComment}} />
         </div>
         <div>
-          I accept the COC.
+          <label for="coc-checkbox"> <a href="https://datafruits.fm/coc" target="blank">{{t "djinquiry.coc_accept"}}</a></label>
+          <Input
+            type="checkbox"
+            value=this.cocAccepted
+            />
         </div>
         <div>
           <input
             type="submit"
             value="Send"
             class="cool-button"
-            disabled={{model.isSaving}}
+            disabled={{this.canSubmit}}
           >
         </div>
       </form>
