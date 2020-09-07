@@ -1,58 +1,55 @@
-<div id="chat-room">
-  <div id="chat-area">
-    <ChatMessages
-      @messages={{this.messages}}
-      @gifsEnabled={{this.gifsEnabled}}
-      @newMessagesAvailable={{action "newMessagesAvailable"}}
-      @onScroll={{action "onScroll"}}
-    />
-    {{#if newMessagesBelow}}
-      <div id="new-messages-below">
-        <span>{{t "chat.new_messages"}}</span>
-      </div>
-    {{/if}}
-    {{#if networkStatus.isOffline}}
-      <div id="offline">
-        <span>{{t "chat.offline"}}</span>
-      </div>
-    {{/if}}
-    <ul id="userlist">
-      {{#each joinedUsers as |joinedUser|}}
-        <UserListItem @user={{joinedUser}} />
-      {{/each}}
-    </ul>
-  </div>
+<div id="chat-area" class="text-df-yellow font-bold flex flex-row flex-grow min-h-0 relative text-shadow mb-5 flex-basis-0">
+  <ChatMessages
+    class="overflow-y-scroll w-screen border-none md:border-r-2 border-white border-solid"
+    @messages={{messages}}
+    @gifsEnabled={{gifsEnabled}}
+    @newMessagesAvailable={{action "newMessagesAvailable"}}
+    @onScroll={{action "onScroll"}}
+  />
+  {{#if newMessagesBelow}}
+    <div class="text-white bg-df-green bg-opacity-75 absolute bottom-0 left-0 w-full">
+      <span>{{t "chat.new_messages"}}</span>
+    </div>
+  {{/if}}
+  {{#if networkStatus.isOffline}}
+    <div id="offline">
+      <span>{{t "chat.offline"}}</span>
+    </div>
+  {{/if}}
+  <ul id="userlist" class="overflow-y-scroll flex-grow hidden md:block md:w-1/5 pl-4">
+    {{#each joinedUsers as |joinedUser|}}
+      <UserListItem @user={{joinedUser}} />
+    {{/each}}
+  </ul>
 </div>
-<div id="controls">
-  {{#if this.joinedChat}}
-    <form align="center" id="send-message">
-      <DatafruitsChatInputMessage  @isOffline={{@networkStatus.isOffline}} />
-      <button class="cool-button" {{action "toggleGifsEnabled"}}>
-        {{images-enabled-button-label this.gifsEnabled}}
+<div class="flex flex-col justify-center items-center w-full">
+  {{#if joinedChat}}
+    <form align="center" class="mb-3 w-full">
+      <DatafruitsChatInputMessage  @isOffline={{networkStatus.isOffline}} />
+      <button class="cool-button mt-3 md:m-0" {{action "toggleGifsEnabled"}}>
+        {{images-enabled-button-label gifsEnabled}}
       </button>
     </form>
   {{else}}
-    <form align="center" id="enter-chat">
-      <div>
-        <Input
-          @type="text"
-          @name="nick"
-          @value={{this.nick}}
-          @autocorrect="off"
-          @autocapitalize="none"
-          placeholder={{t "chat.nickname"}}
-        />
-        <button {{action "enterChat"}}
-          type="submit"
-          class="cool-button"
-          disabled={{or this.disableJoinButton @networkStatus.isOffline}}
-        >
-          {{t "chat.join_anonymously"}}
-        </button>
-        <button class="cool-button" {{action "toggleGifsEnabled"}}>
-          {{images-enabled-button-label this.gifsEnabled}}
-        </button>
-      </div>
+    <form align="center" class="mb-3">
+      <Input
+        @type="text"
+        @name="nick"
+        @value={{nick}}
+        @autocorrect="off"
+        @autocapitalize="none"
+        class=""
+        placeholder={{t "chat.nickname"}}
+      />
+      <button {{action "enterChat"}}
+        class="cool-button"
+        disabled={{or disableJoinButton networkStatus.isOffline}}
+      >
+        {{t "chat.join_anonymously"}}
+      </button>
+      <button class="cool-button mt-1 md:m-0" {{action "toggleGifsEnabled"}}>
+        {{images-enabled-button-label gifsEnabled}}
+      </button>
       <div class="flex">
         <img src="/assets/images/new.gif"
              alt="{{ t "new" }}" />
