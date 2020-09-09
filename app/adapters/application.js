@@ -1,12 +1,14 @@
 import ActiveModelAdapter from 'active-model-adapter';
+/* eslint-disable ember/no-mixins */
 import FastbootAdapter from 'ember-data-storefront/mixins/fastboot-adapter';
-import ENV from "datafruits13/config/environment";
+import ENV from 'datafruits13/config/environment';
 
-export default ActiveModelAdapter.extend(FastbootAdapter, {
-  host: ENV.API_HOST,
-  buildURL: function() {
+export default class Application extends ActiveModelAdapter.extend(FastbootAdapter) {
+  host = ENV.API_HOST;
+
+  buildURL() {
     var base;
-    base = this._super.apply(this, arguments);
-    return "" + base + ".json";
+    base = super.buildURL.apply(this, arguments); //eslint-disable-line ember/no-ember-super-in-es-classes
+    return '' + base + '.json';
   }
-});
+}

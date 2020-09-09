@@ -1,17 +1,18 @@
 'use strict';
 
-module.exports = function(/* environment, appConfig */) {
+module.exports = function (/* environment, appConfig */) {
   // See https://zonkyio.github.io/ember-web-app for a list of
   // supported properties
 
   return {
-    name: "datafruits.fm",
-    short_name: "datafruits",
-    description: "Datafruits is a netradio and label founded in 2012 by Tony Miller (mcfiredrill). Its mission is to bring you the world's strangest sounds and bring together the music communities around the world.",
-    start_url: "/",
-    display: "standalone",
-    background_color: "#fff",
-    theme_color: "#fff",
+    name: 'datafruits.fm',
+    short_name: 'datafruits',
+    description:
+      "Datafruits is a netradio and label founded in 2012 by Tony Miller (mcfiredrill). Its mission is to bring you the world's strangest sounds and bring together the music communities around the world.",
+    start_url: '/',
+    display: 'standalone',
+    background_color: '#fff',
+    theme_color: '#fff',
     icons: [
       {
         src: '/assets/images/logo.png',
@@ -24,7 +25,7 @@ module.exports = function(/* environment, appConfig */) {
       },
     ],
     ms: {
-      tileColor: '#fff'
-    }
+      tileColor: '#fff',
+    },
   };
-}
+};

@@ -1,4 +1,4 @@
-<audio preload="" id="radio-player">
+<audio preload="" id="radio-player" class="hidden">
   <source
     src="https://streampusher-relay.club/datafruits.mp3"
     type="audio/mp3"
@@ -8,20 +8,19 @@
     type="audio/ogg"
   >
 </audio>
-<div class="radio-container">
-  <div class="player-controls">
+<div class="radio-container flex flex-row justify-between items-center text-3xl text-shadow">
+  <div class="player-controls mx-2">
     {{#if playingPodcast}}
       <a href="javascript:;" {{action "playLiveStream"}}>
         {{t "player.return_to_live"}}
       </a>
     {{/if}}
     {{#if loading}}
-      <a class="jp-loading" href="javascript:;" tabindex="1">
-        {{t "player.loading"}}
-      </a>
+      <div class="player-loading">
+      </div>
     {{else if playing}}
       <a class="jp-pause" tabindex="1" {{action "pause"}}>
-        {{t "player.pause"}}
+        {{t (if this.playingPodcast "player.pause" "player.stop")}}
       </a>
     {{else if paused}}
       <a {{action "play"}}
@@ -36,7 +35,7 @@
         {{t "player.play"}}
       </a>
     {{/if}}
-    <span {{action "toggleVolumeControl" on="mouseEnter"}}
+    <span {{action "showVolumeControl" on="mouseEnter"}} {{action "hideVolumeControl" on="mouseLeave"}}
       class="jp-volume-controls"
       role="button"
     >
@@ -63,7 +62,7 @@
       {{/if}}
     </span>
   </div>
-  <div class="now-playing">
+  <div class="now-playing flex-grow">
     {{#if error}}
       <span>
         {{error}}
@@ -74,15 +73,7 @@
       </span>
     {{/if}}
   </div>
-  <div class="next-show-and-locale">
-    {{#if nextShow}}
-      <span id="next-show">
-        {{t "next_broadcast"}}
-        <LinkTo @route="home.show" @model={{nextShow}}>
-          {{nextShow.title}}
-        </LinkTo>
-      </span>
-    {{/if}}
+  <div class="flex mr-1 items-center">
     {{yield}}
   </div>
 </div>

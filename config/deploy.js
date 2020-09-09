@@ -1,23 +1,23 @@
 /* jshint node: true */
 
-module.exports = function(deployTarget) {
+module.exports = function (deployTarget) {
   var ENV = {
     build: {
-      environment: deployTarget
+      environment: deployTarget,
     },
     's3-index': {
       accessKeyId: process.env.S3_KEY,
       secretAccessKey: process.env.S3_SECRET,
-      bucket: "datafruits.fm",
-      region: "us-east-1",
-      allowOverwrite: true
+      bucket: 'datafruits.fm',
+      region: 'us-east-1',
+      allowOverwrite: true,
     },
-    's3': {
+    s3: {
       accessKeyId: process.env.S3_KEY,
       secretAccessKey: process.env.S3_SECRET,
-      bucket: "datafruits.fm",
-      region: "us-east-1"
-    }
+      bucket: 'datafruits.fm',
+      region: 'us-east-1',
+    },
   };
 
   if (deployTarget === 'development') {

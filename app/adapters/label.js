@@ -1,4 +1,5 @@
+import classic from 'ember-classic-decorator';
 import ApplicationAdapter from './application';
 
-export default ApplicationAdapter.extend({
-});
+@classic
+export default class Label extends ApplicationAdapter {}

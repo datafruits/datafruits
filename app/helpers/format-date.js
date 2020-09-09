@@ -4,7 +4,7 @@ import jstz from 'jstimezonedetect';
 
 export function formatDate(time) {
   var timeZone = jstz.determine();
-  var formattedTime = moment(time[0]).tz(timeZone.name()).format("MM-DD-YYYY dddd HH:mm z");
+  var formattedTime = moment(time[0]).tz(timeZone.name()).format('MM-DD-YYYY dddd HH:mm z');
   return formattedTime;
 }
 

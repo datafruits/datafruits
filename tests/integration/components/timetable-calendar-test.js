@@ -3,10 +3,10 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | timetable calendar', function(hooks) {
+module('Integration | Component | timetable calendar', function (hooks) {
   setupRenderingTest(hooks);
 
-  skip('it renders', async function(assert) {
+  skip('it renders', async function (assert) {
     assert.expect(0);
 
     // Set any properties with this.set('myProperty', 'value');

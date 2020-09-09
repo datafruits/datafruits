@@ -1,32 +1,35 @@
+import classic from 'ember-classic-decorator';
+import { inject as service } from '@ember/service';
 import Route from '@ember/routing/route';
 import { later } from '@ember/runloop';
-import { inject as service } from '@ember/service';
 
-export default Route.extend({
-  i18n: service(),
-  fastboot: service(),
-  model(){
-    //return this.store.queryRecord('scheduled-show', {next: true});
-  },
-  afterModel(){
-    if(!this.get('fastboot.isFastBoot')){
-      let locales = this.get('i18n.locales');
+@classic
+export default class HomeRoute extends Route {
+  @service
+  intl;
+
+  @service
+  fastboot;
+
+  afterModel() {
+    if (!this.fastboot.isFastBoot) {
+      let locales = this.intl.locales;
       let language;
-      if(navigator.languages){
+      if (navigator.languages) {
         language = navigator.languages[0];
-      }else {
+      } else {
         language = navigator.language || navigator.userLanguage;
       }
       language = locales.includes(language.toLowerCase()) ? language : 'en';
 
-      this.set('i18n.locale', language)
+      this.set('intl.locale', language);
     }
-  },
+  }
 
   refreshNext() {
     later(() => {
       this.model();
       this.refreshNext();
     }, 60000);
-  },
-});
+  }
+}

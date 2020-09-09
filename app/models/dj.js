@@ -1,19 +1,40 @@
-import Model, { attr, hasMany } from '@ember-data/model';
+import classic from 'ember-classic-decorator';
 import { computed } from '@ember/object';
+import Model, { attr, hasMany } from '@ember-data/model';
 import moment from 'moment';
 
-export default Model.extend({
-  username: attr(),
-  imageUrl: attr(),
-  imageThumbUrl: attr(),
-  imageMediumUrl: attr(),
-  bio: attr(),
-  links: hasMany('link'),
-  tracks: hasMany('track'),
-  scheduledShows: hasMany('scheduled-show'),
-  nextShow: computed('scheduledShows', function(){
-    return this.scheduledShows.filter((scheduledShow) => {
-      return moment(scheduledShow.start).isSameOrAfter(Date.now());
-    }).get('firstObject');
-  })
-});
+@classic
+export default class Dj extends Model {
+  @attr()
+  username;
+
+  @attr()
+  imageUrl;
+
+  @attr()
+  imageThumbUrl;
+
+  @attr()
+  imageMediumUrl;
+
+  @attr()
+  bio;
+
+  @hasMany('link')
+  links;
+
+  @hasMany('track')
+  tracks;
+
+  @hasMany('scheduled-show')
+  scheduledShows;
+
+  @computed('scheduledShows')
+  get nextShow() {
+    return this.scheduledShows
+      .filter((scheduledShow) => {
+        return moment(scheduledShow.start).isSameOrAfter(Date.now());
+      })
+      .get('firstObject');
+  }
+}
