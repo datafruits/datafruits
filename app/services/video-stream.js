@@ -23,24 +23,28 @@ export default class VideoStreamService extends Service {
 
     let socket = this.socket.socket;
 
-    let vjChannel = socket.channel("vj", {});
+    let vjChannel = socket.channel('vj', {});
 
-    vjChannel.join().receive("ignore", function () {
-      return console.log("auth error"); // eslint-disable-line no-console
-    }).receive("ok", function () {
-      return console.log("vj join ok"); // eslint-disable-line no-console
-    }).receive("timeout", function () {
-      return console.log("Connection interruption"); // eslint-disable-line no-console
-    });
+    vjChannel
+      .join()
+      .receive('ignore', function () {
+        return console.log('auth error'); // eslint-disable-line no-console
+      })
+      .receive('ok', function () {
+        return console.log('vj join ok'); // eslint-disable-line no-console
+      })
+      .receive('timeout', function () {
+        return console.log('Connection interruption'); // eslint-disable-line no-console
+      });
 
-    vjChannel.on("vj", (vj) => {
+    vjChannel.on('vj', (vj) => {
       let enabled = vj.message;
       console.log(`vj channel: ${enabled}`);
-      if(enabled === '1'){
+      if (enabled === '1') {
         this.set('videoStreamActive', true);
         console.log('performing tasks');
         this.fetchStream.perform();
-      }else{
+      } else {
         this.set('videoStreamActive', false);
         console.log('cancelling tasks');
         this.fetchStream.cancelAll();
@@ -113,8 +117,8 @@ export default class VideoStreamService extends Service {
     this.set('player', null);
   }
 
-  streamIsActive(name, extension){
-    this.set("videoStreamActive", true);
+  streamIsActive(name, extension) {
+    this.set('videoStreamActive', true);
     this.set('streamName', name);
     this.set('extension', extension);
     this.fetchStream.cancelAll();
