@@ -96,6 +96,7 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':tparty:'],
       keywords: ['tparty'],
+    },
     ':pizza_spin:': {
       custom: true,
       animated: true,
@@ -113,9 +114,11 @@ export function initialize(/* application */) {
       keywords: ['jambox'],
     },
   };
+
   Object.keys(customEmojis).forEach((emoji) => {
     emojione.emojioneList[emoji] = customEmojis[emoji];
   });
+
   emojione.shortnames = emojione.shortnames.concat(`|${Object.keys(customEmojis).join('|')}`);
   //emojione.shortnames = emojione.shortnames.concat("|:bgs:");
 
