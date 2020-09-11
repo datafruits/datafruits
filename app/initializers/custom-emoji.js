@@ -62,6 +62,27 @@ export function initialize(/* application */) {
       shortnames: [':trash:', ':cooltrash:'],
       keywords: ['trash', 'cooltrash'],
     },
+    ':tspicy:': {
+      custom: true,
+      uc_base: 'tspicy',
+      uc_output: '',
+      shortnames: [':tspicy:'],
+      keywords: ['tspicy']
+    },
+    ':tsick:': {
+      custom: true,
+      uc_base: 'tsick',
+      uc_output: '',
+      shortnames: [':tsick:'],
+      keywords: ['tsick']
+    },
+    ':tparty:': {
+      custom: true,
+      uc_base: 'tparty',
+      uc_output: '',
+      shortnames: [':tparty:'],
+      keywords: ['tparty']
+    }
   };
   Object.keys(customEmojis).forEach((emoji) => {
     emojione.emojioneList[emoji] = customEmojis[emoji];
