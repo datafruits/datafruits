@@ -95,17 +95,17 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   play() {
-    let audioTag = document.getElementById('radio-player');
-    if (this.playingPodcast === false) {
-      // reload stream
-      audioTag.src = 'https://streampusher-relay.club/datafruits.mp3';
-    }
-    if (audioTag.readyState === 0) {
-      this.set('playerState', 'loading');
-    }
-    audioTag.play();
-    this.set('playButtonHover', false);
-    this.set('playButtonPressed', true);
+    //let audioTag = document.getElementById('radio-player');
+    // if (this.playingPodcast === false) {
+    //   // reload stream
+    //   audioTag.src = 'https://streampusher-relay.club/datafruits.mp3';
+    // }
+    // if (audioTag.readyState === 0) {
+    //   this.set('playerState', 'loading');
+    // }
+    // audioTag.play();
+    // this.set('playButtonHover', false);
+    // this.set('playButtonPressed', true);
 
     // play video for mobile
     this.videoStream.play();
@@ -113,16 +113,18 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   pause() {
-    let audioTag = document.getElementById('radio-player');
-    audioTag.pause();
-    this.set('playButtonPressed', false);
-    this.set('playerState', 'paused');
+    // let audioTag = document.getElementById('radio-player');
+    // audioTag.pause();
+    // this.set('playButtonPressed', false);
+    // this.set('playerState', 'paused');
+    this.videoStream.pause();
   }
 
   @action
   mute() {
-    let audioTag = document.getElementById('radio-player');
-    audioTag.muted = true;
+    //let audioTag = document.getElementById('radio-player');
+    //audioTag.muted = true;
+    this.videoStream.volume(0.0);
     this.set('muted', true);
     this.set('oldVolume', this.volume);
     this.set('volume', 0.0);
@@ -131,8 +133,9 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   unmute() {
-    let audioTag = document.getElementById('radio-player');
-    audioTag.muted = false;
+    //let audioTag = document.getElementById('radio-player');
+    //audioTag.muted = false;
+    this.videoStream.volume(this.oldVolume);
     this.set('muted', false);
     this.set('volume', this.oldVolume);
     localStorage.setItem('datafruits-volume', this.volume);
@@ -161,8 +164,9 @@ export default class DatafruitsPlayer extends Component {
   volumeChanged(e) {
     this.set('volume', e.target.value);
     localStorage.setItem('datafruits-volume', this.volume);
-    let audioTag = document.getElementById('radio-player');
-    audioTag.volume = this.volume;
+    // let audioTag = document.getElementById('radio-player');
+    // audioTag.volume = this.volume;
+    this.videoStream.volume(this.volume);
   }
 
   @action
