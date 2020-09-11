@@ -96,6 +96,21 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':tparty:'],
       keywords: ['tparty'],
+    ':pizza_spin:': {
+      custom: true,
+      animated: true,
+      uc_base: 'pizza_spin',
+      uc_output: '',
+      shortnames: [':pizza_spin:'],
+      keywords: ['pizza_spin'],
+    },
+    ':jambox:': {
+      custom: true,
+      animated: true,
+      uc_base: 'jambox',
+      uc_output: '',
+      shortnames: [':jambox:'],
+      keywords: ['jambox'],
     },
   };
   Object.keys(customEmojis).forEach((emoji) => {
