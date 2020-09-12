@@ -99,6 +99,16 @@ export default class VideoStreamService extends Service {
     }
   }
 
+  pause() {
+    let player = this.player;
+    player.pause();
+  }
+
+  volume(newVolume) {
+    let player = this.player;
+    player.volume(newVolume);
+  }
+
   streamIsActive(name, extension) {
     this.set('active', true);
     this.set('streamName', name);
