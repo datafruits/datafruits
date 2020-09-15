@@ -62,10 +62,63 @@ export function initialize(/* application */) {
       shortnames: [':trash:', ':cooltrash:'],
       keywords: ['trash', 'cooltrash'],
     },
+    ':sr388:': {
+      custom: true,
+      uc_base: 'sr388',
+      uc_output: '',
+      shortnames: [':sr388:'],
+      keywords: ['sr388', 'sr'],
+    },
+    ':eatdis:': {
+      custom: true,
+      uc_base: 'eatdis',
+      uc_output: '',
+      shortnames: [':eatdis:'],
+      keywords: ['eatdis'],
+    },
+    ':tspicy:': {
+      custom: true,
+      uc_base: 'tspicy',
+      uc_output: '',
+      shortnames: [':tspicy:'],
+      keywords: ['tspicy'],
+    },
+    ':tsick:': {
+      custom: true,
+      uc_base: 'tsick',
+      uc_output: '',
+      shortnames: [':tsick:'],
+      keywords: ['tsick'],
+    },
+    ':tparty:': {
+      custom: true,
+      uc_base: 'tparty',
+      uc_output: '',
+      shortnames: [':tparty:'],
+      keywords: ['tparty'],
+    },
+    ':pizza_spin:': {
+      custom: true,
+      animated: true,
+      uc_base: 'pizza_spin',
+      uc_output: '',
+      shortnames: [':pizza_spin:'],
+      keywords: ['pizza_spin'],
+    },
+    ':jambox:': {
+      custom: true,
+      animated: true,
+      uc_base: 'jambox',
+      uc_output: '',
+      shortnames: [':jambox:'],
+      keywords: ['jambox'],
+    },
   };
+
   Object.keys(customEmojis).forEach((emoji) => {
     emojione.emojioneList[emoji] = customEmojis[emoji];
   });
+
   emojione.shortnames = emojione.shortnames.concat(`|${Object.keys(customEmojis).join('|')}`);
   //emojione.shortnames = emojione.shortnames.concat("|:bgs:");
 
