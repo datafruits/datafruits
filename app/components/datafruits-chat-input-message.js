@@ -43,7 +43,16 @@ export default class DatafruitsChatInputMessage extends Component {
   sendMessage() {
     const message = this.inputMessage;
     if (message) {
-      this.chat.push('new:msg', { user: this.username, body: message, timestamp: Date.now(), token: this.token });
+      if (this.token) {
+        this.chat.push('new:msg_with_token', {
+          user: this.username,
+          body: message,
+          timestamp: Date.now(),
+          token: this.token,
+        });
+      } else {
+        this.chat.push('new:msg', { user: this.username, body: message, timestamp: Date.now() });
+      }
       this.set('inputMessage', '');
     }
   }
