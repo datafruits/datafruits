@@ -26,7 +26,7 @@ export default class ChatController extends Controller {
       .then(() => {
         console.log('logged in!');
         const token = this.session.data.authenticated.token;
-        this.chat.push('authorize', { user: nick, timestamp: Date.now(), token: token });
+        this.chat.push('authorize_token', { user: nick, timestamp: Date.now(), token: token });
         return true;
       })
       .catch((reason) => {

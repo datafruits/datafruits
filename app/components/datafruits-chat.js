@@ -47,7 +47,7 @@ export default class DatafruitsChat extends Component {
   @action
   enterChatAnonymously() {
     const nick = this.nick.trim();
-    //this.chat.push('authorize', { user: nick, timestamp: Date.now() });
+    this.chat.push('authorize', { user: nick, timestamp: Date.now() });
   }
 
   @action
