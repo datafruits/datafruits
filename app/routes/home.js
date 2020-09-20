@@ -6,10 +6,21 @@ import { later } from '@ember/runloop';
 @classic
 export default class HomeRoute extends Route {
   @service
+  currentUser;
+
+  @service
+  session;
+
+  @service
   intl;
 
   @service
   fastboot;
+
+  beforeModel() {
+    console.log('in home beforeModel');
+    return this._loadCurrentUser();
+  }
 
   afterModel() {
     if (!this.fastboot.isFastBoot) {
@@ -26,10 +37,16 @@ export default class HomeRoute extends Route {
     }
   }
 
-  refreshNext() {
-    later(() => {
-      this.model();
-      this.refreshNext();
-    }, 60000);
+  async sessionAuthenticated() {
+    console.log('in sessionAuthenticated');
+    let _super = this._super;
+    await this._loadCurrentUser();
+    await this._loadCurrentRadio();
+    _super.call(this, ...arguments);
+  }
+
+  _loadCurrentUser() {
+    console.log('_loadCurrentUser');
+    return this.currentUser.load().catch(() => this.session.invalidate());
   }
 }

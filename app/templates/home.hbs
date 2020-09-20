@@ -7,7 +7,12 @@
     <SpNav
       @toggleMenu={{action "toggleMenu"}}
       @menuOpen={{this.menuOpen}} />
-    {{#if session.isAuthenticated}}
+    {{#if this.session.isAuthenticated}}
+      <li class="dropdown">
+        <a href="#" class="" role="button" {{action toggleUserMenu}}>
+          {{this.currentUser.user.username}}
+        </a>
+      </li>
       <UserMenu />
     {{else}}
       <LinkTo
