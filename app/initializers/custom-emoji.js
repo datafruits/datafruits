@@ -113,6 +113,13 @@ export function initialize(/* application */) {
       shortnames: [':jambox:'],
       keywords: ['jambox'],
     },
+    ':gorge:': {
+      custom: true,
+      uc_base: 'gorge',
+      uc_output: '',
+      shortnames: [':gorge:'],
+      keywords: ['gorge'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
