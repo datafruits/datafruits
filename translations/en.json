@@ -37,6 +37,7 @@
     "login": "Login",
     "username": "username",
     "nickname": "nickname",
+    "password": "password",
     "gif": "GIF"
   },
   "podcasts": {
