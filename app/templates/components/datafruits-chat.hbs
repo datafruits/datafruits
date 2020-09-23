@@ -23,7 +23,7 @@
   </ul>
 </div>
 <div class="flex flex-col justify-center items-center w-full">
-  {{#if joinedChat}}
+  {{#if this.joinedChat}}
     <form align="center" class="mb-3 w-full">
       <DatafruitsChatInputMessage  @isOffline={{networkStatus.isOffline}} />
       <button class="cool-button mt-3 md:m-0" {{action "toggleGifsEnabled"}}>

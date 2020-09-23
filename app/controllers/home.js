@@ -24,6 +24,7 @@ export default class HomeController extends Controller {
 
   menuOpen = false;
   submenuOpen = false;
+  isShowingUserMenu = false;
 
   init() {
     super.init(...arguments);
@@ -53,5 +54,7 @@ export default class HomeController extends Controller {
   }
 
   @action
-  toggleUserMenu() {}
+  toggleUserMenu() {
+    this.toggleProperty('isShowingUserMenu');
+  }
 }

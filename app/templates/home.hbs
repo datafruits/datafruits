@@ -8,12 +8,13 @@
       @toggleMenu={{action "toggleMenu"}}
       @menuOpen={{this.menuOpen}} />
     {{#if this.session.isAuthenticated}}
-      <li class="dropdown">
-        <a href="#" class="" role="button" {{action toggleUserMenu}}>
-          {{this.currentUser.user.username}}
-        </a>
-      </li>
-      <UserMenu />
+      <ul class="px-4 py-4 font-semibold text-3xl">
+        <li class="">
+          <a href="#" class="" role="button" {{on "click" this.toggleUserMenu}}>
+            {{this.currentUser.user.username}}
+          </a>
+        </li>
+      </ul>
     {{else}}
       <LinkTo
         class="hidden md:block"
@@ -24,6 +25,7 @@
       </LinkTo>
     {{/if}}
   </div>
+  <UserMenu @showing={{this.isShowingUserMenu}} />
   <div class="px-5 overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow ">
     {{outlet}}
   </div>

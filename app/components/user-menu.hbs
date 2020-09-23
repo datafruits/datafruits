@@ -1,7 +1,11 @@
-<ul role="menu">
-  <li class="h-1 bg-gray-300"></li>
-  <li class="hover:bg-gray-800 rounded px-2 py-1">
-    <a href="#" {{action 'logout'}}>Logout</a>
-  </li>
-</ul>
-
+{{#if @showing}}
+  <ul role="menu" class="absolute right-0 bg-df-pink font-semibold z-10" style="top: 85px;">
+    <li class="hover:bg-df-blue rounded px-2 py-1">
+      <LinkTo @route="home.user.settings">{{t "usermenu.settings"}}</LinkTo>
+    </li>
+    <li class="h-1 bg-df-green"></li>
+    <li class="hover:bg-df-blue rounded px-2 py-1">
+      <a href="#" {{on "click" this.logout}}>{{t "usermenu.logout"}</a>
+    </li>
+  </ul>
+{{/if}}

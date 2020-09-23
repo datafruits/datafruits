@@ -40,6 +40,10 @@
     "password": "password",
     "gif": "GIF"
   },
+  "usermenu": {
+    "settings": "Settings",
+    "logout": "Logout"
+  },
   "podcasts": {
     "title": "Podcast",
     "no_result": "No results. Musta been the onion salad dressing.",

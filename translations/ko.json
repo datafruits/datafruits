@@ -21,6 +21,10 @@
     "password": "패스워드",
     "nickname": "별명"
   },
+  "usermenu": {
+    "settings": "Settings",
+    "logout": "Logout"
+  },
   "podcasts": {
     "title": "팟캐스트",
     "no_result": "결과없음. 혹시 오니언 샐러드 드레싱일지도 모르겠네요"

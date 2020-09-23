@@ -21,6 +21,10 @@
     "password": "パスワード",
     "nickname": "ニックネーム"
   },
+  "usermenu": {
+    "settings": "Settings",
+    "logout": "Logout"
+  },
   "podcasts": {
     "title": "ポッドキャスト",
     "no_result": "結果なしです。もしかしてオニオンサラダドレッシングかもしれませんでした。"
