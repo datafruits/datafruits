@@ -13,11 +13,18 @@ export default class HomeController extends Controller {
   @service
   router;
 
+  @service
+  session;
+
+  @service
+  currentUser;
+
   @oneWay('intl.locale')
   locale;
 
   menuOpen = false;
   submenuOpen = false;
+  isShowingUserMenu = false;
 
   init() {
     super.init(...arguments);
@@ -44,5 +51,10 @@ export default class HomeController extends Controller {
 
   toggleSubMenuOnce() {
     this.toggleProperty('submenuOpen');
+  }
+
+  @action
+  toggleUserMenu() {
+    this.toggleProperty('isShowingUserMenu');
   }
 }

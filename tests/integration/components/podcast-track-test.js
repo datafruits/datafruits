@@ -7,7 +7,7 @@ module('Integration | Component | podcast track', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    assert.expect(1);
+    assert.expect(2);
 
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.on('myAction', function(val) { ... });
@@ -16,6 +16,7 @@ module('Integration | Component | podcast track', function (hooks) {
 
     await render(hbs`{{podcast-track cdn_url=cdn_url title=title}}`);
 
-    assert.dom('*').hasText('▶︎ cool track');
+    assert.equal(this.element.textContent.trim().includes('▶︎'), true);
+    assert.equal(this.element.textContent.trim().includes('cool track'), true);
   });
 });

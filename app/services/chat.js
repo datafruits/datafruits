@@ -6,18 +6,33 @@ import { Presence } from 'phoenix';
 
 export default Service.extend({
   socket: service(),
+  session: service(),
+  currentUser: service(),
   joinedUsers: computed('presences', function () {
     return Object.keys(this.presences);
   }),
   messages: ArrayProxy.create({ content: A() }),
   joinedChat: false,
   gifsEnabled: true,
+  token: '',
+  disconnect() {
+    // need to broadcast a disconnect here or it will look like user is still in the chat to everyone
+    this.chan.push('disconnect', { user: this.username });
+    this.set('joinedChat', false);
+  },
   push(message, object) {
     this.chan.push(message, object);
   },
   init() {
     this._super(...arguments);
     this.set('presences', {});
+
+    if (this.session.isAuthenticated) {
+      this.set('joinedChat', true);
+      this.set('username', this.currentUser.user.username);
+      this.set('token', this.session.data.authenticated.token);
+    }
+
     let socket = this.socket.socket;
 
     this.chan = socket.channel('rooms:lobby', {});
@@ -43,12 +58,30 @@ export default Service.extend({
     });
 
     this.chan.on('new:msg', (msg) => {
+      if (msg['role']) {
+        msg['role'] = msg.role.split(' ');
+      }
       this.messages.pushObject(msg);
     });
 
     this.chan.on('authorized', (msg) => {
       this.set('username', msg.user);
-      this.set('joinedChat', true);
+      const token = msg.token;
+      if (token) {
+        this.set('token', msg.token);
+        // load currentUser
+        this.currentUser
+          .load()
+          .then(() => {
+            console.log('user authorized with token'); // eslint-disable-line no-console
+            this.set('joinedChat', true);
+          })
+          .catch(() => this.session.invalidate());
+      } else {
+        console.log('user authorized'); // eslint-disable-line no-console
+        this.set('joinedChat', true);
+      }
+      // fetch currentUser here? ???
     });
 
     this.chan.on('notauthorized', function (msg) {
@@ -70,6 +103,11 @@ export default Service.extend({
     // user banned
     this.chan.on('disconnect', (/*msg*/) => {
       this.set('joinedChat', false);
+    });
+
+    this.chan.on('banned', (msg) => {
+      console.log(`user banned:`); // eslint-disable-line no-console
+      console.log(msg); // eslint-disable-line no-console
     });
 
     this.chan.on('presence_state', (state) => {
