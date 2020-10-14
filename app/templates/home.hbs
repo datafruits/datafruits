@@ -25,7 +25,7 @@
       </LinkTo>
     {{/if}}
   </div>
-  <UserMenu @showing={{this.isShowingUserMenu}} />
+  <UserMenu @showing={{this.isShowingUserMenu}} @toggleUserMenu={{this.toggleUserMenu}} />
   <div class="px-5 overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow ">
     {{outlet}}
   </div>

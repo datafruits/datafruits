@@ -13,6 +13,9 @@ export default class DatafruitsChatInputMessage extends Component {
   @service
   chat;
 
+  @service
+  currentUser;
+
   @oneWay('chat.username')
   username;
 
@@ -44,11 +47,13 @@ export default class DatafruitsChatInputMessage extends Component {
     const message = this.inputMessage;
     if (message) {
       if (this.token) {
+        const role = this.currentUser.user.role;
         this.chat.push('new:msg_with_token', {
           user: this.username,
           body: message,
           timestamp: Date.now(),
           token: this.token,
+          role: role,
         });
       } else {
         this.chat.push('new:msg', { user: this.username, body: message, timestamp: Date.now() });

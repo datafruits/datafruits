@@ -15,6 +15,11 @@ export default Service.extend({
   joinedChat: false,
   gifsEnabled: true,
   token: '',
+  disconnect() {
+    // need to broadcast a disconnect here or it will look like user is still in the chat to everyone
+    this.chan.push('disconnect', { user: this.username });
+    this.set('joinedChat', false);
+  },
   push(message, object) {
     this.chan.push(message, object);
   },
@@ -53,14 +58,27 @@ export default Service.extend({
     });
 
     this.chan.on('new:msg', (msg) => {
+      msg['role'] = msg.role.split(' ');
       this.messages.pushObject(msg);
     });
 
     this.chan.on('authorized', (msg) => {
       this.set('username', msg.user);
-      this.set('token', msg.token);
-      console.log('user authorized');
-      this.set('joinedChat', true);
+      const token = msg.token;
+      if (token) {
+        this.set('token', msg.token);
+        // load currentUser
+        this.currentUser
+          .load()
+          .then(() => {
+            console.log('user authorized with token');
+            this.set('joinedChat', true);
+          })
+          .catch(() => this.session.invalidate());
+      } else {
+        console.log('user authorized');
+        this.set('joinedChat', true);
+      }
       // fetch currentUser here? ???
     });
 
@@ -83,6 +101,11 @@ export default Service.extend({
     // user banned
     this.chan.on('disconnect', (/*msg*/) => {
       this.set('joinedChat', false);
+    });
+
+    this.chan.on('banned', (msg) => {
+      console.log(`user banned:`);
+      console.log(msg);
     });
 
     this.chan.on('presence_state', (state) => {

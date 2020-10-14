@@ -1,8 +1,8 @@
 <div id="chat-area" class="text-df-yellow font-bold flex flex-row flex-grow min-h-0 relative text-shadow mb-5 flex-basis-0">
   <ChatMessages
     class="overflow-y-scroll w-screen border-none md:border-r-2 border-white border-solid"
-    @messages={{messages}}
-    @gifsEnabled={{gifsEnabled}}
+    @messages={{this.messages}}
+    @gifsEnabled={{this.gifsEnabled}}
     @newMessagesAvailable={{action "newMessagesAvailable"}}
     @onScroll={{action "onScroll"}}
   />
@@ -27,7 +27,7 @@
     <form align="center" class="mb-3 w-full">
       <DatafruitsChatInputMessage  @isOffline={{networkStatus.isOffline}} />
       <button class="cool-button mt-3 md:m-0" {{action "toggleGifsEnabled"}}>
-        {{images-enabled-button-label gifsEnabled}}
+        {{images-enabled-button-label this.gifsEnabled}}
       </button>
     </form>
   {{else}}
