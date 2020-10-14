@@ -1,8 +1,6 @@
-import classic from 'ember-classic-decorator';
 import { inject as service } from '@ember/service';
 import Route from '@ember/routing/route';
 
-@classic
 export default class HomeRoute extends Route {
   @service
   currentUser;
@@ -36,10 +34,9 @@ export default class HomeRoute extends Route {
   }
 
   async sessionAuthenticated() {
-    let _super = this._super;
     await this._loadCurrentUser();
     await this._loadCurrentRadio();
-    _super.call(this, ...arguments);
+    super.call(this, ...arguments);
   }
 
   _loadCurrentUser() {
