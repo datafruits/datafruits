@@ -73,12 +73,12 @@ export default Service.extend({
         this.currentUser
           .load()
           .then(() => {
-            console.log('user authorized with token');
+            console.log('user authorized with token'); // eslint-disable-line no-console
             this.set('joinedChat', true);
           })
           .catch(() => this.session.invalidate());
       } else {
-        console.log('user authorized');
+        console.log('user authorized'); // eslint-disable-line no-console
         this.set('joinedChat', true);
       }
       // fetch currentUser here? ???
@@ -106,8 +106,8 @@ export default Service.extend({
     });
 
     this.chan.on('banned', (msg) => {
-      console.log(`user banned:`);
-      console.log(msg);
+      console.log(`user banned:`); // eslint-disable-line no-console
+      console.log(msg); // eslint-disable-line no-console
     });
 
     this.chan.on('presence_state', (state) => {

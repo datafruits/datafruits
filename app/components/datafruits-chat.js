@@ -54,8 +54,8 @@ export default class DatafruitsChat extends Component {
   enterChat(nick, pass) {
     this.set('isJoiningChat', true);
     nick = nick.trim();
-    return this.attrs.authenticate(nick, pass);
-    //this.chat.push('authorize', { user: nick, timestamp: Date.now() });
+    // can convert to this.args when its a glimmer component
+    return this.attrs.authenticate(nick, pass); // eslint-disable-line ember/no-attrs-in-components
   }
 
   @action

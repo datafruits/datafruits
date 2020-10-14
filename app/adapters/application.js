@@ -10,7 +10,7 @@ export default class Application extends ActiveModelAdapter.extend(FastbootAdapt
 
   host = ENV.API_HOST;
 
-  @computed('session.data.authenticated.token')
+  @computed('session.{data.authenticated.token,isAuthenticated}')
   get headers() {
     const headers = {};
     if (this.session.isAuthenticated) {

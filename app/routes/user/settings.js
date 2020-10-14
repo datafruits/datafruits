@@ -1,4 +1,3 @@
 import Route from '@ember/routing/route';
 
-export default class UserSettingsRoute extends Route {
-}
+export default class UserSettingsRoute extends Route {}
