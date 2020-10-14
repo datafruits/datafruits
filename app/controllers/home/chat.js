@@ -24,14 +24,12 @@ export default class ChatController extends Controller {
     return this.session
       .authenticate('authenticator:devise', nick, pass)
       .then(() => {
-        console.log('logged in!');
         const token = this.session.data.authenticated.token;
         this.chat.push('authorize_token', { user: nick, timestamp: Date.now(), token: token });
         return true;
       })
       .catch((reason) => {
         alert('Wrong password');
-        console.log(reason);
         return false;
       });
   }
