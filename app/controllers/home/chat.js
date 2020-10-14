@@ -28,7 +28,7 @@ export default class ChatController extends Controller {
         this.chat.push('authorize_token', { user: nick, timestamp: Date.now(), token: token });
         return true;
       })
-      .catch((reason) => {
+      .catch((/*reason*/) => {
         alert('Wrong password');
         return false;
       });
