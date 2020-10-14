@@ -1,8 +1,8 @@
-{{#modal-dialog
-  translucentOverlay=true
-}}
+<ModalDialog
+  translucentOverlay={{true}}
+  >
   <div class="modal-top">
-    <button {{on "click" @toggleModal}}
+    <button {{on "click" (fn @toggleModal)}}
       type="button"
       class="cool-button"
       >
@@ -36,4 +36,4 @@
       </button>
     </form>
   </div>
-{{/modal-dialog}}
+</ModalDialog>

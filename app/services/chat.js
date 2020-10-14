@@ -58,7 +58,9 @@ export default Service.extend({
     });
 
     this.chan.on('new:msg', (msg) => {
-      msg['role'] = msg.role.split(' ');
+      if (msg['role']) {
+        msg['role'] = msg.role.split(' ');
+      }
       this.messages.pushObject(msg);
     });
 
