@@ -49,6 +49,15 @@ module.exports = function (environment) {
       // By default Rollbar logging is enabled in every environment except test and development.
       // Here is an example if you want to use it only in production
       enabled: environment === 'production',
+      payload: {
+        environment: environment,
+        client: {
+          javascript: {
+            source_map_enabled: true,
+            guess_uncaught_frames: true,
+          },
+        },
+      },
     },
 
     metricsAdapters: [
@@ -135,6 +144,13 @@ module.exports = function (environment) {
     STREAM_NAME: process.env.STREAM_NAME,
     API_HOST: process.env.API_HOST,
   };
+
+  // Heroku Git Hash support
+  if (process.env.SOURCE_VERSION) {
+    let packageJson = require('../package.json');
+    let gitHash = process.env.SOURCE_VERSION.substr(0, 7);
+    ENV.emberRollbarClient.payload.client.javascript['code_version'] = `${packageJson.version}+${gitHash}`;
+  }
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

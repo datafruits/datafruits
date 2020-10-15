@@ -10,6 +10,9 @@
 @import 'addons/ember-calendar/main';
 @import "calendar.scss";
 
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+
 @import "player.scss";
 
 @tailwind components;
@@ -41,6 +44,10 @@
 
 .text-shadow-none {
   text-shadow: none;
+}
+
+.flex-basis-0 {
+  flex-basis: 0;
 }
 
 @keyframes textshadowfade {
@@ -250,6 +257,20 @@ form {
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
+  }
+}
+
+.ember-modal-dialog {
+  background: $blue;
+  padding: 0;
+  .modal-top {
+    padding: 5px;
+    background: $pink;
+    border-radius: 8px 8px 0 0;
+  }
+  .modal-body {
+    padding: 5px;
+    border-radius: 8px;
   }
 }
 
