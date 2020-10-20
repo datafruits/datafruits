@@ -71,6 +71,11 @@
     "placeholder_email": "Email",
     "tiny": "(Free exclusive tracks, mixes & info)"
   },
+  "signup": {
+    "title": "Sign up",
+    "submit": "Sign up",
+    "password": "Password"
+  },
   "djinquiry": {
     "title": "DJ on Datafruits",
     "heading": "Want to have your own show on Datafruits?",

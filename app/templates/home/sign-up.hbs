@@ -1,0 +1,67 @@
+{{title (t "signup.title")}}
+<h1>{{t "signup.title"}}</h1>
+<div>
+  {{#if model.errors}}
+  <div class="error-message">
+    {{t "signup.error"}}
+  </div>
+  {{/if}}
+  <form {{action "submit" on="submit"}}>
+    <div>
+      <label>
+        {{t "djinquiry.email"}}
+      </label>
+      <br>
+      <Input @value={{model.email}} />
+      {{#if model.errors.email}}
+      {{#each model.errors.email as |error|}}
+      <div class="error">
+        <span>
+          {{error.message}}
+        </span>
+      </div>
+      {{/each}}
+      {{/if}}
+    </div>
+    <div>
+      <label>
+        {{t "djinquiry.username"}}
+      </label>
+      <br>
+      <Input @value={{model.username}} />
+      {{#if model.errors.username}}
+        {{#each model.errors.username as |error|}}
+        <div class="error">
+          <span>
+            {{error.message}}
+          </span>
+        </div>
+        {{/each}}
+      {{/if}}
+    </div>
+    <div>
+      <label>
+        {{t "signup.password"}}
+      </label>
+      <br>
+      <Input @value={{model.password}} type="password" />
+      {{#if model.errors.password}}
+        {{#each model.errors.password as |error|}}
+        <div class="error">
+          <span>
+            {{error.message}}
+          </span>
+        </div>
+        {{/each}}
+      {{/if}}
+    </div>
+    <div class="mt-2">
+      <input
+        type="submit"
+        value="{{t "signup.submit"}}"
+        class="cool-button"
+        disabled={{model.isSaving}}
+        >
+    </div>
+  </form>
+</div>
