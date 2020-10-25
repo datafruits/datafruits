@@ -1,0 +1,34 @@
+{{#unless noLabel}}
+  {{#if @label}}
+    <label class="block text-gray-700 text-sm font-bold mb-2" for={{concat @type "-" @property}}>{{@label}}</label>
+  {{else}}
+    <label class="block text-gray-700 text-sm font-bold mb-2" for={{concat @type "-" @property}}>{{start-case @property}}</label>
+  {{/if}}
+{{/unless}}
+
+{{#if (eq @type "textarea")}}
+  <Textarea
+    id={{concat @type "-" @property}}
+    class="form-input focus:outline-none focus:shadow-outline"
+    @cols="80" @rows="6"
+    oninput={{action (mut (get @changeset @property)) value="target.value"}}
+    onblur={{action "validateProperty" @changeset @property}}
+  >{{get @changeset @property}}</Textarea>
+{{else}}
+  <Input
+    class="form-input focus:outline-none focus:shadow-outline"
+    @type={{@type}}
+    @autofocus={{true}}
+    @id={{concat @type "-" @property}}
+    @value={{get @changeset @property}}
+    oninput={{action (mut (get @changeset @property)) value="target.value"}}
+    onblur={{action "validateProperty" @changeset @property}} />
+{{/if}}
+
+{{#if (get @changeset.error @property)}}
+  <div class="text-red-700">
+    {{#each (get (get @changeset.error @property) "validation") as |message|}}
+      <div class="error item">{{message}}</div>
+    {{/each}}
+  </div>
+{{/if}}
