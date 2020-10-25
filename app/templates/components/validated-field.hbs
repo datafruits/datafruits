@@ -1,8 +1,8 @@
 {{#unless noLabel}}
   {{#if @label}}
-    <label class="block text-gray-700 text-sm font-bold mb-2" for={{concat @type "-" @property}}>{{@label}}</label>
+    <label class="block text-sm font-bold mb-2" for={{concat @type "-" @property}}>{{@label}}</label>
   {{else}}
-    <label class="block text-gray-700 text-sm font-bold mb-2" for={{concat @type "-" @property}}>{{start-case @property}}</label>
+    <label class="block text-sm font-bold mb-2" for={{concat @type "-" @property}}>{{start-case @property}}</label>
   {{/if}}
 {{/unless}}
 
