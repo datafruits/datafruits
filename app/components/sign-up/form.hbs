@@ -38,7 +38,7 @@
       type="submit"
       value="{{t "signup.submit"}}"
       class="cool-button"
-      disabled={{not this.canSave}}
+      disabled={{or (or @changeset.isInvalid @changeset.isSaving) (not this.cocAccepted)}}
       >
   </div>
 </form>
