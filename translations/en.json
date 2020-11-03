@@ -1,4 +1,5 @@
 {
+  "new": "New",
   "404": {
     "title": "404!",
     "message": "Page not found",
@@ -12,7 +13,20 @@
     "aria": "Navigate to the homepage",
     "upcoming_shows": "UPCOMING SHOWS",
     "latest_podcasts": "LATEST PODCASTS",
-    "events": "EVENTS"
+    "events": "EVENTS",
+    "podcasts": {
+      "title": "PODCASTS",
+      "subscribe_title": "Subscribe",
+      "search_title": "Search",
+      "link_itunes": "iTunes",
+      "link_overcast": "Overcast",
+      "link_podcastsapp": "Podcasts.app",
+      "link_rss": "RSS",
+      "title_search": "Title",
+      "title_placeholder": "terrible tuesday w tchan",
+      "tag_search": "Tag",
+      "tag_placeholder": "disco, house, grime, any song ..."
+    }
   },
   "chat": {
     "title": "Chat",
@@ -24,8 +38,12 @@
     "join": "Join chat",
     "img_on": "Images are on",
     "img_off": "Images are off",
-    "nickname": "enter your username here...",
     "gif": "GIF",
+    "join_anonymously": "Join chat",
+    "login": "Login",
+    "username": "username",
+    "nickname": "nickname",
+    "password": "password",
     "search": "\"dancing\", \"music\", ...",
     "label": {
       "nick": "nickname",
@@ -105,6 +123,11 @@
     "placeholder_email": "coolxfruits@aol.co.eu",
     "tiny": "Occasionally receive updates, free exclusive tracks, mixes, and more info by email"
   },
+  "usermenu": {
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "label": "Label",
   "djinquiry": {
     "title": "DJ on Datafruits",
     "heading": "Want to have your own show on Datafruits?",
@@ -121,7 +144,7 @@
     "aria": "Apply to DJ on datafruits.fm"
   },
   "just_a_website": "It's just a website.",
-  "about_datafruits": "Datafruits is a netradio and label founded in 2012 by Tony Miller (mcfiredrill). Its mission is to bring you the world's strangest sounds and bring together the music communities around the world.",
+  "about_datafruits": "Independent radio made for and by the international music community. Open source. Breaking down borders and genres. We play any song. We are dedicated to putting the spotlight and sharing music from underserved and marginalized communities. We believe that the only platform that can *truely* serve its users is one that is owned and operated by the people using the platform, the DJs and the listeners!",
   "twitter": {
     "title": "Twitter",
     "aria": "Visit the @datafruits Twitter page"
@@ -153,7 +176,6 @@
   "secret": "secret",
   "thanks_patrons": "THANKS TO ALL THE PATRONS!",
   "code_of_conduct": "Code Of Conduct",
-  "code_of_condect_aria": "Read the code of conduct",
   "what_is_datafruits": "What is datafruits...",
   "loading": "Loading...",
   "next_broadcast": "Next live on air: ",
@@ -167,6 +189,7 @@
     "archive": "Listen back to the podcast"
   },
   "player": {
+    "play_button_label": "play",
     "return_to_live": "return to live stream",
     "loading": "↻",
     "pause": "❚❚",

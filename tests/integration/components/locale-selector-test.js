@@ -11,7 +11,10 @@ module('Integration | Component | locale selector', function (hooks) {
 
     await render(hbs`<LocaleSelector @setLocale={{action setLocaleAction}} />`);
 
-    assert.dom('*').hasText('locale English 日本語 한국어 Español');
+    assert.equal(this.element.textContent.trim().includes('English'), true);
+    assert.equal(this.element.textContent.includes('日本語'), true);
+    assert.equal(this.element.textContent.includes('한국어'), true);
+    assert.equal(this.element.textContent.includes('Español'), true);
   });
 
   test('it calls passed in setLocale action', async function (assert) {

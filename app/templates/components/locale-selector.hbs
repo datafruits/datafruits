@@ -3,9 +3,12 @@
 >
   {{t "locale"}}
 </label>
-<select id="locale-selector"
-  name="locale-selector"
-  onchange={{action setLocale value="target.value"}}>
+<select
+    id="locale-selector"
+    name="locale-selector"
+    class="bg-df-pink border-solid border-2 border-df-blue"
+    aria-label="{{ t "locale"}}"
+    onchange={{action setLocale value="target.value"}}>
   {{#each locales as |localeChoice|}}
     <option
       value={{localeChoice.value}}

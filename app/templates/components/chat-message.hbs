@@ -1,22 +1,33 @@
 <li class="message">
-  <span class="message-timestamp">
-    {{format-message-timestamp message.timestamp}}
+  <span class="mr-2">
+    {{format-message-timestamp @message.timestamp}}
   </span>
-  <span class="username">
-    {{format-message-user message.user}}
-  </span>
-  <span class="message-body">
-    {{format-message-body message.body}}
+  {{#if (or (contains "dj" @message.role) (contains "admin" @message.role))}}
+    {{#if @message.avatarUrl}}
+      <span class="mr-2" data-test-avatar>
+        <img style="height: 20px;" src="{{@message.avatarUrl}}" alt="{{ t "chat.user_avatar" }}" / >
+      </span>
+    {{else}}
+      <span class="mr-2" data-test-avatar>
+        <img style="height: 20px;" src="/assets/images/show_placeholder.jpg" alt="{{ t "chat.user_avatar" }}" / >
+      </span>
+    {{/if}}
+  {{/if}}
+    <span class="mr-2" data-test-username>
+      {{format-message-user @message.user}}
+    </span>
+  <span class="" data-test-message-body>
+    {{format-message-body @message.body}}
   </span>
 </li>
-{{#if gifsEnabled}}
-  {{#if hasImage}}
+{{#if @gifsEnabled}}
+  {{#if this.hasImage}}
     <li class="message">
-      <span class="message-body">
+      <span class="">
         <ChatLazyImage
-          @url={{imgUrl}}
+          @url={{this.imgUrl}}
           @errorText="Image failed to load."
-          @adjustScrolling={{adjustScrolling}}
+          @adjustScrolling={{this.adjustScrolling}}
           class="chat-image"
         />
       </span>

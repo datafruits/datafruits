@@ -1,18 +1,21 @@
-import classic from 'ember-classic-decorator';
 import { inject as service } from '@ember/service';
 import Route from '@ember/routing/route';
-import { later } from '@ember/runloop';
 
-@classic
 export default class HomeRoute extends Route {
+  @service
+  currentUser;
+
+  @service
+  session;
+
   @service
   intl;
 
   @service
   fastboot;
 
-  model() {
-    //return this.store.queryRecord('scheduled-show', {next: true});
+  beforeModel() {
+    return this._loadCurrentUser();
   }
 
   afterModel() {
@@ -30,10 +33,13 @@ export default class HomeRoute extends Route {
     }
   }
 
-  refreshNext() {
-    later(() => {
-      this.model();
-      this.refreshNext();
-    }, 60000);
+  async sessionAuthenticated() {
+    await this._loadCurrentUser();
+    await this._loadCurrentRadio();
+    super.call(this, ...arguments);
+  }
+
+  _loadCurrentUser() {
+    return this.currentUser.load().catch(() => this.session.invalidate());
   }
 }

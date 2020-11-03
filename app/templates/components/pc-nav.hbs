@@ -1,69 +1,102 @@
-<nav class="navbar pc" role="navigation">
-  <ul>
-    <li class="subnav">
-      <a {{action toggleSubMenu on="mouseEnter"}}
+<nav
+  class="bg-df-pink mb-2 hidden md:block overflow-hidden w-full text-3xl relative"
+  role="navigation">
+  <ul class="flex flex-wrap mt-2 ml-2">
+    <li class="py-2 pr-3 text-white text-shadow-light w-full md:w-auto border-dashed border-white border-4 md:border-none">
+      <a
+        {{action @toggleSubMenu on="mouseEnter"}}
         aria-label={{t "radio.aria"}}
-        class="submenu-title"
+        class="text-white text-shadow-light hover:text-white"
         href="#"
       >
         {{t "radio.title"}}
         <span
-          class="fa fa-arrow-circle-o-right {{if submenuOpen "rotated"}}"
+          class="fa fa-arrow-circle-o-right transition-all duration-100 ease-in-out {{if @submenuOpen "rotated"}}"
           aria-hidden="true"
         >
         </span>
       </a>
     </li>
-    <li>
-      <LinkTo @route="home.chat" aria-label={{t "chat.aria"}}>
+    <li class="py-2 pr-3 text-white text-shadow-light w-full md:w-auto border-dashed border-white border-4 md:border-none">
+      <LinkTo
+        class="text-white text-shadow-light hover:text-gray-400"
+        @route="home.chat">
+        aria-label={{t "chat.aria"}}
         {{t "chat.title"}}
       </LinkTo>
     </li>
-    <li>
-      <a href="http://releases.datafruits.fm/" target="_blank" rel="noopener" aria-label={{t "releases.aria"}}>
-        {{t "releases.title"}}
+    <li class="py-2 pr-3 text-white text-shadow-light w-full md:w-auto border-dashed border-white border-4 md:border-none">
+      <a
+        class="text-white text-shadow-light hover:text-gray-400"
+        aria-label={{t "releases.aria"}}
+        href="http://releases.datafruits.fm/" target="_blank" rel="noopener noreferrer">
+        {{t "label"}}
       </a>
     </li>
-    <li>
-      <LinkTo @route="home.about" aria-label={{t "about.aria"}}>
-        {{t "about.title"}}
+    <li class="py-2 pr-3 text-white text-shadow-light w-full md:w-auto border-dashed border-white border-4 md:border-none">
+      <LinkTo
+        class="text-white text-shadow-light hover:text-gray-400"
+        aria-label={{t "about.aria"}}
+        @route="home.about">
+        {{t "about"}}
       </LinkTo>
     </li>
-    <li>
-      <LinkTo @route="home" aria-label={{t "blog.aria"}}>
-        {{t "blog.title"}}
+    <li class="py-2 pr-3 text-white text-shadow-light w-full md:w-auto border-dashed border-white border-4 md:border-none">
+      <LinkTo
+        class="text-white text-shadow-light hover:text-gray-400"
+        aria-label={{t "blog.aria"}}
+        @route="home">
+        {{t "blog"}}
       </LinkTo>
     </li>
-    <li>
-      <a href="https://cooltrash.shop/" target="_blank" rel="noopener" aria-label={{t "shop.aria"}}>
-        {{t "shop.title"}}
+    <li class="py-2 pr-3 text-white text-shadow-light w-full md:w-auto border-dashed border-white border-4 md:border-none">
+      <a
+        class="text-white text-shadow-light hover:text-gray-400"
+        aria-label={{t "shop.aria"}}
+        href="https://cooltrash.shop/" target="_blank" rel="noopener noreferrer">
+        {{t "shop"}}
       </a>
     </li>
-    <li>
-      <LinkTo @route="home.subscribe" aria-label={{t "subscribe.aria"}}>
-        {{t "subscribe.title"}}
+    <li class="py-2 pr-3 text-white text-shadow-light w-full md:w-auto border-dashed border-white border-4 md:border-none">
+      <LinkTo
+        class="text-white text-shadow-light hover:text-gray-400"
+        @route="home.subscribe"
+        aria-label={{t "subscribe.aria"}}>
+        {{t "subscribe"}}
       </LinkTo>
     </li>
   </ul>
-  {{#if submenuOpen}}
-    <ul class="subnav">
+  {{#if @submenuOpen}}
+    <ul class="flex flex-wrap ml-2">
       <li>
-        <LinkTo @route="home.djs" aria-label={{t "djs.aria"}}>
+        <LinkTo
+          class="text-2xl ml-3 text-white text-shadow-light hover:text-gray-400 w-full md:w-auto border-dashed border-white border-4 md:border-none"
+          aria-label={{t "djs.aria"}}
+          @route="home.djs">
           {{t "djs.title"}}
         </LinkTo>
       </li>
       <li>
-        <LinkTo @route="home.podcasts" aria-label={{t "podcasts.aria"}}>
+        <LinkTo
+          class="text-2xl ml-3 text-white text-shadow-light hover:text-gray-400 w-full md:w-auto border-dashed border-white border-4 md:border-none"
+          aria-label={{t "podcasts.aria"}}
+          @route="home.podcasts">
           {{t "podcasts.title"}}
         </LinkTo>
       </li>
       <li>
-        <LinkTo @route="home.timetable" aria-label={{t "timetable.aria"}}>
-          {{t "timetable.title"}}
+        <LinkTo
+          class="text-2xl ml-3 text-white text-shadow-light hover:text-gray-400 w-full md:w-auto border-dashed border-white border-4 md:border-none"
+          aria-label={{t "timetable.aria"}}
+          @route="home.timetable">
+          {{t "timetable"}}
         </LinkTo>
       </li>
       <li>
-        <LinkTo @route="home.dj-inquiry" aria-label={{t "djinquiry.aria"}}>
+        <LinkTo
+          class="text-2xl ml-3 text-white text-shadow-light hover:text-gray-400 w-full md:w-auto border-dashed border-white border-4 md:border-none"
+          aria-label={{t "djinquiry.aria"}}
+          @route="home.dj-inquiry">
           {{t "djinquiry.title"}}
         </LinkTo>
       </li>
