@@ -13,20 +13,7 @@
     "aria": "Navigate to the homepage",
     "upcoming_shows": "UPCOMING SHOWS",
     "latest_podcasts": "LATEST PODCASTS",
-    "events": "EVENTS",
-    "podcasts": {
-      "title": "PODCASTS",
-      "subscribe_title": "Subscribe",
-      "search_title": "Search",
-      "link_itunes": "iTunes",
-      "link_overcast": "Overcast",
-      "link_podcastsapp": "Podcasts.app",
-      "link_rss": "RSS",
-      "title_search": "Title",
-      "title_placeholder": "terrible tuesday w tchan",
-      "tag_search": "Tag",
-      "tag_placeholder": "disco, house, grime, any song ..."
-    }
+    "events": "EVENTS"
   },
   "chat": {
     "title": "Chat",
@@ -64,10 +51,17 @@
     "aria": "View EPs and other releases from datafruits.fm"
   },
   "podcasts": {
-    "title": "podcasts",
-    "header": "PODCASTS",
-    "search": "Search",
-    "subscribe": "Subscribe",
+    "title": "PODCASTS",
+    "subscribe_title": "Subscribe",
+    "search_title": "Search",
+    "link_itunes": "iTunes",
+    "link_overcast": "Overcast",
+    "link_podcastsapp": "Podcasts.app",
+    "link_rss": "RSS",
+    "title_search": "Title",
+    "title_placeholder": "terrible tuesday w tchan",
+    "tag_search": "Tag",
+    "tag_placeholder": "disco, house, grime, any song ...",
     "no_result": "No results. Musta been the onion salad dressing.",
     "labels": {
       "title": "Tile",
