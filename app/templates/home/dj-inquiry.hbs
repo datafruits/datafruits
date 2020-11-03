@@ -8,9 +8,9 @@
   <p>
     {{t "djinquiry.description"}}
   </p>
-  {{#if model.isNew}}
+  {{#if this.model.isNew}}
     <p>
-      {{#if model.errors}}
+      {{#if this.model.errors}}
         <div class="error-message">
           {{t "djinquiry.error"}}
         </div>
@@ -21,9 +21,9 @@
             {{t "djinquiry.email"}}
           </label>
           <br>
-          <Input name="dj-form-email" id="dj-form-email" @value={{model.email}} />
-          {{#if model.errors.email}}
-            {{#each model.errors.email as |error|}}
+          <Input name="dj-form-email" id="dj-form-email" @value={{this.model.email}} />
+          {{#if this.model.errors.email}}
+            {{#each this.model.errors.email as |error|}}
               <div class="error">
                 <span>
                   {{error.message}}
@@ -37,9 +37,9 @@
             {{t "djinquiry.username"}}
           </label>
           <br>
-          <Input name="dj-form-username" id="dj-form-username" @value={{model.username}} />
-          {{#if model.errors.username}}
-            {{#each model.errors.username as |error|}}
+          <Input name="dj-form-username" id="dj-form-username" @value={{this.model.username}} />
+          {{#if this.model.errors.username}}
+            {{#each this.model.errors.username as |error|}}
               <div class="error">
                 <span>
                   {{error.message}}
@@ -53,9 +53,9 @@
             {{t "djinquiry.link_to_mix"}}
           </label>
           <br>
-          <Input name="dj-form-mix" id="dj-form-mix" @value={{model.link}} />
-          {{#if model.errors.link}}
-            {{#each model.errors.link as |error|}}
+          <Input name="dj-form-mix" id="dj-form-mix" @value={{this.model.link}} />
+          {{#if this.model.errors.link}}
+            {{#each this.model.errors.link as |error|}}
               <div class="error">
                 <span>
                   {{error.message}}
@@ -69,7 +69,7 @@
             {{t "djinquiry.homepage_url"}}
           </label>
           <br>
-          <Input name="dj-form-url" id="dj-form-url" @value={{model.homepageUrl}} />
+          <Input name="dj-form-url" id="dj-form-url" @value={{this.model.homepageUrl}} />
         </div>
         <div>
           <label for="dj-form-interval">
@@ -79,8 +79,8 @@
           <select
             name="dj-form-interval" id="dj-form-interval"
             onchange={{action "setInterval"}} value="target.value">
-            {{#each intervals as |interval|}}
-              {{#if (eq model.interval interval)}}
+            {{#each this.intervals as |interval|}}
+              {{#if (eq this.model.interval interval)}}
                 <option value={{interval}} selected="selected">
                   {{interval}}
                 </option>
@@ -97,9 +97,11 @@
             {{t "djinquiry.time"}}
           </label>
           <br>
-          <Textarea @value={{model.desiredTime}}  id="dj-form-time" @value={{model.desiredTime}} />
-          {{#if model.errors.desiredTime}}
-            {{#each model.errors.desiredTime as |error|}}
+          <Textarea
+            id="dj-form-time"
+            @value={{this.model.desiredTime}} />
+          {{#if this.model.errors.desiredTime}}
+            {{#each this.model.errors.desiredTime as |error|}}
               <div class="error">
                 <span>
                   {{error.message}}
@@ -113,14 +115,14 @@
             {{t "djinquiry.other"}}
           </label>
           <br>
-          <Textarea name="dj-form-other" id="dj-form-other" @value={{model.otherComment}} />
+          <Textarea name="dj-form-other" id="dj-form-other" @value={{this.model.otherComment}} />
         </div>
         <div>
           <input
             type="submit"
             value="Send"
             class="cool-button"
-            disabled={{model.isSaving}}
+            disabled={{this.model.isSaving}}
           >
         </div>
       </form>
