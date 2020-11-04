@@ -59,7 +59,7 @@
       class="jp-volume-controls"
       aria-label={{t "player.aria.volume"}}
       {{action "toggleVolumeControl" on="mouseEnter"}}
-      {{action "toggleVolumeControl" on="mouseLeave"}}
+      {{action "hideVolumeControl" on="mouseLeave"}}
     >
       {{#if muted}}
         {{!-- template-lint-disable no-nested-interactive --}}
