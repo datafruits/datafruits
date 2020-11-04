@@ -1,11 +1,12 @@
 <Input
   @type="text"
   @id="input-message"
-  class="w-3/4"
   @autocomplete="off"
   @value={{inputMessage}}
-  placeholder={{t "chat.message_placeholder"}}
   @autofocus="autofocus"
+  placeholder={{t "chat.message_placeholder"}}
+  class="w-3/4"
+  aria-label="{{t "chat.label.input"}}"
 />
 <button {{action "sendMessage"}}
   type="submit"
