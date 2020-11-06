@@ -139,18 +139,15 @@ export default class DatafruitsPlayer extends Component {
   }
 
   @action
-  toggleVolumeControl() {
-    this.toggleProperty('showingVolumeControl');
-  }
-
-  @action
   showVolumeControl() {
     this.set('showingVolumeControl', true);
   }
 
   @action
   hideVolumeControl() {
-    debounce(this, this._hideVolumeControl, 2500);
+    if (this.showingVolumeControl) {
+      debounce(this, this._hideVolumeControl, 2500);
+    }
   }
 
   _hideVolumeControl() {

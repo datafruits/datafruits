@@ -30,9 +30,14 @@
         {{t "player.play"}}
       </a>
     {{/if}}
-    <span {{action "toggleVolumeControl" on="mouseEnter"}}
-      class="jp-volume-controls"
+    <span
+      id="volume-control"
+      name="volume-control"
       role="button"
+      class="jp-volume-controls"
+      aria-label={{t "player.aria.volume"}}
+      {{action "showVolumeControl" on="mouseEnter"}}
+      {{action "hideVolumeControl" on="mouseLeave"}}
     >
       {{#if muted}}
         {{!-- template-lint-disable no-nested-interactive --}}
