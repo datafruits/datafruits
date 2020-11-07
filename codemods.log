@@ -114,3 +114,19 @@ Validation errors:
 2020-04-24T06:40:58.438Z [info] [app/components/pc-nav.js]: SUCCESS
 2020-04-24T06:40:58.476Z [info] [app/components/podcasts-loader.js]: SUCCESS
 2020-04-24T06:40:58.554Z [info] [app/components/podcasts-search.js]: SUCCESS
+2020-11-07T05:53:36.688Z [warn] WARNING: {{format-message-user}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/components/user-list-item.hbs
+2020-11-07T05:53:37.562Z [warn] WARNING: {{eq}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/components/locale-selector.hbs
+2020-11-07T05:53:37.688Z [warn] WARNING: {{title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/podcasts.hbs
+2020-11-07T05:53:37.720Z [warn] WARNING: {{title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/application.hbs
+2020-11-07T05:53:37.721Z [warn] WARNING: {{title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/timetable.hbs
+2020-11-07T05:53:37.751Z [warn] WARNING: {{title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/show.hbs
+2020-11-07T05:53:37.752Z [warn] WARNING: {{html-safe-string}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/show.hbs
+2020-11-07T05:53:37.785Z [warn] WARNING: {{title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/subscribe.hbs
+2020-11-07T05:53:37.871Z [warn] WARNING: {{fn}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/chat.hbs
+2020-11-07T05:53:37.965Z [warn] WARNING: {{title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/about.hbs
+2020-11-07T05:53:38.006Z [warn] WARNING: {{title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/coc.hbs
+2020-11-07T05:53:38.132Z [warn] WARNING: {{title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/dj-inquiry.hbs
+2020-11-07T05:53:38.592Z [warn] WARNING: {{format-message-timestamp}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/components/chat-message.hbs
+2020-11-07T05:53:38.595Z [warn] WARNING: {{format-message-user}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/components/chat-message.hbs
+2020-11-07T05:53:38.596Z [warn] WARNING: {{format-message-body}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/components/chat-message.hbs
+2020-11-07T05:53:38.767Z [warn] WARNING: {{or}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/components/datafruits-chat.hbs
