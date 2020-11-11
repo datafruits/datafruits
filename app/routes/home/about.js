@@ -32,6 +32,7 @@ export default class AboutRoute extends Route {
       { name: 'kat' },
       { name: 'KILLED in CARS' },
       { name: 'Lucija' },
+      { name: 'Lindsay Coulter' },
       { name: 'Mary Hourani' },
       { name: 'Nicholas Subramaniam' },
       { name: 'Phil Montville' },

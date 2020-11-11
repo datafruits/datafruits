@@ -1,52 +1,52 @@
 <div id="podcast-search-controls" class="border-dotted border-df-green border-4 mb-6">
   <div id="podcast-subscribe" class="flex p-2">
-    <h4 class="px-3 text-white text-l">{{t "home.podcasts.subscribe_title"}}</h4>
+    <h4 class="px-3 text-white text-l">{{t "podcasts.subscribe_title"}}</h4>
     <ul id="subscribe-links" class="text-l flex flex-wrap justify-between items-center">
       <li class="pr-2">
         <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">
-          {{t "home.podcasts.link_itunes"}}
+          {{t "podcasts.links.itunes"}}
         </a>
       </li>
       <li class="pr-2">
         <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml">
-          {{t "home.podcasts.link_overcast"}}
+          {{t "podcasts.links.overcast"}}
         </a>
       </li>
       <li class="pr-2">
         <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">
-          {{t "home.podcasts.link_podcastsapp"}}
+          {{t "podcasts.links.podcastsapp"}}
         </a>
       </li>
       <li class="pr-2">
         <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">
-          {{t "home.podcasts.link_rss"}}
+          {{t "podcasts.links.rss"}}
         </a>
       </li>
     </ul>
   </div>
   <hr class="border-dotted border-df-green border-t-4"/>
   <div id="podcast-search-forms" class="flex flex-wrap p-2 items-center">
-    <h4 class="text-l px-3">{{t "home.podcasts.search_title"}}</h4>
+    <h4 class="text-l px-3">{{t "podcasts.search_title"}}</h4>
     <form role="search" class="px-3" aria-label={{ t "podcasts.text_search.label"}}
     {{action "nop" on="submit"}}>
       <div class="flex flex-col">
-        <label class="text-white" for="search-tracks">{{t "home.podcasts.title_search"}}</label>
+        <label class="text-white" for="search-tracks">{{t "podcasts.title_search"}}</label>
         <Input
-        id="search-tracks"
-        name="search-tracks"
-        @autofocus="autofocus"
-        @value={{filterText}}
-        @escape-press={{action "clearSearch"}}
-        placeholder={{t "home.podcasts.title_placeholder"}}
+          id="search-tracks"
+          name="search-tracks"
+          @autofocus="autofocus"
+          @value={{filterText}}
+          @escape-press={{action "clearSearch"}}
+          placeholder={{t "podcasts.placeholders.title"}}
         />
       </div>
     </form>
     <form role="search" class="px-3" aria-label={{ t "podcasts.tag_search.label"}}>
       <div class="flex flex-col">
-        <label class="text-white" for="tag_search">{{t "home.podcasts.tag_search"}}</label>
+        <label class="text-white" for="tag_search">{{t "podcasts.tag_search"}}</label>
         <PowerSelectMultiple
           name="tag_search"
-          @placeholder={{t "home.podcasts.tag_placeholder"}}
+          @placeholder={{t "podcasts.placeholders.title"}}
           @options={{labelNames}}
           @selected={{selectedLabels}}
           @renderInPlace={{true}}
