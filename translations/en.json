@@ -10,72 +10,123 @@
   "pagination_prev": "«",
   "pagination_next": "»",
   "home": {
+    "aria": "Navigate to the homepage",
     "upcoming_shows": "UPCOMING SHOWS",
     "latest_podcasts": "LATEST PODCASTS",
-    "events": "EVENTS",
-    "podcasts": {
-      "title": "PODCASTS",
-      "subscribe_title": "Subscribe",
-      "search_title": "Search",
-      "link_itunes": "iTunes",
-      "link_overcast": "Overcast",
-      "link_podcastsapp": "Podcasts.app",
-      "link_rss": "RSS",
-      "title_search": "Title",
-      "title_placeholder": "terrible tuesday w tchan",
-      "tag_search": "Tag",
-      "tag_placeholder": "disco, house, grime, any song ..."
-    }
+    "events": "EVENTS"
   },
   "chat": {
     "title": "Chat",
+    "aria": "Visit the datafruits.fm chatroom",
     "new_messages": "New messages below.",
     "offline": "You appear to be offline. I guess you won't be able to chat. Musta been the onion salad dressing",
     "send": "Send",
     "message_placeholder": "enter your message here...",
+    "join": "Join chat",
+    "img_on": "Images are on",
+    "img_off": "Images are off",
+    "gif": "GIF",
     "join_anonymously": "Join chat",
     "login": "Login",
     "username": "username",
     "nickname": "nickname",
     "password": "password",
-    "gif": "GIF"
-  },
-  "usermenu": {
-    "settings": "Settings",
-    "logout": "Logout"
-  },
-  "podcasts": {
-    "title": "Podcast",
-    "no_result": "No results. Musta been the onion salad dressing.",
-    "text_search": {
-      "label": "Search by free text"
+    "search": "\"dancing\", \"music\", ...",
+    "label": {
+      "nick": "nickname",
+      "input": "message",
+      "search": "search by tag"
     },
-    "tag_search": {
-      "label": "Search by tags"
+    "titles": {
+      "enter": "Enter chat",
+      "send": "Send message to chat",
+      "img_on": "Images in chat will be displayed",
+      "img_off": "Images in chat will not be displayed",
+      "gif": "Share GIF with chat",
+      "gif_close": "Close GIF search"
     }
   },
-  "timetable": "Timetable",
+  "releases": {
+    "title": "Label",
+    "aria": "View EPs and other releases from datafruits.fm"
+  },
+  "podcasts": {
+    "title": "Podcasts",
+    "subscribe_title": "Subscribe",
+    "search_title": "Search",
+    "link_itunes": "iTunes",
+    "link_overcast": "Overcast",
+    "link_podcastsapp": "Podcasts.app",
+    "link_rss": "RSS",
+    "title_search": "Title",
+    "title_placeholder": "terrible tuesday w tchan",
+    "tag_search": "Tag",
+    "tag_placeholder": "disco, house, grime, any song ...",
+    "no_result": "No results. Musta been the onion salad dressing.",
+    "labels": {
+      "title": "Tile",
+      "tag": "Tag"
+    },
+    "placeholders": {
+      "title": "terrible tuesday w tchan",
+      "tag": "disco, house, grime, anysong"
+    },
+    "links": {
+      "itunes": "iTunes",
+      "overcast": "Overcast",
+      "podcastsapp": "Podcasts.app",
+      "rss": "RSS"
+    },
+    "aria": {
+      "title": "Search for podcasts by upload title using text input",
+      "tag": "Busque podcasts por título de carga utilizando el ingreso de texto"
+    }
+  },
+  "timetable": {
+    "title": "Timetable",
+    "aria": "Browse scheduled shows and events"
+  },
   "djs": {
-    "title": "DJs"
+    "title": "DJs",
+    "aria": "Browse DJs who perform on datafruits.fm"
   },
   "nav_toggle": "Toggle navigation",
-  "radio": "Radio",
-  "label": "Label",
-  "about": "About",
-  "blog": "Blog",
-  "shop": "Shop",
+  "radio": {
+    "title": "Radio",
+    "aria": "Explore datafruits.fm radio content"
+  },
+  "about": {
+    "title": "About",
+    "aria": "See what datafruits.fm is about"
+  },
+  "blog": {
+    "title": "Blog",
+    "aria": "View the datafruits.fm blog"
+  },
+  "shop": {
+    "title": "Shop",
+    "aria": "Shop for datafruits-related merchandise at cooltrash.shop"
+  },
   "thanks": "Thanks!",
-  "subscribe": "Subscribe",
+  "subscribe": {
+    "title": "Subscribe",
+    "aria": "Join the datafruits.fm newsletter for occasional updates"
+  },
   "newsletter_modal": {
     "title": "DATAFRUITS.FM NEWSLETTER",
-    "placeholder_email": "Email",
-    "tiny": "(Free exclusive tracks, mixes & info)"
+    "placeholder_email": "coolxfruits@aol.co.eu",
+    "tiny": "Occasionally receive updates, free exclusive tracks, mixes, and more info by email"
   },
   "signup": {
     "title": "Sign up",
     "submit": "Sign up",
     "password": "Password"
   },
+  "usermenu": {
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "label": "Label",
   "djinquiry": {
     "title": "DJ on Datafruits",
     "heading": "Want to have your own show on Datafruits?",
@@ -89,18 +140,39 @@
     "other": "Any other questions or comments?",
     "error": "There was an error sending your application! Please check the error messages and try again.",
     "thanks": "Thanks for your application! We'll reply to your email as soon as possible.",
-    "coc_accept": "I accept the terms of the Code of Conduct"
+    "coc_accept": "I accept the terms of the Code of Conduct",
+    "aria": "Apply to DJ on datafruits.fm"
   },
   "just_a_website": "It's just a website.",
   "about_datafruits": "Independent radio made for and by the international music community. Open source. Breaking down borders and genres. We play any song. We are dedicated to putting the spotlight and sharing music from underserved and marginalized communities. We believe that the only platform that can *truely* serve its users is one that is owned and operated by the people using the platform, the DJs and the listeners!",
-  "twitter": "Twitter",
-  "tweet": "Tweet",
-  "github": "Github",
-  "soundcloud": "Soundcloud",
-  "mixcloud": "Mixcloud",
-  "instagram": "Instagram",
-  "email": "Email info@datafruits.fm",
-  "patron": "Patreon",
+  "twitter": {
+    "title": "Twitter",
+    "aria": "Visit the @datafruits Twitter page"
+  },
+  "github": {
+    "title": "Github",
+    "aria": "Vist the datafruits repo on Github"
+  },
+  "soundcloud": {
+    "title": "Soundcloud",
+    "aria": "Check out the datafruits Soundcloud page"
+  },
+  "mixcloud": {
+    "title": "Mixcloud",
+    "aria": "Check out the datafruits Mixcloud page"
+  },
+  "instagram": {
+    "title": "Instagram",
+    "aria": "Browse posts from datafruits on Instagram"
+  },
+  "email": {
+    "title": "Email info@datafruits.fm",
+    "aria": "Notify datafruits by email"
+  },
+  "patron": {
+    "title": "Patreon",
+    "aria": "Vist the datafruits.fm Patreon page to learn more about supporting the site"
+  },
   "secret": "secret",
   "thanks_patrons": "THANKS TO ALL THE PATRONS!",
   "code_of_conduct": "Code Of Conduct",
@@ -126,12 +198,23 @@
     "compatibility": {
       "warning": "To view this video please enable JavaScript, and consider upgrading to a web browser that",
       "linktext": "supports HTML5 video"
+    },
+    "aria": {
+      "play": "Play stream",
+      "volume": "Adjust volume",
+      "stop": "Stop playback",
+      "mute": "Click to mute",
+      "unmute": "Click to unmute",
+      "return_to_live": "Stop audio playback and resume datafruits.fm stream",
+      "now_playing": "Now playing back earlier recording"
     }
   },
+  "locale": "locale",
   "about_page": {
     "listenersupport": "Datafruits is listener supported. You can join our patreon and get stickers and other goodies sent to you every 2 months.",
     "donate_request": "Or if you'd like you can make a one time donation to our paypal.",
-    "donate_linktext": "https://paypal.me/datafruitsfm"
+    "donate_linktext": "https://paypal.me/datafruitsfm",
+    "donate_aria": "Make a donation to datafruits.fm through PayPal"
   },
   "coc": {
     "pledge": {

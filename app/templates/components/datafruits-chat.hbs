@@ -26,15 +26,17 @@
   {{#if this.joinedChat}}
     <form align="center" class="mb-3 w-full">
       <DatafruitsChatInputMessage  @isOffline={{networkStatus.isOffline}} />
-      <button class="cool-button mt-3 md:m-0" {{action "toggleGifsEnabled"}}>
-        {{images-enabled-button-label this.gifsEnabled}}
+      <button
+        title={{t (if this.gifsEnabled  "chat.titles.img_on" "chat.titles.img_off") }}
+        class="cool-button mt-3 md:m-0" {{action "toggleGifsEnabled"}}>
+        {{t (if this.gifsEnabled  "chat.img_on" "chat.img_off") }}
       </button>
     </form>
   {{else}}
     <form align="center" class="mb-3">
+      <label for="nick">{{t "chat.label.nick"}}</label>
       <Input
         @type="text"
-        @name="nick"
         @value={{nick}}
         @autocorrect="off"
         @autocapitalize="none"
@@ -44,11 +46,14 @@
       <button {{action "enterChatAnonymously"}}
         class="cool-button"
         disabled={{or disableJoinButton networkStatus.isOffline}}
+        title={{t "chat.titles.enter"}}
       >
         {{t "chat.join_anonymously"}}
       </button>
-      <button class="cool-button mt-1 md:m-0" {{action "toggleGifsEnabled"}}>
-        {{images-enabled-button-label gifsEnabled}}
+      <button
+        title={{if this.gifsEnabled  (t "chat.titles.img_on") (t "chat.titles.img_off") }}
+        class="cool-button mt-1 md:m-0" {{action "toggleGifsEnabled"}}>
+        {{t (if this.gifsEnabled  "chat.img_on" "chat.img_off") }}
       </button>
       <div class="flex">
         <img src="/assets/images/new.gif"

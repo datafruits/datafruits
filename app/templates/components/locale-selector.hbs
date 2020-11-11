@@ -1,6 +1,14 @@
+<label id="locale-selector-label"
+  for="locale-selector"
+>
+  {{t "locale"}}
+</label>
 <select
-  class="bg-df-pink border-solid border-2 border-df-blue"
-  onchange={{action setLocale value="target.value"}}>
+    id="locale-selector"
+    name="locale-selector"
+    class="bg-df-pink border-solid border-2 border-df-blue"
+    aria-label="{{ t "locale"}}"
+    onchange={{action setLocale value="target.value"}}>
   {{#each locales as |localeChoice|}}
     <option
       value={{localeChoice.value}}
