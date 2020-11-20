@@ -11,51 +11,89 @@
 <div class="radio-container flex flex-row justify-between items-center text-3xl text-shadow">
   <div class="player-controls mx-2">
     {{#if playingPodcast}}
-      <a href="javascript:;" {{action "playLiveStream"}}>
+      <a
+        aria-label={{t "player.aria.return_to_live"}}
+        href="javascript:;"
+        role="button"
+        {{action "playLiveStream"}}
+      >
         {{t "player.return_to_live"}}
       </a>
     {{/if}}
     {{#if loading}}
-      <div class="player-loading">
+      <div id="loading-stream"
+        name="loading-stream"
+        class="player-loading">
       </div>
     {{else if playing}}
-      <a class="jp-pause" tabindex="1" {{action "pause"}}>
+      <a id="pause-stream"
+        name="pause-stream"
+        role="button"
+        aria-label={{t "player.aria.stop"}}
+        {{action "pause"}}
+        class="jp-pause"
+        tabindex="0"
+      >
         {{t (if this.playingPodcast "player.pause" "player.stop")}}
       </a>
     {{else if paused}}
-      <a {{action "play"}}
-        onMouseEnter={{action "playButtonMouseEnter"}}
-        onMouseLeave={{action "playButtonMouseOut"}}
+      <a id="play-stream"
+        name="play-stream"
         class="jp-play"
         href="#"
-        tabindex="1"
+        tabindex="0"
         role="button"
-        aria-label={{t "player.play_button_label"}}
+        aria-label={{t "player.aria.play"}}
+        title={{t "player.aria.play"}}
+        {{action "play"}}
+        onMouseEnter={{action "playButtonMouseEnter"}}
+        onMouseLeave={{action "playButtonMouseOut"}}
       >
         {{t "player.play"}}
       </a>
     {{/if}}
-    <span {{action "showVolumeControl" on="mouseEnter"}} {{action "hideVolumeControl" on="mouseLeave"}}
-      class="jp-volume-controls"
+    <span
+      id="volume-control"
+      name="volume-control"
       role="button"
+      class="jp-volume-controls"
+      aria-label={{t "player.aria.volume"}}
+      {{action "showVolumeControl" on="mouseEnter"}}
+      {{action "hideVolumeControl" on="mouseLeave"}}
     >
       {{#if muted}}
         {{!-- template-lint-disable no-nested-interactive --}}
-        <a class="jp-unmute" tabindex="1" {{action "unmute"}}>
+        <a
+          class="jp-unmute"
+          tabindex="0"
+          role="button"
+          title={{t "player.aria.unmute"}}
+          aria-label={{t "player.aria.unmute"}}
+          {{action "unmute"}}
+        >
           <i class="fa fa-volume-off"></i>
         </a>
       {{else}}
-        <a class="jp-mute" tabindex="1" {{action "mute"}}>
+        <a
+          class="jp-mute"
+          tabindex="0"
+          role="button"
+          title={{t "player.aria.mute"}}
+          aria-label={{t "player.aria.mute"}}
+          {{action "mute"}}
+        >
           <i class="fa fa-volume-up"></i>
         </a>
       {{/if}}
       {{#if showingVolumeControl}}
+        <label for="vol-control">{{this.volume}}</label>
         <input
           class="volume-control"
           type="range"
           min="0"
           max="1"
           step="0.1"
+          aria-label={{t "player.aria.volume"}}
           oninput={{action "volumeChanged"}}
           value={{volume}}
         >

@@ -19,7 +19,9 @@ module('Integration | Component | datafruits chat', function (hooks) {
 
     await render(hbs`<DatafruitsChat />`);
 
-    assert.dom('*').hasText('Join chat Images are off');
+    assert.equal(this.element.textContent.trim().includes('Join chat'), true);
+    assert.equal(this.element.textContent.trim().includes('Images are off'), true);
+    assert.equal(this.element.textContent.trim().includes('Login'), true);
   });
 
   test('it has offline message', async function (assert) {
@@ -27,10 +29,11 @@ module('Integration | Component | datafruits chat', function (hooks) {
     this.set('networkStatus.isOffline', true);
     await render(hbs`<DatafruitsChat @networkStatus={{this.networkStatus}} />`);
 
-    assert
-      .dom('*')
-      .hasText(
-        "You appear to be offline. I guess you won't be able to chat. Musta been the onion salad dressing Join chat Images are off",
-      );
+    assert.equal(
+      this.element.textContent
+        .trim()
+        .includes("You appear to be offline. I guess you won't be able to chat. Musta been the onion salad dressing"),
+      true,
+    );
   });
 });
