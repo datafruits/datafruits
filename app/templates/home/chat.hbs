@@ -1,18 +1,20 @@
-{{#if fastboot.isFastBoot}}
-  <div class="md:px-8">
-    <div class="loading-container">
-      <img alt={{t "loading"}} src={{random-loading-spinner}} />
+<div class="mt-5 pt-2 px-5">
+  {{#if fastboot.isFastBoot}}
+    <div class="md:px-8">
+      <div class="loading-container">
+        <img alt={{t "loading"}} src={{random-loading-spinner}} />
+      </div>
+      <div class="loading-container">
+        <h1>{{random-loading-message}}</h1>
+      </div>
     </div>
-    <div class="loading-container">
-      <h1>{{random-loading-message}}</h1>
-    </div>
-  </div>
-{{else}}
-  <NetworkStatus as |status|>
-    <DatafruitsChat
-      class="flex flex-col flex-grow min-h-0 flex-basis-0 overflow-hidden md:px-8"
-      @networkStatus={{status}}
-      @authenticate={{fn this.authenticate}}
-    />
-  </NetworkStatus>
-{{/if}}
+  {{else}}
+    <NetworkStatus as |status|>
+      <DatafruitsChat
+        class="flex flex-col flex-grow min-h-0 flex-basis-0 overflow-hidden md:px-8"
+        @networkStatus={{status}}
+        @authenticate={{fn this.authenticate}}
+      />
+    </NetworkStatus>
+  {{/if}}
+</div>

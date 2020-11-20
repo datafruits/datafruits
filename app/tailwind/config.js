@@ -8,7 +8,7 @@ module.exports = {
       debussy: ['debussy', 'sans-serif'],
       helvetica: ['Helvetica', 'Arial', 'sans-serif'],
     },
-    extend: {
+   extend: {
       height: {
         'handle-resize': 'calc(var(--vh, 1vh) * 100)',
       },

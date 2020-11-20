@@ -1,10 +1,12 @@
-{{title "Timetable"}}
-<p>
-  <TimetableCalendar
-    @onTypeChange={{action "calendarTypeChange"}}
-    @reloadCalendar={{action "reloadCalendar"}}
-    @query={{query}}
-    @startingDate={{start}}
-    @view={{view}}
-  />
-</p>
+<div class="mt-5 pt-2 px-5">
+  {{title "Timetable"}}
+  <p>
+    <TimetableCalendar
+      @onTypeChange={{action "calendarTypeChange"}}
+      @reloadCalendar={{action "reloadCalendar"}}
+      @query={{query}}
+      @startingDate={{start}}
+      @view={{view}}
+    />
+  </p>
+</div>

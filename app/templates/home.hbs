@@ -1,5 +1,5 @@
 <section class="h-handle-resize flex flex-col justify-between">
-  <div class="flex bg-df-pink mb-5 pb-2">
+  <div class="flex bg-df-pink">
     <PcNav
       @toggleSubMenu={{action "toggleSubMenu"}}
       @submenuOpen={{this.submenuOpen}}
@@ -27,7 +27,7 @@
     {{/if}}
   </div>
   <UserMenu @showing={{this.isShowingUserMenu}} @toggleUserMenu={{this.toggleUserMenu}} />
-  <div class="px-5 overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow ">
+  <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow ">
     {{outlet}}
   </div>
   <DatafruitsPlayer

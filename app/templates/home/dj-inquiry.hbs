@@ -1,137 +1,139 @@
-{{title (t "djinquiry.title")}}
-<h1>
-  <img class="inline" src={{random-loading-spinner}} alt={{t "loading"}}>
-  {{t "djinquiry.heading"}}
-  <img class="inline" src={{random-loading-spinner}} alt={{t "loading"}}>
-</h1>
-<div>
-  <p>
-    {{t "djinquiry.description"}}
-  </p>
-  {{#if this.model.isNew}}
+<div class="mt-5 pt-2 px-5">
+  {{title (t "djinquiry.title")}}
+  <h1>
+    <img class="inline" src={{random-loading-spinner}} alt={{t "loading"}}>
+    {{t "djinquiry.heading"}}
+    <img class="inline" src={{random-loading-spinner}} alt={{t "loading"}}>
+  </h1>
+  <div>
     <p>
-      {{#if this.model.errors}}
-        <div class="error-message">
-          {{t "djinquiry.error"}}
-        </div>
-      {{/if}}
-      <form {{action "submit" on="submit"}}>
-        <div>
-          <label for="dj-form-email">
-            {{t "djinquiry.email"}}
-          </label>
-          <br>
-          <Input name="dj-form-email" id="dj-form-email" @value={{this.model.email}} />
-          {{#if this.model.errors.email}}
-            {{#each this.model.errors.email as |error|}}
-              <div class="error">
-                <span>
-                  {{error.message}}
-                </span>
-              </div>
-            {{/each}}
-          {{/if}}
-        </div>
-        <div>
-          <label for="dj-form-username">
-            {{t "djinquiry.username"}}
-          </label>
-          <br>
-          <Input name="dj-form-username" id="dj-form-username" @value={{this.model.username}} />
-          {{#if this.model.errors.username}}
-            {{#each this.model.errors.username as |error|}}
-              <div class="error">
-                <span>
-                  {{error.message}}
-                </span>
-              </div>
-            {{/each}}
-          {{/if}}
-        </div>
-        <div>
-          <label for="dj-form-mix">
-            {{t "djinquiry.link_to_mix"}}
-          </label>
-          <br>
-          <Input name="dj-form-mix" id="dj-form-mix" @value={{this.model.link}} />
-          {{#if this.model.errors.link}}
-            {{#each this.model.errors.link as |error|}}
-              <div class="error">
-                <span>
-                  {{error.message}}
-                </span>
-              </div>
-            {{/each}}
-          {{/if}}
-        </div>
-        <div>
-          <label for="dj-form-url">
-            {{t "djinquiry.homepage_url"}}
-          </label>
-          <br>
-          <Input name="dj-form-url" id="dj-form-url" @value={{this.model.homepageUrl}} />
-        </div>
-        <div>
-          <label for="dj-form-interval">
-            {{t "djinquiry.interval"}}
-          </label>
-          <br>
-          <select
-            name="dj-form-interval" id="dj-form-interval"
-            onchange={{action "setInterval"}} value="target.value">
-            {{#each this.intervals as |interval|}}
-              {{#if (eq this.model.interval interval)}}
-                <option value={{interval}} selected="selected">
-                  {{interval}}
-                </option>
-              {{else}}
-                <option value={{interval}}>
-                  {{interval}}
-                </option>
-              {{/if}}
-            {{/each}}
-          </select>
-        </div>
-        <div>
-          <label for="dj-form-time">
-            {{t "djinquiry.time"}}
-          </label>
-          <br>
-          <Textarea
-            id="dj-form-time"
-            @value={{this.model.desiredTime}} />
-          {{#if this.model.errors.desiredTime}}
-            {{#each this.model.errors.desiredTime as |error|}}
-              <div class="error">
-                <span>
-                  {{error.message}}
-                </span>
-              </div>
-            {{/each}}
-          {{/if}}
-        </div>
-        <div>
-          <label for="dj-form-other">
-            {{t "djinquiry.other"}}
-          </label>
-          <br>
-          <Textarea name="dj-form-other" id="dj-form-other" @value={{this.model.otherComment}} />
-        </div>
-        <div>
-          <input
-            type="submit"
-            value="Send"
-            class="cool-button"
-            disabled={{this.model.isSaving}}
-          >
-        </div>
-      </form>
+      {{t "djinquiry.description"}}
     </p>
-  {{else}}
-    <p>
-      <img src="/assets/images/thanks.gif" alt={{t "thanks"}}>
-      <br>
-      {{t "djinquiry.thanks"}}
-    </p>
-  {{/if}}
+    {{#if this.model.isNew}}
+      <p>
+        {{#if this.model.errors}}
+          <div class="error-message">
+            {{t "djinquiry.error"}}
+          </div>
+        {{/if}}
+        <form {{action "submit" on="submit"}}>
+          <div>
+            <label for="dj-form-email">
+              {{t "djinquiry.email"}}
+            </label>
+            <br>
+            <Input name="dj-form-email" id="dj-form-email" @value={{this.model.email}} />
+            {{#if this.model.errors.email}}
+              {{#each this.model.errors.email as |error|}}
+                <div class="error">
+                  <span>
+                    {{error.message}}
+                  </span>
+                </div>
+              {{/each}}
+            {{/if}}
+          </div>
+          <div>
+            <label for="dj-form-username">
+              {{t "djinquiry.username"}}
+            </label>
+            <br>
+            <Input name="dj-form-username" id="dj-form-username" @value={{this.model.username}} />
+            {{#if this.model.errors.username}}
+              {{#each this.model.errors.username as |error|}}
+                <div class="error">
+                  <span>
+                    {{error.message}}
+                  </span>
+                </div>
+              {{/each}}
+            {{/if}}
+          </div>
+          <div>
+            <label for="dj-form-mix">
+              {{t "djinquiry.link_to_mix"}}
+            </label>
+            <br>
+            <Input name="dj-form-mix" id="dj-form-mix" @value={{this.model.link}} />
+            {{#if this.model.errors.link}}
+              {{#each this.model.errors.link as |error|}}
+                <div class="error">
+                  <span>
+                    {{error.message}}
+                  </span>
+                </div>
+              {{/each}}
+            {{/if}}
+          </div>
+          <div>
+            <label for="dj-form-url">
+              {{t "djinquiry.homepage_url"}}
+            </label>
+            <br>
+            <Input name="dj-form-url" id="dj-form-url" @value={{this.model.homepageUrl}} />
+          </div>
+          <div>
+            <label for="dj-form-interval">
+              {{t "djinquiry.interval"}}
+            </label>
+            <br>
+            <select
+              name="dj-form-interval" id="dj-form-interval"
+              onchange={{action "setInterval"}} value="target.value">
+              {{#each this.intervals as |interval|}}
+                {{#if (eq this.model.interval interval)}}
+                  <option value={{interval}} selected="selected">
+                    {{interval}}
+                  </option>
+                {{else}}
+                  <option value={{interval}}>
+                    {{interval}}
+                  </option>
+                {{/if}}
+              {{/each}}
+            </select>
+          </div>
+          <div>
+            <label for="dj-form-time">
+              {{t "djinquiry.time"}}
+            </label>
+            <br>
+            <Textarea
+              id="dj-form-time"
+              @value={{this.model.desiredTime}} />
+            {{#if this.model.errors.desiredTime}}
+              {{#each this.model.errors.desiredTime as |error|}}
+                <div class="error">
+                  <span>
+                    {{error.message}}
+                  </span>
+                </div>
+              {{/each}}
+            {{/if}}
+          </div>
+          <div>
+            <label for="dj-form-other">
+              {{t "djinquiry.other"}}
+            </label>
+            <br>
+            <Textarea name="dj-form-other" id="dj-form-other" @value={{this.model.otherComment}} />
+          </div>
+          <div>
+            <input
+              type="submit"
+              value="Send"
+              class="cool-button"
+              disabled={{this.model.isSaving}}
+            >
+          </div>
+        </form>
+      </p>
+    {{else}}
+      <p>
+        <img src="/assets/images/thanks.gif" alt={{t "thanks"}}>
+        <br>
+        {{t "djinquiry.thanks"}}
+      </p>
+    {{/if}}
+  </div>
 </div>
