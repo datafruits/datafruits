@@ -7,6 +7,11 @@ export default class ChatMessage extends Component {
   gifsEnabled = true;
   imgRegex = /https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpg|gif|png|webp)(\?.*$)*/;
 
+  get isDj() {
+    if (!this.message.role) return false;
+    return this.message.role.includes('dj');
+  }
+ 
   @computed('message.body', 'imgRegex')
   get hasImage() {
     return this.imgRegex.test(this.message.body);
