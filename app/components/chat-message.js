@@ -9,9 +9,9 @@ export default class ChatMessage extends Component {
 
   get isDj() {
     if (!this.message.role) return false;
-    return this.message.role.includes('dj');
+    return this.message.role.includes('dj') || this.message.role.includes('admin');
   }
- 
+
   @computed('message.body', 'imgRegex')
   get hasImage() {
     return this.imgRegex.test(this.message.body);
