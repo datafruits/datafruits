@@ -3,6 +3,7 @@ import { action, computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { oneWay } from '@ember/object/computed';
 import Component from '@ember/component';
+import { tracked } from '@glimmer/tracking';
 
 @classic
 export default class DatafruitsChat extends Component {
@@ -15,6 +16,9 @@ export default class DatafruitsChat extends Component {
   newMessagesBelow = false; // TODO move this to chat service
   isJoiningChat = false;
   nick = '';
+  pass = '';
+  @tracked
+  showingLoginModal = false;
 
   @oneWay('chat.joinedChat')
   joinedChat;
@@ -31,15 +35,27 @@ export default class DatafruitsChat extends Component {
   }
 
   @action
+  toggleLoginModal() {
+    this.showingLoginModal = !this.showingLoginModal;
+  }
+
+  @action
   toggleGifsEnabled() {
     this.chat.toggleProperty('gifsEnabled');
   }
 
   @action
-  enterChat() {
-    this.set('isJoiningChat', true);
+  enterChatAnonymously() {
     const nick = this.nick.trim();
     this.chat.push('authorize', { user: nick, timestamp: Date.now() });
+  }
+
+  @action
+  enterChat(nick, pass) {
+    this.set('isJoiningChat', true);
+    nick = nick.trim();
+    // can convert to this.args when its a glimmer component
+    return this.attrs.authenticate(nick, pass); // eslint-disable-line ember/no-attrs-in-components
   }
 
   @action

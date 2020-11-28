@@ -13,11 +13,17 @@ export default class DatafruitsChatInputMessage extends Component {
   @service
   chat;
 
+  @service
+  currentUser;
+
   @oneWay('chat.username')
   username;
 
   @oneWay('chat.joinedUsers')
   joinedUsers;
+
+  @oneWay('chat.token')
+  token;
 
   @action
   closeGifSearch() {
@@ -40,7 +46,20 @@ export default class DatafruitsChatInputMessage extends Component {
   sendMessage() {
     const message = this.inputMessage;
     if (message) {
-      this.chat.push('new:msg', { user: this.username, body: message, timestamp: Date.now() });
+      if (this.token) {
+        const role = this.currentUser.user.role;
+        const avatarUrl = this.currentUser.user.avatarUrl;
+        this.chat.push('new:msg_with_token', {
+          user: this.username,
+          body: message,
+          timestamp: Date.now(),
+          token: this.token,
+          role,
+          avatarUrl,
+        });
+      } else {
+        this.chat.push('new:msg', { user: this.username, body: message, timestamp: Date.now() });
+      }
       this.set('inputMessage', '');
     }
   }
