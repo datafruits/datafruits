@@ -4,12 +4,11 @@ import Controller from '@ember/controller';
 import jstz from 'jstimezonedetect';
 
 export default class DjInquiryController extends Controller {
-  @tracked canSubmit;
   get canSubmit() {
-    return !this.model.isSaving && this.cocAccepted;
+    return !(!this.model.isSaving && this.cocAccepted);
   }
 
-  cocAccepted = false;
+  @tracked cocAccepted = false;
   intervals = ['daily', 'weekly', 'biweekly', 'monthly', 'other'];
 
   @action
