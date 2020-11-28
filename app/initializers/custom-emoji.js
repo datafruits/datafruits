@@ -117,7 +117,7 @@ export function initialize(/* application */) {
       custom: true,
       uc_base: 'gorge',
       uc_output: '',
-      shortnames: [':gorge:'],
+      shortnames: [':gorge:', ':gorui:'],
       keywords: ['gorge'],
     },
   };
