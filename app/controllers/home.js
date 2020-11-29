@@ -40,6 +40,11 @@ export default class HomeController extends Controller {
   }
 
   @action
+  setTheme(theme) {
+    console.log(`setting global theme "${theme}" ...`);
+  }
+
+  @action
   toggleMenu() {
     this.toggleProperty('menuOpen');
   }

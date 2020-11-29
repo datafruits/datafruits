@@ -1,0 +1,18 @@
+<label 
+  id="theme-selector-label" 
+  for="theme-selector"
+>
+  theme
+</label>
+<select
+  name="theme-selector"
+  id="theme-selector"
+  class="bg-df-pink border-solid border-2 border-df-blue"
+  onchange={{action setTheme value="target.value"}}>
+>
+{{#each themes as |theme|}}
+  <option value={{theme.value}}>
+    {{theme.text}}
+  </option>
+{{/each}}
+</select>

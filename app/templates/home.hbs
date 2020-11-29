@@ -34,6 +34,10 @@
     class="flex-col flex justify-center bg-df-pink text-xl py-2 text-white leading-none"
     >
     <DjDonateButton class="hidden md:block mr-2" />
+    <ThemeSelector 
+      class="text-lg text-white hidden md:block"
+      @setTheme={{action "setTheme"}}
+    />
     <LocaleSelector
       class="text-lg text-white hidden md:block"
       @selectedLocale={{locale.value}}
