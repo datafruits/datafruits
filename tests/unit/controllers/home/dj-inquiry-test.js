@@ -4,12 +4,7 @@ import { setupTest } from 'ember-qunit';
 module('Unit | Controller | home/dj inquiry', function (hooks) {
   setupTest(hooks);
 
-  // Replace this with your real tests.
-  test('it exists', function (assert) {
-    let controller = this.owner.lookup('controller:home/dj-inquiry');
-    assert.ok(controller);
-  });
-  test('coc-accepted is disabled by default', async function (assert) {
+  test('coc-accepted is disabled by default', function (assert) {
     let controller = this.owner.lookup('controller:home/dj-inquiry');
     assert.equal(controller.cocAccepted, false, 'cocAccepted equals false');
   });
