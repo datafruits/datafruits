@@ -3,9 +3,9 @@
   {{#if model.thumbImageUrl}}
     <div style="background-image: url({{model.thumbImageUrl}})" alt={{model.title}} class="w-full h-full show-image"></div>
   {{else if model.host.imageMediumUrl}}
-    <img src={{model.host.imageMediumUrl}} alt={{model.dj.username}} class="w-full">
+    <div style="background-image: url({{model.host.imageMediumUrl}})" alt={{model.dj.username}} class="w-full h-full show-image"></div>
   {{/if}}
-  <div class="absolute bottom-0 left-0 bg-df-pink show-info">
+  <div class="bg-df-pink show-info">
     <h1 class="font-debussy text-3xl">
       {{model.title}}
     </h1>
@@ -45,6 +45,6 @@
     />
   {{/each}}
 </div>
-<div class="modal-footer px-5">
+<div class="modal-footer px-5 font-debussy">
   <span>{{model.tweetContent}}</span>
 </div>
