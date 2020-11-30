@@ -1,8 +1,12 @@
 import Component from '@ember/component';
 import { task, timeout } from 'ember-concurrency';
 import { inject as service } from '@ember/service';
-import moment from 'moment';
-import jstz from 'jstimezonedetect';
+import dayjs from 'dayjs';
+import utc  from 'dayjs/plugin/utc';
+import timezone  from 'dayjs/plugin/timezone';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 export default Component.extend({
   store: service(),
@@ -25,14 +29,14 @@ export default Component.extend({
       }
     }
     yield timeout(1000);
-    query.timezone = jstz.determine().name();
+    query.timezone = dayjs.tz.guess();
     const start = query.start;
     if (query.view === 'month') {
-      query.start = moment(start).startOf('month').subtract(1, 'month').format('YYYY-MM-DD');
-      query.end = moment(start).endOf('month').add(1, 'month').format('YYYY-MM-DD');
+      query.start = dayjs(start).startOf('month').subtract(1, 'month').format('YYYY-MM-DD');
+      query.end = dayjs(start).endOf('month').add(1, 'month').format('YYYY-MM-DD');
     } else {
-      query.start = moment(start).startOf('week').subtract(1, 'week').format('YYYY-MM-DD');
-      query.end = moment(start).endOf('week').add(1, 'week').format('YYYY-MM-DD');
+      query.start = dayjs(start).startOf('week').subtract(1, 'week').format('YYYY-MM-DD');
+      query.end = dayjs(start).endOf('week').add(1, 'week').format('YYYY-MM-DD');
     }
     let shows = this.store.query('scheduled-show', query).then((shows) => {
       return shows;
