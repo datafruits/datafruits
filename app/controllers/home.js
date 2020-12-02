@@ -42,6 +42,12 @@ export default class HomeController extends Controller {
   @action
   setTheme(theme) {
     console.log(`setting global theme "${theme}" ...`);
+    let element = document.getElementById('html');
+    // get currentTheme from cookie??
+    // let currentTheme =
+    // element.classList.remove(currentTheme);
+    let themeName = `$theme-${theme}`;
+    element.classList.add(themeName);
   }
 
   @action
