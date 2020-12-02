@@ -46,7 +46,7 @@ export default class HomeController extends Controller {
     // get currentTheme from cookie??
     // let currentTheme =
     // element.classList.remove(currentTheme);
-    let themeName = `$theme-${theme}`;
+    let themeName = `theme-${theme}`;
     element.classList.add(themeName);
   }
 
