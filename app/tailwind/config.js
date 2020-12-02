@@ -26,7 +26,11 @@ module.exports = {
         'df-green-dark': '#2bc456',
       },
     },
+    themeVariants: ['classic', 'blm', 'trans'],
   },
-  variants: {},
-  plugins: [],
+  variants: {
+    backgroundColor: ['responsive', 'hover', 'focus', 'classic', 'blm', 'trans'],
+    textColor: ['responsive', 'hover', 'focus', 'classic', 'blm', 'trans'],
+  },
+  plugins: [require('tailwindcss-multi-theme')],
 };
