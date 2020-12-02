@@ -1,5 +1,5 @@
-<label 
-  id="theme-selector-label" 
+<label
+  id="theme-selector-label"
   for="theme-selector"
 >
   theme
@@ -7,7 +7,7 @@
 <select
   name="theme-selector"
   id="theme-selector"
-  class="bg-df-pink border-solid border-2 border-df-blue"
+  class="classic:bg-df-pink blm:bg-black border-solid border-2 border-df-blue"
   onchange={{action setTheme value="target.value"}}>
 >
 {{#each themes as |theme|}}

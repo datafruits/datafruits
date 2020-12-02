@@ -1,5 +1,5 @@
 <section class="h-handle-resize flex flex-col justify-between">
-  <div class="flex bg-df-pink mb-5 pb-2">
+  <div class="flex classic:bg-df-pink blm:bg-black mb-5 pb-2">
     <PcNav
       @toggleSubMenu={{action "toggleSubMenu"}}
       @submenuOpen={{this.submenuOpen}}
@@ -31,10 +31,10 @@
     {{outlet}}
   </div>
   <DatafruitsPlayer
-    class="flex-col flex justify-center bg-df-pink text-xl py-2 text-white leading-none"
+    class="flex-col flex justify-center classic:bg-df-pink blm:bg-black text-xl py-2 text-white leading-none"
     >
     <DjDonateButton class="hidden md:block mr-2" />
-    <ThemeSelector 
+    <ThemeSelector
       class="text-lg text-white hidden md:block"
       @setTheme={{action "setTheme"}}
     />
