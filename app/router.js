@@ -22,6 +22,7 @@ Router.map(function () {
     this.route('user', function () {
       this.route('settings');
     });
+    this.route('premium');
   });
   this.route('container', function () {
     this.route('show', { path: '/shows/:id' });
