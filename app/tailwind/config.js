@@ -25,12 +25,16 @@ module.exports = {
         'df-green': '#5fdc82',
         'df-green-dark': '#2bc456',
       },
+      zIndex: {
+        '-10': '-10',
+      },
     },
     themeVariants: ['classic', 'blm', 'trans'],
   },
   variants: {
     backgroundColor: ['responsive', 'hover', 'focus', 'classic', 'blm', 'trans'],
     textColor: ['responsive', 'hover', 'focus', 'classic', 'blm', 'trans'],
+    visibility: ['responsive', 'hover', 'focus', 'classic', 'blm', 'trans'],
   },
   plugins: [require('tailwindcss-multi-theme')],
 };

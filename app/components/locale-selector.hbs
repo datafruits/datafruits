@@ -6,7 +6,7 @@
 <select
     id="locale-selector"
     name="locale-selector"
-    class="classic:bg-df-pink blm:bg-black border-solid border-2 border-df-blue"
+    class="classic:bg-df-pink blm:bg-black trans:bg-df-blue border-solid border-2 border-df-blue"
     aria-label="{{ t "locale"}}"
     onchange={{action setLocale value="target.value"}}>
   {{#each locales as |localeChoice|}}
