@@ -1,7 +1,13 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import moment from 'moment';
+import jstz from 'jstimezonedetect';
+import { inject as service } from '@ember/service';
 
 export default class TimetableCalendarComponent extends Component {
+  @service
+  store;
+
   @action
   async fetchData(query) {
     query.timezone = jstz.determine().name();
