@@ -1,11 +1,49 @@
-<section class="flexbox-container">
-  {{pc-nav toggleSubMenu=(action "toggleSubMenu") submenuOpen=submenuOpen}}
-  {{sp-nav toggleMenu=(action "toggleMenu") menuOpen=menuOpen}}
-  {{#link-to 'home'}}<h1 id="logo">datafruits.fm</h1>{{/link-to}}
-  {{outlet}}
-  {{#datafruits-player nextShow=model}}
-    {{locale-selector selectedLocale=locale setLocale=(action "setLocale")}}
-  {{/datafruits-player}}
-  {{add-datafruit}}
+<section class="h-handle-resize flex flex-col justify-between">
+  <div class="flex bg-df-pink mb-5 pb-2">
+    <PcNav
+      @toggleSubMenu={{action "toggleSubMenu"}}
+      @submenuOpen={{this.submenuOpen}}
+    />
+    <SpNav
+      @toggleMenu={{action "toggleMenu"}}
+      @menuOpen={{this.menuOpen}} />
+    {{#if this.session.isAuthenticated}}
+      <ul class="px-4 py-4 font-semibold text-3xl">
+        <li class="">
+          <a href="#" class="" role="button" {{on "click" this.toggleUserMenu}}>
+            {{this.currentUser.user.username}}
+          </a>
+        </li>
+      </ul>
+    {{else}}
+      <LinkTo
+        class="hidden md:block"
+        aria-label={{t "home.aria"}}
+        @route="home">
+        <h1 class="logo font-debussy text-5xl text-white">
+          {{t "site_title_fm"}}
+        </h1>
+      </LinkTo>
+    {{/if}}
+  </div>
+  <UserMenu @showing={{this.isShowingUserMenu}} @toggleUserMenu={{this.toggleUserMenu}} />
+  <div class="px-5 overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow ">
+    {{outlet}}
+  </div>
+  <AddDatafruit / >
+  <DatafruitsPlayer
+    class="flex-col flex justify-center bg-df-pink text-xl py-2 text-white leading-none"
+    >
+    <DjDonateButton class="hidden md:block mr-2" />
+    <LocaleSelector
+      class="text-lg text-white hidden md:block"
+      @selectedLocale={{locale.value}}
+      @setLocale={{action "setLocale"}}
+    />
+  </DatafruitsPlayer>
 </section>
-{{datafruits-visuals}}
+<DatafruitsVisuals
+  class="block absolute top-0 w-screen h-screen h-handle-resize"
+/>
+<Notifications />
+<WindowResizeHandler />

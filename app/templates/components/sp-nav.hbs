@@ -1,48 +1,120 @@
-<nav class="navbar sp" role="navigation">
-  <button {{action toggleMenu}} type="button" class="navbar-toggle collapsed">
-    <span class="sr-only">Toggle navigation</span>
-    <span class="fa fa-bars" aria-hidden="true"></span>
-  </button>
-  {{#if menuOpen}}
-    <ul>
-      <li class="subnav">
-        <span class="submenu-title" href="#">
-          {{t "radio"}}
-        </span>
-        <ul class="subnav">
-          <li>
-            {{#link-to 'home.djs'}}{{t "djs.title"}}{{/link-to}}
-          </li>
-          <li>
-            {{#link-to 'home.podcasts'}}{{t "podcasts.title"}}{{/link-to}}
-          </li>
-          <li>
-            {{#link-to 'home.timetable'}}{{t 'timetable'}}{{/link-to}}
-          </li>
-          <li>
-            {{#link-to 'home.dj-inquiry'}}{{t 'djinquiry.title'}}{{/link-to}}
-          </li>
-        </ul>
-      </li>
-      <li>
-        {{#link-to 'home.chat'}}{{t "chat"}}{{/link-to}}
-      </li>
-      <li>
-        <a href="http://releases.datafruits.fm/" target="_blank">{{t 'label'}}</a>
-      </li>
-      <li>
-        {{#link-to 'home.about'}}{{t 'about'}}{{/link-to}}
-      </li>
-      <li>
-        {{#link-to 'home'}}{{t 'blog'}}{{/link-to}}
-      </li>
-      <li>
-        <a href="https://cooltrash.shop/" target="_blank">{{t 'shop'}}</a>
-      </li>
-      <li>
-        {{#link-to 'home.subscribe'}}{{t 'subscribe'}}{{/link-to}}
-      </li>
-    </ul>
+<nav
+  class="pb-3 relative flex justify-between w-full md:hidden items-center mt-3 mr-3 ml-3 "
+  role="navigation">
+  <div>
+    <button
+      type="button"
+      class="collapsed text-xl"
+      aria-label={{t "nav_toggle"}}
+      {{on "click" @toggleMenu}}>
+      <span class="sr-only">
+        {{t "nav_toggle"}}
+      </span>
+      <span class="fa fa-bars" aria-hidden="true"></span>
+    </button>
+    {{#if @menuOpen}}
+      <ul class="flex flex-wrap">
+        <li class="py-2 pr-3 text-white text-shadow-light w-full border-dashed border-white border-t-4">
+          <span class="" href="#" aria-label={{t "radio.aria"}}>
+            {{t "radio.title"}}
+          </span>
+          <ul class="">
+            <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+              <LinkTo
+                class="text-white text-shadow-light"
+                aria-label={{t "djs.aria"}}
+                @route="home.djs">
+                {{t "djs.title"}}
+              </LinkTo>
+            </li>
+            <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+              <LinkTo
+                class="text-white text-shadow-light"
+                aria-label={{t "podcasts.aria"}}
+                @route="home.podcasts">
+                {{t "podcasts.title"}}
+              </LinkTo>
+            </li>
+            <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+              <LinkTo
+                class="text-white text-shadow-light"
+                aria-label={{t "timetable.aria"}}
+                @route="home.timetable">
+                {{t "timetable.title"}}
+              </LinkTo>
+            </li>
+            <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+              <LinkTo
+                class="text-white text-shadow-light"
+                aria-label={{t "djinquiry.aria"}}
+                @route="home.dj-inquiry">
+                {{t "djinquiry.title"}}
+              </LinkTo>
+            </li>
+          </ul>
+        </li>
+        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+          <LinkTo
+            class="text-white text-shadow-light"
+            aria-label={{t "chat.label.aria"}}
+            @route="home.chat">
+            {{t "chat.title"}}
+          </LinkTo>
+        </li>
+        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+          <a
+            class="text-white text-shadow-light"
+            aria-label={{t "releases.aria"}}
+            href="http://releases.datafruits.fm/" target="_blank" rel="noreferrer noopener">
+            {{t "label"}}
+          </a>
+        </li>
+        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+          <LinkTo
+            class="text-white text-shadow-light"
+            aria-label={{t "about.aria"}}
+            @route="home.about">
+            {{t "about.title"}}
+          </LinkTo>
+        </li>
+        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+          <LinkTo
+            class="text-white text-shadow-light"
+            aria-label={{t "blog.aria"}}
+            @route="home">
+            {{t "blog.title"}}
+          </LinkTo>
+        </li>
+        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+          <a
+            class="text-white text-shadow-light"
+            aria-label={{t "shop.title"}}
+            href="https://cooltrash.shop/" target="_blank" rel="noopener noreferrer">
+            {{t "shop.title"}}
+          </a>
+        </li>
+        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+          <LinkTo
+            class="text-white text-shadow-light"
+            aria-label={{t "subscribe.aria"}}
+            @route="home.subscribe">
+            {{t "subscribe.title"}}
+          </LinkTo>
+        </li>
+      </ul>
+    {{/if}}
+  </div>
+  {{#if (not @menuOpen)}}
+    <DjDonateButton class="block md:hidden ml-5" />
+    <div class="">
+      <LinkTo @route="home"
+        @aria-label={{t "blog"}}>
+        <img
+          class=""
+          id="circle-logo"
+          src="/assets/images/logo.png"
+          alt={{t "site_title"}}>
+      </LinkTo>
+    </div>
   {{/if}}
-  {{#link-to 'home'}}<img id="circle-logo" src="/assets/images/logo.png" />{{/link-to}}
 </nav>

@@ -1,3 +1,5 @@
+@tailwind base;
+
 @import "colors.scss";
 @import "loading-spinner.scss";
 @import "container.scss";
@@ -8,19 +10,12 @@
 @import 'addons/ember-calendar/main';
 @import "calendar.scss";
 
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+
 @import "player.scss";
 
-/* Screen reader only */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
-}
+@tailwind components;
 
 @font-face {
   font-family: 'Debussy';
@@ -30,89 +25,29 @@
   font-style: normal;
 }
 
-
-a {
-  cursor: pointer;
-}
-
-html {
-  height:100%;
-}
-
-.main {
-  height: 100%;
-}
-
-body {
-  background-repeat: no-repeat;
-  background: $blue;
-  height:100%;
-  position: relative;
-  overflow:hidden;
-  margin:0;
-  background-attachment:fixed;
-  font-family: Helvetica, Arial, sans-serif;
-}
-
-h1#logo {
-  font-family: 'debussy', sans-serif;
+/* animations seem annoying to do in tailwind without some kind of plugin... */
+.logo {
   transform: rotate(-3deg);
-  font-size: 3em;
-  color: white;
-  position:absolute;
-  z-index: 1000;
-  right: 5px;
-  top: 0;
-  margin: 15px 0 0 0;
-  display: none;
-  visibility: hidden;
   @media (min-width: 480px) {
     animation: textshadowfade 5s infinite;
   }
-  @media (min-width: 768px) {
-    display: block;
-    visibility: visible;
-  }
 }
 
-#circle-logo {
-  display: none;
-  visibility: hidden;
-  @media only screen and (max-width: 480px) {
-    display: block;
-    visibility: visible;
-    height: 50px;
-    width: 50px;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
+/* can't do text-shadow in tailwind */
+.text-shadow {
+  text-shadow: #333 1px 1px 1px;
 }
 
-#enter-chat {
-  font-size: 2rem;
+.text-shadow-light {
+  text-shadow: 0 1px 0 #777;
 }
 
-form#send-message {
-  margin-bottom: 20px;
+.text-shadow-none {
+  text-shadow: none;
 }
 
-form#enter-chat {
-  margin-bottom: 20px;
-  @media only screen and (max-device-width: 480px) {
-    label {
-      display: none;
-    }
-    input {
-      width: 50%;
-    }
-  }
-  label {
-    color: yellow;
-    font-size: 2rem;
-    text-shadow: #333 1px 1px 1px;
-    margin-right: 10px;
-  }
+.flex-basis-0 {
+  flex-basis: 0;
 }
 
 @keyframes textshadowfade {
@@ -160,217 +95,163 @@ form#enter-chat {
   }
 }
 
-//mobile, small screen
-nav.pc {
-  display: none;
-  visibility: hidden;
-}
-
-nav {
-  background: $pink !important;
-  overflow: hidden;
-  width: 100%;
-  font-size: 1.8rem;
-  z-index: 1000;
-  border: 0 !important;
-  padding-bottom: 20px;
-
-  position: relative;
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    li {
-      width: 100%;
-      border-top: 5px dashed white;
-    }
-  }
-  margin-bottom: 20px;
-  .navbar-toggle {
-    display: inline-block;
-    color: white;
-    background: transparent;
-    border: none;
-    font-size: 25px;
-    cursor: pointer;
-  }
-  .subnav {
-    ul {
-    }
-    .submenu-title {
-      color: white;
-      text-shadow: 0 1px 0 #777777;
-      line-height: 25px;
-      &:hover {
-        color: white;
-      }
-      .fa {
-        transition: 0.1s linear;
-      }
-      .fa.rotated {
-        transform: rotate(90deg);
-      }
-    }
-  }
-  .subnav ul > li > a {
-    font-size: 18px;
-    margin-left: 20px;
-  }
-}
-
-//larger screen
-@media (min-width: 768px) {
-  nav.pc {
-    display: block;
-    visibility: visible;
-  }
-  nav.sp {
-    display: none;
-    visibility: hidden;
-  }
-  nav {
-    .navbar-toggle {
-      display: none;
-    }
-    ul {
-      margin: 10px 0 0 10px;
-      li {
-        width: auto;
-        border: none;
-      }
-    }
-  }
-  ul.subnav > li > a {
-    font-size: 24px;
-  }
-}
-
-.navbar ul > li > a {
-  float: none;
-  padding: 10px 15px 10px 0;
-  color: white;
-  text-decoration: none;
-  text-shadow: 0 1px 0 #777777;
-  line-height: 25px;
-}
-
-.navbar ul > li > a:hover {
-  color: darken(white, 20%);
-}
-
-
 .bleed {
   @include stripe-animation;
 }
 
-#chat-area {
-  color: yellow;
-  font-weight: bold;
-  text-shadow: #333 1px 1px 1px;
-}
-
-#messages {
-  width: 100vw;
-  margin:0;
-  border-right: 1px white solid;
-  @media only screen and (max-device-width: 480px) {
-    border-right: none !important;
-  }
-}
-
-#messages-area {
-  //height: 100%;
-}
-
-#userlist {
-  width: 20vw;
-  @media only screen and (max-device-width: 480px) {
-    display: none;
-  }
-}
-
-li.userlist-item {
-}
-
-input#input-message {
-  width: 80%;
-}
-
-.message-timestamp {
-  padding-right: 10px;
-  text-align: right;
-}
-
-.username {
-  font-weight: 700;
-  overflow: hidden;
-  padding-right: 15px;
-  text-align: right;
-}
-ul {
-  list-style:none;
-  word-wrap:break-word;
-}
-
-input {
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border linear .2s, box-shadow linear .2s;
-  -moz-transition: border linear .2s, box-shadow linear .2s;
-  -o-transition: border linear .2s, box-shadow linear .2s;
-  transition: border linear .2s, box-shadow linear .2s;
-  color: black;
-  padding: 5px;
-  vertical-align: middle;
+.cool-button {
+  cursor: pointer;
+  @apply border-solid border-2 border-white text-lg rounded-sm;
+  @apply text-white font-semibold p-2 leading-none bg-df-blue;
+  @apply transition-all duration-100 ease-in-out;
 }
 
 .cool-button {
-  font-size: 18px;
-  background-color: $blue;
-  border: 1px solid white;
-  border-radius: 3px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 600;
-  line-height: 1;
-  padding: 5px;
-  text-decoration: none;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-  transition: all 0.10s ease-in-out;
-
   &:hover,
   &:focus {
-    background-color: darken($blue, 15%);
-    border: 1px solid darken(white, 15%);
-    color: #fff;
+    @apply bg-df-blue-dark;
+    @apply border-solid border-2 border-gray-100;
   }
 
   &:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
+    @apply cursor-not-allowed opacity-50;
   }
 }
 
-.small-cool-button {
-  background-color: $green;
-  border: 1px solid white;
-  border-radius: 3px;
-  color: #fff;
+.modal-body form div {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+// img.emojione {
+//   height: 3ex !important;
+// }
+
+//chat autofill emoji and username picker
+.dropdown-menu {
+  @apply bg-df-pink rounded-sm border-4 border-dotted border-df-green overflow-scroll h-40;
+  img {
+    @apply inline;
+  }
+}
+
+// some defaults to make things easier
+a {
+  @apply text-df-yellow;
+}
+
+a:hover {
+  @apply text-df-yellow-dark;
+}
+
+h1 {
+  @apply text-2xl font-semibold;
+}
+
+input {
+  @apply text-black border-solid border-2 border-gray-300 rounded-sm p-1;
+}
+
+.visuals {
+  z-index: -999;
+  video {
+    width: 100vw !important;
+    height: 100vh !important;
+    @apply absolute left-0 object-cover;
+  }
+}
+
+form {
+  label {
+    @apply text-df-yellow;
+  }
+  textarea, select {
+    @apply text-black;
+  }
+  .error {
+    @apply text-red bg-white rounded-sm p-1;
+  }
+}
+
+.track-label {
+  &:hover {
+    @include stripe-animation;
+  }
+}
+
+.message {
+  /* for emojis */
+  span {
+    img {
+      @apply inline;
+    }
+  }
+}
+
+.rotated {
+  transform: rotate(90deg);
+}
+
+@import "ember-power-select";
+
+.ember-power-select-multiple-option {
+  text-shadow: none;
+}
+
+.ember-power-select-option {
+  color: black;
+  text-shadow: none;
+}
+
+.ember-power-select-placeholder {
+  text-shadow: none !important;
+}
+
+.fc-center {
+  text-shadow: 3px 3px 3px #333, 7px 7px 0 #ff00fc;
+  transform: rotate(-3.5deg);
+}
+
+#not-found-spin{
+  animation: spin 1.5s infinite linear;
+}
+
+.textcomplete-dropdown {
+  top: 175px;
+}
+
+.patron:hover {
+  @include stripe-animation;
+}
+
+.djs {
+  .dj {
+    width: 150px;
+  }
+}
+
+.gif-button {
+  all: unset;
+}
+
+.gif-preview {
   cursor: pointer;
-  display: inline-block;
-  font-weight: 600;
-  line-height: 1;
-  padding: 0.75em 1em;
-  text-decoration: none;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
+    border: solid 2px #eee;
+  &:hover {
+    border: dashed 2px $yellow;
+  }
+}
+
+.blog-post {
+  img {
+    max-width: 500px;
+  }
+}
+
+.donate-button {
+  @apply border-solid border-2 border-white text-lg rounded-sm;
+  @apply text-white font-semibold p-2 leading-none bg-df-green;
+  @apply transition-all duration-100 ease-in-out;
 
   &:hover,
   &:focus {
@@ -385,276 +266,30 @@ input {
   }
 }
 
-.modal-content {
-  background: $pink;
-  color: yellow;
-  text-shadow: #333 1px 1px 1px;
-  .modal-body {
-    height: 65vh;
-    overflow-y: scroll;
-  }
-}
-
-img.emojione {
-  height: 3ex !important;
-}
-
-a {
-  color: $yellow;
-}
-
-a:hover {
-  color: darken($yellow, 20%);
-}
-
-.tiny {
-  color: $yellow;
-  font-size:12px;
-}
-
-.podcast-controls {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.podcast-controls:hover {
-  text-decoration: none;
-}
-
-#timetableModal {
-  display: block;
-}
-
-.flexbox-container {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  // these are flex items
-  // flex: 1; same as:
-  // flex-grow: 1;
-  // flex-shrink: 1;
-  // flex-basis: auto;
-  // flex: 1 1 auto;
-  .main-content {
-    color: white;
-    text-shadow: #333 1px 1px 1px;
-    flex: 8;
-    display: flex;
-    flex-direction: column;
-    min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
-    overflow-y: scroll;
-    @media (min-width: 768px) {
-      padding: 0 2rem 0 2rem;
-    }
-    #chat-room {
-      flex: 8;
-      display: flex;
-      flex-direction: column;
-      #chat-area {
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        flex: 1;
-        min-height: 0; //ff hack? https://bugzilla.mozilla.org/show_bug.cgi?id=1043520 https://bugzilla.mozilla.org/show_bug.cgi?id=570036
-        #messages {
-          overflow-y: scroll;
-          flex-grow: 3;
-          img {
-            max-width: 95%;
-            max-height: 95%;
-          }
-        }
-        #userlist {
-          overflow-y: scroll;
-          flex-grow: 1;
-        }
-        #new-messages-below {
-          position: absolute;
-          bottom: 0;
-          color: white;
-          font-size: 14px;
-          background: rgba(170, 170, 170, 0.79);
-          left: 0;
-          width: 100%;
-        }
-      }
-    }
-    #controls {
-       flex: 1;
-       justify-content: center;
-       display: flex;
-       flex-direction: column;
-    }
-  }
-  .radio-bar {
-    flex: 0.5;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-.visuals {
-  display: block;
-  position: absolute;
-  top: 0;
-  z-index: -999;
-  width: 100vw;
-  height: 100vh;
-  video {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100vw;
-    margin: 0 auto;
-  }
-}
-
-.chat {
-  height: 100vh;
-}
-
-.podcast-controls, .fa-download {
-  font-size: 21px;
-  color: $green;
-}
-
-.fa-download:hover {
-  color: yellow;
-}
-
-.social-icons {
-  li {
-    a {
-      text-decoration: none;
-    }
-    display:inline;
-    font-size:40px;
-  }
-}
-
-#calendar {
-  margin: 0 40px 0 40px;
-}
-
-form {
-  label {
-    color: yellow;
-  }
-  textarea, select {
-    color: black;
-  }
-  .error {
-    color: red;
-    background: white;
-    border-radius: 3px;
-    padding: 2px;
-  }
-}
-
-.grid-item {
-  width: 650px;
-  margin-bottom: 20px;
-  background: lighten($blue, 20%);
-  border: 2px solid lighten($yellow, 10%);
-  padding: 5px;
-  border-radius: 5px;
-  text-align: center;
-  img {
-    width: 100%;
-  }
-}
-
-.track-label {
-  background: $pink;
-  color: $yellow;
-  text-transform: uppercase;
-  padding: 2px;
-  &:hover {
-    @include stripe-animation;
-    font-style: italic;
-  }
-}
-
-@import "ember-power-select";
-
-.ember-power-select-multiple-option {
-  text-shadow: none;
-}
-
-.ember-power-select-option {
-  color: black;
-  text-shadow: none;
-}
-
-.fc-center {
-  text-shadow: 3px 3px 3px #333, 7px 7px 0 #ff00fc;
-  transform: rotate(-3.5deg);
-}
-
-.locale-selector {
-  font-size: 25px;
-  @media screen and (min-device-width: 480px) {
-    select {
-      background: $pink;
-      color: white;
-      border: 1px solid $blue;
-    }
-  }
-  @media only screen and (max-device-width: 480px) {
-    display: none;
-    visibility: hidden;
-  }
-}
-
-#not-found{
-  text-align: center;
-  color: white;
-  text-shadow: 1px 1px black;
-}
-#not-found-spin{
-  animation: spin 1.5s infinite linear;
-}
-
-.textcomplete-dropdown {
-  top: 175px;
-}
-
-.patron:hover {
-  @include stripe-animation;
-}
-
-.djs {
-  display: flex;
-  flex-wrap: wrap;
-  .dj {
-    margin: 5px 5px;
+.ember-modal-dialog {
+  background: $blue;
+  padding: 0;
+  .modal-top {
+    padding: 5px;
     background: $pink;
-    border-radius: 5px;
-    width: 150px;
-    .name {
-      font-family: 'debussy', sans-serif;
-      margin-top: 5px;
-      margin-bottom: 4px;
-      margin-left: 5px;
-      overflow: hidden;
-      font-size: 18px;
-    }
-    img {
-      border-radius: 0 0 5px 5px;
-      vertical-align: bottom;
-    }
+    border-radius: 8px 8px 0 0;
+  }
+  .modal-body {
+    padding: 5px;
+    border-radius: 8px;
   }
 }
 
-.dj-title {
-  font-size: 28px;
-  font-family: "debussy", sans-serf;
-}
+.donate-button {
+  &:hover,
+  &:focus {
+    @apply bg-df-green-dark;
+    @apply border-solid border-2 border-gray-100;
+  }
 
-.show-title {
-  font-size: 30px;
-  font-family: "debussy", sans-serf;
+  &:disabled {
+    @apply cursor-not-allowed opacity-50;
+  }
 }
 
 .add-datafruits {
@@ -663,3 +298,4 @@ form {
   padding: 5px;
   display: flex;
 }
+@tailwind utilities;

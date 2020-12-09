@@ -1,16 +1,14 @@
 {{title (t "podcasts.title")}}
-<div class="main-content">
-  <h1>PODCASTS</h1>
-  <div>
-    <h4>Subscribe to the datafruits.fm podcast</h4>
-    <p>
-      <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">iTunes</a>
-      <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml">Overcast</a>
-      <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">Podcasts.app</a>
-      <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">RSS</a>
-    </p>
-    {{podcasts-search
-      tracks=model.tracks labels=model.labels meta=model.meta
-      updateSearch=(action "updateSearch") selectedTags=tags searchParams=searchParams}}
-  </div>
+<h1>
+  {{t "podcasts.title"}}
+</h1>
+<div>
+  <PodcastsSearch
+    @tracks={{model.tracks}}
+    @labels={{model.labels}}
+    @meta={{model.meta}}
+    @updateSearch={{action "updateSearch"}}
+    @selectedTags={{tags}}
+    @searchParams={{searchParams}}
+  />
 </div>

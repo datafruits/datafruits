@@ -1,31 +1,42 @@
-<div class="main-content">
-  <div class="row">
-    <div class="col-md-6">
-      <h1 class="dj-title">{{model.username}}</h1>
-      <img src={{model.imageMediumUrl}} alt={{model.username}}>
-      <p>
-        {{model.bio}}
-      </p>
-    </div>
-    <div class="col-md-6">
-      <h2>{{t "dj.upcoming_shows"}}</h2>
-      {{#if model.nextShow}}
-        {{#link-to "home.show" model.nextShow}}{{model.nextShow.title}}{{/link-to}}
-      {{/if}}
-    </div>
+<div class="row">
+  <div class="col-md-6">
+    <h1 class="dj-title">
+      {{model.username}}
+    </h1>
+    <img src={{model.imageMediumUrl}} alt={{model.username}}>
+    <p>
+      {{model.bio}}
+    </p>
   </div>
-  <div class="row">
-    <h2>{{t "dj.podcasts"}}</h2>
-    {{#each model.tracks as |track|}}
-      {{podcast-track
-        cdnUrl=track.cdnUrl title=track.title labels=track.labels
-        scheduledShow=track.scheduledShow
-        selectLabel=(action "browseLabel")}}
-    {{/each}}
+  <div class="col-md-6">
+    <h2>
+      {{t "dj.upcoming_shows"}}
+    </h2>
+    {{#if model.nextShow}}
+      <LinkTo @route="home.show" @model={{model.nextShow}}>
+        {{model.nextShow.title}}
+      </LinkTo>
+    {{/if}}
   </div>
-  <div class="row">
-    {{#each model.link as |link|}}
-      <a href={{link.url}} target="_blank" rel="noopener">{{link.url}}</a>
-    {{/each}}
-  </div>
+</div>
+<div class="row">
+  <h2>
+    {{t "dj.podcasts"}}
+  </h2>
+  {{#each model.tracks as |track|}}
+    <PodcastTrack
+      @cdnUrl={{track.cdnUrl}}
+      @title={{track.title}}
+      @labels={{track.labels}}
+      @scheduledShow={{track.scheduledShow}}
+      @selectLabel={{action "browseLabel"}}
+    />
+  {{/each}}
+</div>
+<div class="row">
+  {{#each model.link as |link|}}
+    <a href={{link.url}} target="_blank" rel="noopener">
+      {{link.url}}
+    </a>
+  {{/each}}
 </div>

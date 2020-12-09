@@ -1,33 +1,37 @@
 # datafruits
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/datafruits/datafruits.svg)](https://greenkeeper.io/)
-[![Build](https://travis-ci.org/datafruits/datafruits.svg?branch=master)](https://travis-ci.org/datafruits/datafruits/)
+[![Build Status](https://github.com/datafruits/datafruits/workflows/CI/badge.svg)](https://github.com/datafruits/datafruits/actions?workflow=CI)
 
 frontend for datafruits application.
-
-## Trello board
-https://trello.com/b/loemZkpB/datafruits-website
 
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with NPM)
-* [Bower](https://bower.io/)
+* [Node.js](https://nodejs.org/) (10.x)
+* [Yarn](https://classic.yarnpkg.com/en/docs/install)
 * [Ember CLI](https://ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
 
 ## Installation
 
 * `git clone <repository-url>` this repository
-* `cd datafruits13`
+* `cd datafruits`
 * `yarn install`
 
 ## Running / Development
 
 * `ember serve`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
+
+If you want to develop against local versions of
+[streampusher](https://github.com/streampusher/) or [hotdog
+lounge (the chat server)](https://github.com/datafruits/hotdog_lounge) you can
+edit these values in the `.env` file, and restart the server.
+```
+CHAT_SOCKET_URL="wss://localhost:4000/socket"
+API_HOST='https://localhost:3000'
+```
 
 ### Code Generators
 

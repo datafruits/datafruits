@@ -1,27 +1,30 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, find } from '@ember/test-helpers';
+import { render, fillIn } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-module('Integration | Component | locale selector', function(hooks) {
+module('Integration | Component | locale selector', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
+    this.set('setLocaleAction', () => {});
 
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.on('myAction', function(val) { ... });
+    await render(hbs`<LocaleSelector @setLocale={{action setLocaleAction}} />`);
 
-    await render(hbs`{{locale-selector}}`);
+    assert.equal(this.element.textContent.trim().includes('English'), true);
+    assert.equal(this.element.textContent.includes('日本語'), true);
+    assert.equal(this.element.textContent.includes('한국어'), true);
+    assert.equal(this.element.textContent.includes('Español'), true);
+  });
 
-    assert.dom('*').hasText('');
+  test('it calls passed in setLocale action', async function (assert) {
+    this.set('setLocaleAction', (actual) => {
+      let expected = 'ko';
+      assert.equal(actual, expected, 'selected locale is passed to setLocale action');
+    });
 
-    // Template block usage:
-    await render(hbs`
-      {{#locale-selector}}
-        template block text
-      {{/locale-selector}}
-    `);
+    await render(hbs`<LocaleSelector @setLocale={{action setLocaleAction}} />`);
 
-    assert.dom('*').hasText('template block text');
+    await fillIn('select', 'ko');
   });
 });

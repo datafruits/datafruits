@@ -1,56 +1,130 @@
-<audio preload id="radio-player">
-  <source src="https://streampusher-relay.club/datafruits.mp3" type="audio/mp3">
-  <source src="https://streampusher-relay.club/datafruits.ogg" type="audio/ogg">
+<audio preload="" id="radio-player" class="hidden">
+  <source
+    src="https://streampusher-relay.club/datafruits.mp3"
+    type="audio/mp3"
+  >
+  <source
+    src="https://streampusher-relay.club/datafruits.ogg"
+    type="audio/ogg"
+  >
 </audio>
-<div class="radio-container">
-  <div class="player-controls">
+<div class="radio-container flex flex-row justify-between items-center text-3xl text-shadow">
+  <div class="player-controls mx-2">
     {{#if playingPodcast}}
-      <a {{action "playLiveStream"}}>return to live stream</a>
+      <a
+        aria-label={{t "player.aria.return_to_live"}}
+        href="javascript:;"
+        role="button"
+        {{action "playLiveStream"}}
+      >
+        {{t "player.return_to_live"}}
+      </a>
     {{/if}}
     {{#if loading}}
-      <a class="jp-loading" href="javascript:;" tabindex="1">↻</a>
+      <div id="loading-stream"
+        name="loading-stream"
+        class="player-loading">
+      </div>
     {{else if playing}}
-      <a class="jp-pause" {{action "pause"}} tabindex="1">❚❚</a>
+      <a id="pause-stream"
+        name="pause-stream"
+        role="button"
+        aria-label={{t "player.aria.stop"}}
+        {{action "pause"}}
+        class="jp-pause"
+        tabindex="0"
+      >
+        {{t (if this.playingPodcast "player.pause" "player.stop")}}
+      </a>
     {{else if paused}}
-      <a onMouseEnter={{action "playButtonMouseEnter"}}
-         onMouseLeave={{action "playButtonMouseOut"}}
-         {{action "play"}}
-         class="jp-play" href="javascript:;" tabindex="1">▶︎</a>
+      <a id="play-stream"
+        name="play-stream"
+        class="jp-play"
+        href="#"
+        tabindex="0"
+        role="button"
+        aria-label={{t "player.aria.play"}}
+        title={{t "player.aria.play"}}
+        {{action "play"}}
+        onMouseEnter={{action "playButtonMouseEnter"}}
+        onMouseLeave={{action "playButtonMouseOut"}}
+      >
+        {{t "player.play"}}
+      </a>
     {{/if}}
-    <span class="jp-volume-controls" {{action 'toggleVolumeControl' on='mouseEnter'}}>
+    <span
+      id="volume-control"
+      name="volume-control"
+      role="button"
+      class="jp-volume-controls"
+      aria-label={{t "player.aria.volume"}}
+      {{action "showVolumeControl" on="mouseEnter"}}
+      {{action "hideVolumeControl" on="mouseLeave"}}
+    >
       {{#if muted}}
-        <a class="jp-unmute" {{action "unmute"}} tabindex="1"><i class="fa fa-volume-off"></i></a>
+        {{!-- template-lint-disable no-nested-interactive --}}
+        <a
+          class="jp-unmute"
+          tabindex="0"
+          role="button"
+          title={{t "player.aria.unmute"}}
+          aria-label={{t "player.aria.unmute"}}
+          {{action "unmute"}}
+        >
+          <i class="fa fa-volume-off"></i>
+        </a>
       {{else}}
-        <a class="jp-mute" {{action "mute"}} tabindex="1"><i class="fa fa-volume-up"></i></a>
+        <a
+          class="jp-mute"
+          tabindex="0"
+          role="button"
+          title={{t "player.aria.mute"}}
+          aria-label={{t "player.aria.mute"}}
+          {{action "mute"}}
+        >
+          <i class="fa fa-volume-up"></i>
+        </a>
       {{/if}}
       {{#if showingVolumeControl}}
-        <input class="volume-control" type="range" min="0" max="1" step="0.1"
-         oninput={{action 'volumeChanged'}}
-         value={{volume}}>
+        <label for="vol-control">{{this.volume}}</label>
+        <input
+          class="volume-control"
+          type="range"
+          min="0"
+          max="1"
+          step="0.1"
+          aria-label={{t "player.aria.volume"}}
+          oninput={{action "volumeChanged"}}
+          value={{volume}}
+        >
       {{/if}}
     </span>
   </div>
-  <div class="now-playing">
+  <div class="now-playing flex-grow">
     {{#if error}}
-      <span>{{error}}</span>
+      <span>
+        {{error}}
+      </span>
     {{else}}
-      <span class="jp-title">{{title}}</span>
+      <span class="jp-title">
+        {{title}}
+      </span>
     {{/if}}
   </div>
-  <div class="next-show-and-locale">
-    {{#if nextShow}}
-      <span id="next-show">{{t "next_broadcast"}} {{#link-to 'home.show' nextShow}}{{nextShow.title}}{{/link-to}}</span>
-    {{/if}}
+  <div class="flex mr-1 items-center">
     {{yield}}
   </div>
 </div>
 {{#if playingPodcast}}
-  <div class='seek'>
-    <div class='seek-bar-wrapper'>
-      <input class="seek-bar" type="range"
-                              step="any"
-                              oninput={{action 'seek'}}
-                              value={{playTime}}>
+  <div class="seek">
+    <div class="seek-bar-wrapper">
+      <input
+        class="seek-bar"
+        type="range"
+        step="any"
+        oninput={{action "seek"}}
+        value={{playTime}}
+      >
     </div>
   </div>
 {{/if}}

@@ -1,0 +1,12 @@
+<h3>
+  <LinkTo @route="home.blogs.show" @model={{post.id}}>
+    {{body.title}}
+  </LinkTo>
+</h3>
+<article>
+  <img
+    width="300"
+    src={{body.previewImage.cdnUrl}}
+    alt={{body.previewImage.imageFileName}}
+  >
+</article>

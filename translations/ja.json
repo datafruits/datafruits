@@ -1,0 +1,99 @@
+{
+  "home": {
+    "upcoming_shows": "近日放送予定",
+    "latest_podcasts": "最新ポッドキャスト",
+    "events": "イベント"
+  },
+  "chat": {
+    "title": "チャット",
+    "new_messages": "新着メッセージ下にあります.",
+    "offline": "オフライン状態のようです。 チャット出来ないと思います。もしかしてオニオンサラダドレッシングかもしれませんでした。",
+    "send": "送信",
+    "message_placeholder": "メッセージをここに入力してください",
+    "join": "チャットに参加",
+    "img_on": "画像あり",
+    "img_off": "画像がオフです",
+    "nickname": "ここにユーザー名を入力してください...",
+    "label": {
+      "nick": "ニックネーム",
+      "input": "メッセージ",
+      "search": "タグで検索",
+      "aria": "datafruits.fmチャットルームにアクセス"
+    },
+    "titles": {
+      "enter": "チャットに入る",
+      "send": "チャットにメッセージを送信",
+      "img_on": "チャット中の画像が表示されます",
+      "img_off": "チャット中の画像は表示されません",
+      "gif": "チャットでGIFを共有する",
+      "gif_close": "GIF検索を閉じる"
+    },
+    "login": "ログイン",
+    "username": "username",
+    "password": "パスワード"
+  },
+  "usermenu": {
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "podcasts": {
+    "title": "ポッドキャスト",
+    "search": "探す",
+    "subscribe": "申し込む",
+    "no_result": "結果なしです。もしかしてオニオンサラダドレッシングかもしれませんでした。",
+    "labels": {
+      "title": "題名",
+      "tag": "鬼ごっこ"
+    }
+  },
+  "timetable": { "title": "タイムテーブル" },
+  "djs": { "title": "DJs" },
+  "radio": { "title": "ラジオ" },
+  "releases": { "title": "レーベル" },
+  "about": { "title": "datafruitsとは？" },
+  "blog": { "title": "ブログ" },
+  "shop": { "title": "買い物" },
+  "subscribe": { "title": "メールマガ登録" },
+  "djinquiry": {
+    "title": "DJ案件",
+    "heading": "Datafruitsで番組をやっていませんか？",
+    "description": "DJや自分の番組をやりたい方、是非以降のフォームを送信して下さい。すぐ返信します。",
+    "email": "メール",
+    "username": "希望ユーザ名",
+    "link_to_mix": "自分で作った1〜2時間ミックスのリンクを教えてください",
+    "homepage_url": "ホームページまたはSNSアカウント",
+    "interval": "毎日、毎週、隔週、または毎月第の番組をいかがでしょうか？",
+    "time": "希望の時間は何でしょうか?",
+    "other": "他の質問やコメント",
+    "error": "エラーが発行されました。もう一度送信してみて下さい。",
+    "thanks": "ありがとうございます！"
+  },
+  "just_a_website": "それはただのウェブサイトです。",
+  "about_datafruits": "国際的な音楽コミュニティのための国際的な音楽コミュニティによるインディペンデント・ラジオ。datafruitsはオープンソースであり、さまざまな境界とジャンルを打ち壊す。われわれは、どんな曲だってかける。サービスが行き届かず、周縁に追いやられているコミュニティにスポットライトをあて、彼ら彼女たちから発信される音楽をシェアすることには労を惜しまない。ユーザーに役立つプラットフォームとは、そのプラットフォームの利用者とDJとリスナーによって所有され、運営されるものに他ならないとわれわれは考える！",
+  "thanks_patrons": "Patronのみんなさん有難う御座います",
+  "code_of_conduct": "Code Of Conduct",
+  "what_is_datafruits": "datafruitsとは...",
+  "loading": "ロード中。。。",
+  "next_broadcast": "次の生放送: ",
+  "now_playing": "Now playing",
+  "dj": {
+    "podcasts": "ポッドキャスト",
+    "upcoming_shows": "次の生放送予定"
+  },
+  "show": {
+    "archive": "アーカイブを聴く"
+  },
+  "player": {
+    "aria": {
+      "play": "再生",
+      "volume": "ボリューム",
+      "stop": "중지",
+      "mute": "음소거",
+      "unmute": "음소거 해제",
+      "return_to_live": "ライブストリームに戻る",
+      "now_playing": "録音を再生しています"
+    }
+  },
+  "locale": "ロケール",
+  "donate": "寄付する"
+}

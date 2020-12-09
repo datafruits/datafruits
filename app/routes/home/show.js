@@ -1,14 +1,16 @@
+import classic from 'ember-classic-decorator';
 import Route from '@ember/routing/route';
 import ENV from 'datafruits13/config/environment';
 
-export default Route.extend({
+@classic
+export default class ShowRoute extends Route {
   model(params) {
-    return this.store.findRecord('scheduled-show', params.id);
-  },
+    return this.store.loadRecord('scheduled-show', params.id);
+  }
 
   afterModel(model) {
-   this.setHeadTags(model);
-  },
+    this.setHeadTags(model);
+  }
 
   setHeadTags(model) {
     const headTags = {
@@ -16,39 +18,39 @@ export default Route.extend({
         type: 'meta',
         attrs: {
           name: 'twitter:title',
-          content: `datafruits.fm - ${model.title}`
+          content: `datafruits.fm - ${model.title}`,
         },
       },
     };
-    if(model.description){
+    if (model.description) {
       headTags['description'] = {
         type: 'meta',
         attrs: {
           name: 'twitter:description',
-          content: model.description
+          content: model.description,
         },
-      }
+      };
     }
-    if(model.tracks){
+    if (model.tracks) {
       headTags['player'] = {
         type: 'meta',
         attrs: {
           name: 'twitter:player',
-          content: `https://datafruits.fm/container/shows/${model.id}`
+          content: `https://datafruits.fm/container/shows/${model.id}`,
         },
       };
     } //else change cardType to large image?
-    if(model.imageUrl){
+    if (model.imageUrl) {
       headTags['image'] = {
         type: 'meta',
         attrs: {
           name: 'twitter:image',
-          content: model.imageUrl
+          content: model.imageUrl,
         },
-      }
+      };
     }
 
     // TODO extract this to a function...
     this.set('headTags', Object.values({ ...ENV.headTags, ...headTags }));
   }
-});
+}

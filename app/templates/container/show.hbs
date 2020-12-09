@@ -1,4 +1,14 @@
 {{#if model.tracks}}
-  {{container/datafruits-player track=model.tracks.firstObject}}
+  <Container::DatafruitsPlayer @track={{model.tracks.firstObject}} />
+{{else}}
+  <Container::DatafruitsPlayer />
 {{/if}}
-<a class="logo" href="https://datafruits.fm/" target="_blank"><img id="circle-logo" src="/assets/images/logo.png" /></a>
+<a
+  class="logo"
+  href="https://datafruits.fm/"
+  target="_blank"
+  rel="noopener"
+  aria-label={{t "site_title_fm"}}
+>
+  <img id="circle-logo" src="/assets/images/logo.png" alt={{t "site_title"}}>
+</a>

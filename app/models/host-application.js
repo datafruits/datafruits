@@ -1,11 +1,29 @@
-import DS from 'ember-data';
+import classic from 'ember-classic-decorator';
+import Model, { attr } from '@ember-data/model';
 
-export default DS.Model.extend({
-  username: DS.attr(),
-  email: DS.attr(),
-  link: DS.attr(),
-  interval: DS.attr(),
-  desiredTime: DS.attr(),
-  otherComment: DS.attr(),
-  timeZone: DS.attr()
-});
+@classic
+export default class HostApplication extends Model {
+  @attr()
+  username;
+
+  @attr()
+  email;
+
+  @attr()
+  link;
+
+  @attr()
+  interval;
+
+  @attr()
+  desiredTime;
+
+  @attr()
+  otherComment;
+
+  @attr()
+  timeZone;
+
+  @attr()
+  homepageUrl;
+}

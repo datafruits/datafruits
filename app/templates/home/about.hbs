@@ -1,53 +1,214 @@
 {{title "about"}}
-<div class="main-content">
-  <h1 id="myModalLabel">DATAFRUITSとは。。。？</h1>
-  <div class="modal-body">
-    <p>
-      {{t "about_datafruits"}}
-    </p>
-    <ul>
-      <li>{{#link-to 'home.coc'}}{{t "code_of_conduct"}}{{/link-to}}</li>
-      <li><a href="https://patreon.com/datafruits" target="_blank" rel="noopener">Patreon</a></li>
-    </ul>
-    <h2>{{t "thanks_patrons"}}</h2>
-    <ul>
-      {{#each model as |patron|}}
-        <li class="patron">{{patron.name}}</li>
-      {{/each}}
-    </ul>
-  </div>
-  <div class="modal-footer">
-    <ul class="social-icons">
-      <li>
-        <a href="http://twitter.com/datafruits" title="twitter" target="_blank" rel="noopener">
-          <i class="fa fa-twitter"></i>
-        </a>
+<h1 id="myModalLabel">
+  {{t "just_a_website"}}
+</h1>
+<div>
+  <p class="my-2">
+    {{t "about_datafruits"}}
+  </p>
+  <ul class="mb-2">
+    <li>
+      <LinkTo @route="home.coc" aria-label={{t "code_of_conduct_aria"}}>
+        {{t "code_of_conduct"}}
+      </LinkTo>
+    </li>
+    <li>
+      <p>
+        {{t "about_page.listenersupport"}}
+      </p>
+      <a href="https://patreon.com/datafruits" target="_blank" rel="noopener" aria-label={{t "patron_aria"}}>
+        {{t "patron.title"}}
+      </a>
+      <p>
+        {{t "about_page.donate_request"}}
+      </p>
+      <a href="https://paypal.me/datafruitsfm" target="_blank" rel="noopener" aria-label={{t "about_page.donate_aria"}}>
+        {{t "about_page.donate_linktext"}}
+      </a>
+    </li>
+  </ul>
+  <h2>
+    {{t "thanks_patrons"}}
+  </h2>
+  <ul class="mb-2">
+    {{#each model as |patron|}}
+      <li class="patron">
+        {{patron.name}}
       </li>
-      <li>
-        <a href="http://github.com/datafruits" title="github" target="_blank" rel="noopener">
-          <i class="fa fa-github"></i>
-        </a>
-      </li>
-      <li>
-        <a href="http://soundcloud.com/datafruits" title="soundcloud" target="_blank" rel="noopener">
-          <i class="fa fa-soundcloud"></i>
-        </a>
-      </li>
-      <li>
-        <a href="http://mixcloud.com/datafruits" title="mixcloud" target="_blank" rel="noopener">
-          <i class="fa fa-mixcloud"></i>
-        </a>
-      </li>
-      <li>
-        <a href="http://instagram.com/datafruits" title="instagram" target="_blank" rel="noopener">
-          <i class="fa fa-instagram"></i>
-        </a>
-      </li>
-      <li>
-        <a href="mailto:info@datafruits.fm" title="mail" target="_blank" rel="noopener">
-          <i class="fa fa-envelope"></i>
-        </a>
-      </li>
-    </ul>
-  </div>
+    {{/each}}
+  </ul>
+</div>
+<div class="">
+  <ul class="flex text-2xl justify-around flex-wrap">
+    <li>
+      <a
+        href="http://twitter.com/datafruits"
+        title={{t "twitter"}}
+        aria-label={{t "twitter.aria"}}
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a
+        href="http://github.com/datafruits"
+        title={{t "github.title"}}
+        aria-label={{t "github.aria"}}
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fa fa-github"></i>
+      </a>
+    </li>
+    <li>
+      <a
+        href="http://soundcloud.com/datafruits"
+        title={{t "soundcloud.title"}}
+        aria-label={{t "soundcloud.aria"}}
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fa fa-soundcloud"></i>
+      </a>
+    </li>
+    <li>
+      <a
+        href="http://mixcloud.com/datafruits"
+        title={{t "mixcloud.title"}}
+        aria-label={{t "mixcloud.aria"}}
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fa fa-mixcloud"></i>
+      </a>
+    </li>
+    <li>
+      <a
+        href="http://instagram.com/datafruits"
+        title={{t "instagram.title"}}
+        aria-label={{t "instagram.aria"}}
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fa fa-instagram"></i>
+      </a>
+    </li>
+    <li>
+      <a
+        href="mailto:info@datafruits.fm"
+        title={{t "email.title"}}
+        aria-label={{t "email.aria"}}
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <a href="http://datavegetables.club" class="text-df-blue hover:text-df-yellow text-shadow-none">
+    {{t "secret"}}
+  </a>
 </div>

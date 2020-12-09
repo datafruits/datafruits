@@ -1,14 +1,28 @@
-<div class="main-content">
-  <div class="djs">
-    {{#each model as |dj|}}
-      <div class="dj">
-        <h2 class="name">{{#link-to "home.dj" dj.username}}{{dj.username}}{{/link-to}}</h2>
-        {{#if (eq dj.imageThumbUrl null)}}
-          <img src="/assets/images/dj_placeholder.png" alt={{dj.username}}>
-        {{else}}
-          <img src={{dj.imageThumbUrl}} alt={{dj.username}}>
-        {{/if}}
-      </div>
-    {{/each}}
-  </div>
+<div class="djs flex flex-wrap">
+  {{#each model as |dj|}}
+    <div class="dj m-5 bg-df-pink rounded-md">
+      <h2 class="name font-debussy text-xl m-2 overflow-hidden">
+        <LinkTo @route="home.dj" @model={{dj.username}} @title={{dj.username}}>
+          {{dj.username}}
+        </LinkTo>
+      </h2>
+      {{#if (eq dj.imageThumbUrl null)}}
+        <img
+          width="150"
+          height="150"
+          class="rounded-b-md align-bottom"
+          src="/assets/images/dj_placeholder.png"
+          alt={{dj.username}}
+        >
+      {{else}}
+        <img
+          width="150"
+          height="150"
+          class="rounded-b-md align-bottom"
+          src={{dj.imageThumbUrl}}
+          alt={{dj.username}}
+        >
+      {{/if}}
+    </div>
+  {{/each}}
 </div>

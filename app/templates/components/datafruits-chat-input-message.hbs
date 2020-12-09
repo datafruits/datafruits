@@ -1,3 +1,37 @@
-{{input type="text" id="input-message" autocomplete="off" value=inputMessage
-  placeholder="enter your message here..." autofocus="autofocus"}}
-<button class="cool-button" {{action 'sendMessage'}}>Send</button>
+<Input
+  @type="text"
+  @id="input-message"
+  @autocomplete="off"
+  @value={{inputMessage}}
+  @autofocus="autofocus"
+  placeholder={{t "chat.message_placeholder"}}
+  class="w-3/4"
+  aria-label="{{t "chat.label.input"}}"
+/>
+<button {{action "sendMessage"}}
+  type="submit"
+  class="cool-button"
+  id="send-message-button"
+  disabled={{isOffline}}
+  title={{t "chat.titles.send"}}
+>
+  {{t "chat.send"}}
+</button>
+{{#if showingGifSearch}}
+  <div class="gif-search">
+    <button class="cool-button"
+      {{action "closeGifSearch"}}
+      title={{t "chat.titles.gif_close"}}
+    >
+      <i class="fa fa-times"></i>
+    </button>
+    <GiphySearch @sendGif={{action "sendGif"}} />
+  </div>
+{{else}}
+  <button class="cool-button"
+    {{action "showGifSearch"}}
+    title={{t "chat.titles.gif"}}
+  >
+    {{t "chat.gif"}}
+  </button>
+{{/if}}
