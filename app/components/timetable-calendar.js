@@ -1,17 +1,20 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
-export default Component.extend({
-  actions: {
-    calendarRemoveOccurrence() {},
-    calendarEditOccurrence() {},
-    calendarUpdateOccurrence() {},
-    calendarAddOccurrence() {},
-    calendarClickOccurrence() {},
-    onTypeChange() {},
-    calendarNavigate(event) {
-      console.log(`on navigate: ${event.start}, ${event.end}`); // eslint-disable-line no-console
-      let start = event.start.format('YYYY-MM-DD');
-      this.reloadCalendar({ start: start, view: event.view });
-    },
-  },
-});
+export default class TimetableCalendarComponent extends Component {
+  @action
+  async fetchData(query) {
+    query.timezone = jstz.determine().name();
+    const start = query.start;
+    if (query.view === 'month') {
+      query.start = moment(start).startOf('month').subtract(1, 'month').format('YYYY-MM-DD');
+      query.end = moment(start).endOf('month').add(1, 'month').format('YYYY-MM-DD');
+    } else {
+      query.start = moment(start).startOf('week').subtract(1, 'week').format('YYYY-MM-DD');
+      query.end = moment(start).endOf('week').add(1, 'week').format('YYYY-MM-DD');
+    }
+    let shows = this.store.query('scheduled-show', query);
+
+    return shows;
+  }
+}

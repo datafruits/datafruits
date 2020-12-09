@@ -1,32 +1,15 @@
-<TimetableLoader @query={{query}} as |loader|>
-  <AsCalendar
-    @occurrences={{loader.data}}
-    @dayStartingTime="0:00"
-    @dayEndingTime="23:00"
-    @timeSlotDuration="00:30"
-    @nowTimeLabelFormat="h:mm a"
-    @type={{view}}
-    @onNavigate={{action "calendarNavigate"}}
-    @onClickOccurrence={{action "calendarClickOccurrence"}}
-    @onAddOccurrence={{action "calendarAddOccurrence"}}
-    @onUpdateOccurrence={{action "calendarUpdateOccurrence"}}
-    @onEditOccurrence={{action "calendarEditOccurrence"}}
-    @onRemoveOccurrence={{action "calendarRemoveOccurrence"}}
-    @startingDate={{startingDate}}
-    @onTypeChange={{onTypeChange}} as |occurrence timetable calendar|
-  >
-    <AsCalendar::Occurrence
-      @model={{occurrence}}
-      @isMonthView={{occurrence.calendar.isMonthView}}
-      @timeSlotHeight={{calendar.timeSlotHeight}}
-      @timeSlotDuration={{calendar.timeSlotDuration}} as |model|
-    >
-      {{!-- template-lint-disable no-inline-styles --}}
-      <h1 class="as-calendar-occurrence__title" style={{titleStyle}}>
-        <LinkTo @route="home.show" @model={{model.content.id}} @title={{model.title}}>
-          {{model.title}}
-        </LinkTo>
-      </h1>
-    </AsCalendar::Occurrence>
-  </AsCalendar>
-</TimetableLoader>
+<Await @promise={{this.fetchShows}} as |await|>
+  <await.Pending>
+    Loading...
+  </await.Pending>
+
+  <await.Fulfilled as |shows|>
+    {{#each shows as |show|}}
+      {{show.title}}
+    {{/each}}
+  </await.Fulfilled>
+
+  <await.Rejected>
+    Something went wrong :(
+  </await.Rejected>
+</Await>
