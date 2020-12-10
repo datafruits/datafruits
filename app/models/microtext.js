@@ -1,7 +1,9 @@
-import DS from 'ember-data';
-const { Model } = DS;
+import Model, { attr, belongsTo } from '@ember-data/model';
 
-export default Model.extend({
-  name: DS.attr(),
-  content: DS.attr()
-});
+export default class Microtext extends Model {
+  @attr
+  content;
+
+  @belongsTo('user')
+  user;
+}

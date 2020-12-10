@@ -1,31 +1,36 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 import { isEmpty } from '@ember/utils';
 
-export default Component.extend({
-  classNames: ['add-datafruits'],
-  chat: service(),
-  store: service(),
-  showingDatafruits: true,
-  init(){
-    this._super(...arguments);
-    this.set('datafruit', this.store.createRecord('microtext'));
-  },
-  isSubmittable: computed('datafruit.{name, content}', function(){
+export default class AddDatafruit extends Component {
+  @service
+  store;
+
+  @tracked
+  showingDatafruits = true;
+
+  get isSubmittable() {
     let datafruit = this.datafruit;
-    return !isEmpty(datafruit.content) && !isEmpty(datafruit.name) && !datafruit.isSaving;
-  }),
-  actions: {
-    addDatafruit(){
-      this.set('showingDatafruits', false);
-    },
-    submit(){
-      this.datafruit.save().then(() => {
-        this.set('showingDatafruits', true);
-      }).catch(() => {
+    return !(!isEmpty(datafruit.content) && !datafruit.isSaving);
+  }
+
+  @action
+  addDatafruit() {
+    this.showingDatafruits = false;
+    this.datafruit = this.store.createRecord('microtext');
+  }
+
+  @action
+  submit() {
+    this.datafruit
+      .save()
+      .then(() => {
+        this.showingDatafruits = true;
+      })
+      .catch(() => {
         console.log("couldn't save datafruit");
       });
-    }
   }
-});
+}

@@ -1,13 +1,16 @@
 {{#if showingDatafruits}}
-  [{{currentDatafruit.name}}]: {{currentDatafruit.content}}
-  <button {{action "addDatafruit"}} class="cool-button">add datafruit</button>
+  <marquee>
+    [{{currentDatafruit.user.username}}]: {{currentDatafruit.content}}
+  </marquee>
+  <button {{action "addDatafruit"}} class="cool-button">{{t "microtext.add"}}</button>
 {{else}}
-  we need your datafruit. please add it.
-  <form {{action "submit" on="submit"}}>
-    {{input value=datafruit.name placeholder="your name" autocorrect="off" autocapitalize="none" }}
-    {{input value=datafruit.content placeholder="your datafruit"}}
+  <div>
+    {{t "microtext.we_need_it"}}
+  </div>
+  <form {{on "submit" this.submit}}>
+    <Input @value={{this.datafruit.content}} placeholder="your datafruit" />
     <input
       type="submit"
-      value="Datafruit!" class="cool-button" disabled={{isSubmittable}}>
+      value="{{t "microtext.submit"}}" class="cool-button" disabled={{isSubmittable}}>
   </form>
 {{/if}}
