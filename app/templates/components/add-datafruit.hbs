@@ -1,12 +1,15 @@
-<Await @promise={{this.loadDatafruits}} as |await|>
+<Await
+  @promise={{this.loadDatafruits}}
+  @onResolve={{this.setDatafruits}}
+  as |await|>
   <await.Pending>
     {{t "microtext.loading"}}
   </await.Pending>
 
   <await.Fulfilled as |datafruits|>
-    {{#if showingDatafruits}}
+    {{#if this.showingDatafruits}}
       <marquee>
-        [{{datafruits.firstObject.username}}]: {{datafruits.firstObject.content}}
+        [{{this.currentDatafruit.username}}]: {{this.currentDatafruit.content}}
       </marquee>
       {{#if this.session.isAuthenticated}}
         <button {{action "addDatafruit"}} type="button" class="cool-button">{{t "microtext.add"}}</button>

@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { isEmpty } from '@ember/utils';
+import { later } from '@ember/runloop';
 
 export default class AddDatafruit extends Component {
   @service
@@ -22,6 +23,37 @@ export default class AddDatafruit extends Component {
     return !(!isEmpty(datafruit.content) && !datafruit.isSaving);
   }
 
+  // current datafruits loaded from the server
+  @tracked
+  datafruits;
+
+  // currentDatafruit on display in the <marquee>
+  @tracked
+  currentDatafruit;
+
+  currentDatafruitIndex = 0;
+
+  incrementDatafruitIndex() {
+    this.currentDatafruitIndex += 1;
+    if (this.currentDatafruitIndex > this.datafruits.length - 1) {
+      this.currentDatafruitIndex = 0;
+    }
+    this.currentDatafruit = this.datafruits.objectAt(this.currentDatafruitIndex);
+    later(() => {
+      this.incrementDatafruitIndex();
+    }, 20000);
+  }
+
+  @action
+  setDatafruits(data) {
+    this.datafruits = data;
+    this.currentDatafruit = this.datafruits.objectAt(this.currentDatafruitIndex);
+    // increment the currentDatafruit index in 5 sec
+    later(() => {
+      this.incrementDatafruitIndex();
+    }, 20000);
+  }
+
   @action
   loadDatafruits() {
     return this.store.findAll('microtext');
@@ -36,7 +68,6 @@ export default class AddDatafruit extends Component {
   @action
   submit(e) {
     e.preventDefault();
-    console.log('submit');
     this.datafruit
       .save()
       .then(() => {
@@ -44,7 +75,7 @@ export default class AddDatafruit extends Component {
         this.datafruit = null;
       })
       .catch(() => {
-        console.log("couldn't save datafruit");
+        // couldn't save
       });
   }
 }
