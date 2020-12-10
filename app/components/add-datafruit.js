@@ -14,6 +14,9 @@ export default class AddDatafruit extends Component {
   @tracked
   showingDatafruits = true;
 
+  @tracked
+  datafruit = null;
+
   get isSubmittable() {
     let datafruit = this.datafruit;
     return !(!isEmpty(datafruit.content) && !datafruit.isSaving);
