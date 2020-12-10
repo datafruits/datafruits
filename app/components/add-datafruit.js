@@ -37,7 +37,7 @@ export default class AddDatafruit extends Component {
     this.currentDatafruitIndex += 1;
     if (this.currentDatafruitIndex > this.datafruits.length - 1) {
       this.currentDatafruitIndex = 0;
-      this.actions.loadDatafruits();
+      this.actions.loadDatafruits.apply(this);
     }
     this.currentDatafruit = this.datafruits.objectAt(this.currentDatafruitIndex);
     later(() => {
