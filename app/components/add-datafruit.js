@@ -8,12 +8,11 @@ export default class AddDatafruit extends Component {
   @service
   store;
 
+  @service
+  session;
+
   @tracked
   showingDatafruits = true;
-
-  get currentDatafruit() {
-    this.datafruits.firstObject();
-  }
 
   get isSubmittable() {
     let datafruit = this.datafruit;
@@ -39,6 +38,7 @@ export default class AddDatafruit extends Component {
       .save()
       .then(() => {
         this.showingDatafruits = true;
+        this.datafruit = null;
       })
       .catch(() => {
         console.log("couldn't save datafruit");
