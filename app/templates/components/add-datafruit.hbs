@@ -6,9 +6,11 @@
   <await.Fulfilled as |datafruits|>
     {{#if showingDatafruits}}
       <marquee>
-        [{{datafruits.firstObject.user.username}}]: {{datafruits.firstObject.content}}
+        [{{datafruits.firstObject.username}}]: {{datafruits.firstObject.content}}
       </marquee>
-      <button {{action "addDatafruit"}} class="cool-button">{{t "microtext.add"}}</button>
+      {{#if this.session.isAuthenticated}}
+        <button {{action "addDatafruit"}} type="button" class="cool-button">{{t "microtext.add"}}</button>
+      {{/if}}
     {{else}}
       <div>
         {{t "microtext.we_need_it"}}
