@@ -11,9 +11,18 @@ export default class AddDatafruit extends Component {
   @tracked
   showingDatafruits = true;
 
+  get currentDatafruit() {
+    this.datafruits.firstObject();
+  }
+
   get isSubmittable() {
     let datafruit = this.datafruit;
     return !(!isEmpty(datafruit.content) && !datafruit.isSaving);
+  }
+
+  @action
+  loadDatafruits() {
+    return this.store.findAll('microtext');
   }
 
   @action
@@ -23,7 +32,9 @@ export default class AddDatafruit extends Component {
   }
 
   @action
-  submit() {
+  submit(e) {
+    e.preventDefault();
+    console.log('submit');
     this.datafruit
       .save()
       .then(() => {

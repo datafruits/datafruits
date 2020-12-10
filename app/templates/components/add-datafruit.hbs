@@ -1,16 +1,28 @@
-{{#if showingDatafruits}}
-  <marquee>
-    [{{currentDatafruit.user.username}}]: {{currentDatafruit.content}}
-  </marquee>
-  <button {{action "addDatafruit"}} class="cool-button">{{t "microtext.add"}}</button>
-{{else}}
-  <div>
-    {{t "microtext.we_need_it"}}
-  </div>
-  <form {{on "submit" this.submit}}>
-    <Input @value={{this.datafruit.content}} placeholder="your datafruit" />
-    <input
-      type="submit"
-      value="{{t "microtext.submit"}}" class="cool-button" disabled={{isSubmittable}}>
-  </form>
-{{/if}}
+<Await @promise={{this.loadDatafruits}} as |await|>
+  <await.Pending>
+    {{t "microtext.loading"}}
+  </await.Pending>
+
+  <await.Fulfilled as |datafruits|>
+    {{#if showingDatafruits}}
+      <marquee>
+        [{{datafruits.firstObject.user.username}}]: {{datafruits.firstObject.content}}
+      </marquee>
+      <button {{action "addDatafruit"}} class="cool-button">{{t "microtext.add"}}</button>
+    {{else}}
+      <div>
+        {{t "microtext.we_need_it"}}
+      </div>
+      <form {{on "submit" this.submit}}>
+        <Input @value={{this.datafruit.content}} placeholder="your datafruit" />
+        <input
+          type="submit"
+          value="{{t "microtext.submit"}}" class="cool-button" disabled={{isSubmittable}}>
+      </form>
+    {{/if}}
+  </await.Fulfilled>
+
+  <await.Rejected>
+    Something went wrong :(
+  </await.Rejected>
+</Await>

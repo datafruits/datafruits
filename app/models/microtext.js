@@ -4,6 +4,6 @@ export default class Microtext extends Model {
   @attr
   content;
 
-  @belongsTo('user')
-  user;
+  @attr
+  username;
 }

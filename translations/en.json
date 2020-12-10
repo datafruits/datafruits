@@ -258,6 +258,7 @@
   "microtext": {
     "we_need_it": "we need your datafruit. please add it.",
     "submit": "Datafruit!",
-    "add": "Add datafruit"
+    "add": "Add datafruit",
+    "loading": "..."
   }
 }
