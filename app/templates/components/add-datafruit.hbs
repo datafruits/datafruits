@@ -9,7 +9,8 @@
   <await.Fulfilled as |datafruits|>
     {{#if this.showingDatafruits}}
       <marquee>
-        [{{this.currentDatafruit.username}}]: {{this.currentDatafruit.content}}
+        [<img style="height: 20px; display: inline;" src="{{this.currentDatafruit.avatarUrl}}" alt="{{ t "chat.user_avatar" }}" / >
+{{this.currentDatafruit.username}}]: {{this.currentDatafruit.content}}
       </marquee>
       {{#if this.session.isAuthenticated}}
         <button {{action "addDatafruit"}} type="button" class="cool-button">{{t "microtext.add"}}</button>
