@@ -254,5 +254,11 @@
       "p1_linktext": "http://contributor-covenant.org/version/1/4"
     }
   },
-  "donate": "DONATE"
+  "donate": "DONATE",
+  "microtext": {
+    "we_need_it": "we need your datafruit. please add it.",
+    "submit": "Datafruit!",
+    "add": "Add datafruit",
+    "loading": "..."
+  }
 }
