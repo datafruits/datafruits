@@ -9,7 +9,7 @@ export default class TimetableCalendarComponent extends Component {
   store;
 
   @action
-  async fetchData(query) {
+  async fetchShows(query) {
     query.timezone = jstz.determine().name();
     const start = query.start;
     if (query.view === 'month') {
