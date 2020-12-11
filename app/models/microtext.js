@@ -6,4 +6,7 @@ export default class Microtext extends Model {
 
   @attr
   username;
+
+  @attr
+  avatarUrl;
 }
