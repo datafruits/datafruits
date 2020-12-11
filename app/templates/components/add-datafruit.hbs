@@ -1,0 +1,34 @@
+<Await
+  @promise={{this.loadDatafruits}}
+  @onResolve={{this.setDatafruits}}
+  as |await|>
+  <await.Pending>
+    {{t "microtext.loading"}}
+  </await.Pending>
+
+  <await.Fulfilled as |datafruits|>
+    {{#if this.showingDatafruits}}
+      <marquee>
+        [<img style="height: 20px; display: inline;" src="{{this.currentDatafruit.avatarUrl}}" alt="{{ t "chat.user_avatar" }}" / >
+{{this.currentDatafruit.username}}]: {{this.currentDatafruit.content}}
+      </marquee>
+      {{#if this.session.isAuthenticated}}
+        <button {{action "addDatafruit"}} type="button" class="cool-button">{{t "microtext.add"}}</button>
+      {{/if}}
+    {{else}}
+      <div>
+        {{t "microtext.we_need_it"}}
+      </div>
+      <form {{on "submit" this.submit}}>
+        <Input @value={{this.datafruit.content}} placeholder="your datafruit" />
+        <input
+          type="submit"
+          value="{{t "microtext.submit"}}" class="cool-button" disabled={{isSubmittable}}>
+      </form>
+    {{/if}}
+  </await.Fulfilled>
+
+  <await.Rejected>
+    Something went wrong :(
+  </await.Rejected>
+</Await>
