@@ -14,7 +14,13 @@
     {{/if}}
   {{/if}}
     <span class="mr-2" data-test-username>
-      {{format-message-user @message.user}}
+      {{#if this.isDj}}
+        <LinkTo @route="home.dj" @model={{@message.user}}>
+          {{format-message-user @message.user}}
+        </LinkTo>
+      {{else}}
+        {{format-message-user @message.user}}
+      {{/if}}
     </span>
   <span class="" data-test-message-body>
     {{format-message-body @message.body}}
