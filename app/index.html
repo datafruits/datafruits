@@ -86,12 +86,12 @@
 
     {{content-for 'head-footer'}}
   </head>
-  <body class="classic:bg-df-blue blm:bg-black trans:bg-df-pink text-white font-helvetica overflow-hidden">
+  <body class="h-screen classic:bg-df-blue blm:bg-black trans:bg-df-pink text-white font-helvetica overflow-hidden">
     {{content-for 'body'}}
 
     <!-- Horizontal flag stripe, primarily for trans theme -->
-    <div class="pt-3 -z-10 absolute flex flex-col h-screen justify-center w-screen">
-      <div class="h-48 classic:bg-df-blue blm:bg-black trans:bg-white"></div>
+    <div class="h-1/5 pt-3 -z-10 absolute flex flex-col h-screen justify-center w-screen">
+      <div class="h-full classic:bg-df-blue blm:bg-black trans:bg-white"></div>
     </div>
 
     <script src="{{rootURL}}assets/vendor.js"></script>
