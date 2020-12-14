@@ -1,4 +1,5 @@
 import Model, { attr } from '@ember-data/model';
+import { isEmpty } from '@ember/utils';
 
 export default class Microtext extends Model {
   @attr
