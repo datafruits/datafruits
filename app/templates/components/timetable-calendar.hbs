@@ -4,9 +4,18 @@
   </await.Pending>
 
   <await.Fulfilled as |shows|>
-    {{#each shows as |show|}}
-      {{show.title}}
-    {{/each}}
+  <table>
+    <thead>
+    </thead>
+    <tbody>
+      {{#each shows as |show|}}
+        <tr>
+          <td>{{format-time show.start}} ~ {{format-time show.end}}</td>
+          <td>{{show.title}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
   </await.Fulfilled>
 
   <await.Rejected>
