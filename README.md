@@ -4,6 +4,10 @@
 
 frontend for datafruits application.
 
+Contributors are welcome! 
+
+Check out the [projects](https://github.com/datafruits/datafruits/projects) to see what we are working on.
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
