@@ -84,7 +84,8 @@
   },
   "timetable": {
     "title": "Timetable",
-    "aria": "Browse scheduled shows and events"
+    "aria": "Browse scheduled shows and events",
+    "timezone": "All events displayed in your local timezone: "
   },
   "djs": {
     "title": "DJs",
