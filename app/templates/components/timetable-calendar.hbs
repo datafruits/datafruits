@@ -1,4 +1,7 @@
+<h1 class="text-3xl">{{t "timetable.title"}}</h1>
 {{t "timetable.timezone" }}{{current-timezone}}
+<br />
+<br />
 <Await @promise={{this.fetchShows}} as |await|>
   <await.Pending>
     Loading...
@@ -10,7 +13,7 @@
     </thead>
     <tbody>
       {{#each-in this.groupedShows as |day shows|}}
-        <tr><td>{{format-timetable-day day}}</td></tr>
+        <tr><td class="text-xl font-debussy">{{format-timetable-day day}}</td></tr>
         <tr><td><hr /></td></tr>
         {{#each shows as |show|}}
           <tr>
