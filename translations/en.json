@@ -32,6 +32,7 @@
     "nickname": "nickname",
     "password": "password",
     "search": "\"dancing\", \"music\", ...",
+    "user_avatar": "user avatar",
     "label": {
       "nick": "nickname",
       "input": "message",
@@ -135,6 +136,7 @@
     "other": "Any other questions or comments?",
     "error": "There was an error sending your application! Please check the error messages and try again.",
     "thanks": "Thanks for your application! We'll reply to your email as soon as possible.",
+    "coc_accept": "I have read and accept the terms of the datafruits Code of Conduct.",
     "aria": "Apply to DJ on datafruits.fm"
   },
   "just_a_website": "It's just a website.",
@@ -253,5 +255,11 @@
       "p1_linktext": "http://contributor-covenant.org/version/1/4"
     }
   },
-  "donate": "DONATE"
+  "donate": "DONATE",
+  "microtext": {
+    "we_need_it": "we need your datafruit. please add it.",
+    "submit": "Datafruit!",
+    "add": "Add datafruit",
+    "loading": "..."
+  }
 }
