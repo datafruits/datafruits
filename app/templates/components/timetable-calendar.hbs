@@ -8,12 +8,29 @@
     <thead>
     </thead>
     <tbody>
-      {{#each shows as |show|}}
-        <tr>
-          <td>{{format-time show.start}} ~ {{format-time show.end}}</td>
-          <td>{{show.title}}</td>
-        </tr>
-      {{/each}}
+      {{#each-in this.groupedShows as |day shows|}}
+        <tr><td>{{format-timetable-day day}}</td></tr>
+        <tr><td><hr /></td></tr>
+        {{#each shows as |show|}}
+          <tr>
+            <td>{{format-time show.start}} ~ {{format-time show.end}}</td>
+            {{#if (is-current-show show)}}
+              <td class="bleed">
+                <LinkTo @route="home.show" @model={{show.id}} @title={{show.title}}>
+                  {{show.title}}
+                </LinkTo>
+              </td>
+            {{else}}
+              <td>
+                <LinkTo @route="home.show" @model={{show.id}} @title={{show.title}}>
+                  {{show.title}}
+                </LinkTo>
+              </td>
+            {{/if}}
+          </tr>
+        {{/each}}
+        <br />
+      {{/each-in}}
     </tbody>
   </table>
   </await.Fulfilled>
