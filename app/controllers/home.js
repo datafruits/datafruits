@@ -41,7 +41,6 @@ export default class HomeController extends Controller {
 
   @action
   setTheme(theme) {
-    console.log(`setting global theme "${theme}" ...`);
     let element = document.getElementsByTagName('html')[0];
     let currentTheme = `theme-${localStorage.getItem('datafruits-theme') || 'classic'}`;
     element.classList.remove(currentTheme);
