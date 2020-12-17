@@ -25,9 +25,6 @@ module.exports = {
         'df-green': '#5fdc82',
         'df-green-dark': '#2bc456',
       },
-      zIndex: {
-        '-10': '-10',
-      },
     },
     themeVariants: ['classic', 'blm', 'trans'],
   },
