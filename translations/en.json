@@ -206,6 +206,9 @@
     }
   },
   "locale": "locale",
+  "theme": {
+    "label": "theme"
+  },
   "about_page": {
     "listenersupport": "Datafruits is listener supported. You can join our patreon and get stickers and other goodies sent to you every 2 months.",
     "donate_request": "Or if you'd like you can make a one time donation to our paypal.",
