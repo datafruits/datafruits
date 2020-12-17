@@ -5,7 +5,7 @@ import Component from '@ember/component';
 export default class ThemeSelector extends Component {
   init() {
     super.init(...arguments);
-    this.setTheme = () => {};
+    this.setThemeTest = () => {};
     this.themes = [
       { text: 'its just a website', value: 'classic' },
       { text: 'BLM', value: 'blm' },
