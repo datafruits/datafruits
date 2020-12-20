@@ -40,12 +40,14 @@
         @value={{nick}}
         @autocorrect="off"
         @autocapitalize="none"
-        class=""
+        class="max-h-full"
         placeholder={{t "chat.nickname"}}
       />
+
       <button {{action "enterChatAnonymously"}}
         class="cool-button"
-        disabled={{or disableJoinButton networkStatus.isOffline}}
+        disabled={{disableJoinButton}}
+        {{!-- disabled={{or disableJoinButton networkStatus.isOffline}} --}}
         title={{t "chat.titles.enter"}}
       >
         {{t "chat.join_anonymously"}}
@@ -55,6 +57,19 @@
         class="cool-button mt-1 md:m-0" {{action "toggleGifsEnabled"}}>
         {{t (if this.gifsEnabled  "chat.img_on" "chat.img_off") }}
       </button>
+            <div>
+        <label class="text-xs text-left" for="agree-to-coc">• I have read the <a href="/coc"><abbr title="Code of Conduct">CoC</abbr></a> and agree with its terms upon joining the chat</label>
+        <Input
+          name="agree-to-coc"
+          id="agree-to-coc"
+          @type="checkbox"
+          @checked={{agreeToCoC}}
+          aria="Agree with the Code of Conduct to join the chat"
+          {{action 'change' this.agreeChanged}}
+        />
+        
+      </div>
+
       <div class="flex">
         <img src="/assets/images/new.gif"
              alt="{{ t "new" }}" />
@@ -65,6 +80,7 @@
              {{t "chat.login"}}
         </button>
       </div>
+      
     </form>
   {{/if}}
 </div>
