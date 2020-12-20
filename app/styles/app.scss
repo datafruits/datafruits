@@ -299,4 +299,13 @@ form {
   padding: 5px;
   display: flex;
 }
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
 @tailwind utilities;
+
