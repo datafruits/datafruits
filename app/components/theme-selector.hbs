@@ -2,13 +2,13 @@
   id="theme-selector-label"
   for="theme-selector"
 >
-  {{t "theme.label"}}
+  {{t "theme.label"}} 
 </label>
 <select
   name="theme-selector"
   id="theme-selector"
   class="classic:bg-df-pink blm:bg-black trans:bg-df-blue border-solid border-2 border-df-blue"
-  onchange={{action setTheme value="target.value"}}>
+  onchange={{action @setTheme value="target.value"}}>
 >
 {{#each themes as |theme|}}
   <option value={{theme.value}}>
