@@ -7,6 +7,7 @@ module('Integration | Component | theme-selector', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
+    this.setThemeTest = () => {};
     await render(hbs`<ThemeSelector @setTheme={{this.setThemeTest}}/>`);
     assert.equal(this.element.textContent.trim().includes('its just a website'), true);
   });
