@@ -34,7 +34,7 @@
     "broccoli-es6modules": "^1.2.2",
     "broccoli-merge-trees": "^4.2.0",
     "cross-env": "7.0.2",
-    "ember-auto-import": "1.5.3",
+    "ember-auto-import": "1.10.0",
     "ember-await": "^2.0.0",
     "ember-classic-decorator": "^1.0.8",
     "ember-cli": "^3.18.0",
