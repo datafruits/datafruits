@@ -36,7 +36,9 @@
     "label": {
       "nick": "nickname",
       "input": "message",
-      "search": "search by tag"
+      "search": "search by tag",
+      "coc": "CoC",
+      "i_agree": "I have read the Code of Conduct and I agree to follow its terms and understand I may be removed for failing to do so"
     },
     "titles": {
       "enter": "Enter chat",
@@ -171,7 +173,7 @@
   },
   "secret": "secret",
   "thanks_patrons": "THANKS TO ALL THE PATRONS!",
-  "code_of_conduct": "Code Of Conduct",
+  "code_of_conduct": "Code of Conduct",
   "what_is_datafruits": "What is datafruits...",
   "loading": "Loading...",
   "next_broadcast": "Next live on air: ",
