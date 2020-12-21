@@ -4,6 +4,9 @@ import { inject as service } from '@ember/service';
 
 export default class ThemeSelector extends Component {
   @service
+  intl;
+
+  @service
   fastboot;
 
   @tracked currentTheme;
@@ -16,8 +19,8 @@ export default class ThemeSelector extends Component {
   }
 
   themes = [
-    { text: 'its just a website', value: 'classic' },
-    { text: 'BLM', value: 'blm' },
-    { text: 'TRANS RIGHTS', value: 'trans' },
+    { text: this.intl.t('themes.classic'), value: 'classic' },
+    { text: this.intl.t('themes.blm'), value: 'blm' },
+    { text: this.intl.t('themes.trans'), value: 'trans' },
   ];
 }

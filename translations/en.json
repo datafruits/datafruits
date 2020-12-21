@@ -15,6 +15,11 @@
     "latest_podcasts": "LATEST PODCASTS",
     "events": "EVENTS"
   },
+  "themes": {
+    "classic": "its just a website",
+    "blm": "BLM",
+    "trans": "TRANS RIGHTS"
+  },
   "chat": {
     "title": "Chat",
     "aria": "Visit the datafruits.fm chatroom",
