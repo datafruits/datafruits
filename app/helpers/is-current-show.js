@@ -1,6 +1,4 @@
 import { helper } from '@ember/component/helper';
-import moment from 'moment';
-import jstz from 'jstimezonedetect';
 
 export function isCurrentShow(show) {
   const now = new Date();
