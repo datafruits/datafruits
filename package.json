@@ -36,7 +36,6 @@
     "cross-env": "7.0.2",
     "ember-auto-import": "1.5.3",
     "ember-await": "^2.0.0",
-    "ember-calendar": "https://github.com/mcfiredrill/ember-calendar#develop",
     "ember-classic-decorator": "^1.0.8",
     "ember-cli": "^3.18.0",
     "ember-cli-app-version": "^3.2.0",
