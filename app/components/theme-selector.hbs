@@ -2,7 +2,7 @@
   id="theme-selector-label"
   for="theme-selector"
 >
-  {{t "theme.label"}} 
+  {{t "theme.label"}}
 </label>
 <select
   name="theme-selector"
@@ -11,8 +11,14 @@
   onchange={{action @setTheme value="target.value"}}>
 >
 {{#each themes as |theme|}}
-  <option value={{theme.value}}>
-    {{theme.text}}
-  </option>
+  {{#if (eq theme.value this.currentTheme)}}
+    <option selected value={{theme.value}}>
+      {{theme.text}}
+    </option>
+  {{else}}
+    <option value={{theme.value}}>
+      {{theme.text}}
+    </option>
+  {{/if}}
 {{/each}}
 </select>

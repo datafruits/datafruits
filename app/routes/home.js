@@ -17,7 +17,7 @@ export default class HomeRoute extends Route {
   beforeModel() {
     let element = document.getElementsByTagName('html')[0];
     let theme = localStorage.getItem('datafruits-theme') || 'classic';
-    let themeName = `theme-${localStorage.getItem('datafruits-theme') || 'classic'}`;
+    let themeName = `theme-${theme}`;
     element.classList.add(themeName);
     return this._loadCurrentUser();
   }
