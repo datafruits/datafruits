@@ -4,13 +4,11 @@
 </h1>
 <h2>
   {{t "show.hosted_prefix"}}
-  {{#each model.djs as |dj|}}
-    <span class="font-debussy text-xl">
-      <LinkTo @route="home.dj" @model={{dj.username}}>
-        {{dj.username}}
-      </LinkTo>
-    </span>
-  {{/each}}
+  <span class="font-debussy text-xl">
+    <LinkTo @route="home.dj" @model={{model.hostedBy}}>
+      {{model.hostedBy}}
+    </LinkTo>
+  </span>
 </h2>
 <h3 class="modal-title" id="myModalLabel">
   {{format-date model.start}}

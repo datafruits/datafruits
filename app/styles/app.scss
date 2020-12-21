@@ -6,9 +6,6 @@
 @import "stripe-animation.scss";
 
 @import "font-awesome";
-@import 'addons/ember-calendar/paint-core';
-@import 'addons/ember-calendar/main';
-@import "calendar.scss";
 
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
@@ -101,6 +98,7 @@
 
 .cool-button {
   cursor: pointer;
+  white-space: nowrap;
   @apply border-solid border-2 border-white text-lg rounded-sm;
   @apply text-white font-semibold p-2 leading-none bg-df-blue;
   @apply transition-all duration-100 ease-in-out;
@@ -292,4 +290,10 @@ form {
   }
 }
 
+.add-datafruits {
+  background: $green;
+  color: $yellow;
+  padding: 5px;
+  display: flex;
+}
 @tailwind utilities;

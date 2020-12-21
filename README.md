@@ -4,12 +4,17 @@
 
 frontend for datafruits application.
 
+Contributors are welcome! 
+
+Check out the [projects](https://github.com/datafruits/datafruits/projects) to see what we are working on.
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with yarn)
+* [Node.js](https://nodejs.org/) (10.x)
+* [Yarn](https://classic.yarnpkg.com/en/docs/install)
 * [Ember CLI](https://ember-cli.com/)
 
 ## Installation

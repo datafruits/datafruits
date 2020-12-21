@@ -32,6 +32,7 @@
     "nickname": "nickname",
     "password": "password",
     "search": "\"dancing\", \"music\", ...",
+    "user_avatar": "user avatar",
     "label": {
       "nick": "nickname",
       "input": "message",
@@ -84,7 +85,10 @@
   },
   "timetable": {
     "title": "Timetable",
-    "aria": "Browse scheduled shows and events"
+    "aria": "Browse scheduled shows and events",
+    "timezone": "All events displayed in your local timezone: ",
+    "loading": "Loading...",
+    "error": "Something went wrong. Refresh the page and try again."
   },
   "djs": {
     "title": "DJs",
@@ -254,5 +258,11 @@
       "p1_linktext": "http://contributor-covenant.org/version/1/4"
     }
   },
-  "donate": "DONATE"
+  "donate": "DONATE",
+  "microtext": {
+    "we_need_it": "we need your datafruit. please add it.",
+    "submit": "Datafruit!",
+    "add": "Add datafruit",
+    "loading": "..."
+  }
 }
