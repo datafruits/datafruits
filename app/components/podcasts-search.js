@@ -6,11 +6,17 @@ import Component from '@ember/component';
 import { debounce } from '@ember/runloop';
 import { isEmpty } from '@ember/utils';
 import { isArray } from '@ember/array';
+import { inject as service } from '@ember/service';
+import { hash } from 'rsvp';
+import App from '../app';
 
 /* eslint-disable ember/no-observers */
 
 @classic
 export default class PodcastsSearch extends Component {
+  @service
+  store;
+
   init() {
     super.init(...arguments);
     this.selectedLabels = [];
@@ -63,4 +69,18 @@ export default class PodcastsSearch extends Component {
 
   @action
   nop() {}
+
+  @action
+  fetchPodcasts() {
+    let query = this.searchParams;
+    let podcastsPromise = this.store.queryRecord('podcast', query).then((podcast) => {
+      return hash({
+        tracks: podcast.get('tracks'),
+        meta: App.storeMeta['podcast'],
+        labels: this.store.findAll('label'),
+      });
+    });
+
+    return podcastsPromise;
+  }
 }

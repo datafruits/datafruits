@@ -59,13 +59,15 @@
   </div>
 </div>
 <div id="podcast-search-results">
-  <PodcastsLoader @query={{searchParams}} as |loader|>
-    {{#if loader.isRunning}}
+  <Await @promise={{this.fetchPodcasts}} as |await|>
+    <await.Pending>
       <p id="podcast-search-loading" class="">
         {{t "loading"}}
       </p>
-    {{else}}
-      {{#each loader.data.tracks as |track|}}
+    </await.Pending>
+
+    <await.Fulfilled as |result|>
+      {{#each result.tracks as |track|}}
         <PodcastTrack
           @cdnUrl={{track.cdnUrl}}
           @title={{track.title}}
@@ -78,7 +80,11 @@
       {{else}}
         {{t "podcasts.no_result"}}
       {{/each}}
-      <Pagination @meta={{loader.data.meta}} @route="home.podcasts" />
-    {{/if}}
-  </PodcastsLoader>
+      <Pagination @meta={{result.meta}} @route="home.podcasts" />
+    </await.Fulfilled>
+
+    <await.Rejected>
+      {{t "error"}}
+    </await.Rejected>
+  </Await>
 </div>
