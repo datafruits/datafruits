@@ -37,9 +37,9 @@ export default class HomeController extends Controller {
       this.set('menuOpen', false);
       this.set('submenuOpen', false);
     });
-    later(() => {
-      this.showingPixi = false;
-    }, 15000);
+    // later(() => {
+    //   this.showingPixi = false;
+    // }, 15000);
   }
 
   @action
