@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import * as PIXI from 'pixi.js';
 import { inject as service } from '@ember/service';
+import { later } from '@ember/runloop';
 
 export default class PixiComponent extends Component {
   @service eventBus;
@@ -28,6 +29,13 @@ export default class PixiComponent extends Component {
     console.log(sprite.y);
     this.sprites.pushObject(sprite);
     this.app.stage.addChild(sprite);
+    // add callback to remove sprite after 5s
+    later(() => {
+      console.log('removing sprite...');
+      sprite.destroy();
+      let spriteIndex = this.sprites.indexOf(sprite);
+      this.sprites.splice(spriteIndex, 1);
+    }, 5000);
   }
 
   @action
@@ -114,6 +122,7 @@ export default class PixiComponent extends Component {
           sprite.y += Math.cos(count);
           sprite.scale.x += Math.sin(count) * 0.01;
           sprite.scale.y += Math.sin(count) * 0.01;
+          sprite.rotation += Math.sin(count) * 0.01;
         });
       });
     });
