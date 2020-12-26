@@ -15,6 +15,12 @@ export default class HomeRoute extends Route {
   fastboot;
 
   beforeModel() {
+    if (!this.fastboot.isFastBoot) {
+      let element = document.getElementsByTagName('html')[0];
+      let theme = localStorage.getItem('datafruits-theme') || 'classic';
+      let themeName = `theme-${theme}`;
+      element.classList.add(themeName);
+    }
     return this._loadCurrentUser();
   }
 

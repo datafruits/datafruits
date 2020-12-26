@@ -5,9 +5,9 @@ export default class UserAdapter extends ApplicationAdapter {
     if (query.me) {
       delete query.me;
       return `${this.urlPrefix()}/users/current_user`;
+    } else {
+      return `${this.urlPrefix()}/djs/${query.id}`;
     }
-
-    return super.urlForQueryRecord(...arguments);
   }
 
   urlForCreateRecord() {
