@@ -4,12 +4,25 @@ import { inject as service } from '@ember/service';
 
 export default class FruitTipComponent extends Component {
   @service
-  eventBus;
+  chat;
 
   @action
   fruitTip(event) {
     console.log('tip fruit!');
-    this.eventBus.publish('fruitTipped');
+    if (this.chat.token) {
+      this.chat.push('new:fruit_tip', {
+        user: this.chat.username,
+        fruit: 'strawberry',
+        timestamp: Date.now(),
+        token: this.chat.token,
+      });
+    } else {
+      this.chat.push('new:fruit_tip', {
+        user: this.chat.username,
+        fruit: 'strawberry',
+        timestamp: Date.now(),
+      });
+    }
     event.preventDefault();
   }
 }
