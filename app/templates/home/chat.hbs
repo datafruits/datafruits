@@ -1,5 +1,5 @@
-<div class="mt-5 pt-2 px-5">
-  {{#if fastboot.isFastBoot}}
+{{#if fastboot.isFastBoot}}
+  <div class="mt-5 pt-2 px-5">
     <div class="md:px-8">
       <div class="loading-container">
         <img alt={{t "loading"}} src={{random-loading-spinner}} />
@@ -8,6 +8,7 @@
         <h1>{{random-loading-message}}</h1>
       </div>
     </div>
+  </div>
   {{else}}
     <NetworkStatus as |status|>
       <DatafruitsChat
@@ -16,5 +17,4 @@
         @authenticate={{fn this.authenticate}}
       />
     </NetworkStatus>
-  {{/if}}
-</div>
+{{/if}}
