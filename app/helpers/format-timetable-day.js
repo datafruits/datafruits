@@ -1,14 +1,20 @@
 import { helper } from '@ember/component/helper';
-import moment from 'moment';
-import jstz from 'jstimezonedetect';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.extend(advancedFormat);
 
 export function formatTimetableDay(date) {
-  const timeZone = jstz.determine();
+  const timeZone = dayjs.tz.guess();
   let formattedTime;
   if (new Date().getDate() == new Date(date[0]).getDate()) {
-    formattedTime = `Today, ${moment(date[0]).tz(timeZone.name()).format('MMMM D')}`;
+    formattedTime = `Today, ${dayjs(date[0]).tz(timeZone.name()).format('MMMM D')}`;
   } else {
-    formattedTime = moment(date[0]).tz(timeZone.name()).format('dddd, MMMM D');
+    formattedTime = dayjs(date[0]).tz(timeZone.name()).format('dddd, MMMM D');
   }
   return formattedTime;
 }

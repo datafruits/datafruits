@@ -1,12 +1,12 @@
 import { helper } from '@ember/component/helper';
 import dayjs from 'dayjs';
-import utc  from 'dayjs/plugin/utc';
-import timezone  from 'dayjs/plugin/timezone';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
-dayjs.extend(advancedFormat)
+dayjs.extend(advancedFormat);
 
 export function formatDate(time) {
   var timeZone = dayjs.tz.guess();
