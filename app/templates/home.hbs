@@ -1,5 +1,5 @@
 <section class="h-handle-resize flex flex-col justify-between">
-  <div class="flex bg-df-pink mb-5 pb-2">
+  <div class="flex classic:bg-df-pink blm:bg-black trans:bg-df-blue mb-5 pb-2">
     <PcNav
       @toggleSubMenu={{action "toggleSubMenu"}}
       @submenuOpen={{this.submenuOpen}}
@@ -17,7 +17,6 @@
       </ul>
     {{else}}
       <LinkTo
-        class="hidden md:block"
         aria-label={{t "home.aria"}}
         @route="home">
         <h1 class="logo font-debussy text-5xl text-white">
@@ -30,15 +29,24 @@
   <div class="px-5 overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow ">
     {{outlet}}
   </div>
+  <div class="flex-row flex justify-between text-xl classic:bg-df-green blm:bg-black trans:bg-df-blue">
+    <AddDatafruit />
+  </div>
   <DatafruitsPlayer
-    class="flex-col flex justify-center bg-df-pink text-xl py-2 text-white leading-none"
+    class="flex-col flex justify-center classic:bg-df-pink blm:bg-black trans:bg-df-blue text-xl py-2 text-white leading-none"
     >
     <DjDonateButton class="hidden md:block mr-2" />
-    <LocaleSelector
-      class="text-lg text-white hidden md:block"
-      @selectedLocale={{locale.value}}
-      @setLocale={{action "setLocale"}}
-    />
+    <div class="text-sm">
+      <ThemeSelector
+        class="text-white hidden md:block"
+        @setTheme={{action "setTheme"}}
+      />
+      <LocaleSelector
+        class="text-white hidden md:block"
+        @selectedLocale={{locale.value}}
+        @setLocale={{action "setLocale"}}
+      />
+    </div>
   </DatafruitsPlayer>
 </section>
 <DatafruitsVisuals

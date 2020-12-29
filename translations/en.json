@@ -15,6 +15,11 @@
     "latest_podcasts": "LATEST PODCASTS",
     "events": "EVENTS"
   },
+  "themes": {
+    "classic": "its just a website",
+    "blm": "BLM",
+    "trans": "TRANS RIGHTS"
+  },
   "chat": {
     "title": "Chat",
     "aria": "Visit the datafruits.fm chatroom",
@@ -32,6 +37,7 @@
     "nickname": "nickname",
     "password": "password",
     "search": "\"dancing\", \"music\", ...",
+    "user_avatar": "user avatar",
     "label": {
       "nick": "nickname",
       "input": "message",
@@ -84,7 +90,10 @@
   },
   "timetable": {
     "title": "Timetable",
-    "aria": "Browse scheduled shows and events"
+    "aria": "Browse scheduled shows and events",
+    "timezone": "All events displayed in your local timezone: ",
+    "loading": "Loading...",
+    "error": "Something went wrong. Refresh the page and try again."
   },
   "djs": {
     "title": "DJs",
@@ -205,6 +214,9 @@
     }
   },
   "locale": "locale",
+  "theme": {
+    "label": "theme"
+  },
   "about_page": {
     "listenersupport": "Datafruits is listener supported. You can join our patreon and get stickers and other goodies sent to you every 2 months.",
     "donate_request": "Or if you'd like you can make a one time donation to our paypal.",
@@ -254,5 +266,11 @@
       "p1_linktext": "http://contributor-covenant.org/version/1/4"
     }
   },
-  "donate": "DONATE"
+  "donate": "DONATE",
+  "microtext": {
+    "we_need_it": "we need your datafruit. please add it.",
+    "submit": "Datafruit!",
+    "add": "Add datafruit",
+    "loading": "..."
+  }
 }
