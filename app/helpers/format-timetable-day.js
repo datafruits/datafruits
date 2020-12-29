@@ -12,9 +12,9 @@ export function formatTimetableDay(date) {
   const timeZone = dayjs.tz.guess();
   let formattedTime;
   if (new Date().getDate() == new Date(date[0]).getDate()) {
-    formattedTime = `Today, ${dayjs(date[0]).tz(timeZone.name()).format('MMMM D')}`;
+    formattedTime = `Today, ${dayjs(date[0]).tz(timeZone).format('MMMM D')}`;
   } else {
-    formattedTime = dayjs(date[0]).tz(timeZone.name()).format('dddd, MMMM D');
+    formattedTime = dayjs(date[0]).tz(timeZone).format('dddd, MMMM D');
   }
   return formattedTime;
 }
