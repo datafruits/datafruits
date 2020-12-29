@@ -1,14 +1,12 @@
 @tailwind base;
 
 @import 'colors.scss';
+@import 'flags.scss';
 @import 'loading-spinner.scss';
 @import 'container.scss';
 @import 'stripe-animation.scss';
 
 @import 'font-awesome';
-@import 'addons/ember-calendar/paint-core';
-@import 'addons/ember-calendar/main';
-@import 'calendar.scss';
 
 @import 'ember-modal-dialog/ember-modal-structure';
 @import 'ember-modal-dialog/ember-modal-appearance';

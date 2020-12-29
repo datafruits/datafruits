@@ -14,7 +14,7 @@
     </h2>
     {{#if model.nextShow}}
       <LinkTo @route="home.show" @model={{model.nextShow}}>
-        {{model.nextShow.title}}
+        {{model.nextShow.title}} - {{format-date model.nextShow.start}}
       </LinkTo>
     {{/if}}
   </div>
