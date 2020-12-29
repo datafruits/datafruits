@@ -303,10 +303,48 @@ form {
   }
 }
 
+.show-poster {
+  min-height: 500px;
+}
+
+.show-info {
+  padding: 1em;
+  border-image: repeating-linear-gradient(
+    90deg,
+    $green,
+    $green 20px,
+    $pink 20px,
+    $pink 40px,
+    $yellow 40px,
+    $yellow 60px,
+    $blue 60px,
+    $blue 80px
+  );
+  border-width: 10px;
+  border-style: solid;
+  border-image-slice: 1;
+  max-width: 50%;
+  bottom: 20px;
+  left: 20px;
+  box-shadow: 10px 10px 2px grey;
+  position: absolute;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+  }
+}
+
+.show-image {
+  background-size: contain;
+}
+
 .add-datafruits {
   background: $green;
   color: $yellow;
   padding: 5px;
   display: flex;
 }
+
 @tailwind utilities;
