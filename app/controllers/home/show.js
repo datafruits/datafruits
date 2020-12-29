@@ -10,7 +10,7 @@ export default class ShowController extends Controller {
   }
 
   get randomFruitEmoji() {
-    const emojis = ['🍎','🍏','🍊','🍋','🍒','🍇','🍉','🍓','🍑','🍈','🍌','🍐','🍍'];
+    const emojis = ['🍎', '🍏', '🍊', '🍋', '🍒', '🍇', '🍉', '🍓', '🍑', '🍈', '🍌', '🍐', '🍍'];
     return emojis[Math.floor(Math.random() * emojis.length)];
   }
 }
