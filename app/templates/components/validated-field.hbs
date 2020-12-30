@@ -26,9 +26,9 @@
     />
 {{/if}}
 
-{{#if (get @changeset.error @property)}}
+{{#if this.hasErrors}}
   <div class="text-red-700">
-    {{#each (get (get @changeset.error @property) "validation") as |message|}}
+    {{#each this.errors as |message|}}
       <div class="error item">{{message}}</div>
     {{/each}}
   </div>

@@ -1,7 +1,7 @@
-{{#if changeset.errors}}
-<div class="error-message">
-  {{t "signup.error"}}
-</div>
+{{#if @changeset.errors}}
+  <div class="text-red">
+    {{t "signup.error"}}
+  </div>
 {{/if}}
 <form {{action "submit" on="submit"}}>
   <div>
@@ -9,6 +9,8 @@
       @type="text"
       @changeset={{@changeset}}
       @property="email"
+      @updateProperty={{fn this.updateProperty}}
+      @validateProperty={{fn this.validateProperty}}
       />
   </div>
   <div>
@@ -16,6 +18,8 @@
       @type="text"
       @changeset={{@changeset}}
       @property="username"
+      @updateProperty={{fn this.updateProperty}}
+      @validateProperty={{fn this.validateProperty}}
       />
   </div>
   <div>
@@ -23,6 +27,8 @@
       @type="password"
       @changeset={{@changeset}}
       @property="password"
+      @updateProperty={{fn this.updateProperty}}
+      @validateProperty={{fn this.validateProperty}}
       />
   </div>
   <div>

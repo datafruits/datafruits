@@ -129,7 +129,8 @@
   "signup": {
     "title": "Sign up",
     "submit": "Sign up",
-    "password": "Password"
+    "password": "Password",
+    "error": "Please correct the errors on the form"
   },
   "usermenu": {
     "settings": "Settings",
