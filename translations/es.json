@@ -111,6 +111,9 @@
     }
   },
   "locale": "lugar",
+  "theme": {
+    "label": "tema"
+  },
   "about_page": {
     "listenersupport": "Datafruits es apoyado por sus oyentes. Puedes unirte a nuestro patreon y recibir calcomanías y otras cosas cada 2 meses.",
     "donate_request": "O si lo desea, puede hacer una donación única a nuestro paypal",

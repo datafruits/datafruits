@@ -48,11 +48,7 @@ module.exports = function (defaults) {
           {
             module: require('@csstools/postcss-sass'),
             options: {
-              includePaths: [
-                'node_modules/ember-power-select',
-                'node_modules/ember-calendar',
-                'node_modules/font-awesome/scss',
-              ],
+              includePaths: ['node_modules/ember-power-select', 'node_modules/font-awesome/scss'],
             },
           },
           require('tailwindcss')('./app/tailwind/config.js'),
