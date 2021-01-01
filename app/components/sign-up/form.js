@@ -12,6 +12,22 @@ export default class SignUpFormComponent extends Component {
   @service
   router;
 
+  get emailExists() {
+    let changeset = this.args.changeset;
+    if (changeset.get('errors')) {
+      let error = changeset.get('errors').find((error) => {
+        return error.key === 'email';
+      });
+      if (error) {
+        return error.validation[0] === 'Account with this email already exists.';
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
   @action
   validateProperty(property) {
     let changeset = this.args.changeset;

@@ -13,7 +13,7 @@ export default function uniqueEmail(/* options = {} */) {
             if (json.valid === true) {
               resolve(true);
             } else {
-              resolve('Account with this email already exists. Forgot your password?');
+              resolve('Account with this email already exists.');
             }
           });
         })

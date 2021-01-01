@@ -13,6 +13,12 @@
       @validateProperty={{fn this.validateProperty}}
       />
   </div>
+
+  {{#if this.emailExists}}
+    <LinkTo @route="home.password-reset">
+      Forgot your password?
+    </LinkTo>
+  {{/if}}
   <div>
     <ValidatedField
       @type="text"
