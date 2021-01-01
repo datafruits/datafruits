@@ -1,32 +1,45 @@
-<TimetableLoader @query={{query}} as |loader|>
-  <AsCalendar
-    @occurrences={{loader.data}}
-    @dayStartingTime="0:00"
-    @dayEndingTime="23:00"
-    @timeSlotDuration="00:30"
-    @nowTimeLabelFormat="h:mm a"
-    @type={{view}}
-    @onNavigate={{action "calendarNavigate"}}
-    @onClickOccurrence={{action "calendarClickOccurrence"}}
-    @onAddOccurrence={{action "calendarAddOccurrence"}}
-    @onUpdateOccurrence={{action "calendarUpdateOccurrence"}}
-    @onEditOccurrence={{action "calendarEditOccurrence"}}
-    @onRemoveOccurrence={{action "calendarRemoveOccurrence"}}
-    @startingDate={{startingDate}}
-    @onTypeChange={{onTypeChange}} as |occurrence timetable calendar|
-  >
-    <AsCalendar::Occurrence
-      @model={{occurrence}}
-      @isMonthView={{occurrence.calendar.isMonthView}}
-      @timeSlotHeight={{calendar.timeSlotHeight}}
-      @timeSlotDuration={{calendar.timeSlotDuration}} as |model|
-    >
-      {{!-- template-lint-disable no-inline-styles --}}
-      <h1 class="as-calendar-occurrence__title" style={{titleStyle}}>
-        <LinkTo @route="home.show" @model={{model.content.id}} @title={{model.title}}>
-          {{model.title}}
-        </LinkTo>
-      </h1>
-    </AsCalendar::Occurrence>
-  </AsCalendar>
-</TimetableLoader>
+<h1 class="text-3xl">{{t "timetable.title"}}</h1>
+{{t "timetable.timezone" }}{{current-timezone}}
+<br />
+<br />
+<Await @promise={{this.fetchShows}} as |await|>
+  <await.Pending>
+    {{t "timetable.loading"}}
+  </await.Pending>
+
+  <await.Fulfilled as |shows|>
+  <table>
+    <thead>
+    </thead>
+    <tbody>
+      {{#each-in this.groupedShows as |day shows|}}
+        <tr><td class="text-xl font-debussy">{{format-timetable-day day}}</td></tr>
+        <tr><td><hr /></td></tr>
+        {{#each shows as |show|}}
+          <tr>
+            <td>{{format-time show.start}} ~ {{format-time show.end}}</td>
+            {{#if (is-current-show show)}}
+              <td class="bleed">
+                <LinkTo @route="home.show" @model={{show.id}} @title={{show.title}}>
+                  {{show.title}}
+                </LinkTo>
+              </td>
+            {{else}}
+              <td>
+                <LinkTo @route="home.show" @model={{show.id}} @title={{show.title}}>
+                  {{show.title}}
+                </LinkTo>
+              </td>
+            {{/if}}
+          </tr>
+        {{/each}}
+        <br />
+      {{/each-in}}
+    </tbody>
+  </table>
+  </await.Fulfilled>
+
+  <await.Rejected>
+    {{t "timetable.error"}}
+  </await.Rejected>
+</Await>

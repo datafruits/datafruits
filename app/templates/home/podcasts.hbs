@@ -1,14 +1,16 @@
-{{title (t "podcasts.title")}}
-<h1>
-  {{t "podcasts.title"}}
-</h1>
-<div>
-  <PodcastsSearch
-    @tracks={{model.tracks}}
-    @labels={{model.labels}}
-    @meta={{model.meta}}
-    @updateSearch={{action "updateSearch"}}
-    @selectedTags={{tags}}
-    @searchParams={{searchParams}}
-  />
+<div class="mt-5 pt-2 px-5">
+  {{title (t "podcasts.title")}}
+  <h1>
+    {{t "podcasts.title"}}
+  </h1>
+  <div>
+    <PodcastsSearch
+      @tracks={{model.tracks}}
+      @labels={{model.labels}}
+      @meta={{model.meta}}
+      @updateSearch={{action "updateSearch"}}
+      @selectedTags={{tags}}
+      @searchParams={{searchParams}}
+    />
+  </div>
 </div>

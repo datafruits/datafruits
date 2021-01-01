@@ -1,55 +1,57 @@
-{{title "Newsletter"}}
-<h4 class="modal-title" id="myModalLabel">
-  {{t "newsletter_modal.title"}}
-</h4>
-<div>
-  {{!-- Begin MailChimp Signup Form --}}
-  <div id="mc_embed_signup">
-    <form
-      action="https://github.us8.list-manage.com/subscribe/post?u=542d1c3ead16aecf841c8fd53&amp;id=c6c1c36c83"
-      method="post"
-      id="mc-embedded-subscribe-form"
-      name="mc-embedded-subscribe-form"
-      class="validate"
-      target="_blank"
-      novalidate=""
-    >
-      <aside class="tiny">
-        {{t "newsletter_modal.tiny"}}
-      </aside>
-      <label for="mce-EMAIL">Email address: </label>
-      <input
-        type="email"
-        value=""
-        name="EMAIL"
-        class="required email"
-        id="mce-EMAIL"
-        placeholder={{t "newsletter_modal.placeholder_email"}}
+<div class="mt-5 pt-2 px-5">
+  {{title "Newsletter"}}
+  <h4 class="modal-title" id="myModalLabel">
+    {{t "newsletter_modal.title"}}
+  </h4>
+  <div>
+    {{!-- Begin MailChimp Signup Form --}}
+    <div id="mc_embed_signup">
+      <form
+        action="https://github.us8.list-manage.com/subscribe/post?u=542d1c3ead16aecf841c8fd53&amp;id=c6c1c36c83"
+        method="post"
+        id="mc-embedded-subscribe-form"
+        name="mc-embedded-subscribe-form"
+        class="validate"
+        target="_blank"
+        novalidate=""
       >
-      <input
-        type="submit"
-        value="Subscribe"
-        name="subscribe"
-        id="mc-embedded-subscribe"
-        class="cool-button"
-      >
-      <span class="tiny">
-        {{t "newsletter_modal.tiny"}}
-      </span>
-      <div id="mce-responses">
-        <div
-          class="response hidden"
-          id="mce-error-response"
+        <aside class="tiny">
+          {{t "newsletter_modal.tiny"}}
+        </aside>
+        <label for="mce-EMAIL">Email address: </label>
+        <input
+          type="email"
+          value=""
+          name="EMAIL"
+          class="required email"
+          id="mce-EMAIL"
+          placeholder={{t "newsletter_modal.placeholder_email"}}
         >
-        </div>
-        <div
-          class="response hidden"
-          id="mce-success-response"
+        <input
+          type="submit"
+          value="Subscribe"
+          name="subscribe"
+          id="mc-embedded-subscribe"
+          class="cool-button"
         >
+        <span class="tiny">
+          {{t "newsletter_modal.tiny"}}
+        </span>
+        <div id="mce-responses">
+          <div
+            class="response hidden"
+            id="mce-error-response"
+          >
+          </div>
+          <div
+            class="response hidden"
+            id="mce-success-response"
+          >
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
+    {{!--End mc_embed_signup--}}
   </div>
-  {{!--End mc_embed_signup--}}
+  <div class="modal-footer"></div>
 </div>
-<div class="modal-footer"></div>
