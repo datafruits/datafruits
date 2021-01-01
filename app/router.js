@@ -23,6 +23,7 @@ Router.map(function () {
       this.route('settings');
     });
     this.route('sign-up');
+    this.route('password-reset');
   });
   this.route('container', function () {
     this.route('show', { path: '/shows/:id' });
