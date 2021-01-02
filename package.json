@@ -90,7 +90,6 @@
     "eslint-plugin-ember": "8.13.0",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "fastboot-app-server": "2.0.0",
     "jstimezonedetect": "^1.0.7",
     "loader.js": "^4.2.3",
     "phoenix": "^1.5.7",
@@ -117,5 +116,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "fastboot-app-server": "^3.0.0"
   }
 }
