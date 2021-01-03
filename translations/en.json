@@ -45,7 +45,8 @@
       "coc": "CoC"
     },
     "titles": {
-      "enter": "Enter chat",
+      "join": "Join chat with nickname",
+      "login": "Join chat with registered account",
       "send": "Send message to chat",
       "img_on": "Images in chat will be displayed",
       "img_off": "Images in chat will not be displayed",
