@@ -120,6 +120,62 @@ export function initialize(/* application */) {
       shortnames: [':gorge:', ':gorui:'],
       keywords: ['gorge'],
     },
+    ':garf:': {
+      custom: true,
+      uc_base: 'garf',
+      uc_output: '',
+      shortnames: [':garf:', ':garfield:'],
+      keywords: ['garf'],
+    },
+    ':grumby:': {
+      custom: true,
+      uc_base: 'grumby',
+      uc_output: '',
+      shortnames: [':grumby:'],
+      keywords: ['grumby'],
+    },
+    ':strawbur:' {
+      custom: true,
+      uc_base: 'strawbur',
+      uc_output: '',
+      shortnames: [':strawbur:'],
+      keywords: ['strawbur'],
+    },
+    ':orangey:' {
+      custom: true,
+      uc_base: 'orangey',
+      uc_output: '',
+      shortnames: [':orangey:'],
+      keywords: ['orangey'],
+    },
+    ':lemoner:' {
+      custom: true,
+      uc_base: 'lemoner',
+      uc_output: '',
+      shortnames: [':lemoner:'],
+      keywords: ['lemoner'],
+    },
+    ':miniburger:' {
+      custom: true,
+      uc_base: 'miniburger',
+      uc_output: '',
+      shortnames: [':miniburger:'],
+      keywords: ['miniburger'],
+    },
+    ':happytrash:' {
+      custom: true,
+      uc_base: 'happytrash',
+      uc_output: '',
+      shortnames: [':happytrash:'],
+      keywords: ['happytrash'],
+    },
+    ':pizzap:' {
+      custom: true,
+      uc_base: 'pizzap',
+      uc_output: '',
+      shortnames: [':pizzap:'],
+      keywords: ['pizzap'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
