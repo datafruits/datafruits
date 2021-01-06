@@ -87,7 +87,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-ember": "8.13.0",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-prettier": "^3.3.1",
     "fastboot-app-server": "2.0.0",
     "loader.js": "^4.2.3",
     "phoenix": "^1.5.7",
