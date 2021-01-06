@@ -5,7 +5,6 @@ export function initialize(/* application */) {
   const customEmojis = {
     ':bgs:': {
       custom: true,
-      animated: false,
       uc_base: 'bgs',
       uc_output: '',
       shortnames: [':bgs:'],
@@ -13,7 +12,6 @@ export function initialize(/* application */) {
     },
     ':tony:': {
       custom: true,
-      animated: false,
       uc_base: 'tony',
       uc_output: '',
       shortnames: [':firedrill:', ':freedrull:', ':mcfiredrill:'],
@@ -21,7 +19,6 @@ export function initialize(/* application */) {
     },
     ':ovenrake:': {
       custom: true,
-      animated: false,
       uc_base: 'ovenrake',
       uc_output: '',
       shortnames: [':dakota:', ':oven:'],
@@ -29,7 +26,6 @@ export function initialize(/* application */) {
     },
     ':snailzone:': {
       custom: true,
-      animated: false,
       uc_base: 'snailzone',
       uc_output: '',
       shortnames: [':snailzone:'],
@@ -37,7 +33,7 @@ export function initialize(/* application */) {
     },
     ':trekkie:': {
       custom: true,
-      animated: false,
+
       uc_base: 'trekkie',
       uc_output: '',
       shortnames: [':trekkie:', ':trekkietrax:'],
@@ -54,7 +50,6 @@ export function initialize(/* application */) {
     },
     ':salad_dressing:': {
       custom: true,
-      animated: false,
       uc_base: 'salad_dressing',
       uc_output: '',
       shortnames: [':salad_dressing:', ':onion_salad_dressing:', ':saladdressing:', ':onionsaladdressing:'],
@@ -70,7 +65,6 @@ export function initialize(/* application */) {
     },
     ':sr388:': {
       custom: true,
-      animated: false,
       uc_base: 'sr388',
       uc_output: '',
       shortnames: [':sr388:'],
@@ -78,7 +72,6 @@ export function initialize(/* application */) {
     },
     ':eatdis:': {
       custom: true,
-      animated: false,
       uc_base: 'eatdis',
       uc_output: '',
       shortnames: [':eatdis:'],
@@ -86,7 +79,6 @@ export function initialize(/* application */) {
     },
     ':tspicy:': {
       custom: true,
-      animated: false,
       uc_base: 'tspicy',
       uc_output: '',
       shortnames: [':tspicy:'],
@@ -94,7 +86,6 @@ export function initialize(/* application */) {
     },
     ':tsick:': {
       custom: true,
-      animated: false,
       uc_base: 'tsick',
       uc_output: '',
       shortnames: [':tsick:'],
@@ -102,7 +93,6 @@ export function initialize(/* application */) {
     },
     ':tparty:': {
       custom: true,
-      animated: false,
       uc_base: 'tparty',
       uc_output: '',
       shortnames: [':tparty:'],
@@ -126,7 +116,6 @@ export function initialize(/* application */) {
     },
     ':gorge:': {
       custom: true,
-      animated: false,
       uc_base: 'gorge',
       uc_output: '',
       shortnames: [':gorge:', ':gorui:'],
@@ -174,15 +163,13 @@ export function initialize(/* application */) {
     },
     ':miniburger:': {
       custom: true,
-      animated: false,
       uc_base: 'miniburger',
       uc_output: '',
-      shortnames: [':miniburger:'],
+      shortnames: [':miniburger:', ':miniburgertime:'],
       keywords: ['miniburger'],
     },
     ':happytrash:': {
       custom: true,
-      animated: false,
       uc_base: 'happytrash',
       uc_output: '',
       shortnames: [':happytrash:'],
@@ -190,7 +177,6 @@ export function initialize(/* application */) {
     },
     ':pizzap:': {
       custom: true,
-      animated: false,
       uc_base: 'pizzap',
       uc_output: '',
       shortnames: [':pizzap:'],
