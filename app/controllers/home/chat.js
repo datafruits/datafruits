@@ -21,6 +21,7 @@ export default class ChatController extends Controller {
 
   @action
   authenticate(nick, pass) {
+    this.set('session.store.cookieExpirationTime', 60 * 60 * 24 * 14);
     return this.session
       .authenticate('authenticator:devise', nick, pass)
       .then(() => {

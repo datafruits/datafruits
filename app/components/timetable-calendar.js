@@ -1,9 +1,15 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import moment from 'moment';
-import jstz from 'jstimezonedetect';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+import advancedFormat from 'dayjs/plugin/advancedFormat';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.extend(advancedFormat);
 
 export default class TimetableCalendarComponent extends Component {
   @service
@@ -24,9 +30,9 @@ export default class TimetableCalendarComponent extends Component {
   @action
   async fetchShows(query) {
     /* TODO support query string... */
-    query.timezone = jstz.determine().name();
-    query.start = moment(new Date()).startOf('day').toString();
-    query.end = moment(query.start).endOf('month').add(1, 'month').format('YYYY-MM-DD');
+    query.timezone = dayjs.tz.guess();
+    query.start = dayjs(new Date()).startOf('day').toString();
+    query.end = dayjs(query.start).endOf('month').add(1, 'month').format('YYYY-MM-DD');
     let showsPromise = this.store.query('scheduled-show', query).then((result) => {
       this.shows = result;
     });
