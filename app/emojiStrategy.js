@@ -10,6 +10,7 @@ Object.keys(emojione.emojioneList).forEach((emoji) => {
     aliases: '',
     keywords: keywords,
     custom: emojione.emojioneList[emoji].custom,
+    animated: emojione.emojioneList[emoji].custom,
   };
 });
 
