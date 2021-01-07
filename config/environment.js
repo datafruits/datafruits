@@ -37,6 +37,7 @@ module.exports = function (environment) {
         'datafruits.fm',
         'www.datafruits.fm',
         /^localhost:\d+$/,
+        /^(.*)\.herokuapp\.com/,
       ],
     },
 

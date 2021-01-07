@@ -11,7 +11,7 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "ember build",
+    "build": "ember build --environment=production && cd dist && yarn install",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember server",
@@ -114,5 +114,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "fastboot-app-server": "^3.0.0"
   }
 }
