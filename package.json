@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@csstools/postcss-sass": "^4.0.0",
-    "@ember/optional-features": "^1.3.0",
+    "@ember/optional-features": "^2.0.0",
     "@glimmer/component": "^1.0.0",
     "@glimmer/tracking": "^1.0.0",
     "@lhci/cli": "0.4.1",
