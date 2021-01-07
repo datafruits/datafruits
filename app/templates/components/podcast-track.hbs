@@ -1,5 +1,5 @@
 <div class="py-1">
-  {{#if playing}}
+  {{#if this.playing}}
     <a class="text-df-green hover:text-df-yellow text-xl" {{action "pause"}} href="#">
       {{t "player.pause"}}
     </a>
@@ -8,33 +8,33 @@
       {{t "player.play"}}
     </a>
   {{/if}}
-  <a href={{cdnUrl}} download="">
+  <a href={{@cdnUrl}} download="">
     <i class="fa fa-download text-df-green hover:text-df-yellow text-xl"></i>
   </a>
-  {{#if soundcloudKey}}
+  {{#if @soundcloudKey}}
     <a
       class="text-df-green hover:text-df-yellow text-xl"
-      href={{soundcloudKey}}
+      href={{@soundcloudKey}}
       target="_blank"
       rel="noopener"
     >
       <i class="fa fa-soundcloud"></i>
     </a>
   {{/if}}
-  {{#if mixcloudKey}}
-    <a class="text-df-green hover:text-df-yellow text-xl" href={{mixcloudKey}} target="_blank" rel="noopener noreferrer">
+  {{#if @mixcloudKey}}
+    <a class="text-df-green hover:text-df-yellow text-xl" href={{@mixcloudKey}} target="_blank" rel="noopener noreferrer">
       <i class="fa fa-mixcloud"></i>
     </a>
   {{/if}}
-  {{#if scheduledShow}}
-    <LinkTo @route="home.show" @model={{scheduledShow.id}}>
-      {{title}}
+  {{#if @scheduledShow}}
+    <LinkTo @route="home.show" @model={{@scheduledShow.id}}>
+      {{@title}}
     </LinkTo>
   {{else}}
-    {{title}}
+    {{@title}}
   {{/if}}
-  {{#each labels as |label|}}
-    <a class="track-label classic:bg-df-pink blm:bg-black text-df-yellow p-1 uppercase hover:italic" {{action selectLabel label}} href="#">
+  {{#each @labels as |label|}}
+    <a class="track-label classic:bg-df-pink blm:bg-black text-df-yellow p-1 uppercase hover:italic" {{on "click" (fn @selectLabel label)}} href="#">
       {{label.name}}
     </a>
   {{/each}}
