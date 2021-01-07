@@ -3,12 +3,12 @@
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function (defaults) {
-  var fingerprintOptions = {
+  const fingerprintOptions = {
     enabled: true,
     exclude: ['assets/images/emojis/*'],
   };
 
-  var app = new EmberApp(defaults, {
+  let app = new EmberApp(defaults, {
     // Add options here
     fingerprint: fingerprintOptions,
 

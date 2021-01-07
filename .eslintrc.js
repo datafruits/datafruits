@@ -10,8 +10,6 @@ module.exports = {
   },
   plugins: ['ember'],
   globals: {
-    $: false,
-    twttr: false,
     emojione: false,
   },
   extends: ['eslint:recommended', 'plugin:ember/recommended', 'plugin:prettier/recommended'],
@@ -26,6 +24,7 @@ module.exports = {
     {
       files: [
         '.eslintrc.js',
+        '.prettierrc.js',
         '.template-lintrc.js',
         'ember-cli-build.js',
         'testem.js',
