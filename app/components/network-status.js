@@ -1,19 +1,17 @@
-import classic from 'ember-classic-decorator';
-import { tagName } from '@ember-decorators/component';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
-@classic
-@tagName('')
 export default class NetworkStatus extends Component {
+  @tracked
   isOffline = false;
 
-  didInsertElement() {
-    super.didInsertElement(...arguments);
-
+  @action
+  didInsert() {
     let _update = () => {
       this.updateStatus();
     };
-    this.set('_update', _update);
+    this._update = _update;
 
     window.addEventListener('online', _update);
     window.addEventListener('offline', _update);
@@ -21,8 +19,8 @@ export default class NetworkStatus extends Component {
     this.updateStatus();
   }
 
-  willDestroyElement() {
-    super.willDestroyElement(...arguments);
+  @action
+  willDestroy() {
     let _update = this._update;
     window.removeEventListener('online', _update);
     window.removeEventListener('offline', _update);
@@ -30,6 +28,6 @@ export default class NetworkStatus extends Component {
 
   updateStatus() {
     console.log('setting offline status'); // eslint-disable-line no-console
-    this.set('isOffline', !navigator.onLine);
+    this.isOffline = !navigator.onLine;
   }
 }
