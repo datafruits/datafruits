@@ -58,8 +58,8 @@
       role="button"
       class="jp-volume-controls"
       aria-label={{t "player.aria.volume"}}
-      {{action "showVolumeControl" on="mouseEnter"}}
-      {{action "hideVolumeControl" on="mouseLeave"}}
+      {{on "mouseEnter" this.showVolumeControl}}
+      {{on "mouseLeave" this.hideVolumeControl}}
     >
       {{#if muted}}
         {{!-- template-lint-disable no-nested-interactive --}}
