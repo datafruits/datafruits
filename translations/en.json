@@ -15,6 +15,11 @@
     "latest_podcasts": "LATEST PODCASTS",
     "events": "EVENTS"
   },
+  "themes": {
+    "classic": "its just a website",
+    "blm": "BLM",
+    "trans": "TRANS RIGHTS"
+  },
   "chat": {
     "title": "Chat",
     "aria": "Visit the datafruits.fm chatroom",
@@ -142,6 +147,11 @@
     "coc_accept": "I have read and accept the terms of the datafruits Code of Conduct.",
     "aria": "Apply to DJ on datafruits.fm"
   },
+  "password_reset": {
+    "heading": "Forgot your password?",
+    "email": "email",
+    "submit": "Send password reset link"
+  },
   "just_a_website": "It's just a website.",
   "about_datafruits": "Independent radio made for and by the international music community. Open source. Breaking down borders and genres. We play any song. We are dedicated to putting the spotlight and sharing music from underserved and marginalized communities. We believe that the only platform that can *truely* serve its users is one that is owned and operated by the people using the platform, the DJs and the listeners!",
   "twitter": {
@@ -209,6 +219,9 @@
     }
   },
   "locale": "locale",
+  "theme": {
+    "label": "theme"
+  },
   "about_page": {
     "listenersupport": "Datafruits is listener supported. You can join our patreon and get stickers and other goodies sent to you every 2 months.",
     "donate_request": "Or if you'd like you can make a one time donation to our paypal.",

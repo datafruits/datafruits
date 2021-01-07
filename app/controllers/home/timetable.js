@@ -1,11 +1,11 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import QueryParams from 'ember-parachute';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 export const TimetableQueryParams = new QueryParams({
   start: {
-    defaultValue: moment().format('YYYY-MM-DD'),
+    defaultValue: dayjs().format('YYYY-MM-DD'),
     refresh: true,
   },
   view: {

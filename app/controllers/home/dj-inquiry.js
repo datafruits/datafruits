@@ -1,7 +1,12 @@
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import Controller from '@ember/controller';
-import jstz from 'jstimezonedetect';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 export default class DjInquiryController extends Controller {
   get canSubmit() {
@@ -20,7 +25,7 @@ export default class DjInquiryController extends Controller {
   @action
   submitApplication() {
     let hostApplication = this.model;
-    hostApplication.set('timeZone', jstz.determine().name());
+    hostApplication.set('timeZone', dayjs.tz.guess());
     hostApplication.save();
   }
 }

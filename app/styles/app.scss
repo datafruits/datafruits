@@ -1,23 +1,23 @@
 @tailwind base;
 
-@import "colors.scss";
-@import "loading-spinner.scss";
-@import "container.scss";
-@import "stripe-animation.scss";
+@import 'colors.scss';
+@import 'flags.scss';
+@import 'loading-spinner.scss';
+@import 'container.scss';
+@import 'stripe-animation.scss';
 
-@import "font-awesome";
+@import 'font-awesome';
 
-@import "ember-modal-dialog/ember-modal-structure";
-@import "ember-modal-dialog/ember-modal-appearance";
+@import 'ember-modal-dialog/ember-modal-structure';
+@import 'ember-modal-dialog/ember-modal-appearance';
 
-@import "player.scss";
+@import 'player.scss';
 
 @tailwind components;
 
 @font-face {
   font-family: 'Debussy';
-  src: url('/vendor/hinted-Debussy.woff2') format('woff2'),
-  url('/vendor/hinted-Debussy.woff') format('woff');
+  src: url('/vendor/hinted-Debussy.woff2') format('woff2'), url('/vendor/hinted-Debussy.woff') format('woff');
   font-weight: 500;
   font-style: normal;
 }
@@ -49,19 +49,29 @@
 
 @keyframes textshadowfade {
   from {
-    text-shadow: $green -1px -1px, $green -2px -2px, $green -3px -3px, $green -4px -4px, $green -5px -5px, $green -6px -6px, $green -7px -7px, $green -8px -8px, $green -9px -9px, $green -10px -10px, $green -11px -11px, $green -12px -12px, $green -13px -13px, $green -14px -14px, $green -15px -15px;
+    text-shadow: $green -1px -1px, $green -2px -2px, $green -3px -3px, $green -4px -4px, $green -5px -5px,
+      $green -6px -6px, $green -7px -7px, $green -8px -8px, $green -9px -9px, $green -10px -10px, $green -11px -11px,
+      $green -12px -12px, $green -13px -13px, $green -14px -14px, $green -15px -15px;
   }
   30% {
-    text-shadow: $pink -1px -1px, $pink -2px -2px, $pink -3px -3px, $pink -4px -4px, $pink -5px -5px, $pink -6px -6px, $pink -7px -7px, $pink -8px -8px, $pink -9px -9px, $pink -10px -10px, $pink -11px -11px, $pink -12px -12px, $pink -13px -13px, $pink -14px -14px, $pink -15px -15px;
+    text-shadow: $pink -1px -1px, $pink -2px -2px, $pink -3px -3px, $pink -4px -4px, $pink -5px -5px, $pink -6px -6px,
+      $pink -7px -7px, $pink -8px -8px, $pink -9px -9px, $pink -10px -10px, $pink -11px -11px, $pink -12px -12px,
+      $pink -13px -13px, $pink -14px -14px, $pink -15px -15px;
   }
   60% {
-    text-shadow: $blue -1px -1px, $blue -2px -2px, $blue -3px -3px, $blue -4px -4px, $blue -5px -5px, $blue -6px -6px, $blue -7px -7px, $blue -8px -8px, $blue -9px -9px, $blue -10px -10px, $blue -11px -11px, $blue -12px -12px, $blue -13px -13px, $blue -14px -14px, $blue -15px -15px;
+    text-shadow: $blue -1px -1px, $blue -2px -2px, $blue -3px -3px, $blue -4px -4px, $blue -5px -5px, $blue -6px -6px,
+      $blue -7px -7px, $blue -8px -8px, $blue -9px -9px, $blue -10px -10px, $blue -11px -11px, $blue -12px -12px,
+      $blue -13px -13px, $blue -14px -14px, $blue -15px -15px;
   }
   90% {
-    text-shadow: $yellow -1px -1px, $yellow -2px -2px, $yellow -3px -3px, $yellow -4px -4px, $yellow -5px -5px, $yellow -6px -6px, $yellow -7px -7px, $yellow -8px -8px, $yellow -9px -9px, $yellow -10px -10px, $yellow -11px -11px, $yellow -12px -12px, $yellow -13px -13px, $yellow -14px -14px, $yellow -15px -15px;
+    text-shadow: $yellow -1px -1px, $yellow -2px -2px, $yellow -3px -3px, $yellow -4px -4px, $yellow -5px -5px,
+      $yellow -6px -6px, $yellow -7px -7px, $yellow -8px -8px, $yellow -9px -9px, $yellow -10px -10px,
+      $yellow -11px -11px, $yellow -12px -12px, $yellow -13px -13px, $yellow -14px -14px, $yellow -15px -15px;
   }
   to {
-    text-shadow: $green -1px -1px, $green -2px -2px, $green -3px -3px, $green -4px -4px, $green -5px -5px, $green -6px -6px, $green -7px -7px, $green -8px -8px, $green -9px -9px, $green -10px -10px, $green -11px -11px, $green -12px -12px, $green -13px -13px, $green -14px -14px, $green -15px -15px;
+    text-shadow: $green -1px -1px, $green -2px -2px, $green -3px -3px, $green -4px -4px, $green -5px -5px,
+      $green -6px -6px, $green -7px -7px, $green -8px -8px, $green -9px -9px, $green -10px -10px, $green -11px -11px,
+      $green -12px -12px, $green -13px -13px, $green -14px -14px, $green -15px -15px;
   }
 }
 
@@ -163,7 +173,8 @@ form {
   label {
     @apply text-df-yellow;
   }
-  textarea, select {
+  textarea,
+  select {
     @apply text-black;
   }
   .error {
@@ -190,7 +201,7 @@ form {
   transform: rotate(90deg);
 }
 
-@import "ember-power-select";
+@import 'ember-power-select';
 
 .ember-power-select-multiple-option {
   text-shadow: none;
@@ -210,7 +221,7 @@ form {
   transform: rotate(-3.5deg);
 }
 
-#not-found-spin{
+#not-found-spin {
   animation: spin 1.5s infinite linear;
 }
 
@@ -234,7 +245,7 @@ form {
 
 .gif-preview {
   cursor: pointer;
-    border: solid 2px #eee;
+  border: solid 2px #eee;
   &:hover {
     border: dashed 2px $yellow;
   }
@@ -290,10 +301,48 @@ form {
   }
 }
 
+.show-poster {
+  min-height: 500px;
+}
+
+.show-info {
+  padding: 1em;
+  border-image: repeating-linear-gradient(
+    90deg,
+    $green,
+    $green 20px,
+    $pink 20px,
+    $pink 40px,
+    $yellow 40px,
+    $yellow 60px,
+    $blue 60px,
+    $blue 80px
+  );
+  border-width: 10px;
+  border-style: solid;
+  border-image-slice: 1;
+  max-width: 50%;
+  bottom: 20px;
+  left: 20px;
+  box-shadow: 10px 10px 2px grey;
+  position: absolute;
+
+  @media (max-width: 480px) {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+  }
+}
+
+.show-image {
+  background-size: contain;
+}
+
 .add-datafruits {
   background: $green;
   color: $yellow;
   padding: 5px;
   display: flex;
 }
+
 @tailwind utilities;

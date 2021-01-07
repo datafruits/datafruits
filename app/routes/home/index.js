@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 import Route from '@ember/routing/route';
 import ENV from 'datafruits13/config/environment';
 import { hash } from 'rsvp';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 @classic
 export default class IndexRoute extends Route {
@@ -12,8 +12,8 @@ export default class IndexRoute extends Route {
 
   async model() {
     let query = {
-      start: moment().format('YYYY-MM-DD'),
-      end: moment().endOf('month').add(1, 'month').format('YYYY-MM-DD'),
+      start: dayjs().format('YYYY-MM-DD'),
+      end: dayjs().endOf('month').add(1, 'month').format('YYYY-MM-DD'),
     };
     const podcast = await this.store.queryRecord('podcast', {
       name: 'datafruits',
