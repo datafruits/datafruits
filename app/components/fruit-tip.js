@@ -25,7 +25,7 @@ export default class FruitTipComponent extends Component {
 
   // strawberry, orange, lemon
   @action
-  fruitTip(event, fruitType) {
+  fruitTip(fruitType, event) {
     console.log('tip fruit!');
     if (this.chat.token) {
       this.chat.push('new:fruit_tip', {
