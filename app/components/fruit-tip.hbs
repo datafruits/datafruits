@@ -1,6 +1,18 @@
+{{#if this.showingFruitChoices}}
+  {{#each this.fruitTypes as |fruit|}}
+    <button
+      {{on "click" (fn this.fruitTip fruit.name)}}
+      class="cool-button fruit-tip-button"
+      type="button"
+      >
+      <img src={{fruit.image}} />
+    </button>
+  {{/each}}
+{{/if}}
 <button
-  {{on "click" this.fruitTip}}
+  {{on "click" this.showFruitChoices}}
   class="cool-button fruit-tip-button"
+  type="button"
   >
   give the DJ fruit
 </button>
