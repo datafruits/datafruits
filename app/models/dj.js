@@ -1,7 +1,10 @@
 import classic from 'ember-classic-decorator';
 import { computed } from '@ember/object';
 import Model, { attr, hasMany } from '@ember-data/model';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+
+dayjs.extend(isSameOrAfter);
 
 @classic
 export default class Dj extends Model {
@@ -33,7 +36,7 @@ export default class Dj extends Model {
   get nextShow() {
     return this.scheduledShows
       .filter((scheduledShow) => {
-        return moment(scheduledShow.start).isSameOrAfter(Date.now());
+        return dayjs(scheduledShow.start).isSameOrAfter(Date.now());
       })
       .get('firstObject');
   }
