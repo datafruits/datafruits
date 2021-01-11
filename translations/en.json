@@ -231,6 +231,7 @@
     "donate_aria": "Make a donation to datafruits.fm through PayPal"
   },
   "coc": {
+    "checkbox_aria": "Agree with the Code of Conduct to join the chat",
     "pledge": {
       "title": "Our Pledge",
       "p1": "In the interest of fostering an open and welcoming environment, we as music fans pledge to making participation in our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation."

@@ -21,10 +21,7 @@
     "label": {
       "nick": "apodo",
       "input": "mensaje",
-      "search": "buscar por etiqueta",
-      "aria": "Visita la sala de chat de datafruits.fm",
-      "coc": "Code of Contact",
-      "i_agree": "He leído el Código de Conducta y acepto seguir sus términos y entiendo que pueden ser removidos por no hacerlo."
+      "search": "buscar por etiqueta"
     },
     "titles": {
       "enter": "Entrar al chat",

@@ -64,7 +64,7 @@
             id="agree-to-coc"
             @type="checkbox"
             @checked={{this.agreeToCoC}}
-            aria="Agree with the Code of Conduct to join the chat"
+            aria={{t "coc.checkbox_aria"}}
             {{action 'change' this.agreeChanged}}
           />
           <label class="text-xs" for="agree-to-coc">
