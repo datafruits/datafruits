@@ -45,7 +45,9 @@
             class="max-h-full"
             placeholder={{t "chat.nickname"}}
           />
-          <button {{action "enterChatAnonymously"}}
+          <button 
+            id="joinChatAnon"
+            {{action "enterChatAnonymously"}}
             class="cool-button"
             disabled={{disableJoinButton}}
             title={{t "chat.titles.enter"}}

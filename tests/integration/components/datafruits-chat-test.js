@@ -22,6 +22,8 @@ module('Integration | Component | datafruits chat', function (hooks) {
     assert.equal(this.element.textContent.trim().includes('Join chat'), true);
     assert.equal(this.element.textContent.trim().includes('Images are off'), true);
     assert.equal(this.element.textContent.trim().includes('Login'), true);
+    const join = this.element.querySelector('#joinChatAnon');
+    assert.equal(join.getAttribute('disabled'), true);
   });
 
   test('it has offline message', async function (assert) {
