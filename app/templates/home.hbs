@@ -54,6 +54,8 @@
 />
 <Notifications />
 <WindowResizeHandler />
-{{#if this.showingPixi}}
-  <Pixi />
+{{#if (not this.fastboot.isFastBoot)}}
+  {{#if this.showingPixi}}
+    <Pixi />
+  {{/if}}
 {{/if}}

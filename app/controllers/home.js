@@ -21,6 +21,8 @@ export default class HomeController extends Controller {
   @service
   currentUser;
 
+  @service fastboot;
+
   @oneWay('intl.locale')
   locale;
 
