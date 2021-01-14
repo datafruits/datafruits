@@ -19,23 +19,27 @@ export default class PixiComponent extends Component {
 
   addFruitTip() {
     console.log('got fruitTipped event...in pixi component');
-    let sprite = PIXI.Sprite.from('/assets/images/strawberry.png');
-    sprite.scale.x = 0.25;
-    sprite.scale.y = 0.25;
-    sprite.x = Math.random() * this.app.screen.width;
-    sprite.y = Math.random() * this.app.screen.height;
-    console.log(sprite);
-    console.log(sprite.x);
-    console.log(sprite.y);
-    this.sprites.pushObject(sprite);
-    this.app.stage.addChild(sprite);
-    // add callback to remove sprite after 5s
-    later(() => {
-      console.log('removing sprite...');
-      sprite.destroy();
-      let spriteIndex = this.sprites.indexOf(sprite);
-      this.sprites.splice(spriteIndex, 1);
-    }, 5000);
+    if (this.app) {
+      let sprite = PIXI.Sprite.from('/assets/images/strawberry.png');
+      sprite.scale.x = 0.25;
+      sprite.scale.y = 0.25;
+      sprite.x = Math.random() * this.app.screen.width;
+      sprite.y = Math.random() * this.app.screen.height;
+      console.log(sprite);
+      console.log(sprite.x);
+      console.log(sprite.y);
+      this.sprites.pushObject(sprite);
+      this.app.stage.addChild(sprite);
+      // add callback to remove sprite after 5s
+      later(() => {
+        console.log('removing sprite...');
+        sprite.destroy();
+        let spriteIndex = this.sprites.indexOf(sprite);
+        this.sprites.splice(spriteIndex, 1);
+      }, 5000);
+    } else {
+      console.log("pixi.js wasn't initialized...");
+    }
   }
 
   @action
