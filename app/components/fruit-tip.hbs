@@ -1,13 +1,22 @@
 {{#if this.showingFruitChoices}}
-  {{#each this.fruitTypes as |fruit|}}
+  <div class="flex bg-df-pink border-dashed border-white border-4 p-4">
     <button
-      {{on "click" (fn this.fruitTip fruit.name)}}
-      class="cool-button fruit-tip-button"
+      {{on "click" this.hideFruitChoices}}
+      class="cool-button"
       type="button"
       >
-      <img src={{fruit.image}} />
+      X
     </button>
-  {{/each}}
+    {{#each this.fruitTypes as |fruit|}}
+      <button
+        {{on "click" (fn this.fruitTip fruit.name)}}
+        class="cool-button fruit-tip-button"
+        type="button"
+        >
+        <img src={{fruit.image}} />
+      </button>
+    {{/each}}
+  </div>
 {{/if}}
 <button
   {{on "click" this.showFruitChoices}}

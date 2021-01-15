@@ -48,4 +48,9 @@ export default class FruitTipComponent extends Component {
   showFruitChoices() {
     this.showingFruitChoices = true;
   }
+
+  @action
+  hideFruitChoices() {
+    this.showingFruitChoices = false;
+  }
 }
