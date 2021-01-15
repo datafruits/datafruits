@@ -11,6 +11,7 @@ export default class PixiComponent extends Component {
   background;
   app;
   sprites = [];
+  animations = {};
 
   constructor() {
     super(...arguments);
@@ -20,7 +21,8 @@ export default class PixiComponent extends Component {
   addFruitTip() {
     console.log('got fruitTipped event...in pixi component');
     if (this.app) {
-      let sprite = PIXI.Sprite.from('/assets/images/strawberry.png');
+      //let sprite = PIXI.Sprite.from('/assets/images/strawberry.png');
+      let sprite = new PIXI.AnimatedSprite(this.animations.strawberry);
       sprite.scale.x = 0.25;
       sprite.scale.y = 0.25;
       sprite.x = Math.random() * this.app.screen.width;
@@ -28,6 +30,10 @@ export default class PixiComponent extends Component {
       console.log(sprite);
       console.log(sprite.x);
       console.log(sprite.y);
+
+      sprite.animationSpeed = 2;
+      sprite.play();
+
       this.sprites.pushObject(sprite);
       this.app.stage.addChild(sprite);
       // add callback to remove sprite after 5s
@@ -40,6 +46,10 @@ export default class PixiComponent extends Component {
     } else {
       console.log("pixi.js wasn't initialized...");
     }
+  }
+
+  loaded() {
+    this.strawberrySheet = PIXI.Loader.shared.resources["assets/images/sprites/strawberry.json"].spritesheet;
   }
 
   @action
@@ -57,6 +67,8 @@ export default class PixiComponent extends Component {
     }
 
     PIXI.utils.sayHello(type);
+
+    //PIXI.Loader.shared.add("assets/images/sprites/strawberry.json").load(this.loaded);
 
     //Create a Pixi Application
     this.app = new PIXI.Application({
@@ -91,7 +103,9 @@ export default class PixiComponent extends Component {
     //
     this.app.stop();
 
-    this.app.loader.add('shader', 'assets/shaders/shader.frag').load((loader, res) => {
+    this.app.loader.add('strawberry', 'assets/images/sprites/strawberry.json');
+    this.app.loader.add('shader', 'assets/shaders/shader.frag');
+    this.app.loader.load((loader, res) => {
       // Create the new filter, arguments: (vertexShader, framentSource)
       this.filter = new PIXI.Filter(null, res.shader.data, {
         customUniform: 0.0,
@@ -105,6 +119,8 @@ export default class PixiComponent extends Component {
       // Add the filter
       //this.background.filters = [this.filter];
       //text.filters = [filter];
+      //
+      this.animations.strawberry = res.strawberry.spritesheet.animations['strawberry2_wiggle.png'];
 
       // Resume application update
       this.app.start();
