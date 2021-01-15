@@ -13,16 +13,24 @@ export default class PixiComponent extends Component {
   sprites = [];
   animations = {};
 
+  fruits = ['strawberry', 'lemon', 'orange'];
+
   constructor() {
     super(...arguments);
     this.eventBus.subscribe('fruitTipped', this, 'addFruitTip');
   }
 
-  addFruitTip() {
-    console.log('got fruitTipped event...in pixi component');
+  addFruitTip(event) {
+    console.log(`got fruitTipped event...in pixi component ${event}`);
     if (this.app) {
       //let sprite = PIXI.Sprite.from('/assets/images/strawberry.png');
-      let sprite = new PIXI.AnimatedSprite(this.animations.strawberry);
+      let animation;
+      if(this.fruits.includes(event)){
+        animation = event;
+      }else{
+        console.log(`invalid fruit: ${event}`);
+      }
+      let sprite = new PIXI.AnimatedSprite(this.animations[animation]);
       sprite.scale.x = 0.25;
       sprite.scale.y = 0.25;
       sprite.x = Math.random() * this.app.screen.width;
@@ -31,7 +39,7 @@ export default class PixiComponent extends Component {
       console.log(sprite.x);
       console.log(sprite.y);
 
-      sprite.animationSpeed = 2;
+      sprite.animationSpeed = 1;
       sprite.play();
 
       this.sprites.pushObject(sprite);
@@ -46,10 +54,6 @@ export default class PixiComponent extends Component {
     } else {
       console.log("pixi.js wasn't initialized...");
     }
-  }
-
-  loaded() {
-    this.strawberrySheet = PIXI.Loader.shared.resources["assets/images/sprites/strawberry.json"].spritesheet;
   }
 
   @action
@@ -67,8 +71,6 @@ export default class PixiComponent extends Component {
     }
 
     PIXI.utils.sayHello(type);
-
-    //PIXI.Loader.shared.add("assets/images/sprites/strawberry.json").load(this.loaded);
 
     //Create a Pixi Application
     this.app = new PIXI.Application({
@@ -104,6 +106,8 @@ export default class PixiComponent extends Component {
     this.app.stop();
 
     this.app.loader.add('strawberry', 'assets/images/sprites/strawberry.json');
+    this.app.loader.add('orange', 'assets/images/sprites/orange.json');
+    this.app.loader.add('lemon', 'assets/images/sprites/lemon.json');
     this.app.loader.add('shader', 'assets/shaders/shader.frag');
     this.app.loader.load((loader, res) => {
       // Create the new filter, arguments: (vertexShader, framentSource)
@@ -121,6 +125,8 @@ export default class PixiComponent extends Component {
       //text.filters = [filter];
       //
       this.animations.strawberry = res.strawberry.spritesheet.animations['strawberry2_wiggle.png'];
+      this.animations.orange = res.orange.spritesheet.animations['orange.png'];
+      this.animations.lemon = res.lemon.spritesheet.animations['lemon.png'];
 
       // Resume application update
       this.app.start();
