@@ -21,22 +21,18 @@ export default class PixiComponent extends Component {
   }
 
   addFruitTip(event) {
-    console.log(`got fruitTipped event...in pixi component ${event}`);
     if (this.app) {
       let animation;
-      if(this.fruits.includes(event)){
+      if (this.fruits.includes(event)) {
         animation = event;
-      }else{
-        console.log(`invalid fruit: ${event}`);
+      } else {
+        console.log(`invalid fruit: ${event}`); // eslint-disable-line no-console
       }
       let sprite = new PIXI.AnimatedSprite(this.animations[animation]);
       sprite.scale.x = 0.25;
       sprite.scale.y = 0.25;
       sprite.x = Math.random() * this.app.screen.width;
       sprite.y = Math.random() * this.app.screen.height;
-      console.log(sprite);
-      console.log(sprite.x);
-      console.log(sprite.y);
 
       sprite.animationSpeed = 1;
       sprite.play();
@@ -45,13 +41,12 @@ export default class PixiComponent extends Component {
       this.app.stage.addChild(sprite);
       // add callback to remove sprite after 5s
       later(() => {
-        console.log('removing sprite...');
         sprite.destroy();
         let spriteIndex = this.sprites.indexOf(sprite);
         this.sprites.splice(spriteIndex, 1);
       }, 5000);
     } else {
-      console.log("pixi.js wasn't initialized...");
+      console.log("pixi.js wasn't initialized..."); // eslint-disable-line no-console
     }
   }
 
@@ -71,14 +66,12 @@ export default class PixiComponent extends Component {
 
     PIXI.utils.sayHello(type);
 
-    //Create a Pixi Application
     this.app = new PIXI.Application({
       autoResize: true,
       resolution: devicePixelRatio,
       transparent: true,
     });
 
-    //Add the canvas that Pixi automatically created for you to the HTML document
     document.body.appendChild(this.app.view);
 
     // move this into resize handler later
