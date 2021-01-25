@@ -13,19 +13,10 @@ module('Integration | Component | fruit-tip', function (hooks) {
     await render(hbs`<FruitTip />`);
 
     assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      <FruitTip>
-        template block text
-      </FruitTip>
-    `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 
-  test('it shows fruit tipping options when clicked', async function (assert) {
-    await render(hbs`<FruitTip />`);
-    click('button');
-  });
+  // test('it shows fruit tipping options when clicked', async function (assert) {
+  //   await render(hbs`<FruitTip />`);
+  //   click('button');
+  // });
 });
