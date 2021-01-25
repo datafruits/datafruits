@@ -23,10 +23,12 @@ export default class FruitTipComponent extends Component {
     },
   ];
 
-  // strawberry, orange, lemon
+  get randomFruitImage(){
+    return this.fruitTypes[Math.floor(Math.random() * this.fruitTypes.length)].image;
+  }
+
   @action
   fruitTip(fruitType, event) {
-    console.log('tip fruit!');
     if (this.chat.token) {
       this.chat.push('new:fruit_tip', {
         user: this.chat.username,
