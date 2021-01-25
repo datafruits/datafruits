@@ -10,7 +10,7 @@
     {{#each this.fruitTypes as |fruit|}}
       <button
         {{on "click" (fn this.fruitTip fruit.name)}}
-        class="cool-button fruit-tip-button"
+        class="cool-button fruit-tip-button mr-1 ml-1"
         type="button"
         >
         <img src={{fruit.image}} />
