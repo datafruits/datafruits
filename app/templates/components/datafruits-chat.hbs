@@ -45,7 +45,7 @@
             class="max-h-full"
             placeholder={{t "chat.nickname"}}
           />
-          <button 
+          <button
             data-test-join-chat
             {{action "enterChatAnonymously"}}
             class="cool-button"
@@ -67,7 +67,6 @@
             @type="checkbox"
             @checked={{this.agreeToCoC}}
             aria={{t "coc.checkbox_aria"}}
-            {{action 'change' this.agreeChanged}}
           />
           <label class="text-xs" for="agree-to-coc">
             {{t "djinquiry.coc_accept"}}

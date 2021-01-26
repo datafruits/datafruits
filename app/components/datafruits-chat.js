@@ -29,12 +29,7 @@ export default class DatafruitsChat extends Component {
   @oneWay('chat.joinedUsers')
   joinedUsers;
 
-  @computed('isJoiningChat', 'nick.length')
-  @action
-  agreeChanged() {
-    // input handler requires a function to exist for this to work correctly
-    // ¯\_(~_~)_/¯
-  }
+  @computed('isJoiningChat', 'nick.length', 'agreeToCoC')
   get disableJoinButton() {
     return !(this.agreeToCoC && this.nick.length > 1) || this.isJoiningChat;
   }
