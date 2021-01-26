@@ -7,6 +7,7 @@ import { Presence } from 'phoenix';
 export default Service.extend({
   socket: service(),
   session: service(),
+  eventBus: service(),
   currentUser: service(),
   joinedUsers: computed('presences', function () {
     return Object.keys(this.presences);
@@ -62,6 +63,11 @@ export default Service.extend({
         msg['role'] = msg.role.split(' ');
       }
       this.messages.pushObject(msg);
+    });
+
+    this.chan.on('new:fruit_tip', (msg) => {
+      console.log(`got new fruit tip: ${msg}`); // eslint-disable-line no-console
+      this.eventBus.publish('fruitTipped', msg.fruit);
     });
 
     this.chan.on('authorized', (msg) => {
