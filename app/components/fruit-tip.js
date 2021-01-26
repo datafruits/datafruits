@@ -23,7 +23,7 @@ export default class FruitTipComponent extends Component {
     },
   ];
 
-  get randomFruitImage(){
+  get randomFruitImage() {
     return this.fruitTypes[Math.floor(Math.random() * this.fruitTypes.length)].image;
   }
 

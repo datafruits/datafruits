@@ -66,7 +66,7 @@ export default Service.extend({
     });
 
     this.chan.on('new:fruit_tip', (msg) => {
-      console.log(`got new fruit tip: ${msg}`);
+      console.log(`got new fruit tip: ${msg}`); // eslint-disable-line no-console
       this.eventBus.publish('fruitTipped', msg.fruit);
     });
 

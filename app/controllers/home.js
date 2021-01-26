@@ -4,7 +4,6 @@ import { inject as service } from '@ember/service';
 import { oneWay } from '@ember/object/computed';
 import { debounce } from '@ember/runloop';
 import Controller from '@ember/controller';
-import { later } from '@ember/runloop';
 import { tracked } from '@glimmer/tracking';
 
 @classic
@@ -39,9 +38,6 @@ export default class HomeController extends Controller {
       this.set('menuOpen', false);
       this.set('submenuOpen', false);
     });
-    // later(() => {
-    //   this.showingPixi = false;
-    // }, 15000);
   }
 
   @action
