@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 import { oneWay } from '@ember/object/computed';
 import { debounce } from '@ember/runloop';
 import Controller from '@ember/controller';
+import { tracked } from '@glimmer/tracking';
 
 @classic
 export default class HomeController extends Controller {
@@ -19,12 +20,17 @@ export default class HomeController extends Controller {
   @service
   currentUser;
 
+  @service fastboot;
+
   @oneWay('intl.locale')
   locale;
 
   menuOpen = false;
   submenuOpen = false;
   isShowingUserMenu = false;
+
+  @tracked
+  showingPixi = true;
 
   init() {
     super.init(...arguments);
