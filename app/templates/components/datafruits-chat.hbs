@@ -61,15 +61,8 @@
           </button>
         </div>
         <div>
-          <Input
-            name="agree-to-coc"
-            id="agree-to-coc"
-            @type="checkbox"
-            @checked={{this.agreeToCoC}}
-            aria={{t "coc.checkbox_aria"}}
-          />
           <label class="text-xs" for="agree-to-coc">
-            {{t "djinquiry.coc_accept"}}
+            {{t "chat.coc_label"}}
           </label>
           <a class="text-sm" href="/coc"><abbr title={{t "code_of_conduct"}}>{{t "chat.label.coc"}}</abbr></a>
         </div>

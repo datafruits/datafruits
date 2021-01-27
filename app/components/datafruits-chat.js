@@ -11,7 +11,6 @@ export default class DatafruitsChat extends Component {
   @oneWay('chat.gifsEnabled')
   gifsEnabled;
 
-  @tracked agreeToCoC = false;
   @tracked nick = '';
   pass = '';
   newMessagesBelow = false; // TODO move this to chat service
@@ -29,9 +28,9 @@ export default class DatafruitsChat extends Component {
   @oneWay('chat.joinedUsers')
   joinedUsers;
 
-  @computed('isJoiningChat', 'nick.length', 'agreeToCoC')
+  @computed('isJoiningChat', 'nick.length')
   get disableJoinButton() {
-    return !(this.agreeToCoC && this.nick.length > 1) || this.isJoiningChat;
+    return this.nick.length < 1 || this.isJoiningChat;
   }
 
   @action
