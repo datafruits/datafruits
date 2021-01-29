@@ -18,7 +18,9 @@
       "nick": "ニックネーム",
       "input": "メッセージ",
       "search": "タグで検索",
-      "aria": "datafruits.fmチャットルームにアクセス"
+      "aria": "datafruits.fmチャットルームにアクセス",
+      "i_agree": "私は行動規範を読み、その条件に従うことに同意し、それを怠ったために削除される可能性があることを理解します",
+      "coc": "Code of Conduct"
     },
     "titles": {
       "enter": "チャットに入る",
@@ -76,7 +78,7 @@
   "just_a_website": "それはただのウェブサイトです。",
   "about_datafruits": "国際的な音楽コミュニティのための国際的な音楽コミュニティによるインディペンデント・ラジオ。datafruitsはオープンソースであり、さまざまな境界とジャンルを打ち壊す。われわれは、どんな曲だってかける。サービスが行き届かず、周縁に追いやられているコミュニティにスポットライトをあて、彼ら彼女たちから発信される音楽をシェアすることには労を惜しまない。ユーザーに役立つプラットフォームとは、そのプラットフォームの利用者とDJとリスナーによって所有され、運営されるものに他ならないとわれわれは考える！",
   "thanks_patrons": "Patronのみんなさん有難う御座います",
-  "code_of_conduct": "Code Of Conduct",
+  "code_of_conduct": "Code of Conduct",
   "what_is_datafruits": "datafruitsとは...",
   "loading": "ロード中。。。",
   "next_broadcast": "次の生放送: ",

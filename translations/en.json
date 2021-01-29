@@ -32,6 +32,7 @@
     "img_off": "Images are off",
     "gif": "GIF",
     "join_anonymously": "Join chat",
+    "coc_label": "By joining the chat, I agree with the datafruits Code of Conduct and will abide by its guidelines",
     "login": "Login",
     "username": "username",
     "nickname": "nickname",
@@ -41,10 +42,12 @@
     "label": {
       "nick": "nickname",
       "input": "message",
-      "search": "search by tag"
+      "search": "search by tag",
+      "coc": "CoC"
     },
     "titles": {
-      "enter": "Enter chat",
+      "join": "Join chat with nickname",
+      "login": "Join chat with registered account",
       "send": "Send message to chat",
       "img_on": "Images in chat will be displayed",
       "img_off": "Images in chat will not be displayed",
@@ -184,7 +187,7 @@
   },
   "secret": "secret",
   "thanks_patrons": "THANKS TO ALL THE PATRONS!",
-  "code_of_conduct": "Code Of Conduct",
+  "code_of_conduct": "Code of Conduct",
   "what_is_datafruits": "What is datafruits...",
   "loading": "Loading...",
   "next_broadcast": "Next live on air: ",
