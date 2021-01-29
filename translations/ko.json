@@ -18,7 +18,9 @@
       "nick": "별명",
       "input": "메시지",
       "search": "태그로 검색",
-      "aria": "datafruits.fm 대화방 방문"
+      "aria": "datafruits.fm 대화방 방문",
+      "coc": "Code of Conduct",
+      "i_agree": "나는 행동 강령을 읽었으며 그 약관을 따르는 데 동의하며 그렇게하지 않을 경우 제거 될 수 있음을 이해합니다."
     },
     "titles": {
       "enter": "Enter chat",
@@ -87,5 +89,6 @@
   "loading": "로드 중...",
   "next_broadcast": "다음 생방송: ",
   "now_playing": "Now playing",
-  "donate": "DONATE"
+  "donate": "DONATE",
+  "code_of_conduct": "Code of Conduct"
 }

@@ -21,8 +21,7 @@
     "label": {
       "nick": "apodo",
       "input": "mensaje",
-      "search": "buscar por etiqueta",
-      "aria": "Visita la sala de chat de datafruits.fm"
+      "search": "buscar por etiqueta"
     },
     "titles": {
       "enter": "Entrar al chat",
