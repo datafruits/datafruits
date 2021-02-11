@@ -18,6 +18,7 @@ Router.map(function () {
     this.route('djs');
     this.route('dj', { path: '/djs/:name' });
     this.route('chat');
+    this.route('cat');
     this.route('blogs.show', { path: '/blogs/:id' });
     this.route('user', function () {
       this.route('settings');
