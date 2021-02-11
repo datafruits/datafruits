@@ -5,6 +5,7 @@ import { inject as service } from '@ember/service';
 
 export default class FruitTipComponent extends Component {
   @tracked showingFruitChoices = false;
+  @tracked selectedFruitTip;
   @service
   chat;
 
@@ -20,6 +21,24 @@ export default class FruitTipComponent extends Component {
     {
       name: 'lemon',
       image: '/assets/images/emojis/lemoner.gif',
+    },
+  ];
+
+  tippableFruits = [
+    {
+      name: 'dragonfruit',
+      value: 5,
+      image: '/assets/images/fruit-tips/dragonfruit.gif',
+    },
+    {
+      name: 'rainbow-pineapple',
+      value: 10,
+      image: '/assets/images/fruit-tips/rainbow-pineapple.gif',
+    },
+    {
+      name: 'pizza-sushi',
+      value: 20,
+      image: '/assets/images/fruit-tips/pizza-sushi.gif',
     },
   ];
 
@@ -54,5 +73,11 @@ export default class FruitTipComponent extends Component {
   @action
   hideFruitChoices() {
     this.showingFruitChoices = false;
+  }
+
+  @action
+  beginTipTransaction(fruitTip) {
+    this.selectedFruitTip = fruitTip;
+    this.showingTipModal = true;
   }
 }
