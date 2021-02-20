@@ -5,7 +5,7 @@
 {{/if}}
 <form {{action "submit" on="submit"}}>
   <div>
-    <label class="block text-sm font-bold mb-2" for="user-email">Email</label>
+    <label class="block text-sm font-bold mb-2" for="user-email">{{t "signup.email"}}</label>
     <Input
       class="form-input focus:outline-none focus:shadow-outline"
       @id="user-email"
@@ -28,21 +28,28 @@
     </LinkTo>
   {{/if}}
   <div>
-    <ValidatedField
+    <label class="block text-sm font-bold mb-2" for="user-email">{{t "signup.username"}}</label>
+    <Input
+      class="form-input focus:outline-none focus:shadow-outline"
+      @id="user-username"
       @type="text"
-      @changeset={{@changeset}}
-      @property="username"
-      @updateProperty={{fn this.updateProperty}}
-      @validateProperty={{fn this.validateProperty}}
+      @autofocus={{true}}
+      {{on "change" this.updateUsername}}
       />
   </div>
+  {{#if this.usernameValidationErrors}}
+    <div class="text-red-700">
+      {{#each this.usernameValidationErrors as |message|}}
+        <div class="error item">{{message}}</div>
+      {{/each}}
+    </div>
+  {{/if}}
   <div>
     <ValidatedField
       @type="password"
       @changeset={{@changeset}}
       @property="password"
       @updateProperty={{fn this.updateProperty}}
-      @validateProperty={{fn this.validateProperty}}
       />
   </div>
   <div>

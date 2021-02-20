@@ -40,10 +40,14 @@ export default class SignUpFormComponent extends Component {
     }
   }
 
-  _updateEmail() {
-    if (this.email && this.email.length > 5) {
-      console.log('_updateEmail setting changeset email');
-      this.args.changeset.set('email', this.email);
+  get usernameValidationErrors() {
+    let errors = this.args.changeset.errors.find((error) => {
+      return error.key === 'username';
+    });
+    if(errors) {
+      return errors.validation;
+    } else {
+      return null;
     }
   }
 
@@ -51,20 +55,25 @@ export default class SignUpFormComponent extends Component {
     return this.args.changeset.isValid && !this.args.changeset.isSaving && this.cocAccepted;
   }
 
-  @action
-  updateEmail(event) {
-    this.email = event.target.value;
-    console.log(`updateEmail: ${this.email}`);
-    debounce(this, this._updateEmail, 500);
+  _updateEmail() {
+    if (this.email && this.email.length > 5) {
+      this.args.changeset.set('email', this.email);
+    }
   }
 
   @action
-  validateProperty(property) {
-    let changeset = this.args.changeset;
-    changeset.validate(property);
-    console.log(`validated property: ${property}`);
-    console.log(changeset.get('errors'));
-    return changeset.validate(property);
+  updateEmail(event) {
+    this.email = event.target.value;
+    debounce(this, this._updateEmail, 500);
+  }
+
+  _updateUsername() {
+    this.args.changeset.set('username', this.username);
+  }
+
+  @action updateUsername(event) {
+    this.username = event.target.value;
+    debounce(this, this._updateUsername, 500);
   }
 
   @action
