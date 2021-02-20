@@ -79,10 +79,10 @@ export default class PixiComponent extends Component {
 
     this.app.stop();
 
-    this.app.loader.add('strawberry', 'assets/images/sprites/strawberry.json');
-    this.app.loader.add('orange', 'assets/images/sprites/orange.json');
-    this.app.loader.add('lemon', 'assets/images/sprites/lemon.json');
-    this.app.loader.add('shader', 'assets/shaders/shader.frag');
+    this.app.loader.add('strawberry', '/assets/images/sprites/strawberry.json');
+    this.app.loader.add('orange', '/assets/images/sprites/orange.json');
+    this.app.loader.add('lemon', '/assets/images/sprites/lemon.json');
+    this.app.loader.add('shader', '/assets/shaders/shader.frag');
     this.app.loader.load((loader, res) => {
       this.filter = new PIXI.Filter(null, res.shader.data, {
         customUniform: 0.0,
