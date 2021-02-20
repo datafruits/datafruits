@@ -4,6 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { isEmpty } from '@ember/utils';
 import { later } from '@ember/runloop';
+import ENV from 'datafruits13/config/environment';
 
 export default class AddDatafruit extends Component {
   @service
@@ -40,6 +41,7 @@ export default class AddDatafruit extends Component {
       this.actions.loadDatafruits.apply(this);
     }
     this.currentDatafruit = this.datafruits.objectAt(this.currentDatafruitIndex);
+    if(ENV.environment === 'test') return;
     later(() => {
       this.incrementDatafruitIndex();
     }, 20000);
@@ -50,6 +52,7 @@ export default class AddDatafruit extends Component {
     this.datafruits = data;
     this.currentDatafruit = this.datafruits.objectAt(this.currentDatafruitIndex);
     // increment the currentDatafruit index in 5 sec
+    if(ENV.environment === 'test') return;
     later(() => {
       this.incrementDatafruitIndex();
     }, 20000);
