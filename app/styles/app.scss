@@ -380,5 +380,18 @@ canvas {
   }
 }
 
+@keyframes bounce {
+  0% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.very-nice {
+  animation: bounce linear 200ms;
+}
+
 @tailwind utilities;
 

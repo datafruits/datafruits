@@ -134,7 +134,10 @@
     "description": "Sign up for a free account as datafruits.fm listener. Save your favorite shows, archives and customize your profile. Be a part of the fruits community. Must've been the onion salad dressing.",
     "submit": "Sign up",
     "password": "Password",
-    "error": "Please correct the errors on the form"
+    "error": "Please correct the errors on the form",
+    "email_exists": "Account with this email already exists. Forgot your password?",
+    "username_exists": "This username has been taken.",
+    "nice": "NICE"
   },
   "usermenu": {
     "settings": "Settings",

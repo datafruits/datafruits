@@ -5,18 +5,26 @@
 {{/if}}
 <form {{action "submit" on="submit"}}>
   <div>
-    <ValidatedField
+    <label class="block text-sm font-bold mb-2" for="user-email">Email</label>
+    <Input
+      class="form-input focus:outline-none focus:shadow-outline"
+      @id="user-email"
       @type="text"
-      @changeset={{@changeset}}
-      @property="email"
-      @updateProperty={{fn this.updateProperty}}
-      @validateProperty={{fn this.validateProperty}}
+      @autofocus={{true}}
+      {{on "change" this.updateEmail}}
       />
   </div>
+  {{#if this.emailValidationErrors}}
+    <div class="text-red-700">
+      {{#each this.emailValidationErrors as |message|}}
+        <div class="error item">{{message}}</div>
+      {{/each}}
+    </div>
+  {{/if}}
 
   {{#if this.emailExists}}
     <LinkTo @route="home.password-reset">
-      Forgot your password?
+      {{t "signup.email_exists"}}
     </LinkTo>
   {{/if}}
   <div>
@@ -45,6 +53,11 @@
       name="coc-checkbox"
       />
   </div>
+  {{#if this.everythingLooksNice}}
+    <div class="bleed text-2xl">
+      <span class="very-nice">{{t "signup.nice"}}</span>
+    </div>
+  {{/if}}
   <div class="mt-2">
     <input
       type="submit"

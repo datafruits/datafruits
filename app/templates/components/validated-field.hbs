@@ -22,7 +22,6 @@
     @id={{concat @type "-" @property}}
     @value={{get @changeset @property}}
     {{on "change" this.updateProperty}}
-    {{on "blur" this.validateProperty}}
     />
 {{/if}}
 
