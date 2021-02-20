@@ -182,6 +182,13 @@ export function initialize(/* application */) {
       shortnames: [':pizzap:'],
       keywords: ['pizzap'],
     },
+    ':shrimpshake:': {
+      custom: true,
+      uc_base: 'shrimpshake',
+      uc_output: '',
+      shortnames: [':shrimpshake:'],
+      keywords: ['shrimpshake'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
