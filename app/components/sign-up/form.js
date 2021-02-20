@@ -13,6 +13,12 @@ export default class SignUpFormComponent extends Component {
   @service
   router;
 
+  @service
+  chat;
+
+  @service
+  currentUser;
+
   get emailExists() {
     let changeset = this.args.changeset;
     if (changeset.get('errors')) {
@@ -98,11 +104,15 @@ export default class SignUpFormComponent extends Component {
               .authenticate('authenticator:devise', nick, pass)
               .then(() => {
                 const token = this.session.data.authenticated.token;
-                this.chat.push('authorize_token', { user: nick, timestamp: Date.now(), token: token });
-                this.router.transitionTo('chat');
-                return true;
+                this.currentUser.load().then(() => {
+                  this.chat.push('authorize_token', { user: nick, timestamp: Date.now(), token: token });
+                  this.router.transitionTo('home');
+                  return true;
+                });
               })
-              .catch((/*reason*/) => {
+              .catch((reason) => {
+                console.log('couldnt log in');
+                console.log(reason);
                 alert('Wrong password');
                 return false;
               });

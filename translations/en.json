@@ -139,7 +139,8 @@
     "error": "Oh no. Time to fix the errors on the form. Must've been the onion salad dressing.",
     "email_exists": "Account with this email already exists. Forgot your password?",
     "username_exists": "This username has been taken.",
-    "nice": "NICE"
+    "nice": "NICE",
+    "already_signed_up": "You are already have an account, and in fact you are signed in. "
   },
   "usermenu": {
     "settings": "Settings",
