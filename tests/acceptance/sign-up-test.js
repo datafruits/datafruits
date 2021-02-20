@@ -13,9 +13,8 @@ module('Acceptance | sign up', function(hooks) {
     await fillIn("input#username", "djnameko");
     await fillIn("input#email", "dj.nameko@datafruits.fm");
     await fillIn("input#password", "mypassword1234");
-    await fillIn("input#password-confirmation", "mypassword1234");
     await click("[data-test-submit-button]");
 
-    assert.equal(currentURL(), '/users/settings');
+    assert.equal(currentURL(), '/chat');
   });
 });
