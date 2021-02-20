@@ -136,7 +136,7 @@
     "email": "Email",
     "username": "Username",
     "password": "Password",
-    "error": "Please correct the errors on the form",
+    "error": "Oh no. Time to fix the errors on the form. Must've been the onion salad dressing.",
     "email_exists": "Account with this email already exists. Forgot your password?",
     "username_exists": "This username has been taken.",
     "nice": "NICE"
