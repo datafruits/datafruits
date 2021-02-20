@@ -5,6 +5,7 @@ import { oneWay } from '@ember/object/computed';
 import { debounce } from '@ember/runloop';
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
+import ENV from 'datafruits13/config/environment';
 
 @classic
 export default class HomeController extends Controller {
@@ -38,6 +39,9 @@ export default class HomeController extends Controller {
       this.set('menuOpen', false);
       this.set('submenuOpen', false);
     });
+    if (ENV.environment === 'test') {
+      this.showingPixi = false;
+    }
   }
 
   @action
