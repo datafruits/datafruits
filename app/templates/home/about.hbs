@@ -1,15 +1,15 @@
-{{title "about"}}
-<div class="main-content">
+<div class="mt-5 pt-2 px-5">
+  {{page-title "about"}}
   <h1 id="myModalLabel">
     {{t "just_a_website"}}
   </h1>
-  <div class="modal-body">
-    <p>
+  <div>
+    <p class="my-2">
       {{t "about_datafruits"}}
     </p>
-    <ul>
+    <ul class="mb-2">
       <li>
-        <LinkTo @route="home.coc">
+        <LinkTo @route="home.coc" aria-label={{t "code_of_conduct_aria"}}>
           {{t "code_of_conduct"}}
         </LinkTo>
       </li>
@@ -17,13 +17,13 @@
         <p>
           {{t "about_page.listenersupport"}}
         </p>
-        <a href="https://patreon.com/datafruits" target="_blank" rel="noopener">
-          {{t "patron"}}
+        <a href="https://patreon.com/datafruits" target="_blank" rel="noopener" aria-label={{t "patron_aria"}}>
+          {{t "patron.title"}}
         </a>
         <p>
           {{t "about_page.donate_request"}}
         </p>
-        <a href="https://paypal.me/datafruitsfm" target="_blank" rel="noopener">
+        <a href="https://paypal.me/datafruitsfm" target="_blank" rel="noopener" aria-label={{t "about_page.donate_aria"}}>
           {{t "about_page.donate_linktext"}}
         </a>
       </li>
@@ -31,7 +31,7 @@
     <h2>
       {{t "thanks_patrons"}}
     </h2>
-    <ul>
+    <ul class="mb-2">
       {{#each model as |patron|}}
         <li class="patron">
           {{patron.name}}
@@ -39,12 +39,13 @@
       {{/each}}
     </ul>
   </div>
-  <div class="modal-footer">
-    <ul class="social-icons">
+  <div class="">
+    <ul class="flex text-2xl justify-around flex-wrap">
       <li>
         <a
           href="http://twitter.com/datafruits"
           title={{t "twitter"}}
+          aria-label={{t "twitter.aria"}}
           target="_blank"
           rel="noopener"
         >
@@ -54,7 +55,8 @@
       <li>
         <a
           href="http://github.com/datafruits"
-          title={{t "github"}}
+          title={{t "github.title"}}
+          aria-label={{t "github.aria"}}
           target="_blank"
           rel="noopener"
         >
@@ -64,7 +66,8 @@
       <li>
         <a
           href="http://soundcloud.com/datafruits"
-          title={{t "soundcloud"}}
+          title={{t "soundcloud.title"}}
+          aria-label={{t "soundcloud.aria"}}
           target="_blank"
           rel="noopener"
         >
@@ -74,7 +77,8 @@
       <li>
         <a
           href="http://mixcloud.com/datafruits"
-          title={{t "mixcloud"}}
+          title={{t "mixcloud.title"}}
+          aria-label={{t "mixcloud.aria"}}
           target="_blank"
           rel="noopener"
         >
@@ -84,7 +88,8 @@
       <li>
         <a
           href="http://instagram.com/datafruits"
-          title={{t "instagram"}}
+          title={{t "instagram.title"}}
+          aria-label={{t "instagram.aria"}}
           target="_blank"
           rel="noopener"
         >
@@ -94,7 +99,8 @@
       <li>
         <a
           href="mailto:info@datafruits.fm"
-          title={{t "email"}}
+          title={{t "email.title"}}
+          aria-label={{t "email.aria"}}
           target="_blank"
           rel="noopener"
         >
@@ -203,7 +209,7 @@
     <br>
     <br>
     <br>
-    <a href="http://datavegetables.club" class="secret">
+    <a href="http://datavegetables.club" class="text-df-blue hover:text-df-yellow text-shadow-none">
       {{t "secret"}}
     </a>
   </div>

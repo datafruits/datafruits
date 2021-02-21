@@ -1,7 +1,9 @@
+import classic from 'ember-classic-decorator';
 import ApplicationAdapter from './application';
 
-export default ApplicationAdapter.extend({
-  urlForCreateRecord(){
+@classic
+export default class HostApplication extends ApplicationAdapter {
+  urlForCreateRecord() {
     return `${this.urlPrefix()}/host_applications`;
   }
-});
+}

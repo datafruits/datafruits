@@ -1,0 +1,143 @@
+{"frames": {
+
+"strawberry2_wiggle.png0001.png":
+{
+	"frame": {"x":1,"y":1,"w":449,"h":394},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":82,"w":449,"h":394},
+	"sourceSize": {"w":540,"h":540}
+},
+"strawberry2_wiggle.png0002.png":
+{
+	"frame": {"x":904,"y":1,"w":449,"h":395},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":81,"w":449,"h":395},
+	"sourceSize": {"w":540,"h":540}
+},
+"strawberry2_wiggle.png0003.png":
+{
+	"frame": {"x":453,"y":398,"w":449,"h":398},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":79,"w":449,"h":398},
+	"sourceSize": {"w":540,"h":540}
+},
+"strawberry2_wiggle.png0004.png":
+{
+	"frame": {"x":1356,"y":398,"w":449,"h":399},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":79,"w":449,"h":399},
+	"sourceSize": {"w":540,"h":540}
+},
+"strawberry2_wiggle.png0005.png":
+{
+	"frame": {"x":452,"y":799,"w":449,"h":402},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":78,"w":449,"h":402},
+	"sourceSize": {"w":540,"h":540}
+},
+"strawberry2_wiggle.png0006.png":
+{
+	"frame": {"x":1355,"y":799,"w":450,"h":405},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":76,"w":450,"h":405},
+	"sourceSize": {"w":540,"h":540}
+},
+"strawberry2_wiggle.png0007.png":
+{
+	"frame": {"x":1,"y":1206,"w":449,"h":407},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":75,"w":449,"h":407},
+	"sourceSize": {"w":540,"h":540}
+},
+"strawberry2_wiggle.png0008.png":
+{
+	"frame": {"x":904,"y":1206,"w":450,"h":409},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":74,"w":450,"h":409},
+	"sourceSize": {"w":540,"h":540}
+},
+"strawberry2_wiggle.png0009.png":
+{
+	"frame": {"x":1356,"y":1206,"w":449,"h":409},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":74,"w":449,"h":409},
+	"sourceSize": {"w":540,"h":540}
+},
+"strawberry2_wiggle.png0010.png":
+{
+	"frame": {"x":452,"y":1206,"w":450,"h":407},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":75,"w":450,"h":407},
+	"sourceSize": {"w":540,"h":540}
+},
+"strawberry2_wiggle.png0011.png":
+{
+	"frame": {"x":903,"y":799,"w":450,"h":404},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":77,"w":450,"h":404},
+	"sourceSize": {"w":540,"h":540}
+},
+"strawberry2_wiggle.png0012.png":
+{
+	"frame": {"x":1,"y":799,"w":449,"h":401},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":79,"w":449,"h":401},
+	"sourceSize": {"w":540,"h":540}
+},
+"strawberry2_wiggle.png0013.png":
+{
+	"frame": {"x":904,"y":398,"w":450,"h":398},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":80,"w":450,"h":398},
+	"sourceSize": {"w":540,"h":540}
+},
+"strawberry2_wiggle.png0014.png":
+{
+	"frame": {"x":1355,"y":1,"w":449,"h":395},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":82,"w":449,"h":395},
+	"sourceSize": {"w":540,"h":540}
+},
+"strawberry2_wiggle.png0015.png":
+{
+	"frame": {"x":452,"y":1,"w":450,"h":394},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":82,"w":450,"h":394},
+	"sourceSize": {"w":540,"h":540}
+},
+"strawberry2_wiggle.png0016.png":
+{
+	"frame": {"x":1,"y":398,"w":450,"h":395},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":56,"y":81,"w":450,"h":395},
+	"sourceSize": {"w":540,"h":540}
+}},
+"animations": {
+	"strawberry2_wiggle.png": ["strawberry2_wiggle.png0001.png","strawberry2_wiggle.png0002.png","strawberry2_wiggle.png0003.png","strawberry2_wiggle.png0004.png","strawberry2_wiggle.png0005.png","strawberry2_wiggle.png0006.png","strawberry2_wiggle.png0007.png","strawberry2_wiggle.png0008.png","strawberry2_wiggle.png0009.png","strawberry2_wiggle.png0010.png","strawberry2_wiggle.png0011.png","strawberry2_wiggle.png0012.png","strawberry2_wiggle.png0013.png","strawberry2_wiggle.png0014.png","strawberry2_wiggle.png0015.png","strawberry2_wiggle.png0016.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "strawberry.png",
+	"format": "RGBA8888",
+	"size": {"w":1806,"h":1616},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:4b86695a76220c28868b0130ce9cd1d8:ac5612eadbd6c3f591297d2d27129647:9f85739cecb86acbf8e907db5320a15c$"
+}
+}

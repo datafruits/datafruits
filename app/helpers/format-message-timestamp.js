@@ -1,8 +1,8 @@
 import { helper } from '@ember/component/helper';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 export function formatMessageTimestamp(timestamp) {
-  return moment(timestamp[0]).format("HH:mm:ss");
+  return dayjs(timestamp[0]).format('HH:mm:ss');
 }
 
 export default helper(formatMessageTimestamp);

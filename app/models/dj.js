@@ -1,19 +1,43 @@
-import DS from 'ember-data';
+import classic from 'ember-classic-decorator';
 import { computed } from '@ember/object';
-import moment from 'moment';
+import Model, { attr, hasMany } from '@ember-data/model';
+import dayjs from 'dayjs';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 
-export default DS.Model.extend({
-  username: DS.attr(),
-  imageUrl: DS.attr(),
-  imageThumbUrl: DS.attr(),
-  imageMediumUrl: DS.attr(),
-  bio: DS.attr(),
-  links: DS.hasMany('link'),
-  tracks: DS.hasMany('track'),
-  scheduledShows: DS.hasMany('scheduled-show'),
-  nextShow: computed('scheduledShows', function(){
-    return this.scheduledShows.filter((scheduledShow) => {
-      return moment(scheduledShow.start).isSameOrAfter(Date.now());
-    }).get('firstObject');
-  })
-});
+dayjs.extend(isSameOrAfter);
+
+@classic
+export default class Dj extends Model {
+  @attr()
+  username;
+
+  @attr()
+  imageUrl;
+
+  @attr()
+  imageThumbUrl;
+
+  @attr()
+  imageMediumUrl;
+
+  @attr()
+  bio;
+
+  @hasMany('link')
+  links;
+
+  @hasMany('track')
+  tracks;
+
+  @hasMany('scheduled-show')
+  scheduledShows;
+
+  @computed('scheduledShows')
+  get nextShow() {
+    return this.scheduledShows
+      .filter((scheduledShow) => {
+        return dayjs(scheduledShow.start).isSameOrAfter(Date.now());
+      })
+      .get('firstObject');
+  }
+}

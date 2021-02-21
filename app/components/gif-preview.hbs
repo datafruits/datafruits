@@ -1,0 +1,10 @@
+<button class="gif-button"
+  type="button"
+  {{on "click" (fn @sendGif @gif)}}
+  >
+  <img
+    class="gif-preview"
+    alt={{@gif.name}}
+    src={{@gif.previewUrl}}
+  >
+</button>

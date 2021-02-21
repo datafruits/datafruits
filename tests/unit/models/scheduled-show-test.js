@@ -1,14 +1,17 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-import { run } from '@ember/runloop';
-
-module('Unit | Model | scheduled-show', function(hooks) {
+module('Unit | Model | scheduled-show', function (hooks) {
   setupTest(hooks);
 
-  test('it exists', function(assert) {
-    var model = run(() => this.owner.lookup('service:store').createRecord('scheduled-show'));
-    // var store = this.store();
-    assert.ok(!!model);
+  test('it can determine host from djs list', function (assert) {
+    let store = this.owner.lookup('service:store');
+    let hostDJ = store.createRecord('dj');
+    let secondDJ = store.createRecord('dj');
+    let model = store.createRecord('scheduled-show', {
+      djs: [hostDJ, secondDJ],
+    });
+
+    assert.equal(model.host, hostDJ);
   });
 });

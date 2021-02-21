@@ -1,0 +1,45 @@
+<ModalDialog
+  translucentOverlay={{true}}
+  >
+  <div class="modal-top">
+    <button {{on "click" (fn @toggleModal)}}
+      type="button"
+      class="cool-button"
+      >
+      X
+    </button>
+  </div>
+  <div class="modal-body">
+    <form {{on "submit" (fn this.submit)}}>
+      <Input
+        @type="text"
+        @name="username"
+        @value={{this.username}}
+        @autocorrect="off"
+        @autocapitalize="none"
+        placeholder={{t "chat.username"}}
+      />
+      <Input
+        @type="password"
+        @name="pass"
+        @value={{this.pass}}
+        @autocorrect="off"
+        @autocapitalize="none"
+        placeholder={{t "chat.password"}}
+      />
+      <button
+        type="submit"
+        class="cool-button"
+        disabled={{this.disableJoinButton}}
+      >
+        {{t "chat.login"}}
+      </button>
+
+    <div class="flex items-center justify-between">
+      <LinkTo @route="home.password-reset">
+        Forgot your password?
+      </LinkTo>
+    </div>
+    </form>
+  </div>
+</ModalDialog>

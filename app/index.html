@@ -1,63 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html class="overflow-hidden theme-classic">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="DATAFRUITS.FM is the world wide web's wackiest radio station. It's just a website.">
-    <meta name="keywords" content="radio, online radio, streaming, internet radio, music, jpop, jersey club, italo disco, breakin, kpop, city pop, skweee, chiptune, club music, grime" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="DATAFRUITS.FM is the world wide web's wackiest radio station. It's just a website."
+    />
+    <meta
+      name="keywords"
+      content="radio, online radio, streaming, internet radio, music, jpop, jersey club, italo disco, breakin, kpop, city pop, skweee, chiptune, club music, grime"
+    />
 
-    <meta property="og:title" content="datafruits.fm">
-    <meta property="og:description" content="DATAFRUITS.FM is the world wide web's wackiest radio station. It's just a website.">
-    <meta property="og:image" content="{{rootURL}}assets/images/logo.png">
-    <meta property="og:url" content="http://datafruits.fm/">
+    <meta property="og:title" content="datafruits.fm" />
+    <meta
+      property="og:description"
+      content="DATAFRUITS.FM is the world wide web's wackiest radio station. It's just a website."
+    />
+    <meta property="og:image" content="{{rootURL}}assets/images/logo.png" />
+    <meta property="og:url" content="http://datafruits.fm/" />
 
     <meta name="google-site-verification" content="Jp5po5r_gfgc5F2hVy713i9SI5hMYUFmM6MC8R3bMNg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
-    <meta name=apple-mobile-web-app-capable content=yes>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="manifest" href="{{rootURL}}manifest.webmanifest" />
     <meta name="msapplication-config" content="{{rootURL}}browserconfig.xml" />
 
     {{content-for 'head'}}
 
-    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link rel="stylesheet" href="{{rootURL}}assets/datafruits13.css">
-    <link rel="icon" href="{{rootURL}}assets/favicon.ico">
-    <link rel="apple-touch-icon" href="{{rootURL}}apple-touch-icon-precomposed.png">
+    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css" />
+    <link rel="stylesheet" href="{{rootURL}}assets/datafruits13.css" />
+    <link rel="icon" href="{{rootURL}}assets/favicon.ico" />
+    <link rel="apple-touch-icon" href="{{rootURL}}apple-touch-icon-precomposed.png" />
 
-    <link href="{{rootURL}}assets/splashscreens/iphone5_splash.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-<link href="{{rootURL}}assets/splashscreens/iphone6_splash.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-<link href="{{rootURL}}assets/splashscreens/iphoneplus_splash.png" media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
-<link href="{{rootURL}}assets/splashscreens/iphonex_splash.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
-<link href="{{rootURL}}assets/splashscreens/iphonexr_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-<link href="{{rootURL}}assets/splashscreens/iphonexsmax_splash.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image" />
-<link href="{{rootURL}}assets/splashscreens/ipad_splash.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-<link href="{{rootURL}}assets/splashscreens/ipadpro1_splash.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-<link href="{{rootURL}}assets/splashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
-<link href="{{rootURL}}assets/splashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image" />
+    <link
+      href="{{rootURL}}assets/splashscreens/iphone5_splash.png"
+      media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="{{rootURL}}assets/splashscreens/iphone6_splash.png"
+      media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="{{rootURL}}assets/splashscreens/iphoneplus_splash.png"
+      media="(device-width: 621px) and (device-height: 1104px) and (-webkit-device-pixel-ratio: 3)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="{{rootURL}}assets/splashscreens/iphonex_splash.png"
+      media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="{{rootURL}}assets/splashscreens/iphonexr_splash.png"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="{{rootURL}}assets/splashscreens/iphonexsmax_splash.png"
+      media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="{{rootURL}}assets/splashscreens/ipad_splash.png"
+      media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="{{rootURL}}assets/splashscreens/ipadpro1_splash.png"
+      media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="{{rootURL}}assets/splashscreens/ipadpro3_splash.png"
+      media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
+    <link
+      href="{{rootURL}}assets/splashscreens/ipadpro2_splash.png"
+      media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image"
+    />
 
     {{content-for 'head-footer'}}
   </head>
-  <body>
+  <body class="h-screen classic:bg-df-blue blm:bg-black trans:theme-trans text-white font-helvetica overflow-hidden">
     {{content-for 'body'}}
 
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/datafruits13.js"></script>
-    <script>window.twttr = (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0],
-        t = window.twttr || {};
-      if (d.getElementById(id)) return t;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js, fjs);
-     
-      t._e = [];
-      t.ready = function(f) {
-        t._e.push(f);
-      };
-     
-      return t;
-    }(document, "script", "twitter-wjs"));</script>
 
     {{content-for 'body-footer'}}
   </body>

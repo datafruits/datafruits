@@ -1,22 +1,51 @@
-import DS from 'ember-data';
+import classic from 'ember-classic-decorator';
 import { computed } from '@ember/object';
 import { alias } from '@ember/object/computed';
+import Model, { attr, hasMany } from '@ember-data/model';
 
-export default DS.Model.extend({
-  start: DS.attr(),
-  end: DS.attr(),
-  title: DS.attr(),
-  imageUrl: DS.attr(),
-  thumbImageUrl: DS.attr(),
-  description: DS.attr(),
-  tracks: DS.hasMany('track'),
-  djs: DS.hasMany('dj'),
-  host: computed('djs', function(){
+@classic
+export default class ScheduledShow extends Model {
+  @attr()
+  start;
+
+  @attr()
+  end;
+
+  @attr()
+  title;
+
+  @attr()
+  imageUrl;
+
+  @attr()
+  thumbImageUrl;
+
+  @attr()
+  description;
+
+  @attr()
+  hostedBy;
+
+  @hasMany('track')
+  tracks;
+
+  @hasMany('dj')
+  djs;
+
+  @computed('djs')
+  get host() {
     return this.djs.get('firstObject');
-  }),
+  }
 
-  htmlDescription: DS.attr(),
-  tweetContent: DS.attr(),
-  startsAt: alias('start'),
-  endsAt: alias('end')
-});
+  @attr()
+  htmlDescription;
+
+  @attr()
+  tweetContent;
+
+  @alias('start')
+  startsAt;
+
+  @alias('end')
+  endsAt;
+}

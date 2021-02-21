@@ -1,23 +1,27 @@
+import classic from 'ember-classic-decorator';
 import DatafruitsPlayer from '../datafruits-player';
 
-export default DatafruitsPlayer.extend({
-  track: null,
-  didInsertElement(){
-    if(this.track){
+@classic
+export default class _DatafruitsPlayer extends DatafruitsPlayer {
+  track = null;
+
+  didInsertElement() {
+    if (this.track) {
       this.set('playingPodcast', true);
-      this._super(...arguments);
+      super.didInsertElement(...arguments);
       this.playTrack();
-    }else{
-      this._super(...arguments);
+    } else {
+      super.didInsertElement(...arguments);
     }
-  },
-  playTrack(){
+  }
+
+  playTrack() {
     const track = this.track;
     this.set('error', null);
     this.set('title', track.title);
     this.set('playTime', 0.0);
 
-    let audioTag = document.getElementById("radio-player");
+    let audioTag = document.getElementById('radio-player');
     audioTag.src = track.cdnUrl;
   }
-});
+}

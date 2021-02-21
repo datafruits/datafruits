@@ -16,12 +16,13 @@
       </a>
     {{else if playing}}
       <a class="jp-pause" tabindex="1" {{action "pause"}}>
-        {{t "player.pause"}}
+        {{t (if this.playingPodcast "player.pause" "player.stop")}}
       </a>
     {{else if paused}}
       <a {{action "play"}}
         onMouseEnter={{action "playButtonMouseEnter"}}
         onMouseLeave={{action "playButtonMouseOut"}}
+        title={{t "player.title.play"}}
         class="jp-play"
         href="javascript:;"
         tabindex="1"
@@ -29,9 +30,14 @@
         {{t "player.play"}}
       </a>
     {{/if}}
-    <span {{action "toggleVolumeControl" on="mouseEnter"}}
-      class="jp-volume-controls"
+    <span
+      id="volume-control"
+      name="volume-control"
       role="button"
+      class="jp-volume-controls"
+      aria-label={{t "player.aria.volume"}}
+      {{action "showVolumeControl" on="mouseEnter"}}
+      {{action "hideVolumeControl" on="mouseLeave"}}
     >
       {{#if muted}}
         {{!-- template-lint-disable no-nested-interactive --}}

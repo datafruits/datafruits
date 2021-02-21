@@ -1,16 +1,17 @@
-import DS from 'ember-data';
-const { JSONAPISerializer } = DS;
+import classic from 'ember-classic-decorator';
+import JSONAPISerializer from '@ember-data/serializer/json-api';
 
-export default JSONAPISerializer.extend({
-  normalizeQueryResponse(store, primaryModelClass, payload/*, id, requestType*/) {
+@classic
+export default class Gif extends JSONAPISerializer {
+  normalizeQueryResponse(store, primaryModelClass, payload /*, id, requestType*/) {
     payload.data.map((gif) => {
       gif.attributes = {
-        "preview-url": gif.images.fixed_width_small.url,
+        'preview-url': gif.images.fixed_width.url,
         url: gif.images.original.url,
-        slug: gif.slug
+        slug: gif.slug,
       };
       return gif;
     });
-    return this._super(...arguments);
+    return super.normalizeQueryResponse(...arguments);
   }
-});
+}

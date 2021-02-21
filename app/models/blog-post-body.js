@@ -1,23 +1,39 @@
-import DS from 'ember-data';
-const { Model } = DS;
-import { htmlSafe } from '@ember/template';
+import classic from 'ember-classic-decorator';
 import { computed } from '@ember/object';
+import Model, { attr, belongsTo, hasMany } from '@ember-data/model';
+import { htmlSafe } from '@ember/template';
 
-export default Model.extend({
-  language: DS.attr(),
-  blogPost: DS.belongsTo('blogPost'),
-  blogPostImages: DS.hasMany('blog-post-image'),
-  title: DS.attr(),
-  body: DS.attr(),
-  previewImage: computed('blogPostImages.[]', function(){
-    if(this.body) {
+@classic
+export default class BlogPostBody extends Model {
+  @attr()
+  language;
+
+  @belongsTo('blogPost')
+  blogPost;
+
+  @hasMany('blog-post-image')
+  blogPostImages;
+
+  @attr()
+  title;
+
+  @attr()
+  body;
+
+  @computed('blogPostImages.[]', 'body')
+  get previewImage() {
+    if (this.body) {
       return this.blogPostImages.firstObject;
-    }else{
+    } else {
       return null;
     }
-  }),
-  renderedBody: DS.attr(),
-  htmlSafeBody: computed('renderedBody', function() {
+  }
+
+  @attr()
+  renderedBody;
+
+  @computed('renderedBody')
+  get htmlSafeBody() {
     return htmlSafe(this.renderedBody);
-  })
-});
+  }
+}

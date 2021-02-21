@@ -1,27 +1,26 @@
 # datafruits
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/datafruits/datafruits.svg)](https://greenkeeper.io/)
-[![Build](https://travis-ci.org/datafruits/datafruits.svg?branch=master)](https://travis-ci.org/datafruits/datafruits/)
+[![Build Status](https://github.com/datafruits/datafruits/workflows/CI/badge.svg)](https://github.com/datafruits/datafruits/actions?workflow=CI)
 
 frontend for datafruits application.
 
-## Trello board
-https://trello.com/b/loemZkpB/datafruits-website
+Contributors are welcome! 
+
+Check out the [projects](https://github.com/datafruits/datafruits/projects) to see what we are working on.
 
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with NPM)
-* [Bower](https://bower.io/)
+* [Node.js](https://nodejs.org/) (10.x)
+* [Yarn](https://classic.yarnpkg.com/en/docs/install)
 * [Ember CLI](https://ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
 
 ## Installation
 
 * `git clone <repository-url>` this repository
-* `cd datafruits13`
+* `cd datafruits`
 * `yarn install`
 
 ## Running / Development

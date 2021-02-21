@@ -1,49 +1,50 @@
-{{title model.title}}
-<div class="main-content">
-  <h1 class="show-title" id="myModalLabel">
-    {{model.title}}
-  </h1>
-  <h2>
-    {{t "show.hosted_prefix"}}
-    {{#each model.djs as |dj|}}
-      <span class="dj-title">
-        <LinkTo @route="home.dj" @model={{dj.username}}>
-          {{dj.username}}
-        </LinkTo>
-      </span>
-    {{/each}}
-  </h2>
-  <h3 class="modal-title" id="myModalLabel">
-    {{format-date model.start}}
-  </h3>
-  <div class="modal-body">
-    {{#if model.thumbImageUrl}}
-      <div class="show-image">
-        <img src={{model.thumbImageUrl}} alt={{model.title}}>
-      </div>
-    {{else if model.host.imageMediumUrl}}
-      <img src={{model.host.imageMediumUrl}} alt={{model.dj.username}}>
-    {{/if}}
+{{page-title model.title}}
+<div class="relative overflow-hidden show-poster">
+  {{#if model.thumbImageUrl}}
+    <div style="background-image: url({{model.thumbImageUrl}})" alt={{model.title}} class="w-full h-full show-image"></div>
+  {{else if model.host.imageMediumUrl}}
+    <div style="background-image: url({{model.host.imageMediumUrl}})" alt={{model.dj.username}} class="w-full h-full show-image"></div>
+  {{/if}}
+  <div class="bg-df-pink show-info">
+    <h1 class="font-debussy text-3xl">
+      {{model.title}}
+    </h1>
+    <h2>
+      {{t "show.hosted_prefix"}}
+      {{#each model.djs as |dj|}}
+        <span class="font-debussy text-xl">
+          <LinkTo @route="home.dj" @model={{dj.username}}>
+            {{dj.username}}
+          </LinkTo>
+        </span>
+      {{/each}}
+    </h2>
+    <h3 class="modal-title" id="myModalLabel">
+      {{format-date model.start}}
+    </h3>
     <p>
       {{html-safe-string model.htmlDescription}}
     </p>
-    {{#if model.tracks}}
-      <h2>
-        {{t "show.archive"}}
-      </h2>
-    {{/if}}
-    {{#each model.tracks as |track|}}
-      <PodcastTrack
-        @cdnUrl={{track.cdnUrl}}
-        @title={{track.title}}
-        @labels={{track.labels}}
-        @soundcloudKey={{track.soundcloudKey}}
-        @mixcloudKey={{track.mixcloudKey}}
-        @selectLabel={{action "browseLabel"}}
-      />
-    {{/each}}
   </div>
-  <div class="modal-footer">
-    <TweetButton @text={{model.tweetContent}} />
-  </div>
+</div>
+<div class="px-5">
+  {{#if model.tracks}}
+    <h2 class="font-debussy text-2xl">
+      {{t "show.archive"}}
+      {{ randomFruitEmoji }}
+    </h2>
+  {{/if}}
+  {{#each model.tracks as |track|}}
+    <PodcastTrack
+      @cdnUrl={{track.cdnUrl}}
+      @title={{track.title}}
+      @labels={{track.labels}}
+      @soundcloudKey={{track.soundcloudKey}}
+      @mixcloudKey={{track.mixcloudKey}}
+      @selectLabel={{action "browseLabel"}}
+    />
+  {{/each}}
+</div>
+<div class="modal-footer px-5 font-debussy">
+  <span>{{model.tweetContent}}</span>
 </div>

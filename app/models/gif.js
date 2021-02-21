@@ -1,8 +1,14 @@
-import DS from 'ember-data';
-const { Model } = DS;
+import classic from 'ember-classic-decorator';
+import Model, { attr } from '@ember-data/model';
 
-export default Model.extend({
-  slug: DS.attr(),
-  url: DS.attr(),
-  previewUrl: DS.attr()
-});
+@classic
+export default class Gif extends Model {
+  @attr()
+  slug;
+
+  @attr()
+  url;
+
+  @attr()
+  previewUrl;
+}

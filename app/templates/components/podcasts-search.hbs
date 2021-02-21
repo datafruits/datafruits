@@ -1,72 +1,84 @@
-<form role="search" aria-label={{ t "podcasts.text_search.label"}}>
-  <Input
-    class="search-tracks"
-    @autofocus="autofocus"
-    @value={{filterText}}
-    @escape-press={{action "clearSearch"}}
-    placeholder="Search podcasts"
-  />
-</form>
-<form role="search" aria-label={{ t "podcasts.tag_search.label"}}>
-  <PowerSelectMultiple
-    @placeholder="Search by tag..."
-    @options={{labelNames}}
-    @selected={{selectedLabels}}
-    @renderInPlace={{true}}
-    @onChange={{action (mut selectedLabels)}} as |label|
-  >
-    {{label}}
-  </PowerSelectMultiple>
-</form>
-<PodcastsLoader @query={{searchParams}} as |loader|>
-  {{#if loader.isRunning}}
-    <p>
-      {{t "loading"}}
-    </p>
-  {{else}}
-    {{#each loader.data.tracks as |track|}}
-      <PodcastTrack
-        @cdnUrl={{track.cdnUrl}}
-        @title={{track.title}}
-        @scheduledShow={{track.scheduledShow}}
-        @soundcloudKey={{track.soundcloudKey}}
-        @mixcloudKey={{track.mixcloudKey}}
-        @labels={{track.labels}}
-        @selectLabel={{action "selectLabel"}}
-      />
+<div id="podcast-search-controls" class="border-dotted border-df-green border-4 mb-6">
+  <div id="podcast-subscribe" class="flex p-2">
+    <h4 class="px-3 text-white text-l">{{t "podcasts.subscribe_title"}}</h4>
+    <ul id="subscribe-links" class="text-l flex flex-wrap justify-between items-center">
+      <li class="pr-2">
+        <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">
+          {{t "podcasts.links.itunes"}}
+        </a>
+      </li>
+      <li class="pr-2">
+        <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml">
+          {{t "podcasts.links.overcast"}}
+        </a>
+      </li>
+      <li class="pr-2">
+        <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">
+          {{t "podcasts.links.podcastsapp"}}
+        </a>
+      </li>
+      <li class="pr-2">
+        <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">
+          {{t "podcasts.links.rss"}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <hr class="border-dotted border-df-green border-t-4"/>
+  <div id="podcast-search-forms" class="flex flex-wrap p-2 items-center">
+    <h4 class="text-l px-3">{{t "podcasts.search_title"}}</h4>
+    <form role="search" class="px-3" aria-label={{ t "podcasts.text_search.label"}}
+    {{action "nop" on="submit"}}>
+      <div class="flex flex-col">
+        <label class="text-white" for="search-tracks">{{t "podcasts.title_search"}}</label>
+        <Input
+          id="search-tracks"
+          name="search-tracks"
+          @autofocus="autofocus"
+          @value={{filterText}}
+          @escape-press={{action "clearSearch"}}
+          placeholder={{t "podcasts.placeholders.title"}}
+        />
+      </div>
+    </form>
+    <form role="search" class="px-3" aria-label={{ t "podcasts.tag_search.label"}}>
+      <div class="flex flex-col">
+        <label class="text-white" for="tag_search">{{t "podcasts.tag_search"}}</label>
+        <PowerSelectMultiple
+          name="tag_search"
+          @placeholder={{t "podcasts.placeholders.title"}}
+          @options={{labelNames}}
+          @selected={{selectedLabels}}
+          @renderInPlace={{true}}
+          @onChange={{action (mut selectedLabels)}} as |label|
+        >
+          {{label}}
+        </PowerSelectMultiple>
+      </div>
+    </form>
+  </div>
+</div>
+<div id="podcast-search-results">
+  <PodcastsLoader @query={{searchParams}} as |loader|>
+    {{#if loader.isRunning}}
+      <p id="podcast-search-loading" class="">
+        {{t "loading"}}
+      </p>
     {{else}}
-      {{t "podcasts.no_result"}}
-    {{/each}}
-    {{#if (gt loader.data.meta.page 1)}}
-      <span class="pagination">
-        <LinkTo
-          @route="home.podcasts"
-          @query={{hash page=(dec loader.data.meta.page)}}
-        >
-          {{t "podcasts.pagination_prev"}}
-        </LinkTo>
-      </span>
-    {{/if}}
-    {{#each (range 1 (inc loader.data.meta.total_pages)) as |number|}}
-      {{#if (eq number loader.data.meta.page)}}
-        {{number}}
+      {{#each loader.data.tracks as |track|}}
+        <PodcastTrack
+          @cdnUrl={{track.cdnUrl}}
+          @title={{track.title}}
+          @scheduledShow={{track.scheduledShow}}
+          @soundcloudKey={{track.soundcloudKey}}
+          @mixcloudKey={{track.mixcloudKey}}
+          @labels={{track.labels}}
+          @selectLabel={{action "selectLabel"}}
+        />
       {{else}}
-        <span class="pagination">
-          <LinkTo @route="home.podcasts" @query={{hash page=number}}>
-            {{number}}
-          </LinkTo>
-        </span>
-      {{/if}}
-    {{/each}}
-    {{#if (lt loader.data.meta.page loader.data.meta.total_pages)}}
-      <span class="pagination">
-        <LinkTo
-          @route="home.podcasts"
-          @query={{hash page=(inc loader.data.meta.page)}}
-        >
-          {{t "podcasts.pagination_next"}}
-        </LinkTo>
-      </span>
+        {{t "podcasts.no_result"}}
+      {{/each}}
+      <Pagination @meta={{loader.data.meta}} @route="home.podcasts" />
     {{/if}}
-  {{/if}}
-</PodcastsLoader>
+  </PodcastsLoader>
+</div>
