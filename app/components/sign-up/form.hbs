@@ -11,6 +11,7 @@
       @id="user-email"
       @type="text"
       @autofocus={{true}}
+      data-test-email
       {{on "change" this.updateEmail}}
       />
   </div>
@@ -34,6 +35,7 @@
       @id="user-username"
       @type="text"
       @autofocus={{true}}
+      data-test-username
       {{on "change" this.updateUsername}}
       />
   </div>
@@ -50,6 +52,7 @@
       @changeset={{@changeset}}
       @property="password"
       @updateProperty={{fn this.updateProperty}}
+      data-test-password
       />
   </div>
   <div>
@@ -58,6 +61,7 @@
       @type="checkbox"
       @checked={{this.cocAccepted}}
       name="coc-checkbox"
+      data-test-coc
       />
   </div>
   {{#if this.everythingLooksNice}}
@@ -71,6 +75,7 @@
       value="{{t "signup.submit"}}"
       class="cool-button"
       disabled={{or (or @changeset.isInvalid @changeset.isSaving) (not this.cocAccepted)}}
+      data-test-submit
       >
   </div>
 </form>

@@ -8,6 +8,7 @@
 
 {{#if (eq @type "textarea")}}
   <Textarea
+    ...attributes
     id={{concat @type "-" @property}}
     class="form-input focus:outline-none focus:shadow-outline"
     @cols="80" @rows="6"
@@ -16,6 +17,7 @@
   >{{get @changeset @property}}</Textarea>
 {{else}}
   <Input
+    ...attributes
     class="form-input focus:outline-none focus:shadow-outline"
     @type={{@type}}
     @autofocus={{true}}
