@@ -189,6 +189,13 @@ export function initialize(/* application */) {
       shortnames: [':shrimpshake:'],
       keywords: ['shrimpshake'],
     },
+    ':shrimpshake_spicy:': {
+      custom: true,
+      uc_base: 'shrimpshake_spicy',
+      uc_output: '',
+      shortnames: [':shrimpshake_spicy:'],
+      keywords: ['shrimpshake_spicy'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
