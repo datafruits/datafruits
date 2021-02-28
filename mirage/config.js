@@ -25,6 +25,72 @@ export default function () {
 
     https://www.ember-cli-mirage.com/docs/route-handlers/shorthands
   */
+  this.get('/api/microtexts.json', (schema) => {
+    return schema.microtexts.all();
+  });
 
-  this.get('/podcasts/datafruits.json');
+  this.get('/api/blog_posts.json', (schema) => {
+    return { blog_posts: [] };
+  });
+
+  this.get('/api/listeners/validate_username', () => {
+    return { valid: true };
+  });
+  this.get('/api/listeners/validate_email', () => {
+    return { valid: true };
+  });
+
+  this.get(
+    '/podcasts/datafruits.json',
+    () => {
+      return {
+        podcast: {
+          id: '1',
+          name: 'datafruits',
+          tracks: [],
+        },
+        tracks: [],
+        labels: [],
+        meta: {}
+      };
+    },
+    200,
+  );
+
+  this.get(
+    '/scheduled_shows.json',
+    () => {
+      return { scheduled_shows: [] };
+    },
+    200,
+  );
+
+  this.post('/api/listeners.json', (schema, request) => {
+    const attrs = JSON.parse(request.requestBody).user;
+    const user = schema.users.create(attrs);
+    user.save();
+    return { user: { id: '1', username: user.attrs.username, email: user.attrs.email } };
+  });
+
+  this.post('/users/sign_in', (schema, request) => {
+    const attrs = JSON.parse(request.requestBody).user;
+    const login = attrs.login;
+    return { login: login, redirect: '/', success: true, token: 'xxxxxxxxx' };
+  });
+
+  this.get('/users/current_user.json', (schema, request) => {
+    //return schema.user.find(1);
+    return {
+      user: {
+        avatar_url:
+          'https://dongles.streampusher-relay.club/images/thumb/avatars-000049966766-qitxew-t500x500.jpg?1602655221',
+        email: 'dj.nameko@datafruits.fm',
+        id: 26,
+        role: 'dj',
+        social_identities: [],
+        time_zone: 'UTC',
+        username: 'djnameko',
+      },
+    };
+  });
 }
