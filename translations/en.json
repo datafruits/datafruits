@@ -34,6 +34,8 @@
     "join_anonymously": "Join chat",
     "coc_label": "By joining the chat, I agree with the datafruits Code of Conduct and will abide by its guidelines",
     "login": "Login",
+    "sign_up": "Sign up",
+    "forgot_password": "Forgot your password?",
     "username": "username",
     "nickname": "nickname",
     "password": "password",

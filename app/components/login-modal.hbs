@@ -37,7 +37,10 @@
 
     <div class="flex items-center justify-between">
       <LinkTo @route="home.password-reset">
-        Forgot your password?
+        {{t "chat.forgot_password"}}
+      </LinkTo>
+      <LinkTo @route="home.sign-up">
+        {{t "chat.sign_up"}}
       </LinkTo>
     </div>
     </form>
