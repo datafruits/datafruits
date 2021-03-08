@@ -16,6 +16,16 @@
         <img src={{fruit.image}} />
       </button>
     {{/each}}
+    <h2>TIP</h2>
+    {{#each this.tippableFruits as |fruit|}}
+      <button
+        {{on "click" (fn this.beginTipTransaction fruit.name)}}
+        class="cool-button fruit-tip-button mr-1 ml-1"
+        type="button"
+        >
+        <img src={{fruit.image}} />
+      </button>
+    {{/each}}
   </div>
 {{/if}}
 <button
@@ -26,3 +36,6 @@
   >
   <img src="{{this.randomFruitImage}}" style="height: 4ex !important;" >
 </button>
+{{#if showingTipModal}}
+  <FruitTipModal @fruitTip={{this.selectedFruitTip}} />
+{{/if}}

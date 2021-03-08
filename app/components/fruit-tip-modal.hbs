@@ -1,0 +1,13 @@
+<ModalDialog
+  translucentOverlay={{true}}
+  >
+  <h1 class="text-xl">{{t "fruit_tip.title}}</h1>
+  <h2>{{@fruitTip.name}}</h2>
+  <p>
+    <img src={{@fruitTip.image}}>
+  </p>
+  <h2>{{@fruitTip.value}}</h2>
+
+  <FruitTipPaypalButton />
+  <FruitTipStripeButton />
+</ModalDialog>
