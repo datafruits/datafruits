@@ -5,6 +5,17 @@
     </h1>
     <img src={{model.imageMediumUrl}} alt={{model.username}}>
     <p>
+      <button
+         class="cool-button"
+        {{on "click" this.followUser}}>
+        {{#if this.following}}
+          <i class="fa fa-heart-full"></i>
+        {{else}}
+          <i class="fa fa-heart"></i>
+        {{/if}}
+      </button>
+    </p>
+    <p>
       {{model.bio}}
     </p>
   </div>
