@@ -25,24 +25,20 @@ export default class ValidatedField extends Component {
 
   @action
   updateProperty(event) {
-    console.log('debouncing updateProperty...');
     debounce(this, this._updateProperty, event.target.value, 500);
   }
 
   @action
   validateProperty() {
-    console.log('debouncing validateProperty');
     debounce(this, this._validateProperty, 500);
   }
 
   _validateProperty() {
-    console.log('validating');
     let property = this.args.property;
     this.args.validateProperty(property);
   }
 
   _updateProperty(newValue) {
-    console.log('updating property...');
     let property = this.args.property;
     this.args.updateProperty(property, newValue);
   }

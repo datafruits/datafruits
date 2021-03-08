@@ -39,7 +39,7 @@ export default class SignUpFormComponent extends Component {
     let errors = this.args.changeset.errors.find((error) => {
       return error.key === 'email';
     });
-    if(errors) {
+    if (errors) {
       return errors.validation;
     } else {
       return null;
@@ -50,7 +50,7 @@ export default class SignUpFormComponent extends Component {
     let errors = this.args.changeset.errors.find((error) => {
       return error.key === 'username';
     });
-    if(errors) {
+    if (errors) {
       return errors.validation;
     } else {
       return null;
@@ -92,7 +92,6 @@ export default class SignUpFormComponent extends Component {
   submit() {
     let changeset = this.args.changeset;
     changeset.validate().then(() => {
-      console.log(changeset);
       if (changeset.isValid) {
         changeset
           .save()
@@ -111,19 +110,18 @@ export default class SignUpFormComponent extends Component {
                 });
               })
               .catch((reason) => {
-                console.log('couldnt log in');
-                console.log(reason);
+                console.log(reason); // eslint-disable-line no-console
                 alert('Wrong password');
                 return false;
               });
           })
           .catch((error) => {
+            console.log(error); // eslint-disable-line no-console
             alert('couldnt save user!');
-            console.log(error);
           });
       } else {
-        console.log('changeset invalid');
-        console.log(changeset.get('errors'));
+        console.log('changeset invalid'); // eslint-disable-line no-console
+        console.log(changeset.get('errors')); // eslint-disable-line no-console
       }
     });
   }

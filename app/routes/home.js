@@ -46,7 +46,6 @@ export default class HomeRoute extends Route {
   }
 
   _loadCurrentUser() {
-    console.log('loading current user');
     return this.currentUser.load().catch(() => this.session.invalidate());
   }
 }

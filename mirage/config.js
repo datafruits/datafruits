@@ -29,7 +29,7 @@ export default function () {
     return schema.microtexts.all();
   });
 
-  this.get('/api/blog_posts.json', (schema) => {
+  this.get('/api/blog_posts.json', (/* schema */) => {
     return { blog_posts: [] };
   });
 
@@ -51,7 +51,7 @@ export default function () {
         },
         tracks: [],
         labels: [],
-        meta: {}
+        meta: {},
       };
     },
     200,
@@ -78,8 +78,7 @@ export default function () {
     return { login: login, redirect: '/', success: true, token: 'xxxxxxxxx' };
   });
 
-  this.get('/users/current_user.json', (schema, request) => {
-    //return schema.user.find(1);
+  this.get('/users/current_user.json', (/* schema, request */) => {
     return {
       user: {
         avatar_url:

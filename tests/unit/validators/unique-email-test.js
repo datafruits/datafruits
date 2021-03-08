@@ -3,6 +3,6 @@ import validateUniqueEmail from 'datafruits13/validators/unique-email';
 
 module('Unit | Validator | unique-email');
 
-test('it exists', function(assert) {
+test('it exists', function (assert) {
   assert.ok(validateUniqueEmail());
 });
