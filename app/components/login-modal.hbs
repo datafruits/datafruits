@@ -9,8 +9,11 @@
       X
     </button>
   </div>
-  <div class="modal-body">
+  <div class="modal-body m-1">
     <form {{on "submit" (fn this.submit)}}>
+      <p class="mt-2 mb-2">
+        {{t "chat.login_why"}}
+      </p>
       <Input
         @type="text"
         @name="username"
@@ -29,7 +32,7 @@
       />
       <button
         type="submit"
-        class="cool-button"
+        class="cool-button mt-2"
         disabled={{this.disableJoinButton}}
       >
         {{t "chat.login"}}
@@ -39,9 +42,16 @@
       <LinkTo @route="home.password-reset">
         {{t "chat.forgot_password"}}
       </LinkTo>
-      <LinkTo @route="home.sign-up">
-        {{t "chat.sign_up"}}
-      </LinkTo>
+      <div class="relative">
+        <img
+            class="absolute"
+            style="top: -15px; left: -30px;"
+            src="/assets/images/new.gif"
+            alt="{{ t "new" }}" />
+        <LinkTo @route="home.sign-up">
+          {{t "chat.sign_up"}}
+        </LinkTo>
+      </div>
     </div>
     </form>
   </div>
