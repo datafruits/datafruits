@@ -14,31 +14,35 @@
       <p class="mt-2 mb-2">
         {{t "chat.login_why"}}
       </p>
-      <Input
-        @type="text"
-        @name="username"
-        @value={{this.username}}
-        @autocorrect="off"
-        @autocapitalize="none"
-        placeholder={{t "chat.username"}}
-      />
-      <Input
-        @type="password"
-        @name="pass"
-        @value={{this.pass}}
-        @autocorrect="off"
-        @autocapitalize="none"
-        placeholder={{t "chat.password"}}
-      />
-      <button
-        type="submit"
-        class="cool-button mt-2"
-        disabled={{this.disableJoinButton}}
-      >
-        {{t "chat.login"}}
-      </button>
+      <div>
+        <Input
+          @type="text"
+          @name="username"
+          @value={{this.username}}
+          @autocorrect="off"
+          @autocapitalize="none"
+          placeholder={{t "chat.username"}}
+        />
+        <Input
+          @type="password"
+          @name="pass"
+          @value={{this.pass}}
+          @autocorrect="off"
+          @autocapitalize="none"
+          placeholder={{t "chat.password"}}
+        />
+      </div>
+      <div>
+        <button
+          type="submit"
+          class="cool-button mt-2"
+          disabled={{this.disableJoinButton}}
+        >
+          {{t "chat.login"}}
+        </button>
+      </div>
 
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between mt-3">
       <LinkTo @route="home.password-reset">
         {{t "chat.forgot_password"}}
       </LinkTo>
