@@ -32,7 +32,11 @@
     "img_off": "Images are off",
     "gif": "GIF",
     "join_anonymously": "Join chat",
+    "coc_label": "By joining the chat, I agree with the datafruits Code of Conduct and will abide by its guidelines",
     "login": "Login",
+    "sign_up": "Sign up",
+    "login_why": "login to the chat it's what all the cool fruits are doing",
+    "forgot_password": "Forgot your password?",
     "username": "username",
     "nickname": "nickname",
     "password": "password",
@@ -41,10 +45,12 @@
     "label": {
       "nick": "nickname",
       "input": "message",
-      "search": "search by tag"
+      "search": "search by tag",
+      "coc": "CoC"
     },
     "titles": {
-      "enter": "Enter chat",
+      "join": "Join chat with nickname",
+      "login": "Join chat with registered account",
       "send": "Send message to chat",
       "img_on": "Images in chat will be displayed",
       "img_off": "Images in chat will not be displayed",
@@ -126,6 +132,19 @@
     "placeholder_email": "coolxfruits@aol.co.eu",
     "tiny": "Occasionally receive updates, free exclusive tracks, mixes, and more info by email"
   },
+  "signup": {
+    "title": "Sign up",
+    "description": "Sign up for a free account as datafruits.fm listener. Save your favorite shows, archives and customize your profile. Be a part of the fruits community. Must've been the onion salad dressing.",
+    "submit": "Sign up",
+    "email": "Email",
+    "username": "Username",
+    "password": "Password",
+    "error": "Oh no. Time to fix the errors on the form. Must've been the onion salad dressing.",
+    "email_exists": "Account with this email already exists. Forgot your password?",
+    "username_exists": "This username has been taken.",
+    "nice": "NICE",
+    "already_signed_up": "You are already have an account, and in fact you are signed in. "
+  },
   "usermenu": {
     "settings": "Settings",
     "logout": "Logout"
@@ -184,7 +203,7 @@
   },
   "secret": "secret",
   "thanks_patrons": "THANKS TO ALL THE PATRONS!",
-  "code_of_conduct": "Code Of Conduct",
+  "code_of_conduct": "Code of Conduct",
   "what_is_datafruits": "What is datafruits...",
   "loading": "Loading...",
   "next_broadcast": "Next live on air: ",

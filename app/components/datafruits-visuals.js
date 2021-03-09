@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 import { oneWay } from '@ember/object/computed';
 import Component from '@ember/component';
 import { later } from '@ember/runloop';
+import ENV from 'datafruits13/config/environment';
 
 @classic
 @classNames('visuals')
@@ -22,6 +23,7 @@ export default class DatafruitsVisuals extends Component {
       if (this.videoStreamActive) {
         this.videoStream.initializePlayer();
       } else {
+        if (ENV.environment === 'test') return;
         later(() => {
           this.videoStream.fetchStream();
         }, 15000);

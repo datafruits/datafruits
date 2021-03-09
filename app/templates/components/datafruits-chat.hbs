@@ -34,33 +34,44 @@
     </form>
   {{else}}
     <form align="center" class="mb-3">
-      <label for="nick">{{t "chat.label.nick"}}</label>
-      <Input
-        @type="text"
-        @value={{nick}}
-        @autocorrect="off"
-        @autocapitalize="none"
-        class=""
-        placeholder={{t "chat.nickname"}}
-      />
-      <button {{action "enterChatAnonymously"}}
-        class="cool-button"
-        disabled={{or disableJoinButton networkStatus.isOffline}}
-        title={{t "chat.titles.enter"}}
-      >
-        {{t "chat.join_anonymously"}}
-      </button>
-      <button
-        title={{if this.gifsEnabled  (t "chat.titles.img_on") (t "chat.titles.img_off") }}
-        class="cool-button mt-1 md:m-0" {{action "toggleGifsEnabled"}}>
-        {{t (if this.gifsEnabled  "chat.img_on" "chat.img_off") }}
-      </button>
-      <div class="flex">
-        <img src="/assets/images/new.gif"
-             alt="{{ t "new" }}" />
+      <div>
+        <div>
+          <label for="nick">{{t "chat.label.nick"}}</label>
+          <Input
+            @type="text"
+            @value={{nick}}
+            @autocorrect="off"
+            @autocapitalize="none"
+            class="max-h-full"
+            placeholder={{t "chat.nickname"}}
+          />
+          <button
+            data-test-join-chat
+            {{action "enterChatAnonymously"}}
+            class="cool-button"
+            disabled={{disableJoinButton}}
+            title={{t "chat.titles.enter"}}
+          >
+            {{t "chat.join_anonymously"}}
+          </button>
+          <button
+            title={{if this.gifsEnabled  (t "chat.titles.img_on") (t "chat.titles.img_off") }}
+            class="cool-button mt-1 md:m-0" {{action "toggleGifsEnabled"}}>
+            {{t (if this.gifsEnabled  "chat.img_on" "chat.img_off") }}
+          </button>
+        </div>
+        <div>
+          <label class="text-xs" for="agree-to-coc">
+            {{t "chat.coc_label"}}
+          </label>
+          <a class="text-sm" href="/coc"><abbr title={{t "code_of_conduct"}}>{{t "chat.label.coc"}}</abbr></a>
+        </div>
+      </div>
+      <div class="flex justify-center">
         <button {{action "toggleLoginModal"}}
              type="button"
              class="cool-button"
+             title={{t "chat.titles.login"}}
              >
              {{t "chat.login"}}
         </button>
