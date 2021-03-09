@@ -12,6 +12,6 @@ module('Integration | Component | dj-donate-button', function (hooks) {
 
     await render(hbs`<DjDonateButton />`);
 
-    assert.equal(this.element.textContent.trim(), 'DONATE');
+    assert.dom(this.element).hasText('DONATE');
   });
 });

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (environment) {
-  var ENV = {
+  let ENV = {
     modulePrefix: 'datafruits13',
     environment: environment,
     contentSecurityPolicy: {
