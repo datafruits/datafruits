@@ -5,6 +5,12 @@ export default class UserModel extends Model {
   username;
 
   @attr()
+  email;
+
+  @attr()
+  password;
+
+  @attr()
   role;
 
   @attr()

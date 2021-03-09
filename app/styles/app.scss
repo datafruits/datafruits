@@ -93,6 +93,24 @@
   }
 }
 
+@keyframes bg-colorfade {
+  from {
+    background: $green;
+  }
+  30% {
+    background: $pink;
+  }
+  60% {
+    background: $blue;
+  }
+  90% {
+    background: $yellow;
+  }
+  to {
+    background: $green;
+  }
+}
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);
@@ -109,9 +127,11 @@
 .cool-button {
   cursor: pointer;
   white-space: nowrap;
+  vertical-align: middle;
   @apply border-solid border-2 border-white text-lg rounded-sm;
   @apply text-white font-semibold p-2 leading-none bg-df-blue;
   @apply transition-all duration-100 ease-in-out;
+  @apply cursor-pointer;
 }
 
 .cool-button {
@@ -131,9 +151,9 @@
   padding-bottom: 0.2rem;
 }
 
-// img.emojione {
-//   height: 3ex !important;
-// }
+img.emojione {
+  height: 4.5ex !important;
+}
 
 //chat autofill emoji and username picker
 .dropdown-menu {
@@ -261,6 +281,7 @@ form {
   @apply border-solid border-2 border-white text-lg rounded-sm;
   @apply text-white font-semibold p-2 leading-none bg-df-green;
   @apply transition-all duration-100 ease-in-out;
+  @apply cursor-pointer;
 
   &:hover,
   &:focus {
@@ -345,4 +366,32 @@ form {
   display: flex;
 }
 
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -998;
+}
+
+.fruit-tip-button {
+  animation: bg-colorfade 2s infinite;
+  img {
+    height: 5ex !important;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.very-nice {
+  animation: bounce linear 200ms;
+}
+
 @tailwind utilities;
+

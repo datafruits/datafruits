@@ -18,7 +18,9 @@
       "nick": "ニックネーム",
       "input": "メッセージ",
       "search": "タグで検索",
-      "aria": "datafruits.fmチャットルームにアクセス"
+      "aria": "datafruits.fmチャットルームにアクセス",
+      "i_agree": "私は行動規範を読み、その条件に従うことに同意し、それを怠ったために削除される可能性があることを理解します",
+      "coc": "Code of Conduct"
     },
     "titles": {
       "enter": "チャットに入る",
@@ -33,8 +35,18 @@
     "password": "パスワード"
   },
   "usermenu": {
-    "settings": "Settings",
-    "logout": "Logout"
+    "settings": "設定",
+    "logout": "ログアウト"
+  },
+  "signup": {
+    "title": "登録",
+    "description": "Sign up for a free account as datafruits.fm listener. Save your favorite shows, archives and customize your profile. Be a part of the fruits community. Must've been the onion salad dressing.",
+    "submit": "送信",
+    "password": "パスワード",
+    "error": "Please correct the errors on the form",
+    "email_exists": "Account with this email already exists. Forgot your password?",
+    "username_exists": "This username has been taken.",
+    "nice": "ナイスです"
   },
   "podcasts": {
     "title": "ポッドキャスト",
@@ -76,7 +88,7 @@
   "just_a_website": "それはただのウェブサイトです。",
   "about_datafruits": "国際的な音楽コミュニティのための国際的な音楽コミュニティによるインディペンデント・ラジオ。datafruitsはオープンソースであり、さまざまな境界とジャンルを打ち壊す。われわれは、どんな曲だってかける。サービスが行き届かず、周縁に追いやられているコミュニティにスポットライトをあて、彼ら彼女たちから発信される音楽をシェアすることには労を惜しまない。ユーザーに役立つプラットフォームとは、そのプラットフォームの利用者とDJとリスナーによって所有され、運営されるものに他ならないとわれわれは考える！",
   "thanks_patrons": "Patronのみんなさん有難う御座います",
-  "code_of_conduct": "Code Of Conduct",
+  "code_of_conduct": "Code of Conduct",
   "what_is_datafruits": "datafruitsとは...",
   "loading": "ロード中。。。",
   "next_broadcast": "次の生放送: ",

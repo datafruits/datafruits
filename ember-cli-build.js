@@ -5,7 +5,7 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function (defaults) {
   const fingerprintOptions = {
     enabled: true,
-    exclude: ['assets/images/emojis/*'],
+    exclude: ['assets/images/emojis/*', 'assets/images/sprites/*'],
   };
 
   let app = new EmberApp(defaults, {
