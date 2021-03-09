@@ -34,6 +34,16 @@
   "login": "Login",
   "username": "username",
   "password": "패스워드",
+  "signup": {
+    "title": "등록해요",
+    "description": "datafruits.fm 수신자로 무료 계정에 가입하세요. 즐겨찾는 프로그램을 저장하고, 보관하며, 프로필을 사용자 정의합니다. 과일 공동체의 일원이 되십시오. 양파 샐러드 드레싱이 틀림없어요.",
+    "submit": "등록해요",
+    "password": "패스워드",
+    "error": "Please correct the errors on the form",
+    "email_exists": "Account with this email already exists. Forgot your password?",
+    "username_exists": "This username has been taken.",
+    "nice": "나이스 입니다"
+  },
   "usermenu": {
     "settings": "Settings",
     "logout": "Logout"

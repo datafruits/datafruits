@@ -131,6 +131,7 @@
   @apply border-solid border-2 border-white text-lg rounded-sm;
   @apply text-white font-semibold p-2 leading-none bg-df-blue;
   @apply transition-all duration-100 ease-in-out;
+  @apply cursor-pointer;
 }
 
 .cool-button {
@@ -280,6 +281,7 @@ form {
   @apply border-solid border-2 border-white text-lg rounded-sm;
   @apply text-white font-semibold p-2 leading-none bg-df-green;
   @apply transition-all duration-100 ease-in-out;
+  @apply cursor-pointer;
 
   &:hover,
   &:focus {
@@ -376,6 +378,19 @@ canvas {
   img {
     height: 5ex !important;
   }
+}
+
+@keyframes bounce {
+  0% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.very-nice {
+  animation: bounce linear 200ms;
 }
 
 @tailwind utilities;
