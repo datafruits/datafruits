@@ -9,36 +9,53 @@
       X
     </button>
   </div>
-  <div class="modal-body">
+  <div class="modal-body m-1">
     <form {{on "submit" (fn this.submit)}}>
-      <Input
-        @type="text"
-        @name="username"
-        @value={{this.username}}
-        @autocorrect="off"
-        @autocapitalize="none"
-        placeholder={{t "chat.username"}}
-      />
-      <Input
-        @type="password"
-        @name="pass"
-        @value={{this.pass}}
-        @autocorrect="off"
-        @autocapitalize="none"
-        placeholder={{t "chat.password"}}
-      />
-      <button
-        type="submit"
-        class="cool-button"
-        disabled={{this.disableJoinButton}}
-      >
-        {{t "chat.login"}}
-      </button>
+      <p class="mt-2 mb-2">
+        {{t "chat.login_why"}}
+      </p>
+      <div>
+        <Input
+          @type="text"
+          @name="username"
+          @value={{this.username}}
+          @autocorrect="off"
+          @autocapitalize="none"
+          placeholder={{t "chat.username"}}
+        />
+        <Input
+          @type="password"
+          @name="pass"
+          @value={{this.pass}}
+          @autocorrect="off"
+          @autocapitalize="none"
+          placeholder={{t "chat.password"}}
+        />
+      </div>
+      <div>
+        <button
+          type="submit"
+          class="cool-button mt-2"
+          disabled={{this.disableJoinButton}}
+        >
+          {{t "chat.login"}}
+        </button>
+      </div>
 
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between mt-3">
       <LinkTo @route="home.password-reset">
-        Forgot your password?
+        {{t "chat.forgot_password"}}
       </LinkTo>
+      <div class="relative">
+        <img
+            class="absolute"
+            style="top: -15px; left: -30px;"
+            src="/assets/images/new.gif"
+            alt="{{ t "new" }}" />
+        <LinkTo @route="home.sign-up">
+          {{t "chat.sign_up"}}
+        </LinkTo>
+      </div>
     </div>
     </form>
   </div>

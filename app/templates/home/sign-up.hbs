@@ -1,0 +1,12 @@
+{{title (t "signup.title")}}
+<div class="mt-5 pt-2 px-5">
+  <h1>{{t "signup.title"}}</h1>
+  {{#if this.currentUser.user}}
+    {{t "signup.already_signed_up"}}
+  {{else}}
+    <p>
+      {{t "signup.description"}}
+    </p>
+    <SignUp::Form @changeset={{changeset this.model this.UserValidations}} />
+  {{/if}}
+</div>
