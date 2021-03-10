@@ -1,9 +1,12 @@
-{{#each @messages as |message|}}
-  <ChatMessage
-    @message={{message}}
-    @gifsEnabled={{@gifsEnabled}}
-    @newMessagesAvailable={{@newMessagesAvailable}}
-    @setupAutoscroll={{action "setupAutoscroll"}}
-    @adjustScrolling={{action "adjustScrolling"}}
-  />
-{{/each}}
+<ul
+  id="messages">
+    {{#each @messages as |message|}}
+    <ChatMessage
+      @message={{message}}
+      @gifsEnabled={{@gifsEnabled}}
+      @newMessagesAvailable={{@newMessagesAvailable}}
+      @setupAutoscroll={{this.setupAutoscroll}}
+      @adjustScrolling={{this.adjustScrolling}}
+    />
+  {{/each}}
+</ul>
