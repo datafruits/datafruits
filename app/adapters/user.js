@@ -13,4 +13,8 @@ export default class UserAdapter extends ApplicationAdapter {
   urlForCreateRecord() {
     return `${this.urlPrefix()}/api/listeners`;
   }
+
+  urlForUpdateRecord(id) {
+    return `${this.urlPrefix()}/users/current_user`;
+  }
 }

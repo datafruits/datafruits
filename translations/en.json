@@ -145,6 +145,10 @@
     "nice": "NICE",
     "already_signed_up": "You are already have an account, and in fact you are signed in. "
   },
+  "profile": {
+    "style": "Style:",
+    "submit": "SAVE"
+  },
   "usermenu": {
     "settings": "Settings",
     "logout": "Logout"

@@ -1,0 +1,42 @@
+<div class="m-2">
+  <h1 class="py-4 font-semibold text-3xl text-df-yellow">
+    {{this.currentUser.user.username}}
+  </h1>
+  <img
+    src="{{this.currentUser.user.avatarUrl}}">
+  <div class="py-4">
+    <form {{on "submit" this.saveUser}}>
+      <span>{{t "profile.style"}}</span>
+      <select
+        id="style-selector"
+        name="style-selector"
+        class="classic:bg-df-pink blm:bg-black trans:bg-df-blue border-solid border-2 border-df-blue"
+        aria-label="{{ t "style"}}"
+        onchange={{action setUserStyle value="target.value"}}>
+        {{#each this.availableStyles as |style|}}
+          <option
+            value={{style}}
+            selected={{eq this.currentUser.user.style style}}
+            >
+            {{style}}
+          </option>
+        {{/each}}
+      </select>
+      <br />
+      <input
+        type="submit"
+        value="{{t "profile.submit"}}"
+        class="cool-button mt-2"
+        data-test-submit
+        >
+    </form>
+  </div>
+  <div class="flex space-x-4">
+    <div>
+      <h2 class="text-xl">Favorite Podcasts</h2>
+    </div>
+    <div>
+      <h2 class="text-xl">Favorite DJs</h2>
+    </div>
+  </div>
+</div>

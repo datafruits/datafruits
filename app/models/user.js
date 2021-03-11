@@ -15,4 +15,7 @@ export default class UserModel extends Model {
 
   @attr()
   avatarUrl;
+
+  @attr()
+  style;
 }
