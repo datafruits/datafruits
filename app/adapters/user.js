@@ -14,7 +14,7 @@ export default class UserAdapter extends ApplicationAdapter {
     return `${this.urlPrefix()}/api/listeners`;
   }
 
-  urlForUpdateRecord(id) {
+  urlForUpdateRecord() {
     return `${this.urlPrefix()}/users/current_user`;
   }
 }
