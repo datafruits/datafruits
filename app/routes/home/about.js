@@ -10,6 +10,7 @@ export default class AboutRoute extends Route {
       { name: 'Anthony Volodkin' },
       { name: 'ben franchuk' },
       { name: 'Braxton' },
+      { name: 'Brady King' },
       { name: 'Casey Primozic' },
       { name: 'Casey VanAntwerp' },
       { name: 'calgames' },
