@@ -62,6 +62,7 @@
   },
   "timetable": { "title": "타임 테이블" },
   "djs": { "title": "DJs" },
+  "show": { "archive": "아카이브 듣기" },
   "radio": { "title": "라디오" },
   "releases": { "title": "레이블" },
   "about": { "title": "우리에 관하여" },
