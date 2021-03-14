@@ -50,18 +50,6 @@ module('Unit | Service | chat', function (hooks) {
     assert.ok(chatService.messages.content.includes('you suck'));
   });
 
-  test('it notifies you when someone leaves chat', function (assert) {
-    let { chatService, lobbyChannel } = setup(this);
-
-    lobbyChannel.dispatch('user:left', { user: 'nerd23', timestamp: 'before the party started' });
-    assert.equal(
-      chatService.messages.content
-        .filter((t) => t instanceof Object)
-        .filter((t) => t.body && t.timestamp === 'before the party started' && t.user === 'nerd23').length,
-      1,
-    );
-  });
-
   test('it forces the user out when banned', function (assert) {
     let { chatService, lobbyChannel } = setup(this);
 
