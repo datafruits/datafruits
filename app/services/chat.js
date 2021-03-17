@@ -94,18 +94,6 @@ export default Service.extend({
       alert(msg.error);
     });
 
-    this.chan.on('user:left', (msg) => {
-      if (msg.user !== null) {
-        let leftMessage = { user: msg.user, body: ' left the chat :dash:', timestamp: msg.timestamp };
-        this.messages.pushObject(leftMessage);
-      }
-    });
-
-    this.chan.on('user:authorized', (msg) => {
-      let joinedMessage = { user: msg.user, body: ' joined the chat :raising_hand:', timestamp: msg.timestamp };
-      this.messages.pushObject(joinedMessage);
-    });
-
     // user banned
     this.chan.on('disconnect', (/*msg*/) => {
       this.set('joinedChat', false);
