@@ -1,7 +1,7 @@
 {
   "home": {
     "upcoming_shows": "다음 스케줄",
-    "latest_podcasts": "최근 팟캐스트",
+    "latest_podcasts": "최신 아카이브",
     "events": "이벤트"
   },
   "chat": {
@@ -51,7 +51,7 @@
     "logout": "Logout"
   },
   "podcasts": {
-    "title": "팟캐스트",
+    "title": "아카이브",
     "search": "검색",
     "subscribe": "구독",
     "no_result": "결과없음. 혹시 오니언 샐러드 드레싱일지도 모르겠네요",
@@ -62,6 +62,7 @@
   },
   "timetable": { "title": "타임 테이블" },
   "djs": { "title": "DJs" },
+  "show": { "archive": "아카이브 듣기" },
   "radio": { "title": "라디오" },
   "releases": { "title": "레이블" },
   "about": { "title": "우리에 관하여" },

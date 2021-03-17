@@ -12,7 +12,7 @@
   "home": {
     "aria": "Navigate to the homepage",
     "upcoming_shows": "UPCOMING SHOWS",
-    "latest_podcasts": "LATEST PODCASTS",
+    "latest_podcasts": "LATEST ARCHIVES",
     "events": "EVENTS"
   },
   "themes": {
@@ -63,7 +63,7 @@
     "aria": "View EPs and other releases from datafruits.fm"
   },
   "podcasts": {
-    "title": "Podcasts",
+    "title": "Archives",
     "subscribe_title": "Subscribe",
     "search_title": "Search",
     "link_itunes": "iTunes",
@@ -90,8 +90,8 @@
       "rss": "RSS"
     },
     "aria": {
-      "title": "Search for podcasts by upload title using text input",
-      "tag": "Busque podcasts por título de carga utilizando el ingreso de texto"
+      "title": "Search the archives by upload title",
+      "tag": "Search the archives by tag"
     }
   },
   "timetable": {
@@ -209,12 +209,12 @@
   "next_broadcast": "Next live on air: ",
   "now_playing": "Now playing",
   "dj": {
-    "podcasts": "Podcasts",
+    "podcasts": "Archives",
     "upcoming_shows": "Upcoming show"
   },
   "show": {
     "hosted_prefix": "Hosted by:",
-    "archive": "Listen back to the podcast"
+    "archive": "Listen to the archive"
   },
   "player": {
     "play_button_label": "play",
