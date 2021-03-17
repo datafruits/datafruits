@@ -4,6 +4,9 @@
   </h1>
   <img
     src="{{this.currentUser.user.avatarUrl}}">
+  <input type="file"
+         {{on "change" this.updateFile}}
+         />
   <div class="py-4">
     <form {{on "submit" this.saveUser}}>
       <span>{{t "profile.style"}}</span>

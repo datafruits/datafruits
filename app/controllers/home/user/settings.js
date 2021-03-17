@@ -22,11 +22,19 @@ export default class HomeUserSettingsController extends Controller {
     'fancy',
   ];
 
-  @action setUserStyle(style) {
+  @action
+  updateFile(e) {
+    this.currentUser.user.avatar.update(e.target.files[0]);
+    this.currentUser.user.avatarFilename = e.target.files[0].name;
+  }
+
+  @action
+  setUserStyle(style) {
     this.currentUser.user.style = style;
   }
 
-  @action saveUser(e) {
+  @action
+  saveUser(e) {
     e.preventDefault();
     this.currentUser.user
       .save()
