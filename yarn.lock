@@ -8816,6 +8816,12 @@ ember-copy@^1.0.0:
   dependencies:
     ember-cli-babel "^6.6.0"
 
+"ember-data-paperclip@https://github.com/mcfiredrill/ember-data-paperclip.git":
+  version "0.3.0"
+  resolved "https://github.com/mcfiredrill/ember-data-paperclip.git#924074906978105e1c06bf626213251d56531e83"
+  dependencies:
+    ember-cli-babel "^6.3.0"
+
 ember-data-storefront@^0.17.2:
   version "0.17.2"
   resolved "https://registry.yarnpkg.com/ember-data-storefront/-/ember-data-storefront-0.17.2.tgz#a5cb677412e9b0f7b1f2f4ba9d508163af905cd7"
