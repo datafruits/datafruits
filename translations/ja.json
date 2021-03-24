@@ -1,7 +1,7 @@
 {
   "home": {
     "upcoming_shows": "近日放送予定",
-    "latest_podcasts": "最新ポッドキャスト",
+    "latest_podcasts": "最新のアーカイブ",
     "events": "イベント"
   },
   "chat": {
@@ -14,6 +14,8 @@
     "img_on": "画像あり",
     "img_off": "画像がオフです",
     "nickname": "ここにユーザー名を入力してください...",
+    "sign_up": "アカウント登録",
+    "login_why": "チャットにログインしてみてください。絶対流行るからです。",
     "label": {
       "nick": "ニックネーム",
       "input": "メッセージ",
@@ -49,7 +51,7 @@
     "nice": "ナイスです"
   },
   "podcasts": {
-    "title": "ポッドキャスト",
+    "title": "アーカイブ",
     "search": "探す",
     "subscribe": "申し込む",
     "no_result": "結果なしです。もしかしてオニオンサラダドレッシングかもしれませんでした。",
@@ -98,7 +100,7 @@
     "upcoming_shows": "次の生放送予定"
   },
   "show": {
-    "archive": "アーカイブを聴く"
+    "archive": "アーカイブを聞く"
   },
   "player": {
     "aria": {

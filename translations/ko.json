@@ -1,7 +1,7 @@
 {
   "home": {
     "upcoming_shows": "다음 스케줄",
-    "latest_podcasts": "최근 팟캐스트",
+    "latest_podcasts": "최신 아카이브",
     "events": "이벤트"
   },
   "chat": {
@@ -14,6 +14,8 @@
     "img_on": "이미지가 켜져 있습니다",
     "img_off": "이미지가 꺼져 있습니다",
     "nickname": "여기에 사용자 이름을 입력...",
+    "sign_up": "어카운트 등록",
+    "login_why": "채팅에 로그인하세요. 모든 멋진 과일들이 하고 있는 것입니다",
     "label": {
       "nick": "별명",
       "input": "메시지",
@@ -49,7 +51,7 @@
     "logout": "Logout"
   },
   "podcasts": {
-    "title": "팟캐스트",
+    "title": "아카이브",
     "search": "검색",
     "subscribe": "구독",
     "no_result": "결과없음. 혹시 오니언 샐러드 드레싱일지도 모르겠네요",
@@ -60,6 +62,7 @@
   },
   "timetable": { "title": "타임 테이블" },
   "djs": { "title": "DJs" },
+  "show": { "archive": "아카이브 듣기" },
   "radio": { "title": "라디오" },
   "releases": { "title": "레이블" },
   "about": { "title": "우리에 관하여" },
