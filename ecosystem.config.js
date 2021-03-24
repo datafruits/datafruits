@@ -1,3 +1,6 @@
+/*global module*/
+/*eslint-env node */
+
 module.exports = {
   apps: [
     {
