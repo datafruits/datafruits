@@ -142,6 +142,10 @@ module.exports = function (environment) {
     API_HOST: process.env.API_HOST,
   };
 
+  ENV['ember-simple-auth'] = {
+    routeAfterAuthentication: 'home',
+  };
+
   // Heroku Git Hash support
   if (process.env.SOURCE_VERSION) {
     let packageJson = require('../package.json');
