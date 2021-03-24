@@ -19,11 +19,13 @@ Router.map(function () {
     this.route('dj', { path: '/djs/:name' });
     this.route('chat');
     this.route('blogs.show', { path: '/blogs/:id' });
-    this.route('user', function () {
-      this.route('settings');
-    });
     this.route('sign-up');
     this.route('password-reset');
+    this.route('authenticated', { path: '' }, function () {
+      this.route('user', function () {
+        this.route('settings');
+      });
+    });
   });
   this.route('container', function () {
     this.route('show', { path: '/shows/:id' });
