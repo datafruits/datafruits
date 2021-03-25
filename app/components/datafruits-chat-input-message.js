@@ -34,7 +34,8 @@ export default class DatafruitsChatInputMessage extends Component {
   }
 
   @action
-  sendMessage() {
+  sendMessage(e) {
+    e.preventDefault();
     const message = this.inputMessage;
     if (message) {
       if (this.chat.token) {
@@ -55,6 +56,7 @@ export default class DatafruitsChatInputMessage extends Component {
     }
   }
 
+  @action
   didInsert() {
     let emojiComplete = {
       id: 'emojis',

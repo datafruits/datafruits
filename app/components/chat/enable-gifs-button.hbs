@@ -1,0 +1,6 @@
+<button
+  title={{if @enabled (t "chat.titles.img_on") (t "chat.titles.img_off") }}
+  class="cool-button mt-1 md:m-0"
+  {{on "click" @toggleGifs}}>
+  {{t (if @enabled  "chat.img_on" "chat.img_off") }}
+</button>
