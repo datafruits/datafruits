@@ -15,4 +15,13 @@ export default class UserModel extends Model {
 
   @attr()
   avatarUrl;
+
+  @attr('file')
+  avatar;
+
+  @attr()
+  avatarFilename;
+
+  @attr()
+  style;
 }

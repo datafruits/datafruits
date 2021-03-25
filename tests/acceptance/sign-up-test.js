@@ -8,6 +8,7 @@ module('Acceptance | sign up', function (hooks) {
   setupMirage(hooks);
 
   test('visiting /sign-up', async function (assert) {
+    window.alert = () => {};
     await visit('/sign-up');
 
     assert.equal(currentURL(), '/sign-up');
