@@ -1,14 +1,10 @@
-import classic from 'ember-classic-decorator';
 import { action } from '@ember/object';
-import { tagName } from '@ember-decorators/component';
 import { inject as service } from '@ember/service';
-import { oneWay } from '@ember/object/computed';
 import emojiStrategy from '../emojiStrategy';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { Textcomplete, Textarea } from 'textcomplete';
+import { tracked } from '@glimmer/tracking';
 
-@classic
-@tagName('span')
 export default class DatafruitsChatInputMessage extends Component {
   @service
   chat;
@@ -16,55 +12,50 @@ export default class DatafruitsChatInputMessage extends Component {
   @service
   currentUser;
 
-  @oneWay('chat.username')
-  username;
+  @tracked showingGifSearch = false;
 
-  @oneWay('chat.joinedUsers')
-  joinedUsers;
-
-  @oneWay('chat.token')
-  token;
+  @tracked inputMessage;
 
   @action
   closeGifSearch() {
-    this.set('showingGifSearch', false);
+    this.showingGifSearch = false;
   }
 
   @action
   sendGif(gif) {
-    this.set('inputMessage', gif.url);
-    this.set('showingGifSearch', false);
-    this.element.querySelector('#send-message-button').focus();
+    this.inputMessage = gif.url;
+    this.showingGifSearch = false;
+    document.querySelector('#send-message-button').focus();
   }
 
   @action
   showGifSearch() {
-    this.set('showingGifSearch', true);
+    this.showingGifSearch = true;
   }
 
   @action
   sendMessage() {
     const message = this.inputMessage;
     if (message) {
-      if (this.token) {
+      if (this.chat.token) {
         const role = this.currentUser.user.role;
         const avatarUrl = this.currentUser.user.avatarUrl;
         this.chat.push('new:msg_with_token', {
-          user: this.username,
+          user: this.chat.username,
           body: message,
           timestamp: Date.now(),
-          token: this.token,
+          token: this.chat.token,
           role,
           avatarUrl,
         });
       } else {
-        this.chat.push('new:msg', { user: this.username, body: message, timestamp: Date.now() });
+        this.chat.push('new:msg', { user: this.chat.username, body: message, timestamp: Date.now() });
       }
-      this.set('inputMessage', '');
+      this.inputMessage = '';
     }
   }
 
-  didInsertElement() {
+  didInsert() {
     let emojiComplete = {
       id: 'emojis',
       //match: /\B:([\-+\w]*)$/,
@@ -125,8 +116,8 @@ export default class DatafruitsChatInputMessage extends Component {
       match: /(^|\s)(\w{2,})$/,
       search: (term, callback) => {
         let matches;
-        matches = this.joinedUsers.filter((word) => {
-          return word.indexOf(term) === 0 && word !== this.username;
+        matches = this.chat.joinedUsers.filter((word) => {
+          return word.indexOf(term) === 0 && word !== this.chat.username;
         });
         callback(matches);
       },
