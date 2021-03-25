@@ -161,6 +161,14 @@ export function initialize(/* application */) {
       shortnames: [':lemoner:'],
       keywords: ['lemoner'],
     },
+    ':banaynay:': {
+      custom: true,
+      animated: true,
+      uc_base: 'banaynay',
+      uc_output: '',
+      shortnames: [':banaynay:'],
+      keywords: ['banaynay'],
+    },
     ':miniburger:': {
       custom: true,
       uc_base: 'miniburger',
