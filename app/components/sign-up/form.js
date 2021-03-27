@@ -105,7 +105,7 @@ export default class SignUpFormComponent extends Component {
                 const token = this.session.data.authenticated.token;
                 this.currentUser.load().then(() => {
                   this.chat.push('authorize_token', { user: nick, timestamp: Date.now(), token: token });
-                  this.router.transitionTo('home');
+                  this.router.transitionTo('home.chat');
                   return true;
                 });
               })
