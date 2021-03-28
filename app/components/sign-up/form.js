@@ -14,9 +14,6 @@ export default class SignUpFormComponent extends Component {
   router;
 
   @service
-  chat;
-
-  @service
   currentUser;
 
   get emailExists() {
@@ -102,12 +99,7 @@ export default class SignUpFormComponent extends Component {
             return this.session
               .authenticate('authenticator:devise', nick, pass)
               .then(() => {
-                const token = this.session.data.authenticated.token;
-                this.currentUser.load().then(() => {
-                  this.chat.push('authorize_token', { user: nick, timestamp: Date.now(), token: token });
-                  this.router.transitionTo('home.chat');
-                  return true;
-                });
+                return true;
               })
               .catch((reason) => {
                 console.log(reason); // eslint-disable-line no-console
