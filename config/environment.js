@@ -143,7 +143,7 @@ module.exports = function (environment) {
   };
 
   ENV['ember-simple-auth'] = {
-    routeAfterAuthentication: 'home',
+    routeAfterAuthentication: 'home.chat',
   };
 
   // Heroku Git Hash support
