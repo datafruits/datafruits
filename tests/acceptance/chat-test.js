@@ -12,7 +12,7 @@ module('Acceptance | chat', function (hooks) {
     assert.equal(currentURL(), '/chat');
   });
 
-  test('login to the chat', async function (assert) {
+  skip('login to the chat', async function (assert) {
     await visit('/chat');
     await click('[data-test-login-button]');
 
