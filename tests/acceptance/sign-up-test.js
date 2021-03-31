@@ -19,6 +19,6 @@ module('Acceptance | sign up', function (hooks) {
     await click('[data-test-coc]');
     await click('[data-test-submit]');
 
-    assert.equal(currentURL(), '/');
+    assert.equal(currentURL(), '/chat');
   });
 });

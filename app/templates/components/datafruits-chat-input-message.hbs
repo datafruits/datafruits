@@ -8,6 +8,7 @@
     placeholder={{t "chat.message_placeholder"}}
     class="w-3/4"
     aria-label="{{t "chat.label.input"}}"
+    data-test-chat-input-message
   />
   <button {{on "click" this.sendMessage}}
     type="submit"

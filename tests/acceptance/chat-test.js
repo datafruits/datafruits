@@ -1,5 +1,5 @@
 import { module, skip } from 'qunit';
-import { visit, currentURL } from '@ember/test-helpers';
+import { visit, currentURL, fillIn, click, find } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
 module('Acceptance | chat', function (hooks) {
@@ -10,5 +10,18 @@ module('Acceptance | chat', function (hooks) {
     await visit('/chat');
 
     assert.equal(currentURL(), '/chat');
+  });
+
+  skip('login to the chat', async function (assert) {
+    await visit('/chat');
+    await click('[data-test-login-button]');
+
+    await fillIn('[data-test-username]', 'djnameko');
+    await fillIn('[data-test-password]', 'mypassword1234');
+
+    await click('[data-test-login-submit]');
+
+    assert.equal(currentURL(), '/chat');
+    assert.equal(find('[data-test-chat-input-messsage]').length, 1);
   });
 });
