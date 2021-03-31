@@ -29,9 +29,7 @@
   <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow ">
     {{outlet}}
   </div>
-  <DatafruitsPlayer
-    class="flex-col flex justify-center classic:bg-df-pink blm:bg-black trans:bg-df-blue text-xl py-2 text-white leading-none"
-    >
+  <DatafruitsPlayer>
     <DjDonateButton class="hidden md:block mr-2" />
     <div class="text-sm">
       <ThemeSelector
@@ -40,7 +38,7 @@
       />
       <LocaleSelector
         class="text-white hidden md:block mt-1"
-        @selectedLocale={{locale.value}}
+        @selectedLocale={{this.locale.value}}
         @setLocale={{action "setLocale"}}
       />
     </div>
