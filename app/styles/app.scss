@@ -393,5 +393,12 @@ canvas {
   animation: bounce linear 200ms;
 }
 
-@tailwind utilities;
+::selection {
+  background: salmon; /* WebKit/Blink Browsers */
+}
 
+::-moz-selection {
+  background: salmon; /* Gecko Browsers */
+}
+
+@tailwind utilities;
