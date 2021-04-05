@@ -6,6 +6,7 @@ import { debounce } from '@ember/runloop';
 
 @classic
 export default class GiphySearch extends Component {
+  @tracked searchTerm;
   // TODO convert this to used tracked
   @observes('searchTerm') //eslint-disable-line ember/no-observers
   observeQuery() {

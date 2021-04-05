@@ -1,5 +1,15 @@
-{{yield
-  (hash
-    isRunning=fetchData.isRunning
-    data=data)
-}}
+<Await
+  @promise={{this.loadGifs}}
+  @onResolve={{this.setGifs}}
+  as |await|>
+  <await.Pending>
+    {{t "gifs.loading"}}
+  </await.Pending>
+
+  <await.Fulfilled as |gif|>
+  </await.Fulfilled>
+
+  <await.Rejected>
+    Something went wrong :(
+  </await.Rejected>
+</Await>
