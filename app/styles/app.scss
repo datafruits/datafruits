@@ -374,7 +374,9 @@ canvas {
 }
 
 .fruit-tip-button {
-  animation: bg-colorfade 2s infinite;
+  &:hover {
+    animation: bg-colorfade 2s infinite;
+  }
   img {
     height: 5ex !important;
   }
