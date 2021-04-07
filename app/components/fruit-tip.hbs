@@ -10,7 +10,7 @@
     {{#each this.fruitTypes as |fruit|}}
       <button
         {{on "click" (fn this.fruitTip fruit.name)}}
-        class="cool-button fruit-tip-button mr-1 ml-1"
+        class="cool-button fruit-tip-button tip mr-1 ml-1"
         type="button"
         >
         <img src={{fruit.image}} />
@@ -24,5 +24,5 @@
   type="button"
   style="padding: 0.1em !important;"
   >
-  <img src="{{this.randomFruitImage}}" style="height: 4ex !important;" >
+  <img src="{{this.randomFruitImage}}" style="height: 3ex !important;" >
 </button>
