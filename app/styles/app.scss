@@ -374,9 +374,29 @@ canvas {
 }
 
 .fruit-tip-button {
-  animation: bg-colorfade 2s infinite;
+  &:hover {
+    animation: bg-colorfade 2s infinite;
+  }
+  &.tip:focus {
+    animation: buttonPress ease-in-out 400ms;
+  }
+  &.tip:active {
+    animation: none;
+  }
   img {
     height: 5ex !important;
+  }
+}
+
+@keyframes buttonPress {
+  0% {
+    transform: scale(1) rotate3d(0, 1, 0, 0deg)
+  }
+  50% {
+    transform: scale(1.15) rotate3d(0, 1, 0, 180deg)
+  }
+  100% {
+    transform: scale(1) rotate3d(0, 1, 0, 360deg)
   }
 }
 
@@ -393,5 +413,12 @@ canvas {
   animation: bounce linear 200ms;
 }
 
-@tailwind utilities;
+::selection {
+  background: salmon; /* WebKit/Blink Browsers */
+}
 
+::-moz-selection {
+  background: salmon; /* Gecko Browsers */
+}
+
+@tailwind utilities;

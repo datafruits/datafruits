@@ -22,6 +22,7 @@
           @autocorrect="off"
           @autocapitalize="none"
           placeholder={{t "chat.username"}}
+          data-test-username
         />
         <Input
           @type="password"
@@ -30,12 +31,14 @@
           @autocorrect="off"
           @autocapitalize="none"
           placeholder={{t "chat.password"}}
+          data-test-password
         />
       </div>
       <div>
         <button
           type="submit"
           class="cool-button mt-2"
+          data-test-login-submit
           disabled={{this.disableJoinButton}}
         >
           {{t "chat.login"}}

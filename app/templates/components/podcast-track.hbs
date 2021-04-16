@@ -1,4 +1,4 @@
-<div class="py-1">
+<div class="py-1 flex flex-wrap space-x-1 items-center">
   {{#if playing}}
     <a class="text-df-green hover:text-df-yellow text-xl" {{action "pause"}} href="#">
       {{t "player.pause"}}
@@ -11,21 +11,6 @@
   <a href={{cdnUrl}} download="">
     <i class="fa fa-download text-df-green hover:text-df-yellow text-xl"></i>
   </a>
-  {{#if soundcloudKey}}
-    <a
-      class="text-df-green hover:text-df-yellow text-xl"
-      href={{soundcloudKey}}
-      target="_blank"
-      rel="noopener"
-    >
-      <i class="fa fa-soundcloud"></i>
-    </a>
-  {{/if}}
-  {{#if mixcloudKey}}
-    <a class="text-df-green hover:text-df-yellow text-xl" href={{mixcloudKey}} target="_blank" rel="noopener noreferrer">
-      <i class="fa fa-mixcloud"></i>
-    </a>
-  {{/if}}
   {{#if scheduledShow}}
     <LinkTo @route="home.show" @model={{scheduledShow.id}}>
       {{title}}
@@ -33,9 +18,14 @@
   {{else}}
     {{title}}
   {{/if}}
-  {{#each labels as |label|}}
-    <a class="track-label classic:bg-df-pink blm:bg-black text-df-yellow p-1 uppercase hover:italic" {{action selectLabel label}} href="#">
-      {{label.name}}
-    </a>
-  {{/each}}
+  <div class="flex space-x-2">
+    {{#each labels as |label|}}
+      <a
+        class="track-label classic:bg-df-pink blm:bg-black text-df-yellow hover:text-white p-1 uppercase hover:italic border-solid border-white border-2 p-x-2 font-extrabold"
+        {{action selectLabel label}}
+        href="#">
+        {{label.name}}
+      </a>
+    {{/each}}
+  </div>
 </div>
