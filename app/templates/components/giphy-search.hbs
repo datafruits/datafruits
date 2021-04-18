@@ -9,7 +9,6 @@
 />
 <Await
   @promise={{this.loadGifs}}
-  @onResolve={{this.setGifs}}
   as |await|>
   <await.Pending>
     {{t "gifs.loading"}}
@@ -23,21 +22,3 @@
     Something went wrong :(
   </await.Rejected>
 </Await>
-<label for="giphy-search-term">{{t "chat.label.search"}}</label>
-<Input
-  @type="text"
-  @id="giphy-search-term"
-  name="giphy-search-term"
-  placeholder={{t "chat.search"}}
-  @autocomplete="off"
-  @value={{searchTerm}}
-/>
-<GiphyLoader @query={{query}} as |loader|>
-  {{#if loader.isRunning}}
-    <p>{{t "loading"}}</p>
-  {{else}}
-    {{#each loader.data as |gif|}}
-      <GifPreview @gif={{gif}} @sendGif={{action sendGif}}/>
-    {{/each}}
-  {{/if}}
-</GiphyLoader>
