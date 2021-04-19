@@ -5,31 +5,6 @@
   name="giphy-search-term"
   placeholder={{t "chat.search"}}
   @autocomplete="off"
-  @value={{this.searchTerm}}
-/>
-<Await
-  @promise={{this.loadGifs}}
-  @onResolve={{this.setGifs}}
-  as |await|>
-  <await.Pending>
-    {{t "gifs.loading"}}
-  </await.Pending>
-
-  <await.Fulfilled as |gif|>
-    <GifPreview @gif={{gif}} @sendGif={{action @sendGif}}/>
-  </await.Fulfilled>
-
-  <await.Rejected>
-    Something went wrong :(
-  </await.Rejected>
-</Await>
-<label for="giphy-search-term">{{t "chat.label.search"}}</label>
-<Input
-  @type="text"
-  @id="giphy-search-term"
-  name="giphy-search-term"
-  placeholder={{t "chat.search"}}
-  @autocomplete="off"
   @value={{searchTerm}}
 />
 <GiphyLoader @query={{query}} as |loader|>
