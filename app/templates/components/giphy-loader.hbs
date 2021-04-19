@@ -1,5 +1,6 @@
 <Await
   @promise={{this.loadGifs}}
+  @onResolve={{this.setGifs}}
   as |await|>
   <await.Pending>
     {{t "gifs.loading"}}
