@@ -1,6 +1,5 @@
 import { inject as service } from '@ember/service';
 import { oneWay } from '@ember/object/computed';
-//import Component from '@ember/component';
 import Component from '@glimmer/component';
 import { later } from '@ember/runloop';
 import { action } from '@ember/object';
