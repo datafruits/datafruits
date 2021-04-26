@@ -1,13 +1,14 @@
 <li class="userlist-item">
   <span
-      class="flex items-center space-x-2">
-    >
+      class="flex items-center space-x-2 justify-center mr-4">
     <img
       class="inline"
       style="height: 20px;"
-      src="{{@user.avatarUrl}}"
+      src="{{this.avatarUrl}}"
       align="center"
-      alt="{{ t "chat.user_avatar" }}" / >
-    {{format-message-user @user}}
+      alt="{{ t "chat.user_avatar" }}" />
+    <span>
+      {{format-message-user this.username}}
+    </span>
   </span>
 </li>
