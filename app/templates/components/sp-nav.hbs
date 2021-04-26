@@ -101,6 +101,14 @@
             {{t "subscribe.title"}}
           </LinkTo>
         </li>
+        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+          <LinkTo
+            class="text-white text-shadow-light"
+            aria-label={{t "settings.title"}}
+            @route="home.site-settings">
+            {{t "settings.title"}}
+          </LinkTo>
+        </li>
       </ul>
     {{/if}}
   </div>
