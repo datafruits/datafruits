@@ -107,14 +107,25 @@
   {{#if (not @menuOpen)}}
     <DjDonateButton class="block md:hidden ml-5" />
     <div class="">
-      <LinkTo @route="home"
-        @aria-label={{t "blog"}}>
-        <img
-          class=""
-          id="circle-logo"
-          src="/assets/images/logo.png"
-          alt={{t "site_title"}}>
-      </LinkTo>
+      {{#if this.session.isAuthenticated}}
+        <a href="#" class="" role="button" {{on "click" this.args.toggleUserMenu}}>
+          <img
+            class="inline rounded-lg"
+            style="height: 3rem;"
+            src="{{this.currentUser.user.avatarUrl}}"
+            align="center"
+            alt="{{ t "chat.user_avatar" }}" / >
+        </a>
+      {{else}}
+        <LinkTo @route="home"
+          @aria-label={{t "blog"}}>
+          <img
+            class=""
+            id="circle-logo"
+            src="/assets/images/logo.png"
+            alt={{t "site_title"}}>
+        </LinkTo>
+      {{/if}}
     </div>
   {{/if}}
 </nav>
