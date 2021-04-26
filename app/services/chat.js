@@ -10,7 +10,6 @@ export default Service.extend({
   eventBus: service(),
   currentUser: service(),
   joinedUsers: computed('presences', function () {
-    console.log(this.presences);
     return this.presences;
   }),
   messages: ArrayProxy.create({ content: A() }),
