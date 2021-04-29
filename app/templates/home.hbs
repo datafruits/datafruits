@@ -1,5 +1,5 @@
 <section class="h-handle-resize flex flex-col justify-between">
-  <div class="flex classic:bg-df-pink blm:bg-black trans:bg-df-blue mb-5 pb-2">
+  <div class="flex classic:bg-df-pink blm:bg-black trans:bg-df-blue pb-2">
     <PcNav
       @toggleSubMenu={{action "toggleSubMenu"}}
       @submenuOpen={{this.submenuOpen}}
@@ -26,8 +26,11 @@
     {{/if}}
   </div>
   <UserMenu @showing={{this.isShowingUserMenu}} @toggleUserMenu={{this.toggleUserMenu}} />
-  <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow ">
+  <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow relative">
     {{outlet}}
+    <DatafruitsVisuals
+      class="block absolute top-0 w-full h-full overflow-hidden"
+    />
   </div>
   <DatafruitsPlayer
     class="flex-col flex justify-center classic:bg-df-pink blm:bg-black trans:bg-df-blue text-xl py-2 text-white leading-none"
@@ -49,9 +52,6 @@
     <AddDatafruit />
   </div>
 </section>
-<DatafruitsVisuals
-  class="block absolute top-0 w-screen h-screen h-handle-resize"
-/>
 <Notifications />
 <WindowResizeHandler />
 {{#if (not this.fastboot.isFastBoot)}}
