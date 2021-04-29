@@ -180,12 +180,16 @@ input {
   @apply text-black border-solid border-2 border-gray-300 rounded-sm p-1;
 }
 
+.video-js {
+  height: 100% !important;
+}
+
 .visuals {
   z-index: -999;
   video {
-    width: 100vw !important;
-    height: 100vh !important;
-    @apply absolute left-0 object-cover;
+    width: 100% !important;
+    height: 100% !important;
+    @apply absolute left-0 object-fill;
   }
 }
 
