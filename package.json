@@ -14,7 +14,7 @@
     "build": "ember build --environment=production && cd dist && yarn install",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
-    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "start": "ember server",
     "test": "ember test",
     "coverage": "cross-env COVERAGE=true ember test",
     "lighthouse": "lhci autorun --config=config/lighthouserc.js"
@@ -121,7 +121,6 @@
   },
   "dependencies": {
     "fastboot-app-server": "^3.0.0",
-    "pixi.js": "^5.3.4",
-    "pm2": "^4.5.5"
+    "pixi.js": "^5.3.4"
   }
 }
