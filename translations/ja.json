@@ -1,4 +1,7 @@
 {
+  "settings": {
+    "title": "サイト設定"
+  },
   "home": {
     "upcoming_shows": "近日放送予定",
     "latest_podcasts": "最新のアーカイブ",
@@ -113,7 +116,7 @@
       "now_playing": "録音を再生しています"
     }
   },
-  "locale": "ロケール",
+  "locale": "言語",
   "theme": { "label": "テーマ" },
   "donate": "寄付する"
 }

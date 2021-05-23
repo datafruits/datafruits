@@ -1,32 +1,18 @@
 <section class="h-handle-resize flex flex-col justify-between">
   <div class="flex classic:bg-df-pink blm:bg-black trans:bg-df-blue mb-5 pb-2">
     <PcNav
-      @toggleSubMenu={{action "toggleSubMenu"}}
+      @toggleSubMenu={{this.toggleSubMenu}}
       @submenuOpen={{this.submenuOpen}}
+      @toggleUserMenu={{this.toggleUserMenu}}
     />
     <SpNav
-      @toggleMenu={{action "toggleMenu"}}
+      @toggleMenu={{this.toggleMenu}}
+      @toggleUserMenu={{this.toggleUserMenu}}
       @menuOpen={{this.menuOpen}} />
-    {{#if this.session.isAuthenticated}}
-      <ul class="px-4 py-4 font-semibold text-3xl">
-        <li class="">
-          <a href="#" class="" role="button" {{on "click" this.toggleUserMenu}}>
-            {{this.currentUser.user.username}}
-          </a>
-        </li>
-      </ul>
-    {{else}}
-      <LinkTo
-        aria-label={{t "home.aria"}}
-        class="hidden md:block"
-        @route="home.index">
-        <h1 class="logo font-debussy text-5xl text-white">
-          {{t "site_title_fm"}}
-        </h1>
-      </LinkTo>
-    {{/if}}
   </div>
-  <UserMenu @showing={{this.isShowingUserMenu}} @toggleUserMenu={{this.toggleUserMenu}} />
+  <UserMenu
+    @showing={{this.isShowingUserMenu}}
+    @toggleUserMenu={{this.toggleUserMenu}} />
   <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow ">
     {{outlet}}
   </div>
