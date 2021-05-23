@@ -1,11 +1,5 @@
-import Component from '@glimmer/component';
+import classic from 'ember-classic-decorator';
+import Component from '@ember/component';
 
-export default class UserListItem extends Component {
-  get avatarUrl() {
-    return this.args.user.metas[0].avatarUrl;
-  }
-
-  get username() {
-    return this.args.user.metas[0].username;
-  }
-}
+@classic
+export default class UserListItem extends Component {}
