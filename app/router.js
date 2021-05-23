@@ -25,7 +25,6 @@ Router.map(function () {
     this.route('user', function () {
       this.route('settings');
     });
-    this.route('site-settings');
   });
   this.route('container', function () {
     this.route('show', { path: '/shows/:id' });

@@ -1,8 +1,5 @@
 {
   "new": "New",
-  "settings": {
-    "title": "Site Settings"
-  },
   "404": {
     "title": "404!",
     "message": "Page not found",
@@ -244,9 +241,9 @@
       "now_playing": "Now playing back earlier recording"
     }
   },
-  "locale": "Language",
+  "locale": "locale",
   "theme": {
-    "label": "Theme"
+    "label": "theme"
   },
   "about_page": {
     "listenersupport": "Datafruits is listener supported. You can join our patreon and get stickers and other goodies sent to you every 2 months.",

@@ -1,7 +1,7 @@
 import Service, { inject as service } from '@ember/service';
 import ArrayProxy from '@ember/array/proxy';
 import { A } from '@ember/array';
-import { reads } from '@ember/object/computed';
+import { computed } from '@ember/object';
 import { Presence } from 'phoenix';
 
 export default Service.extend({
@@ -9,7 +9,9 @@ export default Service.extend({
   session: service(),
   eventBus: service(),
   currentUser: service(),
-  joinedUsers: reads('presences'),
+  joinedUsers: computed('presences', function () {
+    return Object.keys(this.presences);
+  }),
   messages: ArrayProxy.create({ content: A() }),
   joinedChat: false,
   gifsEnabled: true,
