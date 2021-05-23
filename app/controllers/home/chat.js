@@ -14,6 +14,9 @@ export default class ChatController extends Controller {
   @service
   session;
 
+  @service
+  currentUser;
+
   @computed('fastboot.isFastBoot')
   get isNotFastboot() {
     return !this.fastboot.isFastBoot;
@@ -26,9 +29,16 @@ export default class ChatController extends Controller {
       .authenticate('authenticator:devise', nick, pass)
       .then(() => {
         const token = this.session.data.authenticated.token;
-        const avatarUrl = this.currentUser.user.avatarUrl;
-        this.chat.push('authorize_token', { user: nick, timestamp: Date.now(), token: token, avatarUrl: avatarUrl });
-        return true;
+        this.currentUser.load().then(() => {
+          const avatarUrl = this.currentUser.user.avatarUrl;
+          this.chat.push('authorize_token', {
+            user: nick,
+            timestamp: Date.now(),
+            token: token,
+            avatarUrl: avatarUrl,
+          });
+          return true;
+        });
       })
       .catch((/*reason*/) => {
         alert('Wrong password');
