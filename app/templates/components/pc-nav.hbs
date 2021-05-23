@@ -103,3 +103,28 @@
     </ul>
   {{/if}}
 </nav>
+{{#if this.session.isAuthenticated}}
+  <ul class="hidden md:block px-4 py-4 font-semibold text-3xl">
+    <li
+      class="flex items-center space-x-2 justify-center mx-6">
+      <img
+        class="inline rounded-lg"
+        style="height: 2rem;"
+        src="{{this.currentUser.user.avatarUrl}}"
+        align="center"
+        alt="{{ t "chat.user_avatar" }}" / >
+      <a href="#" class="" role="button" {{on "click" this.args.toggleUserMenu}}>
+        {{this.currentUser.user.username}}
+      </a>
+    </li>
+  </ul>
+{{else}}
+  <LinkTo
+    aria-label={{t "home.aria"}}
+    class="hidden md:block"
+    @route="home.index">
+    <h1 class="logo font-debussy text-5xl text-white">
+      {{t "site_title_fm"}}
+    </h1>
+  </LinkTo>
+{{/if}}
