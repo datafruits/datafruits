@@ -15,8 +15,9 @@ export default class ChatRoute extends Route {
         .load()
         .then(() => {
           const nick = this.currentUser.user.username;
+          const avatarUrl = this.currentUser.user.avatarUrl;
           const token = this.session.data.authenticated.token;
-          this.chat.push('authorize_token', { user: nick, timestamp: Date.now(), token: token });
+          this.chat.push('authorize_token', { user: nick, timestamp: Date.now(), token: token, avatarUrl: avatarUrl });
         })
         .catch(() => this.session.invalidate());
     }

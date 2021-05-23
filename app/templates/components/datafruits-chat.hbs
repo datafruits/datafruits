@@ -17,9 +17,9 @@
     </div>
   {{/if}}
   <ul id="userlist" class="overflow-y-scroll flex-grow hidden md:block md:w-1/5 pl-4">
-    {{#each joinedUsers as |joinedUser|}}
-      <UserListItem @user={{joinedUser}} />
-    {{/each}}
+    {{#each-in this.joinedUsers as |username user|}}
+      <UserListItem @user={{user}} />
+    {{/each-in}}
   </ul>
 </div>
 <div class="flex flex-col justify-center items-center w-full">

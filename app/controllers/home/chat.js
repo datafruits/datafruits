@@ -26,7 +26,8 @@ export default class ChatController extends Controller {
       .authenticate('authenticator:devise', nick, pass)
       .then(() => {
         const token = this.session.data.authenticated.token;
-        this.chat.push('authorize_token', { user: nick, timestamp: Date.now(), token: token });
+        const avatarUrl = this.currentUser.user.avatarUrl;
+        this.chat.push('authorize_token', { user: nick, timestamp: Date.now(), token: token, avatarUrl: avatarUrl });
         return true;
       })
       .catch((/*reason*/) => {
