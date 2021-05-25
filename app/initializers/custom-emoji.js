@@ -211,6 +211,41 @@ export function initialize(/* application */) {
       shortnames: [':duckle:'],
       keywords: ['duckle'],
     },
+    ':deeyex:': {
+      custom: true,
+      uc_base: 'deeyex',
+      uc_output: '',
+      shortnames: [':deeyex:'],
+      keywords: ['deeyex'],
+    },
+    ':deeyef:': {
+      custom: true,
+      uc_base: 'deeyef',
+      uc_output: '',
+      shortnames: [':deeyef:'],
+      keywords: ['deeyef'],
+    },
+    ':deeyex_hmm:': {
+      custom: true,
+      uc_base: 'deeyex_hmm',
+      uc_output: '',
+      shortnames: [':deeyex_hmm:'],
+      keywords: ['deeyex_hmm'],
+    },
+    ':deeyef_hmm:': {
+      custom: true,
+      uc_base: 'deeyef_hmm',
+      uc_output: '',
+      shortnames: [':deeyef_hmm:'],
+      keywords: ['deeyef_hmm'],
+    },
+    ':dxdf:': {
+      custom: true,
+      uc_base: 'dxdf',
+      uc_output: '',
+      shortnames: [':dxdf:'],
+      keywords: ['dxdf'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
