@@ -246,6 +246,13 @@ export function initialize(/* application */) {
       shortnames: [':dxdf:'],
       keywords: ['dxdf'],
     },
+    ':thanks:': {
+      custom: true,
+      uc_base: 'thanks',
+      uc_output: '',
+      shortnames: [':thanks:'],
+      keywords: ['thanks'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
