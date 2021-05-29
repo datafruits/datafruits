@@ -48,4 +48,10 @@ export default class ScheduledShow extends Model {
 
   @alias('end')
   endsAt;
+
+  @attr()
+  isGuest;
+
+  @attr()
+  guest;
 }
