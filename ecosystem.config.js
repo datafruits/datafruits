@@ -7,8 +7,8 @@ module.exports = {
       script: 'fastboot_server/server.js',
       watch: '.',
       max_memory_restart: '300M',
-      instances: "max",
-      exec_mode: 'cluster'
+      instances: 'max',
+      exec_mode: 'cluster',
     },
   ],
 
