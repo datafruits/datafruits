@@ -4787,6 +4787,13 @@ ast-types@^0.13.2:
   dependencies:
     tslib "^2.0.1"
 
+ast-types@^0.14.2:
+  version "0.14.2"
+  resolved "https://registry.yarnpkg.com/ast-types/-/ast-types-0.14.2.tgz#600b882df8583e3cd4f2df5fa20fa83759d4bdfd"
+  integrity sha512-O0yuUDnZeQDL+ncNGlJ78BiO4jnYI3bvMsD5prT0/nsgijG/LpNBIr63gTjVTNsiGkgQhiyCShTgxt8oXOrklA==
+  dependencies:
+    tslib "^2.0.1"
+
 astral-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-1.0.0.tgz#6c8c3fb827dd43ee3918f27b82782ab7658a6fd9"
@@ -7125,6 +7132,14 @@ chrome-launcher@^0.13.2:
     mkdirp "^0.5.3"
     rimraf "^3.0.2"
 
+chrome-remote-interface@^0.28.2:
+  version "0.28.2"
+  resolved "https://registry.yarnpkg.com/chrome-remote-interface/-/chrome-remote-interface-0.28.2.tgz#6be3554d2c227ff07eb74baa7e5d4911da12a5a6"
+  integrity sha512-F7mjof7rWvRNsJqhVXuiFU/HWySCxTA9tzpLxUJxVfdLkljwFJ1aMp08AnwXRmmP7r12/doTDOMwaNhFCJsacw==
+  dependencies:
+    commander "2.11.x"
+    ws "^7.2.0"
+
 chrome-trace-event@^1.0.0, chrome-trace-event@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/chrome-trace-event/-/chrome-trace-event-1.0.2.tgz#234090ee97c7d4ad1a2c4beae27505deffc608a4"
@@ -7373,6 +7388,11 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   integrity sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==
   dependencies:
     delayed-stream "~1.0.0"
+
+commander@2.11.x:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
+  integrity sha512-b0553uYA5YAEGgyYIGYROzKQ7X5RAqedkfjiZxwi0kL1g3bOaBNNZfYkzt/CL0umgD5wc9Jec2FbB98CjkMRvQ==
 
 commander@2.12.2:
   version "2.12.2"
@@ -8923,6 +8943,19 @@ ember-cli-lodash-subset@2.0.1, ember-cli-lodash-subset@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/ember-cli-lodash-subset/-/ember-cli-lodash-subset-2.0.1.tgz#20cb68a790fe0fde2488ddfd8efbb7df6fe766f2"
   integrity sha1-IMtop5D+D94kiN39jvu332/nZvI=
+
+ember-cli-memory-leak-detector@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-memory-leak-detector/-/ember-cli-memory-leak-detector-0.7.1.tgz#d2761c40ac929d0f330a8184fc92ff34c14a4c4f"
+  integrity sha512-jzNtRlE/sl8lVg9JUPSGJ7bJHUHOn1DSwMokvT+DyKt29XJcoAOH/ewQgk3QzszYxBx6koMizU6RdoXn6PBGwQ==
+  dependencies:
+    "@babel/parser" "^7.12.10"
+    ast-types "^0.14.2"
+    chrome-remote-interface "^0.28.2"
+    ember-cli-babel "^7.22.1"
+    ember-cli-htmlbars "^5.3.1"
+    glob "^7.1.6"
+    heapsnapshot "0.0.6"
 
 ember-cli-meta-tags@^6.0.0:
   version "6.0.0"
@@ -11599,6 +11632,11 @@ hash.js@^1.0.0, hash.js@^1.0.3:
   dependencies:
     inherits "^2.0.3"
     minimalistic-assert "^1.0.1"
+
+heapsnapshot@0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/heapsnapshot/-/heapsnapshot-0.0.6.tgz#405e556a619cd5e74de462243d2c8fd02ec38209"
+  integrity sha512-P7Vb82VmTyicVAD5xSggWqCxvYu5AbcmnlAkkTpevt7ZPbdhYz21J8zaXZuuT2m6h4fTSP7M0CsVjtwZMJW1Pg==
 
 heimdalljs-fs-monitor@^0.2.3:
   version "0.2.3"
@@ -18391,7 +18429,7 @@ ws@^6.1.0:
   dependencies:
     async-limiter "~1.0.0"
 
-ws@^7.0.0:
+ws@^7.0.0, ws@^7.2.0:
   version "7.4.6"
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.6.tgz#5654ca8ecdeee47c33a9a4bf6d28e2be2980377c"
   integrity sha512-YmhHDO4MzaDLB+M9ym/mDA5z0naX8j7SIlT8f8z+I0VtzsRbekxEutHSme7NPS2qE8StCYQNUnfWdXta/Yu85A==
