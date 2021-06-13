@@ -8,18 +8,18 @@
     class="w-full h-full show-image"></div>
   {{/if}}
   <div class="bg-df-pink show-info">
-    <h1 class="cursive text-3xl">
+    <h1 class="font-cursive text-3xl">
       {{model.title}}
     </h1>
     <h2>
       {{t "show.hosted_prefix"}}
       {{#if model.isGuest}}
-      <span class="cursive text-xl">
+      <span class="font-cursive text-xl">
         {{model.guest}}
       </span>
       {{else}}
       {{#each model.djs as |dj|}}
-      <span class="cursive text-xl">
+      <span class="font-cursive text-xl">
         <LinkTo @route="home.dj" @model={{dj.username}}>
           {{dj.username}}
         </LinkTo>
@@ -37,7 +37,7 @@
 </div>
 <div class="px-5">
   {{#if model.tracks}}
-  <h2 class="cursive text-2xl">
+  <h2 class="font-cursive text-2xl">
     {{t "show.archive"}}
     {{ randomFruitEmoji }}
   </h2>
@@ -47,6 +47,6 @@
     @soundcloudKey={{track.soundcloudKey}} @mixcloudKey={{track.mixcloudKey}} @selectLabel={{action "browseLabel" }} />
   {{/each}}
 </div>
-<div class="modal-footer px-5 cursive">
+<div class="modal-footer px-5 font-cursive">
   <span>{{model.tweetContent}}</span>
 </div>
