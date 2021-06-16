@@ -69,6 +69,7 @@ export default Service.extend({
     });
 
     this.chan.on('authorized', (msg) => {
+      console.log('on chan authorized');
       this.set('username', msg.user);
       const token = msg.token;
       if (token) {
@@ -80,7 +81,10 @@ export default Service.extend({
             console.log('user authorized with token'); // eslint-disable-line no-console
             this.set('joinedChat', true);
           })
-          .catch(() => this.session.invalidate());
+          .catch(() => {
+            console.log('invalidating session in chan authorized');
+            this.session.invalidate()
+          });
       } else {
         console.log('user authorized'); // eslint-disable-line no-console
         this.set('joinedChat', true);
