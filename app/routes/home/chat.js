@@ -10,7 +10,9 @@ export default class ChatRoute extends Route {
   @service chat;
 
   _loadCurrentUser() {
+    console.log('in _loadCurrentUser in chat');
     if (this.session.isAuthenticated) {
+      console.log('session is authenticated');
       return this.currentUser
         .load()
         .then(() => {
@@ -19,7 +21,10 @@ export default class ChatRoute extends Route {
           const token = this.session.data.authenticated.token;
           this.chat.push('authorize_token', { user: nick, timestamp: Date.now(), token: token, avatarUrl: avatarUrl });
         })
-        .catch(() => this.session.invalidate());
+        .catch(() => {
+          console.log("couldn't load this.currentUser in chat _loadCurrentUser, invalidating session");
+          this.session.invalidate();
+        });
     }
   }
 
