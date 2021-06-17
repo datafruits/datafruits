@@ -11,9 +11,17 @@ export default class CurrentUserService extends Service {
 
   load() {
     if (this.session.isAuthenticated) {
-      return this.store.queryRecord('user', { me: true }).then((user) => {
-        this.set('user', user);
-      });
+      // use existing record if its already loaded
+      let user = this.store.peekRecord('user', this.session.data.authenticated.user_id);
+      if (user) {
+        // how can I return a promise here?
+        return this.set('user', user);
+      } else {
+        // otherwise we need to get it from the API
+        return this.store.queryRecord('user', { me: true }).then((user) => {
+          this.set('user', user);
+        });
+      }
     } else {
       return resolve();
     }

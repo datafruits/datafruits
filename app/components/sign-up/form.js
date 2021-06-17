@@ -99,7 +99,9 @@ export default class SignUpFormComponent extends Component {
             return this.session
               .authenticate('authenticator:devise', nick, pass)
               .then(() => {
-                return true;
+                this.currentUser.load().then(() => {
+                  return true;
+                });
               })
               .catch((reason) => {
                 console.log(reason); // eslint-disable-line no-console
