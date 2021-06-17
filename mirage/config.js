@@ -75,7 +75,7 @@ export default function () {
   this.post('/users/sign_in', (schema, request) => {
     const attrs = JSON.parse(request.requestBody).user;
     const login = attrs.login;
-    return { login: login, redirect: '/', success: true, token: 'xxxxxxxxx' };
+    return { login: login, redirect: '/', success: true, token: 'xxxxxxxxx', user_id: 26 };
   });
 
   this.get('/users/current_user.json', (/* schema, request */) => {
