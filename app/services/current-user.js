@@ -15,7 +15,8 @@ export default class CurrentUserService extends Service {
       let user = this.store.peekRecord('user', this.session.data.authenticated.user_id);
       if (user) {
         // how can I return a promise here?
-        return this.set('user', user);
+        this.set('user', user);
+        return resolve();
       } else {
         // otherwise we need to get it from the API
         return this.store.queryRecord('user', { me: true }).then((user) => {
