@@ -14,7 +14,6 @@ export default class CurrentUserService extends Service {
       // use existing record if its already loaded
       let user = this.store.peekRecord('user', this.session.data.authenticated.user_id);
       if (user) {
-        // how can I return a promise here?
         this.set('user', user);
         return resolve();
       } else {
