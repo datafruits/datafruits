@@ -12,7 +12,7 @@ export default class CurrentUserService extends Service {
   load() {
     if (this.session.isAuthenticated) {
       // use existing record if its already loaded
-      let user = this.store.peekRecord('user', this.session.data.authenticated.user_id);
+      let user = this.store.peekRecord('user', this.session.data.authenticated.user_id || '');
       if (user) {
         this.set('user', user);
         return resolve();

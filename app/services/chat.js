@@ -33,7 +33,7 @@ export default Service.extend({
     this._super(...arguments);
     this.set('presences', {});
 
-    if (this.session.isAuthenticated) {
+    if (this.session.isAuthenticated && this.currentUser.user) {
       this.join(this.currentUser.user.username, this.session.data.authenticated.token);
     }
 
