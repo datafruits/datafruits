@@ -1,6 +1,5 @@
 import Service from '@ember/service';
 import { inject as service } from '@ember/service';
-import { resolve } from 'rsvp';
 
 export default class CurrentUserService extends Service {
   @service

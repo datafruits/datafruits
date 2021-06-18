@@ -49,7 +49,7 @@ export default class HomeRoute extends Route {
     try {
       await this.currentUser.load();
     } catch (err) {
-      console.log(err);
+      console.log(err); // eslint-disable-line no-console
       await this.session.invalidate();
     }
   }
