@@ -45,7 +45,12 @@ export default class HomeRoute extends Route {
     super.call(this, ...arguments);
   }
 
-  _loadCurrentUser() {
-    return this.currentUser.load().catch(() => this.session.invalidate());
+  async _loadCurrentUser() {
+    try {
+      await this.currentUser.load();
+    } catch (err) {
+      console.log(err);
+      await this.session.invalidate();
+    }
   }
 }
