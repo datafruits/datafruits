@@ -1,8 +1,7 @@
 import { module, test } from 'qunit';
-import { visit, currentURL, click } from '@ember/test-helpers';
+import { visit, currentURL, click, fillIn } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { setupMirage } from 'ember-cli-mirage/test-support';
-import { authenticateSession } from 'ember-simple-auth/test-support';
 
 module('Acceptance | user settings', function (hooks) {
   setupApplicationTest(hooks);
@@ -11,11 +10,15 @@ module('Acceptance | user settings', function (hooks) {
   test('visiting /user-settings', async function (assert) {
     window.alert = () => {};
 
-    await authenticateSession({
-      username: 'djnameko',
-      password: '12345',
-    });
-    await visit('/login');
+    await visit('/chat');
+    await click('[data-test-login-button]');
+
+    await fillIn('[data-test-username]', 'djnameko');
+    await fillIn('[data-test-password]', 'mypassword1234');
+
+    await click('[data-test-login-submit]');
+
+    assert.equal(currentURL(), '/chat');
 
     await visit('/user/settings');
 
