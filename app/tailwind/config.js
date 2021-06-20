@@ -7,6 +7,7 @@ module.exports = {
     fontFamily: {
       debussy: ['debussy', 'sans-serif'],
       helvetica: ['Helvetica', 'Arial', 'sans-serif'],
+      cursive: ['cursive'],
     },
     extend: {
       height: {
