@@ -70,7 +70,7 @@
     "ember-font-awesome": "^4.0.0-rc.4",
     "ember-intl": "^5.4.2",
     "ember-lazy-image": "https://github.com/mcfiredrill/ember-lazy-image#update-dependencies",
-    "ember-load-initializers": "^2.1.1",
+    "ember-load-initializers": "^2.1.2",
     "ember-lodash": "4.19.5",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-modal-dialog": "^3.0.0-beta.4",
