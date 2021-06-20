@@ -19,6 +19,13 @@
               src={{show.thumbImageUrl}}
               alt={{show.title}}
             >
+          {{else if show.isGuest}}
+            <img
+              width="300"
+              height="300"
+              src="/assets/images/show_placeholder.jpg"
+              alt={{show.title}}
+            >
           {{else if show.host.imageUrl}}
             <img
               width="300"

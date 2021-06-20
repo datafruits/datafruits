@@ -1,11 +1,9 @@
-{{page-title model.title}}
+{{page-title this.model.title}}
 <div class="relative overflow-hidden show-poster">
-  {{#if model.thumbImageUrl}}
-  <div style="background-image: url({{model.thumbImageUrl}})" alt={{model.title}} class="w-full h-full show-image">
-  </div>
-  {{else if model.host.imageMediumUrl}}
-  <div style="background-image: url({{model.host.imageMediumUrl}})" alt={{model.dj.username}}
-    class="w-full h-full show-image"></div>
+  {{#if this.model.thumbImageUrl}}
+    <div style="background-image: url({{this.model.thumbImageUrl}})" alt={{this.model.title}} class="w-full h-full show-image"></div>
+  {{else if (and (not this.model.isGuest) this.model.host.imageMediumUrl)}}
+    <div style="background-image: url({{this.model.host.imageMediumUrl}})" alt={{this.model.dj.username}} class="w-full h-full show-image"></div>
   {{/if}}
   <div class="bg-df-pink show-info">
     <h1 class="font-cursive text-3xl">

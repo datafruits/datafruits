@@ -16,6 +16,9 @@ export default class SignUpFormComponent extends Component {
   @service
   currentUser;
 
+  @service
+  chat;
+
   get emailExists() {
     let changeset = this.args.changeset;
     if (changeset.get('errors')) {
@@ -99,7 +102,10 @@ export default class SignUpFormComponent extends Component {
             return this.session
               .authenticate('authenticator:devise', nick, pass)
               .then(() => {
-                return true;
+                this.currentUser.load().then(() => {
+                  this.chat.join(this.currentUser.user.username, this.session.data.authenticated.token);
+                  return true;
+                });
               })
               .catch((reason) => {
                 console.log(reason); // eslint-disable-line no-console
