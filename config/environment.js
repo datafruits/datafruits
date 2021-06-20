@@ -142,6 +142,10 @@ module.exports = function (environment) {
     API_HOST: process.env.API_HOST,
   };
 
+  ENV['ember-simple-auth'] = {
+    routeAfterAuthentication: 'home.chat',
+  };
+
   // Heroku Git Hash support
   if (process.env.SOURCE_VERSION) {
     let packageJson = require('../package.json');
@@ -155,6 +159,9 @@ module.exports = function (environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['ember-cli-mirage'] = {
+      enabled: false,
+    };
   }
 
   if (environment === 'test') {

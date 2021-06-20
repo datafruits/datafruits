@@ -5,8 +5,23 @@ export default class UserModel extends Model {
   username;
 
   @attr()
+  email;
+
+  @attr()
+  password;
+
+  @attr()
   role;
 
   @attr()
   avatarUrl;
+
+  @attr('file')
+  avatar;
+
+  @attr()
+  avatarFilename;
+
+  @attr()
+  style;
 }

@@ -1,5 +1,8 @@
 {
   "new": "New",
+  "settings": {
+    "title": "Site Settings"
+  },
   "404": {
     "title": "404!",
     "message": "Page not found",
@@ -12,7 +15,7 @@
   "home": {
     "aria": "Navigate to the homepage",
     "upcoming_shows": "UPCOMING SHOWS",
-    "latest_podcasts": "LATEST PODCASTS",
+    "latest_podcasts": "LATEST ARCHIVES",
     "events": "EVENTS"
   },
   "themes": {
@@ -34,6 +37,9 @@
     "join_anonymously": "Join chat",
     "coc_label": "By joining the chat, I agree with the datafruits Code of Conduct and will abide by its guidelines",
     "login": "Login",
+    "sign_up": "Sign up",
+    "login_why": "login to the chat it's what all the cool fruits are doing",
+    "forgot_password": "Forgot your password?",
     "username": "username",
     "nickname": "nickname",
     "password": "password",
@@ -60,7 +66,7 @@
     "aria": "View EPs and other releases from datafruits.fm"
   },
   "podcasts": {
-    "title": "Podcasts",
+    "title": "Archives",
     "subscribe_title": "Subscribe",
     "search_title": "Search",
     "link_itunes": "iTunes",
@@ -87,8 +93,8 @@
       "rss": "RSS"
     },
     "aria": {
-      "title": "Search for podcasts by upload title using text input",
-      "tag": "Busque podcasts por título de carga utilizando el ingreso de texto"
+      "title": "Search the archives by upload title",
+      "tag": "Search the archives by tag"
     }
   },
   "timetable": {
@@ -128,6 +134,23 @@
     "title": "DATAFRUITS.FM NEWSLETTER",
     "placeholder_email": "coolxfruits@aol.co.eu",
     "tiny": "Occasionally receive updates, free exclusive tracks, mixes, and more info by email"
+  },
+  "signup": {
+    "title": "Sign up",
+    "description": "Sign up for a free account as datafruits.fm listener. Save your favorite shows, archives and customize your profile. Be a part of the fruits community. Must've been the onion salad dressing.",
+    "submit": "Sign up",
+    "email": "Email",
+    "username": "Username",
+    "password": "Password",
+    "error": "Oh no. Time to fix the errors on the form. Must've been the onion salad dressing.",
+    "email_exists": "Account with this email already exists. Forgot your password?",
+    "username_exists": "This username has been taken.",
+    "nice": "NICE",
+    "already_signed_up": "You are already have an account, and in fact you are signed in. "
+  },
+  "profile": {
+    "style": "Style:",
+    "submit": "SAVE"
   },
   "usermenu": {
     "settings": "Settings",
@@ -193,12 +216,12 @@
   "next_broadcast": "Next live on air: ",
   "now_playing": "Now playing",
   "dj": {
-    "podcasts": "Podcasts",
+    "podcasts": "Archives",
     "upcoming_shows": "Upcoming show"
   },
   "show": {
     "hosted_prefix": "Hosted by:",
-    "archive": "Listen back to the podcast"
+    "archive": "Listen to the archive"
   },
   "player": {
     "play_button_label": "play",
@@ -221,9 +244,9 @@
       "now_playing": "Now playing back earlier recording"
     }
   },
-  "locale": "locale",
+  "locale": "Language",
   "theme": {
-    "label": "theme"
+    "label": "Theme"
   },
   "about_page": {
     "listenersupport": "Datafruits is listener supported. You can join our patreon and get stickers and other goodies sent to you every 2 months.",

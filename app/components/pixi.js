@@ -13,7 +13,7 @@ export default class PixiComponent extends Component {
   sprites = [];
   animations = {};
 
-  fruits = ['strawberry', 'lemon', 'orange'];
+  fruits = ['strawberry', 'lemon', 'orange', 'banana'];
 
   constructor() {
     super(...arguments);
@@ -79,10 +79,11 @@ export default class PixiComponent extends Component {
 
     this.app.stop();
 
-    this.app.loader.add('strawberry', 'assets/images/sprites/strawberry.json');
-    this.app.loader.add('orange', 'assets/images/sprites/orange.json');
-    this.app.loader.add('lemon', 'assets/images/sprites/lemon.json');
-    this.app.loader.add('shader', 'assets/shaders/shader.frag');
+    this.app.loader.add('strawberry', '/assets/images/sprites/strawberry.json');
+    this.app.loader.add('orange', '/assets/images/sprites/orange.json');
+    this.app.loader.add('lemon', '/assets/images/sprites/lemon.json');
+    this.app.loader.add('banana', '/assets/images/sprites/banana.json');
+    this.app.loader.add('shader', '/assets/shaders/shader.frag');
     this.app.loader.load((loader, res) => {
       this.filter = new PIXI.Filter(null, res.shader.data, {
         customUniform: 0.0,
@@ -91,6 +92,7 @@ export default class PixiComponent extends Component {
       this.animations.strawberry = res.strawberry.spritesheet.animations['strawberry2_wiggle.png'];
       this.animations.orange = res.orange.spritesheet.animations['orange.png'];
       this.animations.lemon = res.lemon.spritesheet.animations['lemon.png'];
+      this.animations.banana = res.banana.spritesheet.animations['banana.png'];
 
       // Resume application update
       this.app.start();

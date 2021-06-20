@@ -131,6 +131,7 @@
   @apply border-solid border-2 border-white text-lg rounded-sm;
   @apply text-white font-semibold p-2 leading-none bg-df-blue;
   @apply transition-all duration-100 ease-in-out;
+  @apply cursor-pointer;
 }
 
 .cool-button {
@@ -280,6 +281,7 @@ form {
   @apply border-solid border-2 border-white text-lg rounded-sm;
   @apply text-white font-semibold p-2 leading-none bg-df-green;
   @apply transition-all duration-100 ease-in-out;
+  @apply cursor-pointer;
 
   &:hover,
   &:focus {
@@ -372,11 +374,51 @@ canvas {
 }
 
 .fruit-tip-button {
-  animation: bg-colorfade 2s infinite;
+  &:hover {
+    animation: bg-colorfade 2s infinite;
+  }
+  &.tip:focus {
+    animation: buttonPress ease-in-out 400ms;
+  }
+  &.tip:active {
+    animation: none;
+  }
   img {
     height: 5ex !important;
   }
 }
 
-@tailwind utilities;
+@keyframes buttonPress {
+  0% {
+    transform: scale(1) rotate3d(0, 1, 0, 0deg)
+  }
+  50% {
+    transform: scale(1.15) rotate3d(0, 1, 0, 180deg)
+  }
+  100% {
+    transform: scale(1) rotate3d(0, 1, 0, 360deg)
+  }
+}
 
+@keyframes bounce {
+  0% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.very-nice {
+  animation: bounce linear 200ms;
+}
+
+::selection {
+  background: salmon; /* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+  background: salmon; /* Gecko Browsers */
+}
+
+@tailwind utilities;

@@ -121,6 +121,7 @@ export default class VideoStreamService extends Service {
                 //mp4 exists, play it
                 this.streamIsActive(name, 'mp4');
               } else {
+                if (ENV.environment === 'test') return;
                 console.log('No stream found'); // eslint-disable-line no-console
                 later(() => {
                   this.fetchStream();

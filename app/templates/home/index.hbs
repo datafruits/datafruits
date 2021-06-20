@@ -19,6 +19,13 @@
               src={{show.thumbImageUrl}}
               alt={{show.title}}
             >
+          {{else if show.isGuest}}
+            <img
+              width="300"
+              height="300"
+              src="/assets/images/show_placeholder.jpg"
+              alt={{show.title}}
+            >
           {{else if show.host.imageUrl}}
             <img
               width="300"
@@ -39,7 +46,7 @@
     </div>
   {{/each}}
 </div>
-<h2 class="text-2xl text-shadow my-2">
+<h2 class="text-2xl text-shadow my-2 mt-5 pt-2 px-5">
   {{t "home.latest_podcasts"}}
 </h2>
 <div class="flex flex-wrap flex-shrink-0">
@@ -66,7 +73,7 @@
     </div>
   {{/each}}
 </div>
-<h2 class="text-2xl text-shadow my-2">
+<h2 class="text-2xl text-shadow my-2 mt-5 pt-2 px-5">
   {{t "home.events"}}
 </h2>
 <div class="flex flex-wrap flex-shrink-0">
