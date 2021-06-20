@@ -1,0 +1,81 @@
+{{#if @changeset.errors}}
+  <div class="text-red">
+    {{t "signup.error"}}
+  </div>
+{{/if}}
+<form {{action "submit" on="submit"}}>
+  <div>
+    <label class="block text-sm font-bold mb-2" for="user-email">{{t "signup.email"}}</label>
+    <Input
+      class="form-input focus:outline-none focus:shadow-outline"
+      @id="user-email"
+      @type="text"
+      @autofocus={{true}}
+      data-test-email
+      {{on "change" this.updateEmail}}
+      />
+  </div>
+  {{#if this.emailValidationErrors}}
+    <div class="text-red-700">
+      {{#each this.emailValidationErrors as |message|}}
+        <div class="error item">{{message}}</div>
+      {{/each}}
+    </div>
+  {{/if}}
+
+  {{#if this.emailExists}}
+    <LinkTo @route="home.password-reset">
+      {{t "signup.email_exists"}}
+    </LinkTo>
+  {{/if}}
+  <div>
+    <label class="block text-sm font-bold mb-2" for="user-email">{{t "signup.username"}}</label>
+    <Input
+      class="form-input focus:outline-none focus:shadow-outline"
+      @id="user-username"
+      @type="text"
+      @autofocus={{true}}
+      data-test-username
+      {{on "change" this.updateUsername}}
+      />
+  </div>
+  {{#if this.usernameValidationErrors}}
+    <div class="text-red-700">
+      {{#each this.usernameValidationErrors as |message|}}
+        <div class="error item">{{message}}</div>
+      {{/each}}
+    </div>
+  {{/if}}
+  <div>
+    <ValidatedField
+      @type="password"
+      @changeset={{@changeset}}
+      @property="password"
+      @updateProperty={{fn this.updateProperty}}
+      data-test-password
+      />
+  </div>
+  <div>
+    <label for="coc-checkbox"> <a href="https://datafruits.fm/coc" target="blank">{{t "djinquiry.coc_accept"}}</a></label>
+    <Input
+      @type="checkbox"
+      @checked={{this.cocAccepted}}
+      name="coc-checkbox"
+      data-test-coc
+      />
+  </div>
+  {{#if this.everythingLooksNice}}
+    <div class="bleed text-2xl">
+      <span class="very-nice">{{t "signup.nice"}}</span>
+    </div>
+  {{/if}}
+  <div class="mt-2">
+    <input
+      type="submit"
+      value="{{t "signup.submit"}}"
+      class="cool-button"
+      disabled={{or (or @changeset.isInvalid @changeset.isSaving) (not this.cocAccepted)}}
+      data-test-submit
+      >
+  </div>
+</form>

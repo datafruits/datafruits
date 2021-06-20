@@ -5,7 +5,7 @@
   },
   "home": {
     "upcoming_shows": "PRÓXIMOS PROGRAMAS",
-    "latest_podcasts": "ÚLTIMOS PÓDCASTS",
+    "latest_podcasts": "ÚLTIMOS ARCHIVOS",
     "events": "EVENTOS"
   },
   "chat": {
@@ -33,7 +33,7 @@
     }
   },
   "podcasts": {
-    "title": "Podcast",
+    "title": "Archivo",
     "search": "Buscar",
     "header": "BUSCAR",
     "subscribe": "Suscribir",
@@ -83,12 +83,12 @@
   "next_broadcast": "Siguiente en vivo en el aire: ",
   "now_playing": "Tocando ahora",
   "dj": {
-    "podcasts": "Pódcasts",
+    "podcasts": "Archivo",
     "upcoming_shows": "Próximo programa"
   },
   "show": {
     "hosted_prefix": "Alojado por:",
-    "archive": "Escucha el pódcast"
+    "archive": "Escuche el archivo"
   },
   "player": {
     "return_to_live": "volver a la transmisión en vivo",

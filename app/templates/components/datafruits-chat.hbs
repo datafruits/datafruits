@@ -17,9 +17,9 @@
     </div>
   {{/if}}
   <ul id="userlist" class="overflow-y-scroll flex-grow hidden md:block md:w-1/5 pl-4">
-    {{#each joinedUsers as |joinedUser|}}
-      <UserListItem @user={{joinedUser}} />
-    {{/each}}
+    {{#each-in this.joinedUsers as |username user|}}
+      <UserListItem @user={{user}} />
+    {{/each-in}}
   </ul>
 </div>
 <div class="flex flex-col justify-center items-center w-full">
@@ -67,13 +67,12 @@
           <a class="text-sm" href="/coc"><abbr title={{t "code_of_conduct"}}>{{t "chat.label.coc"}}</abbr></a>
         </div>
       </div>
-      <div class="flex justify-end">
-        <img src="/assets/images/new.gif"
-             alt="{{ t "new" }}" />
+      <div class="flex justify-center">
         <button {{action "toggleLoginModal"}}
              type="button"
              class="cool-button"
              title={{t "chat.titles.login"}}
+             data-test-login-button
              >
              {{t "chat.login"}}
         </button>

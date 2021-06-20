@@ -1,7 +1,7 @@
 import Service, { inject as service } from '@ember/service';
 import ArrayProxy from '@ember/array/proxy';
 import { A } from '@ember/array';
-import { computed } from '@ember/object';
+import { reads } from '@ember/object/computed';
 import { Presence } from 'phoenix';
 
 export default Service.extend({
@@ -9,13 +9,18 @@ export default Service.extend({
   session: service(),
   eventBus: service(),
   currentUser: service(),
-  joinedUsers: computed('presences', function () {
-    return Object.keys(this.presences);
-  }),
+  joinedUsers: reads('presences'),
   messages: ArrayProxy.create({ content: A() }),
   joinedChat: false,
   gifsEnabled: true,
   token: '',
+
+  join(username, token) {
+    this.set('joinedChat', true);
+    this.set('username', username);
+    this.set('token', token);
+  },
+
   disconnect() {
     // need to broadcast a disconnect here or it will look like user is still in the chat to everyone
     this.chan.push('disconnect', { user: this.username });
@@ -28,10 +33,8 @@ export default Service.extend({
     this._super(...arguments);
     this.set('presences', {});
 
-    if (this.session.isAuthenticated) {
-      this.set('joinedChat', true);
-      this.set('username', this.currentUser.user.username);
-      this.set('token', this.session.data.authenticated.token);
+    if (this.session.isAuthenticated && this.currentUser.user) {
+      this.join(this.currentUser.user.username, this.session.data.authenticated.token);
     }
 
     let socket = this.socket.socket;
@@ -92,18 +95,6 @@ export default Service.extend({
 
     this.chan.on('notauthorized', function (msg) {
       alert(msg.error);
-    });
-
-    this.chan.on('user:left', (msg) => {
-      if (msg.user !== null) {
-        let leftMessage = { user: msg.user, body: ' left the chat :dash:', timestamp: msg.timestamp };
-        this.messages.pushObject(leftMessage);
-      }
-    });
-
-    this.chan.on('user:authorized', (msg) => {
-      let joinedMessage = { user: msg.user, body: ' joined the chat :raising_hand:', timestamp: msg.timestamp };
-      this.messages.pushObject(joinedMessage);
     });
 
     // user banned
