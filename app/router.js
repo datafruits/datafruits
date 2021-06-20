@@ -20,6 +20,7 @@ Router.map(function () {
     this.route('dj', { path: '/djs/:name' });
     this.route('chat');
     this.route('cat');
+    this.route('hat');
     this.route('blogs.show', { path: '/blogs/:id' });
     this.route('sign-up');
     this.route('password-reset');
