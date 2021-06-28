@@ -253,6 +253,13 @@ export function initialize(/* application */) {
       shortnames: [':thanks:'],
       keywords: ['thanks'],
     },
+    ':anysong:': {
+      custom: true,
+      uc_base: 'anysong',
+      uc_output: '',
+      shortnames: [':anysong:'],
+      keywords: ['anysong'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
