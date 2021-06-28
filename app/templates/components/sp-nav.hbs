@@ -113,7 +113,9 @@
     {{/if}}
   </div>
   {{#if (not @menuOpen)}}
-    <DjDonateButton class="block md:hidden ml-5" />
+
+    <DjDonateModal class="block md ml-5" />
+
     <div class="">
       {{#if this.session.isAuthenticated}}
         <a href="#" class="" role="button" {{on "click" this.args.toggleUserMenu}}>

@@ -3,15 +3,16 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | dj-donate-button', function (hooks) {
+module('Integration | Component | dj-donate-modal', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
+    //
 
-    await render(hbs`<DjDonateButton />`);
+    await render(hbs`<DjDonateModal />`);
 
-    assert.equal(this.element.textContent.trim(), 'DONATE');
+    assert.equal(this.element.textContent.trim().includes('DONATE'), true);
   });
 });
