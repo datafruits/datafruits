@@ -71,7 +71,7 @@
           aria-label={{t "player.aria.unmute"}}
           {{action "unmute"}}
         >
-          <FaIcon @icon="volume-off">
+          <FaIcon @icon="volume-off" />
         </a>
       {{else}}
         <a
@@ -82,7 +82,7 @@
           aria-label={{t "player.aria.mute"}}
           {{action "mute"}}
         >
-          <FaIcon @icon="volume-up">
+          <FaIcon @icon="volume-up" />
         </a>
       {{/if}}
       {{#if showingVolumeControl}}

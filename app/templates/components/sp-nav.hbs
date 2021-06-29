@@ -10,7 +10,9 @@
       <span class="sr-only">
         {{t "nav_toggle"}}
       </span>
-      <span class="fa fa-bars" aria-hidden="true"></span>
+      <FaIcon
+        @icon="bars"
+        aria-hidden="true" />
     </button>
     {{#if @menuOpen}}
       <ul class="flex flex-wrap">
