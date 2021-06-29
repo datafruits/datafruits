@@ -252,6 +252,7 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':thanks:'],
       keywords: ['thanks'],
+      animated: true,
     },
     ':anysong:': {
       custom: true,
@@ -259,6 +260,7 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':anysong:'],
       keywords: ['anysong'],
+      animated: true,
     },
   };
 
