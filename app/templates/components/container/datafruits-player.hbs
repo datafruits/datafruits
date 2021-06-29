@@ -42,11 +42,11 @@
       {{#if muted}}
         {{!-- template-lint-disable no-nested-interactive --}}
         <a class="jp-unmute" tabindex="1" {{action "unmute"}}>
-          <i class="fa fa-volume-off"></i>
+          <FaIcon @icon="volume-off" />
         </a>
       {{else}}
         <a class="jp-mute" tabindex="1" {{action "mute"}}>
-          <i class="fa fa-volume-up"></i>
+          <FaIcon @icon="volume-up" />
         </a>
       {{/if}}
       {{#if showingVolumeControl}}
