@@ -1,0 +1,25 @@
+<a {{on "click" this.toggleDjDonateModal}} ...attributes class="donate-button">
+  {{t "donate"}}
+</a>
+
+{{#if this.showingDjDonateModal}}
+  <ModalDialog
+    translucentOverlay={{true}}
+    >
+    <div class="modal-top">
+      <button {{on "click" this.toggleDjDonateModal}}
+        type="button"
+        class="cool-button"
+        >
+        X
+      </button>
+    </div>
+
+    <div class="modal-body m-1">
+      You can donate to the DJ here:
+      <a href={{donationLink}} target="_blank" rel="noopener"> {{donationLink}} </a>
+      <br />
+      Or you can also support us on <a href="https://patreon.com/datafruits" target="_blank" rel="noopener"> patreon </a> or with a one time donation on <a href="https://paypal.me/datafruitsfm" target="_blank" rel="noopener"> paypal. </a>
+    </div>
+  </ModalDialog>
+{{/if}}
