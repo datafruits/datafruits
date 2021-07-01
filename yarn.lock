@@ -9672,25 +9672,6 @@ ember-simple-auth@3.1.0:
     ember-cookies "^0.5.0"
     silent-error "^1.0.0"
 
-ember-sinon-qunit@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/ember-sinon-qunit/-/ember-sinon-qunit-5.0.0.tgz#d6585ee691f73c5733783a0583f87840d1323cb1"
-  integrity sha512-7Q938adhhHcUHFg41fwj6g5Q6Iyt8eyo7c0D1r7uOeKSFlobcm1FiD/dCmjNZx224KiI6KYh/0EwqoaIyWAawA==
-  dependencies:
-    broccoli-funnel "^3.0.2"
-    ember-cli-babel "^7.17.2"
-    ember-sinon "^5.0.0"
-
-ember-sinon@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/ember-sinon/-/ember-sinon-5.0.0.tgz#990bcafa65403d2b2e3e7f14bb547862197e97d5"
-  integrity sha512-dTP2vhao1xWm3OlfpOALooso/OLM71SFg7PIBmZ6JdwKCC+CzcPb4BYRAXuoAFYzmhH8z28p8HdemjZBb0B3Bw==
-  dependencies:
-    broccoli-funnel "^2.0.0"
-    broccoli-merge-trees "^3.0.0"
-    ember-cli-babel "^7.17.2"
-    sinon "^9.0.0"
-
 ember-source-channel-url@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/ember-source-channel-url/-/ember-source-channel-url-2.0.1.tgz#18b88f8a00b7746e7a456b3551abb3aea18729cc"
@@ -16555,7 +16536,7 @@ simple-swizzle@^0.2.2:
   dependencies:
     is-arrayish "^0.3.1"
 
-sinon@^9.0.0, sinon@^9.2.0:
+sinon@^9.2.0:
   version "9.2.0"
   resolved "https://registry.yarnpkg.com/sinon/-/sinon-9.2.0.tgz#1d333967e30023609f7347351ebc0dc964c0f3c9"
   integrity sha512-eSNXz1XMcGEMHw08NJXSyTHIu6qTCOiN8x9ODACmZpNQpr0aXTBXBnI4xTzQzR+TEpOmLiKowGf9flCuKIzsbw==
