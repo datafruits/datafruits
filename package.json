@@ -84,7 +84,6 @@
     "ember-resolver": "^8.0.0",
     "ember-rollbar-client": "https://github.com/davewasmer/ember-rollbar-client#fastboot-memory-leak-fix",
     "ember-simple-auth": "3.1.0",
-    "ember-sinon-qunit": "^5.0.0",
     "ember-source": "^3.19.0",
     "ember-test-selectors": "^4.1.0",
     "ember-truth-helpers": "2.1.0",
