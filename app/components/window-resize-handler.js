@@ -1,24 +1,19 @@
-import classic from 'ember-classic-decorator';
-import { tagName } from '@ember-decorators/component';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
-@classic
-@tagName('')
 export default class WindowResizeHandler extends Component {
-  didInsertElement() {
-    super.didInsertElement(...arguments);
-
+  @action
+  didInsert() {
     let _resize = () => {
       this.handleResize();
     };
-    this.set('_resize', _resize);
+    this._resize = _resize;
     window.addEventListener('resize', _resize);
     this.handleResize();
   }
 
-  willDestroyElement() {
-    super.willDestroyElement(...arguments);
-
+  @action
+  willDestroy() {
     let _resize = this._resize;
     window.removeEventListener('resize', _resize);
   }
