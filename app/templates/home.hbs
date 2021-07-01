@@ -41,8 +41,8 @@
   class="block absolute top-0 w-screen h-screen h-handle-resize"
 />
 <Notifications />
-<WindowResizeHandler />
 {{#if (not this.fastboot.isFastBoot)}}
+  <WindowResizeHandler />
   {{#if this.showingPixi}}
     <Pixi />
   {{/if}}
