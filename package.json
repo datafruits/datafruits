@@ -14,7 +14,7 @@
     "build": "ember build --environment=production && cd dist && yarn install",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
-    "start": "ember server",
+    "start": "pm2-runtime start ecosystem.config.js --env production",
     "test": "ember test",
     "coverage": "cross-env COVERAGE=true ember test",
     "lighthouse": "lhci autorun --config=config/lighthouserc.js"
@@ -24,6 +24,9 @@
     "@ember/render-modifiers": "^1.0.2",
     "@ember/optional-features": "^2.0.0",
     "@ember/render-modifiers": "^1.0.2",
+    "@fortawesome/ember-fontawesome": "^0.2.3",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@glimmer/component": "^1.0.0",
     "@glimmer/tracking": "^1.0.0",
     "@lhci/cli": "0.4.1",
@@ -68,7 +71,6 @@
     "ember-decorators": "^6.1.1",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^8.0.1",
-    "ember-font-awesome": "^4.0.0-rc.4",
     "ember-intl": "^5.4.2",
     "ember-lazy-image": "https://github.com/mcfiredrill/ember-lazy-image#update-dependencies",
     "ember-load-initializers": "^2.1.1",
@@ -92,20 +94,20 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-ember": "8.13.0",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-prettier": "^3.4.0",
     "fastboot-app-server": "2.0.0",
     "loader.js": "^4.2.3",
     "phoenix": "^1.5.7",
     "postcss-import": "^12.0.1",
     "postcss-scss": "^2.1.1",
-    "prettier": "^2.0.5",
+    "prettier": "^2.3.0",
     "qunit-dom": "1.2.0",
     "sass": "^1.26.10",
     "sinon": "^9.2.0",
     "stylelint-config-standard": "^20.0.0",
     "tailwindcss": "^1.4.6",
     "tailwindcss-multi-theme": "^1.0.4",
-    "textcomplete": "^0.18.1",
+    "textcomplete": "^0.18.2",
     "video.js": "^7.10.2"
   },
   "resolutions": {
@@ -122,6 +124,7 @@
   },
   "dependencies": {
     "fastboot-app-server": "^3.0.0",
-    "pixi.js": "^5.3.4"
+    "pixi.js": "^5.3.4",
+    "pm2": "^4.5.6"
   }
 }

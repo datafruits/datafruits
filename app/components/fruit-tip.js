@@ -33,6 +33,7 @@ export default class FruitTipComponent extends Component {
 
   @action
   fruitTip(fruitType, event) {
+    event.preventDefault();
     if (this.chat.token) {
       this.chat.push('new:fruit_tip', {
         user: this.chat.username,
@@ -47,7 +48,6 @@ export default class FruitTipComponent extends Component {
         timestamp: Date.now(),
       });
     }
-    event.preventDefault();
   }
 
   @action

@@ -118,8 +118,8 @@ export default class DatafruitsChatInputMessage extends Component {
       match: /(^|\s)(\w{2,})$/,
       search: (term, callback) => {
         let matches;
-        matches = this.chat.joinedUsers.filter((word) => {
-          return word.indexOf(term) === 0 && word !== this.chat.username;
+        matches = Object.keys(this.joinedUsers).filter((word) => {
+          return word.indexOf(term) === 0 && word !== this.username;
         });
         callback(matches);
       },

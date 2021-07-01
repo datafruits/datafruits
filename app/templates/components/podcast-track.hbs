@@ -9,7 +9,9 @@
     </a>
   {{/if}}
   <a href={{@cdnUrl}} download="">
-    <i class="fa fa-download text-df-green hover:text-df-yellow text-xl"></i>
+    <FaIcon
+      @icon="download"
+      class="fa fa-download text-df-green hover:text-df-yellow text-xl" />
   </a>
   {{#if scheduledShow}}
     <LinkTo @route="home.show" @model={{scheduledShow.id}}>

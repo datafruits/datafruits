@@ -27,7 +27,7 @@
         {{on "click" this.closeGifSearch}}
         title={{t "chat.titles.gif_close"}}
       >
-        <i class="fa fa-times"></i>
+        <FaIcon @icon="times" />
       </button>
       <GiphySearch @sendGif={{action "sendGif"}} />
     </div>
