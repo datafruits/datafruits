@@ -14,6 +14,13 @@ export default Service.extend({
   joinedChat: false,
   gifsEnabled: true,
   token: '',
+
+  join(username, token) {
+    this.set('joinedChat', true);
+    this.set('username', username);
+    this.set('token', token);
+  },
+
   disconnect() {
     // need to broadcast a disconnect here or it will look like user is still in the chat to everyone
     this.chan.push('disconnect', { user: this.username });
@@ -26,10 +33,8 @@ export default Service.extend({
     this._super(...arguments);
     this.set('presences', {});
 
-    if (this.session.isAuthenticated) {
-      this.set('joinedChat', true);
-      this.set('username', this.currentUser.user.username);
-      this.set('token', this.session.data.authenticated.token);
+    if (this.session.isAuthenticated && this.currentUser.user) {
+      this.join(this.currentUser.user.username, this.session.data.authenticated.token);
     }
 
     let socket = this.socket.socket;

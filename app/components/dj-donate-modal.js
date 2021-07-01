@@ -1,8 +1,9 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
-export default class DjDonateButtonComponent extends Component {
+export default class DjDonateModalComponent extends Component {
   @service eventBus;
   @service metadata;
 
@@ -15,5 +16,13 @@ export default class DjDonateButtonComponent extends Component {
 
   setDonationLink() {
     this.donationLink = this.metadata.donationLink;
+  }
+
+  @tracked
+  showingDjDonateModal = false;
+
+  @action
+  toggleDjDonateModal() {
+    this.showingDjDonateModal = !this.showingDjDonateModal;
   }
 }
