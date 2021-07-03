@@ -28,15 +28,16 @@
   <div id="podcast-search-forms" class="flex flex-wrap p-2 items-center">
     <h4 class="text-l px-3">{{t "podcasts.search_title"}}</h4>
     <form role="search" class="px-3" aria-label={{ t "podcasts.text_search.label"}}
-    {{action "nop" on="submit"}}>
+    {{on "submit" this.nop}}>
       <div class="flex flex-col">
         <label class="text-white" for="search-tracks">{{t "podcasts.title_search"}}</label>
         <Input
           id="search-tracks"
           name="search-tracks"
           @autofocus="autofocus"
-          @value={{filterText}}
-          @escape-press={{action "clearSearch"}}
+          @value={{this.filterText}}
+          @escape-press={{this.clearSearch}}
+          @keyUp={{this.search}}
           placeholder={{t "podcasts.placeholders.title"}}
         />
       </div>
@@ -47,8 +48,8 @@
         <PowerSelectMultiple
           name="tag_search"
           @placeholder={{t "podcasts.placeholders.tag"}}
-          @options={{labelNames}}
-          @selected={{selectedLabels}}
+          @options={{this.labelNames}}
+          @selected={{this.selectedLabels}}
           @renderInPlace={{true}}
           @onChange={{action (mut selectedLabels)}} as |label|
         >
@@ -59,13 +60,15 @@
   </div>
 </div>
 <div id="podcast-search-results">
-  <PodcastsLoader @query={{searchParams}} as |loader|>
-    {{#if loader.isRunning}}
+  <Await @promise={{this.fetchPodcasts}} as |await|>
+    <await.Pending>
       <p id="podcast-search-loading" class="">
         {{t "loading"}}
       </p>
-    {{else}}
-      {{#each loader.data.tracks as |track|}}
+    </await.Pending>
+
+    <await.Fulfilled as |result|>
+      {{#each result.tracks as |track|}}
         <PodcastTrack
           @cdnUrl={{track.cdnUrl}}
           @title={{track.title}}
@@ -73,12 +76,16 @@
           @soundcloudKey={{track.soundcloudKey}}
           @mixcloudKey={{track.mixcloudKey}}
           @labels={{track.labels}}
-          @selectLabel={{action "selectLabel"}}
+          @selectLabel={{this.selectLabel}}
         />
       {{else}}
         {{t "podcasts.no_result"}}
       {{/each}}
-      <Pagination @meta={{loader.data.meta}} @route="home.podcasts" />
-    {{/if}}
-  </PodcastsLoader>
+      <Pagination @meta={{result.meta}} @route="home.podcasts" />
+    </await.Fulfilled>
+
+    <await.Rejected>
+      {{t "error"}}
+    </await.Rejected>
+  </Await>
 </div>

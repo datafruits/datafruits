@@ -5,12 +5,12 @@
   </h1>
   <div>
     <PodcastsSearch
-      @tracks={{model.tracks}}
-      @labels={{model.labels}}
-      @meta={{model.meta}}
-      @updateSearch={{action "updateSearch"}}
-      @selectedTags={{tags}}
-      @searchParams={{searchParams}}
+      @tracks={{this.model.tracks}}
+      @labels={{this.model.labels}}
+      @meta={{this.model.meta}}
+      @updateSearch={{this.updateSearch}}
+      @selectedTags={{this.tags}}
+      @searchParams={{this.searchParams}}
     />
   </div>
 </div>

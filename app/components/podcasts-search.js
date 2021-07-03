@@ -1,59 +1,81 @@
-import classic from 'ember-classic-decorator';
-import { observes } from '@ember-decorators/object';
-import { action, computed } from '@ember/object';
-/* eslint ember/no-observers: 0 */
-import Component from '@ember/component';
+import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
+import { hash } from 'rsvp';
+import App from '../app';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { debounce } from '@ember/runloop';
 import { isEmpty } from '@ember/utils';
 import { isArray } from '@ember/array';
 
-/* eslint-disable ember/no-observers */
-
-@classic
 export default class PodcastsSearch extends Component {
-  init() {
-    super.init(...arguments);
-    this.selectedLabels = [];
-    const selectedTags = this.selectedTags;
+  @service
+  store;
+
+  @service
+  router;
+
+  @tracked selectedLabels = [];
+  @tracked filterText = '';
+
+  constructor(owner, args) {
+    super(owner, args);
+
+    const queryParams = this.router.currentRoute.queryParams;
+    console.log(`queryParams from router service: `);
+    console.log(queryParams);
+    const selectedTags = this.args.selectedTags;
     if (!isEmpty(selectedTags)) {
       if (isArray(selectedTags)) {
-        this.set('selectedLabels', this.selectedTags);
+        this.selectedLabels = selectedTags;
       } else {
-        this.set('selectedLabels', this.selectedTags.split(','));
+        this.selectedLabels = selectedTags.split(',');
       }
     }
-    const searchParams = this.searchParams;
+    const searchParams = this.args.searchParams;
     if (searchParams.query) {
-      this.set('filterText', searchParams.query);
+      this.filterText = searchParams.query;
     }
   }
 
-  filterText = '';
-
-  @computed('labels')
   get labelNames() {
-    return this.labels.map(function (label) {
+    return this.args.labels.map(function (label) {
       return label.get('name');
     });
   }
 
-  @observes('filterText')
-  observeQuery() {
-    debounce(this, this.search, 500);
-  }
+  // @observes('filterText')
+  // observeQuery() {
+  //   debounce(this, this.search, 500);
+  // }
+  //
+  // @observes('selectedLabels.[]')
+  // observeLabels() {
+  //   debounce(this, this.search, 100);
+  // }
+  //
 
-  @observes('selectedLabels.[]')
-  observeLabels() {
-    debounce(this, this.search, 100);
-  }
-
+  @action
   search() {
-    this.updateSearch(this.filterText, this.selectedLabels);
+    //const query = { text: this.filterText, labels: this.selectedLabels };
+    debounce(this, this._search, 500);
+  }
+
+  _search() {
+    const queryParams = { text: this.filterText, labels: this.selectedLabels };
+    console.log(queryParams);
+    this.router.transitionTo({
+      queryParams: {
+        query: this.filterText,
+        tags: this.selectedLabels,
+      },
+    });
+    console.log('hey');
   }
 
   @action
   clearSearch() {
-    this.set('filterText', '');
+    this.filterText = '';
   }
 
   @action
@@ -63,4 +85,18 @@ export default class PodcastsSearch extends Component {
 
   @action
   nop() {}
+
+  @action
+  fetchPodcasts() {
+    let query = this.args.searchParams;
+    let podcastsPromise = this.store.queryRecord('podcast', query).then((podcast) => {
+      return hash({
+        tracks: podcast.get('tracks'),
+        meta: App.storeMeta['podcast'],
+        labels: this.store.findAll('label'),
+      });
+    });
+
+    return podcastsPromise;
+  }
 }
