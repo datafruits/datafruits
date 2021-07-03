@@ -23,6 +23,7 @@
     "@csstools/postcss-sass": "^4.0.0",
     "@ember/optional-features": "^2.0.0",
     "@ember/render-modifiers": "^1.0.2",
+    "@ember/test-helpers": "^2.2.8",
     "@fortawesome/ember-fontawesome": "^0.2.3",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
@@ -124,6 +125,7 @@
   "dependencies": {
     "fastboot-app-server": "^3.0.0",
     "pixi.js": "^5.3.4",
-    "pm2": "^4.5.6"
+    "pm2": "^4.5.6",
+    "qunit": "^2.16.0"
   }
 }
