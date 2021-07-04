@@ -8,7 +8,7 @@ module.exports = function (defaults) {
     exclude: ['assets/images/emojis/*', 'assets/images/sprites/*'],
   };
 
-  var app = new EmberApp(defaults, {
+  let app = new EmberApp(defaults, {
     // Add options here
     fingerprint: fingerprintOptions,
 
