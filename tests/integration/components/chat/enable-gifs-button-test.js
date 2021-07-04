@@ -12,7 +12,7 @@ module('Integration | Component | chat/enable-gifs-button', function(hooks) {
 
     await render(hbs`<Chat::EnableGifsButton />`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom(this.element).hasText('');
 
     // Template block usage:
     await render(hbs`
@@ -21,6 +21,6 @@ module('Integration | Component | chat/enable-gifs-button', function(hooks) {
       </Chat::EnableGifsButton>
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.dom(this.element).hasText('template block text');
   });
 });

@@ -12,7 +12,7 @@ module('Integration | Component | fruit-tip', function (hooks) {
 
     await render(hbs`<FruitTip />`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom(this.element).hasText('');
   });
 
   // test('it shows fruit tipping options when clicked', async function (assert) {
