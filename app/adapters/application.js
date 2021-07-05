@@ -4,7 +4,9 @@ import FastbootAdapter from 'ember-data-storefront/mixins/fastboot-adapter';
 import ENV from 'datafruits13/config/environment';
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
+import classic from 'ember-classic-decorator';
 
+@classic
 export default class Application extends ActiveModelAdapter.extend(FastbootAdapter) {
   @service session;
 
