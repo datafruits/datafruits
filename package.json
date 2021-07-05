@@ -87,8 +87,8 @@
     "ember-rollbar-client": "https://github.com/davewasmer/ember-rollbar-client#fastboot-memory-leak-fix",
     "ember-simple-auth": "3.1.0",
     "ember-source": "^3.27.2",
-    "ember-test-selectors": "^4.1.0",
-    "ember-truth-helpers": "2.1.0",
+    "ember-test-selectors": "5.5.0",
+    "ember-truth-helpers": "3.0.0",
     "ember-web-app": "^4.0.0",
     "ember-welcome-page": "^4.0.0",
     "emojione": "git://github.com/mcfiredrill/emojione#animated-emoji",
@@ -126,6 +126,7 @@
     "edition": "octane"
   },
   "dependencies": {
+    "babel-plugin-ember-modules-api-polyfill": "3.5.0",
     "ember-power-select": "https://github.com/mcfiredrill/ember-power-select#fix-deprecate-import",
     "fastboot-app-server": "^3.0.0",
     "pixi.js": "^5.3.4",
