@@ -1,66 +1,39 @@
-<div id="podcast-search-controls" class="border-dotted border-df-green border-4 mb-6">
-  <div id="podcast-subscribe" class="flex p-2">
-    <h4 class="px-3 text-white text-l">{{t "podcasts.subscribe_title"}}</h4>
-    <ul id="subscribe-links" class="text-l flex flex-wrap justify-between items-center">
-      <li class="pr-2">
-        <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">
-          {{t "podcasts.links.itunes"}}
-        </a>
-      </li>
-      <li class="pr-2">
-        <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml">
-          {{t "podcasts.links.overcast"}}
-        </a>
-      </li>
-      <li class="pr-2">
-        <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">
-          {{t "podcasts.links.podcastsapp"}}
-        </a>
-      </li>
-      <li class="pr-2">
-        <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">
-          {{t "podcasts.links.rss"}}
-        </a>
-      </li>
-    </ul>
+<Await @promise={{this.fetchPodcasts}} as |await|>
+  <div id="podcast-search-controls" class="border-dotted border-df-green border-4 mb-6">
+    <div id="podcast-subscribe" class="flex p-2">
+      <h4 class="px-3 text-white text-l">{{t "podcasts.subscribe_title"}}</h4>
+      <ul id="subscribe-links" class="text-l flex flex-wrap justify-between items-center">
+        <li class="pr-2">
+          <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">
+            {{t "podcasts.links.itunes"}}
+          </a>
+        </li>
+        <li class="pr-2">
+          <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml">
+            {{t "podcasts.links.overcast"}}
+          </a>
+        </li>
+        <li class="pr-2">
+          <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">
+            {{t "podcasts.links.podcastsapp"}}
+          </a>
+        </li>
+        <li class="pr-2">
+          <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">
+            {{t "podcasts.links.rss"}}
+          </a>
+        </li>
+      </ul>
+    </div>
+    <hr class="border-dotted border-df-green border-t-4"/>
+    <Podcasts::Search
+      @labels={{@labels}}
+      @selectedLabels={{this.selectedLabels}}
+      @query={{this.router.currentRoute.queryParams.query}}
+      @search={{await.reload}}
+      />
   </div>
-  <hr class="border-dotted border-df-green border-t-4"/>
-  <div id="podcast-search-forms" class="flex flex-wrap p-2 items-center">
-    <h4 class="text-l px-3">{{t "podcasts.search_title"}}</h4>
-    <form role="search" class="px-3" aria-label={{ t "podcasts.text_search.label"}}
-    {{on "submit" this.nop}}>
-      <div class="flex flex-col">
-        <label class="text-white" for="search-tracks">{{t "podcasts.title_search"}}</label>
-        <Input
-          id="search-tracks"
-          name="search-tracks"
-          @autofocus="autofocus"
-          @value={{this.filterText}}
-          @escape-press={{this.clearSearch}}
-          @keyUp={{this.search}}
-          placeholder={{t "podcasts.placeholders.title"}}
-        />
-      </div>
-    </form>
-    <form role="search" class="px-3" aria-label={{ t "podcasts.tag_search.label"}}>
-      <div class="flex flex-col">
-        <label class="text-white" for="tag_search">{{t "podcasts.tag_search"}}</label>
-        <PowerSelectMultiple
-          name="tag_search"
-          @placeholder={{t "podcasts.placeholders.tag"}}
-          @options={{this.labelNames}}
-          @selected={{this.selectedLabels}}
-          @renderInPlace={{true}}
-          @onChange={{action (mut selectedLabels)}} as |label|
-        >
-          {{label}}
-        </PowerSelectMultiple>
-      </div>
-    </form>
-  </div>
-</div>
-<div id="podcast-search-results">
-  <Await @promise={{this.fetchPodcasts}} as |await|>
+  <div id="podcast-search-results">
     <await.Pending>
       <p id="podcast-search-loading" class="">
         {{t "loading"}}
@@ -87,5 +60,5 @@
     <await.Rejected>
       {{t "error"}}
     </await.Rejected>
-  </Await>
-</div>
+  </div>
+</Await>

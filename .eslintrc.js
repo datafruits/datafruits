@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   root: true,
   parser: 'babel-eslint',
@@ -9,11 +11,6 @@ module.exports = {
     },
   },
   plugins: ['ember'],
-  globals: {
-    $: false,
-    twttr: false,
-    emojione: false,
-  },
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
@@ -21,9 +18,6 @@ module.exports = {
   ],
   env: {
     browser: true,
-  },
-  rules: {
-    'ember/no-jquery': 'error',
   },
   rules: {},
   overrides: [
