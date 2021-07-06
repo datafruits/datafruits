@@ -8,7 +8,7 @@ export default class PodcastsSearchComponent extends Component {
 
   @action
   clearSearch() {
-    const query = { query: '', tags: this.selectedLabels };
+    const query = { query: '', tags: this.args.selectedLabels };
     this.router.transitionTo({ queryParams: query });
     debounce(this, this.args.search, 400);
   }
@@ -16,7 +16,7 @@ export default class PodcastsSearchComponent extends Component {
   @action
   updateQueryAndSearch(event) {
     console.log(event.target.value);
-    const query = { query: event.target.value, tags: this.selectedLabels };
+    const query = { query: event.target.value, tags: this.args.selectedLabels };
     this.router.transitionTo({ queryParams: query });
     debounce(this, this.args.search, 400);
   }
