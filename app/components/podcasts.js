@@ -35,8 +35,6 @@ export default class PodcastsSearch extends Component {
 
   @action
   fetchPodcasts() {
-    console.log('in fetchPodcasts');
-    //const query = {};
     const query = this.router.currentRoute.queryParams;
     console.log(query);
     let podcastsPromise = this.store.queryRecord('podcast', query).then((podcast) => {
