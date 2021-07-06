@@ -24,7 +24,7 @@
         @options={{this.labelNames}}
         @selected={{@selectedLabels}}
         @renderInPlace={{true}}
-        @onChange={{action (mut selectedLabels)}} as |label|
+        @onChange={{this.selectLabel}} as |label|
       >
         {{label}}
       </PowerSelectMultiple>

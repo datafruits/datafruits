@@ -24,16 +24,16 @@ export default class PodcastsSearchComponent extends Component {
   @action
   nop() {}
 
+  @action
+  selectLabel(labels) {
+    const queryParams = { tags: labels, query: this.router.currentRoute.queryParams.query };
+    this.router.transitionTo({ queryParams: queryParams });
+    debounce(this, this.args.search, 400);
+  }
+
   get labelNames() {
     return this.args.labels.map(function (label) {
       return label.get('name');
     });
   }
-
-  // get selectedLabels() {
-  //   const queryParams = this.router.currentRoute.queryParams;
-  //   if(queryParams.tags) {
-  //     return queryParams.tags.split(',');
-  //   }
-  // }
 }

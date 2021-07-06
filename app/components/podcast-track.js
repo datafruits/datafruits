@@ -2,6 +2,7 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { debounce } from '@ember/runloop';
 
 export default class PodcastTrack extends Component {
   constructor(owner, args) {
@@ -11,6 +12,9 @@ export default class PodcastTrack extends Component {
 
   @service
   eventBus;
+
+  @service
+  router;
 
   @tracked
   playing;
@@ -27,6 +31,15 @@ export default class PodcastTrack extends Component {
     this.playing = false;
     this.paused = true;
     this.eventBus.publish('trackPaused', this);
+  }
+
+  @action
+  selectLabel(label) {
+    let tags = this.args.selectedLabels;
+    tags.pushObject(label)
+    const queryParams = { tags: tags, query: this.router.currentRoute.queryParams.query };
+    this.router.transitionTo({ queryParams: queryParams });
+    debounce(this, this.args.search, 400);
   }
 
   onTrackPlayed(event) {
