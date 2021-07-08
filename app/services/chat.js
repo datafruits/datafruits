@@ -1,6 +1,7 @@
 import Service, { inject as service } from '@ember/service';
 import { Presence } from 'phoenix';
 import { tracked } from '@glimmer/tracking';
+import { alias } from '@ember/object/computed';
 
 export default class ChatServvice extends Service {
   @service socket;
@@ -9,9 +10,8 @@ export default class ChatServvice extends Service {
   @service currentUser;
 
   @tracked presences = {};
-  //joinedUsers: reads('presences'),
-  //
-  //messages: ArrayProxy.create({ content: A() }),
+  @alias('presences') joinedUsers;
+
   @tracked messages = [];
 
   @tracked joinedChat = false;

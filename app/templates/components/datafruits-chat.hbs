@@ -22,7 +22,7 @@
       </div>
     {{/if}}
     <ul id="userlist" class="overflow-y-scroll flex-grow hidden md:block md:w-1/5 pl-4">
-      {{#each-in this.joinedUsers as |username user|}}
+      {{#each-in this.chat.joinedUsers as |username user|}}
         <UserListItem @user={{user}} />
       {{/each-in}}
     </ul>
