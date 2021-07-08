@@ -17,14 +17,22 @@ module.exports = async function({ distDir, visit }) {
   ];
 
   // need to recursively crawl all the links on every page somehow
-  // also should exclude external links?
-  let page = await visit('/timetable');
-  if (page.statusCode === 200) {
-    let html = await page.html();
-    let dom = new JSDOM(html);
-    for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
-      if (aTag.href) {
-        urls.push(aTag.href);
+  for (const url of urls) {
+    let page = await visit(url);
+    if (page.statusCode === 200) {
+      let html = await page.html();
+      let dom = new JSDOM(html);
+      for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
+        console.log(aTag.href);
+        if (aTag.href) {
+          console.log(aTag.hostname);
+          console.log(aTag.host);
+          // exclude external links
+          //
+          if(!aTag.hostname && !urls.includes(aTag.pathname)) {
+            urls.push(aTag.pathname);
+          }
+        }
       }
     }
   }
