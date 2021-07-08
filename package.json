@@ -61,7 +61,6 @@
     "ember-cli-meta-tags": "^6.0.0",
     "ember-cli-mirage": "^1.1.6",
     "ember-cli-postcss": "^6.0.1",
-    "ember-cli-qunit": "^4.4.0",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-template-lint": "2.0.2",
