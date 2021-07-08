@@ -98,6 +98,7 @@
     "phoenix": "^1.5.7",
     "postcss-import": "^12.0.1",
     "postcss-scss": "^2.1.1",
+    "prember": "^1.0.5",
     "prettier": "^2.3.0",
     "qunit-dom": "1.2.0",
     "sass": "^1.26.10",

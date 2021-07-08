@@ -9,6 +9,20 @@ module.exports = function (defaults) {
   };
 
   var app = new EmberApp(defaults, {
+    prember: {
+      urls: [
+        '/',
+        '/timetable',
+        '/about',
+        '/subscribe',
+        '/dj-inquiry',
+        '/coc',
+        '/djs',
+        '/chat',
+        '/sign-up',
+      ],
+    },
+
     // Add options here
     fingerprint: fingerprintOptions,
 
