@@ -1,6 +1,7 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const urlFinder = require('./urlFinder.js');
 
 module.exports = function (defaults) {
   var fingerprintOptions = {
@@ -10,17 +11,7 @@ module.exports = function (defaults) {
 
   var app = new EmberApp(defaults, {
     prember: {
-      urls: [
-        '/',
-        '/timetable',
-        '/about',
-        '/subscribe',
-        '/dj-inquiry',
-        '/coc',
-        '/djs',
-        '/chat',
-        '/sign-up',
-      ],
+      urls: urlFinder,
     },
 
     // Add options here
