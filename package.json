@@ -23,6 +23,7 @@
     "@csstools/postcss-sass": "^4.0.0",
     "@ember/optional-features": "^2.0.0",
     "@ember/render-modifiers": "^1.0.2",
+    "@ember/test-helpers": "^2.2.8",
     "@fortawesome/ember-fontawesome": "^0.2.3",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
@@ -54,6 +55,7 @@
     "ember-cli-fastboot": "^2.2.3",
     "ember-cli-htmlbars": "^5.2.0",
     "ember-cli-inject-live-reload": "2.0.2",
+    "ember-cli-memory-leak-detector": "^0.7.1",
     "ember-cli-meta-tags": "^6.0.0",
     "ember-cli-mirage": "^1.1.6",
     "ember-cli-postcss": "^6.0.1",
@@ -79,7 +81,7 @@
     "ember-page-title": "^5.2.3",
     "ember-parachute": "1.0.2",
     "ember-power-select": "^4.0.3",
-    "ember-qunit": "^4.6.0",
+    "ember-qunit": "5.1.4",
     "ember-resolver": "^8.0.0",
     "ember-rollbar-client": "https://github.com/davewasmer/ember-rollbar-client#fastboot-memory-leak-fix",
     "ember-simple-auth": "3.1.0",
@@ -122,6 +124,7 @@
   "dependencies": {
     "fastboot-app-server": "^3.0.0",
     "pixi.js": "^5.3.4",
-    "pm2": "^4.5.6"
+    "pm2": "^4.5.6",
+    "qunit": "^2.16.0"
   }
 }

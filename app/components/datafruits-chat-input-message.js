@@ -135,12 +135,16 @@ export default class DatafruitsChatInputMessage extends Component {
       },
     };
     const editor = new Textarea(document.getElementById('input-message'));
-    let emojiTextcomplete = new Textcomplete(editor, {
+    this.emojiTextcomplete = new Textcomplete(editor, {
       dropdown: {
         maxCount: 25,
         placement: 'top',
       },
     });
-    emojiTextcomplete.register([emojiComplete, usernameComplete]);
+    this.emojiTextcomplete.register([emojiComplete, usernameComplete]);
+  }
+
+  willDestroyElement() {
+    this.emojiTextcomplete.destroy;
   }
 }
