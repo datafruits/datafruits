@@ -4,6 +4,10 @@ const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
 module.exports = async function ({ distDir, visit }) {
+  function isValidUrl(aTag) {
+    return !aTag.hostname && !urls.includes(aTag.href) && /^(\/)+\S+$/.test(aTag.href);
+  }
+
   let urls = [
     '/',
     '/timetable',
@@ -25,12 +29,8 @@ module.exports = async function ({ distDir, visit }) {
       let dom = new JSDOM(html);
       for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
         if (aTag.href) {
-          console.log(aTag.hostname);
-          console.log(aTag.host);
-          // exclude external links
-          //
-          console.log(aTag.href);
-          if (!aTag.hostname && !urls.includes(aTag.href)) {
+          if (isValidUrl(aTag)) {
+            console.log(aTag.href);
             urls.push(aTag.href);
           }
         }
@@ -43,12 +43,8 @@ module.exports = async function ({ distDir, visit }) {
             let dom = new JSDOM(html);
             for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
               if (aTag.href) {
-                console.log(aTag.hostname);
-                console.log(aTag.host);
-                // exclude external links
-                //
                 console.log(aTag.href);
-                if (!aTag.hostname && !urls.includes(aTag.href)) {
+                if (isValidUrl(aTag)) {
                   urls.push(aTag.href);
                 }
               }
