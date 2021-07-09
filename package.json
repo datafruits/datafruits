@@ -56,6 +56,7 @@
     "ember-cli-inject-live-reload": "2.0.2",
     "ember-cli-meta-tags": "^6.0.0",
     "ember-cli-mirage": "^1.1.6",
+    "ember-cli-netlify": "^0.4.1",
     "ember-cli-postcss": "^6.0.1",
     "ember-cli-qunit": "^4.4.0",
     "ember-cli-shims": "^1.1.0",
