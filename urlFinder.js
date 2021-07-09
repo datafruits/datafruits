@@ -30,20 +30,18 @@ module.exports = async function ({ distDir, visit }) {
       for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
         if (aTag.href) {
           if (isValidUrl(aTag)) {
-            console.log(aTag.href);
             urls.push(aTag.href);
           }
         }
       }
       if (url === '/podcasts') {
         for (let aTag of [...dom.window.document.querySelectorAll('span.pagination a')]) {
-          page = await visit(url);
+          page = await visit(aTag.href);
           if (page.statusCode === 200) {
             let html = await page.html();
             let dom = new JSDOM(html);
             for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
               if (aTag.href) {
-                console.log(aTag.href);
                 if (isValidUrl(aTag)) {
                   urls.push(aTag.href);
                 }
