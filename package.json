@@ -79,7 +79,7 @@
     "ember-modal-dialog": "^3.0.0-beta.4",
     "ember-page-title": "^5.2.3",
     "ember-parachute": "1.0.2",
-    "ember-power-select": "^4.0.3",
+    "ember-power-select": "^4.1.6",
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^8.0.0",
     "ember-rollbar-client": "https://github.com/davewasmer/ember-rollbar-client#fastboot-memory-leak-fix",
