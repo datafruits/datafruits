@@ -1,9 +1,11 @@
+/*global module*/
+/*eslint-env node */
 'use strict';
 
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
-module.exports = async function ({ distDir, visit }) {
+module.exports = async function ({ _distDir, visit }) {
   function isValidUrl(aTag) {
     return !aTag.hostname && !urls.includes(aTag.href) && /^(\/)+\S+$/.test(aTag.href);
   }

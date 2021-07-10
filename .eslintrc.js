@@ -20,6 +20,7 @@ module.exports = {
   },
   rules: {
     'ember/no-jquery': 'error',
+    'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
   },
   overrides: [
     // node files
