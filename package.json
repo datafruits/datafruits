@@ -11,7 +11,7 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "ember build --environment=production && cd dist && yarn install",
+    "build": "ember build --environment=production",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "pm2-runtime start ecosystem.config.js --env production",
@@ -56,6 +56,7 @@
     "ember-cli-inject-live-reload": "2.0.2",
     "ember-cli-meta-tags": "^6.0.0",
     "ember-cli-mirage": "^1.1.6",
+    "ember-cli-netlify": "^0.4.1",
     "ember-cli-postcss": "^6.0.1",
     "ember-cli-qunit": "^4.4.0",
     "ember-cli-shims": "^1.1.0",
@@ -98,6 +99,7 @@
     "phoenix": "^1.5.7",
     "postcss-import": "^12.0.1",
     "postcss-scss": "^2.1.1",
+    "prember": "^1.0.5",
     "prettier": "^2.3.0",
     "qunit-dom": "1.2.0",
     "sass": "^1.26.10",
