@@ -19,7 +19,10 @@ module.exports = {
   env: {
     browser: true,
   },
-  rules: {},
+  rules: {
+    'ember/no-jquery': 'error',
+    'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+  },
   overrides: [
     // node files
     {
