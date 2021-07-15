@@ -1,16 +1,13 @@
-import classic from 'ember-classic-decorator';
-import { tagName } from '@ember-decorators/component';
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
-@classic
-@tagName('')
 export default class Notifications extends Component {
   @service
   socket;
 
-  didInsertElement() {
-    super.didInsertElement(...arguments);
+  @action
+  didInsert() {
     let socket = this.socket.socket;
 
     if ('Notification' in window) {

@@ -48,8 +48,8 @@ export default class HomeController extends Controller {
   }
 
   @action
-  setLocale(locale) {
-    this.set('intl.locale', locale);
+  setLocale(event) {
+    this.set('intl.locale', event.target.value);
   }
 
   @action

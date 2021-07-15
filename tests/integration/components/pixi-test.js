@@ -12,6 +12,6 @@ module('Integration | Component | pixi', function (hooks) {
 
     await render(hbs`<Pixi />`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom(this.element).hasText('');
   });
 });

@@ -18,8 +18,7 @@
   </div>
   <DatafruitsPlayer
     class="flex-col flex justify-center classic:bg-df-pink blm:bg-black trans:bg-df-blue text-xl py-2 text-white leading-none"
-    >
-
+  >
     <DjDonateModal class="md:block mr-2" />
 
     <div class="text-sm text-white hidden md:block">
@@ -28,9 +27,9 @@
         @setTheme={{action "setTheme"}}
       />
       <LocaleSelector
-        class="text-white mt-1"
-        @selectedLocale={{locale.value}}
-        @setLocale={{action "setLocale"}}
+        class="text-white hidden md:block mt-1"
+        @selectedLocale={{this.locale.value}}
+        @setLocale={{this.setLocale}}
       />
     </div>
   </DatafruitsPlayer>
@@ -41,9 +40,9 @@
 <DatafruitsVisuals
   class="block absolute top-0 w-screen h-screen h-handle-resize"
 />
-<Notifications />
-<WindowResizeHandler />
 {{#if (not this.fastboot.isFastBoot)}}
+  <Notifications />
+  <WindowResizeHandler />
   {{#if this.showingPixi}}
     <Pixi />
   {{/if}}

@@ -1,18 +1,16 @@
-import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
 export default class BlogPost extends Component {
   @service
   intl;
 
-  @computed('intl.locale', 'post.blogPostBodies')
   get body() {
-    let body = this.post.blogPostBodies.filter((body) => {
+    let body = this.args.post.blogPostBodies.filter((body) => {
       return body.language == this.intl.locale;
     }).firstObject;
     if (!body) {
-      body = this.post.blogPostBodies.filter((body) => {
+      body = this.args.post.blogPostBodies.filter((body) => {
         return body.language == 'en';
       }).firstObject;
     }

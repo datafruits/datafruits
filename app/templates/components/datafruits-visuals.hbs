@@ -1,21 +1,25 @@
-{{#if videoStreamActive}}
-  <video
-    id="video-player"
-    class="video-js vjs-default-skin vjs-16-9 vjs-big-play-centered vjs-fluid"
-    preload="auto"
-    playsinline
-    muted
-  >
-    <p class="vjs-no-js">
-      {{t "player.compatibility.warning"}}
-      {{!-- template-lint-disable no-nested-interactive --}}
-      <a
-        href="http://videojs.com/html5-video-support/"
-        target="_blank"
-        rel="noopener"
-      >
-        {{t "player.compatibility.linktext"}}
-      </a>
-    </p>
-  </video>
-{{/if}}
+<div
+  {{did-insert this.didInsert}}
+  class="visuals">
+  {{#if this.videoStreamActive}}
+    <video
+      id="video-player"
+      class="video-js vjs-default-skin vjs-16-9 vjs-big-play-centered vjs-fluid"
+      preload="auto"
+      playsinline
+      muted
+    >
+      <p class="vjs-no-js">
+        {{t "player.compatibility.warning"}}
+        {{!-- template-lint-disable no-nested-interactive --}}
+        <a
+          href="http://videojs.com/html5-video-support/"
+          target="_blank"
+          rel="noopener"
+        >
+          {{t "player.compatibility.linktext"}}
+        </a>
+      </p>
+    </video>
+  {{/if}}
+</div>

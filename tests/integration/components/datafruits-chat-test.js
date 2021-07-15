@@ -19,9 +19,9 @@ module('Integration | Component | datafruits chat', function (hooks) {
 
     await render(hbs`<DatafruitsChat />`);
 
-    assert.equal(this.element.textContent.trim().includes('Join chat'), true);
-    assert.equal(this.element.textContent.trim().includes('Images are off'), true);
-    assert.equal(this.element.textContent.trim().includes('Login'), true);
+    assert.true(this.element.textContent.trim().includes('Join chat'));
+    assert.true(this.element.textContent.trim().includes('Images are off'));
+    assert.true(this.element.textContent.trim().includes('Login'));
     assert.dom('[data-test-join-chat]').isDisabled();
   });
 
@@ -30,11 +30,10 @@ module('Integration | Component | datafruits chat', function (hooks) {
     this.set('networkStatus.isOffline', true);
     await render(hbs`<DatafruitsChat @networkStatus={{this.networkStatus}} />`);
 
-    assert.equal(
+    assert.true(
       this.element.textContent
         .trim()
         .includes("You appear to be offline. I guess you won't be able to chat. Musta been the onion salad dressing"),
-      true,
     );
   });
 });

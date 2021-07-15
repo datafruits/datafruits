@@ -12,10 +12,10 @@ module('Integration | Component | site-settings', function (hooks) {
 
     await render(hbs`<SiteSettings />`);
 
-    assert.equal(this.element.textContent.trim().includes('its just a website'), true);
-    assert.equal(this.element.textContent.trim().includes('English'), true);
-    assert.equal(this.element.textContent.includes('日本語'), true);
-    assert.equal(this.element.textContent.includes('한국어'), true);
-    assert.equal(this.element.textContent.includes('Español'), true);
+    assert.true(this.element.textContent.trim().includes('its just a website'));
+    assert.true(this.element.textContent.trim().includes('English'));
+    assert.true(this.element.textContent.includes('日本語'));
+    assert.true(this.element.textContent.includes('한국어'));
+    assert.true(this.element.textContent.includes('Español'));
   });
 });

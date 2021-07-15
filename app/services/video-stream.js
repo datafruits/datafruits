@@ -1,7 +1,6 @@
 import classic from 'ember-classic-decorator';
-import Service from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import { later, run } from '@ember/runloop';
-import { inject as service } from '@ember/service';
 import ENV from 'datafruits13/config/environment';
 import fetch from 'fetch';
 

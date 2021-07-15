@@ -12,6 +12,6 @@ module('Integration | Component | user-menu', function (hooks) {
 
     await render(hbs`<UserMenu />`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom(this.element).hasText('');
   });
 });

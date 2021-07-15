@@ -1,5 +1,7 @@
 import ApplicationAdapter from './application';
+import classic from 'ember-classic-decorator';
 
+@classic
 export default class UserAdapter extends ApplicationAdapter {
   urlForQueryRecord(query) {
     if (query.me) {

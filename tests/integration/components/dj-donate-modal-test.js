@@ -13,6 +13,6 @@ module('Integration | Component | dj-donate-modal', function (hooks) {
 
     await render(hbs`<DjDonateModal />`);
 
-    assert.equal(this.element.textContent.trim().includes('DONATE'), true);
+    assert.true(this.element.textContent.trim().includes('DONATE'));
   });
 });

@@ -13,7 +13,7 @@ module('Integration | Component | datafruits chat input message', function (hook
 
     await render(hbs`{{datafruits-chat-input-message}}`);
 
-    assert.equal(this.element.textContent.trim().includes('Send'), true);
-    assert.equal(this.element.textContent.trim().includes('GIF'), true);
+    assert.true(this.element.textContent.trim().includes('Send'));
+    assert.true(this.element.textContent.trim().includes('GIF'));
   });
 });

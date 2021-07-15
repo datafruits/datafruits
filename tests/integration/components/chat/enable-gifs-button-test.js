@@ -1,24 +1,24 @@
-import { module, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | podcasts-loader', function (hooks) {
+module('Integration | Component | chat/enable-gifs-button', function (hooks) {
   setupRenderingTest(hooks);
 
-  skip('it renders', async function (assert) {
+  test('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{podcasts-loader}}`);
+    await render(hbs`<Chat::EnableGifsButton />`);
 
     assert.dom(this.element).hasText('');
 
     // Template block usage:
     await render(hbs`
-      {{#podcasts-loader}}
+      <Chat::EnableGifsButton>
         template block text
-      {{/podcasts-loader}}
+      </Chat::EnableGifsButton>
     `);
 
     assert.dom(this.element).hasText('template block text');
