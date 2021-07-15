@@ -36,7 +36,7 @@ export default class PodcastTrack extends Component {
   @action
   selectLabel(label) {
     let tags = this.args.selectedLabels;
-    tags.pushObject(label)
+    tags.pushObject(label);
     const queryParams = { tags: tags, query: this.router.currentRoute.queryParams.query };
     this.router.transitionTo({ queryParams: queryParams });
     debounce(this, this.args.search, 400);

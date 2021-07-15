@@ -23,7 +23,7 @@ export default class PodcastsSearch extends Component {
 
   get selectedLabels() {
     const queryParams = this.router.currentRoute.queryParams;
-    if(queryParams.tags) {
+    if (queryParams.tags) {
       return queryParams.tags.split(',');
     } else {
       return [];

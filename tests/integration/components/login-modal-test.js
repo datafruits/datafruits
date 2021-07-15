@@ -14,6 +14,6 @@ module('Integration | Component | login-modal', function (hooks) {
     this.toggleModal = () => {};
     await render(hbs`<LoginModal @login={{this.login}} @toggleModal={{this.toggleModal}} />`);
 
-    assert.equal(this.element.textContent.trim().includes('Login'), true);
+    assert.true(this.element.textContent.trim().includes('Login'));
   });
 });

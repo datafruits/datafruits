@@ -14,6 +14,7 @@ export default class WindowResizeHandler extends Component {
 
   @action
   willDestroy() {
+    super.willDestroy(...arguments);
     let _resize = this._resize;
     window.removeEventListener('resize', _resize);
   }
