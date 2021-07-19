@@ -169,6 +169,14 @@ export function initialize(/* application */) {
       shortnames: [':banaynay:'],
       keywords: ['banaynay'],
     },
+    ':watermel:': {
+      custom: true,
+      animated: true,
+      uc_base: 'watermel',
+      uc_output: '',
+      shortnames: [':watermel:'],
+      keywords: ['watermel'],
+    },
     ':miniburger:': {
       custom: true,
       uc_base: 'miniburger',

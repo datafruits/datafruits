@@ -13,7 +13,7 @@ export default class PixiComponent extends Component {
   sprites = [];
   animations = {};
 
-  fruits = ['strawberry', 'lemon', 'orange', 'banana'];
+  fruits = ['strawberry', 'lemon', 'orange', 'banana', 'watermelon'];
 
   constructor() {
     super(...arguments);
@@ -83,6 +83,7 @@ export default class PixiComponent extends Component {
     this.app.loader.add('orange', '/assets/images/sprites/orange.json');
     this.app.loader.add('lemon', '/assets/images/sprites/lemon.json');
     this.app.loader.add('banana', '/assets/images/sprites/banana.json');
+    this.app.loader.add('watermelon', '/assets/images/sprites/watermelon.json');
     this.app.loader.add('shader', '/assets/shaders/shader.frag');
     this.app.loader.load((loader, res) => {
       this.filter = new PIXI.Filter(null, res.shader.data, {
@@ -93,6 +94,7 @@ export default class PixiComponent extends Component {
       this.animations.orange = res.orange.spritesheet.animations['orange.png'];
       this.animations.lemon = res.lemon.spritesheet.animations['lemon.png'];
       this.animations.banana = res.banana.spritesheet.animations['banana.png'];
+      this.animations.watermelon = res.watermelon.spritesheet.animations['watermelon.png'];
 
       // Resume application update
       this.app.start();
