@@ -1,0 +1,271 @@
+{"frames": {
+
+"watermelon.png0001.png":
+{
+	"frame": {"x":1049,"y":1,"w":315,"h":232},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":48,"y":82,"w":315,"h":232},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0002.png":
+{
+	"frame": {"x":556,"y":1040,"w":320,"h":232},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":39,"y":81,"w":320,"h":232},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0003.png":
+{
+	"frame": {"x":576,"y":345,"w":323,"h":234},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":29,"y":76,"w":323,"h":234},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0004.png":
+{
+	"frame": {"x":577,"y":1,"w":322,"h":237},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":21,"y":73,"w":322,"h":237},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0005.png":
+{
+	"frame": {"x":812,"y":325,"w":318,"h":240},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":71,"w":318,"h":240},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0006.png":
+{
+	"frame": {"x":852,"y":645,"w":310,"h":243},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":71,"w":310,"h":243},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0007.png":
+{
+	"frame": {"x":1289,"y":310,"w":299,"h":244},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":68,"w":299,"h":244},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0008.png":
+{
+	"frame": {"x":1322,"y":1229,"w":288,"h":249},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":11,"y":61,"w":288,"h":249},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0009.png":
+{
+	"frame": {"x":1628,"y":849,"w":282,"h":254},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":11,"y":56,"w":282,"h":254},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0010.png":
+{
+	"frame": {"x":1628,"y":568,"w":279,"h":259},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":53,"w":279,"h":259},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0011.png":
+{
+	"frame": {"x":1628,"y":289,"w":277,"h":264},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":51,"w":277,"h":264},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0012.png":
+{
+	"frame": {"x":1628,"y":1,"w":286,"h":267},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":45,"w":286,"h":267},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0013.png":
+{
+	"frame": {"x":1097,"y":628,"w":299,"h":274},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":37,"w":299,"h":274},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0014.png":
+{
+	"frame": {"x":790,"y":990,"w":313,"h":280},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":32,"w":313,"h":280},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0015.png":
+{
+	"frame": {"x":291,"y":709,"w":329,"h":286},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":30,"w":329,"h":286},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0016.png":
+{
+	"frame": {"x":292,"y":1,"w":342,"h":283},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":7,"y":31,"w":342,"h":283},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0017.png":
+{
+	"frame": {"x":290,"y":357,"w":350,"h":284},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":26,"w":350,"h":284},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0018.png":
+{
+	"frame": {"x":1,"y":357,"w":353,"h":287},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":23,"w":353,"h":287},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0019.png":
+{
+	"frame": {"x":1,"y":1,"w":354,"h":289},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":10,"y":24,"w":354,"h":289},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0020.png":
+{
+	"frame": {"x":1,"y":712,"w":351,"h":288},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":29,"w":351,"h":288},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0021.png":
+{
+	"frame": {"x":1,"y":1065,"w":342,"h":277},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":23,"y":36,"w":342,"h":277},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0022.png":
+{
+	"frame": {"x":280,"y":1065,"w":331,"h":274},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":34,"y":36,"w":331,"h":274},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0023.png":
+{
+	"frame": {"x":579,"y":670,"w":318,"h":271},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":45,"y":39,"w":318,"h":271},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0024.png":
+{
+	"frame": {"x":1283,"y":1,"w":307,"h":268},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":57,"y":44,"w":307,"h":268},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0025.png":
+{
+	"frame": {"x":1311,"y":929,"w":298,"h":262},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":69,"y":53,"w":298,"h":262},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0026.png":
+{
+	"frame": {"x":1373,"y":611,"w":289,"h":253},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":78,"y":60,"w":289,"h":253},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0027.png":
+{
+	"frame": {"x":790,"y":1305,"w":287,"h":248},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":77,"y":62,"w":287,"h":248},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0028.png":
+{
+	"frame": {"x":1573,"y":1229,"w":288,"h":245},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":75,"y":65,"w":288,"h":245},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0029.png":
+{
+	"frame": {"x":1079,"y":1259,"w":293,"h":241},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":71,"y":70,"w":293,"h":241},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0030.png":
+{
+	"frame": {"x":1072,"y":957,"w":300,"h":237},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":65,"y":76,"w":300,"h":237},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0031.png":
+{
+	"frame": {"x":1054,"y":318,"w":308,"h":233},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":57,"y":80,"w":308,"h":233},
+	"sourceSize": {"w":378,"h":378}
+},
+"watermelon.png0032.png":
+{
+	"frame": {"x":816,"y":1,"w":317,"h":231},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":46,"y":80,"w":317,"h":231},
+	"sourceSize": {"w":378,"h":378}
+}},
+"animations": {
+	"watermelon.png": ["watermelon.png0001.png","watermelon.png0002.png","watermelon.png0003.png","watermelon.png0004.png","watermelon.png0005.png","watermelon.png0006.png","watermelon.png0007.png","watermelon.png0008.png","watermelon.png0009.png","watermelon.png0010.png","watermelon.png0011.png","watermelon.png0012.png","watermelon.png0013.png","watermelon.png0014.png","watermelon.png0015.png","watermelon.png0016.png","watermelon.png0017.png","watermelon.png0018.png","watermelon.png0019.png","watermelon.png0020.png","watermelon.png0021.png","watermelon.png0022.png","watermelon.png0023.png","watermelon.png0024.png","watermelon.png0025.png","watermelon.png0026.png","watermelon.png0027.png","watermelon.png0028.png","watermelon.png0029.png","watermelon.png0030.png","watermelon.png0031.png","watermelon.png0032.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "watermelon.png",
+	"format": "RGBA8888",
+	"size": {"w":1896,"h":1554},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:c3556b68ab41b7a009e0c7b2221f25dd:b1edcc2117255f7cec0861659d7b1828:b7853b6c71cfa1e0cdd4d7a9f0ce5fdd$"
+}
+}
