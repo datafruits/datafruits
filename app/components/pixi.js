@@ -35,7 +35,8 @@ export default class PixiComponent extends Component {
       sprite.y = Math.random() * this.app.screen.height;
 
       sprite.animationSpeed = 1;
-      sprite.play();
+      let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
+      sprite.gotoAndPlay(randomFrame);
 
       this.sprites.pushObject(sprite);
       this.app.stage.addChild(sprite);
