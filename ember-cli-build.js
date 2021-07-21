@@ -10,6 +10,10 @@ module.exports = function (defaults) {
   };
 
   var app = new EmberApp(defaults, {
+    newVersion: {
+      enabled: true,
+    },
+
     prember: {
       urls: urlFinder,
     },
