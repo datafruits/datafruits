@@ -42,13 +42,13 @@ export default class DatafruitsPlayer extends Component {
     return this.playerState === 'loading';
   }
 
-  init() {
+  constructor() {
+    super(...arguments);
     this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
     this.eventBus.subscribe('metadataUpdate', this, 'setRadioTitle');
     if (!this.fastboot.isFastBoot) {
       this.volume = localStorage.getItem('datafruits-volume') || 0.8;
     }
-    super.init(...arguments);
   }
 
   get isLive() {
