@@ -1,4 +1,4 @@
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { debounce } from '@ember/runloop';
 import Component from '@glimmer/component';
@@ -51,7 +51,6 @@ export default class DatafruitsPlayer extends Component {
     super.init(...arguments);
   }
 
-  @computed('title')
   get isLive() {
     const title = this.title;
     return !isEmpty(title) && title.startsWith('LIVE');
