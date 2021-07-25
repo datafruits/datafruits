@@ -419,4 +419,11 @@ canvas {
   background: salmon; /* Gecko Browsers */
 }
 
+.update-notification {
+  @include stripe-animation;
+  color: white;
+  font-weight: bold;
+  animation: bounce linear 200ms;
+}
+
 @tailwind utilities;
