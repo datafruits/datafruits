@@ -3,10 +3,6 @@ import { inject as service } from '@ember/service';
 import { hash } from 'rsvp';
 import App from '../app';
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
-import { debounce } from '@ember/runloop';
-// import { isEmpty } from '@ember/utils';
-// import { isArray } from '@ember/array';
 
 export default class PodcastsSearch extends Component {
   @service
