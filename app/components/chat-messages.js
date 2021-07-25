@@ -23,7 +23,7 @@ export default class ChatMessages extends Component {
     if (this.scrolledToBottom()) {
       this.willAutoscroll = true;
     } else {
-      this.newMessagesAvailable();
+      this.args.newMessagesAvailable();
       this.willAutoscroll = false;
     }
   }
