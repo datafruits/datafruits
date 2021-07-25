@@ -43,9 +43,28 @@ export default class PixiComponent extends Component {
       this.app.stage.addChild(sprite);
       // add callback to remove sprite after 5s
       later(() => {
+        let x = sprite.x;
+        let y = sprite.y;
+
+        let starSprite = new PIXI.AnimatedSprite(this.animations['stars']);
+        starSprite.x = x;
+        starSprite.y = y;
+        starSprite.animationSpeed = Math.random() * 2;
+        let starScale = Math.random() * 2;
+        starSprite.scale.x = starScale;
+        starSprite.scale.y = starScale;
         sprite.destroy();
         let spriteIndex = this.sprites.indexOf(sprite);
         this.sprites.splice(spriteIndex, 1);
+
+        // play star animation
+        starSprite.loop = false;
+        starSprite.play();
+        this.app.stage.addChild(starSprite);
+        later(() => {
+          // remove star animation
+          starSprite.destroy();
+        }, 300);
       }, 5000);
     } else {
       console.log("pixi.js wasn't initialized..."); // eslint-disable-line no-console
@@ -87,6 +106,8 @@ export default class PixiComponent extends Component {
     this.app.loader.add('banana', '/assets/images/sprites/banana.json');
     this.app.loader.add('watermelon', '/assets/images/sprites/watermelon.json');
     this.app.loader.add('shader', '/assets/shaders/shader.frag');
+
+    this.app.loader.add('stars', '/assets/images/sprites/stars.json');
     this.app.loader.load((loader, res) => {
       this.filter = new PIXI.Filter(null, res.shader.data, {
         customUniform: 0.0,
@@ -97,6 +118,7 @@ export default class PixiComponent extends Component {
       this.animations.lemon = res.lemon.spritesheet.animations['lemon.png'];
       this.animations.banana = res.banana.spritesheet.animations['banana.png'];
       this.animations.watermelon = res.watermelon.spritesheet.animations['watermelon.png'];
+      this.animations.stars = res.stars.spritesheet.animations['stars'];
 
       // Resume application update
       this.app.start();
