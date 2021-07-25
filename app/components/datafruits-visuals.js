@@ -1,5 +1,4 @@
 import { inject as service } from '@ember/service';
-import { oneWay } from '@ember/object/computed';
 import Component from '@glimmer/component';
 import { later } from '@ember/runloop';
 import { action } from '@ember/object';
@@ -12,13 +11,10 @@ export default class DatafruitsVisuals extends Component {
   @service
   videoStream;
 
-  @oneWay('videoStream.active')
-  videoStreamActive;
-
   @action
   didInsert() {
     if (!this.fastboot.isFastBoot) {
-      if (this.videoStreamActive) {
+      if (this.videoStream.active) {
         this.videoStream.initializePlayer();
       } else {
         if (ENV.environment === 'test') return;
