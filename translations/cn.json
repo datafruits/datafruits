@@ -1,0 +1,121 @@
+{
+  "settings": {
+    "title": "網站設置"
+  },
+  "home": {
+    "upcoming_shows": "即將推出",
+    "latest_podcasts": "最新存檔",
+    "events": "活動"
+  },
+  "chat": {
+    "title": "聊天室",
+    "new_messages": "新留言在下.",
+    "offline": "您下線了. 現在不能聊天. 應該是那個洋蔥沙拉醬的問題.",
+    "send": "發送",
+    "message_placeholder": "請在這裡發留言",
+    "join": "進聊天室",
+    "img_on": "圖片",
+    "img_off": "沒圖片",
+    "nickname": "在此輸入用戶名 ...",
+    "sign_up": "註冊",
+    "login_why": "聊天前請先登錄 聽說酷小孩都會登錄",
+    "label": {
+      "nick": "用戶名",
+      "input": "留言",
+      "search": "按標籤搜索",
+      "aria": "datafruits.fm聊天室的接入",
+      "i_agree": "我閱讀了行為準則，同意遵守條款並理解它可能會因不這樣做而被刪除",
+      "coc": "行為守則"
+    },
+    "titles": {
+      "enter": "進入聊天",
+      "send": "發送",
+      "img_on": "圖片",
+      "img_off": "沒圖片",
+      "gif": "聊天中分享 GIF",
+      "gif_close": "關閉 GIF 搜索"
+    },
+    "login": "登錄",
+    "username": "用戶名",
+    "password": "密碼"
+  },
+  "usermenu": {
+    "settings": "設置",
+    "logout": "登出"
+  },
+  "signup": {
+    "title": "登録",
+    "description": "註冊一個免費帳戶作為 datafruits.fm 偵聽器. 保存您最喜愛的節目、存檔並自定義您的個人資料. 應該是那個洋蔥沙拉醬的問題.",
+    "submit": "發送",
+    "password": "密碼",
+    "error": "請更正表格的錯誤",
+    "email_exists": "邮箱之前已經註冊了。密碼忘記了？",
+    "username_exists": "用戶名不可用",
+    "nice": "好的"
+  },
+  "podcasts": {
+    "title": "存檔",
+    "search": "搜索",
+    "subscribe": "訂閱",
+    "no_result": "沒有結果. 應該是那個洋蔥沙拉醬的問題.",
+    "labels": {
+      "title": "題名",
+      "tag": "標籤"
+    }
+  },
+  "timetable": {
+    "title": "時間表",
+    "timezone": "所有事件都顯示在您計算機的本地時區.",
+    "loading": "載入中...",
+    "error": "錯誤. 請刷新頁面並重試."
+  },
+  "djs": { "title": "DJs" },
+  "radio": { "title": "電台" },
+  "releases": { "title": "唱片公司" },
+  "about": { "title": "datafruits是什麼?" },
+  "blog": { "title": "博客" },
+  "shop": { "title": "商店" },
+  "subscribe": { "title": "通訊註冊" },
+  "djinquiry": {
+    "title": "DJ案件",
+    "heading": "想在 Datafruits 上舉辦自己的節目嗎？",
+    "description": "如果想要在 Datafruits 上舉辦自己的節目，填這張表格，我們馬上回你",
+    "email": "電郵",
+    "username": "用戶名",
+    "link_to_mix": "你的1－2小時的DJ Mix的網址",
+    "homepage_url": "你的DJ SNS主頁",
+    "interval": "多常？每天？每週？雙周刊? 每月?",
+    "time": "從幾點到幾點？?",
+    "other": "還有問題？",
+    "error": "不好意思，有一點問題。再來一次。",
+    "thanks": "謝謝你！"
+  },
+  "just_a_website": "它只是一個網站.",
+  "about_datafruits": "Datafruits是完全獨立運作且因應國際音樂社群而生的開源網路電台，不受限於任何曲風和疆界。任何偏門小眾的社群在這都可找到屬於自己的鎂光燈和歸屬感。我們的信念是唯有從使用者自己親手打造的社群平台才能真實服務和自己一樣的使用者，也就是DJ和聽眾.",
+  "code_of_conduct": "行為守則",
+  "what_is_datafruits": "datafruits是什麼...",
+  "loading": "載入中...",
+  "next_broadcast": "下次直播: ",
+  "now_playing": "Now playing",
+  "dj": {
+    "podcasts": "播客",
+    "upcoming_shows": "下次直播時間表"
+  },
+  "show": {
+    "archive": "聽存檔"
+  },
+  "player": {
+    "aria": {
+      "play": "播放",
+      "volume": "體積",
+      "stop": "停止",
+      "mute": "靜音",
+      "unmute": "取消靜音",
+      "return_to_live": "返回直播",
+      "now_playing": "正在播放"
+    }
+  },
+  "locale": "語言",
+  "theme": { "label": "主題" },
+  "donate": "捐"
+}

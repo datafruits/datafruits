@@ -25,6 +25,10 @@ export default class FruitTipComponent extends Component {
       name: 'banana',
       image: '/assets/images/emojis/banaynay.gif',
     },
+    {
+      name: 'watermelon',
+      image: '/assets/images/emojis/watermel.gif',
+    },
   ];
 
   get randomFruitImage() {
