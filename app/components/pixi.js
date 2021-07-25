@@ -49,8 +49,10 @@ export default class PixiComponent extends Component {
         let starSprite = new PIXI.AnimatedSprite(this.animations['stars']);
         starSprite.x = x;
         starSprite.y = y;
-        starSprite.animationSpeed = 1;
-        //starSprite.scale = 1.5;
+        starSprite.animationSpeed = Math.random() * 2;
+        let starScale = Math.random() * 2;
+        starSprite.scale.x = starScale;
+        starSprite.scale.y = starScale;
         sprite.destroy();
         let spriteIndex = this.sprites.indexOf(sprite);
         this.sprites.splice(spriteIndex, 1);
