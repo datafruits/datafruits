@@ -15502,11 +15502,6 @@ validate-peer-dependencies@^1.1.0:
     resolve-package-path "^3.1.0"
     semver "^7.3.2"
 
-validated-changeset@~0.10.0:
-  version "0.10.5"
-  resolved "https://registry.yarnpkg.com/validated-changeset/-/validated-changeset-0.10.5.tgz#6305e88a7cc248e2d9211cecfdc40da9604c1437"
-  integrity sha512-mj2SBZXzF92JEfTVjFWaCkiPJkj+sccDap8JYTu/qIQXQt1zm7bZCxpfXU5VAJ/bIpbIxBVBSi4HTqouse0ATg==
-
 validated-changeset@~0.14.8:
   version "0.14.10"
   resolved "https://registry.yarnpkg.com/validated-changeset/-/validated-changeset-0.14.10.tgz#6bd7c62d689b88af6894578775b2e0bf88910389"
