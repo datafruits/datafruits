@@ -12,6 +12,7 @@ module.exports = function (defaults) {
   var app = new EmberApp(defaults, {
     newVersion: {
       enabled: true,
+      useAppVersion: true,
     },
 
     prember: {
