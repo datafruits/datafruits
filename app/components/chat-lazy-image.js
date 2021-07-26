@@ -7,7 +7,7 @@ export default class ChatLazyImage extends LazyImage {
   @observes('loaded')
   adjustScrollingIfImageLoaded() {
     if (this.loaded === true) {
-      this.adjustScrolling();
+      this.args.adjustScrolling();
     }
   }
 }
