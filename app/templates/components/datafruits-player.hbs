@@ -28,12 +28,12 @@
           {{t "player.return_to_live"}}
         </a>
       {{/if}}
-      {{#if loading}}
+      {{#if this.loading}}
         <div id="loading-stream"
           name="loading-stream"
           class="player-loading">
         </div>
-      {{else if playing}}
+      {{else if this.playing}}
         <a id="pause-stream"
           name="pause-stream"
           role="button"
@@ -44,7 +44,7 @@
         >
           {{t (if this.playingPodcast "player.pause" "player.stop")}}
         </a>
-      {{else if paused}}
+      {{else if this.paused}}
         <a id="play-stream"
           name="play-stream"
           class="jp-play"
@@ -109,9 +109,9 @@
       </span>
     </div>
     <div class="now-playing flex-grow">
-      {{#if error}}
+      {{#if this.error}}
         <span>
-          {{error}}
+          {{this.error}}
         </span>
       {{else}}
         <span class="jp-title">
@@ -123,7 +123,7 @@
       {{yield}}
     </div>
   </div>
-  {{#if playingPodcast}}
+  {{#if this.playingPodcast}}
     <div class="seek">
       <div class="seek-bar-wrapper">
         <input
