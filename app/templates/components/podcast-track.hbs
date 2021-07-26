@@ -13,9 +13,9 @@
       @icon="download"
       class="fa fa-download text-df-green hover:text-df-yellow text-xl" />
   </a>
-  {{#if scheduledShow}}
-    <LinkTo @route="home.show" @model={{scheduledShow.id}}>
-      {{title}}
+  {{#if @scheduledShow}}
+    <LinkTo @route="home.show" @model={{@scheduledShow.id}}>
+      {{@title}}
     </LinkTo>
   {{else}}
     {{@title}}
