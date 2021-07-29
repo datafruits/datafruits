@@ -150,7 +150,8 @@
   },
   "profile": {
     "style": "Style:",
-    "submit": "SAVE"
+    "submit": "SAVE",
+    "pronouns": "Preferred pronouns"
   },
   "usermenu": {
     "settings": "Settings",

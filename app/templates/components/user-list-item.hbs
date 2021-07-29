@@ -10,7 +10,11 @@
         alt="{{ t "chat.user_avatar" }}" />
     {{/if}}
     <span>
-      {{format-message-user this.username}}
+      <Chat::Username
+        @role={{this.role}}
+        @username={{this.username}}
+        @avatarUrl={{this.avatarUrl}}
+        />
     </span>
   </span>
 </li>

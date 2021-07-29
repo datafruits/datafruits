@@ -49,12 +49,16 @@ export default class DatafruitsChatInputMessage extends Component {
       if (this.token) {
         const role = this.currentUser.user.role;
         const avatarUrl = this.currentUser.user.avatarUrl;
+        const style = this.currentUser.user.style;
+        const pronouns = this.currentUser.user.pronouns;
         this.chat.push('new:msg_with_token', {
           user: this.username,
           body: message,
           timestamp: Date.now(),
           token: this.token,
           role,
+          style,
+          pronouns,
           avatarUrl,
         });
       } else {
