@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 
 export default class UserListItem extends Component {
   get avatarUrl() {
-    console.log(this.args.user.metas);
     return this.args.user.metas[0].avatarUrl;
   }
 
@@ -11,9 +10,15 @@ export default class UserListItem extends Component {
   }
 
   get role() {
-    console.log('metas');
-    console.log(this.args.user);
     return this.args.user.metas[0].role;
+  }
+
+  get style() {
+    return this.args.user.metas[0].style;
+  }
+
+  get pronouns() {
+    return this.args.user.metas[0].pronouns;
   }
 
   get isDj() {
