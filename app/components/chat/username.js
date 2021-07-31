@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class ChatUsernameComponent extends Component {
-  @tracked showingDjInfo = true;
+  @tracked showingDjInfo = false;
 
   get isDj() {
     if (!this.args.role) return false;
@@ -12,13 +12,11 @@ export default class ChatUsernameComponent extends Component {
 
   @action
   showUserInfo() {
-    // this.showingDjInfo = true;
-    console.log('mouseenter');
+    this.showingDjInfo = true;
   }
 
   @action
   hideUserInfo() {
-    //this.showingDjInfo = false;
-    console.log('mouseleave');
+    this.showingDjInfo = false;
   }
 }
