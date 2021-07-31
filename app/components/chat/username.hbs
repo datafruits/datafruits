@@ -11,7 +11,7 @@
     {{format-message-user @username}}
   {{/if}}
   {{#if (and this.showingDjInfo this.isDj)}}
-    <div class="absolute bg-purple-100 p-5 rounded-xl z-50 border-4 border-white">
+    <div class="absolute classic:bg-df-blue blm:bg-black trans:theme-trans p-5 rounded-xl z-50 border-4 border-white">
       <img
         class="inline rounded-lg"
         style="height: 2rem;"
@@ -20,9 +20,9 @@
         alt="{{ t "chat.user_avatar" }}" / >
       {{@username}}
       <br />
-      <span>{{t "profile.pronouns"}}: {{@pronouns}}</span>
+      <span><i>{{t "profile.pronouns"}}:</i> {{@pronouns}}</span>
       <br />
-      <span>{{t "profile.style"}}: {{@style}}</span>
+      <span><i>{{t "profile.style"}}:</i> {{@style}}</span>
     </div>
   {{/if}}
 </span>
