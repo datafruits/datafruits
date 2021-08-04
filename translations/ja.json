@@ -39,6 +39,11 @@
     "username": "username",
     "password": "パスワード"
   },
+  "profile": {
+    "style": "スタイル",
+    "submit": "保存",
+    "pronouns": "性別代名詞"
+  },
   "usermenu": {
     "settings": "設定",
     "logout": "ログアウト"
