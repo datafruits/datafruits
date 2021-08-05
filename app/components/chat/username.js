@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { debounce } from '@ember/runloop';
 
 export default class ChatUsernameComponent extends Component {
   @tracked showingDjInfo = false;
@@ -12,11 +13,17 @@ export default class ChatUsernameComponent extends Component {
 
   @action
   showUserInfo() {
-    this.showingDjInfo = true;
+    if (!this.showingDjInfo) {
+      this.showingDjInfo = true;
+    }
   }
 
   @action
   hideUserInfo() {
+    debounce(this, '_hideUserInfo', 200);
+  }
+
+  _hideUserInfo() {
     this.showingDjInfo = false;
   }
 }
