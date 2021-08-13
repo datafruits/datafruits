@@ -1,6 +1,6 @@
 <li class="userlist-item">
   <span
-      class="flex items-center space-x-2 justify-end mr-4">
+      class="flex items-center space-x-2 justify-start mr-4">
     {{#if this.avatarUrl}}
       <img
         class="inline rounded-md"
@@ -10,7 +10,13 @@
         alt="{{ t "chat.user_avatar" }}" />
     {{/if}}
     <span>
-      {{format-message-user this.username}}
+      <Chat::Username
+        @role={{this.role}}
+        @style={{this.style}}
+        @pronouns={{this.pronouns}}
+        @username={{this.username}}
+        @avatarUrl={{this.avatarUrl}}
+        />
     </span>
   </span>
 </li>

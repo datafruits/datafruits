@@ -149,8 +149,9 @@
     "already_signed_up": "You are already have an account, and in fact you are signed in. "
   },
   "profile": {
-    "style": "Style:",
-    "submit": "SAVE"
+    "style": "Style",
+    "submit": "SAVE",
+    "pronouns": "Pronouns"
   },
   "usermenu": {
     "settings": "Settings",
