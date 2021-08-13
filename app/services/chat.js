@@ -3,6 +3,8 @@ import ArrayProxy from '@ember/array/proxy';
 import { A } from '@ember/array';
 import { reads } from '@ember/object/computed';
 import { Presence } from 'phoenix';
+import { isDestroying, isDestroyed } from '@ember/destroyable';
+
 
 export default Service.extend({
   socket: service(),
@@ -108,11 +110,13 @@ export default Service.extend({
     });
 
     this.chan.on('presence_state', (state) => {
+      if (isDestroyed(this) || isDestroying(this)) return;
       let presences = this.presences;
       this.set('presences', Presence.syncState(presences, state));
     });
 
     this.chan.on('presence_diff', (diff) => {
+      if (isDestroyed(this) || isDestroying(this)) return;
       let presences = this.presences;
       this.set('presences', Presence.syncDiff(presences, diff));
     });
