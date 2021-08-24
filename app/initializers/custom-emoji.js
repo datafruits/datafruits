@@ -270,6 +270,14 @@ export function initialize(/* application */) {
       keywords: ['anysong'],
       animated: true,
     },
+    ':acid:': {
+      custom: true,
+      uc_base: 'acid',
+      uc_output: '',
+      shortnames: [':acid:'],
+      keywords: ['acid'],
+      animated: true,
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {

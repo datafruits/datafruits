@@ -26,6 +26,9 @@ export default class Dj extends Model {
   @attr()
   style;
 
+  @attr()
+  pronouns;
+
   @hasMany('link')
   links;
 
