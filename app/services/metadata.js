@@ -1,8 +1,6 @@
-import classic from 'ember-classic-decorator';
 import Service, { inject as service } from '@ember/service';
 import { isEmpty } from '@ember/utils';
 
-@classic
 export default class MetadataService extends Service {
   @service
   eventBus;
@@ -34,11 +32,11 @@ export default class MetadataService extends Service {
       console.log(`metadata channel donation_link: ${metadata.donation_link}`); // eslint-disable-line no-console
       console.log(`metadata channel message: ${metadata.message}`); // eslint-disable-line no-console
       if (!isEmpty(metadata.message)) {
-        this.set('title', metadata.message);
+        this.title = metadata.message;
         this.eventBus.publish('metadataUpdate', metadata.message);
       }
       if (!isEmpty(metadata.donation_link)) {
-        this.set('donationLink', metadata.donation_link);
+        this.donationLink = metadata.donation_link;
         this.eventBus.publish('donationLinkUpdate', metadata.donation_link);
       }
     });
