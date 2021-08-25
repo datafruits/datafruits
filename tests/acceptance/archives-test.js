@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
@@ -11,11 +11,11 @@ module('Acceptance | archives', function (hooks) {
     assert.equal(currentURL(), '/podcasts');
   });
 
-  test('search by freetext', async function (assert) {
+  skip('search by freetext', async function (assert) {
     // changes query param and updates search
   });
 
-  test('search by selecting a tag in the dropdown', async function (assert) {});
+  skip('search by selecting a tag in the dropdown', async function (assert) {});
 
-  test('search by clicking a tag', async function (assert) {});
+  skip('search by clicking a tag', async function (assert) {});
 });
