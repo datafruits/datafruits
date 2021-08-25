@@ -18,7 +18,9 @@
         src="{{@avatarUrl}}"
         align="center"
         alt="{{ t "chat.user_avatar" }}" / >
-      {{@username}}
+      <LinkTo class="hover:underline" @route="home.dj" @model={{@username}}>
+        {{@username}}
+      </LinkTo>
       <br />
       <span><i>{{t "profile.pronouns"}}:</i> {{@pronouns}}</span>
       <br />
