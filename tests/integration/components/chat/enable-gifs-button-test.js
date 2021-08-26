@@ -9,18 +9,11 @@ module('Integration | Component | chat/enable-gifs-button', function (hooks) {
   test('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
+    //
+    this.toggleGifs = function () {};
 
-    await render(hbs`<Chat::EnableGifsButton />`);
+    await render(hbs`<Chat::EnableGifsButton @toggleGifs={{this.toggleGifs}} />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Chat::EnableGifsButton>
-        template block text
-      </Chat::EnableGifsButton>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element).hasText('Images are off');
   });
 });
