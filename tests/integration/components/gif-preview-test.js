@@ -7,7 +7,7 @@ module('Integration | Component | gif-preview', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    assert.expect(1);
+    assert.expect(2);
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
     this.set('gif', { name: 'test', previewUrl: 'test.gif' });
