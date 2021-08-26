@@ -9,18 +9,10 @@ module('Integration | Component | podcasts/search', function (hooks) {
   test('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
+    this.labels = [];
 
-    await render(hbs`<Podcasts::Search />`);
+    await render(hbs`<Podcasts::Search @labels={{this.labels}} />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Podcasts::Search>
-        template block text
-      </Podcasts::Search>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element).hasText('Search Title Tag disco, house, grime, anysong');
   });
 });
