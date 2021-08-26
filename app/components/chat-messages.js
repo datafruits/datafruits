@@ -6,16 +6,20 @@ import { debounce } from '@ember/runloop';
 export default class ChatMessages extends Component {
   @tracked willAutoscroll = false;
 
-  touchMove() {
-    this._onScroll();
-  }
-
-  scroll() {
-    this._onScroll();
-  }
-
   _onScroll() {
-    debounce(this, this.onScroll, 500);
+    debounce(this, this.args.onScroll, 500);
+  }
+
+  @action
+  addListener(element){
+    element.addEventListener('scroll', this._onScroll.bind(this));
+    element.addEventListener('touchmove', this._onScroll.bind(this));
+  }
+
+  @action
+  removeListener(element){
+    element.removeEventListener('scroll', this._onScroll);
+    element.removeEventListener('touchmove', this._onScroll);
   }
 
   @action
