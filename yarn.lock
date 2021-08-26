@@ -3950,11 +3950,6 @@ blessed@0.1.81:
   resolved "https://registry.yarnpkg.com/blessed/-/blessed-0.1.81.tgz#f962d687ec2c369570ae71af843256e6d0ca1129"
   integrity sha1-+WLWh+wsNpVwrnGvhDJW5tDKESk=
 
-blob-polyfill@^2.0.20171115:
-  version "2.0.20171115"
-  resolved "https://registry.yarnpkg.com/blob-polyfill/-/blob-polyfill-2.0.20171115.tgz#8e5c2659dda443365fafd6dd421517653f1d5ffd"
-  integrity sha512-qHpuIpWlDLdOzSI9n1+423JL8c60Tbyyu/w4+zQIPCazvKBjf0sqQWiUS2QtyHph3S1C8m17T/jKyhv/DnnQFA==
-
 bluebird@^3.1.1, bluebird@^3.4.6, bluebird@^3.5.5:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f"
@@ -6332,7 +6327,7 @@ ember-ast-helpers@0.3.5:
     "@glimmer/compiler" "^0.27.0"
     "@glimmer/syntax" "^0.27.0"
 
-ember-auto-import@1.11.3, ember-auto-import@^1.10.1, ember-auto-import@^1.2.15, ember-auto-import@^1.2.19, ember-auto-import@^1.2.21, ember-auto-import@^1.5.2, ember-auto-import@^1.5.3:
+ember-auto-import@1.11.3, ember-auto-import@^1.10.1, ember-auto-import@^1.2.19, ember-auto-import@^1.2.21, ember-auto-import@^1.5.2, ember-auto-import@^1.5.3:
   version "1.11.3"
   resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-1.11.3.tgz#6e3384a7fbb163384a34546f2e902cd297b0e683"
   integrity sha512-ekq/XCvsonESobFU30zjZ0I4XMy2E/2ZILCYWuQ1JdhcCSTYhnXDZcqRW8itUG7kbsPqAHT/XZ1LEZYm3seVwQ==
@@ -6648,7 +6643,7 @@ ember-cli-htmlbars@^2.0.1:
     json-stable-stringify "^1.0.0"
     strip-bom "^3.0.0"
 
-ember-cli-htmlbars@^3.0.0, ember-cli-htmlbars@^3.0.1, ember-cli-htmlbars@^3.1.0:
+ember-cli-htmlbars@^3.0.0, ember-cli-htmlbars@^3.0.1:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-3.1.0.tgz#87806c2a0bca2ab52d4fb8af8e2215c1ca718a99"
   integrity sha512-cgvRJM73IT0aePUG7oQ/afB7vSRBV3N0wu9BrWhHX2zkR7A7cUBI7KC9VPk6tbctCXoM7BRGsCC4aIjF7yrfXA==
@@ -7141,13 +7136,6 @@ ember-cookies@^0.5.0:
     ember-cli-babel "^7.1.0"
     ember-getowner-polyfill "^1.1.0 || ^2.0.0"
 
-ember-copy@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ember-copy/-/ember-copy-1.0.0.tgz#426554ba6cf65920f31d24d0a3ca2cb1be16e4aa"
-  integrity sha512-aiZNAvOmdemHdvZNn0b5b/0d9g3JFpcOsrDgfhYEbfd7SzE0b69YiaVK2y3wjqfjuuiA54vOllGN4pjSzECNSw==
-  dependencies:
-    ember-cli-babel "^6.6.0"
-
 "ember-data-paperclip@https://github.com/mcfiredrill/ember-data-paperclip.git":
   version "0.3.0"
   resolved "https://github.com/mcfiredrill/ember-data-paperclip.git#924074906978105e1c06bf626213251d56531e83"
@@ -7283,16 +7271,6 @@ ember-in-element-polyfill@^1.0.0, ember-in-element-polyfill@^1.0.1:
     ember-cli-htmlbars "^5.3.1"
     ember-cli-version-checker "^5.1.2"
 
-ember-in-viewport@3.5.8:
-  version "3.5.8"
-  resolved "https://registry.yarnpkg.com/ember-in-viewport/-/ember-in-viewport-3.5.8.tgz#da03f5e69c5e5e6cbd048f0db8de0b05c2e3e68f"
-  integrity sha512-2GBK5KbNYiGADy433tN3yHnxZ77wSnVyMezx23cr3qs2gwac+5ta2FkOTiKibNkGmWE/Mk/c7zcF7sDk1jy5DA==
-  dependencies:
-    ember-auto-import "^1.2.15"
-    ember-cli-babel "^7.7.3"
-    intersection-observer-admin "~0.2.5"
-    raf-pool "0.1.0"
-
 ember-inflector@^2.0.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/ember-inflector/-/ember-inflector-2.3.0.tgz#94797eba0eea98d902aa1e5da0f0aeef6053317f"
@@ -7344,15 +7322,6 @@ ember-intl@^5.4.2:
     mkdirp "^1.0.4"
     silent-error "^1.1.1"
 
-"ember-lazy-image@https://github.com/mcfiredrill/ember-lazy-image#update-dependencies":
-  version "0.0.14"
-  resolved "https://github.com/mcfiredrill/ember-lazy-image#5b4a87ce9c3e3f0b3bf2455878b931bf94fb7489"
-  dependencies:
-    ember-cli-babel "^7.7.3"
-    ember-cli-htmlbars "^3.1.0"
-    ember-in-viewport "3.5.8"
-    ember-local-storage "^1.0.0"
-
 ember-load-initializers@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ember-load-initializers/-/ember-load-initializers-2.1.2.tgz#8a47a656c1f64f9b10cecdb4e22a9d52ad9c7efa"
@@ -7360,21 +7329,6 @@ ember-load-initializers@^2.1.2:
   dependencies:
     ember-cli-babel "^7.13.0"
     ember-cli-typescript "^2.0.2"
-
-ember-local-storage@^1.0.0:
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/ember-local-storage/-/ember-local-storage-1.7.2.tgz#b8a9b60186d0c3fa508d308db025291d0d4a2671"
-  integrity sha512-1QS38RKbwy2w8n6nqZkjOvnROSbObExLkkfmhXxmhB2A/wLUp9kJnGYFGw8K9NLUkUXrm0OgasKIjf0dBIRO/A==
-  dependencies:
-    blob-polyfill "^2.0.20171115"
-    broccoli-funnel "^2.0.1"
-    broccoli-merge-trees "^2.0.0"
-    broccoli-stew "^1.5.0"
-    chalk "^2.3.0"
-    ember-cli-babel "^7.11.1"
-    ember-cli-string-utils "^1.1.0"
-    ember-cli-version-checker "^2.1.0"
-    ember-copy "^1.0.0"
 
 ember-lodash@4.19.5:
   version "4.19.5"
@@ -9871,11 +9825,6 @@ internal-slot@^1.0.3:
     get-intrinsic "^1.1.0"
     has "^1.0.3"
     side-channel "^1.0.4"
-
-intersection-observer-admin@~0.2.5:
-  version "0.2.13"
-  resolved "https://registry.yarnpkg.com/intersection-observer-admin/-/intersection-observer-admin-0.2.13.tgz#00a021695bf5aef8d198204514d2f849fd27d089"
-  integrity sha512-REIM59IHXPe9U5eTnowurzzfhgqVkSImZJnOSJZTAJ0LnyJqw8S/eD5s8ZYneQfm9JszhGIBwudF9gF02A3BpQ==
 
 intl-messageformat-parser@^1.8.1:
   version "1.8.1"
@@ -13185,11 +13134,6 @@ qunit@^2.15.0:
     commander "7.1.0"
     node-watch "0.7.1"
     tiny-glob "0.2.8"
-
-raf-pool@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/raf-pool/-/raf-pool-0.1.0.tgz#856242f3d66b45ee0d4a9159d05d8560614891b3"
-  integrity sha512-TU79Jf8D0OsPlEPegLmx4O/Az3I2qm3TZnHEZE+fUJ/aeVf46m/HDRV5lHrdRQ9m3PhodfwFVwmMz/BgUXEppg==
 
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5, randombytes@^2.1.0:
   version "2.1.0"
