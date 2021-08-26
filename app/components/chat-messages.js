@@ -11,13 +11,13 @@ export default class ChatMessages extends Component {
   }
 
   @action
-  addListener(element){
+  addListener(element) {
     element.addEventListener('scroll', this._onScroll.bind(this));
     element.addEventListener('touchmove', this._onScroll.bind(this));
   }
 
   @action
-  removeListener(element){
+  removeListener(element) {
     element.removeEventListener('scroll', this._onScroll);
     element.removeEventListener('touchmove', this._onScroll);
   }

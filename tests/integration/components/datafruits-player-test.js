@@ -4,7 +4,7 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import Service from '@ember/service';
 
-const metadataStub = Service.extend({});
+const metadataStub = class StubMetadata extends Service {};
 
 module('Integration | Component | datafruits player', function (hooks) {
   setupRenderingTest(hooks);

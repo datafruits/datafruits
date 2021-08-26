@@ -10,8 +10,8 @@ export default class MetadataService extends Service {
 
   title = '';
 
-  init() {
-    super.init(...arguments);
+  constructor() {
+    super(...arguments);
     let socket = this.socket.socket;
 
     let metadataChannel = socket.channel('metadata', {});
