@@ -1,4 +1,3 @@
-/*global module*/
 /*eslint-env node */
 'use strict';
 
