@@ -8,6 +8,8 @@ Contributors are welcome!
 
 Check out the [projects](https://github.com/datafruits/datafruits/projects) to see what we are working on.
 
+[Datafruits/Streampusher architecture](https://www.figma.com/file/jmC6tPMLhCX3RZGAQNGzKe/datafruits-streampusher-architecture?node-id=0%3A1)
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
