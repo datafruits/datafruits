@@ -7,15 +7,28 @@
       >
       X
     </button>
-    {{#each this.fruitTypes as |fruit|}}
-      <button
-        {{on "click" (fn this.fruitTip fruit.name)}}
-        class="cool-button fruit-tip-button tip mr-1 ml-1"
-        type="button"
-        >
-        <img src={{fruit.image}} />
-      </button>
-    {{/each}}
+    <div>
+      {{#each this.fruitTypes as |fruit|}}
+        <button
+          {{on "click" (fn this.fruitTip fruit.name)}}
+          class="cool-button fruit-tip-button tip mr-1 ml-1"
+          type="button"
+          >
+          <img src={{fruit.image}} />
+        </button>
+      {{/each}}
+    </div>
+    <div>
+      {{#each this.paidFruitTypes as |fruit|}}
+        <button
+          {{on "click" (fn this.fruitTip fruit.name)}}
+          class="cool-button fruit-tip-button tip mr-1 ml-1"
+          type="button"
+          >
+          <img src={{fruit.image}} />
+        </button>
+      {{/each}}
+    </div>
   </div>
 {{/if}}
 <button

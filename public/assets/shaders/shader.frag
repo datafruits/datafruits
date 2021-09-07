@@ -12,8 +12,6 @@ void main(void)
   float frequency=100.0;
   float amplitude=0.02;
 
-//float distortion=sin(position.y*frequency)*amplitude;
-
   float distortion=cos(vTextureCoord.x*frequency+customUniform*speed)*amplitude;
   float speed2=0.02;
   float frequency2=10.0;
@@ -34,12 +32,11 @@ void main(void)
     float colorSpeed = 0.01;
 
     if (a == 0.0) {
-     /*float r = destColor.r;
-      float g = destColor.g;
-      float b = destColor.b;
-      gl_FragColor = vec4(abs(cos(customUniform*colorSpeed * 2.0 + 2.0))+distortion2, abs(sin(customUniform*colorSpeed + 2.0))+distortion, abs(cos(customUniform*colorSpeed + 5.0))+distortion, 1.0);
-    */
-      gl_FragColor = vec4(0,0,0,0);
+      gl_FragColor = vec4(
+        abs(cos(customUniform*colorSpeed * 2.0 + 2.0))+distortion2,
+        abs(sin(customUniform*colorSpeed + 2.0))+distortion,
+        abs(cos(customUniform*colorSpeed + 5.0))+distortion,
+        clamp(cos(customUniform*colorSpeed),0.0,1.0));
     }
     else {
       gl_FragColor = fg;
