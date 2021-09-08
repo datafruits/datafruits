@@ -5,7 +5,6 @@ import Component from '@glimmer/component';
 import { isEmpty } from '@ember/utils';
 import { tracked } from '@glimmer/tracking';
 
-//@classNameBindings('playingPodcast', 'isLive', 'playButtonHover:bleed:pink-bg')
 export default class DatafruitsPlayer extends Component {
   @service
   eventBus;
