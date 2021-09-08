@@ -180,10 +180,14 @@ input {
 
 .visuals {
   z-index: -999;
-  video {
+  @apply absolute left-0 top-0;
+  .video-js {
     width: 100vw !important;
-    height: 100vh !important;
-    @apply absolute left-0 object-cover;
+    video {
+      width: 100vw !important;
+      height: 100vh !important;
+      @apply absolute left-0 object-cover;
+    }
   }
 }
 

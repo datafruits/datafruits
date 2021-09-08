@@ -12,6 +12,15 @@ export default class DatafruitsVisuals extends Component {
   videoStream;
 
   @action
+  initIfActive() {
+    if (!this.fastboot.isFastBoot) {
+      if (this.videoStream.active) {
+        this.videoStream.initializePlayer();
+      }
+    }
+  }
+
+  @action
   didInsert() {
     if (!this.fastboot.isFastBoot) {
       if (this.videoStream.active) {
