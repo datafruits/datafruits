@@ -1,5 +1,6 @@
 import Service, { inject as service } from '@ember/service';
 import { isEmpty } from '@ember/utils';
+import { registerDestructor } from '@ember/destroyable';
 
 export default class MetadataService extends Service {
   @service
@@ -39,6 +40,10 @@ export default class MetadataService extends Service {
         this.donationLink = metadata.donation_link;
         this.eventBus.publish('donationLinkUpdate', metadata.donation_link);
       }
+    });
+
+    registerDestructor(this, () => {
+      metadataChannel.off('metadata');
     });
   }
 }
