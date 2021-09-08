@@ -128,7 +128,6 @@
     "babel-plugin-ember-modules-api-polyfill": "3.5.0",
     "ember-power-select": "https://github.com/mcfiredrill/ember-power-select#fix-deprecate-import",
     "fastboot-app-server": "^3.0.0",
-    "pixi.js": "^5.3.4",
-    "pm2": "^4.5.6"
+    "pixi.js": "^5.3.4"
   }
 }
