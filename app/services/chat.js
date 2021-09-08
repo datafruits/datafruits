@@ -2,7 +2,7 @@ import Service, { inject as service } from '@ember/service';
 import { Presence } from 'phoenix';
 import { tracked } from '@glimmer/tracking';
 
-export default class ChatServvice extends Service {
+export default class ChatService extends Service {
   @service socket;
   @service session;
   @service eventBus;
