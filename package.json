@@ -60,7 +60,7 @@
     "ember-cli-mirage": "^1.1.6",
     "ember-cli-netlify": "^0.4.1",
     "ember-cli-new-version": "^2.0.2",
-    "ember-cli-postcss": "^6.0.1",
+    "ember-cli-postcss": "^7.0.2",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-template-lint": "2.0.2",
