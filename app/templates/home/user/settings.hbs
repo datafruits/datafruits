@@ -9,6 +9,11 @@
          />
   <div class="py-4">
     <form {{on "submit" this.saveUser}}>
+      <span>{{t "profile.pronouns"}}</span>
+      <Input
+        @value={{this.currentUser.user.pronouns}}
+        />
+      <br />
       <span>{{t "profile.style"}}</span>
       <select
         id="style-selector"

@@ -1,6 +1,7 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const urlFinder = require('./urlFinder.js');
 
 module.exports = function (defaults) {
   var fingerprintOptions = {
@@ -8,7 +9,16 @@ module.exports = function (defaults) {
     exclude: ['assets/images/emojis/*', 'assets/images/sprites/*'],
   };
 
-  var app = new EmberApp(defaults, {
+  let app = new EmberApp(defaults, {
+    newVersion: {
+      enabled: true,
+      useAppVersion: true,
+    },
+
+    prember: {
+      urls: urlFinder,
+    },
+
     // Add options here
     fingerprint: fingerprintOptions,
 

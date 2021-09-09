@@ -24,4 +24,7 @@ export default class UserModel extends Model {
 
   @attr()
   style;
+
+  @attr()
+  pronouns;
 }

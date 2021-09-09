@@ -2,7 +2,7 @@
   {{t "home.upcoming_shows"}}
 </h2>
 <div class="flex flex-wrap flex-shrink-0">
-  {{#each model.upcomingShows as |show|}}
+  {{#each this.model.upcomingShows as |show|}}
     <div class="m-3 bg-df-green rounded-lg w-full md:w-1/4 p-2 flex flex-col justify-between">
       <LinkTo @route="home.show" @model={{show.id}}>
         {{show.title}}
@@ -50,7 +50,7 @@
   {{t "home.latest_podcasts"}}
 </h2>
 <div class="flex flex-wrap flex-shrink-0">
-  {{#each model.latestPodcasts as |track|}}
+  {{#each this.model.latestPodcasts as |track|}}
     <div class="m-3 classic:bg-df-pink blm:bg-black rounded-lg flex flex-col items-center justify-between w-full md:w-1/4 p-2">
       <LinkTo @route="home.show" @model={{track.scheduledShow.id}}>
         {{#if track.scheduledShow.thumbImageUrl}}

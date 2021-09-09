@@ -4,11 +4,11 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import Service from '@ember/service';
 
-const videoStreamStub = Service.extend({
-  active: true,
-  initializePlayer() {},
-  fetchStream() {},
-});
+const videoStreamStub = class VideoStreamStub extends Service {
+  active = true;
+  initializePlayer() {}
+  fetchStream() {}
+};
 
 module('Integration | Component | datafruits visuals', function (hooks) {
   setupRenderingTest(hooks);
@@ -21,7 +21,7 @@ module('Integration | Component | datafruits visuals', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.on('myAction', function(val) { ... });
 
-    await render(hbs`{{datafruits-visuals}}`);
+    await render(hbs`<DatafruitsVisuals />`);
 
     assert.equal(this.element.querySelectorAll('video').length, 1);
   });

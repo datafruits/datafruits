@@ -35,7 +35,7 @@ export default class HomeRoute extends Route {
       }
       language = locales.includes(language.toLowerCase()) ? language : 'en';
 
-      this.set('intl.locale', language);
+      this.intl.locale = language;
     }
   }
 

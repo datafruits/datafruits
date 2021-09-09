@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -12,11 +12,11 @@ module('Integration | Component | fruit-tip', function (hooks) {
 
     await render(hbs`<FruitTip />`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom(this.element).hasText('');
   });
 
-  // test('it shows fruit tipping options when clicked', async function (assert) {
-  //   await render(hbs`<FruitTip />`);
-  //   click('button');
-  // });
+  skip('it shows fruit tipping options when clicked', async function (/*assert*/) {
+    await render(hbs`<FruitTip />`);
+    click('button');
+  });
 });

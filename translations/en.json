@@ -150,8 +150,9 @@
     "already_signed_up": "You are already have an account, and in fact you are signed in. "
   },
   "profile": {
-    "style": "Style:",
-    "submit": "SAVE"
+    "style": "Style",
+    "submit": "SAVE",
+    "pronouns": "Pronouns"
   },
   "usermenu": {
     "settings": "Settings",
@@ -214,6 +215,7 @@
   "code_of_conduct": "Code of Conduct",
   "what_is_datafruits": "What is datafruits...",
   "loading": "Loading...",
+  "error": "Something went wrong. Refresh the page and try again.",
   "next_broadcast": "Next live on air: ",
   "now_playing": "Now playing",
   "dj": {

@@ -1,5 +1,5 @@
 import { module, skip } from 'qunit';
-import { visit, currentURL, fillIn, click, find } from '@ember/test-helpers';
+import { visit, currentURL, fillIn, click, find, findAll } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
 module('Acceptance | chat', function (hooks) {
@@ -22,6 +22,6 @@ module('Acceptance | chat', function (hooks) {
     await click('[data-test-login-submit]');
 
     assert.equal(currentURL(), '/chat');
-    assert.equal(find('[data-test-chat-input-messsage]').length, 1);
+    assert.dom('[data-test-chat-input-messsage]').exists({ count: 1 });
   });
 });

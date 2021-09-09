@@ -47,6 +47,11 @@
     "username_exists": "This username has been taken.",
     "nice": "나이스 입니다"
   },
+  "profile": {
+    "style": "스타일",
+    "submit": "보존",
+    "pronouns": "성별 대명사"
+  },
   "usermenu": {
     "settings": "Settings",
     "logout": "Logout"
@@ -81,7 +86,7 @@
     "interval": "매일, 매주, 격주 또는 매월 제 방송하는 것은 어떻습니까?",
     "time": "원하는 시간은 무엇입니까?",
     "other": "다른 질문이나 코멘트",
-    "error": "エラーが発行されました。もう一度送信してみて下さい。",
+    "error": "에러가 발행 되었습니다.한번 더 송신해 보세요.",
     "thanks": "감사합니다!"
   },
   "player": {

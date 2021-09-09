@@ -1,29 +1,34 @@
-import classic from 'ember-classic-decorator';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { tagName } from '@ember-decorators/component';
-import Component from '@ember/component';
 import { debounce } from '@ember/runloop';
 
-@classic
-@tagName('ul')
 export default class ChatMessages extends Component {
-  elementId = 'messages';
+  @tracked willAutoscroll = false;
 
-  touchMove() {
-    this.onScroll();
+  _onScroll() {
+    debounce(this, this.args.onScroll, 500);
   }
 
-  scroll() {
-    this.onScroll();
+  @action
+  addListener(element) {
+    element.addEventListener('scroll', this._onScroll.bind(this));
+    element.addEventListener('touchmove', this._onScroll.bind(this));
+  }
+
+  @action
+  removeListener(element) {
+    element.removeEventListener('scroll', this._onScroll);
+    element.removeEventListener('touchmove', this._onScroll);
   }
 
   @action
   setupAutoscroll() {
     if (this.scrolledToBottom()) {
-      this.set('willAutoscroll', true);
+      this.willAutoscroll = true;
     } else {
-      this.newMessagesAvailable();
-      this.set('willAutoscroll', false);
+      this.args.newMessagesAvailable();
+      this.willAutoscroll = false;
     }
   }
 
@@ -31,7 +36,6 @@ export default class ChatMessages extends Component {
   adjustScrolling() {
     if (this.willAutoscroll) {
       const messages = document.getElementById('messages');
-      //$('#messages')[0].scrollTop = $('#messages')[0].scrollHeight;
       messages.scrollTop = messages.scrollHeight;
     }
   }
@@ -40,11 +44,5 @@ export default class ChatMessages extends Component {
     const messages = document.getElementById('messages');
     const messagesHeight = messages.getBoundingClientRect().height;
     return messages.scrollHeight - messages.scrollTop - messagesHeight < 1;
-  }
-
-  didInsertElement() {
-    this.element.addEventListener('scroll', () => {
-      debounce(this, this.onScroll, 500);
-    });
   }
 }

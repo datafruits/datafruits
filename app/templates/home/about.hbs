@@ -32,7 +32,7 @@
       {{t "thanks_patrons"}}
     </h2>
     <ul class="mb-2">
-      {{#each model as |patron|}}
+      {{#each this.model as |patron|}}
         <li class="patron">
           {{patron.name}}
         </li>
@@ -43,13 +43,24 @@
     <ul class="flex text-2xl justify-around flex-wrap">
       <li>
         <a
+          href="https://discord.gg/83mteTQDvu"
+          title={{t "discord"}}
+          aria-label={{t "discord.aria"}}
+          target="_blank"
+          rel="noopener"
+        >
+          <FaIcon @icon="discord" @prefix="fab" />
+        </a>
+      </li>
+      <li>
+        <a
           href="http://twitter.com/datafruits"
           title={{t "twitter"}}
           aria-label={{t "twitter.aria"}}
           target="_blank"
           rel="noopener"
         >
-          <i class="fa fa-twitter"></i>
+          <FaIcon @icon="twitter" @prefix="fab" />
         </a>
       </li>
       <li>
@@ -60,7 +71,7 @@
           target="_blank"
           rel="noopener"
         >
-          <i class="fa fa-github"></i>
+          <FaIcon @icon="github" @prefix="fab" />
         </a>
       </li>
       <li>
@@ -71,7 +82,7 @@
           target="_blank"
           rel="noopener"
         >
-          <i class="fa fa-soundcloud"></i>
+          <FaIcon @icon="soundcloud" @prefix="fab" />
         </a>
       </li>
       <li>
@@ -82,7 +93,7 @@
           target="_blank"
           rel="noopener"
         >
-          <i class="fa fa-mixcloud"></i>
+          <FaIcon @icon="mixcloud" @prefix="fab" />
         </a>
       </li>
       <li>
@@ -93,7 +104,7 @@
           target="_blank"
           rel="noopener"
         >
-          <i class="fa fa-instagram"></i>
+          <FaIcon @icon="instagram" @prefix="fab" />
         </a>
       </li>
       <li>
@@ -104,7 +115,7 @@
           target="_blank"
           rel="noopener"
         >
-          <i class="fa fa-envelope"></i>
+          <FaIcon @icon="envelope" @prefix="fas" />
         </a>
       </li>
     </ul>

@@ -19,7 +19,7 @@ export default class DjInquiryController extends Controller {
   @action
   setShowInterval(event) {
     const interval = event.target.value;
-    this.set('model.interval', interval);
+    this.model.interval = interval;
   }
 
   @action

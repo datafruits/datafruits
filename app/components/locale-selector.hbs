@@ -8,8 +8,8 @@
     name="locale-selector"
     class="classic:bg-df-pink blm:bg-black trans:bg-df-blue border-solid border-2 border-df-blue"
     aria-label="{{ t "locale"}}"
-    onchange={{action setLocale value="target.value"}}>
-  {{#each locales as |localeChoice|}}
+    {{on "change" @setLocale}}>
+  {{#each this.locales as |localeChoice|}}
     <option
       value={{localeChoice.value}}
       selected={{eq selectedLocale localeChoice.value}}

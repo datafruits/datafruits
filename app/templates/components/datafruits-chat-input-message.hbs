@@ -1,39 +1,45 @@
-<Input
-  @type="text"
-  @id="input-message"
-  @autocomplete="off"
-  @value={{inputMessage}}
-  @autofocus="autofocus"
-  placeholder={{t "chat.message_placeholder"}}
-  class="w-3/4"
-  aria-label="{{t "chat.label.input"}}"
-  data-test-chat-input-message
-/>
-<button {{action "sendMessage"}}
-  type="submit"
-  class="cool-button"
-  id="send-message-button"
-  disabled={{isOffline}}
-  title={{t "chat.titles.send"}}
->
-  {{t "chat.send"}}
-</button>
-{{#if showingGifSearch}}
-  <div class="gif-search">
-    <button class="cool-button"
-      {{action "closeGifSearch"}}
-      title={{t "chat.titles.gif_close"}}
-    >
-      <i class="fa fa-times"></i>
-    </button>
-    <GiphySearch @sendGif={{action "sendGif"}} />
-  </div>
-{{else}}
-  <button class="cool-button"
-    {{action "showGifSearch"}}
-    title={{t "chat.titles.gif"}}
+<span {{did-insert this.didInsert}}>
+  <Input
+    @type="text"
+    @id="input-message"
+    @autocomplete="off"
+    @value={{this.inputMessage}}
+    @autofocus="autofocus"
+    placeholder={{t "chat.message_placeholder"}}
+    class="w-3/4"
+    aria-label="{{t "chat.label.input"}}"
+    data-test-chat-input-message
+  />
+  <button {{on "click" this.sendMessage}}
+    type="submit"
+    class="cool-button"
+    id="send-message-button"
+    disabled={{@isOffline}}
+    title={{t "chat.titles.send"}}
   >
-    {{t "chat.gif"}}
+    {{t "chat.send"}}
   </button>
-  <FruitTip />
-{{/if}}
+  {{#if this.showingGifSearch}}
+    <div class="gif-search">
+      <button
+        type="button"
+        class="cool-button"
+        {{on "click" this.closeGifSearch}}
+        title={{t "chat.titles.gif_close"}}
+      >
+        <FaIcon @icon="times" />
+      </button>
+      <GiphySearch @sendGif={{action "sendGif"}} />
+    </div>
+  {{else}}
+    <button
+      type="button"
+      class="cool-button"
+      {{on "click" this.showGifSearch}}
+      title={{t "chat.titles.gif"}}
+    >
+      {{t "chat.gif"}}
+    </button>
+    <FruitTip />
+  {{/if}}
+</span>

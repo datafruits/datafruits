@@ -6,8 +6,6 @@
 @import 'container.scss';
 @import 'stripe-animation.scss';
 
-@import 'font-awesome';
-
 @import 'ember-modal-dialog/ember-modal-structure';
 @import 'ember-modal-dialog/ember-modal-appearance';
 
@@ -182,10 +180,14 @@ input {
 
 .visuals {
   z-index: -999;
-  video {
+  @apply absolute left-0 top-0;
+  .video-js {
     width: 100vw !important;
-    height: 100vh !important;
-    @apply absolute left-0 object-cover;
+    video {
+      width: 100vw !important;
+      height: 100vh !important;
+      @apply absolute left-0 object-cover;
+    }
   }
 }
 
@@ -419,6 +421,13 @@ canvas {
 
 ::-moz-selection {
   background: salmon; /* Gecko Browsers */
+}
+
+.update-notification {
+  @include stripe-animation;
+  color: white;
+  font-weight: bold;
+  animation: bounce linear 200ms;
 }
 
 @tailwind utilities;

@@ -169,6 +169,14 @@ export function initialize(/* application */) {
       shortnames: [':banaynay:'],
       keywords: ['banaynay'],
     },
+    ':watermel:': {
+      custom: true,
+      animated: true,
+      uc_base: 'watermel',
+      uc_output: '',
+      shortnames: [':watermel:'],
+      keywords: ['watermel'],
+    },
     ':miniburger:': {
       custom: true,
       uc_base: 'miniburger',
@@ -252,6 +260,23 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':thanks:'],
       keywords: ['thanks'],
+      animated: true,
+    },
+    ':anysong:': {
+      custom: true,
+      uc_base: 'anysong',
+      uc_output: '',
+      shortnames: [':anysong:'],
+      keywords: ['anysong'],
+      animated: true,
+    },
+    ':acid:': {
+      custom: true,
+      uc_base: 'acid',
+      uc_output: '',
+      shortnames: [':acid:'],
+      keywords: ['acid'],
+      animated: true,
     },
   };
 
