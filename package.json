@@ -119,7 +119,7 @@
     "crypto"
   ],
   "engines": {
-    "node": "10.x"
+    "node": "14.x"
   },
   "ember": {
     "edition": "octane"
