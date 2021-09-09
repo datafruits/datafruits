@@ -31,9 +31,9 @@
         @setTheme={{action "setTheme"}}
       />
       <LocaleSelector
-        class="text-white mt-1"
-        @selectedLocale={{locale.value}}
-        @setLocale={{action "setLocale"}}
+        class="text-white hidden md:block mt-1"
+        @selectedLocale={{this.locale.value}}
+        @setLocale={{this.setLocale}}
       />
     </div>
   </DatafruitsPlayer>
@@ -44,9 +44,9 @@
 <DatafruitsVisuals
   class="block absolute top-0 w-screen h-screen h-handle-resize"
 />
-<Notifications />
-<WindowResizeHandler />
 {{#if (not this.fastboot.isFastBoot)}}
+  <Notifications />
+  <WindowResizeHandler />
   {{#if this.showingPixi}}
     <Pixi />
   {{/if}}

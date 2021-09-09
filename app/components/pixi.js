@@ -73,6 +73,7 @@ export default class PixiComponent extends Component {
 
   @action
   willDestroy() {
+    super.willDestroy(...arguments);
     this.app.destroy({
       removeView: true,
     });

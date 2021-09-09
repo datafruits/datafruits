@@ -13,8 +13,8 @@ module('Integration | Component | sign-up/form', function (hooks) {
 
     await render(hbs`<SignUp::Form @changeset={{this.user}} />`);
 
-    assert.equal(this.element.textContent.includes('Email'), true);
-    assert.equal(this.element.textContent.includes('Password'), true);
-    assert.equal(this.element.textContent.includes('Username'), true);
+    assert.true(this.element.textContent.includes('Email'));
+    assert.true(this.element.textContent.includes('Password'));
+    assert.true(this.element.textContent.includes('Username'));
   });
 });
