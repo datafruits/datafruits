@@ -44,7 +44,7 @@
     "dayjs": "^1.9.6",
     "ember-auto-import": "1.11.3",
     "ember-await": "^2.0.0",
-    "ember-changeset-validations": "^3.9.1",
+    "ember-changeset-validations": "^3.16.0",
     "ember-classic-decorator": "^1.0.8",
     "ember-cli": "^3.27.0",
     "ember-cli-app-version": "^5.0.0",
