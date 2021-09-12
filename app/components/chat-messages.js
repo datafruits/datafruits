@@ -2,8 +2,12 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { debounce } from '@ember/runloop';
+import { inject as service } from '@ember/service';
 
 export default class ChatMessages extends Component {
+  @service
+  chat;
+
   @tracked willAutoscroll = false;
 
   _onScroll() {
@@ -24,7 +28,7 @@ export default class ChatMessages extends Component {
 
   @action
   setupAutoscroll() {
-    if (this.scrolledToBottom()) {
+    if (this.chat.isScrolledToBottom) {
       this.willAutoscroll = true;
     } else {
       this.args.newMessagesAvailable();
@@ -43,6 +47,7 @@ export default class ChatMessages extends Component {
   scrolledToBottom() {
     const messages = document.getElementById('messages');
     const messagesHeight = messages.getBoundingClientRect().height;
-    return messages.scrollHeight - messages.scrollTop - messagesHeight < 1;
+    const result = messages.scrollHeight - messages.scrollTop - messagesHeight < 1;
+    return result;
   }
 }
