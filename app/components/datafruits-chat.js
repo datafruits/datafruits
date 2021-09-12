@@ -49,15 +49,17 @@ export default class DatafruitsChat extends Component {
 
   @action
   onScroll() {
-    if (this.scrolledToBottom()) {
+    if (this.checkScrolledToBottom()) {
+      this.chat.isScrolledToBottom = true;
       this.newMessagesBelow = false;
     } else {
+      this.chat.isScrolledToBottom = false;
       this.newMessagesBelow = true;
     }
     this.chat.scrollTop = document.getElementById('messages').scrollTop;
   }
 
-  scrolledToBottom() {
+  checkScrolledToBottom() {
     const messages = document.getElementById('messages');
     const messagesHeight = messages.getBoundingClientRect().height;
     return messages.scrollHeight - messages.scrollTop - messagesHeight < 1;

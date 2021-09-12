@@ -14,6 +14,8 @@ export default class ChatService extends Service {
   @tracked gifsEnabled = true;
   @tracked token = '';
 
+  @tracked isScrolledToBottom = true;
+
   join(username, token) {
     this.joinedChat = true;
     this.username = username;
