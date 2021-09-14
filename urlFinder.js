@@ -11,7 +11,7 @@ module.exports = async function ({ _distDir, visit }) {
 
   let urls = [
     '/',
-    '/timetable',
+    //    '/timetable',
     '/podcasts',
     '/about',
     '/subscribe',
