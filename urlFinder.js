@@ -12,7 +12,7 @@ module.exports = async function ({ _distDir, visit }) {
   let urls = [
     '/',
     //    '/timetable',
-    '/podcasts',
+    //'/podcasts',
     '/about',
     '/subscribe',
     '/dj-inquiry',
