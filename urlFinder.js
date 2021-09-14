@@ -17,7 +17,7 @@ module.exports = async function ({ _distDir, visit }) {
     '/subscribe',
     '/dj-inquiry',
     '/coc',
-    '/djs',
+    //'/djs',
     '/chat',
     '/sign-up',
   ];
