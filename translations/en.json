@@ -118,9 +118,9 @@
     "title": "About",
     "aria": "See what datafruits.fm is about"
   },
-  "blog": {
-    "title": "Blog",
-    "aria": "View the datafruits.fm blog"
+  "upcoming": {
+    "title": "Upcoming",
+    "aria": "View the latest datafruits.fm shows"
   },
   "shop": {
     "title": "Shop",
