@@ -1,0 +1,45 @@
+<div class="m-3 bg-df-green rounded-lg border-4 border-white w-full md:w-1/4 p-2 flex flex-col justify-between">
+  <LinkTo @route="home.show" @model={{@show.id}}>
+    {{@show.title}}
+  </LinkTo>
+  <div class="">
+    {{format-date @show.start}}
+  </div>
+  <div class="self-center">
+    <LinkTo
+      @route="home.show"
+      @model={{@show.id}}
+      class=""
+      style=""
+      {{#if @show.thumbImageUrl}}
+        <img
+          width="300"
+          height="300"
+          src={{@show.thumbImageUrl}}
+          alt={{@show.title}}
+        >
+      {{else if @show.isGuest}}
+        <img
+          width="300"
+          height="300"
+          src="/assets/images/show_placeholder.jpg"
+          alt={{@show.title}}
+        >
+      {{else if @show.host.imageUrl}}
+        <img
+          width="300"
+          height="300"
+          src={{@show.host.imageUrl}}
+          alt={{@show.title}}
+        >
+      {{else}}
+        <img
+          width="300"
+          height="300"
+          src="/assets/images/show_placeholder.jpg"
+          alt={{@show.title}}
+        >
+      {{/if}}
+    </LinkTo>
+  </div>
+</div>
