@@ -144,6 +144,10 @@ div.radio-bar a:hover {
 
 .jp-volume-controls {
   position: relative;
+  filter: drop-shadow(1px 1px 1px #333);
+  label {
+    filter: none;
+  }
   .jp-unmute {
     display: inline-block;
     width: 1em;
