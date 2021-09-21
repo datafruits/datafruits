@@ -14,6 +14,6 @@ module('Integration | Component | show-card', function (hooks) {
     this.show = { title: 'shrimpshake', start: start, thumbImageUrl: 'cat.png' };
     await render(hbs`<ShowCard @show={{this.show}} />`);
 
-    assert.dom(this.element).hasText('shrimpshake 10-20-2021 Wednesday 19:00 PDT');
+    assert.dom(this.element).includesText('shrimpshake 10-20-2021 Wednesday 19:00');
   });
 });
