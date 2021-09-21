@@ -10,17 +10,10 @@ module('Integration | Component | show-card', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<ShowCard />`);
+    let start = new Date(2021, 9, 20, 19, 0, 0);
+    this.show = { title: 'shrimpshake', start: start };
+    await render(hbs`<ShowCard @show={{this.show}} />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <ShowCard>
-        template block text
-      </ShowCard>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element).hasText('shrimpshake 10-20-2021 Wednesday 19:00 PDT');
   });
 });
