@@ -7,6 +7,7 @@ export function randomLoadingMessage() {
     'this is BGS',
     'loading...',
     'greasy hotdogs...greasy fries...',
+    'if you see viz say viz',
   ];
   return loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
 }
