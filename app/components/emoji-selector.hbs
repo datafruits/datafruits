@@ -1,0 +1,56 @@
+<span class="relative">
+  <button
+    class="cool-button"
+    type="button"
+    {{on "click" this.openGifDialog}}
+    >
+    GIF
+  </button>
+  <button
+    class="cool-button"
+    type="button"
+    {{on "click" this.openFruittipDialog}}
+    >
+    fruittip
+  </button>
+  <button
+    class="cool-button"
+    type="button"
+    {{on "click" this.openEmojiDialog}}
+    >
+    :)
+  </button>
+    {{#if dialogOpen}}
+      <div class="absolute p-2 border-white border-4 border-solid bg-df-blue overflow-scroll emoji-selector-dialog">
+        <div class="flex-row flex justify-between">
+          <button
+            type="button"
+            {{on "click" this.openGifDialog}}
+            >
+            GIF
+          </button>
+          <button
+            type="button"
+            {{on "click" this.openFruittipDialog}}
+            >
+            fruittip
+          </button>
+          <button
+            type="button"
+            {{on "click" this.openEmojiDialog}}
+            >
+            :)
+          </button>
+        </div>
+        {{#if (eq this.currentTab "gif")}}
+          <EmojiSelector::Gif
+            @sendGif={{@sendGif}}
+          />
+        {{else if (eq this.currentTab "fruitTip")}}
+          <EmojiSelector::FruitTip />
+        {{else if (eq this.currentTab "emoji")}}
+          <EmojiSelector::Emoji />
+        {{/if}}
+    </div>
+  {{/if}}
+</span>

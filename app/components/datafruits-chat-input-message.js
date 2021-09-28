@@ -24,7 +24,7 @@ export default class DatafruitsChatInputMessage extends Component {
   @action
   sendGif(gif) {
     this.inputMessage = gif.url;
-    this.showingGifSearch = false;
+    //this.showingGifSearch = false;
     document.querySelector('#send-message-button').focus();
   }
 
