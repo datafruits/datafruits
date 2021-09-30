@@ -284,7 +284,6 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':good_beverage:'],
       keywords: ['good_beverage'],
-      animated: true,
     },
   };
 
