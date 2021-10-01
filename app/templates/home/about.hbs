@@ -7,7 +7,7 @@
     <p class="my-2">
       {{t "about_datafruits"}}
     </p>
-    <ul class="mb-2">
+    <ul class="mb-4">
       <li>
         <LinkTo @route="home.coc" aria-label={{t "code_of_conduct_aria"}}>
           {{t "code_of_conduct"}}
@@ -28,19 +28,7 @@
         </a>
       </li>
     </ul>
-    <h2>
-      {{t "thanks_patrons"}}
-    </h2>
-    <ul class="mb-2">
-      {{#each this.model as |patron|}}
-        <li class="patron">
-          {{patron.name}}
-        </li>
-      {{/each}}
-    </ul>
-  </div>
-  <div class="">
-    <ul class="flex text-2xl justify-around flex-wrap">
+    <ul class="flex text-2xl justify-around flex-wrap mb-4">
       <li>
         <a
           href="https://discord.gg/83mteTQDvu"
@@ -119,6 +107,18 @@
         </a>
       </li>
     </ul>
+    <h2 class="text-xl">
+      {{t "thanks_patrons"}}
+    </h2>
+    <ul class="mb-2">
+      {{#each this.model as |patron|}}
+        <li class="patron">
+          {{patron.name}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="">
     <br>
     <br>
     <br>
