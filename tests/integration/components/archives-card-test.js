@@ -10,17 +10,11 @@ module('Integration | Component | archives-card', function(hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<ArchivesCard />`);
+    this.track = { title: 'shrimpshake 09202021' };
+    this.image = 'cat.png';
+    this.scheduledShow = {id: 2};
+    await render(hbs`<ArchivesCard @track={{this.track}} @image={{this.image}} @scheduledShow={{this.scheduledShow}} />`);
 
-    assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <ArchivesCard>
-        template block text
-      </ArchivesCard>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
+    assert.dom(this.element).hasText('shrimpshake 09202021');
   });
 });
