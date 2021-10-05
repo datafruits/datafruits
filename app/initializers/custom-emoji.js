@@ -285,6 +285,20 @@ export function initialize(/* application */) {
       shortnames: [':good_beverage:'],
       keywords: ['good_beverage'],
     },
+    ':sshrimp:': {
+      custom: true,
+      uc_base: 'sshrimp',
+      uc_output: '',
+      shortnames: [':sshrimp:'],
+      keywords: ['sshrimp'],
+    },
+    ':sshrimp_clear:': {
+      custom: true,
+      uc_base: 'sshrimp_clear',
+      uc_output: '',
+      shortnames: [':sshrimp_clear:'],
+      keywords: ['sshrimp_clear'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
