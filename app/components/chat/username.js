@@ -11,6 +11,11 @@ export default class ChatUsernameComponent extends Component {
     return this.args.role.includes('dj') || this.args.role.includes('admin');
   }
 
+  get canShowUserInfo() {
+    if (!this.args.role) return false;
+    return this.args.role.includes('dj') || this.args.role.includes('admin') || this.args.role.includes('listener');
+  }
+
   @action
   showUserInfo() {
     if (!this.showingDjInfo) {
