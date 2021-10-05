@@ -11,25 +11,10 @@
 </h2>
 <div class="flex flex-wrap flex-shrink-0">
   {{#each this.model.latestPodcasts as |track|}}
-    <div class="m-3 classic:bg-df-pink blm:bg-black rounded-lg border-4 border-white flex flex-col items-center justify-between w-full md:w-1/4 p-2">
-      <LinkTo @route="home.show" @model={{track.scheduledShow.id}}>
-        {{#if track.scheduledShow.thumbImageUrl}}
-          <img
-            width="300"
-            height="300"
-            src={{track.scheduledShow.thumbImageUrl}}
-            alt={{track.title}}
-          >
-        {{else}}
-          <img
-            src="/assets/images/show_placeholder.jpg"
-            alt={{track.title}}
-          >
-        {{/if}}
-      </LinkTo>
-      <LinkTo @route="home.show" @model={{track.scheduledShow.id}}>
-        {{track.title}}
-      </LinkTo>
-    </div>
+    <ArchivesCard
+      @track={{track}}
+      @image={{track.scheduledShow.thumbImageUrl}}
+      @scheduledShow={{track.scheduledShow}}
+      />
   {{/each}}
 </div>
