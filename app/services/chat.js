@@ -1,5 +1,6 @@
 import Service, { inject as service } from '@ember/service';
 import { Presence } from 'phoenix';
+import { isDestroying, isDestroyed } from '@ember/destroyable';
 import { tracked } from '@glimmer/tracking';
 
 export default class ChatService extends Service {
@@ -22,6 +23,26 @@ export default class ChatService extends Service {
     this.token = token;
   }
 
+  join_and_authorize(user, token) {
+    this.joinedChat = true;
+    this.username = user.username;
+    this.token = token;
+
+    const avatarUrl = user.avatarUrl;
+    const role = user.role;
+    const style = user.style;
+    const pronouns = user.pronouns;
+    this.push('authorize_token', {
+      user: user.username,
+      timestamp: Date.now(),
+      token: token,
+      avatarUrl,
+      role,
+      style,
+      pronouns,
+    });
+  }
+
   disconnect() {
     // need to broadcast a disconnect here or it will look like user is still in the chat to everyone
     this.chan.push('disconnect', { user: this.username });
@@ -35,10 +56,6 @@ export default class ChatService extends Service {
   constructor() {
     super(...arguments);
 
-    if (this.session.isAuthenticated && this.currentUser.user) {
-      this.join(this.currentUser.user.username, this.session.data.authenticated.token);
-    }
-
     let socket = this.socket.socket;
 
     this.chan = socket.channel('rooms:lobby', {});
@@ -48,7 +65,10 @@ export default class ChatService extends Service {
       .receive('ignore', function () {
         //return console.log("auth error");
       })
-      .receive('ok', function () {
+      .receive('ok', () => {
+        if (this.session.isAuthenticated && this.currentUser.user) {
+          this.join_and_authorize(this.currentUser.user, this.session.data.authenticated.token);
+        }
         return console.log('chat join ok'); // eslint-disable-line no-console
       })
       .receive('timeout', function () {
@@ -110,11 +130,13 @@ export default class ChatService extends Service {
     });
 
     this.chan.on('presence_state', (state) => {
+      if (isDestroyed(this) || isDestroying(this)) return;
       let presences = this.presences;
       this.presences = Presence.syncState(presences, state);
     });
 
     this.chan.on('presence_diff', (diff) => {
+      if (isDestroyed(this) || isDestroying(this)) return;
       let presences = this.presences;
       this.presences = Presence.syncDiff(presences, diff);
     });

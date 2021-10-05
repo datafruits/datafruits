@@ -278,6 +278,13 @@ export function initialize(/* application */) {
       keywords: ['acid'],
       animated: true,
     },
+    ':good_beverage:': {
+      custom: true,
+      uc_base: 'good_beverage',
+      uc_output: '',
+      shortnames: [':good_beverage:'],
+      keywords: ['good_beverage'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
