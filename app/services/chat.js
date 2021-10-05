@@ -66,6 +66,7 @@ export default class ChatService extends Service {
         //return console.log("auth error");
       })
       .receive('ok', () => {
+        if (isDestroyed(this) || isDestroying(this)) return;
         if (this.session.isAuthenticated && this.currentUser.user) {
           this.join_and_authorize(this.currentUser.user, this.session.data.authenticated.token);
         }
