@@ -73,6 +73,7 @@ export default class PixiComponent extends Component {
 
   @action
   willDestroy() {
+    super.willDestroy(...arguments);
     this.app.destroy({
       removeView: true,
     });
@@ -95,8 +96,13 @@ export default class PixiComponent extends Component {
 
     document.body.appendChild(this.app.view);
 
-    // move this into resize handler later
     this.app.renderer.resize(window.innerWidth, window.innerHeight);
+    let _resize = () => {
+      this.handleResize();
+    };
+    this._resize = _resize;
+    window.addEventListener('resize', _resize);
+    this.handleResize();
 
     this.app.stop();
 
@@ -139,5 +145,9 @@ export default class PixiComponent extends Component {
         });
       });
     });
+  }
+
+  handleResize() {
+    this.app.renderer.resize(window.innerWidth, window.innerHeight);
   }
 }

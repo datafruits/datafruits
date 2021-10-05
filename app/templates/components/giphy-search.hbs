@@ -5,14 +5,14 @@
   name="giphy-search-term"
   placeholder={{t "chat.search"}}
   @autocomplete="off"
-  @value={{searchTerm}}
+  @value={{this.query}}
 />
-<GiphyLoader @query={{query}} as |loader|>
+<GiphyLoader @query={{this.query}} as |loader|>
   {{#if loader.isRunning}}
     <p>{{t "loading"}}</p>
   {{else}}
     {{#each loader.data as |gif|}}
-      <GifPreview @gif={{gif}} @sendGif={{action sendGif}}/>
+      <GifPreview @gif={{gif}} @sendGif={{@sendGif}}/>
     {{/each}}
   {{/if}}
 </GiphyLoader>

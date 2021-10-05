@@ -11,19 +11,21 @@ module('Integration | Component | locale selector', function (hooks) {
 
     await render(hbs`<LocaleSelector @setLocale={{action setLocaleAction}} />`);
 
-    assert.equal(this.element.textContent.trim().includes('English'), true);
-    assert.equal(this.element.textContent.includes('日本語'), true);
-    assert.equal(this.element.textContent.includes('한국어'), true);
-    assert.equal(this.element.textContent.includes('Español'), true);
+    assert.true(this.element.textContent.trim().includes('English'));
+    assert.true(this.element.textContent.includes('日本語'));
+    assert.true(this.element.textContent.includes('한국어'));
+    assert.true(this.element.textContent.includes('Español'));
   });
 
   test('it calls passed in setLocale action', async function (assert) {
+    assert.expect(1);
+
     this.set('setLocaleAction', (actual) => {
       let expected = 'ko';
-      assert.equal(actual, expected, 'selected locale is passed to setLocale action');
+      assert.equal(actual.target.value, expected, 'selected locale is passed to setLocale action');
     });
 
-    await render(hbs`<LocaleSelector @setLocale={{action setLocaleAction}} />`);
+    await render(hbs`<LocaleSelector @setLocale={{this.setLocaleAction}} />`);
 
     await fillIn('select', 'ko');
   });

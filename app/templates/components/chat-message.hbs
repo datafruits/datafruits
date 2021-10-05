@@ -1,4 +1,6 @@
-<li class="message">
+<li
+  {{did-insert this.setScrolling}}
+  class="message">
   <span class="mr-2">
     {{format-message-timestamp @message.timestamp}}
   </span>
@@ -14,13 +16,13 @@
     {{/if}}
   {{/if}}
     <span class="mr-2" data-test-username>
-      {{#if this.isDj}}
-        <LinkTo @route="home.dj" @model={{@message.user}}>
-          {{format-message-user @message.user}}
-        </LinkTo>
-      {{else}}
-        {{format-message-user @message.user}}
-      {{/if}}
+      <Chat::Username
+        @role={{@message.role}}
+        @style={{@message.style}}
+        @pronouns={{@message.pronouns}}
+        @username={{@message.user}}
+        @avatarUrl={{@message.avatarUrl}}
+        />
     </span>
   <span class="" data-test-message-body>
     {{format-message-body @message.body}}
@@ -32,9 +34,7 @@
       <span class="">
         <ChatLazyImage
           @url={{this.imgUrl}}
-          @errorText="Image failed to load."
-          @adjustScrolling={{this.adjustScrolling}}
-          class="chat-image"
+          @adjustScrolling={{@adjustScrolling}}
         />
       </span>
     </li>

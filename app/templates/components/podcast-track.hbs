@@ -1,5 +1,5 @@
 <div class="py-1 flex flex-wrap space-x-1 items-center">
-  {{#if playing}}
+  {{#if this.playing}}
     <a class="text-df-green hover:text-df-yellow text-xl" {{action "pause"}} href="#">
       {{t "player.pause"}}
     </a>
@@ -8,23 +8,23 @@
       {{t "player.play"}}
     </a>
   {{/if}}
-  <a href={{cdnUrl}} download="">
+  <a href={{@cdnUrl}} download="">
     <FaIcon
       @icon="download"
       class="fa fa-download text-df-green hover:text-df-yellow text-xl" />
   </a>
-  {{#if scheduledShow}}
-    <LinkTo @route="home.show" @model={{scheduledShow.id}}>
-      {{title}}
+  {{#if @scheduledShow}}
+    <LinkTo @route="home.show" @model={{@scheduledShow.id}}>
+      {{@title}}
     </LinkTo>
   {{else}}
-    {{title}}
+    {{@title}}
   {{/if}}
   <div class="flex space-x-2">
-    {{#each labels as |label|}}
+    {{#each @labels as |label|}}
       <a
         class="track-label classic:bg-df-pink blm:bg-black text-df-yellow hover:text-white p-1 uppercase hover:italic border-solid border-white border-2 p-x-2 font-extrabold"
-        {{action selectLabel label}}
+        {{on "click" (fn this.selectLabel label.name)}}
         href="#">
         {{label.name}}
       </a>

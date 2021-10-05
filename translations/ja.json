@@ -1,4 +1,5 @@
 {
+  "meow": "にゃー",
   "settings": {
     "title": "サイト設定"
   },
@@ -38,6 +39,11 @@
     "login": "ログイン",
     "username": "username",
     "password": "パスワード"
+  },
+  "profile": {
+    "style": "スタイル",
+    "submit": "保存",
+    "pronouns": "性別代名詞"
   },
   "usermenu": {
     "settings": "設定",

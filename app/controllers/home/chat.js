@@ -31,11 +31,17 @@ export default class ChatController extends Controller {
         const token = this.session.data.authenticated.token;
         this.currentUser.load().then(() => {
           const avatarUrl = this.currentUser.user.avatarUrl;
+          const role = this.currentUser.user.role;
+          const style = this.currentUser.user.style;
+          const pronouns = this.currentUser.user.pronouns;
           this.chat.push('authorize_token', {
             user: nick,
             timestamp: Date.now(),
-            token: token,
-            avatarUrl: avatarUrl,
+            token,
+            avatarUrl,
+            role,
+            style,
+            pronouns,
           });
           return true;
         });

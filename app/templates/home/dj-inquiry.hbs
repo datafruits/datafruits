@@ -77,8 +77,8 @@
           </label>
           <br>
           <select onchange={{action "setShowInterval"}} value="target.value">
-            {{#each intervals as |interval|}}
-              {{#if (eq model.interval interval)}}
+            {{#each this.intervals as |interval|}}
+              {{#if (eq this.model.interval interval)}}
                 <option value={{interval}} selected="selected">
                   {{interval}}
                 </option>

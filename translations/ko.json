@@ -1,4 +1,5 @@
 {
+  "meow": "야옹",
   "home": {
     "upcoming_shows": "다음 스케줄",
     "latest_podcasts": "최신 아카이브",
@@ -45,6 +46,11 @@
     "email_exists": "Account with this email already exists. Forgot your password?",
     "username_exists": "This username has been taken.",
     "nice": "나이스 입니다"
+  },
+  "profile": {
+    "style": "스타일",
+    "submit": "보존",
+    "pronouns": "성별 대명사"
   },
   "usermenu": {
     "settings": "Settings",

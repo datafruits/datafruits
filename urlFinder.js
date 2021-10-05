@@ -1,4 +1,3 @@
-/*global module*/
 /*eslint-env node */
 'use strict';
 
@@ -12,13 +11,13 @@ module.exports = async function ({ _distDir, visit }) {
 
   let urls = [
     '/',
-    '/timetable',
-    '/podcasts',
+    //    '/timetable',
+    //'/podcasts',
     '/about',
     '/subscribe',
     '/dj-inquiry',
     '/coc',
-    '/djs',
+    //'/djs',
     '/chat',
     '/sign-up',
   ];

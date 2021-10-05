@@ -1,5 +1,5 @@
 import EmberRouter from '@ember/routing/router';
-import config from './config/environment';
+import config from 'datafruits13/config/environment';
 
 export default class Router extends EmberRouter {
   location = config.locationType;
@@ -19,6 +19,7 @@ Router.map(function () {
     this.route('djs');
     this.route('dj', { path: '/djs/:name' });
     this.route('chat');
+    this.route('cat');
     this.route('hat');
     this.route('blogs.show', { path: '/blogs/:id' });
     this.route('sign-up');

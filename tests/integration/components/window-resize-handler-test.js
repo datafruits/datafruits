@@ -13,14 +13,5 @@ module('Integration | Component | window-resize-handler', function (hooks) {
     await render(hbs`<WindowResizeHandler />`);
 
     assert.dom(this.element).hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <WindowResizeHandler>
-        template block text
-      </WindowResizeHandler>
-    `);
-
-    assert.dom(this.element).hasText('template block text');
   });
 });

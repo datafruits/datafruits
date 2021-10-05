@@ -1,22 +1,20 @@
-import classic from 'ember-classic-decorator';
-import Service from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import { later, run } from '@ember/runloop';
-import { inject as service } from '@ember/service';
 import ENV from 'datafruits13/config/environment';
 import fetch from 'fetch';
+import { tracked } from '@glimmer/tracking';
 
-@classic
 export default class VideoStreamService extends Service {
   @service
   rollbar;
 
-  init() {
-    super.init(...arguments);
-    this.set('streamHost', ENV.STREAM_HOST);
-    this.set('streamName', ENV.STREAM_NAME);
+  constructor() {
+    super(...arguments);
+    this.streamHost = ENV.STREAM_HOST;
+    this.streamName = ENV.STREAM_NAME;
   }
 
-  active = false;
+  @tracked active = false;
 
   async initializePlayer() {
     const module = await import('video.js');
@@ -33,7 +31,7 @@ export default class VideoStreamService extends Service {
         type = 'application/x-mpegURL';
       } else {
         console.log('Unknown extension: ' + extension); // eslint-disable-line no-console
-        this.set('active', false);
+        this.active = false;
         return;
       }
 
@@ -45,7 +43,7 @@ export default class VideoStreamService extends Service {
         controls: false,
       });
 
-      this.set('player', player);
+      this.player = player;
 
       console.log(streamUrl); // eslint-disable-line no-console
       player.src({
@@ -76,33 +74,37 @@ export default class VideoStreamService extends Service {
   }
 
   errorHandler(/*event*/) {
-    this.set('active', false);
+    this.active = false;
     this.player.dispose();
-    this.set('player', null);
+    this.player = null;
   }
 
   play() {
     let player = this.player;
-    let promise = player.play();
-    if (promise !== undefined) {
-      promise
-        .then(() => {
-          console.log('video played'); // eslint-disable-line no-console
-          player.userActive(false);
-        })
-        .catch((error) => {
-          // Autoplay was prevented.
-          console.log(`video play failed: ${error}`); // eslint-disable-line no-console
-          player.userActive(false);
-          this.rollbar.error(`video autoplay failed: ${error}`);
-        });
+    if (player) {
+      let promise = player.play();
+      if (promise !== undefined) {
+        promise
+          .then(() => {
+            console.log('video played'); // eslint-disable-line no-console
+            player.userActive(false);
+          })
+          .catch((error) => {
+            // Autoplay was prevented.
+            console.log(`video play failed: ${error}`); // eslint-disable-line no-console
+            player.userActive(false);
+            this.rollbar.error(`video autoplay failed: ${error}`);
+          });
+      }
+    } else {
+      console.log('video player not initialized yet!'); // eslint-disable-line no-console
     }
   }
 
   streamIsActive(name, extension) {
-    this.set('active', true);
-    this.set('streamName', name);
-    this.set('extension', extension);
+    this.active = true;
+    this.streamName = name;
+    this.extension = extension;
   }
 
   fetchStream() {

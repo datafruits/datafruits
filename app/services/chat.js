@@ -1,43 +1,60 @@
 import Service, { inject as service } from '@ember/service';
-import ArrayProxy from '@ember/array/proxy';
-import { A } from '@ember/array';
-import { reads } from '@ember/object/computed';
 import { Presence } from 'phoenix';
 import { isDestroying, isDestroyed } from '@ember/destroyable';
+import { tracked } from '@glimmer/tracking';
 
+export default class ChatService extends Service {
+  @service socket;
+  @service session;
+  @service eventBus;
+  @service currentUser;
 
-export default Service.extend({
-  socket: service(),
-  session: service(),
-  eventBus: service(),
-  currentUser: service(),
-  joinedUsers: reads('presences'),
-  messages: ArrayProxy.create({ content: A() }),
-  joinedChat: false,
-  gifsEnabled: true,
-  token: '',
+  @tracked presences = {};
+  @tracked messages = [];
+  @tracked joinedChat = false;
+  @tracked gifsEnabled = true;
+  @tracked token = '';
+
+  @tracked isScrolledToBottom = true;
 
   join(username, token) {
-    this.set('joinedChat', true);
-    this.set('username', username);
-    this.set('token', token);
-  },
+    this.joinedChat = true;
+    this.username = username;
+    this.token = token;
+  }
+
+  join_and_authorize(user, token) {
+    this.joinedChat = true;
+    this.username = user.username;
+    this.token = token;
+
+    const avatarUrl = user.avatarUrl;
+    const role = user.role;
+    const style = user.style;
+    const pronouns = user.pronouns;
+    this.push('authorize_token', {
+      user: user.username,
+      timestamp: Date.now(),
+      token: token,
+      avatarUrl,
+      role,
+      style,
+      pronouns,
+    });
+  }
 
   disconnect() {
     // need to broadcast a disconnect here or it will look like user is still in the chat to everyone
     this.chan.push('disconnect', { user: this.username });
-    this.set('joinedChat', false);
-  },
+    this.joinedChat = false;
+  }
+
   push(message, object) {
     this.chan.push(message, object);
-  },
-  init() {
-    this._super(...arguments);
-    this.set('presences', {});
+  }
 
-    if (this.session.isAuthenticated && this.currentUser.user) {
-      this.join(this.currentUser.user.username, this.session.data.authenticated.token);
-    }
+  constructor() {
+    super(...arguments);
 
     let socket = this.socket.socket;
 
@@ -48,7 +65,10 @@ export default Service.extend({
       .receive('ignore', function () {
         //return console.log("auth error");
       })
-      .receive('ok', function () {
+      .receive('ok', () => {
+        if (this.session.isAuthenticated && this.currentUser.user) {
+          this.join_and_authorize(this.currentUser.user, this.session.data.authenticated.token);
+        }
         return console.log('chat join ok'); // eslint-disable-line no-console
       })
       .receive('timeout', function () {
@@ -76,21 +96,21 @@ export default Service.extend({
     });
 
     this.chan.on('authorized', (msg) => {
-      this.set('username', msg.user);
+      this.username = msg.user;
       const token = msg.token;
       if (token) {
-        this.set('token', msg.token);
+        this.token = msg.token;
         // load currentUser
         this.currentUser
           .load()
           .then(() => {
             console.log('user authorized with token'); // eslint-disable-line no-console
-            this.set('joinedChat', true);
+            this.joinedChat = true;
           })
           .catch(() => this.session.invalidate());
       } else {
         console.log('user authorized'); // eslint-disable-line no-console
-        this.set('joinedChat', true);
+        this.joinedChat = true;
       }
       // fetch currentUser here? ???
     });
@@ -101,7 +121,7 @@ export default Service.extend({
 
     // user banned
     this.chan.on('disconnect', (/*msg*/) => {
-      this.set('joinedChat', false);
+      this.joinedChat = false;
     });
 
     this.chan.on('banned', (msg) => {
@@ -112,13 +132,13 @@ export default Service.extend({
     this.chan.on('presence_state', (state) => {
       if (isDestroyed(this) || isDestroying(this)) return;
       let presences = this.presences;
-      this.set('presences', Presence.syncState(presences, state));
+      this.presences = Presence.syncState(presences, state);
     });
 
     this.chan.on('presence_diff', (diff) => {
       if (isDestroyed(this) || isDestroying(this)) return;
       let presences = this.presences;
-      this.set('presences', Presence.syncDiff(presences, diff));
+      this.presences = Presence.syncDiff(presences, diff);
     });
-  },
-});
+  }
+}
