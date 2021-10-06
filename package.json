@@ -66,7 +66,7 @@
     "ember-cli-template-lint": "2.0.2",
     "ember-cli-terser": "^4.0.2",
     "ember-composable-helpers": "^4.3.0",
-    "ember-concurrency": "^1.1.7",
+    "ember-concurrency": "^2.1.2",
     "ember-data": "^3.27.1",
     "ember-data-paperclip": "https://github.com/mcfiredrill/ember-data-paperclip.git",
     "ember-data-storefront": "^0.17.2",
