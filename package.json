@@ -107,7 +107,7 @@
     "qunit-dom": "1.6.0",
     "sass": "^1.26.10",
     "stylelint-config-standard": "^20.0.0",
-    "tailwindcss": "2.2.15",
+    "tailwindcss": "2.2.16",
     "tailwindcss-multi-theme": "^1.0.4",
     "textcomplete": "^0.18.2",
     "video.js": "^7.10.2"
