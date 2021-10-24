@@ -6,6 +6,8 @@
   <div>
     <Podcasts
       @labels={{this.model.labels}}
+      @query={{this.router.currentRoute.queryParams}}
+      @page={{this.router.currentRoute.queryParams.page}}
     />
   </div>
 </div>
