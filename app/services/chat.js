@@ -17,13 +17,24 @@ export default class ChatService extends Service {
 
   @tracked isScrolledToBottom = true;
 
+  @tracked _fruitCounts = {};
+
+  setFruitCount(key, value) {
+    this._fruitCounts[key] = value;
+    this._fruitCounts = this._fruitCounts;
+  }
+
+  getFruitCount(key) {
+    return this._fruitCounts[key];
+  }
+
   join(username, token) {
     this.joinedChat = true;
     this.username = username;
     this.token = token;
   }
 
-  join_and_authorize(user, token) {
+  joinAndAuthorize(user, token) {
     this.joinedChat = true;
     this.username = user.username;
     this.token = token;
@@ -68,7 +79,7 @@ export default class ChatService extends Service {
       .receive('ok', () => {
         if (isDestroyed(this) || isDestroying(this)) return;
         if (this.session.isAuthenticated && this.currentUser.user) {
-          this.join_and_authorize(this.currentUser.user, this.session.data.authenticated.token);
+          this.joinAndAuthorize(this.currentUser.user, this.session.data.authenticated.token);
         }
         return console.log('chat join ok'); // eslint-disable-line no-console
       })
@@ -93,6 +104,9 @@ export default class ChatService extends Service {
 
     this.chan.on('new:fruit_tip', (msg) => {
       console.log(`got new fruit tip: ${msg}`); // eslint-disable-line no-console
+      console.log(msg);
+      this.setFruitCount('total', msg.total_count);
+      this.setFruitCount(msg.fruit, msg.count);
       this.eventBus.publish('fruitTipped', msg.fruit);
     });
 
