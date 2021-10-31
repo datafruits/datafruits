@@ -4,8 +4,6 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 class Fruit {
-  @service chat;
-
   @tracked count;
   @tracked name;
   @tracked image;
@@ -13,10 +11,6 @@ class Fruit {
   constructor(name, image) {
     this.name = name;
     this.image = image;
-  }
-
-  get count() {
-    return this.chat.getFruitCount(this.name);
   }
 }
 
@@ -39,10 +33,6 @@ export default class FruitTipComponent extends Component {
 
   get fruitCountTotal() {
     return this.chat.getFruitCount('total');
-  }
-
-  get lemons(){
-    return this.chat.getFruitCount('lemon');
   }
 
   @action
