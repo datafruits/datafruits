@@ -110,7 +110,7 @@
     "tailwindcss": "2.2.16",
     "tailwindcss-multi-theme": "^1.0.4",
     "textcomplete": "^0.18.2",
-    "video.js": "^7.10.2"
+    "video.js": "^7.15.4"
   },
   "resolutions": {
     "babel-plugin-ember-modules-api-polyfill": "2.13.0"
