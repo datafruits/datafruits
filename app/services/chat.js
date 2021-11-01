@@ -155,5 +155,11 @@ export default class ChatService extends Service {
       let presences = this.presences;
       this.presences = Presence.syncDiff(presences, diff);
     });
+
+    this.chan.on('fruit_counts', (counts) => {
+      for (const [key, value] of Object.entries(counts)) {
+        this.setFruitCount(key, value);
+      }
+    });
   }
 }
