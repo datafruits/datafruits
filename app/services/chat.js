@@ -21,7 +21,7 @@ export default class ChatService extends Service {
 
   setFruitCount(key, value) {
     this._fruitCounts[key] = value;
-    this._fruitCounts = this._fruitCounts;
+    this._fruitCounts = { ...this._fruitCounts };
   }
 
   getFruitCount(key) {
