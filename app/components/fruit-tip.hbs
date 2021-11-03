@@ -8,21 +8,20 @@
       X
     </button>
     {{#each this.fruitTypes as |fruit|}}
-      <button
-        {{on "click" (fn this.fruitTip fruit.name)}}
-        class="cool-button fruit-tip-button tip mr-1 ml-1"
-        type="button"
-        >
-        <img src={{fruit.image}} />
-      </button>
+      <FruitTip::Fruit
+        @fruitTip={{this.fruitTip}}
+        @fruit={{fruit}} />
     {{/each}}
   </div>
 {{/if}}
 <button
   {{on "click" this.showFruitChoices}}
-  class="cool-button fruit-tip-button"
+  class="cool-button fruit-tip-button text-xl font-black"
   type="button"
   style="padding: 0.1em !important;"
   >
-  <img src="{{this.randomFruitImage}}" style="height: 3ex !important;" >
+  <span class="flex">
+    <img src="{{this.randomFruitImage}}" style="height: 3ex !important;" >
+    <h1>{{this.fruitCountTotal}}</h1>
+  </span>
 </button>
