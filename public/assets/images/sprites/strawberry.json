@@ -134,7 +134,7 @@
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "strawberry.png",
+	"image": "strawberry.webp",
 	"format": "RGBA8888",
 	"size": {"w":1806,"h":1616},
 	"scale": "1",

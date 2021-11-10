@@ -63,40 +63,12 @@ export function initialize(/* application */) {
       shortnames: [':trash:', ':cooltrash:'],
       keywords: ['trash', 'cooltrash'],
     },
-    ':sr388:': {
-      custom: true,
-      uc_base: 'sr388',
-      uc_output: '',
-      shortnames: [':sr388:'],
-      keywords: ['sr388', 'sr'],
-    },
     ':eatdis:': {
       custom: true,
       uc_base: 'eatdis',
       uc_output: '',
       shortnames: [':eatdis:'],
       keywords: ['eatdis'],
-    },
-    ':tspicy:': {
-      custom: true,
-      uc_base: 'tspicy',
-      uc_output: '',
-      shortnames: [':tspicy:'],
-      keywords: ['tspicy'],
-    },
-    ':tsick:': {
-      custom: true,
-      uc_base: 'tsick',
-      uc_output: '',
-      shortnames: [':tsick:'],
-      keywords: ['tsick'],
-    },
-    ':tparty:': {
-      custom: true,
-      uc_base: 'tparty',
-      uc_output: '',
-      shortnames: [':tparty:'],
-      keywords: ['tparty'],
     },
     ':pizza_spin:': {
       custom: true,
@@ -277,6 +249,27 @@ export function initialize(/* application */) {
       shortnames: [':acid:'],
       keywords: ['acid'],
       animated: true,
+    },
+    ':good_beverage:': {
+      custom: true,
+      uc_base: 'good_beverage',
+      uc_output: '',
+      shortnames: [':good_beverage:'],
+      keywords: ['good_beverage'],
+    },
+    ':sshrimp:': {
+      custom: true,
+      uc_base: 'sshrimp',
+      uc_output: '',
+      shortnames: [':sshrimp:'],
+      keywords: ['sshrimp'],
+    },
+    ':sshrimp_clear:': {
+      custom: true,
+      uc_base: 'sshrimp_clear',
+      uc_output: '',
+      shortnames: [':sshrimp_clear:'],
+      keywords: ['sshrimp_clear'],
     },
   };
 

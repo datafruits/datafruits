@@ -1,65 +1,70 @@
-<Await @promise={{this.fetchPodcasts}} as |await|>
-  <div id="podcast-search-controls" class="border-dotted border-df-green border-4 mb-6">
-    <div id="podcast-subscribe" class="flex p-2">
-      <h4 class="px-3 text-white text-l">{{t "podcasts.subscribe_title"}}</h4>
-      <ul id="subscribe-links" class="text-l flex flex-wrap justify-between items-center">
-        <li class="pr-2">
-          <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">
-            {{t "podcasts.links.itunes"}}
-          </a>
-        </li>
-        <li class="pr-2">
-          <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml">
-            {{t "podcasts.links.overcast"}}
-          </a>
-        </li>
-        <li class="pr-2">
-          <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">
-            {{t "podcasts.links.podcastsapp"}}
-          </a>
-        </li>
-        <li class="pr-2">
-          <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">
-            {{t "podcasts.links.rss"}}
-          </a>
-        </li>
-      </ul>
-    </div>
-    <hr class="border-dotted border-df-green border-t-4"/>
-    <Podcasts::Search
-      @labels={{@labels}}
-      @selectedLabels={{this.selectedLabels}}
-      @query={{this.router.currentRoute.queryParams.query}}
-      @search={{await.reload}}
-      />
-  </div>
-  <div id="podcast-search-results">
-    <await.Pending>
-      <p id="podcast-search-loading" class="">
-        {{t "loading"}}
-      </p>
-    </await.Pending>
-
-    <await.Fulfilled as |result|>
-      {{#each result.tracks as |track|}}
-        <PodcastTrack
-          @cdnUrl={{track.cdnUrl}}
-          @title={{track.title}}
-          @scheduledShow={{track.scheduledShow}}
-          @soundcloudKey={{track.soundcloudKey}}
-          @mixcloudKey={{track.mixcloudKey}}
-          @labels={{track.labels}}
-          @selectedLabels={{this.selectedLabels}}
-          @search={{await.reload}}
+<div
+    {{did-update this.fetchPodcasts @page}}
+  >
+  <Await
+    @promise={{this.fetchPodcasts}} as |await|>
+    <div id="podcast-search-controls" class="border-dotted border-df-green border-4 mb-6">
+      <div id="podcast-subscribe" class="flex p-2">
+        <h4 class="px-3 text-white text-l">{{t "podcasts.subscribe_title"}}</h4>
+        <ul id="subscribe-links" class="text-l flex flex-wrap justify-between items-center">
+          <li class="pr-2">
+            <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">
+              {{t "podcasts.links.itunes"}}
+            </a>
+          </li>
+          <li class="pr-2">
+            <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml">
+              {{t "podcasts.links.overcast"}}
+            </a>
+          </li>
+          <li class="pr-2">
+            <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">
+              {{t "podcasts.links.podcastsapp"}}
+            </a>
+          </li>
+          <li class="pr-2">
+            <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">
+              {{t "podcasts.links.rss"}}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <hr class="border-dotted border-df-green border-t-4"/>
+      <Podcasts::Search
+        @labels={{@labels}}
+        @selectedLabels={{this.selectedLabels}}
+        @query={{this.router.currentRoute.queryParams.query}}
+        @search={{await.reload}}
         />
-      {{else}}
-        {{t "podcasts.no_result"}}
-      {{/each}}
-      <Pagination @meta={{result.meta}} @route="home.podcasts" />
-    </await.Fulfilled>
+    </div>
+    <div id="podcast-search-results">
+      <await.Pending>
+        <p id="podcast-search-loading" class="">
+          {{t "loading"}}
+        </p>
+      </await.Pending>
 
-    <await.Rejected>
-      {{t "error"}}
-    </await.Rejected>
-  </div>
-</Await>
+      <await.Fulfilled as |result|>
+        {{#each result.tracks as |track|}}
+          <PodcastTrack
+            @cdnUrl={{track.cdnUrl}}
+            @title={{track.title}}
+            @scheduledShow={{track.scheduledShow}}
+            @soundcloudKey={{track.soundcloudKey}}
+            @mixcloudKey={{track.mixcloudKey}}
+            @labels={{track.labels}}
+            @selectedLabels={{this.selectedLabels}}
+            @search={{await.reload}}
+          />
+        {{else}}
+          {{t "podcasts.no_result"}}
+        {{/each}}
+        <Pagination @meta={{result.meta}} @route="home.podcasts" />
+      </await.Fulfilled>
+
+      <await.Rejected>
+        {{t "error"}}
+      </await.Rejected>
+    </div>
+  </Await>
+</div>

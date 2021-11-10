@@ -15,7 +15,7 @@ Check out the [projects](https://github.com/datafruits/datafruits/projects) to s
 You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (10.x)
+* [Node.js](https://nodejs.org/) (14.x)
 * [Yarn](https://classic.yarnpkg.com/en/docs/install)
 * [Ember CLI](https://ember-cli.com/)
 

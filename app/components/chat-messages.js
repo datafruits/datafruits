@@ -16,8 +16,8 @@ export default class ChatMessages extends Component {
 
   @action
   addListener(element) {
-    element.addEventListener('scroll', this._onScroll.bind(this));
-    element.addEventListener('touchmove', this._onScroll.bind(this));
+    element.addEventListener('scroll', this._onScroll.bind(this), { passive: true });
+    element.addEventListener('touchmove', this._onScroll.bind(this), { passive: true });
   }
 
   @action

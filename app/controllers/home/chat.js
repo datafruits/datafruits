@@ -37,8 +37,8 @@ export default class ChatController extends Controller {
           this.chat.push('authorize_token', {
             user: nick,
             timestamp: Date.now(),
-            token: token,
-            avatarUrl: avatarUrl,
+            token,
+            avatarUrl,
             role,
             style,
             pronouns,

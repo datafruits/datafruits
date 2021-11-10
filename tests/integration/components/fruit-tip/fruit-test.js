@@ -3,16 +3,17 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | podcasts/search', function (hooks) {
+module('Integration | Component | fruit-tip/fruit', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
-    this.labels = [];
+    this.fruitTip = function () {};
+    this.fruit = {};
 
-    await render(hbs`<Podcasts::Search @labels={{this.labels}} />`);
+    await render(hbs`<FruitTip::Fruit @fruitTip={{this.fruitTip}} @fruit={{this.fruit}} />`);
 
-    assert.dom(this.element).hasText('Search Title Tag');
+    assert.dom(this.element).hasText('');
   });
 });

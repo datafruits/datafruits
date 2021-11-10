@@ -1,5 +1,6 @@
 import Service, { inject as service } from '@ember/service';
 import { Presence } from 'phoenix';
+import { isDestroying, isDestroyed } from '@ember/destroyable';
 import { tracked } from '@glimmer/tracking';
 
 export default class ChatService extends Service {
@@ -16,10 +17,41 @@ export default class ChatService extends Service {
 
   @tracked isScrolledToBottom = true;
 
+  @tracked _fruitCounts = {};
+
+  setFruitCount(key, value) {
+    this._fruitCounts[key] = value;
+    this._fruitCounts = { ...this._fruitCounts };
+  }
+
+  getFruitCount(key) {
+    return this._fruitCounts[key];
+  }
+
   join(username, token) {
     this.joinedChat = true;
     this.username = username;
     this.token = token;
+  }
+
+  joinAndAuthorize(user, token) {
+    this.joinedChat = true;
+    this.username = user.username;
+    this.token = token;
+
+    const avatarUrl = user.avatarUrl;
+    const role = user.role;
+    const style = user.style;
+    const pronouns = user.pronouns;
+    this.push('authorize_token', {
+      user: user.username,
+      timestamp: Date.now(),
+      token: token,
+      avatarUrl,
+      role,
+      style,
+      pronouns,
+    });
   }
 
   disconnect() {
@@ -35,10 +67,6 @@ export default class ChatService extends Service {
   constructor() {
     super(...arguments);
 
-    if (this.session.isAuthenticated && this.currentUser.user) {
-      this.join(this.currentUser.user.username, this.session.data.authenticated.token);
-    }
-
     let socket = this.socket.socket;
 
     this.chan = socket.channel('rooms:lobby', {});
@@ -48,7 +76,11 @@ export default class ChatService extends Service {
       .receive('ignore', function () {
         //return console.log("auth error");
       })
-      .receive('ok', function () {
+      .receive('ok', () => {
+        if (isDestroyed(this) || isDestroying(this)) return;
+        if (this.session.isAuthenticated && this.currentUser.user) {
+          this.joinAndAuthorize(this.currentUser.user, this.session.data.authenticated.token);
+        }
         return console.log('chat join ok'); // eslint-disable-line no-console
       })
       .receive('timeout', function () {
@@ -72,6 +104,9 @@ export default class ChatService extends Service {
 
     this.chan.on('new:fruit_tip', (msg) => {
       console.log(`got new fruit tip: ${msg}`); // eslint-disable-line no-console
+      console.log(msg);
+      this.setFruitCount('total', msg.total_count);
+      this.setFruitCount(msg.fruit, msg.count);
       this.eventBus.publish('fruitTipped', msg.fruit);
     });
 
@@ -110,13 +145,21 @@ export default class ChatService extends Service {
     });
 
     this.chan.on('presence_state', (state) => {
+      if (isDestroyed(this) || isDestroying(this)) return;
       let presences = this.presences;
       this.presences = Presence.syncState(presences, state);
     });
 
     this.chan.on('presence_diff', (diff) => {
+      if (isDestroyed(this) || isDestroying(this)) return;
       let presences = this.presences;
       this.presences = Presence.syncDiff(presences, diff);
+    });
+
+    this.chan.on('fruit_counts', (counts) => {
+      for (const [key, value] of Object.entries(counts)) {
+        this.setFruitCount(key, value);
+      }
     });
   }
 }
