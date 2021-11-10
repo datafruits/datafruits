@@ -103,7 +103,7 @@
     "postcss-scss": "4.0.0",
     "prember": "^1.0.5",
     "prettier": "^2.3.0",
-    "qunit": "^2.15.0",
+    "qunit": "^2.17.2",
     "qunit-dom": "1.6.0",
     "sass": "^1.26.10",
     "stylelint-config-standard": "^23.0.0",
