@@ -121,9 +121,9 @@ export default class PixiComponent extends Component {
 
       this.animations.strawberry = res.strawberry.spritesheet.animations['strawberry2_wiggle.png'];
       this.animations.orange = res.orange.spritesheet.animations['orange.png'];
-      this.animations.lemon = res.lemon.spritesheet.animations['lemon.png'];
+      this.animations.lemon = res.lemon.spritesheet.animations['lemon.webp'];
       this.animations.banana = res.banana.spritesheet.animations['banana.webp'];
-      this.animations.watermelon = res.watermelon.spritesheet.animations['watermelon.png'];
+      this.animations.watermelon = res.watermelon.spritesheet.animations['watermelon.webp'];
       this.animations.stars = res.stars.spritesheet.animations['stars'];
 
       // Resume application update
