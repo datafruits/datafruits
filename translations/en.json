@@ -75,7 +75,7 @@
     "link_podcastsapp": "Podcasts.app",
     "link_rss": "RSS",
     "title_search": "Title",
-    "title_placeholder": "terrible tuesday w tchan",
+    "title_placeholder": "e.g. good morning datafruits",
     "tag_search": "Tag",
     "tag_placeholder": "disco, house, grime, any song ...",
     "no_result": "No results. Musta been the onion salad dressing.",
@@ -84,7 +84,7 @@
       "tag": "Tag"
     },
     "placeholders": {
-      "title": "terrible tuesday w tchan",
+      "title": "e.g. good morning datafruits",
       "tag": "disco, house, grime, anysong"
     },
     "links": {

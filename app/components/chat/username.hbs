@@ -10,7 +10,7 @@
   {{else}}
     {{format-message-user @username}}
   {{/if}}
-  {{#if (and this.showingDjInfo this.isDj)}}
+  {{#if (and this.showingDjInfo this.canShowUserInfo)}}
     <div class="absolute top-0 left-0 classic:bg-df-blue blm:bg-black trans:theme-trans p-5 rounded-xl z-50 border-4 border-white">
       <img
         class="inline rounded-lg"
@@ -18,9 +18,13 @@
         src="{{@avatarUrl}}"
         align="center"
         alt="{{ t "chat.user_avatar" }}" / >
-      <LinkTo class="hover:underline" @route="home.dj" @model={{@username}}>
+      {{#if this.isDj}}
+        <LinkTo class="hover:underline" @route="home.dj" @model={{@username}}>
+          {{@username}}
+        </LinkTo>
+      {{else}}
         {{@username}}
-      </LinkTo>
+      {{/if}}
       <br />
       <span><i>{{t "profile.pronouns"}}:</i> {{@pronouns}}</span>
       <br />
