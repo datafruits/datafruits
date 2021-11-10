@@ -94,7 +94,7 @@
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "stars.png",
+	"image": "stars.webp",
 	"format": "RGBA8888",
 	"size": {"w":123,"h":135},
 	"scale": "1",

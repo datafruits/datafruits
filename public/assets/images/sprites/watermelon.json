@@ -257,12 +257,12 @@
 	"sourceSize": {"w":378,"h":378}
 }},
 "animations": {
-	"watermelon.png": ["watermelon.png0001.png","watermelon.png0002.png","watermelon.png0003.png","watermelon.png0004.png","watermelon.png0005.png","watermelon.png0006.png","watermelon.png0007.png","watermelon.png0008.png","watermelon.png0009.png","watermelon.png0010.png","watermelon.png0011.png","watermelon.png0012.png","watermelon.png0013.png","watermelon.png0014.png","watermelon.png0015.png","watermelon.png0016.png","watermelon.png0017.png","watermelon.png0018.png","watermelon.png0019.png","watermelon.png0020.png","watermelon.png0021.png","watermelon.png0022.png","watermelon.png0023.png","watermelon.png0024.png","watermelon.png0025.png","watermelon.png0026.png","watermelon.png0027.png","watermelon.png0028.png","watermelon.png0029.png","watermelon.png0030.png","watermelon.png0031.png","watermelon.png0032.png"]
+	"watermelon.webp": ["watermelon.png0001.png","watermelon.png0002.png","watermelon.png0003.png","watermelon.png0004.png","watermelon.png0005.png","watermelon.png0006.png","watermelon.png0007.png","watermelon.png0008.png","watermelon.png0009.png","watermelon.png0010.png","watermelon.png0011.png","watermelon.png0012.png","watermelon.png0013.png","watermelon.png0014.png","watermelon.png0015.png","watermelon.png0016.png","watermelon.png0017.png","watermelon.png0018.png","watermelon.png0019.png","watermelon.png0020.png","watermelon.png0021.png","watermelon.png0022.png","watermelon.png0023.png","watermelon.png0024.png","watermelon.png0025.png","watermelon.png0026.png","watermelon.png0027.png","watermelon.png0028.png","watermelon.png0029.png","watermelon.png0030.png","watermelon.png0031.png","watermelon.png0032.png"]
 },
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "watermelon.png",
+	"image": "watermelon.webp",
 	"format": "RGBA8888",
 	"size": {"w":1896,"h":1554},
 	"scale": "1",
