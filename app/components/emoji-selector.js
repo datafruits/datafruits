@@ -1,8 +1,13 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import fruitTypes from '../fruit-types';
 
 export default class EmojiSelectorComponent extends Component {
+  get randomFruitImage() {
+    return fruitTypes[Math.floor(Math.random() * fruitTypes.length)].image;
+  }
+
   @tracked dialogOpen = false;
   @tracked currentTab; //"gif", "emoji", "fruitTip"
 

@@ -1,1 +1,7 @@
-{{yield}}
+{{#each-in this.emojis as |shortcode data|}}
+  <button type="button">
+    <img
+      alt={{data.shortname}}
+      src={{emoji-url data}} />
+  </button>
+{{/each-in}}
