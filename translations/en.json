@@ -207,8 +207,8 @@
     "aria": "Notify datafruits by email"
   },
   "patron": {
-    "title": "Patreon",
-    "aria": "Vist the datafruits.fm Patreon page to learn more about supporting the site"
+    "title": "Ampled",
+    "aria": "Vist the datafruits.fm Ampled page to learn more about supporting the site"
   },
   "secret": "secret",
   "thanks_patrons": "THANKS TO ALL THE PATRONS!",
@@ -252,7 +252,7 @@
     "label": "Theme"
   },
   "about_page": {
-    "listenersupport": "Datafruits is listener supported. You can join our patreon and get stickers and other goodies sent to you every 2 months.",
+    "listenersupport": "Datafruits is listener supported. You can join our ampled page and get stickers and other goodies sent to you every 2 months.",
     "donate_request": "Or if you'd like you can make a one time donation to our paypal.",
     "donate_linktext": "https://paypal.me/datafruitsfm",
     "donate_aria": "Make a donation to datafruits.fm through PayPal"
