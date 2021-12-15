@@ -9,7 +9,7 @@ export default class ShowCardComponent extends Component {
       image = show.thumbImageUrl;
     } else if (show.isGuest) {
       image = '/assets/images/show_placeholder.jpg';
-    } else if (show.host.imageUrl) {
+    } else if (show.host && show.host.imageUrl) {
       image = show.host.imageUrl;
     } else {
       image = '/assets/images/show_placeholder.jpg';
