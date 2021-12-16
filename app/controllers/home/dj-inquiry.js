@@ -10,10 +10,11 @@ dayjs.extend(timezone);
 
 export default class DjInquiryController extends Controller {
   get canSubmit() {
-    return !(!this.model.isSaving && this.cocAccepted);
+    return !(!this.model.isSaving && this.cocAccepted && this.minAge);
   }
 
   @tracked cocAccepted = false;
+  @tracked minAge = false;
   intervals = ['daily', 'weekly', 'biweekly', 'monthly', 'other'];
 
   @action
