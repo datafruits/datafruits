@@ -113,10 +113,27 @@
             {{t "djinquiry.other"}}
           </label>
           <br>
-          <Textarea name="dj-form-other" id="dj-form-other" @value={{this.model.otherComment}} />
+          <Textarea
+            name="dj-form-other" 
+            id="dj-form-other" 
+            @value={{this.model.otherComment}} 
+            />
         </div>
         <div>
-          <label for="coc-checkbox"> <a href="https://datafruits.fm/coc" target="blank">{{t "djinquiry.coc_accept"}}</a></label>
+          <label for="min-age">
+            {{t "djinquiry.min_age"}}
+          </label>
+          <Input 
+            @type="checkbox"
+            @checked={{this.minAge}}
+            />
+        </div>
+        <div>
+          <label for="coc-checkbox">
+            <a href="https://datafruits.fm/coc" target="blank">
+              {{t "djinquiry.coc_accept"}}
+            </a>
+          </label>
           <Input
             @type="checkbox"
             @checked={{this.cocAccepted}}

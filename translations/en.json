@@ -147,7 +147,8 @@
     "email_exists": "Account with this email already exists. Forgot your password?",
     "username_exists": "This username has been taken.",
     "nice": "NICE",
-    "already_signed_up": "You are already have an account, and in fact you are signed in. "
+    "already_signed_up": "You are already have an account, and in fact you are signed in. ",
+    "min_age": "I am at least 13 years old"
   },
   "profile": {
     "style": "Style",
@@ -173,7 +174,8 @@
     "error": "There was an error sending your application! Please check the error messages and try again.",
     "thanks": "Thanks for your application! We'll reply to your email as soon as possible.",
     "coc_accept": "I have read and accept the terms of the datafruits Code of Conduct.",
-    "aria": "Apply to DJ on datafruits.fm"
+    "aria": "Apply to DJ on datafruits.fm",
+    "min_age": "I am at least 18 years old"
   },
   "password_reset": {
     "heading": "Forgot your password?",
