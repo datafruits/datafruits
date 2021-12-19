@@ -1,4 +1,5 @@
 <div
+    {{did-insert this.fetchPodcasts @page}}
     {{did-update this.fetchPodcasts @page}}
   >
   <Await
@@ -59,7 +60,10 @@
         {{else}}
           {{t "podcasts.no_result"}}
         {{/each}}
-        <Pagination @meta={{result.meta}} @route="home.podcasts" />
+        <Pagination
+          @totalPages={{result.meta.total_pages}}
+          @page={{@page}}
+          @route="home.podcasts" />
       </await.Fulfilled>
 
       <await.Rejected>

@@ -1,16 +1,16 @@
-{{#if (gt @meta.page 1)}}
+{{#if (gt @page 1)}}
   <span class="pagination">
     <LinkTo
       @route={{@route}}
-      @query={{hash page=(dec @meta.page)}}
+      @query={{hash page=(dec @page)}}
     >
       {{t "pagination_prev"}}
     </LinkTo>
   </span>
 {{/if}}
-{{#each (range 1 (inc @meta.total_pages)) as |number|}}
-  {{#if (eq number @meta.page)}}
-    {{number}}
+{{#each (range 1 (inc @totalPages)) as |number|}}
+  {{#if (eq-number number @page)}}
+    <span class="bg-df-pink">{{number}}</span>
   {{else}}
     <span class="pagination">
       <LinkTo @route={{@route}} @query={{hash page=number}}>
@@ -19,11 +19,11 @@
     </span>
   {{/if}}
 {{/each}}
-{{#if (lt @meta.page @meta.total_pages)}}
+{{#if (lt @page @totalPages)}}
   <span class="pagination">
     <LinkTo
       @route={{@route}}
-      @query={{hash page=(inc @meta.page)}}
+      @query={{hash page=(inc @page)}}
     >
       {{t "pagination_next"}}
     </LinkTo>
