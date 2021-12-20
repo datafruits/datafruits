@@ -60,7 +60,7 @@
         {{else}}
           {{t "podcasts.no_result"}}
         {{/each}}
-        <Pagination
+        <FruitsUi::Pagination
           @totalPages={{result.meta.total_pages}}
           @page={{@page}}
           @route="home.podcasts" />
