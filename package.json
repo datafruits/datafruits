@@ -16,7 +16,7 @@
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
-    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "start": "ember serve",
     "test": "npm-run-all lint test:*",
     "coverage": "cross-env COVERAGE=true ember test",
     "lighthouse": "lhci autorun --config=config/lighthouserc.js"
