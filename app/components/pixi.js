@@ -117,7 +117,6 @@ export default class PixiComponent extends Component {
     const genParticles = (t) =>
       new Array(AMOUNT).fill().map((p) => {
         const SIZE = floored(MAX_SIZE) + MIN_SIZE;
-        console.log(SIZE);
         p = new PIXI.Sprite(t);
         p.size = SIZE;
         p.vx = floored(UPPER_LIMIT_X) - UPPER_LIMIT_X;
