@@ -58,6 +58,7 @@
           </div>
           {{#if (eq this.currentTab "gif")}}
             <EmojiSelector::Gif
+              @closeDialog={{this.closeDialog}}
               @sendGif={{@sendGif}}
             />
           {{else if (eq this.currentTab "fruitTip")}}
