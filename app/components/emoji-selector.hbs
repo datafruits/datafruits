@@ -64,7 +64,10 @@
           {{else if (eq this.currentTab "fruitTip")}}
             <EmojiSelector::FruitTip />
           {{else if (eq this.currentTab "emoji")}}
-            <EmojiSelector::Emoji />
+            <EmojiSelector::Emoji
+              @closeDialog={{this.closeDialog}}
+              @sendEmoji={{@sendEmoji}}
+            />
           {{/if}}
       </div>
     </ModalDialog>

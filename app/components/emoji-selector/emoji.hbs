@@ -1,5 +1,8 @@
 {{#each-in this.emojis as |shortcode data|}}
-  <button type="button">
+  <button
+    type="button"
+    {{on "click" (fn this.closeDialogAndSendEmoji data.shortname)}}
+    >
     <img
       alt={{data.shortname}}
       src={{emoji-url data}} />
