@@ -12,6 +12,11 @@ export default class EmojiSelectorComponent extends Component {
   @tracked currentTab; //"gif", "emoji", "fruitTip"
 
   @action
+  closeDialog() {
+    this.dialogOpen = false;
+  }
+
+  @action
   openGifDialog(){
     this.dialogOpen = true;
     this.currentTab = 'gif';

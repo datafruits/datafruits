@@ -26,9 +26,9 @@
   </button>
     {{#if this.dialogOpen}}
       <ModalDialog
-        onClose={{(action (mut this.dialogOpen) false)}}
-        hasOverlay={{false}}
-        clickOutsideToClose={{true}}
+        @onClose={{this.closeDialog}}
+        @hasOverlay={{false}}
+        @clickOutsideToClose={{true}}
         >
         <div class="p-2 border-white border-4 border-solid bg-df-blue overflow-scroll emoji-selector-dialog">
           <div class="flex-row flex justify-between">
