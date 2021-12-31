@@ -15,14 +15,10 @@ export default class IndexRoute extends Route {
       start: dayjs().format('YYYY-MM-DD'),
       end: dayjs().endOf('month').add(1, 'month').format('YYYY-MM-DD'),
     };
-    const podcast = await this.store
-      .loadRecords('podcast', {
-        name: 'datafruits',
-        page: 1,
-      })
-      .then((podcasts) => {
-        return podcasts.get('firstObject');
-      });
+    const podcast = await this.store.queryRecord('podcast', {
+      name: 'datafruits',
+      page: 1,
+    });
     return hash({
       upcomingShows: this.store.loadRecords('scheduled-show', query).then((shows) => {
         return shows.slice(0, 6);

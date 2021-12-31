@@ -12,6 +12,6 @@ module('Integration | Component | chat/username', function (hooks) {
 
     await render(hbs`<Chat::Username />`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom(this.element).hasText('');
   });
 });

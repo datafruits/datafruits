@@ -1,7 +1,6 @@
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { hash } from 'rsvp';
-import App from '../app';
 import Component from '@glimmer/component';
 
 export default class PodcastsSearch extends Component {
@@ -32,11 +31,10 @@ export default class PodcastsSearch extends Component {
   @action
   fetchPodcasts() {
     const query = this.args.query;
-    console.log(query);
     let podcastsPromise = this.store.queryRecord('podcast', query).then((podcast) => {
       return hash({
         tracks: podcast.get('tracks'),
-        meta: App.storeMeta['podcast'],
+        meta: podcast.meta,
       });
     });
 

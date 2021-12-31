@@ -147,7 +147,8 @@
     "email_exists": "Account with this email already exists. Forgot your password?",
     "username_exists": "This username has been taken.",
     "nice": "NICE",
-    "already_signed_up": "You are already have an account, and in fact you are signed in. "
+    "already_signed_up": "You are already have an account, and in fact you are signed in. ",
+    "min_age": "I am at least 13 years old"
   },
   "profile": {
     "style": "Style",
@@ -173,7 +174,8 @@
     "error": "There was an error sending your application! Please check the error messages and try again.",
     "thanks": "Thanks for your application! We'll reply to your email as soon as possible.",
     "coc_accept": "I have read and accept the terms of the datafruits Code of Conduct.",
-    "aria": "Apply to DJ on datafruits.fm"
+    "aria": "Apply to DJ on datafruits.fm",
+    "min_age": "I am at least 18 years old"
   },
   "password_reset": {
     "heading": "Forgot your password?",
@@ -207,8 +209,8 @@
     "aria": "Notify datafruits by email"
   },
   "patron": {
-    "title": "Patreon",
-    "aria": "Vist the datafruits.fm Patreon page to learn more about supporting the site"
+    "title": "Ampled",
+    "aria": "Vist the datafruits.fm Ampled page to learn more about supporting the site"
   },
   "secret": "secret",
   "thanks_patrons": "THANKS TO ALL THE PATRONS!",
@@ -252,7 +254,7 @@
     "label": "Theme"
   },
   "about_page": {
-    "listenersupport": "Datafruits is listener supported. You can join our patreon and get stickers and other goodies sent to you every 2 months.",
+    "listenersupport": "Datafruits is listener supported. You can join our ampled page and get stickers and other goodies sent to you every 2 months.",
     "donate_request": "Or if you'd like you can make a one time donation to our paypal.",
     "donate_linktext": "https://paypal.me/datafruitsfm",
     "donate_aria": "Make a donation to datafruits.fm through PayPal"
