@@ -1,6 +1,7 @@
 import { helper } from '@ember/component/helper';
 
-export default helper(function emojiUrl(emoji) {
+export default helper(function emojiUrl(params) {
+  let emoji = params[0];
   let extension;
   if (emoji.animated) {
     extension = '.gif';
