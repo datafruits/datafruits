@@ -6,8 +6,14 @@ import { action } from '@ember/object';
 export default class EmojiSelectorEmojiComponent extends Component {
   @tracked emojis = emojiStrategy;
 
+  get customEmojis() {
+    return Object.values(this.emojis).filter((emoji) => {
+      return emoji.custom === true;
+    });
+  }
+
   @action
-  closeDialogAndSendEmoji(shortname){
+  closeDialogAndSendEmoji(shortname) {
     this.args.sendEmoji(shortname);
     this.args.closeDialog();
   }
