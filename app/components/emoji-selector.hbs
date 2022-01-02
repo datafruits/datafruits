@@ -22,7 +22,7 @@
     type="button"
     {{on "click" this.openEmojiDialog}}
     >
-    :)
+    {{this.smileEmoji}}
   </button>
     {{#if this.dialogOpen}}
       <ModalDialog
@@ -53,7 +53,7 @@
               type="button"
               {{on "click" this.openEmojiDialog}}
               >
-              :)
+              {{this.smileEmoji}}
             </button>
           </div>
           {{#if (eq this.currentTab "gif")}}
