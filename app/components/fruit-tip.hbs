@@ -1,5 +1,7 @@
-{{#each this.fruitTypes as |fruit|}}
-  <FruitTip::Fruit
-    @fruitTip={{this.fruitTip}}
-    @fruit={{fruit}} />
-{{/each}}
+<div class="flex flex-wrap">
+  {{#each this.fruitTypes as |fruit|}}
+    <FruitTip::Fruit
+      @fruitTip={{this.fruitTip}}
+      @fruit={{fruit}} />
+  {{/each}}
+</div>
