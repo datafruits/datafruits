@@ -133,6 +133,9 @@
 }
 
 .cool-button {
+  & img.emojione {
+    height: 2ex !important;
+  }
   &:hover,
   &:focus {
     @apply bg-df-blue-dark;
