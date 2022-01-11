@@ -89,7 +89,7 @@
     "ember-truth-helpers": "3.0.0",
     "ember-web-app": "^4.0.0",
     "ember-welcome-page": "^4.0.0",
-    "emojione": "git://github.com/mcfiredrill/emojione#animated-emoji",
+    "emojione": "https://github.com/mcfiredrill/emojione#animated-emoji",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-ember": "10.5.4",
