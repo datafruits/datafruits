@@ -7,9 +7,8 @@ module('Integration | Helper | emoji-url', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-
     this.set('inputValue', {
-      unicode: '1f33c'
+      unicode: '1f33c',
     });
 
     await render(hbs`{{emoji-url this.inputValue}}`);
@@ -19,7 +18,7 @@ module('Integration | Helper | emoji-url', function (hooks) {
     this.set('inputValue', {
       unicode: 'onion_salad_dressing',
       animated: true,
-      custom: true
+      custom: true,
     });
 
     await render(hbs`{{emoji-url this.inputValue}}`);
