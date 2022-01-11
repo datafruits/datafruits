@@ -19,27 +19,8 @@
   >
     {{t "chat.send"}}
   </button>
-  {{#if this.showingGifSearch}}
-    <div class="gif-search">
-      <button
-        type="button"
-        class="cool-button"
-        {{on "click" this.closeGifSearch}}
-        title={{t "chat.titles.gif_close"}}
-      >
-        <FaIcon @icon="times" />
-      </button>
-      <GiphySearch @sendGif={{action "sendGif"}} />
-    </div>
-  {{else}}
-    <button
-      type="button"
-      class="cool-button"
-      {{on "click" this.showGifSearch}}
-      title={{t "chat.titles.gif"}}
-    >
-      {{t "chat.gif"}}
-    </button>
-    <FruitTip />
-  {{/if}}
+  <EmojiSelector
+    @sendGif={{this.sendGif}}
+    @sendEmoji={{this.sendEmoji}}
+  />
 </span>

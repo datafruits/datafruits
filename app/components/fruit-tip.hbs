@@ -1,27 +1,7 @@
-{{#if this.showingFruitChoices}}
-  <div class="flex bg-df-pink border-dashed border-white border-4 p-4 absolute p-3 -mt-40 ml-4">
-    <button
-      {{on "click" this.hideFruitChoices}}
-      class="cool-button"
-      type="button"
-      >
-      X
-    </button>
-    {{#each this.fruitTypes as |fruit|}}
-      <FruitTip::Fruit
-        @fruitTip={{this.fruitTip}}
-        @fruit={{fruit}} />
-    {{/each}}
-  </div>
-{{/if}}
-<button
-  {{on "click" this.showFruitChoices}}
-  class="cool-button fruit-tip-button text-xl font-black"
-  type="button"
-  style="padding: 0.1em !important;"
-  >
-  <span class="flex">
-    <img src="{{this.randomFruitImage}}" style="height: 3ex !important;" >
-    <h1>{{this.fruitCountTotal}}</h1>
-  </span>
-</button>
+<div class="flex flex-wrap">
+  {{#each this.fruitTypes as |fruit|}}
+    <FruitTip::Fruit
+      @fruitTip={{this.fruitTip}}
+      @fruit={{fruit}} />
+  {{/each}}
+</div>

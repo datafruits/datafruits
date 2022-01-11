@@ -133,6 +133,9 @@
 }
 
 .cool-button {
+  & img.emojione {
+    height: 2ex !important;
+  }
   &:hover,
   &:focus {
     @apply bg-df-blue-dark;
@@ -428,6 +431,13 @@ canvas {
   color: white;
   font-weight: bold;
   animation: bounce linear 200ms;
+}
+
+.emoji-selector-dialog {
+  // top: -265px;
+  // left: 0;
+  width: 300px;
+  height: 250px;
 }
 
 @tailwind utilities;
