@@ -12,6 +12,6 @@ module('Integration | Component | emoji-selector', function (hooks) {
 
     await render(hbs`<EmojiSelector />`);
 
-    assert.dom(this.element).hasText('');
+    assert.dom(this.element).hasText('GIF');
   });
 });
