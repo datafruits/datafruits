@@ -19,7 +19,11 @@ module('Integration | Component | datafruits chat', function (hooks) {
 
     await render(hbs`<DatafruitsChat />`);
 
-    assert.true(this.element.textContent.trim().includes('Join chat'));
+    assert.strictEqual(
+      this.element.querySelector('[data-test-join-chat]').value,
+      'Join chat',
+      'join chat button is visible',
+    );
     assert.true(this.element.textContent.trim().includes('Images are off'));
     assert.true(this.element.textContent.trim().includes('Login'));
     assert.dom('[data-test-join-chat]').isDisabled();
