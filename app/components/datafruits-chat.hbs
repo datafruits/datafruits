@@ -34,7 +34,7 @@
         <Chat::EnableGifsButton @toggleGifs={{this.toggleGifsEnabled}} @enabled={{this.chat.gifsEnabled}} />
       </form>
     {{else}}
-      <form align="center" class="mb-3">
+    <form align="center" class="mb-3" {{on "submit" this.enterChatAnonymously}}>
         <div>
           <div>
             <label for="nick">{{t "chat.label.nick"}}</label>
@@ -46,16 +46,14 @@
               class="max-h-full"
               placeholder={{t "chat.nickname"}}
             />
-            <button
+            <input
               data-test-join-chat
-              {{on "click" this.enterChatAnonymously}}
               class="cool-button"
-              type="button"
+              type="submit"
               disabled={{this.disableJoinButton}}
               title={{t "chat.titles.enter"}}
+              value={{t "chat.join_anonymously"}}
             >
-              {{t "chat.join_anonymously"}}
-            </button>
             <Chat::EnableGifsButton @toggleGifs={{this.toggleGifsEnabled}} @enabled={{this.chat.gifsEnabled}} />
           </div>
           <div>
