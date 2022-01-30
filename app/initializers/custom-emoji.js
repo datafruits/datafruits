@@ -126,6 +126,14 @@ export function initialize(/* application */) {
       shortnames: [':lemoner:'],
       keywords: ['lemoner'],
     },
+    ':cabbage:': {
+      custom: true,
+      animated: true,
+      uc_base: 'cabbage',
+      uc_output: '',
+      shortnames: [':cabbage:'],
+      keywords: ['cabbage'],
+    },
     ':banaynay:': {
       custom: true,
       animated: true,
