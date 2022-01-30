@@ -63,13 +63,6 @@ export function initialize(/* application */) {
       shortnames: [':trash:', ':cooltrash:'],
       keywords: ['trash', 'cooltrash'],
     },
-    ':eatdis:': {
-      custom: true,
-      uc_base: 'eatdis',
-      uc_output: '',
-      shortnames: [':eatdis:'],
-      keywords: ['eatdis'],
-    },
     ':pizza_spin:': {
       custom: true,
       animated: true,
