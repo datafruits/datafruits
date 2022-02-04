@@ -280,6 +280,14 @@ export function initialize(/* application */) {
       shortnames: [':thisisamazing:'],
       keywords: ['thisisamazing'],
     },
+    ':sorrymustabeentheonionsaladdressing:': {
+      custom: true,
+      animated: true,
+      uc_base: 'sorrymustabeentheonionsaladdressing',
+      uc_output: '',
+      shortnames: [':sorrymustabeentheonionsaladdressing:'],
+      keywords: ['sorrymustabeentheonionsaladdressing'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
