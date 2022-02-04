@@ -30,6 +30,7 @@
       "datafruits13/*": [
         "app/*"
       ],
+      "@ember/destroyable": ["node_modules/ember-destroyable-polyfill"],
       "*": [
         "types/*"
       ]
