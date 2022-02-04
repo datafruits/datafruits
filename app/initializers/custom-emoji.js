@@ -272,6 +272,14 @@ export function initialize(/* application */) {
       shortnames: [':sshrimp_clear:'],
       keywords: ['sshrimp_clear'],
     },
+    ':thisisamazing:': {
+      custom: true,
+      animated: true,
+      uc_base: 'thisisamazing',
+      uc_output: '',
+      shortnames: [':thisisamazing:'],
+      keywords: ['thisisamazing'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
