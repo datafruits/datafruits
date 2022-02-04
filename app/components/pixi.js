@@ -95,62 +95,6 @@ export default class PixiComponent extends Component {
       backgroundAlpha: 0,
     });
 
-    const UPPER_LIMIT_Y = 10;
-    const UPPER_LIMIT_X = 2;
-    const LOWER_LIMIT_X = -2;
-    const MAX_SIZE = 2;
-    const MIN_SIZE = 0.25;
-    const AMOUNT = 1000;
-
-    // Reset particle start points based on screen
-    const reset = (p) => {
-      p.x = floored(this.app.renderer.width);
-      p.y = -(p.size + floored(this.app.renderer.height));
-      p.vy = floored(UPPER_LIMIT_Y) + 2;
-    };
-
-    // Update value by either subtracting to adding
-    const update = (p) => (Math.random() > 0.5 ? Math.max(LOWER_LIMIT_X, p - 1) : Math.min(p + 1, UPPER_LIMIT_X));
-
-    const floored = (v) => Math.floor(Math.random() * v);
-    // Generate a particle set based on a given texture
-    const genParticles = (t) =>
-      new Array(AMOUNT).fill().map((p) => {
-        const SIZE = floored(MAX_SIZE) + MIN_SIZE;
-        p = new PIXI.Sprite(t);
-        p.size = SIZE;
-        p.vx = floored(UPPER_LIMIT_X) - UPPER_LIMIT_X;
-        p.vy = floored(UPPER_LIMIT_Y) + 2;
-        p.alpha = Math.random();
-        p.x = p.startX = floored(this.app.renderer.width);
-        p.y = p.startY = -(SIZE + floored(this.app.renderer.height));
-        p.scale.x = 0.05;
-        p.scale.y = 0.05;
-        //p.tint = getRandomColor()
-        drops.addChild(p);
-        return p;
-      });
-
-    // Create particle container
-    const drops = new PIXI.ParticleContainer(1000, {
-      scale: true,
-      position: true,
-      rotation: true,
-      alpha: true,
-    });
-    this.app.stage.addChild(drops);
-
-    // Create a base graphic for our sprites
-    const p = new PIXI.Graphics();
-    p.beginFill(0xffffff);
-    p.drawCircle(0, 0, 100);
-    p.endFill();
-    // Generate a base texture from the base graphic
-    p.beginFill(0xffffff);
-    // Generate a base texture from the base graphic
-    const baseTexture = this.app.renderer.generateTexture(p);
-    let particles = genParticles(baseTexture);
-
     document.body.appendChild(this.app.view);
 
     this.app.renderer.resize(window.innerWidth, window.innerHeight);
@@ -191,17 +135,6 @@ export default class PixiComponent extends Component {
       let count = 0;
       // Animate the filter
       this.app.ticker.add((delta) => {
-        for (let particle of particles) {
-          if (particle.y > 0) particle.x += particle.vx;
-          particle.y += particle.vy;
-
-          if (Math.random() > 0.9) particle.vx = update(particle.vx);
-          // if (Math.random() > 0.9) particle.vy = Math.min(particle.vy + 1, UPPER_LIMIT_Y)
-          if (particle.x > this.app.renderer.width || particle.x < 0 || particle.y > this.app.renderer.height)
-            reset(particle);
-        }
-        this.app.renderer.render(drops);
-
         this.filter.uniforms.customUniform += delta;
 
         count += 0.02;
