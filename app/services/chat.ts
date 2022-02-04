@@ -1,40 +1,51 @@
 import Service, { inject as service } from '@ember/service';
-import { Presence } from 'phoenix';
+import { Presence, Channel } from 'phoenix';
 import { isDestroying, isDestroyed } from '@ember/destroyable';
 import { tracked } from '@glimmer/tracking';
+import SocketService from 'datafruits13/services/socket';
+import EventBusService from 'datafruits13/services/event-bus';
+import CurrentUserService from 'datafruits13/services/current-user';
+
+interface FruitCount {
+  [key: string]: number;
+}
 
 export default class ChatService extends Service {
-  @service socket;
-  @service session;
-  @service eventBus;
-  @service currentUser;
+  @service declare socket: SocketService;
+  @service declare session: any;
+  @service declare eventBus: EventBusService;
+  @service declare currentUser: CurrentUserService;
 
   @tracked presences = {};
-  @tracked messages = [];
-  @tracked joinedChat = false;
-  @tracked gifsEnabled = true;
-  @tracked token = '';
+  @tracked messages: Array<string> = [];
+  @tracked joinedChat: boolean = false;
+  @tracked gifsEnabled: boolean = true;
+  @tracked token: string = '';
 
-  @tracked isScrolledToBottom = true;
+  @tracked isScrolledToBottom: boolean = true;
 
-  @tracked _fruitCounts = {};
+  @tracked _fruitCounts: FruitCount = {};
 
-  setFruitCount(key, value) {
+  username: string = '';
+
+  chan: Channel;
+
+  setFruitCount(key: string, value: number) {
     this._fruitCounts[key] = value;
     this._fruitCounts = { ...this._fruitCounts };
   }
 
-  getFruitCount(key) {
+  getFruitCount(key: string) {
     return this._fruitCounts[key];
   }
 
-  join(username, token) {
+  join(username: string, token: string) {
     this.joinedChat = true;
     this.username = username;
     this.token = token;
   }
 
-  joinAndAuthorize(user, token) {
+  joinAndAuthorize(user: any, token: string) {
     this.joinedChat = true;
     this.username = user.username;
     this.token = token;
@@ -60,7 +71,7 @@ export default class ChatService extends Service {
     this.joinedChat = false;
   }
 
-  push(message, object) {
+  push(message: string, object: any) {
     this.chan.push(message, object);
   }
 
@@ -73,9 +84,6 @@ export default class ChatService extends Service {
 
     this.chan
       .join()
-      .receive('ignore', function () {
-        //return console.log("auth error");
-      })
       .receive('ok', () => {
         if (isDestroyed(this) || isDestroying(this)) return;
         if (this.session.isAuthenticated && this.currentUser.user) {
@@ -156,7 +164,7 @@ export default class ChatService extends Service {
       this.presences = Presence.syncDiff(presences, diff);
     });
 
-    this.chan.on('fruit_counts', (counts) => {
+    this.chan.on('fruit_counts', (counts: FruitCount) => {
       for (const [key, value] of Object.entries(counts)) {
         this.setFruitCount(key, value);
       }

@@ -1,6 +1,6 @@
 import Fruit from './fruit';
 
-const fruitTypes = [
+const fruitTypes: Array<Fruit> = [
   new Fruit('strawberry', '/assets/images/emojis/strawbur.gif'),
   new Fruit('orange', '/assets/images/emojis/orangey.gif'),
   new Fruit('lemon', '/assets/images/emojis/lemoner.gif'),
