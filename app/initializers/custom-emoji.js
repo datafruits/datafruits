@@ -288,6 +288,14 @@ export function initialize(/* application */) {
       shortnames: [':sorrymustabeentheonionsaladdressing:'],
       keywords: ['sorrymustabeentheonionsaladdressing'],
     },
+    ':greasyhotdogs:': {
+      custom: true,
+      animated: true,
+      uc_base: 'greasyhotdogs',
+      uc_output: '',
+      shortnames: [':greasyhotdogs:', ':greasyfries:', ':greasyonionrings:'],
+      keywords: ['greasyhotdogs'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
