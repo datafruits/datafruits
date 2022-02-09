@@ -1,3 +1,5 @@
+/* purgecss start ignore */
+
 @tailwind base;
 
 @import 'colors.scss';
@@ -442,3 +444,4 @@ canvas {
 }
 
 @tailwind utilities;
+/* purgecss end ignore */
