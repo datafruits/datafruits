@@ -22,7 +22,7 @@
     "lighthouse": "lhci autorun --config=config/lighthouserc.js"
   },
   "devDependencies": {
-    "@csstools/postcss-sass": "^4.0.0",
+    "@csstools/postcss-sass": "https://github.com/sinankeskin/postcss-sass",
     "@ember/optional-features": "^2.0.0",
     "@ember/render-modifiers": "^1.0.2",
     "@ember/test-helpers": "^2.6.0",
