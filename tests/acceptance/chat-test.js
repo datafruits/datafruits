@@ -1,12 +1,5 @@
 import { module, skip } from 'qunit';
-import {
-  visit,
-  currentURL,
-  fillIn,
-  click,
-  find,
-  findAll
-} from '@ember/test-helpers';
+import { visit, currentURL, fillIn, click, find, findAll } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
 module('Acceptance | chat', function (hooks) {
