@@ -55,15 +55,24 @@ export default class DatafruitsPlayer extends Component {
     return !isEmpty(title) && title.startsWith('LIVE');
   }
 
+  setPageTitle(){
+    console.log('in setPageTitle');
+    if (!this.fastboot.isFastBoot) {
+      document.title = `DATAFRUITS.FM - ${this.title}`;
+    }
+  }
+
   setRadioTitle() {
     if (this.playingPodcast === false) {
       this.title = this.metadata.title;
     }
+    this.setPageTitle();
   }
 
   onTrackPlayed(track) {
     this.error = null;
     this.title = track.title;
+    this.setPageTitle();
     this.playingPodcast = true;
     this.playTime = 0.0;
 
