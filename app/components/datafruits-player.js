@@ -55,7 +55,7 @@ export default class DatafruitsPlayer extends Component {
     return !isEmpty(title) && title.startsWith('LIVE');
   }
 
-  setPageTitle(){
+  setPageTitle() {
     if (!this.fastboot.isFastBoot) {
       document.title = `DATAFRUITS.FM - ${this.title}`;
     }
