@@ -296,6 +296,13 @@ export function initialize(/* application */) {
       shortnames: [':greasyhotdogs:', ':greasyfries:', ':greasyonionrings:'],
       keywords: ['greasyhotdogs'],
     },
+    ':iphone_girl:': {
+      custom: true,
+      uc_base: 'iphone_girl',
+      uc_output: '',
+      shortnames: [':iphone_girl:'],
+      keywords: ['iphone_girl'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
