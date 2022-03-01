@@ -1,3 +1,4 @@
+// snow from https://codepen.io/jh3y/pen/VdMBaR
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import * as PIXI from 'pixi.js';
@@ -13,7 +14,7 @@ export default class PixiComponent extends Component {
   sprites = [];
   animations = {};
 
-  fruits = ['strawberry', 'lemon', 'orange', 'banana', 'watermelon'];
+  fruits = ['strawberry', 'lemon', 'orange', 'banana', 'watermelon', 'cabbage'];
 
   constructor() {
     super(...arguments);
@@ -91,7 +92,7 @@ export default class PixiComponent extends Component {
     this.app = new PIXI.Application({
       autoResize: true,
       resolution: devicePixelRatio,
-      transparent: true,
+      backgroundAlpha: 0,
     });
 
     document.body.appendChild(this.app.view);
@@ -111,6 +112,7 @@ export default class PixiComponent extends Component {
     this.app.loader.add('lemon', '/assets/images/sprites/lemon.json');
     this.app.loader.add('banana', '/assets/images/sprites/banana.json');
     this.app.loader.add('watermelon', '/assets/images/sprites/watermelon.json');
+    this.app.loader.add('cabbage', '/assets/images/sprites/cabbage.json');
     this.app.loader.add('shader', '/assets/shaders/shader.frag');
 
     this.app.loader.add('stars', '/assets/images/sprites/stars.json');
@@ -124,6 +126,7 @@ export default class PixiComponent extends Component {
       this.animations.lemon = res.lemon.spritesheet.animations['lemon.webp'];
       this.animations.banana = res.banana.spritesheet.animations['banana.webp'];
       this.animations.watermelon = res.watermelon.spritesheet.animations['watermelon.webp'];
+      this.animations.cabbage = res.cabbage.spritesheet.animations['cabbage.webp'];
       this.animations.stars = res.stars.spritesheet.animations['stars'];
 
       // Resume application update

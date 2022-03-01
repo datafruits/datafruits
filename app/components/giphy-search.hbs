@@ -1,12 +1,14 @@
-<label for="giphy-search-term">{{t "chat.label.search"}}</label>
-<Input
-  @type="text"
-  @id="giphy-search-term"
-  name="giphy-search-term"
-  placeholder={{t "chat.search"}}
-  @autocomplete="off"
-  @value={{this.query}}
-/>
+<div class="mb-2">
+  <label for="giphy-search-term">{{t "chat.label.search"}}</label>
+  <Input
+    @type="text"
+    @id="giphy-search-term"
+    name="giphy-search-term"
+    placeholder={{t "chat.search"}}
+    autocomplete="off"
+    @value={{this.query}}
+  />
+</div>
 <GiphyLoader @query={{this.query}} as |loader|>
   {{#if loader.isRunning}}
     <p>{{t "loading"}}</p>

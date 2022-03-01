@@ -63,13 +63,6 @@ export function initialize(/* application */) {
       shortnames: [':trash:', ':cooltrash:'],
       keywords: ['trash', 'cooltrash'],
     },
-    ':eatdis:': {
-      custom: true,
-      uc_base: 'eatdis',
-      uc_output: '',
-      shortnames: [':eatdis:'],
-      keywords: ['eatdis'],
-    },
     ':pizza_spin:': {
       custom: true,
       animated: true,
@@ -132,6 +125,14 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':lemoner:'],
       keywords: ['lemoner'],
+    },
+    ':cabbage:': {
+      custom: true,
+      animated: true,
+      uc_base: 'cabbage',
+      uc_output: '',
+      shortnames: [':cabbage:'],
+      keywords: ['cabbage'],
     },
     ':banaynay:': {
       custom: true,
@@ -270,6 +271,37 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':sshrimp_clear:'],
       keywords: ['sshrimp_clear'],
+    },
+    ':thisisamazing:': {
+      custom: true,
+      animated: true,
+      uc_base: 'thisisamazing',
+      uc_output: '',
+      shortnames: [':thisisamazing:'],
+      keywords: ['thisisamazing'],
+    },
+    ':sorrymustabeentheonionsaladdressing:': {
+      custom: true,
+      animated: true,
+      uc_base: 'sorrymustabeentheonionsaladdressing',
+      uc_output: '',
+      shortnames: [':sorrymustabeentheonionsaladdressing:'],
+      keywords: ['sorrymustabeentheonionsaladdressing'],
+    },
+    ':greasyhotdogs:': {
+      custom: true,
+      animated: true,
+      uc_base: 'greasyhotdogs',
+      uc_output: '',
+      shortnames: [':greasyhotdogs:', ':greasyfries:', ':greasyonionrings:'],
+      keywords: ['greasyhotdogs'],
+    },
+    ':iphone_girl:': {
+      custom: true,
+      uc_base: 'iphone_girl',
+      uc_output: '',
+      shortnames: [':iphone_girl:'],
+      keywords: ['iphone_girl'],
     },
   };
 

@@ -1,6 +1,3 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 
-export default class GiphySearch extends Component {
-  @tracked query;
-}
+export default class GiphySearch extends Component {} // eslint-disable-line ember/no-empty-glimmer-component-classes
