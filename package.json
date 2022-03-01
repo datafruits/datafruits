@@ -86,7 +86,7 @@
     "ember-cli-fastboot": "^2.2.3",
     "ember-cli-htmlbars": "^6.0.1",
     "ember-cli-inject-live-reload": "2.1.0",
-    "ember-cli-meta-tags": "^6.0.0",
+    "ember-cli-meta-tags": "^6.2.0",
     "ember-cli-mirage": "^1.1.6",
     "ember-cli-netlify": "^0.4.1",
     "ember-cli-new-version": "^2.0.2",
