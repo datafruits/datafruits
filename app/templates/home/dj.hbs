@@ -24,15 +24,7 @@
   <h2>
     {{t "dj.podcasts"}}
   </h2>
-  {{#each this.model.tracks as |track|}}
-    <PodcastTrack
-      @cdnUrl={{track.cdnUrl}}
-      @title={{track.title}}
-      @labels={{track.labels}}
-      @scheduledShow={{track.scheduledShow}}
-      @selectLabel={{this.browseLabel}}
-    />
-  {{/each}}
+  <Djs::Tracks @dj={{this.model}} @page={{this.router.currentRoute.queryParams.page}} />
 </div>
 <div class="row">
   {{#each this.model.link as |link|}}
