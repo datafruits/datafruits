@@ -8,4 +8,8 @@ export default class ScheduledShow extends ApplicationAdapter {
       return `${this.urlPrefix()}/scheduled_shows/next`;
     }
   }
+
+  urlForFindRecord(id, _modelName, _snapshot) {
+    return `${this.urlPrefix()}/api/scheduled_shows/${id}`;
+  }
 }

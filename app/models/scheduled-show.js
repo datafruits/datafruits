@@ -26,6 +26,9 @@ export default class ScheduledShow extends Model {
   @attr()
   hostedBy;
 
+  @attr()
+  slug;
+
   @hasMany('track')
   tracks;
 
