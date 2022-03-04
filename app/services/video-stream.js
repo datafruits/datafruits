@@ -8,6 +8,9 @@ export default class VideoStreamService extends Service {
   @service
   rollbar;
 
+  @service
+  eventBus;
+
   constructor() {
     super(...arguments);
     this.streamHost = ENV.STREAM_HOST;
@@ -101,6 +104,10 @@ export default class VideoStreamService extends Service {
     }
   }
 
+  unmute() {
+    this.player.unmute(); // >>>???
+  }
+
   streamIsActive(name, extension) {
     this.active = true;
     this.streamName = name;
@@ -115,13 +122,15 @@ export default class VideoStreamService extends Service {
         if (response.status == 200) {
           this.streamIsActive(`${name}`, 'm3u8');
         } else {
-          //no m3u8 exists, try vod file
-
-          fetch(`${host}/hls/${name}.mp4`, { method: 'HEAD' })
+          //
+          // fetch /live here
+          fetch(`${host}/live/${name}.mp4`, { method: 'HEAD' })
             .then((response) => {
               if (response.status == 200) {
                 //mp4 exists, play it
                 this.streamIsActive(name, 'mp4');
+                // send some event bus event about /live being .... live
+                this.eventBus.publish('liveVideoAudio');
               } else {
                 if (ENV.environment === 'test') return;
                 console.log('No stream found'); // eslint-disable-line no-console

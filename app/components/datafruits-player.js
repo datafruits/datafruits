@@ -28,6 +28,7 @@ export default class DatafruitsPlayer extends Component {
   @tracked oldVolume = 0.8;
   @tracked playTime = 0.0;
   @tracked volume = 1.0;
+  @tracked videoAudioOn = false;
 
   get paused() {
     return this.playerState === 'paused';
@@ -45,6 +46,8 @@ export default class DatafruitsPlayer extends Component {
     super(...arguments);
     this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
     this.eventBus.subscribe('metadataUpdate', this, 'setRadioTitle');
+    this.eventBus.subscribe('liveVideoAudio', this, 'useVideoAudio');
+
     if (!this.fastboot.isFastBoot) {
       this.volume = localStorage.getItem('datafruits-volume') || 0.8;
     }
@@ -78,6 +81,19 @@ export default class DatafruitsPlayer extends Component {
     let audioTag = document.getElementById('radio-player');
     audioTag.src = track.cdnUrl;
     audioTag.play();
+  }
+
+  useVideoAudio() {
+    this.error = null;
+    this.videoAudioOn = true;
+    // what to use for title??????
+    //this.title = track.title;
+    //this.setPageTitle();
+
+    let audioTag = document.getElementById('radio-player');
+    audioTag.mute();
+    //unmute video's audio
+    this.videoStream.unmute();
   }
 
   @action
