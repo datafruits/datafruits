@@ -110,7 +110,11 @@ export default class VideoStreamService extends Service {
   }
 
   unmute() {
-    this.player.muted(false); // >>>???
+    this.player.muted(false);
+  }
+
+  setVolume(vol) {
+    this.player.volume(vol);
   }
 
   streamIsActive(name, extension, path) {
