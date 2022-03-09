@@ -89,6 +89,9 @@ export default class VideoStreamService extends Service {
     this.player = null;
     this.useVideoAudio = false;
     this.eventBus.publish('liveVideoAudioOff');
+    later(() => {
+      this.fetchStream();
+    }, 1000);
   }
 
   play() {
