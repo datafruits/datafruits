@@ -87,21 +87,16 @@ export default class DatafruitsPlayer extends Component {
   useVideoAudio() {
     this.error = null;
     this.videoAudioOn = true;
-    // what to use for title??????
-    //this.title = track.title;
-    //this.setPageTitle();
 
     let audioTag = document.getElementById('radio-player');
     audioTag.muted = true;
-    //unmute video's audio
     this.videoStream.unmute();
   }
 
   disableVideoAudio() {
-    console.log('disabling video audio');
     this.videoAudioOn = false;
     let audioTag = document.getElementById('radio-player');
-    audioTag.muted = true;
+    audioTag.muted = false;
   }
 
   @action
