@@ -18,6 +18,7 @@ export default class VideoStreamService extends Service {
   }
 
   @tracked active = false;
+  @tracked useVideoAudio = false;
 
   async initializePlayer() {
     const module = await import('video.js');
@@ -65,8 +66,9 @@ export default class VideoStreamService extends Service {
         promise
           .then(() => {
             console.log('video autoplayed'); // eslint-disable-line no-console
-            // send some event bus event about /live being .... live
-            this.eventBus.publish('liveVideoAudio');
+            if(this.useVideoAudio) {
+              this.eventBus.publish('liveVideoAudio');
+            }
             player.userActive(false);
           })
           .catch((error) => {
@@ -79,10 +81,14 @@ export default class VideoStreamService extends Service {
     });
   }
 
-  errorHandler(/*event*/) {
+  errorHandler(event) {
+    console.log('in errorHandler');
+    console.log(event);
     this.active = false;
     this.player.dispose();
     this.player = null;
+    this.useVideoAudio = false;
+    this.eventBus.publish('liveVideoAudioOff');
   }
 
   play() {
@@ -93,8 +99,9 @@ export default class VideoStreamService extends Service {
         promise
           .then(() => {
             console.log('video played'); // eslint-disable-line no-console
-            // send some event bus event about /live being .... live
-            this.eventBus.publish('liveVideoAudio');
+            if(this.useVideoAudio) {
+              this.eventBus.publish('liveVideoAudio');
+            }
             player.userActive(false);
           })
           .catch((error) => {
@@ -113,6 +120,10 @@ export default class VideoStreamService extends Service {
     this.player.muted(false);
   }
 
+  mute() {
+    this.player.muted(true);
+  }
+
   setVolume(vol) {
     this.player.volume(vol);
   }
@@ -122,6 +133,9 @@ export default class VideoStreamService extends Service {
     this.streamName = name;
     this.extension = extension;
     this.path = path;
+    if (path === 'live') {
+      this.useVideoAudio = true;
+    }
   }
 
   fetchStream() {
