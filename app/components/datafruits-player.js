@@ -91,7 +91,7 @@ export default class DatafruitsPlayer extends Component {
     //this.setPageTitle();
 
     let audioTag = document.getElementById('radio-player');
-    audioTag.mute();
+    audioTag.muted = true;
     //unmute video's audio
     this.videoStream.unmute();
   }

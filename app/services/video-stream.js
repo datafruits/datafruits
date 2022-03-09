@@ -24,10 +24,11 @@ export default class VideoStreamService extends Service {
     const videojs = module.default;
     let name = this.streamName;
     let extension = this.extension;
+    let path = this.path;
     run(() => {
       let type;
       let host = this.streamHost;
-      let streamUrl = `${host}/hls/${name}.${extension}`;
+      let streamUrl = `${host}/${path}/${name}.${extension}`;
       if (extension == 'mp4') {
         type = 'video/mp4';
       } else if (extension == 'm3u8') {
@@ -64,13 +65,15 @@ export default class VideoStreamService extends Service {
         promise
           .then(() => {
             console.log('video autoplayed'); // eslint-disable-line no-console
+            // send some event bus event about /live being .... live
+            this.eventBus.publish('liveVideoAudio');
             player.userActive(false);
           })
           .catch((error) => {
             // Autoplay was prevented.
             console.log(`video autoplay failed: ${error}`); // eslint-disable-line no-console
             player.userActive(false);
-            this.rollbar.error(`video autoplay failed: ${error}`);
+            //this.rollbar.error(`video autoplay failed: ${error}`);
           });
       }
     });
@@ -90,13 +93,15 @@ export default class VideoStreamService extends Service {
         promise
           .then(() => {
             console.log('video played'); // eslint-disable-line no-console
+            // send some event bus event about /live being .... live
+            this.eventBus.publish('liveVideoAudio');
             player.userActive(false);
           })
           .catch((error) => {
             // Autoplay was prevented.
             console.log(`video play failed: ${error}`); // eslint-disable-line no-console
             player.userActive(false);
-            this.rollbar.error(`video autoplay failed: ${error}`);
+            //this.rollbar.error(`video autoplay failed: ${error}`);
           });
       }
     } else {
@@ -105,13 +110,14 @@ export default class VideoStreamService extends Service {
   }
 
   unmute() {
-    this.player.unmute(); // >>>???
+    this.player.muted(false); // >>>???
   }
 
-  streamIsActive(name, extension) {
+  streamIsActive(name, extension, path) {
     this.active = true;
     this.streamName = name;
     this.extension = extension;
+    this.path = path;
   }
 
   fetchStream() {
@@ -120,17 +126,16 @@ export default class VideoStreamService extends Service {
     fetch(`${host}/hls/${name}.m3u8`, { method: 'HEAD' })
       .then((response) => {
         if (response.status == 200) {
-          this.streamIsActive(`${name}`, 'm3u8');
+          this.streamIsActive(`${name}`, 'm3u8', 'hls');
         } else {
           //
           // fetch /live here
-          fetch(`${host}/live/${name}.mp4`, { method: 'HEAD' })
+          console.log('hls not found, trying to fetch /live');
+          fetch(`${host}/live/${name}.m3u8`, { method: 'HEAD' })
             .then((response) => {
               if (response.status == 200) {
                 //mp4 exists, play it
-                this.streamIsActive(name, 'mp4');
-                // send some event bus event about /live being .... live
-                this.eventBus.publish('liveVideoAudio');
+                this.streamIsActive(name, 'm3u8', 'live');
               } else {
                 if (ENV.environment === 'test') return;
                 console.log('No stream found'); // eslint-disable-line no-console
