@@ -135,7 +135,7 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   pause() {
-    if(this.videoAudioOn) {
+    if (this.videoAudioOn) {
       this.videoStream.mute();
     } else {
       let audioTag = document.getElementById('radio-player');
