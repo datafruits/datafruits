@@ -28,6 +28,7 @@ export default class DatafruitsPlayer extends Component {
   @tracked oldVolume = 0.8;
   @tracked playTime = 0.0;
   @tracked volume = 1.0;
+  @tracked videoAudioOn = false;
 
   get paused() {
     return this.playerState === 'paused';
@@ -45,6 +46,9 @@ export default class DatafruitsPlayer extends Component {
     super(...arguments);
     this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
     this.eventBus.subscribe('metadataUpdate', this, 'setRadioTitle');
+    this.eventBus.subscribe('liveVideoAudio', this, 'useVideoAudio');
+    this.eventBus.subscribe('liveVideoAudioOff', this, 'disableVideoAudio');
+
     if (!this.fastboot.isFastBoot) {
       this.volume = localStorage.getItem('datafruits-volume') || 0.8;
     }
@@ -78,6 +82,21 @@ export default class DatafruitsPlayer extends Component {
     let audioTag = document.getElementById('radio-player');
     audioTag.src = track.cdnUrl;
     audioTag.play();
+  }
+
+  useVideoAudio() {
+    this.error = null;
+    this.videoAudioOn = true;
+
+    let audioTag = document.getElementById('radio-player');
+    audioTag.muted = true;
+    this.videoStream.unmute();
+  }
+
+  disableVideoAudio() {
+    this.videoAudioOn = false;
+    let audioTag = document.getElementById('radio-player');
+    audioTag.muted = false;
   }
 
   @action
@@ -116,16 +135,24 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   pause() {
-    let audioTag = document.getElementById('radio-player');
-    audioTag.pause();
+    if (this.videoAudioOn) {
+      this.videoStream.mute();
+    } else {
+      let audioTag = document.getElementById('radio-player');
+      audioTag.pause();
+    }
     this.playButtonPressed = false;
     this.playerState = 'paused';
   }
 
   @action
   mute() {
-    let audioTag = document.getElementById('radio-player');
-    audioTag.muted = true;
+    if (this.videoAudioOn) {
+      this.videoStream.mute();
+    } else {
+      let audioTag = document.getElementById('radio-player');
+      audioTag.muted = true;
+    }
     this.muted = true;
     this.oldVolume = this.volume;
     this.volume = 0.0;
@@ -134,8 +161,12 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   unmute() {
-    let audioTag = document.getElementById('radio-player');
-    audioTag.muted = false;
+    if (this.videoAudioOn) {
+      this.videoStream.unmute();
+    } else {
+      let audioTag = document.getElementById('radio-player');
+      audioTag.muted = false;
+    }
     this.muted = false;
     this.volume = this.oldVolume;
     localStorage.setItem('datafruits-volume', this.volume);
@@ -161,8 +192,12 @@ export default class DatafruitsPlayer extends Component {
   volumeChanged(e) {
     this.volume = e.target.value;
     localStorage.setItem('datafruits-volume', this.volume);
-    let audioTag = document.getElementById('radio-player');
-    audioTag.volume = this.volume;
+    if (this.videoAudioOn) {
+      this.videoStream.setVolume(this.volume);
+    } else {
+      let audioTag = document.getElementById('radio-player');
+      audioTag.volume = this.volume;
+    }
   }
 
   @action
