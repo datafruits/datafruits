@@ -1,13 +1,15 @@
-import classic from 'ember-classic-decorator';
+import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import { action } from '@ember/object';
 import { task, timeout } from 'ember-concurrency';
+import { tracked } from '@glimmer/tracking';
 
-@classic
 export default class GiphyLoader extends Component {
-  didReceiveAttrs() {
-    let query = this.query;
-    this.fetchData.perform(query);
+  @tracked data;
+
+  @action
+  fetchGifs() {
+    this.fetchData.perform(this.args.query);
   }
 
   @service
@@ -15,9 +17,10 @@ export default class GiphyLoader extends Component {
 
   @(task(function* (query) {
     yield timeout(1000);
+    // need to debounce here ???
     let gifs = this.store.query('gif', { query });
     let resolvedGifs = yield gifs;
-    return this.set('data', resolvedGifs);
+    this.data = resolvedGifs;
   }).restartable())
   fetchData;
 }

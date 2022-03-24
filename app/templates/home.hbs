@@ -1,31 +1,21 @@
 <section class="h-handle-resize flex flex-col justify-between">
   <div class="flex classic:bg-df-pink blm:bg-black trans:bg-df-blue pb-2">
     <PcNav
-      @toggleSubMenu={{action "toggleSubMenu"}}
+      @toggleSubMenu={{this.toggleSubMenu}}
       @submenuOpen={{this.submenuOpen}}
+      @toggleUserMenu={{this.toggleUserMenu}}
     />
     <SpNav
-      @toggleMenu={{action "toggleMenu"}}
+      @toggleMenu={{this.toggleMenu}}
+      @toggleUserMenu={{this.toggleUserMenu}}
       @menuOpen={{this.menuOpen}} />
-    {{#if this.session.isAuthenticated}}
-      <ul class="px-4 py-4 font-semibold text-3xl">
-        <li class="">
-          <a href="#" class="" role="button" {{on "click" this.toggleUserMenu}}>
-            {{this.currentUser.user.username}}
-          </a>
-        </li>
-      </ul>
-    {{else}}
-      <LinkTo
-        aria-label={{t "home.aria"}}
-        @route="home.index">
-        <h1 class="logo font-debussy text-5xl text-white">
-          {{t "site_title_fm"}}
-        </h1>
-      </LinkTo>
-    {{/if}}
   </div>
-  <UserMenu @showing={{this.isShowingUserMenu}} @toggleUserMenu={{this.toggleUserMenu}} />
+  <UserMenu
+    @showing={{this.isShowingUserMenu}}
+    @toggleUserMenu={{this.toggleUserMenu}} />
+  <NewVersionNotifier
+    @updateMessage="A new version of datafruits was released: {newVersion}"
+  />
   <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow relative">
     {{outlet}}
     <DatafruitsVisuals
@@ -35,16 +25,18 @@
   <DatafruitsPlayer
     class="flex-col flex justify-center classic:bg-df-pink blm:bg-black trans:bg-df-blue text-xl py-2 text-white leading-none"
     >
-    <DjDonateButton class="hidden md:block mr-2" />
-    <div class="text-sm">
+
+    <DjDonateModal class="hidden md:block mr-2" />
+
+    <div class="text-sm text-white hidden md:block">
       <ThemeSelector
-        class="text-white hidden md:block"
+        class="text-white"
         @setTheme={{action "setTheme"}}
       />
       <LocaleSelector
         class="text-white hidden md:block mt-1"
-        @selectedLocale={{locale.value}}
-        @setLocale={{action "setLocale"}}
+        @selectedLocale={{this.locale.value}}
+        @setLocale={{this.setLocale}}
       />
     </div>
   </DatafruitsPlayer>
@@ -52,9 +44,9 @@
     <AddDatafruit />
   </div>
 </section>
-<Notifications />
-<WindowResizeHandler />
 {{#if (not this.fastboot.isFastBoot)}}
+  <Notifications />
+  <WindowResizeHandler />
   {{#if this.showingPixi}}
     <Pixi />
   {{/if}}

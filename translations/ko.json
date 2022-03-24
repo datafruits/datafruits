@@ -1,4 +1,5 @@
 {
+  "meow": "야옹",
   "home": {
     "upcoming_shows": "다음 스케줄",
     "latest_podcasts": "최신 아카이브",
@@ -46,6 +47,11 @@
     "username_exists": "This username has been taken.",
     "nice": "나이스 입니다"
   },
+  "profile": {
+    "style": "스타일",
+    "submit": "보존",
+    "pronouns": "성별 대명사"
+  },
   "usermenu": {
     "settings": "Settings",
     "logout": "Logout"
@@ -80,7 +86,7 @@
     "interval": "매일, 매주, 격주 또는 매월 제 방송하는 것은 어떻습니까?",
     "time": "원하는 시간은 무엇입니까?",
     "other": "다른 질문이나 코멘트",
-    "error": "エラーが発行されました。もう一度送信してみて下さい。",
+    "error": "에러가 발행 되었습니다.한번 더 송신해 보세요.",
     "thanks": "감사합니다!"
   },
   "player": {
@@ -94,7 +100,7 @@
       "now_playing": "지금 녹음 재생"
     }
   },
-  "locale": "장소",
+  "locale": "언어",
   "theme": { "label": "테마" },
   "just_a_website": "그냥 웹 사이트 일뿐입니다.",
   "about_datafruits": "국제적인 음악 커뮤니티를 위한 국제적인 음악 커뮤니티에 의한 인디펜던트 라디오.datafruits는 오픈 소스이며, 다양한 경계와 장르를 파괴한다.우리는 어떤 곡이든 쓸 수 있어요.서비스가 미흡해 주변에 내몰리는 커뮤니티를 재조명하고 이들로부터 발신되는 음악을 나누는 데 수고를 아끼지 않는다.사용자에게 도움이 되는 플랫폼은 그 플랫폼의 이용자와 DJ와 청취자에 의해 소유되고 운영되는 것과 다름없다고 우리는 생각합니다!",

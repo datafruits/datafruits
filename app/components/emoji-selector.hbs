@@ -1,0 +1,75 @@
+<span class="relative">
+  <button
+    class="cool-button"
+    type="button"
+    {{on "click" this.openGifDialog}}
+    >
+    GIF
+  </button>
+  <button
+    class="cool-button fruit-tip-button text-xl font-black"
+    type="button"
+    style="padding: 0.1em !important;"
+    {{on "click" this.openFruittipDialog}}
+    >
+    <span class="flex">
+      <img src="{{this.randomFruitImage}}" style="height: 3ex !important;" >
+      <h1>{{this.fruitCountTotal}}</h1>
+    </span>
+  </button>
+  <button
+    class="cool-button"
+    type="button"
+    {{on "click" this.openEmojiDialog}}
+    >
+    {{this.smileEmoji}}
+  </button>
+    {{#if this.dialogOpen}}
+      <ModalDialog
+        @onClose={{this.closeDialog}}
+        @hasOverlay={{false}}
+        @clickOutsideToClose={{true}}
+        >
+        <div class="p-2 border-white border-4 border-solid bg-df-blue overflow-scroll emoji-selector-dialog">
+          <div class="flex-row flex justify-between">
+            <button
+              type="button"
+              {{on "click" this.openGifDialog}}
+              >
+              GIF
+            </button>
+            <button
+              class="cool-button fruit-tip-button text-xl font-black"
+              type="button"
+              style="padding: 0.1em !important;"
+              {{on "click" this.openFruittipDialog}}
+              >
+              <span class="flex">
+                <img src="{{this.randomFruitImage}}" style="height: 3ex !important;" >
+                <h1>{{this.fruitCountTotal}}</h1>
+              </span>
+            </button>
+            <button
+              type="button"
+              {{on "click" this.openEmojiDialog}}
+              >
+              {{this.smileEmoji}}
+            </button>
+          </div>
+          {{#if (eq this.currentTab "gif")}}
+            <EmojiSelector::Gif
+              @closeDialog={{this.closeDialog}}
+              @sendGif={{@sendGif}}
+            />
+          {{else if (eq this.currentTab "fruitTip")}}
+            <EmojiSelector::FruitTip />
+          {{else if (eq this.currentTab "emoji")}}
+            <EmojiSelector::Emoji
+              @closeDialog={{this.closeDialog}}
+              @sendEmoji={{@sendEmoji}}
+            />
+          {{/if}}
+      </div>
+    </ModalDialog>
+  {{/if}}
+</span>

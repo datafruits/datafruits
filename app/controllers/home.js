@@ -13,6 +13,9 @@ export default class HomeController extends Controller {
   intl;
 
   @service
+  theme;
+
+  @service
   router;
 
   @service
@@ -45,18 +48,13 @@ export default class HomeController extends Controller {
   }
 
   @action
-  setLocale(locale) {
-    this.set('intl.locale', locale);
+  setLocale(event) {
+    this.set('intl.locale', event.target.value);
   }
 
   @action
   setTheme(theme) {
-    let element = document.getElementsByTagName('html')[0];
-    let currentTheme = `theme-${localStorage.getItem('datafruits-theme') || 'classic'}`;
-    element.classList.remove(currentTheme);
-    let themeName = `theme-${theme}`;
-    element.classList.add(themeName);
-    localStorage.setItem('datafruits-theme', theme);
+    this.theme.setTheme(theme);
   }
 
   @action

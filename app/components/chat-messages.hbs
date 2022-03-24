@@ -1,0 +1,16 @@
+<ul
+  class="overflow-y-scroll w-screen border-none md:border-r-2 border-white border-solid"
+  id="messages"
+  {{did-insert this.addListener}}
+  {{will-destroy this.removeListener}}
+  >
+    {{#each @messages as |message|}}
+    <ChatMessage
+      @message={{message}}
+      @gifsEnabled={{@gifsEnabled}}
+      @newMessagesAvailable={{@newMessagesAvailable}}
+      @setupAutoscroll={{this.setupAutoscroll}}
+      @adjustScrolling={{this.adjustScrolling}}
+    />
+  {{/each}}
+</ul>

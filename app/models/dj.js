@@ -23,6 +23,12 @@ export default class Dj extends Model {
   @attr()
   bio;
 
+  @attr()
+  style;
+
+  @attr()
+  pronouns;
+
   @hasMany('link')
   links;
 

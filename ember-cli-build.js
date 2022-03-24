@@ -1,6 +1,21 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const urlFinder = require('./urlFinder.js');
+const isProduction = EmberApp.env() === 'production';
+
+const purgeCSS = {
+  module: require('@fullhuman/postcss-purgecss'),
+  options: {
+    content: [
+      // add extra paths here for components/controllers which include tailwind classes
+      './app/index.html',
+      './app/templates/**/*.hbs',
+      './app/components/**/*.hbs',
+    ],
+    defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/.]+/g) || [],
+  },
+};
 
 module.exports = function (defaults) {
   var fingerprintOptions = {
@@ -8,7 +23,16 @@ module.exports = function (defaults) {
     exclude: ['assets/images/emojis/*', 'assets/images/sprites/*'],
   };
 
-  var app = new EmberApp(defaults, {
+  let app = new EmberApp(defaults, {
+    newVersion: {
+      enabled: true,
+      useAppVersion: true,
+    },
+
+    prember: {
+      urls: urlFinder,
+    },
+
     // Add options here
     fingerprint: fingerprintOptions,
 
@@ -52,6 +76,7 @@ module.exports = function (defaults) {
             },
           },
           require('tailwindcss')('./app/tailwind/config.js'),
+          ...(isProduction ? [purgeCSS] : []),
         ],
       },
     },

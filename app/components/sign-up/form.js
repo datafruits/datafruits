@@ -6,6 +6,7 @@ import { debounce } from '@ember/runloop';
 
 export default class SignUpFormComponent extends Component {
   @tracked cocAccepted = false;
+  @tracked minAge = false;
 
   @service
   session;
@@ -15,6 +16,9 @@ export default class SignUpFormComponent extends Component {
 
   @service
   currentUser;
+
+  @service
+  chat;
 
   get emailExists() {
     let changeset = this.args.changeset;
@@ -55,7 +59,7 @@ export default class SignUpFormComponent extends Component {
   }
 
   get everythingLooksNice() {
-    return this.args.changeset.isValid && !this.args.changeset.isSaving && this.cocAccepted;
+    return this.args.changeset.isValid && !this.args.changeset.isSaving && this.cocAccepted && this.minAge;
   }
 
   _updateEmail() {
@@ -99,7 +103,10 @@ export default class SignUpFormComponent extends Component {
             return this.session
               .authenticate('authenticator:devise', nick, pass)
               .then(() => {
-                return true;
+                this.currentUser.load().then(() => {
+                  this.chat.join(this.currentUser.user.username, this.session.data.authenticated.token);
+                  return true;
+                });
               })
               .catch((reason) => {
                 console.log(reason); // eslint-disable-line no-console

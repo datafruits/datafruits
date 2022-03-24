@@ -16,7 +16,7 @@ module('Integration | Component | podcast track', function (hooks) {
 
     await render(hbs`{{podcast-track cdn_url=cdn_url title=title}}`);
 
-    assert.equal(this.element.textContent.trim().includes('▶︎'), true);
-    assert.equal(this.element.textContent.trim().includes('cool track'), true);
+    assert.true(this.element.textContent.trim().includes('▶︎'));
+    assert.true(this.element.textContent.trim().includes('cool track'));
   });
 });

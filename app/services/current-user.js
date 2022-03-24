@@ -1,6 +1,4 @@
-import Service from '@ember/service';
-import { inject as service } from '@ember/service';
-import { resolve } from 'rsvp';
+import Service, { inject as service } from '@ember/service';
 
 export default class CurrentUserService extends Service {
   @service
@@ -9,13 +7,17 @@ export default class CurrentUserService extends Service {
   @service
   store;
 
-  load() {
+  async load() {
     if (this.session.isAuthenticated) {
-      return this.store.queryRecord('user', { me: true }).then((user) => {
-        this.set('user', user);
-      });
-    } else {
-      return resolve();
+      // use existing record if its already loaded
+      let user = this.store.peekRecord('user', this.session.data.authenticated.user_id || '');
+      if (user) {
+        this.user = user;
+      } else {
+        // otherwise we need to get it from the API
+        user = await this.store.queryRecord('user', { me: true });
+        this.user = user;
+      }
     }
   }
 }

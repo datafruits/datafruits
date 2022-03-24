@@ -1,0 +1,11 @@
+{{#each this.customEmojis as |emoji|}}
+  <button
+    type="button"
+    {{on "click" (fn this.closeDialogAndSendEmoji emoji.shortname)}}
+    >
+    <img
+      width="24"
+      alt={{emoji.shortname}}
+      src={{emoji-url emoji}} />
+  </button>
+{{/each}}

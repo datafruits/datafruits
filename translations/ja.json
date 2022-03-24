@@ -1,4 +1,8 @@
 {
+  "meow": "にゃー",
+  "settings": {
+    "title": "サイト設定"
+  },
   "home": {
     "upcoming_shows": "近日放送予定",
     "latest_podcasts": "最新のアーカイブ",
@@ -35,6 +39,11 @@
     "login": "ログイン",
     "username": "username",
     "password": "パスワード"
+  },
+  "profile": {
+    "style": "スタイル",
+    "submit": "保存",
+    "pronouns": "性別代名詞"
   },
   "usermenu": {
     "settings": "設定",
@@ -106,14 +115,14 @@
     "aria": {
       "play": "再生",
       "volume": "ボリューム",
-      "stop": "중지",
-      "mute": "음소거",
-      "unmute": "음소거 해제",
+      "stop": "止まれ",
+      "mute": "ミュート",
+      "unmute": "ミュート解除",
       "return_to_live": "ライブストリームに戻る",
       "now_playing": "録音を再生しています"
     }
   },
-  "locale": "ロケール",
+  "locale": "言語",
   "theme": { "label": "テーマ" },
   "donate": "寄付する"
 }

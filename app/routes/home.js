@@ -35,7 +35,7 @@ export default class HomeRoute extends Route {
       }
       language = locales.includes(language.toLowerCase()) ? language : 'en';
 
-      this.set('intl.locale', language);
+      this.intl.locale = language;
     }
   }
 
@@ -45,7 +45,12 @@ export default class HomeRoute extends Route {
     super.call(this, ...arguments);
   }
 
-  _loadCurrentUser() {
-    return this.currentUser.load().catch(() => this.session.invalidate());
+  async _loadCurrentUser() {
+    try {
+      await this.currentUser.load();
+    } catch (err) {
+      console.log(err); // eslint-disable-line no-console
+      await this.session.invalidate();
+    }
   }
 }

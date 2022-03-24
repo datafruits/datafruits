@@ -1,3 +1,5 @@
+/* purgecss start ignore */
+
 @tailwind base;
 
 @import 'colors.scss';
@@ -5,8 +7,6 @@
 @import 'loading-spinner.scss';
 @import 'container.scss';
 @import 'stripe-animation.scss';
-
-@import 'font-awesome';
 
 @import 'ember-modal-dialog/ember-modal-structure';
 @import 'ember-modal-dialog/ember-modal-appearance';
@@ -20,6 +20,7 @@
   src: url('/vendor/hinted-Debussy.woff2') format('woff2'), url('/vendor/hinted-Debussy.woff') format('woff');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 /* animations seem annoying to do in tailwind without some kind of plugin... */
@@ -135,6 +136,9 @@
 }
 
 .cool-button {
+  & img.emojione {
+    height: 2ex !important;
+  }
   &:hover,
   &:focus {
     @apply bg-df-blue-dark;
@@ -186,10 +190,18 @@ input {
 
 .visuals {
   z-index: -999;
-  video {
+/*  video {
     width: 100% !important;
     height: 100% !important;
-    @apply absolute left-0 object-fill;
+    @apply absolute left-0 object-fill; */
+  @apply absolute left-0 top-0;
+  .video-js {
+    width: 100vw !important;
+    video {
+      width: 100vw !important;
+      height: 100vh !important;
+      @apply absolute left-0 object-cover;
+    }
   }
 }
 
@@ -425,4 +437,19 @@ canvas {
   background: salmon; /* Gecko Browsers */
 }
 
+.update-notification {
+  @include stripe-animation;
+  color: white;
+  font-weight: bold;
+  animation: bounce linear 200ms;
+}
+
+.emoji-selector-dialog {
+  // top: -265px;
+  // left: 0;
+  width: 300px;
+  height: 250px;
+}
+
 @tailwind utilities;
+/* purgecss end ignore */

@@ -20,13 +20,12 @@ export default class IndexRoute extends Route {
       page: 1,
     });
     return hash({
-      upcomingShows: this.store.query('scheduled-show', query).then((shows) => {
+      upcomingShows: this.store.loadRecords('scheduled-show', query).then((shows) => {
         return shows.slice(0, 6);
       }),
       latestPodcasts: podcast.get('tracks').then((tracks) => {
         return tracks.slice(0, 6);
       }),
-      blogPosts: this.store.findAll('blogPost'),
     });
   }
 
