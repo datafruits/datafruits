@@ -1,14 +1,14 @@
 import classic from 'ember-classic-decorator';
 import { action } from '@ember/object';
 import Controller from '@ember/controller';
-import { inject as service  } from '@ember/service';
+import { inject as service } from '@ember/service';
 
 @classic
 export default class DjController extends Controller {
   @service currentUser;
   @service store;
 
-  get following(){
+  get following() {
     return this.currentUser.user.followingUser(this.model);
   }
 
@@ -18,14 +18,18 @@ export default class DjController extends Controller {
   }
 
   @action
-  followUser(followee) {
-    this.store.createRecord('userFollow', {
-      user: this.currentUser;
-      followee: followee;
-    }).then(() => {
-      console.log('faved ya ');
-    }).catch((error) => {
-      console.log(`oh no error: ${error}`);
+  followUser() {
+    let userFollow = this.store.createRecord('userFollow', {
+      user: this.currentUser.user,
+      followee: this.model,
     });
+    userFollow
+      .save()
+      .then(() => {
+        console.log('faved ya ');
+      })
+      .catch((error) => {
+        console.log(`oh no error: ${error}`);
+      });
   }
 }

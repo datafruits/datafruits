@@ -16,8 +16,8 @@ export default class UserModel extends Model {
   @attr()
   avatarUrl;
 
-  @hasMany('userFollows')
-  userFollow;
+  @hasMany('user-follow')
+  userFollows;
 
   @attr('file')
   avatar;
@@ -30,4 +30,8 @@ export default class UserModel extends Model {
 
   @attr()
   pronouns;
+
+  followingUser(user) {
+    return this.userFollows.includes(user);
+  }
 }

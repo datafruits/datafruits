@@ -4,17 +4,19 @@
       {{this.model.username}}
     </h1>
     <img src={{this.model.imageMediumUrl}} alt={{this.model.username}}>
-    <p>
-      <button
-         class="cool-button"
-        {{on "click" this.followUser}}>
-        {{#if this.following}}
-          <i class="fa fa-heart-full"></i>
-        {{else}}
-          <i class="fa fa-heart"></i>
-        {{/if}}
-      </button>
-    </p>
+    {{#if this.currentUser.user}}
+      <p>
+        <button
+           class="cool-button"
+          {{on "click" this.followUser}}>
+          {{#if this.following}}
+            🎔
+          {{else}}
+            ♡
+          {{/if}}
+        </button>
+      </p>
+    {{/if}}
     <p>
       {{this.model.bio}}
     </p>

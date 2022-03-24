@@ -4,5 +4,5 @@ export default class UserFollowModel extends Model {
   @belongsTo('user')
   user;
   @belongsTo('dj')
-  dj;
+  followee;
 }
