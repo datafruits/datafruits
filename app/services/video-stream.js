@@ -1,39 +1,42 @@
-import classic from 'ember-classic-decorator';
-import Service from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import { later, run } from '@ember/runloop';
-import { inject as service } from '@ember/service';
 import ENV from 'datafruits13/config/environment';
 import fetch from 'fetch';
+import { tracked } from '@glimmer/tracking';
 
-@classic
 export default class VideoStreamService extends Service {
   @service
   rollbar;
 
-  init() {
-    super.init(...arguments);
-    this.set('streamHost', ENV.STREAM_HOST);
-    this.set('streamName', ENV.STREAM_NAME);
+  @service
+  eventBus;
+
+  constructor() {
+    super(...arguments);
+    this.streamHost = ENV.STREAM_HOST;
+    this.streamName = ENV.STREAM_NAME;
   }
 
-  active = false;
+  @tracked active = false;
+  @tracked useVideoAudio = false;
 
   async initializePlayer() {
     const module = await import('video.js');
     const videojs = module.default;
     let name = this.streamName;
     let extension = this.extension;
+    let path = this.path;
     run(() => {
       let type;
       let host = this.streamHost;
-      let streamUrl = `${host}/hls/${name}.${extension}`;
+      let streamUrl = `${host}/${path}/${name}.${extension}`;
       if (extension == 'mp4') {
         type = 'video/mp4';
       } else if (extension == 'm3u8') {
         type = 'application/x-mpegURL';
       } else {
         console.log('Unknown extension: ' + extension); // eslint-disable-line no-console
-        this.set('active', false);
+        this.active = false;
         return;
       }
 
@@ -45,7 +48,7 @@ export default class VideoStreamService extends Service {
         controls: false,
       });
 
-      this.set('player', player);
+      this.player = player;
 
       console.log(streamUrl); // eslint-disable-line no-console
       player.src({
@@ -63,6 +66,9 @@ export default class VideoStreamService extends Service {
         promise
           .then(() => {
             console.log('video autoplayed'); // eslint-disable-line no-console
+            if (this.useVideoAudio) {
+              this.eventBus.publish('liveVideoAudio');
+            }
             player.userActive(false);
           })
           .catch((error) => {
@@ -75,34 +81,64 @@ export default class VideoStreamService extends Service {
     });
   }
 
-  errorHandler(/*event*/) {
-    this.set('active', false);
+  errorHandler(event) {
+    console.log('in errorHandler');
+    console.log(event);
+    this.active = false;
     this.player.dispose();
-    this.set('player', null);
+    this.player = null;
+    this.useVideoAudio = false;
+    this.eventBus.publish('liveVideoAudioOff');
+    later(() => {
+      this.fetchStream();
+    }, 1000);
   }
 
   play() {
     let player = this.player;
-    let promise = player.play();
-    if (promise !== undefined) {
-      promise
-        .then(() => {
-          console.log('video played'); // eslint-disable-line no-console
-          player.userActive(false);
-        })
-        .catch((error) => {
-          // Autoplay was prevented.
-          console.log(`video play failed: ${error}`); // eslint-disable-line no-console
-          player.userActive(false);
-          this.rollbar.error(`video autoplay failed: ${error}`);
-        });
+    if (player) {
+      let promise = player.play();
+      if (promise !== undefined) {
+        promise
+          .then(() => {
+            console.log('video played'); // eslint-disable-line no-console
+            if (this.useVideoAudio) {
+              this.eventBus.publish('liveVideoAudio');
+            }
+            player.userActive(false);
+          })
+          .catch((error) => {
+            // Autoplay was prevented.
+            console.log(`video play failed: ${error}`); // eslint-disable-line no-console
+            player.userActive(false);
+            this.rollbar.error(`video autoplay failed: ${error}`);
+          });
+      }
+    } else {
+      console.log('video player not initialized yet!'); // eslint-disable-line no-console
     }
   }
 
-  streamIsActive(name, extension) {
-    this.set('active', true);
-    this.set('streamName', name);
-    this.set('extension', extension);
+  unmute() {
+    this.player.muted(false);
+  }
+
+  mute() {
+    this.player.muted(true);
+  }
+
+  setVolume(vol) {
+    this.player.volume(vol);
+  }
+
+  streamIsActive(name, extension, path) {
+    this.active = true;
+    this.streamName = name;
+    this.extension = extension;
+    this.path = path;
+    if (path === 'live') {
+      this.useVideoAudio = true;
+    }
   }
 
   fetchStream() {
@@ -111,16 +147,18 @@ export default class VideoStreamService extends Service {
     fetch(`${host}/hls/${name}.m3u8`, { method: 'HEAD' })
       .then((response) => {
         if (response.status == 200) {
-          this.streamIsActive(`${name}`, 'm3u8');
+          this.streamIsActive(`${name}`, 'm3u8', 'hls');
         } else {
-          //no m3u8 exists, try vod file
-
-          fetch(`${host}/hls/${name}.mp4`, { method: 'HEAD' })
+          //
+          // fetch /live here
+          console.log('hls not found, trying to fetch /live');
+          fetch(`${host}/live/${name}.m3u8`, { method: 'HEAD' })
             .then((response) => {
               if (response.status == 200) {
                 //mp4 exists, play it
-                this.streamIsActive(name, 'mp4');
+                this.streamIsActive(name, 'm3u8', 'live');
               } else {
+                if (ENV.environment === 'test') return;
                 console.log('No stream found'); // eslint-disable-line no-console
                 later(() => {
                   this.fetchStream();

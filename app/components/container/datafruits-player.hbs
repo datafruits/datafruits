@@ -1,0 +1,89 @@
+<audio preload="" id="radio-player">
+  <source
+    src="https://streampusher-relay.club/datafruits.mp3"
+    type="audio/mp3"
+  >
+  <source
+    src="https://streampusher-relay.club/datafruits.ogg"
+    type="audio/ogg"
+  >
+</audio>
+<div class="radio-container">
+  <div class="player-controls">
+    {{#if loading}}
+      <a class="jp-loading" href="javascript:;" tabindex="1">
+        {{t "player.loading"}}
+      </a>
+    {{else if playing}}
+      <a class="jp-pause" tabindex="1" {{action "pause"}}>
+        {{t (if this.playingPodcast "player.pause" "player.stop")}}
+      </a>
+    {{else if paused}}
+      <a {{action "play"}}
+        onMouseEnter={{action "playButtonMouseEnter"}}
+        onMouseLeave={{action "playButtonMouseOut"}}
+        title={{t "player.title.play"}}
+        class="jp-play"
+        href="javascript:;"
+        tabindex="1"
+      >
+        {{t "player.play"}}
+      </a>
+    {{/if}}
+    <span
+      id="volume-control"
+      name="volume-control"
+      role="button"
+      class="jp-volume-controls"
+      aria-label={{t "player.aria.volume"}}
+      {{action "showVolumeControl" on="mouseEnter"}}
+      {{action "hideVolumeControl" on="mouseLeave"}}
+    >
+      {{#if muted}}
+        {{!-- template-lint-disable no-nested-interactive --}}
+        <a class="jp-unmute" tabindex="1" {{action "unmute"}}>
+          <FaIcon @icon="volume-off" />
+        </a>
+      {{else}}
+        <a class="jp-mute" tabindex="1" {{action "mute"}}>
+          <FaIcon @icon="volume-up" />
+        </a>
+      {{/if}}
+      {{#if showingVolumeControl}}
+        <input
+          class="volume-control"
+          type="range"
+          min="0"
+          max="1"
+          step="0.1"
+          oninput={{action "volumeChanged"}}
+          value={{volume}}
+        >
+      {{/if}}
+    </span>
+  </div>
+  <div class="now-playing">
+    {{#if error}}
+      <span>
+        {{error}}
+      </span>
+    {{else}}
+      <span class="jp-title">
+        {{title}}
+      </span>
+    {{/if}}
+  </div>
+</div>
+{{#if playingPodcast}}
+  <div class="seek">
+    <div class="seek-bar-wrapper">
+      <input
+        class="seek-bar"
+        type="range"
+        step="any"
+        oninput={{action "seek"}}
+        value={{playTime}}
+      >
+    </div>
+  </div>
+{{/if}}

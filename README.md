@@ -4,16 +4,18 @@
 
 frontend for datafruits application.
 
-Contributors are welcome! 
+Contributors are welcome!
 
 Check out the [projects](https://github.com/datafruits/datafruits/projects) to see what we are working on.
+
+[Datafruits/Streampusher architecture](https://www.figma.com/file/jmC6tPMLhCX3RZGAQNGzKe/datafruits-streampusher-architecture?node-id=0%3A1)
 
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (10.x)
+* [Node.js](https://nodejs.org/) (14.x)
 * [Yarn](https://classic.yarnpkg.com/en/docs/install)
 * [Ember CLI](https://ember-cli.com/)
 
@@ -25,7 +27,7 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
-* `ember serve`
+* `yarn start`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
 If you want to develop against local versions of
@@ -48,9 +50,8 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Linting
 
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
+* `yarn lint`
+* `yarn lint:fix`
 
 ### Building
 

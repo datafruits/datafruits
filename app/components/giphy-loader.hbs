@@ -1,0 +1,9 @@
+<div
+    {{did-update this.fetchGifs @query}}
+       >
+  {{yield
+    (hash
+      isRunning=this.fetchData.isRunning
+      data=this.data)
+  }}
+</div>

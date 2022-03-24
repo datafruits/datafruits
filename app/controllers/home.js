@@ -5,11 +5,15 @@ import { oneWay } from '@ember/object/computed';
 import { debounce } from '@ember/runloop';
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
+import ENV from 'datafruits13/config/environment';
 
 @classic
 export default class HomeController extends Controller {
   @service
   intl;
+
+  @service
+  theme;
 
   @service
   router;
@@ -38,21 +42,19 @@ export default class HomeController extends Controller {
       this.set('menuOpen', false);
       this.set('submenuOpen', false);
     });
+    if (ENV.environment === 'test') {
+      this.showingPixi = false;
+    }
   }
 
   @action
-  setLocale(locale) {
-    this.set('intl.locale', locale);
+  setLocale(event) {
+    this.set('intl.locale', event.target.value);
   }
 
   @action
   setTheme(theme) {
-    let element = document.getElementsByTagName('html')[0];
-    let currentTheme = `theme-${localStorage.getItem('datafruits-theme') || 'classic'}`;
-    element.classList.remove(currentTheme);
-    let themeName = `theme-${theme}`;
-    element.classList.add(themeName);
-    localStorage.setItem('datafruits-theme', theme);
+    this.theme.setTheme(theme);
   }
 
   @action

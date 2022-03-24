@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (environment) {
-  var ENV = {
+  let ENV = {
     modulePrefix: 'datafruits13',
     environment: environment,
     contentSecurityPolicy: {
@@ -56,24 +56,6 @@ module.exports = function (environment) {
         },
       },
     },
-
-    metricsAdapters: [
-      {
-        name: 'GoogleAnalytics',
-        environments: ['development', 'production'],
-        config: {
-          id: 'UA-28868734-1',
-          // Use `analytics_debug.js` in development
-          //debug: environment === 'development',
-          debug: false,
-          // Use verbose tracing of GA events
-          //trace: environment === 'development',
-          trace: false,
-          // Ensure development env hits aren't sent to GA
-          sendHitTask: environment !== 'development',
-        },
-      },
-    ],
 
     headTags: {
       card: {
@@ -142,6 +124,10 @@ module.exports = function (environment) {
     API_HOST: process.env.API_HOST,
   };
 
+  ENV['ember-simple-auth'] = {
+    routeAfterAuthentication: 'home.chat',
+  };
+
   // Heroku Git Hash support
   if (process.env.SOURCE_VERSION) {
     let packageJson = require('../package.json');
@@ -152,9 +138,12 @@ module.exports = function (environment) {
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+    ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['ember-cli-mirage'] = {
+      enabled: false,
+    };
   }
 
   if (environment === 'test') {

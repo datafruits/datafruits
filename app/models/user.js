@@ -5,6 +5,12 @@ export default class UserModel extends Model {
   username;
 
   @attr()
+  email;
+
+  @attr()
+  password;
+
+  @attr()
   role;
 
   @attr()
@@ -12,4 +18,16 @@ export default class UserModel extends Model {
 
   @hasMany('userFollows')
   userFollow;
+
+  @attr('file')
+  avatar;
+
+  @attr()
+  avatarFilename;
+
+  @attr()
+  style;
+
+  @attr()
+  pronouns;
 }

@@ -1,4 +1,4 @@
-{{#if fastboot.isFastBoot}}
+{{#if this.fastboot.isFastBoot}}
   <div class="mt-5 pt-2 px-5">
     <div class="md:px-8">
       <div class="loading-container">
@@ -12,7 +12,6 @@
   {{else}}
     <NetworkStatus as |status|>
       <DatafruitsChat
-        class="flex flex-col flex-grow min-h-0 flex-basis-0 overflow-hidden md:px-8"
         @networkStatus={{status}}
         @authenticate={{fn this.authenticate}}
       />

@@ -25,10 +25,10 @@ module('Unit | Service | chat', function (hooks) {
       lobbyChannel.dispatch('new:msg', 'test message number ' + (i + 1));
     }
 
-    assert.ok(chatService.messages.content.includes('test message number 1'));
-    assert.ok(chatService.messages.content.includes('test message number 2'));
-    assert.ok(chatService.messages.content.includes('test message number 3'));
-    assert.notOk(chatService.messages.content.includes('This message was never sent'));
+    assert.ok(chatService.messages.includes('test message number 1'));
+    assert.ok(chatService.messages.includes('test message number 2'));
+    assert.ok(chatService.messages.includes('test message number 3'));
+    assert.notOk(chatService.messages.includes('This message was never sent'));
   });
 
   test("it lets you log in if you're cool", function (assert) {
@@ -40,26 +40,14 @@ module('Unit | Service | chat', function (hooks) {
     assert.ok(chatService.joinedChat);
   });
 
-  test("it doesn't let you log in if you're not cool", function (assert) {
+  test("it doesn't let you log in", function (assert) {
     let { chatService, lobbyChannel } = setup(this);
 
     // Normally, this would result in a browser alert.
     // But testem literally does not allow you to do that.
     // So instead MockChannel calls the "new:msg" callback instead
     lobbyChannel.dispatch('notauthorized', { error: 'you suck' });
-    assert.ok(chatService.messages.content.includes('you suck'));
-  });
-
-  test('it notifies you when someone leaves chat', function (assert) {
-    let { chatService, lobbyChannel } = setup(this);
-
-    lobbyChannel.dispatch('user:left', { user: 'nerd23', timestamp: 'before the party started' });
-    assert.equal(
-      chatService.messages.content
-        .filter((t) => t instanceof Object)
-        .filter((t) => t.body && t.timestamp === 'before the party started' && t.user === 'nerd23').length,
-      1,
-    );
+    assert.ok(chatService.messages.includes('you suck'));
   });
 
   test('it forces the user out when banned', function (assert) {

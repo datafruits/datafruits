@@ -7,7 +7,7 @@
     <p class="my-2">
       {{t "about_datafruits"}}
     </p>
-    <ul class="mb-2">
+    <ul class="mb-4">
       <li>
         <LinkTo @route="home.coc" aria-label={{t "code_of_conduct_aria"}}>
           {{t "code_of_conduct"}}
@@ -17,7 +17,7 @@
         <p>
           {{t "about_page.listenersupport"}}
         </p>
-        <a href="https://patreon.com/datafruits" target="_blank" rel="noopener" aria-label={{t "patron_aria"}}>
+        <a href="https://www.ampled.com/artist/datafruits" target="_blank" rel="noopener" aria-label={{t "patron_aria"}}>
           {{t "patron.title"}}
         </a>
         <p>
@@ -28,19 +28,7 @@
         </a>
       </li>
     </ul>
-    <h2>
-      {{t "thanks_patrons"}}
-    </h2>
-    <ul class="mb-2">
-      {{#each model as |patron|}}
-        <li class="patron">
-          {{patron.name}}
-        </li>
-      {{/each}}
-    </ul>
-  </div>
-  <div class="">
-    <ul class="flex text-2xl justify-around flex-wrap">
+    <ul class="flex text-2xl justify-around flex-wrap mb-4">
       <li>
         <a
           href="http://twitter.com/datafruits"
@@ -49,7 +37,7 @@
           target="_blank"
           rel="noopener"
         >
-          <i class="fa fa-twitter"></i>
+          <FaIcon @icon="twitter" @prefix="fab" />
         </a>
       </li>
       <li>
@@ -60,7 +48,7 @@
           target="_blank"
           rel="noopener"
         >
-          <i class="fa fa-github"></i>
+          <FaIcon @icon="github" @prefix="fab" />
         </a>
       </li>
       <li>
@@ -71,7 +59,7 @@
           target="_blank"
           rel="noopener"
         >
-          <i class="fa fa-soundcloud"></i>
+          <FaIcon @icon="soundcloud" @prefix="fab" />
         </a>
       </li>
       <li>
@@ -82,7 +70,7 @@
           target="_blank"
           rel="noopener"
         >
-          <i class="fa fa-mixcloud"></i>
+          <FaIcon @icon="mixcloud" @prefix="fab" />
         </a>
       </li>
       <li>
@@ -93,7 +81,7 @@
           target="_blank"
           rel="noopener"
         >
-          <i class="fa fa-instagram"></i>
+          <FaIcon @icon="instagram" @prefix="fab" />
         </a>
       </li>
       <li>
@@ -104,10 +92,12 @@
           target="_blank"
           rel="noopener"
         >
-          <i class="fa fa-envelope"></i>
+          <FaIcon @icon="envelope" @prefix="fas" />
         </a>
       </li>
     </ul>
+  </div>
+  <div class="">
     <br>
     <br>
     <br>

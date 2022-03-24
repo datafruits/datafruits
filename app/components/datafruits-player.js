@@ -1,13 +1,10 @@
-import classic from 'ember-classic-decorator';
-import { classNameBindings } from '@ember-decorators/component';
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { debounce } from '@ember/runloop';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { isEmpty } from '@ember/utils';
+import { tracked } from '@glimmer/tracking';
 
-@classic
-@classNameBindings('playingPodcast', 'isLive', 'playButtonHover:bleed:pink-bg')
 export default class DatafruitsPlayer extends Component {
   @service
   eventBus;
@@ -21,75 +18,100 @@ export default class DatafruitsPlayer extends Component {
   @service
   videoStream;
 
-  playingPodcast = false;
-  title = '';
-  muted = false;
-  showingVolumeControl = false;
-  playerState = 'paused'; //"playing", "loading"
-  playButtonPressed = false;
-  oldVolume = 0.8;
-  playTime = 0.0;
+  @tracked playingPodcast = false;
+  @tracked playButtonHover = false;
+  @tracked title = '';
+  @tracked muted = false;
+  @tracked showingVolumeControl = false;
+  @tracked playerState = 'paused'; //"playing", "loading"
+  @tracked playButtonPressed = false;
+  @tracked oldVolume = 0.8;
+  @tracked playTime = 0.0;
+  @tracked volume = 1.0;
+  @tracked videoAudioOn = false;
 
-  @computed('playerState')
   get paused() {
     return this.playerState === 'paused';
   }
 
-  @computed('playerState')
   get playing() {
     return this.playerState === 'playing';
   }
 
-  @computed('playerState')
   get loading() {
     return this.playerState === 'loading';
   }
 
-  init() {
+  constructor() {
+    super(...arguments);
     this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
     this.eventBus.subscribe('metadataUpdate', this, 'setRadioTitle');
+    this.eventBus.subscribe('liveVideoAudio', this, 'useVideoAudio');
+    this.eventBus.subscribe('liveVideoAudioOff', this, 'disableVideoAudio');
+
     if (!this.fastboot.isFastBoot) {
-      this.set('volume', localStorage.getItem('datafruits-volume') || 0.8);
+      this.volume = localStorage.getItem('datafruits-volume') || 0.8;
     }
-    super.init(...arguments);
   }
 
-  @computed('title')
   get isLive() {
     const title = this.title;
     return !isEmpty(title) && title.startsWith('LIVE');
   }
 
-  setRadioTitle() {
-    if (this.playingPodcast === false) {
-      this.set('title', this.metadata.title);
+  setPageTitle() {
+    if (!this.fastboot.isFastBoot) {
+      document.title = `DATAFRUITS.FM - ${this.title}`;
     }
   }
 
+  setRadioTitle() {
+    if (this.playingPodcast === false) {
+      this.title = this.metadata.title;
+    }
+    this.setPageTitle();
+  }
+
   onTrackPlayed(track) {
-    this.set('error', null);
-    this.set('title', track.title);
-    this.set('playingPodcast', true);
-    this.set('playTime', 0.0);
+    this.error = null;
+    this.title = track.title;
+    this.setPageTitle();
+    this.playingPodcast = true;
+    this.playTime = 0.0;
 
     let audioTag = document.getElementById('radio-player');
     audioTag.src = track.cdnUrl;
     audioTag.play();
   }
 
+  useVideoAudio() {
+    this.error = null;
+    this.videoAudioOn = true;
+
+    let audioTag = document.getElementById('radio-player');
+    audioTag.muted = true;
+    this.videoStream.unmute();
+  }
+
+  disableVideoAudio() {
+    this.videoAudioOn = false;
+    let audioTag = document.getElementById('radio-player');
+    audioTag.muted = false;
+  }
+
   @action
   playButtonMouseEnter() {
-    this.set('playButtonHover', true);
+    this.playButtonHover = true;
   }
 
   @action
   playButtonMouseOut() {
-    this.set('playButtonHover', false);
+    this.playButtonHover = false;
   }
 
   @action
   playLiveStream() {
-    this.set('playingPodcast', false);
+    this.playingPodcast = false;
     this.setRadioTitle();
   }
 
@@ -101,11 +123,11 @@ export default class DatafruitsPlayer extends Component {
       audioTag.src = 'https://streampusher-relay.club/datafruits.mp3';
     }
     if (audioTag.readyState === 0) {
-      this.set('playerState', 'loading');
+      this.playerState = 'loading';
     }
     audioTag.play();
-    this.set('playButtonHover', false);
-    this.set('playButtonPressed', true);
+    this.playButtonHover = false;
+    this.playButtonPressed = true;
 
     // play video for mobile
     this.videoStream.play();
@@ -113,34 +135,46 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   pause() {
-    let audioTag = document.getElementById('radio-player');
-    audioTag.pause();
-    this.set('playButtonPressed', false);
-    this.set('playerState', 'paused');
+    if (this.videoAudioOn) {
+      this.videoStream.mute();
+    } else {
+      let audioTag = document.getElementById('radio-player');
+      audioTag.pause();
+    }
+    this.playButtonPressed = false;
+    this.playerState = 'paused';
   }
 
   @action
   mute() {
-    let audioTag = document.getElementById('radio-player');
-    audioTag.muted = true;
-    this.set('muted', true);
-    this.set('oldVolume', this.volume);
-    this.set('volume', 0.0);
+    if (this.videoAudioOn) {
+      this.videoStream.mute();
+    } else {
+      let audioTag = document.getElementById('radio-player');
+      audioTag.muted = true;
+    }
+    this.muted = true;
+    this.oldVolume = this.volume;
+    this.volume = 0.0;
     localStorage.setItem('datafruits-volume', this.volume);
   }
 
   @action
   unmute() {
-    let audioTag = document.getElementById('radio-player');
-    audioTag.muted = false;
-    this.set('muted', false);
-    this.set('volume', this.oldVolume);
+    if (this.videoAudioOn) {
+      this.videoStream.unmute();
+    } else {
+      let audioTag = document.getElementById('radio-player');
+      audioTag.muted = false;
+    }
+    this.muted = false;
+    this.volume = this.oldVolume;
     localStorage.setItem('datafruits-volume', this.volume);
   }
 
   @action
   showVolumeControl() {
-    this.set('showingVolumeControl', true);
+    this.showingVolumeControl = true;
   }
 
   @action
@@ -151,15 +185,19 @@ export default class DatafruitsPlayer extends Component {
   }
 
   _hideVolumeControl() {
-    this.set('showingVolumeControl', false);
+    this.showingVolumeControl = false;
   }
 
   @action
   volumeChanged(e) {
-    this.set('volume', e.target.value);
+    this.volume = e.target.value;
     localStorage.setItem('datafruits-volume', this.volume);
-    let audioTag = document.getElementById('radio-player');
-    audioTag.volume = this.volume;
+    if (this.videoAudioOn) {
+      this.videoStream.setVolume(this.volume);
+    } else {
+      let audioTag = document.getElementById('radio-player');
+      audioTag.volume = this.volume;
+    }
   }
 
   @action
@@ -170,14 +208,15 @@ export default class DatafruitsPlayer extends Component {
     audioTag.currentTime = time;
   }
 
-  didInsertElement() {
+  @action
+  didInsert() {
     if (!this.fastboot.isFastBoot) {
       let audioTag = document.getElementById('radio-player');
       audioTag.addEventListener('loadstart', () => {
         if (this.playButtonPressed === true) {
-          this.set('playerState', 'seeking');
+          this.playerState = 'seeking';
           if (audioTag.readyState === 0) {
-            this.set('playerState', 'loading');
+            this.playerState = 'loading';
           }
         }
         if (document.getElementsByClassName('seek').length) {
@@ -185,15 +224,15 @@ export default class DatafruitsPlayer extends Component {
         }
       });
       audioTag.addEventListener('pause', () => {
-        this.set('playerState', 'paused');
+        this.playerState = 'paused';
       });
       audioTag.addEventListener('playing', () => {
-        this.set('playerState', 'playing');
+        this.playerState = 'playing';
       });
       audioTag.addEventListener('timeupdate', () => {
         const value = (100 / audioTag.duration) * audioTag.currentTime;
 
-        this.set('playTime', value);
+        this.playTime = value;
       });
       audioTag.addEventListener('seeking', () => {
         if (document.getElementsByClassName('seek-bar-wrapper').length) {

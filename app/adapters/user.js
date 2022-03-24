@@ -1,5 +1,7 @@
 import ApplicationAdapter from './application';
+import classic from 'ember-classic-decorator';
 
+@classic
 export default class UserAdapter extends ApplicationAdapter {
   urlForQueryRecord(query) {
     if (query.me) {
@@ -8,5 +10,13 @@ export default class UserAdapter extends ApplicationAdapter {
     } else {
       return `${this.urlPrefix()}/djs/${query.id}`;
     }
+  }
+
+  urlForCreateRecord() {
+    return `${this.urlPrefix()}/api/listeners`;
+  }
+
+  urlForUpdateRecord() {
+    return `${this.urlPrefix()}/users/current_user`;
   }
 }
