@@ -46,6 +46,8 @@ export default class VideoStreamService extends Service {
         poster: `previews/${preview}.png`,
         userActive: false,
         controls: false,
+        fill: true,
+        fluid: true
       });
 
       this.player = player;

@@ -184,8 +184,16 @@ input {
   @apply text-black border-solid border-2 border-gray-300 rounded-sm p-1;
 }
 
+.video-js {
+  height: 100% !important;
+}
+
 .visuals {
   z-index: -999;
+/*  video {
+    width: 100% !important;
+    height: 100% !important;
+    @apply absolute left-0 object-fill; */
   @apply absolute left-0 top-0;
   .video-js {
     width: 100vw !important;
