@@ -20,13 +20,27 @@ export default class DjController extends Controller {
   @action
   followUser() {
     let userFollow = this.store.createRecord('userFollow', {
-      user: this.currentUser.user,
       followee: this.model,
     });
     userFollow
       .save()
       .then(() => {
         console.log('faved ya ');
+      })
+      .catch((error) => {
+        console.log(`oh no error: ${error}`);
+      });
+  }
+
+  @action
+  unfollowUser() {
+    let userFollow = this.currentUser.user.userFollows.find((userFollow) => {
+      return userFollow.followeeName === this.model.username;
+    });
+    userFollow
+      .destroyRecord()
+      .then(() => {
+        console.log('unfaved ya ');
       })
       .catch((error) => {
         console.log(`oh no error: ${error}`);

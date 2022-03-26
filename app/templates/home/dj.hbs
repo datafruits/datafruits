@@ -4,17 +4,23 @@
       {{this.model.username}}
     </h1>
     <img src={{this.model.imageMediumUrl}} alt={{this.model.username}}>
-    {{#if this.currentUser.user}}
+    {{#if (and this.currentUser.user (not-eq this.currentUser.user this.model))}}
       <p>
-        <button
-           class="cool-button"
-          {{on "click" this.followUser}}>
-          {{#if this.following}}
-            🎔
-          {{else}}
-            ♡
-          {{/if}}
-        </button>
+        {{#if this.following}}
+          <button
+             class="cool-button"
+             type="button"
+            {{on "click" this.unfollowUser}}>
+              notifcations off
+          </button>
+        {{else}}
+          <button
+             class="cool-button"
+             type="button"
+            {{on "click" this.followUser}}>
+              notifications on
+          </button>
+        {{/if}}
       </p>
     {{/if}}
     <p>

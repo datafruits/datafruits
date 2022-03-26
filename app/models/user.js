@@ -32,6 +32,10 @@ export default class UserModel extends Model {
   pronouns;
 
   followingUser(user) {
-    return this.userFollows.includes(user);
+    return this.userFollows
+      .map((userFollow) => {
+        return userFollow.followeeName;
+      })
+      .includes(user.username);
   }
 }

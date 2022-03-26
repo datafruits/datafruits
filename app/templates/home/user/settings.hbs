@@ -2,6 +2,16 @@
   <h1 class="py-4 font-semibold text-3xl text-df-yellow">
     {{this.currentUser.user.username}}
   </h1>
+  <h2>Following:</h2>
+    <ul>
+      {{#each this.currentUser.user.userFollows as |userFollow|}}
+        <li>
+          <LinkTo @route="home.dj" @model={{userFollow.followeeName}}>
+            {{userFollow.followeeName}}
+          </LinkTo>
+        </li>
+      {{/each}}
+    </ul>
   <img
     src="{{this.currentUser.user.avatarUrl}}">
   <input type="file"
