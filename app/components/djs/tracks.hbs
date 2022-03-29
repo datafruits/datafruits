@@ -1,0 +1,30 @@
+<Await @promise={{this.fetchTracks}} as |await|>
+  <section
+      {{did-update await.reload @page}}
+    >
+    <await.Pending>
+      <p id="podcast-search-loading" class="">
+        {{t "loading"}}
+      </p>
+    </await.Pending>
+    <await.Fulfilled as |result|>
+      {{#each result.tracks as |track|}}
+        <PodcastTrack
+          @cdnUrl={{track.cdnUrl}}
+          @title={{track.title}}
+          @labels={{track.labels}}
+          @scheduledShow={{track.scheduledShow}}
+          @selectLabel={{this.browseLabel}}
+        />
+      {{/each}}
+      <FruitsUi::Pagination
+        @totalPages={{result.meta.total_pages}}
+        @page={{@page}}
+        @route={{this.router.currentRouteName}} />
+    </await.Fulfilled>
+
+    <await.Rejected>
+      {{t "error"}}
+    </await.Rejected>
+  </section>
+</Await>
