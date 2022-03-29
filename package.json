@@ -163,6 +163,6 @@
     "ember-power-select": "https://github.com/mcfiredrill/ember-power-select#fix-deprecate-import",
     "fastboot-app-server": "^3.0.0",
     "fruits-ui": "https://github.com/datafruits/fruits-ui",
-    "pixi.js": "6.1.3"
+    "pixi.js": "6.3.0"
   }
 }
