@@ -10,16 +10,16 @@
   <div class="py-4">
     <form {{on "submit" this.saveUser}}>
       <label>{{t "profile.bio"}}</label>
-      <Input
+      <Textarea
         @value={{this.currentUser.user.bio}}
         />
       <br />
-      <span>{{t "profile.pronouns"}}</span>
+      <label>{{t "profile.pronouns"}}</label>
       <Input
         @value={{this.currentUser.user.pronouns}}
         />
       <br />
-      <span>{{t "profile.style"}}</span>
+      <label>{{t "profile.style"}}</label>
       <select
         id="style-selector"
         name="style-selector"
