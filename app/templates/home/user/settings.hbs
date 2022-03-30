@@ -9,12 +9,17 @@
          />
   <div class="py-4">
     <form {{on "submit" this.saveUser}}>
-      <span>{{t "profile.pronouns"}}</span>
+      <label>{{t "profile.bio"}}</label>
+      <Textarea
+        @value={{this.currentUser.user.bio}}
+        />
+      <br />
+      <label>{{t "profile.pronouns"}}</label>
       <Input
         @value={{this.currentUser.user.pronouns}}
         />
       <br />
-      <span>{{t "profile.style"}}</span>
+      <label>{{t "profile.style"}}</label>
       <select
         id="style-selector"
         name="style-selector"

@@ -153,7 +153,8 @@
   "profile": {
     "style": "Style",
     "submit": "SAVE",
-    "pronouns": "Pronouns"
+    "pronouns": "Pronouns",
+    "bio": "About me"
   },
   "usermenu": {
     "settings": "Settings",
