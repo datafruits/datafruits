@@ -9,6 +9,11 @@
          />
   <div class="py-4">
     <form {{on "submit" this.saveUser}}>
+      <label>{{t "profile.bio"}}</label>
+      <Input
+        @value={{this.currentUser.user.bio}}
+        />
+      <br />
       <span>{{t "profile.pronouns"}}</span>
       <Input
         @value={{this.currentUser.user.pronouns}}
