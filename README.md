@@ -27,7 +27,7 @@ You will need the following things properly installed on your computer.
 
 ## Running / Development
 
-* `yarn start`
+* `yarn dev`
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
 If you want to develop against local versions of

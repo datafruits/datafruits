@@ -18,6 +18,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
+    "dev": "FASTBOOT_DISABLED=true ember serve",
     "test": "npm-run-all lint test:*",
     "coverage": "cross-env COVERAGE=true ember test",
     "lighthouse": "lhci autorun --config=config/lighthouserc.js"
