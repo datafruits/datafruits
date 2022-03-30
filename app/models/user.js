@@ -30,5 +30,4 @@ export default class UserModel extends Model {
 
   @attr()
   bio;
-
 }
