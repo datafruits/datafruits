@@ -1,17 +1,21 @@
 <div class="mt-5 pt-2 px-5">
-  <div class="">
+  <div class="bg-df-pink fancy-box p-2">
     <h1 class="font-cursive text-2xl">
       {{this.model.username}}
     </h1>
-    <img src={{this.model.imageMediumUrl}} alt={{this.model.username}}>
-    <p>
+    <img
+      class="rounded-lg"
+      src={{this.model.imageMediumUrl}}
+      alt={{this.model.username}}
+      >
+    <p class="mt-2 mb-2">
       {{this.model.bio}}
     </p>
     <span>{{t "profile.style"}} <span class="text-df-yellow font-bold">{{this.model.style}}</span></span>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6 mt-5">
     {{#if this.model.nextShow}}
-      <h2>
+      <h2 class="text-xl">
         {{t "dj.upcoming_shows"}}
       </h2>
       <LinkTo @route="home.show" @model={{this.model.nextShow}}>
@@ -21,7 +25,7 @@
   </div>
 </div>
 <div class="mt-5 pt-2 px-5">
-  <h2>
+  <h2 class="text-xl">
     {{t "dj.podcasts"}}
   </h2>
   <Djs::Tracks @dj={{this.model}} @page={{this.router.currentRoute.queryParams.page}} />
