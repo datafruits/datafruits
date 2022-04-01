@@ -481,27 +481,34 @@ canvas {
 
 @keyframes slideup {
   from {
-    transform: translate(0, 200px);
+    transform: translate(0, 200px) scale(2);
   }
   10% {
-    transform: translate(0, 20px);
+    transform: translate(0, 20px) scale(2);
   }
   35% {
-    transform: translate(0, 20px);
+    transform: translate(0, 20px) scale(2);
   }
   40% {
-    transform: translate(0, 200px);
+    transform: translate(0, 200px) scale(2);
   }
   to {
-    transform: translate(0, 200px);
+    transform: translate(0, 200px) scale(2);
   }
 }
 
 .tiny-guy {
   position: absolute;
   z-index: 1000;
-  bottom: 0;
-  right: 0;
+  bottom: 10px;
+  right: 25px;
+  /* https://stackoverflow.com/a/14068216/173635 */
+  image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+  image-rendering: -moz-crisp-edges;          /* Firefox                        */
+  image-rendering: -o-crisp-edges;            /* Opera                          */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+  image-rendering: pixelated; /* Chrome */
+  image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
 
   animation: 15s linear infinite slideup;
 }
