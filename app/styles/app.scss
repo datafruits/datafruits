@@ -461,6 +461,24 @@ canvas {
   height: 250px;
 }
 
+@keyframes slidedown {
+  from {
+    transform: translate(0, 0) scaleY(-1);
+  }
+  10% {
+    transform: translate(0, 400px) scaleY(-1);
+  }
+  35% {
+    transform: translate(0, 400px) scaleY(-1);
+  }
+  40% {
+    transform: translate(0, 0) scaleY(-1);
+  }
+  to {
+    transform: translate(0, 0) scaleY(-1);
+  }
+}
+
 @keyframes slideup {
   from {
     transform: translate(0, 200px);
@@ -484,7 +502,17 @@ canvas {
   z-index: 1000;
   bottom: 0;
   right: 0;
-  animation: 10s linear infinite slideup;
+
+  animation: 15s linear infinite slideup;
+}
+
+.tiny-grumby {
+  position: absolute;
+  z-index: 1000;
+  top: -600px;
+  left: 0;
+
+  animation: 20s linear infinite slidedown;
 }
 
 @tailwind utilities;
