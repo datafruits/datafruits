@@ -1,6 +1,6 @@
 import { helper } from '@ember/component/helper';
 
-export function aprilFools(args) {
+export function aprilFools() {
   let today = new Date();
   return today.getMonth() === 3 && today.getDate() === 1;
 }
