@@ -10,17 +10,13 @@
     <await.Fulfilled as |result|>
       {{#each result.tracks as |track|}}
         <PodcastTrack
-          @cdnUrl={{track.cdnUrl}}
+          @cdnUrl={{track.cdn_url}}
           @title={{track.title}}
           @labels={{track.labels}}
           @scheduledShow={{track.scheduledShow}}
           @selectLabel={{this.browseLabel}}
         />
       {{/each}}
-      <FruitsUi::Pagination
-        @totalPages={{result.meta.total_pages}}
-        @page={{@page}}
-        @route={{this.router.currentRouteName}} />
     </await.Fulfilled>
 
     <await.Rejected>
