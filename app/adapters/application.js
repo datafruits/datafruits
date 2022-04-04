@@ -21,10 +21,4 @@ export default class Application extends ActiveModelAdapter.extend(FastbootAdapt
 
     return headers;
   }
-
-  buildURL() {
-    var base;
-    base = super.buildURL.apply(this, arguments); //eslint-disable-line ember/no-ember-super-in-es-classes
-    return '' + base + '.json';
-  }
 }
