@@ -23,6 +23,10 @@ export default class DjsTracks extends Component<DjsTracksArgs> {
   @action
   async fetchTracks() {
     let response = await fetch(this.djTracksUrl);
-    return response.json();
+    response.json().then((json) => {
+      // @ts-expect-error
+      let jsonPayload = this.store.serializerFor('track').normalizeResponse(this.store, 'track', json);
+      return this.store.push(jsonPayload);
+    });
   }
 }
