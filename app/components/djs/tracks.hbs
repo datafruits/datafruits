@@ -17,6 +17,10 @@
           @selectLabel={{this.browseLabel}}
         />
       {{/each}}
+      <FruitsUi::Pagination
+        @totalPages={{result.meta.total_pages}}
+        @page={{@page}}
+        @route={{this.router.currentRouteName}} />
     </await.Fulfilled>
 
     <await.Rejected>
