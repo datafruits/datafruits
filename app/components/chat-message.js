@@ -6,9 +6,13 @@ export default class ChatMessage extends Component {
   @tracked gifsEnabled = true;
   @tracked imgRegex = /https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpg|gif|png|webp)(\?.*$)*/;
 
-  get isDj() {
+  get canShowAvatar() {
     if (!this.args.message.role) return false;
-    return this.args.message.role.includes('dj') || this.args.message.role.includes('admin');
+    return (
+      this.args.message.role.includes('dj') ||
+      this.args.message.role.includes('admin') ||
+      this.args.message.role.includes('listener')
+    );
   }
 
   get hasImage() {

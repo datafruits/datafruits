@@ -4,7 +4,7 @@
   <span class="mr-2">
     {{format-message-timestamp @message.timestamp}}
   </span>
-  {{#if (or (includes "dj" @message.role) (includes "admin" @message.role))}}
+  {{#if this.canShowAvatar}}
     {{#if @message.avatarUrl}}
       <span class="mr-2" data-test-avatar>
         <img style="height: 20px;" src="{{@message.avatarUrl}}" alt="{{ t "chat.user_avatar" }}" / >
