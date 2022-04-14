@@ -130,6 +130,12 @@
     </li>
   </ul>
 {{else}}
+  <LinkTo @route="home.sign-up">
+    {{t "chat.sign_up"}}
+  </LinkTo>
+  <LinkTo @route="home.login">
+    {{t "chat.login"}}
+  </LinkTo>
   <LinkTo
     aria-label={{t "home.aria"}}
     class="hidden md:block"

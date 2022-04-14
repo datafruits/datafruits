@@ -23,6 +23,7 @@ Router.map(function () {
     this.route('hat');
     this.route('blogs.show', { path: '/blogs/:id' });
     this.route('sign-up');
+    this.route('login');
     this.route('password-reset');
     this.route('user', function () {
       this.route('settings');
