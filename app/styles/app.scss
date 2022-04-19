@@ -126,6 +126,7 @@
 }
 
 .cool-button {
+  height: 38px;
   cursor: pointer;
   white-space: nowrap;
   vertical-align: middle;
@@ -520,6 +521,24 @@ canvas {
   left: 0;
 
   animation: 10s linear infinite slidedown;
+}
+
+body {
+  scrollbar-color: $pink;
+  scrollbar-width: auto;
+}
+
+body::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $pink;
+  outline: 1px solid $blue;
 }
 
 @tailwind utilities;

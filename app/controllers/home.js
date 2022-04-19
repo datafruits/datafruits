@@ -26,6 +26,8 @@ export default class HomeController extends Controller {
 
   @service fastboot;
 
+  @service chat;
+
   @oneWay('intl.locale')
   locale;
 
@@ -74,5 +76,43 @@ export default class HomeController extends Controller {
   @action
   toggleUserMenu() {
     this.toggleProperty('isShowingUserMenu');
+  }
+
+  @action
+  toggleLoginModal() {
+    this.toggleProperty('showingLoginModal');
+  }
+
+  @action
+  authenticate(nick, pass) {
+    this.isAuthenticating = true;
+    this.set('session.store.cookieExpirationTime', 60 * 60 * 24 * 14);
+    return this.session
+      .authenticate('authenticator:devise', nick, pass)
+      .then(() => {
+        const token = this.session.data.authenticated.token;
+        this.currentUser.load().then(() => {
+          const avatarUrl = this.currentUser.user.avatarUrl;
+          const role = this.currentUser.user.role;
+          const style = this.currentUser.user.style;
+          const pronouns = this.currentUser.user.pronouns;
+          this.chat.push('authorize_token', {
+            user: nick,
+            timestamp: Date.now(),
+            token,
+            avatarUrl,
+            role,
+            style,
+            pronouns,
+          });
+          this.isAuthenticating = false;
+          return true;
+        });
+      })
+      .catch((/*reason*/) => {
+        alert('Wrong password');
+        this.isAuthenticating = false;
+        return false;
+      });
   }
 }

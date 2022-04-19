@@ -130,12 +130,19 @@
     </li>
   </ul>
 {{else}}
-  <LinkTo @route="home.sign-up">
-    {{t "chat.sign_up"}}
-  </LinkTo>
-  <LinkTo @route="home.login">
-    {{t "chat.login"}}
-  </LinkTo>
+  <nav class="flex mt-4 mr-8">
+    <LinkTo @route="home.sign-up" class="cool-button mr-2">
+      {{t "chat.sign_up"}}
+    </LinkTo>
+    <button {{on "click" @toggleLoginModal}}
+         type="button"
+         class="cool-button"
+         title={{t "chat.titles.login"}}
+         data-test-login-button
+         >
+         {{t "chat.login"}}
+    </button>
+  </nav>
   <LinkTo
     aria-label={{t "home.aria"}}
     class="hidden md:block"
