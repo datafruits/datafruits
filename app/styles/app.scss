@@ -126,7 +126,6 @@
 }
 
 .cool-button {
-  height: 38px;
   cursor: pointer;
   white-space: nowrap;
   vertical-align: middle;
@@ -148,6 +147,12 @@
 
   &:disabled {
     @apply cursor-not-allowed opacity-50;
+  }
+}
+
+.chat-input {
+  .cool-button {
+    height: 38px;
   }
 }
 
