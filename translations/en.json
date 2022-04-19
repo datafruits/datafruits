@@ -39,6 +39,8 @@
     "coc_label": "By joining the chat, I agree with the datafruits Code of Conduct and will abide by its guidelines",
     "login": "Login",
     "sign_up": "Sign up",
+    "logging_you_in": "LOGGING YOU INTO THE FRUITVERSE BUDDY, JUST HANG ON A SECOND...",
+    "loading": "GETTING THE CHAT READY FOR YOU",
     "login_why": "login to the chat it's what all the cool fruits are doing",
     "forgot_password": "Forgot your password?",
     "username": "username",
