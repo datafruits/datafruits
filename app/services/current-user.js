@@ -1,4 +1,5 @@
 import Service, { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
 export default class CurrentUserService extends Service {
   @service
@@ -6,6 +7,9 @@ export default class CurrentUserService extends Service {
 
   @service
   store;
+
+  @tracked
+  user;
 
   async load() {
     if (this.session.isAuthenticated) {
