@@ -26,6 +26,8 @@ export default class ChatService extends Service {
 
   @tracked _fruitCounts: FruitCount = {};
 
+  @tracked loading: boolean = true;
+
   username: string = '';
 
   chan: Channel;
@@ -88,8 +90,10 @@ export default class ChatService extends Service {
         if (isDestroyed(this) || isDestroying(this)) return;
         if (this.session.isAuthenticated && this.currentUser.user) {
           this.joinAndAuthorize(this.currentUser.user, this.session.data.authenticated.token);
+        } else {
+          this.loading = false;
+          return console.log('chat join ok'); // eslint-disable-line no-console
         }
-        return console.log('chat join ok'); // eslint-disable-line no-console
       })
       .receive('timeout', function () {
         //return console.log("Connection interruption");
@@ -128,11 +132,13 @@ export default class ChatService extends Service {
           .load()
           .then(() => {
             console.log('user authorized with token'); // eslint-disable-line no-console
+            this.loading = false;
             this.joinedChat = true;
           })
           .catch(() => this.session.invalidate());
       } else {
         console.log('user authorized'); // eslint-disable-line no-console
+        this.loading = false;
         this.joinedChat = true;
       }
       // fetch currentUser here? ???

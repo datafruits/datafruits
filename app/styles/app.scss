@@ -150,6 +150,12 @@
   }
 }
 
+.chat-input {
+  .cool-button {
+    height: 38px;
+  }
+}
+
 .modal-body form div {
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
@@ -520,6 +526,24 @@ canvas {
   left: 0;
 
   animation: 10s linear infinite slidedown;
+}
+
+body {
+  scrollbar-color: $pink;
+  scrollbar-width: auto;
+}
+
+body::-webkit-scrollbar {
+  width: 1em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $pink;
+  outline: 1px solid $blue;
 }
 
 @tailwind utilities;
