@@ -303,6 +303,13 @@ export function initialize(/* application */) {
       shortnames: [':iphone_girl:'],
       keywords: ['iphone_girl'],
     },
+    ':bomboclart_bart:': {
+      custom: true,
+      uc_base: 'bomboclart_bart',
+      uc_output: '',
+      shortnames: [':bomboclart_bart:'],
+      keywords: ['bomboclart_bart'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
