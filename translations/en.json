@@ -47,7 +47,6 @@
     "nickname": "nickname",
     "password": "password",
     "search": "\"dancing\", \"music\", ...",
-    "user_avatar": "user avatar",
     "label": {
       "nick": "nickname",
       "input": "message",

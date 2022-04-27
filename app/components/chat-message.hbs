@@ -7,11 +7,11 @@
   {{#if this.canShowAvatar}}
     {{#if @message.avatarUrl}}
       <span class="mr-2" data-test-avatar>
-        <img style="height: 20px;" src="{{@message.avatarUrl}}" alt="{{ t "chat.user_avatar" }}" / >
+        <img style="height: 20px;" src="{{@message.avatarUrl}}" alt={{@message.user}} / >
       </span>
     {{else}}
       <span class="mr-2" data-test-avatar>
-        <img style="height: 20px;" src="/assets/images/show_placeholder.jpg" alt="{{ t "chat.user_avatar" }}" / >
+        <img style="height: 20px;" src="/assets/images/show_placeholder.jpg" alt={{@message.user}} / >
       </span>
     {{/if}}
   {{/if}}

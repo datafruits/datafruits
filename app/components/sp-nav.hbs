@@ -138,7 +138,7 @@
             style="height: 3rem;"
             src="{{this.currentUser.user.avatarUrl}}"
             align="center"
-            alt="{{ t "chat.user_avatar" }}" / >
+            alt={{this.currentUser.user.username}} / >
         </a>
       {{else}}
         <LinkTo @route="home"
