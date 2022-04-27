@@ -123,7 +123,7 @@
         style="height: 2rem;"
         src="{{this.currentUser.user.avatarUrl}}"
         align="center"
-        alt="{{ t "chat.user_avatar" }}" / >
+        alt={{this.currentUser.user.username}} / >
       <a href="#" class="" role="button" {{on "click" this.args.toggleUserMenu}}>
         {{this.currentUser.user.username}}
       </a>

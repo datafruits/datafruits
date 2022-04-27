@@ -17,7 +17,7 @@
         style="height: 2rem;"
         src="{{@avatarUrl}}"
         align="center"
-        alt="{{ t "chat.user_avatar" }}" / >
+        alt={{this.currentUser.user.username}} / >
       {{#if this.isDj}}
         <LinkTo class="hover:underline" @route="home.dj" @model={{@username}}>
           {{@username}}

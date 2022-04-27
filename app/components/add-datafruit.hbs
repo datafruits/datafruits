@@ -9,7 +9,7 @@
   <await.Fulfilled as |datafruits|>
     {{#if this.showingDatafruits}}
       <marquee>
-        [<img style="height: 20px; display: inline;" src="{{this.currentDatafruit.avatarUrlOrDefault}}" alt="{{ t "chat.user_avatar" }}" / >
+        [<img style="height: 20px; display: inline;" src="{{this.currentDatafruit.avatarUrlOrDefault}}" alt={{this.currentDatafruit.username}} / >
 {{this.currentDatafruit.username}}]: {{this.currentDatafruit.content}}
       </marquee>
       {{#if this.session.isAuthenticated}}
