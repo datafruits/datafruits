@@ -126,13 +126,12 @@
 }
 
 .cool-button {
-  cursor: pointer;
+  cursor: url('/assets/images/pointer.png'), auto;
   white-space: nowrap;
   vertical-align: middle;
   @apply border-solid border-2 border-white text-lg rounded-sm;
   @apply text-white font-semibold p-2 leading-none bg-df-blue;
   @apply transition-all duration-100 ease-in-out;
-  @apply cursor-pointer;
 }
 
 .cool-button {
@@ -278,7 +277,7 @@ form {
 }
 
 .gif-preview {
-  cursor: pointer;
+  cursor: url('/assets/images/pointer.png'), auto;
   border: solid 2px #eee;
   &:hover {
     border: dashed 2px $yellow;
@@ -295,7 +294,7 @@ form {
   @apply border-solid border-2 border-white text-lg rounded-sm;
   @apply text-white font-semibold p-2 leading-none bg-df-green;
   @apply transition-all duration-100 ease-in-out;
-  @apply cursor-pointer;
+  cursor: url('/assets/images/pointer.png'), auto;
 
   &:hover,
   &:focus {
@@ -529,21 +528,15 @@ canvas {
 }
 
 body {
-  scrollbar-color: $pink;
-  scrollbar-width: auto;
-}
+  cursor: url('/assets/images/cursor.gif'), auto;
 
-body::-webkit-scrollbar {
-  width: 1em;
-}
+  a {
+    cursor: url('/assets/images/pointer.png'), auto;
+  }
 
-body::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-body::-webkit-scrollbar-thumb {
-  background-color: $pink;
-  outline: 1px solid $blue;
+  button {
+    cursor: url('/assets/images/pointer.png'), auto;
+  }
 }
 
 @tailwind utilities;
