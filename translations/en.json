@@ -256,7 +256,7 @@
     "label": "Theme"
   },
   "about_page": {
-    "listenersupport": "Datafruits is listener supported. You can join our ampled page and get stickers and other goodies sent to you every 2 months.",
+    "listenersupport": "Datafruits.fm is possible thanks to the generous support of the listeners. The best way to support us is with a monthly pledge of your choosing on Ampled. You'll get exclusive posts along with a monthly update video.",
     "donate_request": "Or if you'd like you can make a one time donation to our paypal.",
     "donate_linktext": "https://paypal.me/datafruitsfm",
     "donate_aria": "Make a donation to datafruits.fm through PayPal"
@@ -305,7 +305,10 @@
       "p1_linktext": "http://contributor-covenant.org/version/1/4"
     }
   },
-  "donate": "DONATE",
+  "donate": {
+    "title": "SUPPORT",
+    "dj_link": "The current DJ's donation link is here:"
+  },
   "microtext": {
     "we_need_it": "we need your datafruit. please add it.",
     "submit": "Datafruit!",
