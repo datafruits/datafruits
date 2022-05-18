@@ -15,9 +15,26 @@
 
 @tailwind components;
 
+* {
+  cursor:url('/assets/images/mousepointer.png'), auto !important;
+  font-smooth: never !important;
+  -webkit-font-smooth : none !important;
+  -webkit-font-smoothing: none !important;
+  -moz-osx-font-smoothing: none !important;
+  font-smoothing: none !important;
+}
+
 @font-face {
   font-family: 'Debussy';
   src: url('/vendor/hinted-Debussy.woff2') format('woff2'), url('/vendor/hinted-Debussy.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Topaz';
+  src: url('/vendor/TopazPlus_a1200.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -147,6 +164,18 @@
 
   &:disabled {
     @apply cursor-not-allowed opacity-50;
+  }
+
+  &.not-favorited {
+    @apply bg-white text-df-pink border-df-pink p-1;
+    &:hover,
+    &:focus {
+      @apply bg-gray-300;
+    }
+  }
+
+  &.favorited {
+    @apply bg-df-pink text-white border-white p-1;
   }
 }
 

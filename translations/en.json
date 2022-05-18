@@ -152,6 +152,7 @@
     "min_age": "I am at least 13 years old"
   },
   "profile": {
+    "Favorites": "Favorites",
     "style": "Style",
     "submit": "SAVE",
     "pronouns": "Pronouns",

@@ -48,6 +48,7 @@
       <await.Fulfilled as |result|>
         {{#each result.tracks as |track|}}
           <PodcastTrack
+            @track={{track}}
             @cdnUrl={{track.cdnUrl}}
             @title={{track.title}}
             @scheduledShow={{track.scheduledShow}}
