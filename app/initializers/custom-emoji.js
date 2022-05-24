@@ -310,6 +310,13 @@ export function initialize(/* application */) {
       shortnames: [':bomboclart_bart:'],
       keywords: ['bomboclart_bart'],
     },
+    ':mango_hd:': {
+      custom: true,
+      uc_base: 'mango_hd',
+      uc_output: '',
+      shortnames: [':mango_hd:'],
+      keywords: ['mango_hd'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
