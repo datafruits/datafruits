@@ -77,7 +77,7 @@ export default class PodcastTrack extends Component {
   @action
   unfavoriteTrack() {
     let trackFavorite = this.currentUser.user.trackFavorites.find((trackFavorite) => {
-      return trackFavorite.trackId === this.args.track.id;
+      return trackFavorite.trackId === parseInt(this.args.track.id);
     });
     trackFavorite
       .destroyRecord()
