@@ -8,5 +8,5 @@ export default class User extends ActiveModelSerializer.extend(EmbeddedRecordsMi
 
   attrs = {
     trackFavorites: { embedded: 'always' },
-  }
+  };
 }
