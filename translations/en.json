@@ -152,7 +152,8 @@
     "min_age": "I am at least 13 years old"
   },
   "profile": {
-    "Favorites": "Favorites",
+    "favorites": "Favorites",
+    "my_favorites": "My Favorite Mixes",
     "style": "Style",
     "submit": "SAVE",
     "pronouns": "Pronouns",

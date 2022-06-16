@@ -160,10 +160,15 @@
     "edition": "octane"
   },
   "dependencies": {
+    "@babel/core": "^7.17.12",
+    "autoprefixer": "^10.4.7",
     "babel-plugin-ember-modules-api-polyfill": "3.5.0",
     "ember-power-select": "https://github.com/mcfiredrill/ember-power-select#fix-deprecate-import",
     "fastboot-app-server": "^3.0.0",
     "fruits-ui": "https://github.com/datafruits/fruits-ui",
-    "pixi.js": "6.1.3"
+    "pixi.js": "6.1.3",
+    "postcss": "^8.4.14",
+    "rollup": "^2.74.0",
+    "stylelint": "^14.8.2"
   }
 }
