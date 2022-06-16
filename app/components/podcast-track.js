@@ -16,6 +16,15 @@ export default class PodcastTrack extends Component {
   @service
   router;
 
+  @service
+  currentUser;
+
+  @service
+  session;
+
+  @service
+  store;
+
   @tracked
   playing;
 
@@ -48,5 +57,41 @@ export default class PodcastTrack extends Component {
         this.playing = false;
       }
     }
+  }
+
+  @action
+  favoriteTrack() {
+    let trackFavorite = this.store.createRecord('trackFavorite', {
+      track: this.args.track,
+    });
+    trackFavorite
+      .save()
+      .then(() => {
+        console.log('faved ya ');
+      })
+      .catch((error) => {
+        console.log(`oh no error: ${error}`);
+      });
+  }
+
+  @action
+  unfavoriteTrack() {
+    let trackFavorite = this.currentUser.user.trackFavorites.find((trackFavorite) => {
+      return trackFavorite.trackId === parseInt(this.args.track.get('id'));
+    });
+    trackFavorite
+      .destroyRecord()
+      .then(() => {
+        console.log('unfaved ya ');
+      })
+      .catch((error) => {
+        console.log(`oh no error: ${error}`);
+      });
+  }
+
+  get isFavorited() {
+    return this.currentUser.user.trackFavorites
+      .map((favorite) => favorite.trackId)
+      .includes(parseInt(this.args.track.get('id')));
   }
 }

@@ -1,0 +1,12 @@
+{{#each this.currentUser.user.trackFavorites as |trackFavorite|}}
+  <PodcastTrack
+    @track={{trackFavorite.track}}
+    @cdnUrl={{trackFavorite.track.cdnUrl}}
+    @title={{trackFavorite.track.title}}
+    @scheduledShow={{trackFavorite.track.scheduledShow}}
+    @soundcloudKey={{trackFavorite.track.soundcloudKey}}
+    @mixcloudKey={{trackFavorite.track.mixcloudKey}}
+    @labels={{trackFavorite.track.labels}}
+    @selectedLabels={{this.selectedLabels}}
+  />
+{{/each}}

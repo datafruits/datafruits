@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     fontFamily: {
       debussy: ['debussy', 'sans-serif'],
+      topaz: ['topaz'],
       helvetica: ['Helvetica', 'Arial', 'sans-serif'],
       cursive: ['cursive'],
     },

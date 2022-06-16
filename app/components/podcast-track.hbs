@@ -13,6 +13,29 @@
       @icon="download"
       class="fa fa-download text-df-green hover:text-df-yellow text-xl" />
   </a>
+  {{#if this.session.isAuthenticated}}
+    {{#if this.isFavorited}}
+      <button
+         class="cool-button favorited"
+         type="button"
+         aria-label="Remove From Favorites"
+         title="Remove From Favorites"
+        {{on "click" this.unfavoriteTrack}}
+        >
+        <FaIcon @icon="heart" />
+      </button>
+    {{else}}
+      <button
+         class="cool-button not-favorited"
+         type="button"
+         aria-label="Add To Favorites"
+         title="Add To Favorites"
+        {{on "click" this.favoriteTrack}}
+        >
+          <FaIcon @icon="heart" />
+      </button>
+    {{/if}}
+  {{/if}}
   {{#if @scheduledShow}}
     <LinkTo @route="home.show" @model={{@scheduledShow.id}}>
       {{@title}}

@@ -1,4 +1,4 @@
-import Model, { attr } from '@ember-data/model';
+import Model, { attr, hasMany } from '@ember-data/model';
 
 export default class UserModel extends Model {
   @attr()
@@ -30,4 +30,17 @@ export default class UserModel extends Model {
 
   @attr()
   bio;
+
+  @hasMany('track-favorite', { async: false }) trackFavorites; // ugh
+
+  async favoritedTrack(trackId) {
+    let trackFavorites = await this.trackFavorites;
+    let trackIds = trackFavorites.map((trackFavorite) => {
+      return trackFavorite.trackId;
+    });
+    console.log(trackIds);
+    console.log(`trackId: ${trackId}`);
+    console.log(trackIds.includes(parseInt(trackId)));
+    return trackIds.includes(trackId);
+  }
 }

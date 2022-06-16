@@ -2,6 +2,11 @@
   <h1 class="py-4 font-semibold text-3xl text-df-yellow">
     {{this.currentUser.user.username}}
   </h1>
+  <ul>
+    <li>
+      <LinkTo @route="home.user.favorites">{{t "profile.favorites"}}</LinkTo>
+    </li>
+  </ul>
   <img
     src="{{this.currentUser.user.avatarUrl}}">
   <input type="file"

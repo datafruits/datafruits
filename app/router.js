@@ -27,6 +27,7 @@ Router.map(function () {
     this.route('password-reset');
     this.route('user', function () {
       this.route('settings');
+      this.route('favorites');
     });
     this.route('site-settings');
   });
