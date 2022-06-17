@@ -17,11 +17,6 @@
 
 * {
   cursor:url('/assets/images/mousepointer.png'), auto !important;
-  font-smooth: never !important;
-  -webkit-font-smooth : none !important;
-  -webkit-font-smoothing: none !important;
-  -moz-osx-font-smoothing: none !important;
-  font-smoothing: none !important;
 }
 
 @font-face {
@@ -38,6 +33,11 @@
   font-weight: 500;
   font-style: normal;
   font-display: swap;
+  font-smooth: never !important;
+  -webkit-font-smooth : none !important;
+  -webkit-font-smoothing: none !important;
+  -moz-osx-font-smoothing: none !important;
+  font-smoothing: none !important;
 }
 
 /* animations seem annoying to do in tailwind without some kind of plugin... */
