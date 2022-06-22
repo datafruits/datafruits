@@ -25,6 +25,8 @@ export default class Track extends Model {
   @hasMany('label')
   labels;
 
+  @hasMany('track-favorite', { async: false }) trackFavorites; // ugh
+
   @belongsTo('podcast')
   podcast;
 

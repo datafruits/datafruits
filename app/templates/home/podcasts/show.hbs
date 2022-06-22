@@ -1,0 +1,6 @@
+<h1>{{this.model.title}}</h1>
+
+<h3>Favorited by:</h3>
+{{#each this.model.trackFavorites as |trackFavorite|}}
+  {{trackFavorite.user.username}}
+{{/each}}

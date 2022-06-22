@@ -10,7 +10,9 @@ Router.map(function () {
   this.route('home', { path: '' }, function () {
     this.route('index', { path: '/' });
     this.route('timetable');
-    this.route('podcasts');
+    this.route('podcasts', function() {
+      this.route('show', { path: '/:id' });
+    });
     this.route('about');
     this.route('subscribe');
     this.route('show', { path: '/shows/:id' });
