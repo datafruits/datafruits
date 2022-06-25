@@ -160,6 +160,8 @@
   },
   "dependencies": {
     "@babel/core": "^7.17.12",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@types/ember": "^4.0.0",
     "autoprefixer": "^10.4.7",
     "babel-plugin-ember-modules-api-polyfill": "3.5.0",
     "ember-destroyable-polyfill": "^2.0.3",
