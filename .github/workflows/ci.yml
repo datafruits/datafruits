@@ -2,13 +2,9 @@ name: CI
 
 on: [push, pull_request]
 
-# Reduce ember's parallel-ness to 2,
-# the number of cores available on github actions.
-# See the following for details:
-# https://git.io/vdao3
-# https://help.github.com/en/actions/reference/virtual-environments-for-github-hosted-runners#supported-runners-and-hardware-resources
-env:
-  JOBS: 2
+concurrency:
+  group: ci-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   lint:
@@ -40,7 +36,7 @@ jobs:
 
       # Install dependencies
       - name: Install dependencies
-        run: yarn
+        run: yarn install --frozen-lockfile
 
       # Lint
       - name: Lint files

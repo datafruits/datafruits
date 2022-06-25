@@ -12,7 +12,7 @@ module.exports = function (environment) {
       'child-src': 'http://www.youtube.com',
     },
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'history',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
