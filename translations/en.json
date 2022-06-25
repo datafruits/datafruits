@@ -63,6 +63,9 @@
       "gif_close": "Close GIF search"
     }
   },
+  "wiki": {
+    "title": "Title"
+  },
   "releases": {
     "title": "Label",
     "aria": "View EPs and other releases from datafruits.fm"

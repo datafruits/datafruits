@@ -1,0 +1,29 @@
+<form {{on "submit" this.saveArticle}}>
+  <div>
+    <label class="block text-sm font-bold mb-2" for="wiki-title">{{t "wiki.title"}}</label>
+    <Input
+      class="form-input focus:outline-none focus:shadow-outline"
+      @id="wiki-title"
+      @type="text"
+      @autofocus={{true}}
+      data-test-title
+      />
+  </div>
+  <div>
+    <Input
+      class="form-input focus:outline-none focus:shadow-outline"
+      @id="wiki-body"
+      @type="textarea"
+      @autofocus={{true}}
+      data-test-body
+      />
+  </div>
+  <div class="mt-2">
+    <input
+      type="submit"
+      value="{{t "wiki.submit"}}"
+      class="cool-button"
+      data-test-submit
+      >
+  </div>
+</form>
