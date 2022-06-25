@@ -18,7 +18,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
-    "dev": "FASTBOOT_DISABLED=true ember serve",
+    "dev": "FASTBOOT_DISABLED=true ./node_modules/.bin/ember s",
     "test": "npm-run-all lint test:*",
     "coverage": "cross-env COVERAGE=true ember test",
     "lighthouse": "lhci autorun --config=config/lighthouserc.js"
@@ -139,8 +139,8 @@
     "qunit-dom": "1.6.0",
     "sass": "^1.26.10",
     "stylelint-config-standard": "^23.0.0",
-    "tailwindcss": "2.2.19",
-    "tailwindcss-multi-theme": "^1.0.4",
+    "tailwindcss": "1.4.6",
+    "tailwindcss-multi-theme": "https://github.com/estevanmaito/tailwindcss-multi-theme#master",
     "textcomplete": "^0.18.2",
     "typescript": "^4.5.5",
     "video.js": "^7.18.1",
@@ -167,6 +167,7 @@
     "fruits-ui": "https://github.com/datafruits/fruits-ui",
     "pixi.js": "6.4.2",
     "postcss": "^8.4.14",
+    "resolve": "^1.22.1",
     "rollup": "^2.74.0",
     "stylelint": "^14.8.2"
   }
