@@ -162,6 +162,7 @@
     "@babel/core": "^7.17.12",
     "autoprefixer": "^10.4.7",
     "babel-plugin-ember-modules-api-polyfill": "3.5.0",
+    "ember-destroyable-polyfill": "^2.0.3",
     "ember-power-select": "https://github.com/mcfiredrill/ember-power-select#fix-deprecate-import",
     "fastboot-app-server": "^3.0.0",
     "fruits-ui": "https://github.com/datafruits/fruits-ui",

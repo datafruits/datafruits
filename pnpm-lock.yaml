@@ -87,6 +87,7 @@ specifiers:
   ember-data-paperclip: https://github.com/mcfiredrill/ember-data-paperclip.git
   ember-data-storefront: ^0.17.2
   ember-decorators: ^6.1.1
+  ember-destroyable-polyfill: ^2.0.3
   ember-export-application-global: ^2.0.1
   ember-fetch: ^8.1.1
   ember-intl: ^5.7.2
@@ -140,6 +141,7 @@ dependencies:
   '@babel/core': 7.18.5
   autoprefixer: 10.4.7_postcss@8.4.14
   babel-plugin-ember-modules-api-polyfill: 2.13.0
+  ember-destroyable-polyfill: 2.0.3_@babel+core@7.18.5
   ember-power-select: github.com/mcfiredrill/ember-power-select/62730d853f7feed342aa797d46245cd424dfd432_cbfu52vf6vx4mudzpntp74lihu
   fastboot-app-server: 3.3.2
   fruits-ui: github.com/datafruits/fruits-ui/a37bae2b1ad1fba7a81f130497d288696d0274ce
@@ -1712,7 +1714,7 @@ packages:
     engines: {node: 10.* || 12.* || >= 14.*}
     dependencies:
       calculate-cache-key-for-tree: 2.0.0
-      ember-cli-babel: 7.26.10
+      ember-cli-babel: 7.26.11
       ember-cli-version-checker: 5.1.2
       semver: 7.3.7
     transitivePeerDependencies:
@@ -1768,7 +1770,7 @@ packages:
       '@embroider/shared-internals': 1.8.0
       assert-never: 1.2.1
       babel-import-util: 1.2.2
-      ember-cli-babel: 7.26.10
+      ember-cli-babel: 7.26.11
       find-up: 5.0.0
       lodash: 4.17.21
       resolve: 1.22.1
@@ -1857,7 +1859,7 @@ packages:
     dependencies:
       '@embroider/macros': 1.8.0
       broccoli-funnel: 3.0.8
-      ember-cli-babel: 7.26.10
+      ember-cli-babel: 7.26.11
       ember-source: 3.28.9_@babel+core@7.18.5
     transitivePeerDependencies:
       - supports-color
@@ -8124,7 +8126,7 @@ packages:
     resolution: {integrity: sha512-TovtNqCumzyAiW0/OisSkkVK93xnVF4NRU6+FN0ubpfwEOpRrmM2RqDwXI6YAChCgSHON1cz0DfQStpA1Gjuuw==}
     engines: {node: 10.* || >= 12}
     dependencies:
-      ember-cli-babel: 7.26.10
+      ember-cli-babel: 7.26.11
       ember-cli-version-checker: 5.1.2
       ember-compatibility-helpers: 1.2.6_@babel+core@7.18.5
     transitivePeerDependencies:
