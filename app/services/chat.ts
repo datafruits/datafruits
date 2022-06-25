@@ -111,7 +111,7 @@ export default class ChatService extends Service {
       if (msg['role']) {
         msg['role'] = msg.role.split(' ');
       }
-      this.messages.push(msg);
+      this.messages = [...this.messages, msg];
     });
 
     this.chan.on('new:fruit_tip', (msg) => {
