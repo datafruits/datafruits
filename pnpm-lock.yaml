@@ -133,7 +133,7 @@ specifiers:
   stylelint: ^14.8.2
   stylelint-config-standard: ^23.0.0
   tailwindcss: 1.4.6
-  tailwindcss-multi-theme: https://github.com/estevanmaito/tailwindcss-multi-theme#master
+  tailwindcss-multi-theme: https://github.com/mcfiredrill/tailwindcss-multi-theme#patch-1
   textcomplete: ^0.18.2
   typescript: ^4.5.5
   video.js: ^7.18.1
@@ -271,7 +271,7 @@ devDependencies:
   sass: 1.53.0
   stylelint-config-standard: 23.0.0_stylelint@14.9.1
   tailwindcss: 1.4.6
-  tailwindcss-multi-theme: github.com/estevanmaito/tailwindcss-multi-theme/9b1bec119171a0f6a1a9bd3c71d13af47f42f570_tailwindcss@1.4.6
+  tailwindcss-multi-theme: github.com/mcfiredrill/tailwindcss-multi-theme/855ef5b27f10366febeae1c7f76f464c6d30863a_tailwindcss@1.4.6
   textcomplete: 0.18.2
   typescript: 4.7.4
   video.js: 7.19.2
@@ -16701,17 +16701,6 @@ packages:
       - webpack-command
     dev: true
 
-  github.com/estevanmaito/tailwindcss-multi-theme/9b1bec119171a0f6a1a9bd3c71d13af47f42f570_tailwindcss@1.4.6:
-    resolution: {tarball: https://codeload.github.com/estevanmaito/tailwindcss-multi-theme/tar.gz/9b1bec119171a0f6a1a9bd3c71d13af47f42f570}
-    id: github.com/estevanmaito/tailwindcss-multi-theme/9b1bec119171a0f6a1a9bd3c71d13af47f42f570
-    name: tailwindcss-multi-theme
-    version: 0.0.0-development
-    peerDependencies:
-      tailwindcss: ^1.4.6
-    dependencies:
-      tailwindcss: 1.4.6
-    dev: true
-
   github.com/mcfiredrill/ember-data-paperclip/924074906978105e1c06bf626213251d56531e83_@babel+core@7.18.5:
     resolution: {tarball: https://codeload.github.com/mcfiredrill/ember-data-paperclip/tar.gz/924074906978105e1c06bf626213251d56531e83}
     id: github.com/mcfiredrill/ember-data-paperclip/924074906978105e1c06bf626213251d56531e83
@@ -16753,6 +16742,17 @@ packages:
     resolution: {tarball: https://codeload.github.com/mcfiredrill/emojione/tar.gz/a67c80945bd4fcb885e953d13f9b030019a06afb}
     name: emojione
     version: 3.1.2
+    dev: true
+
+  github.com/mcfiredrill/tailwindcss-multi-theme/855ef5b27f10366febeae1c7f76f464c6d30863a_tailwindcss@1.4.6:
+    resolution: {tarball: https://codeload.github.com/mcfiredrill/tailwindcss-multi-theme/tar.gz/855ef5b27f10366febeae1c7f76f464c6d30863a}
+    id: github.com/mcfiredrill/tailwindcss-multi-theme/855ef5b27f10366febeae1c7f76f464c6d30863a
+    name: tailwindcss-multi-theme
+    version: 0.0.0-development
+    peerDependencies:
+      tailwindcss: ^1.4.6
+    dependencies:
+      tailwindcss: 1.4.6
     dev: true
 
   github.com/sinankeskin/postcss-sass/0dead767e003f390ddbba42a84821624c8fc715e_postcss@8.4.14:

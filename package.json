@@ -140,7 +140,7 @@
     "sass": "^1.26.10",
     "stylelint-config-standard": "^23.0.0",
     "tailwindcss": "1.4.6",
-    "tailwindcss-multi-theme": "https://github.com/estevanmaito/tailwindcss-multi-theme#master",
+    "tailwindcss-multi-theme": "https://github.com/mcfiredrill/tailwindcss-multi-theme#patch-1",
     "textcomplete": "^0.18.2",
     "typescript": "^4.5.5",
     "video.js": "^7.18.1",
