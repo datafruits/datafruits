@@ -18,7 +18,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "start": "ember serve",
-    "dev": "FASTBOOT_DISABLED=true ember serve",
+    "dev": "FASTBOOT_DISABLED=true ./node_modules/.bin/ember s",
     "test": "npm-run-all lint test:*",
     "coverage": "cross-env COVERAGE=true ember test",
     "lighthouse": "lhci autorun --config=config/lighthouserc.js"
@@ -139,8 +139,8 @@
     "qunit-dom": "1.6.0",
     "sass": "^1.26.10",
     "stylelint-config-standard": "^23.0.0",
-    "tailwindcss": "2.2.19",
-    "tailwindcss-multi-theme": "^1.0.4",
+    "tailwindcss": "1.4.6",
+    "tailwindcss-multi-theme": "https://github.com/mcfiredrill/tailwindcss-multi-theme#patch-1",
     "textcomplete": "^0.18.2",
     "typescript": "^4.5.5",
     "video.js": "^7.18.1",
@@ -160,13 +160,17 @@
   },
   "dependencies": {
     "@babel/core": "^7.17.12",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@types/ember": "^4.0.0",
     "autoprefixer": "^10.4.7",
     "babel-plugin-ember-modules-api-polyfill": "3.5.0",
+    "ember-destroyable-polyfill": "^2.0.3",
     "ember-power-select": "https://github.com/mcfiredrill/ember-power-select#fix-deprecate-import",
     "fastboot-app-server": "^3.0.0",
     "fruits-ui": "https://github.com/datafruits/fruits-ui",
     "pixi.js": "6.4.2",
     "postcss": "^8.4.14",
+    "resolve": "^1.22.1",
     "rollup": "^2.74.0",
     "stylelint": "^14.8.2"
   }
