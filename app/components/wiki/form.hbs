@@ -1,5 +1,5 @@
 <form {{on "submit" this.saveArticle}}>
-  <div>
+  <div class="mb-2">
     <label class="block text-sm font-bold mb-2" for="wiki-title">{{t "wiki.title"}}</label>
     <Input
       class="form-input focus:outline-none focus:shadow-outline"
@@ -9,11 +9,10 @@
       data-test-title
       />
   </div>
-  <div>
-    <Input
+  <div class="mb-2">
+    <Textarea
       class="form-input focus:outline-none focus:shadow-outline"
       @id="wiki-body"
-      @type="textarea"
       @autofocus={{true}}
       data-test-body
       />

@@ -64,7 +64,8 @@
     }
   },
   "wiki": {
-    "title": "Title"
+    "title": "Title",
+    "submit": "Save"
   },
   "releases": {
     "title": "Label",

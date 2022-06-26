@@ -1,9 +1,6 @@
 import DS from 'ember-data';
 
-export default class WikiPage extends DS.Model.extend({
-
-}) {
-  // normal class body definition here
+export default class WikiPage extends DS.Model {
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.
