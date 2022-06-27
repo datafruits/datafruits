@@ -65,6 +65,7 @@
   },
   "wiki": {
     "title": "Title",
+    "body": "Article",
     "submit": "Save"
   },
   "releases": {

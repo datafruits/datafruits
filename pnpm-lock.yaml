@@ -64,7 +64,7 @@ specifiers:
   ember-auto-import: 2.4.0
   ember-await: ^2.0.0
   ember-changeset-validations: ^3.9.1
-  ember-classic-decorator: ^1.0.8
+  ember-classic-decorator: 3.0.0
   ember-cli: ^3.28.5
   ember-cli-app-version: ^5.0.0
   ember-cli-babel: 7.26.10
@@ -83,7 +83,7 @@ specifiers:
   ember-cli-shims: ^1.1.0
   ember-cli-sri: ^2.1.1
   ember-cli-terser: ^4.0.2
-  ember-cli-typescript: 5.0.0
+  ember-cli-typescript: 5.1.0
   ember-cli-typescript-blueprints: ^3.0.0
   ember-composable-helpers: ^4.3.0
   ember-concurrency: ^2.2.0
@@ -213,7 +213,7 @@ devDependencies:
   ember-auto-import: 2.4.0_webpack@5.73.0
   ember-await: 2.0.0_7y6ihkksmi75baosspcp7fedta
   ember-changeset-validations: 3.16.0
-  ember-classic-decorator: 1.0.8
+  ember-classic-decorator: 3.0.0
   ember-cli: 3.28.5
   ember-cli-app-version: 5.0.0
   ember-cli-babel: 7.26.10
@@ -232,7 +232,7 @@ devDependencies:
   ember-cli-shims: 1.2.0
   ember-cli-sri: 2.1.1
   ember-cli-terser: 4.0.2
-  ember-cli-typescript: 5.0.0
+  ember-cli-typescript: 5.1.0
   ember-cli-typescript-blueprints: 3.0.0
   ember-composable-helpers: 4.5.0
   ember-concurrency: 2.2.1_@babel+core@7.18.5
@@ -3890,7 +3890,7 @@ packages:
       istextorbinary: 2.1.0
       mkdirp: 0.5.6
       rimraf: 2.7.1
-      rsvp: 3.6.2
+      rsvp: 3.2.1
       username-sync: 1.0.3
     transitivePeerDependencies:
       - supports-color
@@ -4275,13 +4275,6 @@ packages:
       magic-string: 0.26.2
       string.prototype.matchall: 4.0.7
 
-  /babel-plugin-filter-imports/3.0.0:
-    resolution: {integrity: sha512-p/chjzVTgCxUqyLM0q/pfWVZS7IJTwGQMwNg0LOvuQpKiTftQgZDtkGB8XvETnUw19rRcL7bJCTopSwibTN2tA==}
-    dependencies:
-      '@babel/types': 7.18.4
-      lodash: 4.17.21
-    dev: true
-
   /babel-plugin-filter-imports/4.0.0:
     resolution: {integrity: sha512-jDLlxI8QnfKd7PtieH6pl4tZJzymzfCDCPGdTq/grgbiYAikwDPp/oL0IlFJn0HQjLpcLkyYhPKkUVneRESw5w==}
     engines: {node: '>=8'}
@@ -4357,7 +4350,7 @@ packages:
     dependencies:
       '@babel/core': 7.18.5
       '@babel/helper-define-polyfill-provider': 0.3.1_@babel+core@7.18.5
-      core-js-compat: 3.23.2
+      core-js-compat: 3.23.3
     transitivePeerDependencies:
       - supports-color
 
@@ -6638,6 +6631,12 @@ packages:
       browserslist: 4.21.0
       semver: 7.0.0
 
+  /core-js-compat/3.23.3:
+    resolution: {integrity: sha512-WSzUs2h2vvmKsacLHNTdpyOC9k43AEhcGoFlVgCY4L7aw98oSBKtPL6vD0/TqZjRWRQYdDSLkzZIni4Crbbiqw==}
+    dependencies:
+      browserslist: 4.21.0
+      semver: 7.0.0
+
   /core-js/2.6.12:
     resolution: {integrity: sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==}
     deprecated: core-js@<3.4 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js.
@@ -7386,12 +7385,14 @@ packages:
       - webpack-command
     dev: true
 
-  /ember-classic-decorator/1.0.8:
-    resolution: {integrity: sha512-IsCDJ7rLsrFjYtgi9UXUmjzUQJaaJzmy/gKwGGtZ6kZwT5yhzSbScRi0P6Cb0guJPtlMMCE0sAQpJRbXmBb/gA==}
-    engines: {node: 8.* || >= 10.*}
+  /ember-classic-decorator/3.0.0:
+    resolution: {integrity: sha512-nCCO3d06c27l1vj4P54xLYk8AwrzSlFFGX8MZmfFl/xZ9LDY0V8OphAmO9PsaYEbBkjmtUy+h9vG2Lg9qVij+g==}
+    engines: {node: 12.* || 14.* || >= 16}
     dependencies:
-      babel-plugin-filter-imports: 3.0.0
-      ember-cli-babel: 7.26.10
+      '@embroider/macros': 1.8.0
+      babel-plugin-filter-imports: 4.0.0
+      ember-cli-babel: 7.26.11
+      ember-cli-htmlbars: 6.0.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -7918,8 +7919,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /ember-cli-typescript/5.0.0:
-    resolution: {integrity: sha512-UDKZlG7bInRo7eDsF3jvPz1Dxh1YvRhMw9wyj5rj2K3brw0xEh1IMTqPgWRbPESqjcWuwa8s0FCNuYWDc4PTfg==}
+  /ember-cli-typescript/5.1.0:
+    resolution: {integrity: sha512-wEZfJPkjqFEZAxOYkiXsDrJ1HY75e/6FoGhQFg8oNFJeGYpIS/3W0tgyl1aRkSEEN1NRlWocDubJ4aZikT+RTA==}
     engines: {node: '>= 12.*'}
     dependencies:
       ansi-to-html: 0.6.15
@@ -8322,7 +8323,7 @@ packages:
     engines: {node: ^4.5 || 6.* || >= 7.*}
     dependencies:
       broccoli-file-creator: 1.2.0
-      ember-cli-babel: 7.26.11
+      ember-cli-babel: 7.26.10
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -8504,7 +8505,7 @@ packages:
       ember-cli-babel: 7.26.11
       ember-cli-normalize-entity-name: 1.0.0
       ember-cli-string-utils: 1.1.0
-      ember-cli-typescript: 5.0.0
+      ember-cli-typescript: 5.1.0
       ember-compatibility-helpers: 1.2.6_@babel+core@7.18.5
     transitivePeerDependencies:
       - '@babel/core'
@@ -13641,7 +13642,7 @@ packages:
   /promise-map-series/0.2.3:
     resolution: {integrity: sha512-wx9Chrutvqu1N/NHzTayZjE1BgIwt6SJykQoCOic4IZ9yUDjKyVYrpLa/4YCNsV61eRENfs29hrEquVuB13Zlw==}
     dependencies:
-      rsvp: 3.6.2
+      rsvp: 3.2.1
 
   /promise-map-series/0.3.0:
     resolution: {integrity: sha512-3npG2NGhTc8BWBolLLf8l/92OxMGaRLbqvIh9wjCHhDXNvk4zsxaTaCpiCunW09qWPrN2zeNSNwRLVBrQQtutA==}
@@ -14376,6 +14377,7 @@ packages:
   /rsvp/3.6.2:
     resolution: {integrity: sha512-OfWGQTb9vnwRjwtA2QwpG2ICclHC3pgXZO5xt8H2EfgDquO0qVdSb5T88L4qJVAEugbS56pAuV4XZM58UX8ulw==}
     engines: {node: 0.12.* || 4.* || 6.* || >= 7.*}
+    dev: true
 
   /rsvp/4.8.5:
     resolution: {integrity: sha512-nfMOlASu9OnRJo1mbEk2cz0D56a1MBNrJ7orjRZQG10XDyuvwksKbuXNp6qa+kbn839HwjwhBzhFmdsaEAfauA==}
@@ -16813,9 +16815,9 @@ packages:
     version: 0.0.0
     engines: {node: 10.* || >= 12}
     dependencies:
-      ember-cli-babel: 7.26.11
+      ember-cli-babel: 7.26.10
       ember-cli-htmlbars: 5.7.2
-      ember-cli-typescript: 5.0.0
+      ember-cli-typescript: 5.1.0
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -16827,7 +16829,7 @@ packages:
     engines: {node: 6.* || 8.* || >= 10.*}
     dependencies:
       ember-auto-import: 1.12.2
-      ember-cli-babel: 7.26.11
+      ember-cli-babel: 7.26.10
       git-repo-version: 1.0.2
       lodash.merge: 4.6.2
       rollbar: 2.5.5
@@ -16861,7 +16863,7 @@ packages:
       '@glimmer/tracking': 1.1.2
       ember-assign-helper: 0.3.0
       ember-basic-dropdown: 3.1.0_cbfu52vf6vx4mudzpntp74lihu
-      ember-cli-babel: 7.26.11
+      ember-cli-babel: 7.26.10
       ember-cli-htmlbars: 5.7.2
       ember-cli-typescript: 4.2.1
       ember-concurrency: 2.2.1_@babel+core@7.18.5

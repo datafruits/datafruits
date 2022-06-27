@@ -3,12 +3,39 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Store from '@ember-data/store';
 
-interface WikiFormArgs {}
+interface WikiFormArgs {
+  changeset: any;
+}
 
 export default class WikiForm extends Component<WikiFormArgs> {
   @service declare store: Store;
 
   @action
-  saveArticle() {
+  updateTitle(event: any) {
+    debugger
+    const title = event.target.value;
+    this.args.changeset.set('title', title);
+  }
+
+  @action
+  saveArticle(e: any) {
+    e.preventDefault();
+    const changeset = this.args.changeset;
+    changeset.validate().then(() => {
+      if (changeset.isValid) {
+        changeset
+          .save()
+          .then(() => {
+            console.log('saved article');
+          })
+          .catch((error: string) => {
+            console.log(error); // eslint-disable-line no-console
+            alert('couldnt save article!');
+          });
+      } else {
+        console.log('changeset invalid'); // eslint-disable-line no-console
+        console.log(changeset.get('errors')); // eslint-disable-line no-console
+      }
+    });
   }
 }

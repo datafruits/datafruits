@@ -6,10 +6,12 @@
       @id="wiki-title"
       @type="text"
       @autofocus={{true}}
+      {{on "change" this.updateTitle}}
       data-test-title
       />
   </div>
   <div class="mb-2">
+    <label class="block text-sm font-bold mb-2" for="wiki-body">{{t "wiki.body"}}</label>
     <Textarea
       class="form-input focus:outline-none focus:shadow-outline"
       @id="wiki-body"
