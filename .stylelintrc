@@ -1,0 +1,16 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "indentation": 2,
+    "string-quotes": "single",
+    "no-duplicate-selectors": true,
+    "color-hex-case": "lower",
+    "color-hex-length": "short",
+    "color-named": "always-where-possible",
+    "selector-no-id": true
+  },
+  "ignoreFiles": [
+    '**/*.js',
+    '**/*.hbs',
+  ]
+}
