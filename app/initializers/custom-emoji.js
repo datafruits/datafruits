@@ -317,6 +317,14 @@ export function initialize(/* application */) {
       shortnames: [':mango_hd:'],
       keywords: ['mango_hd'],
     },
+    ':viz:': {
+      custom: true,
+      animated: true,
+      uc_base: 'viz',
+      uc_output: '',
+      shortnames: [':viz:'],
+      keywords: ['viz'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
