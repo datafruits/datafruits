@@ -8,5 +8,5 @@ declare const config: {
   rootURL: string;
   APP: Record<string, unknown>;
   // our env vars
-  API_HOST: string;
+  //API_HOST: string;
 };

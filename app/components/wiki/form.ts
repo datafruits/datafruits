@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import WikiPageValidations from '../../validations/wiki-page';
 import Store from '@ember-data/store';
 
 interface WikiFormArgs {
@@ -8,11 +9,12 @@ interface WikiFormArgs {
 }
 
 export default class WikiForm extends Component<WikiFormArgs> {
+  WikiPageValidations = WikiPageValidations;
+
   @service declare store: Store;
 
   @action
   updateTitle(event: any) {
-    debugger
     const title = event.target.value;
     this.args.changeset.set('title', title);
   }

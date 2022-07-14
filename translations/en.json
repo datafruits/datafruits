@@ -64,9 +64,12 @@
     }
   },
   "wiki": {
-    "title": "Title",
-    "body": "Article",
-    "submit": "Save"
+    "title": "Fruitopiyeah",
+    "form": {
+      "title": "Title",
+      "body": "Article",
+      "submit": "Save"
+    }
   },
   "releases": {
     "title": "Label",

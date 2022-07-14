@@ -34,5 +34,5 @@ module.exports = {
     textColor: ['responsive', 'hover', 'focus', 'classic', 'blm', 'trans'],
     visibility: ['responsive', 'hover', 'focus', 'classic', 'blm', 'trans'],
   },
-  plugins: [require('tailwindcss-multi-theme')],
+  plugins: [require('tailwindcss-multi-theme'), require('@frontile/core/tailwind')],
 };

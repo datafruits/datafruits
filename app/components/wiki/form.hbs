@@ -1,30 +1,22 @@
-<form {{on "submit" this.saveArticle}}>
-  <div class="mb-2">
-    <label class="block text-sm font-bold mb-2" for="wiki-title">{{t "wiki.title"}}</label>
-    <Input
-      class="form-input focus:outline-none focus:shadow-outline"
-      @id="wiki-title"
-      @type="text"
-      @autofocus={{true}}
-      {{on "change" this.updateTitle}}
-      data-test-title
+{{#let (changeset @model WikiPageValidations) as |changeset|}}
+  <ChangesetForm @changeset={{changeset}} as |Form|>
+    <Form.Input
+      @label={{t "wiki.form.title"}}
+      @fieldName="title"
+      @containerClass='mb-2'
       />
-  </div>
-  <div class="mb-2">
-    <label class="block text-sm font-bold mb-2" for="wiki-body">{{t "wiki.body"}}</label>
-    <Textarea
-      class="form-input focus:outline-none focus:shadow-outline"
-      @id="wiki-body"
-      @autofocus={{true}}
-      data-test-body
+    <Form.Textarea
+      @label={{t "wiki.form.body"}}
+      @fieldName="body"
+      @containerClass='mb-2'
       />
-  </div>
-  <div class="mt-2">
-    <input
-      type="submit"
-      value="{{t "wiki.submit"}}"
+    <Button
+      @type="submit"
+      @intent="primary"
       class="cool-button"
-      data-test-submit
+      disabled={{changeset.isInvalid}}
       >
-  </div>
-</form>
+      {{t "wiki.form.submit"}}
+    </Button>
+  </ChangesetForm>
+{{/let}}

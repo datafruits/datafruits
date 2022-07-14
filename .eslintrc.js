@@ -23,6 +23,7 @@ module.exports = {
   rules: {
     'ember/no-jquery': 'error',
     'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    '@typescript-eslint/no-inferrable-types': 'off',
   },
   overrides: [
     // node files
