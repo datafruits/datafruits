@@ -128,26 +128,34 @@ jobs:
         with:
           node-version: "${{ steps.nvmrc.outputs.version }}"
 
-      # Restore yarn cache from between builds
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - name: Restore dependencies from cache
-        uses: actions/cache@v2
+      - uses: pnpm/action-setup@v2.0.1
+        name: Install pnpm
+        id: pnpm-install
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          version: 7
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-pnpm-store-
 
       # Install dependencies
       - name: Install dependencies
-        run: yarn
+        run: pnpm install
 
       - name: Run Lighthouse
         run: |
           mkdir lhci
-          yarn lighthouse
+          pnpm lighthouse
         continue-on-error: true
 
       - name: Store generated report
