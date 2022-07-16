@@ -17,10 +17,16 @@ export default class WikiForm extends Component<WikiFormArgs> {
   @service declare store: Store;
 
   @tracked previewBody: string = "";
+  @tracked previewTitle: string = "";
 
   @action
-  setPreview(value: string) {
+  setPreviewBody(value: string) {
     this.previewBody = emojione.shortnameToImage(value);
+  }
+
+  @action
+  setPreviewTitle(value: string) {
+    this.previewTitle = emojione.shortnameToImage(value);
   }
 
   @action

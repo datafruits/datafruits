@@ -6,12 +6,13 @@
           @label={{t "wiki.form.title"}}
           @fieldName="title"
           @containerClass='mb-2'
+          @onInput={{this.setPreviewTitle}}
           />
         <Form.Textarea
           @label={{t "wiki.form.body"}}
           @fieldName="body"
           @containerClass='mb-2'
-          @onInput={{this.setPreview}}
+          @onInput={{this.setPreviewBody}}
           />
         <Button
           @type="submit"
@@ -25,7 +26,7 @@
     {{/let}}
   </div>
   <div class="">
-    <h1>Preview</h1>
+    <h1>{{this.previewTitle}}</h1>
     {{marked-down this.previewBody}}
   </div>
 </div>
