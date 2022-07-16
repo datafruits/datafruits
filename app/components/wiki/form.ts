@@ -31,6 +31,14 @@ export default class WikiForm extends Component<WikiFormArgs> {
   }
 
   @action
+  onSubmit(data: any, event: Event) {
+    console.log(data);
+    console.log(event);
+    debugger
+    //this.router.transitionTo('wiki.show', );
+  }
+
+  @action
   saveArticle(e: any) {
     e.preventDefault();
     const changeset = this.args.changeset;
