@@ -5,7 +5,8 @@ import WikiPageValidations from '../../validations/wiki-page';
 import Store from '@ember-data/store';
 import { tracked } from '@glimmer/tracking';
 import emojione from 'emojione';
-//import { htmlSafe } from '@ember/string';
+import { SafeString } from 'handlebars';
+import { htmlSafe } from '@ember/template';
 
 interface WikiFormArgs {
   changeset: any;
@@ -16,17 +17,17 @@ export default class WikiForm extends Component<WikiFormArgs> {
 
   @service declare store: Store;
 
-  @tracked previewBody: string = "";
-  @tracked previewTitle: string = "";
+  @tracked previewBody: SafeString = new SafeString('');
+  @tracked previewTitle: SafeString = new SafeString('');
 
   @action
   setPreviewBody(value: string) {
-    this.previewBody = emojione.shortnameToImage(value);
+    this.previewBody = htmlSafe(emojione.shortnameToImage(value));
   }
 
   @action
   setPreviewTitle(value: string) {
-    this.previewTitle = emojione.shortnameToImage(value);
+    this.previewTitle = htmlSafe(emojione.shortnameToImage(value));
   }
 
   @action
