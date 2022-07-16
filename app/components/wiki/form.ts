@@ -3,6 +3,9 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import WikiPageValidations from '../../validations/wiki-page';
 import Store from '@ember-data/store';
+import { tracked } from '@glimmer/tracking';
+import emojione from 'emojione';
+//import { htmlSafe } from '@ember/string';
 
 interface WikiFormArgs {
   changeset: any;
@@ -13,10 +16,11 @@ export default class WikiForm extends Component<WikiFormArgs> {
 
   @service declare store: Store;
 
+  @tracked previewBody: string = "";
+
   @action
-  updateTitle(event: any) {
-    const title = event.target.value;
-    this.args.changeset.set('title', title);
+  setPreview(value: string) {
+    this.previewBody = emojione.shortnameToImage(value);
   }
 
   @action

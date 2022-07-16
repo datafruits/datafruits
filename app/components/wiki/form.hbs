@@ -1,22 +1,31 @@
-{{#let (changeset @model WikiPageValidations) as |changeset|}}
-  <ChangesetForm @changeset={{changeset}} as |Form|>
-    <Form.Input
-      @label={{t "wiki.form.title"}}
-      @fieldName="title"
-      @containerClass='mb-2'
-      />
-    <Form.Textarea
-      @label={{t "wiki.form.body"}}
-      @fieldName="body"
-      @containerClass='mb-2'
-      />
-    <Button
-      @type="submit"
-      @intent="primary"
-      class="cool-button"
-      disabled={{changeset.isInvalid}}
-      >
-      {{t "wiki.form.submit"}}
-    </Button>
-  </ChangesetForm>
-{{/let}}
+<div class="grid grid-cols-2 gap-2">
+  <div class="">
+    {{#let (changeset @model WikiPageValidations) as |changeset|}}
+      <ChangesetForm @changeset={{changeset}} as |Form|>
+        <Form.Input
+          @label={{t "wiki.form.title"}}
+          @fieldName="title"
+          @containerClass='mb-2'
+          />
+        <Form.Textarea
+          @label={{t "wiki.form.body"}}
+          @fieldName="body"
+          @containerClass='mb-2'
+          @onInput={{this.setPreview}}
+          />
+        <Button
+          @type="submit"
+          @intent="primary"
+          class="cool-button"
+          disabled={{changeset.isInvalid}}
+          >
+          {{t "wiki.form.submit"}}
+        </Button>
+      </ChangesetForm>
+    {{/let}}
+  </div>
+  <div class="">
+    <h1>Preview</h1>
+    {{marked-down this.previewBody}}
+  </div>
+</div>
