@@ -47,7 +47,6 @@ specifiers:
   '@types/phoenix': ^1.5.4
   '@types/qunit': ^2.11.3
   '@types/rsvp': ^4.0.4
-  active-model-adapter: ^2.2.0
   autolink-js: ^1.0.2
   autoprefixer: ^10.4.7
   babel-eslint: ^10.1.0
@@ -117,6 +116,7 @@ specifiers:
   eslint-plugin-qunit: ^6.2.0
   fastboot-app-server: ^3.0.0
   fruits-ui: https://github.com/datafruits/fruits-ui
+  jsdom: ^20.0.0
   loader.js: ^4.2.3
   phoenix: ^1.5.7
   pixi.js: 6.4.2
@@ -196,7 +196,6 @@ devDependencies:
   '@types/phoenix': 1.5.4
   '@types/qunit': 2.19.1
   '@types/rsvp': 4.0.4
-  active-model-adapter: 2.2.0_@babel+core@7.18.5
   autolink-js: 1.0.2
   babel-eslint: 10.1.0_eslint@7.32.0
   babel-plugin-istanbul: 6.1.1
@@ -260,6 +259,7 @@ devDependencies:
   eslint-plugin-node: 11.1.0_eslint@7.32.0
   eslint-plugin-prettier: 3.4.1_7gsvg5lgwpfdww3i7smtqxamuy
   eslint-plugin-qunit: 6.2.0_eslint@7.32.0
+  jsdom: 20.0.0
   loader.js: 4.7.0
   phoenix: 1.6.10
   postcss-import: 14.0.2_postcss@8.4.14
@@ -3436,17 +3436,6 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
-  /active-model-adapter/2.2.0_@babel+core@7.18.5:
-    resolution: {integrity: sha512-hflmeFKGiKXZtqPJ5pGbjUOCCIDWi2aFC7Q4htNi+FbLvI+8lBqjpDxiHgL82HmDF/CVVZGFQ2y0MROTxgC58g==}
-    engines: {node: '>= 0.10.0'}
-    dependencies:
-      ember-cli-babel: 6.18.0_@babel+core@7.18.5
-      ember-inflector: 2.3.0_@babel+core@7.18.5
-    transitivePeerDependencies:
-      - '@babel/core'
-      - supports-color
-    dev: true
-
   /aes-decrypter/3.1.3:
     resolution: {integrity: sha512-VkG9g4BbhMBy+N5/XodDeV6F02chEk9IpgRTq/0bS80y4dzy79VH2Gtms02VXomf3HmyRe3yyJYkJ990ns+d6A==}
     dependencies:
@@ -6490,7 +6479,7 @@ packages:
 
   /core-js/2.6.12:
     resolution: {integrity: sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==}
-    deprecated: core-js@<3.4 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js.
+    deprecated: core-js@<3.23.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Some versions have web compatibility issues. Please, upgrade your dependencies to the actual version of core-js.
     requiresBuild: true
 
   /core-object/1.1.0:
@@ -8207,16 +8196,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /ember-inflector/2.3.0_@babel+core@7.18.5:
-    resolution: {integrity: sha512-5i34vVIoRSoIIld8DyPzKwk/08ihOYhjMue6oZf2z5MKRmprlFj1bbEdhWvWrVukNPf9OfMr9ByoMwC8C+A0Gw==}
-    engines: {node: '>= 4'}
-    dependencies:
-      ember-cli-babel: 6.18.0_@babel+core@7.18.5
-    transitivePeerDependencies:
-      - '@babel/core'
-      - supports-color
-    dev: true
-
   /ember-inflector/3.0.1_@babel+core@7.18.5:
     resolution: {integrity: sha512-fngrwMsnhkBt51KZgwNwQYxgURwV4lxtoHdjxf7RueGZ5zM7frJLevhHw7pbQNGqXZ3N+MRkhfNOLkdDK9kFdA==}
     engines: {node: ^4.5 || 6.* || >= 7.*}
@@ -8669,6 +8648,11 @@ packages:
 
   /entities/2.2.0:
     resolution: {integrity: sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==}
+
+  /entities/4.3.1:
+    resolution: {integrity: sha512-o4q/dYJlmyjP2zfnaWDUC6A3BQFmVTX+tZPezK7k0GLSU9QYCauscf5Y+qcEPzKL+EixVouYDgLQK5H9GrLpkg==}
+    engines: {node: '>=0.12'}
+    dev: true
 
   /errlop/2.2.0:
     resolution: {integrity: sha512-e64Qj9+4aZzjzzFpZC7p5kmm/ccCrbLhAJplhsDXQFs87XTsXwOpH4s1Io2s90Tau/8r2j9f4l/thhDevRjzxw==}
@@ -11368,6 +11352,48 @@ packages:
       - supports-color
       - utf-8-validate
 
+  /jsdom/20.0.0:
+    resolution: {integrity: sha512-x4a6CKCgx00uCmP+QakBDFXwjAJ69IkkIWHmtmjd3wvXPcdOS44hfX2vqkOQrVrq8l9DhNNADZRXaCEWvgXtVA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      canvas: ^2.5.0
+    peerDependenciesMeta:
+      canvas:
+        optional: true
+    dependencies:
+      abab: 2.0.6
+      acorn: 8.7.1
+      acorn-globals: 6.0.0
+      cssom: 0.5.0
+      cssstyle: 2.3.0
+      data-urls: 3.0.2
+      decimal.js: 10.3.1
+      domexception: 4.0.0
+      escodegen: 2.0.0
+      form-data: 4.0.0
+      html-encoding-sniffer: 3.0.0
+      http-proxy-agent: 5.0.0
+      https-proxy-agent: 5.0.1
+      is-potential-custom-element-name: 1.0.1
+      nwsapi: 2.2.1
+      parse5: 7.0.0
+      saxes: 6.0.0
+      symbol-tree: 3.2.4
+      tough-cookie: 4.0.0
+      w3c-hr-time: 1.0.2
+      w3c-xmlserializer: 3.0.0
+      webidl-conversions: 7.0.0
+      whatwg-encoding: 2.0.0
+      whatwg-mimetype: 3.0.0
+      whatwg-url: 11.0.0
+      ws: 8.8.0
+      xml-name-validator: 4.0.0
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+    dev: true
+
   /jsesc/0.3.0:
     resolution: {integrity: sha512-UHQmAeTXV+iwEk0aHheJRqo6Or90eDxI6KIYpHSjKLXKuKlPt1CQ7tGBerFcFA8uKU5mYxiPMlckmFptd5XZzA==}
     hasBin: true
@@ -13071,6 +13097,12 @@ packages:
   /parse5/6.0.1:
     resolution: {integrity: sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==}
 
+  /parse5/7.0.0:
+    resolution: {integrity: sha512-y/t8IXSPWTuRZqXc0ajH/UwDj4mnqLEbSttNbThcFhGrZuOyoyvNBO85PBp2jQa55wY9d07PBNjsK8ZP3K5U6g==}
+    dependencies:
+      entities: 4.3.1
+    dev: true
+
   /parseurl/1.3.3:
     resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
     engines: {node: '>= 0.8'}
@@ -14372,6 +14404,13 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       xmlchars: 2.2.0
+
+  /saxes/6.0.0:
+    resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==}
+    engines: {node: '>=v12.22.7'}
+    dependencies:
+      xmlchars: 2.2.0
+    dev: true
 
   /schema-utils/1.0.0:
     resolution: {integrity: sha512-i27Mic4KovM/lnGsy8whRCHhc7VicJajAjTrYg11K9zfZXnYIt4k5F+kZkwjnrhKzLic/HLU4j11mjsz2G/75g==}

@@ -1,9 +1,9 @@
 import classic from 'ember-classic-decorator';
-import { ActiveModelSerializer } from 'active-model-adapter';
+import JSONSerializer from '@ember-data/serializer/json';
 import { EmbeddedRecordsMixin } from '@ember-data/serializer/rest';
 
 @classic
-export default class User extends ActiveModelSerializer.extend(EmbeddedRecordsMixin) {
+export default class User extends JSONSerializer.extend(EmbeddedRecordsMixin) {
   host = 'https://datafruits.streampusher.com';
 
   attrs = {
