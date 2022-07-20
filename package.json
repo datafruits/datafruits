@@ -30,7 +30,7 @@
     "@ember/test-helpers": "^2.8.1",
     "@fortawesome/ember-fontawesome": "^0.2.3",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fullhuman/postcss-purgecss": "^4.1.3",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
