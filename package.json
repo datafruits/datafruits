@@ -129,6 +129,7 @@
     "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-qunit": "^6.2.0",
     "fastboot-app-server": "2.0.0",
+    "jsdom": "^20.0.0",
     "loader.js": "^4.2.3",
     "phoenix": "^1.5.7",
     "postcss-import": "14.0.2",
@@ -137,6 +138,7 @@
     "prettier": "^2.5.1",
     "qunit": "^2.17.2",
     "qunit-dom": "1.6.0",
+    "resolve": "^1.22.1",
     "sass": "^1.26.10",
     "stylelint-config-standard": "^23.0.0",
     "tailwindcss": "2.2.19",
@@ -170,7 +172,6 @@
     "fruits-ui": "https://github.com/datafruits/fruits-ui",
     "pixi.js": "6.4.2",
     "postcss": "^8.4.14",
-    "resolve": "^1.22.1",
     "rollup": "^2.74.0",
     "stylelint": "^14.8.2"
   },
