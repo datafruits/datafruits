@@ -2,32 +2,46 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import emojiStrategy from '../emojiStrategy';
 import Component from '@glimmer/component';
-import { Textcomplete, Textarea } from 'textcomplete';
+import { Textcomplete } from '@textcomplete/core';
+import { TextareaEditor } from '@textcomplete/textarea';
 import { tracked } from '@glimmer/tracking';
+import CurrentUserService from 'datafruits13/services/current-user';
+import ChatService from 'datafruits13/services/chat';
+import Gif from 'datafruits13/models/gif';
 
 export default class DatafruitsChatInputMessage extends Component {
-  @service
-  chat;
+  @service declare chat: ChatService;
 
-  @service
-  currentUser;
+  @service declare currentUser: CurrentUserService;
 
-  @tracked inputMessage;
+  @tracked inputMessage: string = '';
 
   @action
-  sendEmoji(shortcode) {
-    this.inputMessage = shortcode;
-    document.querySelector('#send-message-button').focus();
+  sendEmoji(shortcode: string) {
+    if (this.inputMessage.length === 0) {
+      this.inputMessage = shortcode;
+    } else {
+      this.inputMessage = `${this.inputMessage} ${shortcode}`;
+    }
+    let button: HTMLButtonElement | null;
+    button = document.querySelector('#send-message-button');
+    if (button) {
+      button.focus();
+    }
   }
 
   @action
-  sendGif(gif) {
+  sendGif(gif: Gif) {
     this.inputMessage = gif.url;
-    document.querySelector('#send-message-button').focus();
+    let button: HTMLButtonElement | null;
+    button = document.querySelector('#send-message-button');
+    if (button) {
+      button.focus();
+    }
   }
 
   @action
-  sendMessage(e) {
+  sendMessage(e: Event) {
     e.preventDefault();
     const message = this.inputMessage;
     if (message) {
@@ -60,10 +74,10 @@ export default class DatafruitsChatInputMessage extends Component {
       //match: /\B:([\-+\w]*)$/,
       match: /(^|\s):([a-z0-9+\-_]*)$/,
 
-      search: function (term, callback) {
-        var results = [];
-        var results2 = [];
-        var results3 = [];
+      search: function (term: string, callback: Function) {
+        let results: string[] = [];
+        let results2: string[] = [];
+        let results3: string[] = [];
         for (let [shortname, data] of Object.entries(emojiStrategy)) {
           if (shortname.indexOf(term) > -1) {
             results.push(shortname);
@@ -76,19 +90,21 @@ export default class DatafruitsChatInputMessage extends Component {
           }
         }
         if (term.length >= 3) {
-          results.sort(function (a, b) {
-            return a.length > b.length;
-          });
-          results2.sort(function (a, b) {
-            return a.length > b.length;
-          });
+          // results.sort((a, b) => {
+          //   return a.length > b.length;
+          // });
+          results.sort();
+          // results2.sort((a, b) => {
+          //   return a.length > b.length;
+          // });
+          results2.sort();
           results3.sort();
         }
-        var newResults = results.concat(results2).concat(results3);
+        const newResults = results.concat(results2).concat(results3);
 
         callback(newResults);
       },
-      template: function (shortname) {
+      template: function (shortname: string) {
         let extension;
         if (emojiStrategy[shortname].animated) {
           extension = '.gif';
@@ -106,25 +122,27 @@ export default class DatafruitsChatInputMessage extends Component {
           );
         }
       },
-      replace: function (shortname) {
+      replace: function (shortname: string) {
         return shortname;
       },
     };
     let usernameComplete = {
       id: 'usernames',
       match: /(^|\s)(\w{2,})$/,
-      search: (term, callback) => {
+      search: (term: string, callback: Function) => {
         let matches;
         matches = Object.keys(this.chat.presences).filter((word) => {
           return word.indexOf(term) === 0 && word !== this.username;
         });
         callback(matches);
       },
-      replace: function (word) {
+      replace: function (word: string) {
         return word + ' ';
       },
     };
-    const editor = new Textarea(document.getElementById('input-message'));
+    let input: HTMLInputElement | null;
+    input = document.getElementById('input-message');
+    const editor = new TextareaEditor(input);
     let emojiTextcomplete = new Textcomplete(editor, {
       dropdown: {
         maxCount: 25,
