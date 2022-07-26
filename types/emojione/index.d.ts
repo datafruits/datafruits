@@ -19,6 +19,7 @@ export let emojioneList: {
   [key: string]: {
       unicode: string[];
       shortname: string;
+      shortnames: string[];
       fname: string;
       uc: string;
       isCanonical: boolean;
