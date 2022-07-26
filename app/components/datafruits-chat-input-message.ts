@@ -74,7 +74,14 @@ export default class DatafruitsChatInputMessage extends Component {
       //match: /\B:([\-+\w]*)$/,
       match: /(^|\s):([a-z0-9+\-_]*)$/,
 
-      search: function (term: string, callback: Function) {
+      index: 0,
+
+      context: () => {
+        return true;
+      },
+
+      search: async (term: string, callback: Function) => {
+        console.log(term);
         let results: string[] = [];
         let results2: string[] = [];
         let results3: string[] = [];
@@ -82,22 +89,32 @@ export default class DatafruitsChatInputMessage extends Component {
           if (shortname.indexOf(term) > -1) {
             results.push(shortname);
           } else {
-            if (data.aliases !== null && data.aliases.indexOf(term) > -1) {
-              results2.push(shortname);
-            } else if (data.keywords !== null && data.keywords.indexOf(term) > -1) {
+            if (data.keywords !== null && data.keywords.indexOf(term) > -1) {
               results3.push(shortname);
             }
           }
         }
         if (term.length >= 3) {
-          // results.sort((a, b) => {
-          //   return a.length > b.length;
-          // });
-          results.sort();
-          // results2.sort((a, b) => {
-          //   return a.length > b.length;
-          // });
-          results2.sort();
+          results.sort((a, b) => {
+            if(a.length > b.length) {
+              return 1;
+            }
+            if(a.length < b.length) {
+              return -1;
+            }
+            return 0;
+          });
+          //results.sort();
+          results2.sort((a, b) => {
+            if(a.length > b.length) {
+              return 1;
+            }
+            if(a.length < b.length) {
+              return -1;
+            }
+            return 0;
+          });
+          //results2.sort();
           results3.sort();
         }
         const newResults = results.concat(results2).concat(results3);
@@ -145,10 +162,9 @@ export default class DatafruitsChatInputMessage extends Component {
     if (input) {
       console.log('got input');
       const editor = new TextareaEditor(input as HTMLTextAreaElement);
-      debugger
       new Textcomplete(editor, [emojiComplete, usernameComplete], {
         dropdown: {
-          maxCount: 25,
+          maxCount: 10,
           placement: 'top',
         },
       });

@@ -332,7 +332,6 @@ export function initialize(/* application */) {
   });
 
   emojione.shortnames = emojione.shortnames.concat(`|${Object.keys(customEmojis).join('|')}`);
-  //emojione.shortnames = emojione.shortnames.concat("|:bgs:");
 
   emojione.regShortNames = new RegExp(
     '<object[^>]*>.*?</object>|<span[^>]*>.*?</span>|<(?:object|embed|svg|img|div|span|p|a)[^>]*>|(' +
