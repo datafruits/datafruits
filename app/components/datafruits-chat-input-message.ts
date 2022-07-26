@@ -132,7 +132,7 @@ export default class DatafruitsChatInputMessage extends Component {
       search: (term: string, callback: Function) => {
         let matches;
         matches = Object.keys(this.chat.presences).filter((word) => {
-          return word.indexOf(term) === 0 && word !== this.username;
+          return word.indexOf(term) === 0 && word !== this.chat.username;
         });
         callback(matches);
       },
@@ -140,15 +140,14 @@ export default class DatafruitsChatInputMessage extends Component {
         return word + ' ';
       },
     };
-    let input: HTMLInputElement | null;
-    input = document.getElementById('input-message');
+    let input: HTMLTextAreaElement | null;
+    input = document.querySelector('input-message');
     const editor = new TextareaEditor(input);
-    let emojiTextcomplete = new Textcomplete(editor, {
+    new Textcomplete(editor, [emojiComplete, usernameComplete], {
       dropdown: {
         maxCount: 25,
         placement: 'top',
       },
     });
-    emojiTextcomplete.register([emojiComplete, usernameComplete]);
   }
 }
