@@ -140,14 +140,18 @@ export default class DatafruitsChatInputMessage extends Component {
         return word + ' ';
       },
     };
-    let input: HTMLTextAreaElement | null;
-    input = document.querySelector('input-message');
-    const editor = new TextareaEditor(input);
-    new Textcomplete(editor, [emojiComplete, usernameComplete], {
-      dropdown: {
-        maxCount: 25,
-        placement: 'top',
-      },
-    });
+    let input: unknown;
+    input = document.querySelector('#input-message');
+    if (input) {
+      console.log('got input');
+      const editor = new TextareaEditor(input as HTMLTextAreaElement);
+      debugger
+      new Textcomplete(editor, [emojiComplete, usernameComplete], {
+        dropdown: {
+          maxCount: 25,
+          placement: 'top',
+        },
+      });
+    }
   }
 }
