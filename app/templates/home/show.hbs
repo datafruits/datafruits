@@ -1,7 +1,7 @@
 {{page-title this.model.title}}
 <div class="relative overflow-hidden show-poster">
-  {{#if this.model.thumbImageUrl}}
-    <div style="background-image: url({{this.model.thumbImageUrl}})" alt={{this.model.title}} class="w-full h-full show-image"></div>
+  {{#if this.model.imageUrl}}
+    <div style="background-image: url({{this.model.imageUrl}})" alt={{this.model.title}} class="w-full h-full show-image bg-top bg-cover"></div>
   {{else if (and (not this.model.isGuest) this.model.host.imageMediumUrl)}}
     <div style="background-image: url({{this.model.host.imageMediumUrl}})" alt={{this.model.dj.username}} class="w-full h-full show-image"></div>
   {{/if}}
