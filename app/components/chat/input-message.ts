@@ -1,6 +1,6 @@
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import emojiStrategy from '../emojiStrategy';
+import emojiStrategy from 'datafruits13/emojiStrategy';
 import Component from '@glimmer/component';
 import { Textcomplete } from '@textcomplete/core';
 import { TextareaEditor } from '@textcomplete/textarea';
@@ -9,7 +9,7 @@ import CurrentUserService from 'datafruits13/services/current-user';
 import ChatService from 'datafruits13/services/chat';
 import Gif from 'datafruits13/models/gif';
 
-export default class DatafruitsChatInputMessage extends Component {
+export default class ChatInputMessage extends Component {
   @service declare chat: ChatService;
 
   @service declare currentUser: CurrentUserService;
@@ -145,7 +145,7 @@ export default class DatafruitsChatInputMessage extends Component {
     };
     let usernameComplete = {
       id: 'usernames',
-      match: /(^|\s)(\w{2,})$/,
+      match: /(^|\s)@(\w{2,})$/,
       search: (term: string, callback: Function) => {
         let matches;
         matches = Object.keys(this.chat.presences).filter((word) => {
@@ -153,14 +153,16 @@ export default class DatafruitsChatInputMessage extends Component {
         });
         callback(matches);
       },
-      replace: function (word: string) {
-        return word + ' ';
+      template: function(username: string) {
+        return `@${username}`;
+      },
+      replace: function (username: string) {
+        return `@${username} `;
       },
     };
     let input: unknown;
     input = document.querySelector('#input-message');
     if (input) {
-      console.log('got input');
       const editor = new TextareaEditor(input as HTMLTextAreaElement);
       new Textcomplete(editor, [emojiComplete, usernameComplete], {
         dropdown: {
