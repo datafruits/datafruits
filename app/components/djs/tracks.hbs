@@ -11,9 +11,6 @@
       {{#each result.tracks as |track|}}
         <PodcastTrack
           @track={{track}}
-          @cdnUrl={{track.cdn_url}}
-          @title={{track.title}}
-          @labels={{track.labels}}
           @scheduledShow={{track.scheduledShow}}
           @selectLabel={{this.browseLabel}}
         />
