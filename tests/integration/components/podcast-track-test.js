@@ -11,10 +11,12 @@ module('Integration | Component | podcast track', function (hooks) {
 
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.on('myAction', function(val) { ... });
-    this.set('cdn_url', 'http://cdn.dongles.net/track.mp3');
-    this.set('title', 'cool track');
+    this.set('track', {
+      cdnUrl: 'http://cdn.dongles.net/track.mp3',
+      title: 'cool track',
+    });
 
-    await render(hbs`{{podcast-track cdn_url=cdn_url title=title}}`);
+    await render(hbs`<PodcastTrack @track={{this.track}} />`);
 
     assert.true(this.element.textContent.trim().includes('▶︎'));
     assert.true(this.element.textContent.trim().includes('cool track'));
