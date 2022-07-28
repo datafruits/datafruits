@@ -35,6 +35,8 @@
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
     "@lhci/cli": "0.8.2",
+    "@textcomplete/core": "^0.1.12",
+    "@textcomplete/textarea": "^0.1.12",
     "@types/ember-data": "^4.0.0",
     "@types/ember-data__adapter": "^4.0.0",
     "@types/ember-data__model": "^4.0.0",
@@ -143,7 +145,6 @@
     "stylelint-config-standard": "^23.0.0",
     "tailwindcss": "2.2.19",
     "tailwindcss-multi-theme": "https://github.com/mcfiredrill/tailwindcss-multi-theme#master",
-    "textcomplete": "^0.18.2",
     "typescript": "^4.5.5",
     "video.js": "^7.18.1",
     "webpack": "5"
