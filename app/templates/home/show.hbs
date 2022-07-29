@@ -41,8 +41,9 @@
   </h2>
   {{/if}}
   {{#each model.tracks as |track|}}
-  <PodcastTrack @cdnUrl={{track.cdnUrl}} @title={{track.title}} @labels={{track.labels}}
-    @soundcloudKey={{track.soundcloudKey}} @mixcloudKey={{track.mixcloudKey}} @selectLabel={{action "browseLabel" }} />
+  <PodcastTrack
+    @track={{track}}
+    @selectLabel={{this.browseLabel}} />
   {{/each}}
 </div>
 <div class="modal-footer px-5 font-cursive">
