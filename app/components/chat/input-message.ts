@@ -71,10 +71,7 @@ export default class ChatInputMessage extends Component {
   didInsert() {
     let emojiComplete = {
       id: 'emojis',
-      //match: /\B:([\-+\w]*)$/,
-      match: /(^|\s):([a-z0-9+\-_]*)$/,
-
-      index: 0,
+      match: /\B:([\-+\w]*)$/,
 
       context: () => {
         return true;
@@ -145,7 +142,7 @@ export default class ChatInputMessage extends Component {
     };
     let usernameComplete = {
       id: 'usernames',
-      match: /(^|\s)@(\w{2,})$/,
+      match: /\B@([\-+\w]*)$/,
       search: (term: string, callback: Function) => {
         let matches;
         matches = Object.keys(this.chat.presences).filter((word) => {
