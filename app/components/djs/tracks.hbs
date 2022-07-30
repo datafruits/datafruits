@@ -10,9 +10,7 @@
     <await.Fulfilled as |result|>
       {{#each result.tracks as |track|}}
         <PodcastTrack
-          @cdnUrl={{track.cdn_url}}
-          @title={{track.title}}
-          @labels={{track.labels}}
+          @track={{track}}
           @scheduledShow={{track.scheduledShow}}
           @selectLabel={{this.browseLabel}}
         />
