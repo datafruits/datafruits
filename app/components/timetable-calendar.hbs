@@ -20,13 +20,13 @@
             <td>{{format-time show.start}} ~ {{format-time show.end}}</td>
             {{#if (is-current-show show)}}
               <td class="bleed">
-                <LinkTo @route="home.show" @model={{show.id}} @title={{show.title}}>
+                <LinkTo @route="home.show" @model={{show.slug}} @title={{show.title}}>
                   {{show.title}}
                 </LinkTo>
               </td>
             {{else}}
               <td>
-                <LinkTo @route="home.show" @model={{show.id}} @title={{show.title}}>
+                <LinkTo @route="home.show" @model={{show.slug}} @title={{show.title}}>
                   {{show.title}}
                 </LinkTo>
               </td>
