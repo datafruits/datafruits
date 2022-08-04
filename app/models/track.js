@@ -28,7 +28,7 @@ export default class Track extends Model {
   @belongsTo('podcast')
   podcast;
 
-  @belongsTo('scheduled-show', { inverse: null })
+  @belongsTo('scheduled-show')
   scheduledShow;
 
   @belongsTo('dj')
