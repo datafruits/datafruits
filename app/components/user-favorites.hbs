@@ -1,7 +1,6 @@
 {{#each this.currentUser.user.trackFavorites as |trackFavorite|}}
   <PodcastTrack
     @track={{trackFavorite.track}}
-    @scheduledShow={{trackFavorite.track.scheduledShow}}
     @selectedLabels={{this.selectedLabels}}
   />
 {{/each}}

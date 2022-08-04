@@ -54,4 +54,7 @@ export default class ScheduledShow extends Model {
 
   @attr()
   guest;
+
+  @attr()
+  slug;
 }

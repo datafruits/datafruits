@@ -103,8 +103,7 @@
     "title": "Timetable",
     "aria": "Browse scheduled shows and events",
     "timezone": "All events displayed in your local timezone: ",
-    "loading": "Loading...",
-    "error": "Something went wrong. Refresh the page and try again."
+    "loading": "Loading..."
   },
   "djs": {
     "title": "DJs",
