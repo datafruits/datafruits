@@ -15,7 +15,7 @@
         />
       {{/each}}
       <FruitsUi::Pagination
-        @totalPages={{result.meta.total_pages}}
+        @totalPages={{result.meta.total-pages}}
         @page={{@page}}
         @route={{this.router.currentRouteName}} />
     </await.Fulfilled>
