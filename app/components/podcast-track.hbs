@@ -36,8 +36,8 @@
       </button>
     {{/if}}
   {{/if}}
-  {{#if @scheduledShow}}
-    <LinkTo @route="home.show" @model={{@scheduledShow.id}}>
+  {{#if @track.scheduledShow}}
+    <LinkTo @route="home.show" @model={{@track.scheduledShow}}>
       {{@track.title}}
     </LinkTo>
   {{else}}

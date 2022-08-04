@@ -49,7 +49,6 @@
         {{#each result.tracks as |track|}}
           <PodcastTrack
             @track={{track}}
-            @scheduledShow={{track.scheduledShow}}
             @selectedLabels={{this.selectedLabels}}
             @search={{await.reload}}
           />
