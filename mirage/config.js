@@ -70,26 +70,52 @@ export default function () {
     const attrs = JSON.parse(request.requestBody).user;
     const user = schema.users.create(attrs);
     user.save();
-    return { user: { id: '1', username: user.attrs.username, email: user.attrs.email } };
+
+    return {
+      data: {
+        id: 1,
+        type: 'users',
+        attributes: {
+          username: user.attrs.username,
+          email: user.attrs.email,
+          time_zone: 'UTC',
+          role: 'listener',
+          avatar_url: null,
+          style: 'unknown',
+          avatar: null,
+          avatar_filename: null,
+          pronouns: '',
+          track_favorites: [],
+        },
+        relationships: { track_favorites: { data: [] }, social_identities: { data: [] } },
+      },
+    };
   });
 
   this.post('/users/sign_in', (schema, request) => {
     const attrs = JSON.parse(request.requestBody).user;
     const login = attrs.login;
-    return { login: login, redirect: '/', success: true, token: 'xxxxxxxxx', user_id: 26, test: 'hey' };
+    return { login: login, redirect: '/', success: true, token: 'xxxxxxxxx', id: 26, test: 'hey' };
   });
 
   this.get('/users/current_user.json', (/* schema, request */) => {
     return {
-      user: {
-        avatar_url:
-          'https://dongles.streampusher-relay.club/images/thumb/avatars-000049966766-qitxew-t500x500.jpg?1602655221',
-        email: 'dj.nameko@datafruits.fm',
-        id: 26,
-        role: 'dj',
-        social_identities: [],
-        time_zone: 'UTC',
-        username: 'djnameko',
+      data: {
+        id: '937',
+        type: 'users',
+        attributes: {
+          username: 'djnameko',
+          email: 'dj.nameko@datafruits.fm',
+          time_zone: 'UTC',
+          role: 'listener',
+          avatar_url: null,
+          style: 'unknown',
+          avatar: null,
+          avatar_filename: null,
+          pronouns: '',
+          track_favorites: [],
+        },
+        relationships: { track_favorites: { data: [] }, social_identities: { data: [] } },
       },
     };
   });
