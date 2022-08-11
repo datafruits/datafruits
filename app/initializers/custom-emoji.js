@@ -325,6 +325,13 @@ export function initialize(/* application */) {
       shortnames: [':viz:'],
       keywords: ['viz'],
     },
+    ':blend:': {
+      custom: true,
+      uc_base: 'blend',
+      uc_output: '',
+      shortnames: [':blend:'],
+      keywords: ['blend'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
