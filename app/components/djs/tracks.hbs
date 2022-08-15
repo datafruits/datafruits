@@ -8,7 +8,7 @@
       </p>
     </await.Pending>
     <await.Fulfilled as |result|>
-      {{#each result.tracks as |track|}}
+      {{#each result as |track|}}
         <PodcastTrack
           @track={{track}}
           @selectLabel={{this.browseLabel}}
