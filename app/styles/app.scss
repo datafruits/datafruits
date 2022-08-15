@@ -575,5 +575,24 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid $blue;
 }
 
+.pagination {
+  @apply p-1 mx-2 font-extrabold;
+}
+
+.pagination.number:hover {
+  @apply bg-df-green text-white rounded;
+  a {
+    @apply text-white;
+  }
+}
+
+.pagination.prev-link:hover {
+  @apply bg-df-green text-white rounded;
+}
+
+.pagination.next-link:hover {
+  @apply bg-df-green text-white rounded;
+}
+
 @tailwind utilities;
 /* purgecss end ignore */

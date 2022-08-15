@@ -32,7 +32,7 @@ export default class PodcastTrack extends Component {
   play() {
     this.playing = true;
     this.paused = false;
-    this.eventBus.publish('trackPlayed', { title: this.args.title, cdnUrl: this.args.cdnUrl });
+    this.eventBus.publish('trackPlayed', { title: this.args.track.title, cdnUrl: this.args.track.cdnUrl });
   }
 
   @action

@@ -126,5 +126,9 @@
   },
   "locale": "言語",
   "theme": { "label": "テーマ" },
-  "donate": "寄付する"
+  "donate": "寄付する",
+  "donate": {
+    "title": "寄付する",
+    "dj_link": "現状のDJに寄付するリンクはこちらです。"
+  }
 }
