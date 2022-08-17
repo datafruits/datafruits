@@ -7,19 +7,30 @@ export default class HomeUserSettingsController extends Controller {
   currentUser;
 
   availableStyles = [
-    'unknown',
-    'cold',
+    'funny',
     'gooey',
     'party',
-    'doom',
-    'funky',
     'fruity',
-    'sadness',
-    'grumpy',
-    'sexy',
-    'chill',
+    'prickly',
+    'cold',
+    'goofy',
+    'funky',
     'freaky',
+    'fishy',
+    'undefined',
+    'chunky',
+    'doom',
+    'sleepy',
+    'thinking',
+    'slimey',
+    'pokey',
+    'grumpy',
     'fancy',
+    'sexy',
+    'sadness',
+    'chill',
+    'lazy',
+    'unknown',
   ];
 
   @action

@@ -29,7 +29,7 @@ export default class ScheduledShow extends Model {
   @hasMany('track')
   tracks;
 
-  @hasMany('dj')
+  @hasMany('user') // TODO merge the user and dj models together
   djs;
 
   @computed('djs')
@@ -54,4 +54,7 @@ export default class ScheduledShow extends Model {
 
   @attr()
   guest;
+
+  @attr()
+  slug;
 }

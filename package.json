@@ -28,7 +28,7 @@
     "@csstools/postcss-sass": "https://github.com/sinankeskin/postcss-sass",
     "@ember/optional-features": "^2.0.0",
     "@ember/render-modifiers": "^1.0.2",
-    "@ember/test-helpers": "^2.6.0",
+    "@ember/test-helpers": "^2.8.1",
     "@fortawesome/ember-fontawesome": "^0.2.3",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
@@ -40,6 +40,8 @@
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
     "@lhci/cli": "0.8.2",
+    "@textcomplete/core": "^0.1.12",
+    "@textcomplete/textarea": "^0.1.12",
     "@types/ember-data": "^4.0.0",
     "@types/ember-data__adapter": "^4.0.0",
     "@types/ember-data__model": "^4.0.0",
@@ -70,7 +72,6 @@
     "@types/phoenix": "^1.5.4",
     "@types/qunit": "^2.11.3",
     "@types/rsvp": "^4.0.4",
-    "active-model-adapter": "^2.2.0",
     "autolink-js": "^1.0.2",
     "babel-plugin-istanbul": "^6.1.1",
     "broccoli-asset-rev": "^3.0.0",
@@ -87,7 +88,7 @@
     "ember-classic-decorator": "3.0.0",
     "ember-cli": "^3.28.5",
     "ember-cli-app-version": "^5.0.0",
-    "ember-cli-babel": "7.26.10",
+    "ember-cli-babel": "7.26.11",
     "ember-cli-code-coverage": "^1.0.0-beta.9",
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-dependency-lint": "^2.0.1",
@@ -137,6 +138,7 @@
     "eslint-plugin-qunit": "^6.2.0",
     "fastboot-app-server": "2.0.0",
     "handlebars": "^4.7.7",
+    "jsdom": "^20.0.0",
     "loader.js": "^4.2.3",
     "phoenix": "^1.5.7",
     "postcss-import": "14.0.2",
@@ -145,11 +147,11 @@
     "prettier": "^2.5.1",
     "qunit": "^2.17.2",
     "qunit-dom": "1.6.0",
+    "resolve": "^1.22.1",
     "sass": "^1.26.10",
     "stylelint-config-standard": "^23.0.0",
     "tailwindcss": "2.2.19",
     "tailwindcss-multi-theme": "https://github.com/mcfiredrill/tailwindcss-multi-theme#master",
-    "textcomplete": "^0.18.2",
     "typescript": "^4.5.5",
     "video.js": "^7.18.1",
     "webpack": "5"
@@ -182,8 +184,10 @@
     "jsdom": "^20.0.0",
     "pixi.js": "6.4.2",
     "postcss": "^8.4.14",
-    "resolve": "^1.22.1",
     "rollup": "^2.74.0",
     "stylelint": "^14.8.2"
+  },
+  "volta": {
+    "node": "14.20.0"
   }
 }

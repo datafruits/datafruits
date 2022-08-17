@@ -32,7 +32,7 @@ export default class PodcastTrack extends Component {
   play() {
     this.playing = true;
     this.paused = false;
-    this.eventBus.publish('trackPlayed', { title: this.args.title, cdnUrl: this.args.cdnUrl });
+    this.eventBus.publish('trackPlayed', { title: this.args.track.title, cdnUrl: this.args.track.cdnUrl });
   }
 
   @action
@@ -90,8 +90,13 @@ export default class PodcastTrack extends Component {
   }
 
   get isFavorited() {
-    return this.currentUser.user.trackFavorites
-      .map((favorite) => favorite.trackId)
-      .includes(parseInt(this.args.track.get('id')));
+    let id;
+    if (typeof this.args.track.get === 'function') {
+      id = this.args.track.get('id');
+    } else {
+      id = this.args.track.id;
+    }
+
+    return this.currentUser.user.trackFavorites.map((favorite) => favorite.trackId).includes(parseInt(id));
   }
 }

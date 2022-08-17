@@ -16,18 +16,21 @@ You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (14.x)
-* [Yarn](https://classic.yarnpkg.com/en/docs/install)
+  - We prefer [volta](https://volta.sh/) to manage Node versions
+* [PNPM](https://pnpm.io/)
 * [Ember CLI](https://ember-cli.com/)
 
 ## Installation
 
 * `git clone <repository-url>` this repository
 * `cd datafruits`
-* `yarn install`
+* `pnpm i`
 
 ## Running / Development
 
-* `yarn dev`
+* `FASTBOOT_DISABLED=true ./node_modules/ember-cli/bin/ember s`  (pnpm dev is
+  supposed to work, but I keep getting an error...so we are using this long
+  command for now.)
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
 If you want to develop against local versions of

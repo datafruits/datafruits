@@ -8,7 +8,7 @@
       {{t "player.play"}}
     </a>
   {{/if}}
-  <a href={{@cdnUrl}} download="">
+  <a href={{@track.cdnUrl}} download="">
     <FaIcon
       @icon="download"
       class="fa fa-download text-df-green hover:text-df-yellow text-xl" />
@@ -36,15 +36,15 @@
       </button>
     {{/if}}
   {{/if}}
-  {{#if @scheduledShow}}
-    <LinkTo @route="home.show" @model={{@scheduledShow.id}}>
-      {{@title}}
+  {{#if @track.scheduledShow}}
+    <LinkTo @route="home.show" @model={{@track.scheduledShow}}>
+      {{@track.title}}
     </LinkTo>
   {{else}}
-    {{@title}}
+    {{@track.title}}
   {{/if}}
   <div class="flex space-x-2">
-    {{#each @labels as |label|}}
+    {{#each @track.labels as |label|}}
       <a
         class="track-label classic:bg-df-pink blm:bg-black text-df-yellow hover:text-white p-1 uppercase hover:italic border-solid border-white border-2 p-x-2 font-extrabold"
         {{on "click" (fn this.selectLabel label.name)}}

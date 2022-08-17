@@ -325,6 +325,13 @@ export function initialize(/* application */) {
       shortnames: [':viz:'],
       keywords: ['viz'],
     },
+    ':blend:': {
+      custom: true,
+      uc_base: 'blend',
+      uc_output: '',
+      shortnames: [':blend:'],
+      keywords: ['blend'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
@@ -332,7 +339,6 @@ export function initialize(/* application */) {
   });
 
   emojione.shortnames = emojione.shortnames.concat(`|${Object.keys(customEmojis).join('|')}`);
-  //emojione.shortnames = emojione.shortnames.concat("|:bgs:");
 
   emojione.regShortNames = new RegExp(
     '<object[^>]*>.*?</object>|<span[^>]*>.*?</span>|<(?:object|embed|svg|img|div|span|p|a)[^>]*>|(' +
