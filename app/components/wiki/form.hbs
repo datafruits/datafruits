@@ -1,8 +1,9 @@
 <div class="grid grid-cols-2 gap-2">
   <div class="">
     {{#let (changeset @model WikiPageValidations) as |changeset|}}
-      <ChangesetForm
+      <Ui::ChangesetForm
         @changeset={{changeset}}
+        @onError={{this.onError}}
         @onSubmit={{this.onSubmit}} as |Form|>
         <Form.Input
           @label={{t "wiki.form.title"}}
@@ -27,7 +28,7 @@
           >
           {{t "wiki.form.submit"}}
         </Button>
-      </ChangesetForm>
+      </Ui::ChangesetForm>
     {{/let}}
   </div>
   <div class="">

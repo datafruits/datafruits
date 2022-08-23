@@ -31,9 +31,9 @@ Router.map(function () {
     });
     this.route('site-settings');
     this.route('wiki');
-    this.route('wiki.show', { path: '/wiki/:id' });
+    this.route('wiki.show', { path: '/wiki/:title' });
     this.route('wiki.new', { path: '/wiki/new' });
-    this.route('wiki.edit', { path: '/wiki/:id/edit' });
+    this.route('wiki.edit', { path: '/wiki/:title/edit' });
   });
   this.route('container', function () {
     this.route('show', { path: '/shows/:id' });

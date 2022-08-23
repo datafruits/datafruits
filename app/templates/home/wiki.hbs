@@ -2,10 +2,22 @@
   {{page-title "wiki"}}
   <h1>Welcome to Fruitopiyeah</h1>
 
-  <LinkTo @route="home.wiki.new" class="cool-button">
-    NEW ARTICLE
-  </LinkTo>
+  <div class="m-2">
+    <LinkTo @route="home.wiki.new" class="cool-button">
+      NEW ARTICLE
+    </LinkTo>
+  </div>
 
-  Latest articles:
-  {{outlet}}
+  <section>
+    <h2>Latest articles:</h2>
+    <ul>
+      {{#each model as |wikiPage|}}
+        <li>
+          <LinkTo @route="home.wiki.show" @model={{wikiPage.title}}>
+            {{wikiPage.title}}
+          </LinkTo>
+        </li>
+      {{/each}}
+    </ul>
+  </section>
 </div>
