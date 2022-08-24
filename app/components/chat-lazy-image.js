@@ -10,7 +10,7 @@ export default class ChatLazyImage extends Component {
     } else {
       img.addEventListener('load', this.args.adjustScrolling);
       img.addEventListener('error', function () {
-        alert('error');
+        console.log('error');
       });
     }
   }
