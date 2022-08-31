@@ -20,7 +20,7 @@ export default class DjDonateModalComponent extends Component {
 
   get qualifiedDonationLink() {
     let pattern = /^http(s?):\/\//;
-    if (this.donationLink.test(pattern)) {
+    if (this.donationLink && pattern.test(this.donationLink)) {
       return this.donationLink;
     } else {
       return `https://${this.donationLink}`;
