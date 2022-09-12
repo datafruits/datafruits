@@ -2,11 +2,13 @@
   {{page-title "wiki"}}
   <h1>Welcome to Fruitopiyeah</h1>
 
-  <div class="m-2">
-    <LinkTo @route="home.wiki.new" class="cool-button">
-      NEW ARTICLE
-    </LinkTo>
-  </div>
+  {{#if this.session.isAuthenticated}}
+    <div class="m-2">
+      <LinkTo @route="home.wiki.new" class="cool-button">
+        NEW ARTICLE
+      </LinkTo>
+    </div>
+  {{/if}}
 
   <section>
     <h2>Latest articles:</h2>

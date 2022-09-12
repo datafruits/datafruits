@@ -7,7 +7,6 @@ export default class HomeWikiNew extends Route {
   @service declare session: Session;
 
   beforeModel(transition: any) {
-    alert('sorry pal ya gotta log in before you can add wikis');
     this.session.requireAuthentication(transition, 'home.chat');
   }
   model() {
