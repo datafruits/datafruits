@@ -67,6 +67,7 @@ export default class PodcastTrack extends Component {
     trackFavorite
       .save()
       .then(() => {
+        this.currentUser.user.trackFavorites.pushObject(trackFavorite);
         console.log('faved ya ');
       })
       .catch((error) => {
