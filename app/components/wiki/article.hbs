@@ -1,0 +1,13 @@
+<h1>{{@page.title}}</h1>
+
+{{#if this.session.isAuthenticated}}
+  <div class="m-2">
+    <LinkTo @route="home.wiki.edit" class="cool-button" @model={{@page}}>
+      EDIT
+    </LinkTo>
+  </div>
+{{/if}}
+
+<article>
+  {{marked-down this.body}}
+</article>
