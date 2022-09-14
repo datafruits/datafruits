@@ -5,6 +5,7 @@ import classic from 'ember-classic-decorator';
 export default class WikiPage extends Model {
   @attr('string') declare title: string;
   @attr('string') declare body: string;
+  @attr('string') declare summary: string;
   @hasMany('wiki-page-edit', { async: false }) wikiPageEdits: any;
 }
 
