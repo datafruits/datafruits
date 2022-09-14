@@ -20,6 +20,13 @@
           rows='20'
           cols='50'
           />
+        {{#unless @model.isNew}}
+          <Form.Input
+            @label={{t "wiki.form.summary"}}
+            @fieldName="summary"
+            @containerClass='mb-2'
+            />
+        {{/unless}}
         <Button
           @type="submit"
           @intent="primary"

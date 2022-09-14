@@ -387,6 +387,24 @@ form {
   box-shadow: 10px 10px 2px grey;
 }
 
+.wiki-article {
+  border-image: repeating-linear-gradient(
+    90deg,
+    $green,
+    $green 20px,
+    $pink 20px,
+    $pink 40px,
+    $yellow 40px,
+    $yellow 60px,
+    $blue 60px,
+    $blue 80px
+  );
+  border-width: 10px;
+  border-style: solid;
+  border-image-slice: 1;
+  box-shadow: 10px 10px 2px grey;
+}
+
 .show-info {
   padding: 1em;
   border-image: repeating-linear-gradient(

@@ -68,7 +68,8 @@
     "form": {
       "title": "Title",
       "body": "Article",
-      "submit": "Save"
+      "submit": "Save",
+      "summary": "Short note explaining your changes"
     }
   },
   "releases": {

@@ -1,13 +1,19 @@
-<h1>{{@page.title}}</h1>
+<h1 class="text-3xl">{{@page.title}}</h1>
 
-{{#if this.session.isAuthenticated}}
-  <div class="m-2">
-    <LinkTo @route="home.wiki.edit" class="cool-button" @model={{@page}}>
-      EDIT
-    </LinkTo>
+<article class="bg-df-pink wiki-article p-1">
+  <div class="flex">
+    {{#if this.session.isAuthenticated}}
+      <div class="m-2">
+        <LinkTo @route="home.wiki.edit" class="cool-button" @model={{@page}}>
+          EDIT
+        </LinkTo>
+      </div>
+    {{/if}}
+    <div class="m-2">
+      <LinkTo @route="home.wiki.history" class="cool-button" @model={{@page}}>
+        HISTORY
+      </LinkTo>
+    </div>
   </div>
-{{/if}}
-
-<article>
   {{marked-down this.body}}
 </article>

@@ -1,0 +1,9 @@
+<ul>
+  {{#each this.model.wikiPageEdits as |edit|}}
+    <li>
+      <span>{{edit.user.createdAt}}</span>
+      <span>{{edit.user.summary}}</span>
+      <span>{{edit.user.username}}</span>
+    </li>
+  {{/each}}
+</ul>
