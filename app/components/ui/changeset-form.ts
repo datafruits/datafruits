@@ -40,7 +40,10 @@ interface ChangesetFormArgs {
 export default class UiChangesetFormComponent extends Component<ChangesetFormArgs> {
   constructor(owner: unknown, args: ChangesetFormArgs) {
     super(owner, args);
-    assert('@changeset must be defined on <ChangesetForm> component', this.args.changeset);
+    assert(
+      '@changeset must be defined on <ChangesetForm> component',
+      this.args.changeset
+    );
 
     if (this.args.validateOnInit) {
       next(() => {
@@ -49,10 +52,15 @@ export default class UiChangesetFormComponent extends Component<ChangesetFormArg
     }
   }
 
+
   @tracked hasSubmitted = false;
 
   @action
-  async handleSubmit(changeset: BufferedChangeset, event: Event): Promise<void> {
+  async handleSubmit(
+    changeset: BufferedChangeset,
+    event: Event
+  ): Promise<void> {
+
     event.preventDefault();
     await changeset.validate();
 

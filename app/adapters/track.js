@@ -9,7 +9,7 @@ export default class Track extends ApplicationAdapter {
     console.log(query);
     let djId = query.dj;
     let page = query.page || 1;
-    if (djId) {
+    if(djId) {
       return `${this.urlPrefix()}/djs/${djId}/tracks?page=${page}`;
     } else {
       return `${this.urlPrefix()}/tracks?page=${page}`;

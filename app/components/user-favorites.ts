@@ -11,7 +11,7 @@ export default class UserFavorites extends Component<UserFavoritesArgs> {
 
   @action
   fetchTracks() {
-    const trackIds = this.currentUser.user.trackFavorites.map((trackFavorite: any) => {
+    let trackIds = this.currentUser.user.trackFavorites.map((trackFavorite: any) => {
       return trackFavorite.trackId;
     });
     return this.store.query('track', { id: trackIds });
