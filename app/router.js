@@ -30,7 +30,7 @@ Router.map(function () {
       this.route('favorites');
     });
     this.route('site-settings');
-    this.route('wiki', function() {
+    this.route('wiki', function () {
       this.route('edit');
       this.route('history');
     });

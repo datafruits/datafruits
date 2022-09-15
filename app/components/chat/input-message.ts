@@ -69,7 +69,7 @@ export default class ChatInputMessage extends Component {
 
   @action
   didInsert() {
-    let emojiComplete = {
+    const emojiComplete = {
       id: 'emojis',
       match: /\B:([\-+\w]*)$/,
 
@@ -79,10 +79,10 @@ export default class ChatInputMessage extends Component {
 
       search: async (term: string, callback: Function) => {
         console.log(term);
-        let results: string[] = [];
-        let results2: string[] = [];
-        let results3: string[] = [];
-        for (let [shortname, data] of Object.entries(emojiStrategy)) {
+        const results: string[] = [];
+        const results2: string[] = [];
+        const results3: string[] = [];
+        for (const [shortname, data] of Object.entries(emojiStrategy)) {
           if (shortname.indexOf(term) > -1) {
             results.push(shortname);
           } else {
@@ -93,20 +93,20 @@ export default class ChatInputMessage extends Component {
         }
         if (term.length >= 3) {
           results.sort((a, b) => {
-            if(a.length > b.length) {
+            if (a.length > b.length) {
               return 1;
             }
-            if(a.length < b.length) {
+            if (a.length < b.length) {
               return -1;
             }
             return 0;
           });
           //results.sort();
           results2.sort((a, b) => {
-            if(a.length > b.length) {
+            if (a.length > b.length) {
               return 1;
             }
-            if(a.length < b.length) {
+            if (a.length < b.length) {
               return -1;
             }
             return 0;
@@ -140,7 +140,7 @@ export default class ChatInputMessage extends Component {
         return shortname;
       },
     };
-    let usernameComplete = {
+    const usernameComplete = {
       id: 'usernames',
       match: /\B@([\-+\w]*)$/,
       search: (term: string, callback: Function) => {
@@ -150,7 +150,7 @@ export default class ChatInputMessage extends Component {
         });
         callback(matches);
       },
-      template: function(username: string) {
+      template: function (username: string) {
         return `@${username}`;
       },
       replace: function (username: string) {

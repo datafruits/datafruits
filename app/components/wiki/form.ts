@@ -43,5 +43,4 @@ export default class WikiForm extends Component<WikiFormArgs> {
   onError() {
     alert("Couldn't save wiki article...check the form for errors.");
   }
-
 }

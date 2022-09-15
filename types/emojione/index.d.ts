@@ -17,17 +17,17 @@ export let unicodeRegexp: string;
 export let cacheBustParam: string;
 export let emojioneList: {
   [key: string]: {
-      unicode: string[];
-      shortname: string;
-      shortnames: string[];
-      fname: string;
-      uc: string;
-      isCanonical: boolean;
-      custom: boolean;
-      animated: boolean;
-      uc_base: string;
-      uc_output: string;
-      keywords: string[];
+    unicode: string[];
+    shortname: string;
+    shortnames: string[];
+    fname: string;
+    uc: string;
+    isCanonical: boolean;
+    custom: boolean;
+    animated: boolean;
+    uc_base: string;
+    uc_output: string;
+    keywords: string[];
   };
 };
 export function toShort(str: string): string;
@@ -35,4 +35,3 @@ export function toImage(str: string): string;
 export function shortnameToImage(str: string): string;
 export function unicodeToImage(str: string): string;
 export function shortnameToUnicode(str: string): string;
-
