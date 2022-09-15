@@ -5,7 +5,7 @@ module('Unit | Route | home/wiki', function(hooks) {
   setupTest(hooks);
 
   test('it exists', function(assert) {
-    let route = this.owner.lookup('route:home/wiki');
+    const route = this.owner.lookup('route:home/wiki');
     assert.ok(route);
   });
 });

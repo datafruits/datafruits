@@ -69,7 +69,7 @@ export default class ChatInputMessage extends Component {
 
   @action
   didInsert() {
-    let emojiComplete = {
+    const emojiComplete = {
       id: 'emojis',
       match: /\B:([\-+\w]*)$/,
 
@@ -79,10 +79,10 @@ export default class ChatInputMessage extends Component {
 
       search: async (term: string, callback: Function) => {
         console.log(term);
-        let results: string[] = [];
-        let results2: string[] = [];
-        let results3: string[] = [];
-        for (let [shortname, data] of Object.entries(emojiStrategy)) {
+        const results: string[] = [];
+        const results2: string[] = [];
+        const results3: string[] = [];
+        for (const [shortname, data] of Object.entries(emojiStrategy)) {
           if (shortname.indexOf(term) > -1) {
             results.push(shortname);
           } else {
@@ -140,7 +140,7 @@ export default class ChatInputMessage extends Component {
         return shortname;
       },
     };
-    let usernameComplete = {
+    const usernameComplete = {
       id: 'usernames',
       match: /\B@([\-+\w]*)$/,
       search: (term: string, callback: Function) => {
