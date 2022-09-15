@@ -49,7 +49,7 @@ declare module 'ember-simple-auth/services/session' {
         // authenticate(...args: any[]): RSVP.Promise;
         // invalidate(...args: any): RSVP.Promise;
         // authorize(...args: any[]): RSVP.Promise;
-        requireAuthentication(transition: any, routeOrCallback: string | Function): boolean;
+        requireAuthentication(transition: any, routeOrCallback: any): boolean;
     }
 }
 

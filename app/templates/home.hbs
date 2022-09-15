@@ -62,7 +62,7 @@
 
 {{#if this.showingLoginModal}}
   <LoginModal
-    @login={{action "authenticate"}}
-    @toggleModal={{action "toggleLoginModal"}}
+    @login={{this.authenticate}}
+    @toggleModal={{this.toggleLoginModal}}
   />
 {{/if}}

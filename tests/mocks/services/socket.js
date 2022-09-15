@@ -79,16 +79,14 @@ class MockSocket extends MockBase {
 
 @classic
 export default class MockSocketService extends Service {
-  init() {
-    super.init(...arguments);
-    this.set(
-      'socket',
+  constructor(...args: any[]) {
+    super(args);
+    this.socket =
       new MockSocket(ENV.CHAT_SOCKET_URL, {
         logger: function logger(/*kind, msg, data*/) {
           //console.log(kind + ": " + msg, data);
         },
-      }),
-    );
+      });
     this.socket.connect();
 
     this.socket.onOpen(function (/*ev*/) {

@@ -1,9 +1,7 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 
-export default class HomeWiki extends Controller.extend({
-  // anything which *must* be merged to prototype here
-}) {
+export default class HomeWiki extends Controller {
   // normal class body definition here
   @service declare session: any;
 }

@@ -1,5 +1,4 @@
 import classic from 'ember-classic-decorator';
-import { computed } from '@ember/object';
 import Model, { attr, hasMany } from '@ember-data/model';
 import dayjs from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
@@ -38,7 +37,6 @@ export default class Dj extends Model {
   @hasMany('scheduled-show')
   scheduledShows;
 
-  @computed('scheduledShows')
   get nextShow() {
     return this.scheduledShows
       .filter((scheduledShow) => {

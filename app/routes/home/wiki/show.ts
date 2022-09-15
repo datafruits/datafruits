@@ -1,9 +1,6 @@
 import Route from '@ember/routing/route';
 
-export default class HomeWikiShow extends Route.extend({
-  // anything which *must* be merged to prototype here
-}) {
-  // normal class body definition here
+export default class HomeWikiShow extends Route {
   model(params: any) {
     return this.store.findRecord('wikiPage', params.title);
   }

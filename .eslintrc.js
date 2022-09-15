@@ -23,6 +23,9 @@ module.exports = {
     'ember/no-jquery': 'error',
     'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
     '@typescript-eslint/no-inferrable-types': 'off',
+    '@typescript-eslint/no-var-requires': 0,
+    '@typescript-eslint/no-empty-function': 0,
+    'prefer-rest-params': 0
   },
   overrides: [
     // node files
