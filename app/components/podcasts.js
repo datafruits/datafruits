@@ -26,9 +26,6 @@ export default class PodcastsSearch extends Component {
   }
 
   @action
-  nop() {}
-
-  @action
   fetchPodcasts() {
     const query = this.args.query;
     let podcastsPromise = this.store.queryRecord('podcast', query).then((podcast) => {

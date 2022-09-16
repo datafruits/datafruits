@@ -2,7 +2,7 @@
 
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
@@ -10,14 +10,22 @@ module.exports = {
       legacyDecorators: true,
     },
   },
-  plugins: ['ember'],
-  extends: ['eslint:recommended', 'plugin:ember/recommended', 'plugin:prettier/recommended'],
+  plugins: ['ember', '@typescript-eslint'],
+  extends: [
+    'eslint:recommended',
+    'plugin:ember/recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
   env: {
     browser: true,
   },
   rules: {
     'ember/no-jquery': 'error',
     'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    '@typescript-eslint/no-inferrable-types': 'off',
+    '@typescript-eslint/no-var-requires': 0,
+    '@typescript-eslint/no-empty-function': 0,
+    'prefer-rest-params': 0
   },
   overrides: [
     // node files
@@ -25,7 +33,6 @@ module.exports = {
       files: [
         '.eslintrc.js',
         './.eslintrc.js',
-        './.prettierrc.js',
         './.template-lintrc.js',
         './ember-cli-build.js',
         './testem.js',

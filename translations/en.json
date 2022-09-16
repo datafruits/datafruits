@@ -63,6 +63,15 @@
       "gif_close": "Close GIF search"
     }
   },
+  "wiki": {
+    "title": "Fruitopiyeah",
+    "form": {
+      "title": "Title",
+      "body": "Article",
+      "submit": "Save",
+      "summary": "Short note explaining your changes"
+    }
+  },
   "releases": {
     "title": "Label",
     "aria": "View EPs and other releases from datafruits.fm"

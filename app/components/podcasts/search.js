@@ -22,7 +22,9 @@ export default class PodcastsSearchComponent extends Component {
   }
 
   @action
-  nop() {}
+  nop(event) {
+    event.preventDefault();
+  }
 
   @action
   selectLabel(labels) {

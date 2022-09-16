@@ -1,25 +1,25 @@
 import classic from 'ember-classic-decorator';
 import DatafruitsPlayer from '../datafruits-player';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 @classic
 export default class _DatafruitsPlayer extends DatafruitsPlayer {
-  track = null;
+  @tracked playingPodcast = false;
 
-  didInsertElement() {
-    if (this.track) {
-      this.set('playingPodcast', true);
-      super.didInsertElement(...arguments);
+  @action
+  didInsert() {
+    if (this.args.track) {
+      this.playingPodcast = true;
       this.playTrack();
-    } else {
-      super.didInsertElement(...arguments);
     }
   }
 
   playTrack() {
-    const track = this.track;
-    this.set('error', null);
-    this.set('title', track.title);
-    this.set('playTime', 0.0);
+    const track = this.args.track;
+    this.error = null;
+    this.title = track.title;
+    this.playTime = 0.0;
 
     let audioTag = document.getElementById('radio-player');
     audioTag.src = track.cdnUrl;

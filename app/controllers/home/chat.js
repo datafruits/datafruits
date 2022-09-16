@@ -1,5 +1,5 @@
 import classic from 'ember-classic-decorator';
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import Controller from '@ember/controller';
@@ -21,7 +21,6 @@ export default class ChatController extends Controller {
   @tracked
   isAuthenticating;
 
-  @computed('fastboot.isFastBoot')
   get isNotFastboot() {
     return !this.fastboot.isFastBoot;
   }
@@ -29,7 +28,7 @@ export default class ChatController extends Controller {
   @action
   authenticate(nick, pass) {
     this.isAuthenticating = true;
-    this.set('session.store.cookieExpirationTime', 60 * 60 * 24 * 14);
+    this.session.store.cookieExpirationTime = 60 * 60 * 24 * 14;
     return this.session
       .authenticate('authenticator:devise', nick, pass)
       .then(() => {

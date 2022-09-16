@@ -23,8 +23,7 @@ export default class ChatInputMessage extends Component {
     } else {
       this.inputMessage = `${this.inputMessage} ${shortcode}`;
     }
-    let button: HTMLButtonElement | null;
-    button = document.querySelector('#send-message-button');
+    const button: HTMLButtonElement | null = document.querySelector('#send-message-button');
     if (button) {
       button.focus();
     }
@@ -33,8 +32,7 @@ export default class ChatInputMessage extends Component {
   @action
   sendGif(gif: Gif) {
     this.inputMessage = gif.url;
-    let button: HTMLButtonElement | null;
-    button = document.querySelector('#send-message-button');
+    const button: HTMLButtonElement | null = document.querySelector('#send-message-button');
     if (button) {
       button.focus();
     }
@@ -69,20 +67,20 @@ export default class ChatInputMessage extends Component {
 
   @action
   didInsert() {
-    let emojiComplete = {
+    const emojiComplete = {
       id: 'emojis',
-      match: /\B:([\-+\w]*)$/,
+      match: /\B:([-+\w]*)$/,
 
       context: () => {
         return true;
       },
 
-      search: async (term: string, callback: Function) => {
+      search: async (term: string, callback: (results: any) => void) => {
         console.log(term);
-        let results: string[] = [];
-        let results2: string[] = [];
-        let results3: string[] = [];
-        for (let [shortname, data] of Object.entries(emojiStrategy)) {
+        const results: string[] = [];
+        const results2: string[] = [];
+        const results3: string[] = [];
+        for (const [shortname, data] of Object.entries(emojiStrategy)) {
           if (shortname.indexOf(term) > -1) {
             results.push(shortname);
           } else {
@@ -140,12 +138,11 @@ export default class ChatInputMessage extends Component {
         return shortname;
       },
     };
-    let usernameComplete = {
+    const usernameComplete = {
       id: 'usernames',
-      match: /\B@([\-+\w]*)$/,
-      search: (term: string, callback: Function) => {
-        let matches;
-        matches = Object.keys(this.chat.presences).filter((word) => {
+      match: /\B@([-+\w]*)$/,
+      search: (term: string, callback: (results: any) => void) => {
+        const matches = Object.keys(this.chat.presences).filter((word) => {
           return word.indexOf(term) === 0 && word !== this.chat.username;
         });
         callback(matches);
@@ -157,8 +154,7 @@ export default class ChatInputMessage extends Component {
         return `@${username} `;
       },
     };
-    let input: unknown;
-    input = document.querySelector('#input-message');
+    const input: unknown = document.querySelector('#input-message');
     if (input) {
       const editor = new TextareaEditor(input as HTMLTextAreaElement);
       new Textcomplete(editor, [emojiComplete, usernameComplete], {
