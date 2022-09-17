@@ -16,6 +16,16 @@ export default class UserModel extends Model {
   @attr()
   avatarUrl;
 
+  @attr()
+  imageUrl;
+
+  @attr()
+  imageThumbUrl;
+
+  @attr()
+  imageMediumUrl;
+
+
   @attr('file')
   avatar;
 
