@@ -1,5 +1,6 @@
 <div class="grid grid-cols-2 gap-2">
   <div class="">
+    <span>You can format this article with <a href="https://www.markdownguide.org/basic-syntax" target="_blank" rel="noopener noreferrer">Markdown</a>.</span>
     {{#let (changeset @model WikiPageValidations) as |changeset|}}
       <Ui::ChangesetForm
         @changeset={{changeset}}
