@@ -35,8 +35,22 @@ export default class HomeUserSettingsController extends Controller {
 
   @action
   updateFile(e) {
-    this.currentUser.user.avatar.update(e.target.files[0]);
+    // this.currentUser.user.avatar.update(e.target.files[0]);
+    // this.currentUser.user.avatarFilename = e.target.files[0].name;
+
+    this.file = e.target.files[0];
     this.currentUser.user.avatarFilename = e.target.files[0].name;
+    let reader = new FileReader();
+
+    reader.onload = (e) => {
+      this.currentUser.user.avatar = e.target.result;
+    };
+    reader.onerror = (e) => {
+      console.log('error reading file');
+      console.log(e);
+    };
+
+    reader.readAsDataURL(this.file);
   }
 
   @action
