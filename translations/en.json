@@ -115,7 +115,7 @@
     "loading": "Loading..."
   },
   "djs": {
-    "title": "DJs",
+    "title": "Fruits",
     "aria": "Browse DJs who perform on datafruits.fm"
   },
   "nav_toggle": "Toggle navigation",
@@ -138,7 +138,7 @@
   "thanks": "Thanks!",
   "subscribe": {
     "title": "Subscribe",
-    "aria": "Join the datafruits.fm newsletter for occasional updates"
+    "aria": "Join the datafruits.fm e-mail newsletter for occasional updates"
   },
   "newsletter_modal": {
     "title": "DATAFRUITS.FM NEWSLETTER",
