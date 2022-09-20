@@ -24,12 +24,15 @@
     {{/if}}
   </div>
 </div>
-<div class="mt-5 pt-2 px-5">
-  <h2 class="text-xl">
-    {{t "dj.podcasts"}}
-  </h2>
-  <Djs::Tracks @dj={{this.model}} @page={{this.router.currentRoute.queryParams.page}} />
-</div>
+
+{{#if (includes 'dj' this.model.roles)}}
+  <div class="mt-5 pt-2 px-5">
+    <h2 class="text-xl">
+      {{t "dj.podcasts"}}
+    </h2>
+    <Djs::Tracks @dj={{this.model}} @page={{this.router.currentRoute.queryParams.page}} />
+  </div>
+{{/if}}
 <div class="row">
   {{#each this.model.link as |link|}}
     <a href={{link.url}} target="_blank" rel="noopener noreferrer">

@@ -34,6 +34,10 @@ export default class Dj extends Model {
   @hasMany('track')
   tracks;
 
+  @attr()
+  role;
+
+
   @hasMany('scheduled-show')
   scheduledShows;
 
@@ -43,5 +47,9 @@ export default class Dj extends Model {
         return dayjs(scheduledShow.start).isSameOrAfter(Date.now());
       })
       .get('firstObject');
+  }
+
+  get roles() {
+    return this.roles.split(" ")
   }
 }

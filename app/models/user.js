@@ -53,4 +53,8 @@ export default class UserModel extends Model {
     console.log(trackIds.includes(parseInt(trackId)));
     return trackIds.includes(trackId);
   }
+
+  get roles() {
+    return this.role.split(" ")
+  }
 }
