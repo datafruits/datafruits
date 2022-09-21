@@ -208,6 +208,13 @@ export default class DatafruitsPlayer extends Component {
     audioTag.currentTime = time;
   }
 
+  get formattedPlayTime() {
+    const hours = Math.round(this.playTime / (60 * 60));
+    const minutes = Math.round((this.playTime / 60) % 60);
+    const seconds = Math.round(this.playTime % 60);
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  }
+
   @action
   didInsert() {
     if (!this.fastboot.isFastBoot) {
