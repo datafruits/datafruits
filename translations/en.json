@@ -65,6 +65,8 @@
   },
   "wiki": {
     "title": "Fruitopiyeah",
+    "welcome": "Welcome to Fruitopiyeah",
+    "latest": "Latest articles:",
     "form": {
       "title": "Title",
       "body": "Article",
