@@ -6,7 +6,7 @@
           {{dj.username}}
         </LinkTo>
       </h2>
-      {{#if (eq dj.imageThumbUrl null)}}
+      {{#if (eq dj.avatarUrl null)}}
         <img
           width="150"
           height="150"
@@ -19,7 +19,7 @@
           width="150"
           height="150"
           class="rounded-b-md align-bottom"
-          src={{dj.imageThumbUrl}}
+          src={{dj.avatarUrl}}
           alt={{dj.username}}
         >
       {{/if}}
