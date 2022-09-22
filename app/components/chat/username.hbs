@@ -3,7 +3,7 @@
   {{on "mouseleave" this.hideUserInfo}}
   class="relative"
   >
-  {{#if this.isDj}}
+  {{#if this.canShowUserInfo}}
     <LinkTo class="hover:underline" @route="home.dj" @model={{@username}}>
       {{format-message-user @username}}
     </LinkTo>
@@ -18,7 +18,8 @@
         src="{{@avatarUrl}}"
         align="center"
         alt={{this.currentUser.user.username}} / >
-      {{#if this.isDj}}
+      <User::Badges @role={{@role}} />
+      {{#if this.canShowUserInfo}}
         <LinkTo class="hover:underline" @route="home.dj" @model={{@username}}>
           {{@username}}
         </LinkTo>

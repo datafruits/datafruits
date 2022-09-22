@@ -8,6 +8,7 @@
       src={{this.model.imageMediumUrl}}
       alt={{this.model.username}}
       >
+    <User::Badges @role={{this.model.role}} />
     <p class="mt-2 mb-2">
       {{this.model.bio}}
     </p>
