@@ -118,6 +118,9 @@
         </span>
       {{/if}}
     </div>
+    {{#if this.playingPodcast}}
+      {{this.formattedPlayTime}}
+    {{/if}}
     <div class="flex mr-1 items-center">
       {{yield}}
     </div>

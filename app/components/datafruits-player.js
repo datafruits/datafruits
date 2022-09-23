@@ -27,6 +27,7 @@ export default class DatafruitsPlayer extends Component {
   @tracked playButtonPressed = false;
   @tracked oldVolume = 0.8;
   @tracked playTime = 0.0;
+  @tracked duration = 0.0;
   @tracked volume = 1.0;
   @tracked videoAudioOn = false;
 
@@ -208,6 +209,17 @@ export default class DatafruitsPlayer extends Component {
     audioTag.currentTime = time;
   }
 
+  get formattedPlayTime() {
+    return `${this._formatTime(this.playTime)} / ${this._formatTime(this.duration)}`;
+  }
+
+  _formatTime(time) {
+    const hours = Math.round(time / (60 * 60));
+    const minutes = Math.round((time / 60) % 60);
+    const seconds = Math.round(time % 60);
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  }
+
   @action
   didInsert() {
     if (!this.fastboot.isFastBoot) {
@@ -240,6 +252,7 @@ export default class DatafruitsPlayer extends Component {
         }
       });
       audioTag.addEventListener('canplay', () => {
+        this.duration = audioTag.duration;
         if (document.getElementsByClassName('seek-bar-wrapper').length) {
           document.getElementsByClassName('seek-bar-wrapper')[0].classList.remove('seeking');
         }
