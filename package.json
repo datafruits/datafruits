@@ -143,7 +143,7 @@
     "loader.js": "^4.2.3",
     "phoenix": "^1.5.7",
     "postcss-import": "14.0.2",
-    "postcss-scss": "4.0.3",
+    "postcss-scss": "4.0.5",
     "prember": "^1.1.0",
     "qunit": "^2.17.2",
     "qunit-dom": "1.6.0",
