@@ -112,8 +112,12 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   playLiveStream() {
+    let audioTag = document.getElementById('radio-player');
+    audioTag.pause();
     this.playingPodcast = false;
     this.setRadioTitle();
+    audioTag.src = 'https://streampusher-relay.club/datafruits.mp3';
+    audioTag.play();
   }
 
   @action
