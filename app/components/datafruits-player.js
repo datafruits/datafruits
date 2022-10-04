@@ -82,6 +82,9 @@ export default class DatafruitsPlayer extends Component {
 
     let audioTag = document.getElementById('radio-player');
     audioTag.src = track.cdnUrl;
+    if (audioTag.readyState === 0) {
+      this.playerState = 'loading';
+    }
     audioTag.play();
   }
 
@@ -214,7 +217,11 @@ export default class DatafruitsPlayer extends Component {
   }
 
   get formattedPlayTime() {
-    return `${this._formatTime(this.playTime)} / ${this._formatTime(this.duration)}`;
+    if(this.playTime) {
+      return `${this._formatTime(this.playTime)} / ${this._formatTime(this.duration)}`;
+    } else {
+      return "...";
+    }
   }
 
   _formatTime(time) {

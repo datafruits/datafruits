@@ -118,7 +118,7 @@
         </span>
       {{/if}}
     </div>
-    {{#if this.playingPodcast}}
+    {{#if (and this.playingPodcast this.playing)}}
       {{this.formattedPlayTime}}
     {{/if}}
     <div class="flex mr-1 items-center">
