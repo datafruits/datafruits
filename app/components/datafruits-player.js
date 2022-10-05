@@ -26,6 +26,7 @@ export default class DatafruitsPlayer extends Component {
   @tracked playerState = 'paused'; //"playing", "loading"
   @tracked playButtonPressed = false;
   @tracked oldVolume = 0.8;
+  @tracked playTimePercentage = 0.0;
   @tracked playTime = 0.0;
   @tracked duration = 0.0;
   @tracked volume = 1.0;
@@ -79,6 +80,7 @@ export default class DatafruitsPlayer extends Component {
     this.setPageTitle();
     this.playingPodcast = true;
     this.playTime = 0.0;
+    this.playTimePercentage = 0.0;
 
     let audioTag = document.getElementById('radio-player');
     audioTag.src = track.cdnUrl;
@@ -253,9 +255,11 @@ export default class DatafruitsPlayer extends Component {
         this.playerState = 'playing';
       });
       audioTag.addEventListener('timeupdate', () => {
-        const value = (100 / audioTag.duration) * audioTag.currentTime;
+        this.playTimePercentage = (100 / audioTag.duration) * audioTag.currentTime;
 
-        this.playTime = value;
+        if(this.playingPodcast) {
+          this.playTime = audioTag.currentTime;
+        }
       });
       audioTag.addEventListener('seeking', () => {
         if (document.getElementsByClassName('seek-bar-wrapper').length) {
