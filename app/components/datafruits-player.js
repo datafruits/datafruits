@@ -26,6 +26,7 @@ export default class DatafruitsPlayer extends Component {
   @tracked playerState = 'paused'; //"playing", "loading"
   @tracked playButtonPressed = false;
   @tracked oldVolume = 0.8;
+  @tracked playTimePercentage = 0.0;
   @tracked playTime = 0.0;
   @tracked duration = 0.0;
   @tracked volume = 1.0;
@@ -79,6 +80,7 @@ export default class DatafruitsPlayer extends Component {
     this.setPageTitle();
     this.playingPodcast = true;
     this.playTime = 0.0;
+    this.playTimePercentage = 0.0;
 
     let audioTag = document.getElementById('radio-player');
     audioTag.src = track.cdnUrl;
@@ -225,9 +227,9 @@ export default class DatafruitsPlayer extends Component {
   }
 
   _formatTime(time) {
-    const hours = Math.round(time / (60 * 60));
-    const minutes = Math.round((time / 60) % 60);
-    const seconds = Math.round(time % 60);
+    const hours = Math.floor(time / (60 * 60));
+    const minutes = Math.floor(time / 60) % 60;
+    const seconds = Math.floor(time % 60);
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   }
 
@@ -252,10 +254,19 @@ export default class DatafruitsPlayer extends Component {
       audioTag.addEventListener('playing', () => {
         this.playerState = 'playing';
       });
-      audioTag.addEventListener('timeupdate', () => {
-        const value = (100 / audioTag.duration) * audioTag.currentTime;
+      audioTag.addEventListener('seeked', () => {
+        this.playTimePercentage = (100 / audioTag.duration) * audioTag.currentTime;
 
-        this.playTime = value;
+        if(this.playingPodcast) {
+          this.playTime = audioTag.currentTime;
+        }
+      });
+      audioTag.addEventListener('timeupdate', () => {
+        this.playTimePercentage = (100 / audioTag.duration) * audioTag.currentTime;
+
+        if(this.playingPodcast) {
+          this.playTime = audioTag.currentTime;
+        }
       });
       audioTag.addEventListener('seeking', () => {
         if (document.getElementsByClassName('seek-bar-wrapper').length) {
