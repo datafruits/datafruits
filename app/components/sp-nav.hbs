@@ -25,6 +25,7 @@
               <LinkTo
                 class="text-white text-shadow-light"
                 aria-label={{t "djs.aria"}}
+                @invokeAction={{@toggleMenu}}
                 @route="home.djs">
                 {{t "djs.title"}}
               </LinkTo>
@@ -33,6 +34,7 @@
               <LinkTo
                 class="text-white text-shadow-light"
                 aria-label={{t "podcasts.aria"}}
+                @invokeAction={{@toggleMenu}}
                 @route="home.podcasts">
                 {{t "podcasts.title"}}
               </LinkTo>
@@ -41,6 +43,7 @@
               <LinkTo
                 class="text-white text-shadow-light"
                 aria-label={{t "timetable.aria"}}
+                @invokeAction={{@toggleMenu}}
                 @route="home.timetable">
                 {{t "timetable.title"}}
               </LinkTo>
@@ -49,6 +52,7 @@
               <LinkTo
                 class="text-white text-shadow-light"
                 aria-label={{t "djinquiry.aria"}}
+                @invokeAction={{@toggleMenu}}
                 @route="home.dj-inquiry">
                 {{t "djinquiry.title"}}
               </LinkTo>
@@ -57,6 +61,7 @@
               <LinkTo
                 class="text-white text-shadow-light"
                 aria-label={{t "wiki.aria"}}
+                @invokeAction={{@toggleMenu}}
                 @route="home.wiki">
                 {{t "wiki.title"}}
               </LinkTo>
@@ -67,6 +72,7 @@
           <LinkTo
             class="text-white text-shadow-light"
             aria-label={{t "chat.label.aria"}}
+            @invokeAction={{@toggleMenu}}
             @route="home.chat">
             {{t "chat.title"}}
           </LinkTo>
@@ -83,6 +89,7 @@
           <LinkTo
             class="text-white text-shadow-light"
             aria-label={{t "about.aria"}}
+            @invokeAction={{@toggleMenu}}
             @route="home.about">
             {{t "about.title"}}
           </LinkTo>
@@ -111,6 +118,7 @@
           <LinkTo
             class="text-white text-shadow-light"
             aria-label={{t "settings.title"}}
+            @invokeAction={{@toggleMenu}}
             @route="home.site-settings">
             {{t "settings.title"}}
           </LinkTo>
