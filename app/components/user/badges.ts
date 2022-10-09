@@ -7,10 +7,16 @@ interface UserBadgesArgs {
 interface Badge {
   name: string | string[];
   url: string;
+  description: string;
 }
 
 export default class UserBadges extends Component<UserBadgesArgs> {
   validBadges = ['dj', 'supporter'];
+
+  descriptions: any = {
+    'dj': 'plays the music on the website',
+    'supporter': 'supports the website on patreon or ampled'
+  }
 
   get badges(): Badge[] | undefined  {
     if(this.args.role.length) {
@@ -27,7 +33,8 @@ export default class UserBadges extends Component<UserBadgesArgs> {
         .map((badge) => {
           return {
             name: badge,
-            url: `/assets/images/badges/${badge}.webp`
+            url: `/assets/images/badges/${badge}.webp`,
+            description: this.descriptions[badge]
           };
         });
     } else {
