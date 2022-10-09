@@ -23,8 +23,8 @@ module.exports = {
         'df-yellow-dark': '#e8e000',
         'df-blue': '#00b4ff',
         'df-blue-dark': '#007eb3',
-        'df-green': '#5fdc82',
-        'df-green-dark': '#2bc456',
+        'df-green': '#5fdc82', // rgb(95, 220, 130)
+        'df-green-dark': '#2ba34b',
       },
     },
     themeVariants: ['classic', 'blm', 'trans'],
