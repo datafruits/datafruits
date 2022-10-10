@@ -15,14 +15,11 @@ export default class FruitsAffinity extends Component<FruitsAffinityArgs> {
     const canvas = document.getElementById('myChart') as HTMLCanvasElement;
     const ctx = canvas.getContext('2d');
 
-    console.log('this.args.fruitsAffinity.keys', this.args.fruitsAffinity.keys);
-    console.log('this.args.fruitsAffinity.values', this.args.fruitsAffinity.values);
-
     const data = {
-      labels: this.args.fruitsAffinity.keys,
+      labels: Object.keys(this.args.fruitsAffinity),
       datasets: [{
         label: "This user's Fruit Affinity",
-        data: this.args.fruitsAffinity.values,
+        data: Object.values(this.args.fruitsAffinity),
         fill: true,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgb(255, 99, 132)',
@@ -38,6 +35,8 @@ export default class FruitsAffinity extends Component<FruitsAffinityArgs> {
       type: 'radar',
       data: data,
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
         elements: {
           line: {
             borderWidth: 3
