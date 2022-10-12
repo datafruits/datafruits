@@ -1,6 +1,5 @@
 /*eslint-env node */
 const { colors } = require('tailwindcss/defaultTheme');
-
 module.exports = {
   theme: {
     fontFamily: {
@@ -10,6 +9,9 @@ module.exports = {
       cursive: ['cursive'],
     },
     extend: {
+      textShadow: {
+        DEFAULT: "0 2px 4px var(--tw-shadow-color)"
+      },
       height: {
         'handle-resize': 'calc(var(--vh, 1vh) * 100)',
       },
@@ -18,13 +20,13 @@ module.exports = {
         white: colors.white,
         gray: colors.gray,
         red: 'red',
-        'df-pink': '#e992ff',
+        'df-pink': '#cf79e9',
         'df-yellow': '#fff94f',
         'df-yellow-dark': '#e8e000',
         'df-blue': '#00b4ff',
         'df-blue-dark': '#007eb3',
-        'df-green': '#5fdc82', // rgb(95, 220, 130)
-        'df-green-dark': '#2ba34b',
+        'df-green': '#41d069',
+        'df-green-dark': '#289244',
       },
     },
     themeVariants: ['classic', 'blm', 'trans'],
