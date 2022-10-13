@@ -1,7 +1,11 @@
 <h1 class="text-3xl">{{@page.title}}</h1>
-
-<article class="bg-df-pink wiki-article p-1">
+<article class="bg-df-blue-dark wiki-article p-1">
   <div class="flex">
+    <div class="m-2">
+      <LinkTo @route="home.wiki" class="cool-button">
+        BACK
+      </LinkTo>
+    </div>
     {{#if this.session.isAuthenticated}}
       <div class="m-2">
         <LinkTo @route="home.wiki.edit" class="cool-button" @model={{@page}}>

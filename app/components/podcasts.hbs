@@ -4,9 +4,9 @@
   >
   <Await
     @promise={{this.fetchPodcasts}} as |await|>
-    <div id="podcast-search-controls" class="border-dotted border-df-green border-4 mb-6">
+    <div id="podcast-search-controls" class="border-dotted border-8 border-df-green bg-df-blue-dark border-4 mb-6">
       <div id="podcast-subscribe" class="flex p-2">
-        <h4 class="px-3 text-white text-l">{{t "podcasts.subscribe_title"}}</h4>
+        <h4 class="px-3 text-white text-l text-center">{{t "podcasts.subscribe_title"}}</h4>
         <ul id="subscribe-links" class="text-l flex flex-wrap justify-between items-center">
           <li class="pr-2">
             <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">
@@ -30,40 +30,41 @@
           </li>
         </ul>
       </div>
-      <hr class="border-dotted border-df-green border-t-4"/>
+      <hr class="border-df-green border-t-2"/>
       <Podcasts::Search
         @labels={{@labels}}
         @selectedLabels={{this.selectedLabels}}
         @query={{this.router.currentRoute.queryParams.query}}
         @search={{await.reload}}
         />
-    </div>
-    <div id="podcast-search-results">
-      <await.Pending>
-        <p id="podcast-search-loading" class="">
-          {{t "loading"}}
-        </p>
-      </await.Pending>
+      <hr class="border-df-green border-t-2">
+      <div id="podcast-search-results" class="bg-df-blue-dark border-dotted border-df-green">
+        <await.Pending>
+          <p id="podcast-search-loading" class="">
+            {{t "loading"}}
+          </p>
+        </await.Pending>
 
-      <await.Fulfilled as |result|>
-        {{#each result.tracks as |track|}}
-          <PodcastTrack
-            @track={{track}}
-            @selectedLabels={{this.selectedLabels}}
-            @search={{await.reload}}
-          />
-        {{else}}
-          {{t "podcasts.no_result"}}
-        {{/each}}
-        <FruitsUi::Pagination
-          @totalPages={{result.meta.total_pages}}
-          @page={{@page}}
-          @route="home.podcasts" />
-      </await.Fulfilled>
+        <await.Fulfilled as |result|>
+          {{#each result.tracks as |track|}}
+            <PodcastTrack
+              @track={{track}}
+              @selectedLabels={{this.selectedLabels}}
+              @search={{await.reload}}
+            />
+          {{else}}
+            {{t "podcasts.no_result"}}
+          {{/each}}
+          <FruitsUi::Pagination
+            @totalPages={{result.meta.total_pages}}
+            @page={{@page}}
+            @route="home.podcasts" />
+        </await.Fulfilled>
 
-      <await.Rejected>
-        {{t "error"}}{{format-message-body ":sorrymustabeentheonionsaladdressing:"}}
-      </await.Rejected>
+        <await.Rejected>
+          {{t "error"}}{{format-message-body ":sorrymustabeentheonionsaladdressing:"}}
+        </await.Rejected>
+      </div>
     </div>
   </Await>
 </div>
