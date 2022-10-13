@@ -1,6 +1,5 @@
-<div id="podcast-search-forms" class="flex flex-wrap p-2 items-center">
-  <h4 class="text-l px-3 text-center">{{t "podcasts.search_title"}}</h4>
-  <form role="search" class="px-3" aria-label={{ t "podcasts.text_search.label"}}
+<div id="podcast-search-forms" class="px-3 flex flex-wrap justify-evenly items-center">
+  <form role="search" aria-label={{ t "podcasts.text_search.label"}}
   {{on "submit" this.nop}}>
     <div class="flex flex-col">
       <label class="text-white" for="search-tracks">{{t "podcasts.title_search"}}</label>

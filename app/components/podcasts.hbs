@@ -5,38 +5,44 @@
   <Await
     @promise={{this.fetchPodcasts}} as |await|>
     <div id="podcast-search-controls" class="border-dotted border-8 border-df-green bg-df-blue-dark border-4 mb-6">
-      <div id="podcast-subscribe" class="flex p-2">
-        <h4 class="px-3 text-white text-l text-center">{{t "podcasts.subscribe_title"}}</h4>
-        <ul id="subscribe-links" class="text-l flex flex-wrap justify-between items-center">
-          <li class="pr-2">
-            <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">
-              {{t "podcasts.links.itunes"}}
-            </a>
-          </li>
-          <li class="pr-2">
-            <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml">
-              {{t "podcasts.links.overcast"}}
-            </a>
-          </li>
-          <li class="pr-2">
-            <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">
-              {{t "podcasts.links.podcastsapp"}}
-            </a>
-          </li>
-          <li class="pr-2">
-            <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">
-              {{t "podcasts.links.rss"}}
-            </a>
-          </li>
-        </ul>
+      <h1 class="text-center">{{t "podcasts.subscribe_title"}}</h1>
+      <div id="podcast-subscribe">
+        <hr>
+        <div class="mx-20 my-5">
+          <ul id="subscribe-links" class="text-l flex flex-wrap justify-between items-center">
+            <li class="pr-2">
+              <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml" class="cool-button">
+                {{t "podcasts.links.rss"}}
+              </a>
+            </li>
+            <li>
+              <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml" class="cool-button">
+                {{t "podcasts.links.itunes"}}
+              </a>
+            </li>
+            <li class="pr-2">
+              <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml" class="cool-button">
+                {{t "podcasts.links.overcast"}}
+              </a>
+            </li>
+            <li class="pr-2">
+              <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml" class="cool-button">
+                {{t "podcasts.links.podcastsapp"}}
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
       <hr class="border-df-green border-t-2"/>
+      <h1 class="text-l px-3 text-center">{{t "podcasts.search_title"}}</h1>
+
       <Podcasts::Search
         @labels={{@labels}}
         @selectedLabels={{this.selectedLabels}}
         @query={{this.router.currentRoute.queryParams.query}}
         @search={{await.reload}}
         />
+        <br>
       <hr class="border-df-green border-t-2">
       <div id="podcast-search-results" class="bg-df-blue-dark border-dotted border-df-green">
         <await.Pending>
