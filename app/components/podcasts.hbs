@@ -37,33 +37,34 @@
         @query={{this.router.currentRoute.queryParams.query}}
         @search={{await.reload}}
         />
-    </div>
-    <div id="podcast-search-results" class="bg-df-blue-dark border-dotted border-df-green border-t-8">
-      <await.Pending>
-        <p id="podcast-search-loading" class="">
-          {{t "loading"}}
-        </p>
-      </await.Pending>
+      <hr class="border-df-green border-t-2">
+      <div id="podcast-search-results" class="bg-df-blue-dark border-dotted border-df-green">
+        <await.Pending>
+          <p id="podcast-search-loading" class="">
+            {{t "loading"}}
+          </p>
+        </await.Pending>
 
-      <await.Fulfilled as |result|>
-        {{#each result.tracks as |track|}}
-          <PodcastTrack
-            @track={{track}}
-            @selectedLabels={{this.selectedLabels}}
-            @search={{await.reload}}
-          />
-        {{else}}
-          {{t "podcasts.no_result"}}
-        {{/each}}
-        <FruitsUi::Pagination
-          @totalPages={{result.meta.total_pages}}
-          @page={{@page}}
-          @route="home.podcasts" />
-      </await.Fulfilled>
+        <await.Fulfilled as |result|>
+          {{#each result.tracks as |track|}}
+            <PodcastTrack
+              @track={{track}}
+              @selectedLabels={{this.selectedLabels}}
+              @search={{await.reload}}
+            />
+          {{else}}
+            {{t "podcasts.no_result"}}
+          {{/each}}
+          <FruitsUi::Pagination
+            @totalPages={{result.meta.total_pages}}
+            @page={{@page}}
+            @route="home.podcasts" />
+        </await.Fulfilled>
 
-      <await.Rejected>
-        {{t "error"}}{{format-message-body ":sorrymustabeentheonionsaladdressing:"}}
-      </await.Rejected>
+        <await.Rejected>
+          {{t "error"}}{{format-message-body ":sorrymustabeentheonionsaladdressing:"}}
+        </await.Rejected>
+      </div>
     </div>
   </Await>
 </div>
