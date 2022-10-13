@@ -4,10 +4,11 @@
       {{this.model.username}}
     </h1>
     <img
-      class="rounded-lg"
+      class="rounded-lg mt-2"
       src={{this.model.imageMediumUrl}}
       alt={{this.model.username}}
       >
+    <User::Badges @role={{this.model.role}} />
     <p class="mt-2 mb-2">
       {{this.model.bio}}
     </p>
