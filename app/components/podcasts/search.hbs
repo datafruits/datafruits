@@ -1,4 +1,4 @@
-<div id="podcast-search-forms" class="px-3 flex flex-wrap justify-evenly items-center">
+<div id="podcast-search-forms" class="px-3 flex flex-wrap justify-center">
   <form role="search" aria-label={{ t "podcasts.text_search.label"}}
   {{on "submit" this.nop}}>
     <div class="flex flex-col">
@@ -19,6 +19,7 @@
       <label class="text-white" for="tag_search">{{t "podcasts.tag_search"}}</label>
       <PowerSelectMultiple
         name="tag_search"
+        id="tag_search"
         @placeholder={{t "podcasts.placeholders.tag"}}
         @searchEnabled={{true}}
         @options={{this.labelNames}}

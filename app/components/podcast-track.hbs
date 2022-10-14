@@ -1,17 +1,18 @@
-<div class="py-1 flex flex-wrap space-x-1 items-center">
+<div class="py-1 flex flex-wrap space-x-1">
   {{#if this.playing}}
-    <a class="text-df-green hover:text-df-yellow text-xl" {{action "pause"}} href="#">
+    <a class="text-df-green hover:text-df-yellow text-xxl" {{action "pause"}} href="#">
       {{t "player.pause"}}
     </a>
   {{else}}
-    <a class="text-df-green hover:text-df-yellow text-xl" {{action "play"}} href="#">
+    <a class="text-df-green hover:text-df-yellow text-xxl" {{action "play"}} href="#">
       {{t "player.play"}}
     </a>
   {{/if}}
-  <a href={{@track.cdnUrl}} download="">
+  <a class="text-shadow" href={{@track.cdnUrl}} download="">
     <FaIcon
       @icon="download"
-      class="fa fa-download text-df-green hover:text-df-yellow text-xl" />
+      class="fa fa-download text-df-green hover:text-df-yellow text-xxl" 
+    />
   </a>
   {{#if this.session.isAuthenticated}}
     {{#if this.isFavorited}}
@@ -41,7 +42,9 @@
       {{@track.title}}
     </LinkTo>
   {{else}}
+
     {{@track.title}}
+
   {{/if}}
   <div class="flex space-x-2">
     {{#each @track.labels as |label|}}
