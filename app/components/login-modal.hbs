@@ -1,7 +1,10 @@
-<ModalDialog
-  translucentOverlay={{true}}
+<Ui::Modal
+    id="login-modal"
   >
-  <div class="modal-top">
+  <div class="modal-top"
+    id="login-modal-top"
+    {{did-insert this.didInsert}}
+    >
     <button {{on "click" (fn @toggleModal)}}
       type="button"
       class="cool-button"
@@ -62,4 +65,4 @@
     </div>
     </form>
   </div>
-</ModalDialog>
+</Ui::Modal>

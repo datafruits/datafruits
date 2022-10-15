@@ -612,5 +612,29 @@ body::-webkit-scrollbar-thumb {
   @apply bg-df-green text-white rounded;
 }
 
+.modal {
+  z-index: 51;
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 4px 4px 1px #333;
+
+  background: $blue;
+  padding: 0;
+  .modal-top {
+    padding: 5px;
+    background: $pink;
+    border-radius: 8px 8px 0 0;
+  }
+  .modal-body {
+    padding: 5px;
+    border-radius: 8px;
+  }
+}
+
+.modal.dragging {
+  box-shadow: none;
+  @apply border-4 border-dotted border-df-green;
+}
+
 @tailwind utilities;
 /* purgecss end ignore */
