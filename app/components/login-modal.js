@@ -24,7 +24,9 @@ export default class LoginModalComponent extends Component {
         console.log('set dragging true', event.target);
         this.dragging = true;
         let loginModal = document.getElementById('login-modal');
-        loginModal.classList.add('dragging');
+        if(loginModal) {
+          loginModal.classList.add('dragging');
+        }
       }
     });
     document.addEventListener('mouseup', (event) => {
