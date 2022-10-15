@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class LoginModalComponent extends Component {
   @tracked dragging = false;
