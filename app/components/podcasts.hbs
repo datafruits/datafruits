@@ -4,7 +4,14 @@
   >
   <Await
     @promise={{this.fetchPodcasts}} as |await|>
-    <div id="podcast-search-controls" class="border-dotted border-8 border-df-green bg-df-blue-dark border-4 mb-6">
+    <div id="podcast-search-controls" class="mb-6
+      border-dotted 
+      border-8 
+      border-df-green
+      bg-df-blue-dark 
+      blm:border-black 
+      blm:bg-black
+    ">
       <h1>{{t "podcasts.subscribe_title"}}</h1>
       <div id="podcast-subscribe">
         <hr class="border-df-green border-t-2"/>

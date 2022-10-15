@@ -606,7 +606,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .pagination-wrapper {
-  @apply px-10 bg-df-green flex flex-wrap justify-between;
+  @apply px-10 bg-df-green flex flex-wrap justify-between blm:bg-black;
 }
 
 .pagination {
@@ -621,14 +621,15 @@ body::-webkit-scrollbar-thumb {
 }
 
 .active-page {
-  @apply bg-df-blue;
+  @apply bg-df-blue blm:bg-white blm:text-black;
 }
+
 .pagination.prev-link:hover {
-  @apply bg-df-green text-white rounded;
+  @apply bg-df-green text-white rounded blm:bg-white blm:text-black;
 }
 
 .pagination.next-link:hover {
-  @apply bg-df-green text-white rounded;
+  @apply bg-df-green text-white rounded blm:bg-white blm:text-black;
 }
 
 @tailwind utilities;
