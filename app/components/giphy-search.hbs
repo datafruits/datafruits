@@ -1,4 +1,4 @@
-<div class="mb-2">
+<div class="mb-2" {{did-insert this.focus}}>
   <label for="giphy-search-term">{{t "chat.label.search"}}</label>
   <Input
     @type="text"
@@ -14,7 +14,7 @@
     <p>{{t "loading"}}</p>
   {{else}}
     {{#each loader.data as |gif|}}
-      <GifPreview @gif={{gif}} @sendGif={{@sendGif}}/>
+      <GifPreview @gif={{gif}} @sendGif={{@sendGif}} />
     {{/each}}
   {{/if}}
 </GiphyLoader>

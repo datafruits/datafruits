@@ -1,12 +1,11 @@
-import classic from 'ember-classic-decorator';
-import Model, { attr, hasMany } from '@ember-data/model';
+import { attr, hasMany } from '@ember-data/model';
 import dayjs from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import User from 'datafruits13/models/user';
 
 dayjs.extend(isSameOrAfter);
 
-@classic
-export default class Dj extends Model {
+export default class Dj extends User {
   @attr()
   username;
 
@@ -36,7 +35,6 @@ export default class Dj extends Model {
 
   @attr()
   role;
-
 
   @hasMany('scheduled-show')
   scheduledShows;
