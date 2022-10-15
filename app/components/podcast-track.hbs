@@ -1,19 +1,21 @@
 <div class="py-1 flex flex-wrap space-x-1">
-  {{#if this.playing}}
-    <a class="text-df-green hover:text-df-yellow text-xxl" {{action "pause"}} href="#">
-      {{t "player.pause"}}
+  <div class="mt-1 text-xl">
+    {{#if this.playing}}
+      <a class="text-df-green hover:text-df-yellow text-xxl" {{action "pause"}} href="#">
+        {{t "player.pause"}}
+      </a>
+    {{else}}
+      <a class="text-df-green hover:text-df-yellow text-xxl" {{action "play"}} href="#">
+        {{t "player.play"}}
+      </a>
+    {{/if}}
+    <a href={{@track.cdnUrl}} download="">
+      <FaIcon
+        @icon="download"
+        class="fa fa-download text-df-green hover:text-df-yellow text-xxl" 
+      />
     </a>
-  {{else}}
-    <a class="text-df-green hover:text-df-yellow text-xxl" {{action "play"}} href="#">
-      {{t "player.play"}}
-    </a>
-  {{/if}}
-  <a class="text-shadow" href={{@track.cdnUrl}} download="">
-    <FaIcon
-      @icon="download"
-      class="fa fa-download text-df-green hover:text-df-yellow text-xxl" 
-    />
-  </a>
+  </div>
   {{#if this.session.isAuthenticated}}
     {{#if this.isFavorited}}
       <button
@@ -42,14 +44,27 @@
       {{@track.title}}
     </LinkTo>
   {{else}}
-
-    {{@track.title}}
-
+    <div class="mt-1">
+      <span class="text-xl">
+        {{@track.title}}
+      </span>
+    </div>
   {{/if}}
   <div class="flex space-x-2">
     {{#each @track.labels as |label|}}
       <a
-        class="track-label classic:bg-df-pink blm:bg-black text-df-yellow hover:text-white p-1 uppercase hover:italic border-solid border-white border-2 p-x-2 font-extrabold"
+        class="track-label 
+          text-df-yellow 
+          classic:bg-df-pink 
+          blm:bg-black 
+          hover:text-white 
+          p-1 
+          uppercase 
+          border-solid 
+          border-white 
+          border-2 
+          p-x-2 
+          font-extrabold"
         {{on "click" (fn this.selectLabel label.name)}}
         href="#">
         {{label.name}}
