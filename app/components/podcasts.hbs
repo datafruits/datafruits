@@ -4,17 +4,14 @@
   >
   <Await
     @promise={{this.fetchPodcasts}} as |await|>
-    <div id="podcast-search-controls" class="mb-6
-      border-dotted 
-      border-8 
-      border-df-green
-      bg-df-blue-dark 
-      blm:border-black 
+    <div id="podcast-search-controls" class="
+      mb-6
+      bg-df-blue-dark
       blm:bg-black
     ">
+      <hr class="border-t-2"/>
       <h1>{{t "podcasts.subscribe_title"}}</h1>
       <div id="podcast-subscribe">
-        <hr class="border-df-green border-t-2"/>
         <div class="md:mx-10 my-5">
           <ul id="subscribe-links" class="pr-2 flex flex-wrap text-xl md:text-m">
             <li>
@@ -40,7 +37,7 @@
           </ul>
         </div>
       </div>
-      <hr class="border-df-green border-t-2"/>
+      <hr class="border-t-2"/>
       <h1>
         {{t "podcasts.search_title"}}
       </h1>
@@ -52,8 +49,12 @@
         @search={{await.reload}}
         />
         <br>
-      <hr class="border-df-green border-t-2">
-      <div id="podcast-search-results" class="bg-df-blue-dark border-dotted border-df-green">
+      <hr class="border-t-2">
+      <div id="podcast-search-results" class="
+        bg-df-blue-dark
+        blm:bg-black
+        border-dotted 
+        border-df-green">
         <await.Pending>
           <p id="podcast-search-loading" class="">
             {{t "loading"}}
@@ -64,6 +65,7 @@
             @totalPages={{result.meta.total_pages}}
             @page={{@page}}
             @route="home.podcasts" />
+          <hr class="border-t-2">
           {{#each result.tracks as |track|}}
             <PodcastTrack
               @track={{track}}
@@ -73,12 +75,13 @@
           {{else}}
             {{t "podcasts.no_result"}}
           {{/each}}
-          <!-- pretty dumb to duplicate the pagination -->
+          <hr class="border-t-2">
           <FruitsUi::Pagination
             @totalPages={{result.meta.total_pages}}
             @page={{@page}}
             @route="home.podcasts" />
-        </await.Fulfilled>
+          <hr class="border-t-2">
+          </await.Fulfilled>
 
         <await.Rejected>
           {{t "error"}}{{format-message-body ":sorrymustabeentheonionsaladdressing:"}}

@@ -577,6 +577,7 @@ canvas#pixi {
 
 #subscribe-links > li {
   padding: 0 1em 0;
+  @apply underline;
 }
 
 #podcast-search-controls > h1 {
@@ -606,31 +607,29 @@ body::-webkit-scrollbar-thumb {
 }
 
 .pagination-wrapper {
-  @apply px-10 bg-df-green flex flex-wrap justify-between blm:bg-black;
+  @apply px-10 flex flex-wrap justify-between bg-df-green blm:bg-black trans:bg-df-pink;
 }
 
 .pagination {
-  @apply text-xl font-extrabold;
+  @apply px-4 text-xl font-extrabold;
 }
 
 .pagination.number:hover {
-  @apply bg-df-green text-white rounded;
+  @apply rounded bg-df-blue blm:bg-white;
   a {
-    @apply text-white;
+    @apply text-white blm:text-black;
   }
 }
 
 .active-page {
-  @apply bg-df-blue blm:bg-white blm:text-black;
+  @apply rounded bg-df-blue blm:bg-white blm:text-black;
 }
 
-.pagination.prev-link:hover {
-  @apply bg-df-green text-white rounded blm:bg-white blm:text-black;
-}
-
+.pagination.prev-link:hover, 
 .pagination.next-link:hover {
-  @apply bg-df-green text-white rounded blm:bg-white blm:text-black;
+  @apply rounded bg-df-blue text-white rounded blm:bg-white blm:text-black;
 }
+
 
 @tailwind utilities;
 /* purgecss end ignore */
