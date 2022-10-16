@@ -1,25 +1,27 @@
-<div class="mt-5 pt-2 px-5">
-  {{page-title (t "wiki.title")}}
-  <h1 class="font-cursive">{{ t "wiki.welcome"}}</h1>
+{{page-title (t "wiki.title")}}
+<div class="page-spacing">
+  <h1 class="debussy-header">{{ t "wiki.welcome"}}</h1>
 
-  {{#if this.session.isAuthenticated}}
-    <div class="m-2">
-      <LinkTo @route="home.wiki.new" class="cool-button">
-        NEW ARTICLE
-      </LinkTo>
-    </div>
-  {{/if}}
+  <div class="rounded bg-df-blue-dark blm:bg-black my-2 pb-2">
+    {{#if this.session.isAuthenticated}}
+      <div class="px-10">
+        <LinkTo @route="home.wiki.new" class="cool-button">
+          NEW ARTICLE
+        </LinkTo>
+      </div>
+    {{/if}}
 
-  <section>
-    <h2>{{ t "wiki.latest"}}</h2>
-    <ul class="text-2xl bold">
-      {{#each this.model as |wikiPage|}}
-        <li>
-          <LinkTo @route="home.wiki.show" @model={{wikiPage.title}}>
-            {{wikiPage.title}}
-          </LinkTo>
-        </li>
-      {{/each}}
-    </ul>
-  </section>
+    <section>
+      <h2 class="text-3xl font-cursive md:pl-2">{{ t "wiki.latest"}}</h2>
+      <ul class="text-2xl bold underline pt-2 md:pl-4">
+        {{#each this.model as |wikiPage|}}
+          <li>
+            <LinkTo @route="home.wiki.show" @model={{wikiPage.title}}>
+              {{wikiPage.title}}
+            </LinkTo>
+          </li>
+        {{/each}}
+      </ul>
+    </section>
+  </div>
 </div>

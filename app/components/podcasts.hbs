@@ -1,60 +1,52 @@
 <div
-    {{did-insert this.fetchPodcasts @page}}
-    {{did-update this.fetchPodcasts @page}}
-  >
+  {{did-insert this.fetchPodcasts @page}}
+  {{did-update this.fetchPodcasts @page}}
+>
   <Await
     @promise={{this.fetchPodcasts}} as |await|>
-    <div id="podcast-search-controls" class="
-      mb-6
-      bg-df-blue-dark
-      blm:bg-black
-    ">
-      <hr class="border-t-2"/>
-      <h1>{{t "podcasts.subscribe_title"}}</h1>
-      <div id="podcast-subscribe">
-        <div class="md:mx-10 my-5">
-          <ul id="subscribe-links" class="pr-2 flex flex-wrap text-xl md:text-m">
-            <li>
-              <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">
-                {{t "podcasts.links.rss"}}
-              </a>
-            </li>
-            <li>
-              <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">
-                {{t "podcasts.links.itunes"}}
-              </a>
-            </li>
-            <li>
-              <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml">
-                {{t "podcasts.links.overcast"}}
-              </a>
-            </li>
-            <li>
-              <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">
-                {{t "podcasts.links.podcastsapp"}}
-              </a>
-            </li>
-          </ul>
+    <div id="podcast-search-controls">
+      <div class="flex flex-wrap justify-around">
+        <div id="search-controls">
+          <h1>{{t "podcasts.search_title"}}</h1>
+          <Podcasts::Search
+            @labels={{@labels}}
+            @selectedLabels={{this.selectedLabels}}
+            @query={{this.router.currentRoute.queryParams.query}}
+            @search={{await.reload}}
+          />
+        </div>
+        <div id="subscribe-controls">
+          <h1>{{t "podcasts.subscribe_title"}}</h1>
+          <div id="podcast-subscribe">
+            <div class="md:mx-10 md:my-5 md:py-5">
+              <ul id="subscribe-links" class="pr-2 flex flex-wrap text-xl md:text-m">
+                <li>
+                  <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">
+                    {{t "podcasts.links.rss"}}
+                  </a>
+                </li>
+                <li>
+                  <a href="itpc://datafruits.streampusher.com/podcasts/datafruits.xml">
+                    {{t "podcasts.links.itunes"}}
+                  </a>
+                </li>
+                <li>
+                  <a href="overcast://datafruits.streampusher.com/podcasts/datafruits.xml">
+                    {{t "podcasts.links.overcast"}}
+                  </a>
+                </li>
+                <li>
+                  <a href="podcast://datafruits.streampusher.com/podcasts/datafruits.xml">
+                    {{t "podcasts.links.podcastsapp"}}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <hr class="border-t-2"/>
-      <h1>
-        {{t "podcasts.search_title"}}
-      </h1>
-
-      <Podcasts::Search
-        @labels={{@labels}}
-        @selectedLabels={{this.selectedLabels}}
-        @query={{this.router.currentRoute.queryParams.query}}
-        @search={{await.reload}}
-        />
-        <br>
-      <hr class="border-t-2">
-      <div id="podcast-search-results" class="
-        bg-df-blue-dark
-        blm:bg-black
-        border-dotted 
-        border-df-green">
+      <br>
+      <div id="podcast-search-results">
         <await.Pending>
           <p id="podcast-search-loading" class="">
             {{t "loading"}}
@@ -65,22 +57,18 @@
             @totalPages={{result.meta.total_pages}}
             @page={{@page}}
             @route="home.podcasts" />
-          <hr class="border-t-2">
           {{#each result.tracks as |track|}}
             <PodcastTrack
               @track={{track}}
               @selectedLabels={{this.selectedLabels}}
-              @search={{await.reload}}
-            />
+              @search={{await.reload}} />
           {{else}}
             {{t "podcasts.no_result"}}
           {{/each}}
-          <hr class="border-t-2">
           <FruitsUi::Pagination
             @totalPages={{result.meta.total_pages}}
             @page={{@page}}
             @route="home.podcasts" />
-          <hr class="border-t-2">
           </await.Fulfilled>
 
         <await.Rejected>

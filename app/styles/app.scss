@@ -630,6 +630,12 @@ body::-webkit-scrollbar-thumb {
   @apply rounded bg-df-blue text-white rounded blm:bg-white blm:text-black;
 }
 
+.debussy-header {
+  @apply text-center text-4xl font-debussy tracking-widest pb-2;
+}
 
+.page-spacing {
+  @apply mt-5 pt-2 px-5;
+}
 @tailwind utilities;
 /* purgecss end ignore */
