@@ -4,7 +4,7 @@
 
   <div class="rounded bg-df-blue-dark blm:bg-black my-2 pb-2">
     {{#if this.session.isAuthenticated}}
-      <div class="px-10">
+      <div class="py-4 my-2 mx-4">
         <LinkTo @route="home.wiki.new" class="cool-button">
           NEW ARTICLE
         </LinkTo>
@@ -13,7 +13,7 @@
 
     <section>
       <h2 class="text-3xl font-cursive md:pl-2">{{ t "wiki.latest"}}</h2>
-      <ul class="text-2xl bold underline pt-2 md:pl-4">
+      <ul class="text-2xl bold underline md:pl-4">
         {{#each this.model as |wikiPage|}}
           <li>
             <LinkTo @route="home.wiki.show" @model={{wikiPage.title}}>
