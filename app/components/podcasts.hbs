@@ -7,7 +7,7 @@
     <div id="podcast-search-controls">
       <div class="flex flex-wrap justify-around">
         <div id="search-controls">
-          <h1>{{t "podcasts.search_title"}}</h1>
+          <h1 class="text-center">{{t "podcasts.search_title"}}</h1>
           <Podcasts::Search
             @labels={{@labels}}
             @selectedLabels={{this.selectedLabels}}
@@ -16,7 +16,7 @@
           />
         </div>
         <div id="subscribe-controls">
-          <h1>{{t "podcasts.subscribe_title"}}</h1>
+          <h1 class="text-center">{{t "podcasts.subscribe_title"}}</h1>
           <div id="podcast-subscribe">
             <div class="md:mx-10 md:my-5 md:py-5">
               <ul id="subscribe-links" class="pr-2 flex flex-wrap text-xl md:text-m">
@@ -69,7 +69,7 @@
             @totalPages={{result.meta.total_pages}}
             @page={{@page}}
             @route="home.podcasts" />
-          </await.Fulfilled>
+        </await.Fulfilled>
 
         <await.Rejected>
           {{t "error"}}{{format-message-body ":sorrymustabeentheonionsaladdressing:"}}
