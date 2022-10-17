@@ -140,6 +140,7 @@
   "thanks": "Thanks!",
   "subscribe": {
     "title": "Subscribe",
+    "description": "We also have a newsletter email about special events, releases on the netlabel, and any changes to the site.",
     "aria": "Join the datafruits.fm e-mail newsletter for occasional updates"
   },
   "newsletter_modal": {
@@ -162,8 +163,12 @@
     "min_age": "I am at least 13 years old"
   },
   "profile": {
-    "favorites": "Favorites",
-    "my_favorites": "My Favorite Mixes",
+    "favorites": "View My Favorites",
+    "my_favorites": "My Favorite",
+    "my_pic": "Update avatar",
+    "settings": "Profile Settings",
+    "chat": "Chat Preview",
+    "chat_test": "This is a test message",
     "style": "Style",
     "submit": "SAVE",
     "pronouns": "Pronouns",
@@ -196,8 +201,8 @@
     "email": "email",
     "submit": "Send password reset link"
   },
-  "just_a_website": "It's just a website.",
-  "about_datafruits": "Independent radio made for and by the international music community. Open source. Breaking down borders and genres. We play any song. We are dedicated to putting the spotlight and sharing music from underserved and marginalized communities. We believe that the only platform that can *truely* serve its users is one that is owned and operated by the people using the platform, the DJs and the listeners!",
+  "just_a_website": "its just a website",
+  "about_datafruits": "Datafruits.fm is a net-radio station that plays music 24 hours a day. Live shows are scheduled throughout the week, meanwhile the archived shows play on shuffle in-between programs. This website was made by and for the international music community, particularly from underserved and marginalized communities. It is cooperatively owned and operated by the people who are using it: DJs, VJs, Artists, and everything in between. Our station has little to no curation, and that any song can be played. Remember, it's just a website.",
   "twitter": {
     "title": "Twitter",
     "aria": "Visit the @datafruits Twitter page"
@@ -269,7 +274,7 @@
   },
   "about_page": {
     "listenersupport": "Datafruits.fm is possible thanks to the generous support of the listeners. The best way to support us is with a monthly pledge of your choosing on Ampled. You'll get exclusive posts along with a monthly update video.",
-    "donate_request": "Or if you'd like you can make a one time donation to our paypal.",
+    "donate_request": "If you'd like to make an one-time donation.",
     "donate_linktext": "https://paypal.me/datafruitsfm",
     "donate_aria": "Make a donation to datafruits.fm through PayPal"
   },

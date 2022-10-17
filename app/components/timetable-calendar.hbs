@@ -5,11 +5,10 @@
   </await.Pending>
 
   <await.Fulfilled as |shows|>
-  <table class="bg-df-blue-dark border-dotted border-df-green border-8">
+  <table class="bg-df-blue-dark blm:bg-black rounded">
     <thead>
       <tr>
       <th scope="col" colspan="2">
-        <h1 class="text-3xl text-center">{{t "timetable.title"}}</h1>
         {{t "timetable.timezone" }}
         <span class="italic">
           {{current-timezone}}
