@@ -628,7 +628,7 @@ body::-webkit-scrollbar-thumb {
   @apply rounded bg-df-blue blm:bg-white blm:text-black;
 }
 
-.pagination.prev-link:hover, 
+.pagination.prev-link:hover,
 .pagination.next-link:hover {
   @apply rounded bg-df-blue text-white rounded blm:bg-white blm:text-black;
 }
@@ -638,7 +638,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .page-spacing {
-  @apply mt-5 pt-2 px-5;
+  @apply mt-5 mx-2 pt-2 px-5;
 }
 
 .user-settings-input {
