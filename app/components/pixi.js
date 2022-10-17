@@ -90,6 +90,7 @@ export default class PixiComponent extends Component {
     PIXI.utils.sayHello(type);
 
     this.app = new PIXI.Application({
+      view: document.getElementById("pixi"),
       autoResize: true,
       resolution: devicePixelRatio,
       backgroundAlpha: 0,
