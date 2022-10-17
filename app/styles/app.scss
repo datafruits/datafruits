@@ -427,11 +427,14 @@ form {
   box-shadow: 10px 10px 2px grey;
   position: absolute;
 
+  @apply bg-df-blue-dark blm:bg-black;
+
   @media (max-width: 480px) {
     width: 100%;
     max-width: 100%;
     left: 0;
   }
+
 }
 
 .show-image {
