@@ -6,7 +6,9 @@
          "
   {{did-insert this.didInsert}}
   >
-  <audio preload="" id="radio-player" class="hidden">
+  <audio preload="" id="radio-player" class="hidden"
+        crossorigin="anonymous"
+    >
     <source
       src="https://streampusher-relay.club/datafruits.mp3"
       type="audio/mp3"
@@ -25,7 +27,7 @@
           role="button"
           {{on "click" this.playLiveStream}}
         >
-          {{t "player.return_to_live"}}
+          <FaIcon @icon="chevron-left" alt={{t 'return_to_live'}} />
         </a>
       {{/if}}
       {{#if this.loading}}
@@ -119,7 +121,9 @@
       {{/if}}
     </div>
     {{#if (and this.playingPodcast this.playing)}}
-      {{this.formattedPlayTime}}
+      <span class="mr-2">
+        {{this.formattedPlayTime}}
+      </span>
     {{/if}}
     <div class="flex mr-1 items-center">
       {{yield}}
