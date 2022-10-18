@@ -25,7 +25,7 @@
           role="button"
           {{on "click" this.playLiveStream}}
         >
-          {{t "player.return_to_live"}}
+          <FaIcon @icon="chevron-left" alt={{t 'return_to_live'}} />
         </a>
       {{/if}}
       {{#if this.loading}}
