@@ -5,7 +5,7 @@ export default class AudioVisualizer extends Component {
   @action
   didInsert(){
     const myAudio = document.querySelector("audio");
-    //myAudio.crossOrigin = "anonymous"
+    myAudio.crossOrigin = "anonymous"
 
     const audioCtx = new AudioContext();
     const analyser = audioCtx.createAnalyser();
