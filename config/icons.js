@@ -7,6 +7,7 @@ module.exports = function () {
       'volume-up',
       'download',
       'chevron-right',
+      'chevron-left',
       'times',
       'heart',
     ],
