@@ -587,6 +587,11 @@ canvas#pixi {
   @apply font-cursive;
 }
 
+.playing-podcast {
+  @apply bg-df-green blm:bg-black trans:bg-df-pink #{!important};
+}
+
+
 #tag_search {
   height: 2.3rem;
 }
