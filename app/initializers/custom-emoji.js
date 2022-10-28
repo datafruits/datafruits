@@ -10,6 +10,13 @@ export function initialize(/* application */) {
       shortnames: [':bgs:'],
       keywords: ['bgs'],
     },
+    ':bgs_pog:': {
+      custom: true,
+      uc_base: 'bgs_pog',
+      uc_output: '',
+      shortnames: [':bgs_pog:'],
+      keywords: ['bgs_pog'],
+    },
     ':tony:': {
       custom: true,
       uc_base: 'tony',
@@ -331,6 +338,13 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':blend:'],
       keywords: ['blend'],
+    },
+    ':fire2:': {
+      custom: true,
+      uc_base: 'fire2',
+      uc_output: '',
+      shortnames: [':fire2:'],
+      keywords: ['fire2'],
     },
   };
 
