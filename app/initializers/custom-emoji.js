@@ -17,19 +17,19 @@ export function initialize(/* application */) {
       shortnames: [':bgs_pog:'],
       keywords: ['bgs_pog'],
     },
-    ':tony:': {
+    ':mcfiredrill:': {
       custom: true,
-      uc_base: 'tony',
+      uc_base: 'mcfiredrill',
       uc_output: '',
-      shortnames: [':firedrill:', ':freedrull:', ':mcfiredrill:'],
-      keywords: ['firedrill', 'freedrull', 'mcfiredrill'],
+      shortnames: [':mcfiredrill:'],
+      keywords: ['mcfiredrill'],
     },
     ':ovenrake:': {
       custom: true,
       uc_base: 'ovenrake',
       uc_output: '',
-      shortnames: [':dakota:', ':oven:'],
-      keywords: ['dakota', 'oven'],
+      shortnames: [':ovenrake:'],
+      keywords: ['ovenrake'],
     },
     ':snailzone:': {
       custom: true,
