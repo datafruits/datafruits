@@ -2,9 +2,9 @@
 <div class="page-spacing">
   <h1 class="debussy-header">{{ t "wiki.welcome"}}</h1>
 
-  <div class="rounded bg-df-blue-dark blm:bg-black my-2 pb-2">
+  <div class="page-bg">
     {{#if this.session.isAuthenticated}}
-      <div class="py-4 my-2 mx-4">
+      <div class="pt-6 my-4 mx-4">
         <LinkTo @route="home.wiki.new" class="cool-button">
           NEW ARTICLE
         </LinkTo>

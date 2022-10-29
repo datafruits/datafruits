@@ -646,9 +646,24 @@ body::-webkit-scrollbar-thumb {
   @apply mt-5 mx-2 pt-2 px-5;
 }
 
+.page-bg {
+  @apply bg-df-blue-dark blm:bg-black rounded;
+}
+
+.page-section-bg {}
 .user-settings-input {
   @apply classic:bg-df-pink blm:bg-black trans:bg-df-blue border-solid border-2 border-df-blue text-white;
 }
 
+.about-section {
+  @apply my-4 md:mx-4;
+}
+.about-section-text {
+  @apply md:mx-8;
+}
+.about-section-text > p, 
+.about-section-text > div {
+  @apply my-2;
+}
 @tailwind utilities;
 /* purgecss end ignore */

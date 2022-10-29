@@ -202,7 +202,9 @@
     "submit": "Send password reset link"
   },
   "just_a_website": "its just a website",
-  "about_datafruits": "Datafruits.fm is a net-radio station that plays music 24 hours a day. Live shows are scheduled throughout the week, meanwhile the archived shows play on shuffle in-between programs. This website was made by and for the international music community, particularly from underserved and marginalized communities. It is cooperatively owned and operated by the people who are using it: DJs, VJs, Artists, and everything in between. Our station has little to no curation, and that any song can be played. Remember, it's just a website.",
+  "about_datafruits_1": "Datafruits is a cooperatively owned and operated free-form net radio station. This website was created by and for fans of internet radio and netlabels. Our station has little to no curation, and we believe that any song can be played.",
+  "about_datafruits_2": "With artists around the globe, we are located throughout the US, Tokyo, and Seoul.  Our goal is to provide an accessible space for the international music community; Particularly for underserved and marginalized communities.",
+  "about_datafruits_3": "The site has had no sponsorships or advertisements since 2012, and all of our support comes from the listeners, artists, and the generosity of strangers on the internet. We may live in a \"Platform capitalist\" world now, but that doesn't mean we're alone. We can help make the world a better place with a bit of cooperation and understanding. And remember, it's just a website.",
   "twitter": {
     "title": "Twitter",
     "aria": "Visit the @datafruits Twitter page"
