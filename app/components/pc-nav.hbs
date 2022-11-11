@@ -115,8 +115,12 @@
         style="height: 2rem;"
         src="{{this.currentUser.user.avatarUrl}}"
         align="center"
-        alt={{this.currentUser.user.username}} / >
-      <a href="#" class="" role="button" {{on "click" this.args.toggleUserMenu}}>
+        alt={{this.currentUser.user.username}} />
+      <a href="#"
+        class=""
+        role="button"
+        aria-label="{{t "usermenu.dropdown-aria"}}"
+        {{on "click" this.args.toggleUserMenu}}>
         {{this.currentUser.user.username}}
       </a>
     </li>

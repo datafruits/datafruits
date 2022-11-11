@@ -172,10 +172,12 @@
     "style": "Style",
     "submit": "SAVE",
     "pronouns": "Pronouns",
-    "bio": "About me"
+    "bio": "About me",
+    "homepage": "Home page"
   },
   "usermenu": {
     "settings": "Settings",
+    "dropdown-aria": "User Menu",
     "logout": "Logout"
   },
   "label": "Label",

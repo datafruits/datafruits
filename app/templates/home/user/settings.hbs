@@ -12,7 +12,7 @@
         </LinkTo>
       </li>
     </ul>
-    
+
     <h1 class="font-cursive py-2">{{t "profile.settings"}}</h1>
 
     <div class="border-white border-2 w-3/5">
@@ -24,15 +24,15 @@
             class="py-4 px-4 my-2 text-df-yellow w-full semibold border-dashed"
             id="updateProfilePicture"
             name="updateProfilePicture"
-            type="file" 
+            type="file"
             {{on "change" this.updateFile}}
           />
         </div>
         <div>
           <label for="chatPreview">{{t "profile.chat"}}</label>
-          <div 
+          <div
             class="py-4 my-2 flex flex-wrap border-white border-dashed border-2"
-            id="chatPreview" 
+            id="chatPreview"
             name="chatPreview"
           >
             <img class="mx-4 w-6" src="{{this.currentUser.user.avatarUrl}}">
@@ -52,6 +52,13 @@
             <Textarea
               class="w-full user-settings-input"
               @value={{this.currentUser.user.bio}}
+            />
+          </div>
+          <div>
+            <label class="align-top text-white">{{t "profile.homepage"}}</label>
+            <Input
+              class="user-settings-input"
+              @value={{this.currentUser.user.homepage}}
             />
           </div>
           <br />
