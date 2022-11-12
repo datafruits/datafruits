@@ -17,6 +17,7 @@
   {{/if}}
     <span class="mr-2" data-test-username>
       <Chat::Username
+        @dontShowPopup={{true}}
         @role={{@message.role}}
         @style={{@message.style}}
         @pronouns={{@message.pronouns}}
