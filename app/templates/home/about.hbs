@@ -1,124 +1,155 @@
-<div class="mt-5 pt-2 px-5">
-  {{page-title "about"}}
-  <h1 id="myModalLabel">
+{{page-title "about"}}
+<div class="page-spacing">
+  <h1 class="debussy-header">
     {{t "just_a_website"}}
   </h1>
-  <div>
-    <p class="my-2">
-      {{t "about_datafruits"}}
-    </p>
-    <ul class="mb-2">
-      <li>
-        <LinkTo @route="home.coc" aria-label={{t "code_of_conduct_aria"}}>
-          {{t "code_of_conduct"}}
+  <div class="page-bg">
+    <div class="about-section">
+      <div id="about-us-details">
+        <h1>About us</h1>
+        <div class="about-section-text">
+          <p>
+            {{t "about_datafruits_1"}}
+          </p>
+          <p>
+            {{t "about_datafruits_2"}}
+          </p>
+          <p>
+            {{t "about_datafruits_3"}}
+          </p>
+        </div>
+      </div>
+      <div id="community-details">
+        <h1>Community</h1>
+        <div class="about-section-text">
+          <p>
+            Our collective of artists and contributors are expected to positively engage and to follow our guidelines. Our volunteer moderators are responsible for enforcing the rules listed in the
+            <span>
+              <LinkTo @route="home.coc" aria-label={{t "code_of_conduct_aria"}}>
+                {{t "code_of_conduct"}}.
+              </LinkTo>
+            </span>
+            Datafruits is a self-governing community that democratically decides on the direction of our shared space.
+          </p>
+        </div>
+      </div>
+      <div id="support-details">
+        <h1>Support</h1>
+        <div class="about-section-text">
+          <p>
+            {{t "about_page.listenersupport"}}
+          </p>
+          <div>
+            <a href="https://www.ampled.com/artist/datafruits" target="_blank" rel="noopener" aria-label={{t "patron_aria"}}>
+              {{t "patron.title"}}
+            </a>
+          </div>
+          <div>
+            <p>
+              {{t "about_page.donate_request"}}
+            </p>
+            <a href="https://paypal.me/datafruitsfm" target="_blank" rel="noopener" aria-label={{t "about_page.donate_aria"}}>
+              {{t "about_page.donate_linktext"}}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id="subscribe-details">
+        <h1>Subscribe</h1>
+        <div class="about-section-text">
+        <p>
+          {{t "subscribe.description"}}
+        </p>
+        <LinkTo @route="home.subscribe" aria-label={{t "subscribe.aria"}}>
+          {{t "subscribe.aria"}}
         </LinkTo>
-      </li>
-      <li>
-        <p>
-          {{t "about_page.listenersupport"}}
-        </p>
-        <a href="https://patreon.com/datafruits" target="_blank" rel="noopener" aria-label={{t "patron_aria"}}>
-          {{t "patron.title"}}
-        </a>
-        <p>
-          {{t "about_page.donate_request"}}
-        </p>
-        <a href="https://paypal.me/datafruitsfm" target="_blank" rel="noopener" aria-label={{t "about_page.donate_aria"}}>
-          {{t "about_page.donate_linktext"}}
-        </a>
-      </li>
-    </ul>
-    <h2>
-      {{t "thanks_patrons"}}
-    </h2>
-    <ul class="mb-2">
-      {{#each this.model as |patron|}}
-        <li class="patron">
-          {{patron.name}}
-        </li>
-      {{/each}}
-    </ul>
+        </div>
+      </div>
+      <hr class="border-df-green blm:border-white"/>
+      <div id="social-media-links" class="text-4xl">
+        <ul class="flex flex-wrap mb-4 justify-evenly">
+          <li>
+            <a
+              href="https://discord.gg/83mteTQDvu"
+              title={{t "discord"}}
+              aria-label={{t "discord.aria"}}
+              target="_blank"
+              rel="noopener"
+            >
+              <FaIcon @icon="discord" @prefix="fab" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="http://twitter.com/datafruits"
+              title={{t "twitter"}}
+              aria-label={{t "twitter.aria"}}
+              target="_blank"
+              rel="noopener"
+            >
+              <FaIcon @icon="twitter" @prefix="fab" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="http://github.com/datafruits"
+              title={{t "github.title"}}
+              aria-label={{t "github.aria"}}
+              target="_blank"
+              rel="noopener"
+            >
+              <FaIcon @icon="github" @prefix="fab" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="http://soundcloud.com/datafruits"
+              title={{t "soundcloud.title"}}
+              aria-label={{t "soundcloud.aria"}}
+              target="_blank"
+              rel="noopener"
+            >
+              <FaIcon @icon="soundcloud" @prefix="fab" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="http://mixcloud.com/datafruits"
+              title={{t "mixcloud.title"}}
+              aria-label={{t "mixcloud.aria"}}
+              target="_blank"
+              rel="noopener"
+            >
+              <FaIcon @icon="mixcloud" @prefix="fab" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="http://instagram.com/datafruits"
+              title={{t "instagram.title"}}
+              aria-label={{t "instagram.aria"}}
+              target="_blank"
+              rel="noopener"
+            >
+              <FaIcon @icon="instagram" @prefix="fab" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:info@datafruits.fm"
+              title={{t "email.title"}}
+              aria-label={{t "email.aria"}}
+              target="_blank"
+              rel="noopener"
+            >
+              <FaIcon @icon="envelope" @prefix="fas" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
   <div class="">
-    <ul class="flex text-2xl justify-around flex-wrap">
-      <li>
-        <a
-          href="https://discord.gg/83mteTQDvu"
-          title={{t "discord"}}
-          aria-label={{t "discord.aria"}}
-          target="_blank"
-          rel="noopener"
-        >
-          <FaIcon @icon="discord" @prefix="fab" />
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://twitter.com/datafruits"
-          title={{t "twitter"}}
-          aria-label={{t "twitter.aria"}}
-          target="_blank"
-          rel="noopener"
-        >
-          <FaIcon @icon="twitter" @prefix="fab" />
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://github.com/datafruits"
-          title={{t "github.title"}}
-          aria-label={{t "github.aria"}}
-          target="_blank"
-          rel="noopener"
-        >
-          <FaIcon @icon="github" @prefix="fab" />
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://soundcloud.com/datafruits"
-          title={{t "soundcloud.title"}}
-          aria-label={{t "soundcloud.aria"}}
-          target="_blank"
-          rel="noopener"
-        >
-          <FaIcon @icon="soundcloud" @prefix="fab" />
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://mixcloud.com/datafruits"
-          title={{t "mixcloud.title"}}
-          aria-label={{t "mixcloud.aria"}}
-          target="_blank"
-          rel="noopener"
-        >
-          <FaIcon @icon="mixcloud" @prefix="fab" />
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://instagram.com/datafruits"
-          title={{t "instagram.title"}}
-          aria-label={{t "instagram.aria"}}
-          target="_blank"
-          rel="noopener"
-        >
-          <FaIcon @icon="instagram" @prefix="fab" />
-        </a>
-      </li>
-      <li>
-        <a
-          href="mailto:info@datafruits.fm"
-          title={{t "email.title"}}
-          aria-label={{t "email.aria"}}
-          target="_blank"
-          rel="noopener"
-        >
-          <FaIcon @icon="envelope" @prefix="fas" />
-        </a>
-      </li>
-    </ul>
     <br>
     <br>
     <br>

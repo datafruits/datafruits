@@ -1,4 +1,5 @@
 {
+  "meow": "meow",
   "new": "New",
   "settings": {
     "title": "Site Settings"
@@ -38,13 +39,14 @@
     "coc_label": "By joining the chat, I agree with the datafruits Code of Conduct and will abide by its guidelines",
     "login": "Login",
     "sign_up": "Sign up",
+    "logging_you_in": "LOGGING YOU INTO THE FRUITVERSE BUDDY, JUST HANG ON A SECOND...",
+    "loading": "GETTING THE CHAT READY FOR YOU",
     "login_why": "login to the chat it's what all the cool fruits are doing",
     "forgot_password": "Forgot your password?",
     "username": "username",
     "nickname": "nickname",
     "password": "password",
     "search": "\"dancing\", \"music\", ...",
-    "user_avatar": "user avatar",
     "label": {
       "nick": "nickname",
       "input": "message",
@@ -61,6 +63,17 @@
       "gif_close": "Close GIF search"
     }
   },
+  "wiki": {
+    "title": "Fruitopiyeah",
+    "welcome": "Welcome to Fruitopiyeah",
+    "latest": "Latest articles:",
+    "form": {
+      "title": "Title",
+      "body": "Article",
+      "submit": "Save",
+      "summary": "Short note explaining your changes"
+    }
+  },
   "releases": {
     "title": "Label",
     "aria": "View EPs and other releases from datafruits.fm"
@@ -74,7 +87,7 @@
     "link_podcastsapp": "Podcasts.app",
     "link_rss": "RSS",
     "title_search": "Title",
-    "title_placeholder": "terrible tuesday w tchan",
+    "title_placeholder": "e.g. good morning datafruits",
     "tag_search": "Tag",
     "tag_placeholder": "disco, house, grime, any song ...",
     "no_result": "No results. Musta been the onion salad dressing.",
@@ -83,7 +96,7 @@
       "tag": "Tag"
     },
     "placeholders": {
-      "title": "terrible tuesday w tchan",
+      "title": "e.g. good morning datafruits",
       "tag": "disco, house, grime, anysong"
     },
     "links": {
@@ -101,11 +114,10 @@
     "title": "Timetable",
     "aria": "Browse scheduled shows and events",
     "timezone": "All events displayed in your local timezone: ",
-    "loading": "Loading...",
-    "error": "Something went wrong. Refresh the page and try again."
+    "loading": "Loading..."
   },
   "djs": {
-    "title": "DJs",
+    "title": "Fruits",
     "aria": "Browse DJs who perform on datafruits.fm"
   },
   "nav_toggle": "Toggle navigation",
@@ -117,9 +129,9 @@
     "title": "About",
     "aria": "See what datafruits.fm is about"
   },
-  "blog": {
-    "title": "Blog",
-    "aria": "View the datafruits.fm blog"
+  "upcoming": {
+    "title": "Upcoming",
+    "aria": "View the latest datafruits.fm shows"
   },
   "shop": {
     "title": "Shop",
@@ -128,7 +140,8 @@
   "thanks": "Thanks!",
   "subscribe": {
     "title": "Subscribe",
-    "aria": "Join the datafruits.fm newsletter for occasional updates"
+    "description": "We also have a newsletter email about special events, releases on the netlabel, and any changes to the site.",
+    "aria": "Join the datafruits.fm e-mail newsletter for occasional updates"
   },
   "newsletter_modal": {
     "title": "DATAFRUITS.FM NEWSLETTER",
@@ -146,15 +159,25 @@
     "email_exists": "Account with this email already exists. Forgot your password?",
     "username_exists": "This username has been taken.",
     "nice": "NICE",
-    "already_signed_up": "You are already have an account, and in fact you are signed in. "
+    "already_signed_up": "You are already have an account, and in fact you are signed in. ",
+    "min_age": "I am at least 13 years old"
   },
   "profile": {
+    "favorites": "View My Favorites",
+    "my_favorites": "My Favorite",
+    "my_pic": "Update avatar",
+    "settings": "Profile Settings",
+    "chat": "Chat Preview",
+    "chat_test": "This is a test message",
     "style": "Style",
     "submit": "SAVE",
-    "pronouns": "Pronouns"
+    "pronouns": "Pronouns",
+    "bio": "About me",
+    "homepage": "Home page"
   },
   "usermenu": {
     "settings": "Settings",
+    "dropdown-aria": "User Menu",
     "logout": "Logout"
   },
   "label": "Label",
@@ -172,15 +195,18 @@
     "error": "There was an error sending your application! Please check the error messages and try again.",
     "thanks": "Thanks for your application! We'll reply to your email as soon as possible.",
     "coc_accept": "I have read and accept the terms of the datafruits Code of Conduct.",
-    "aria": "Apply to DJ on datafruits.fm"
+    "aria": "Apply to DJ on datafruits.fm",
+    "min_age": "I am at least 18 years old"
   },
   "password_reset": {
     "heading": "Forgot your password?",
     "email": "email",
     "submit": "Send password reset link"
   },
-  "just_a_website": "It's just a website.",
-  "about_datafruits": "Independent radio made for and by the international music community. Open source. Breaking down borders and genres. We play any song. We are dedicated to putting the spotlight and sharing music from underserved and marginalized communities. We believe that the only platform that can *truely* serve its users is one that is owned and operated by the people using the platform, the DJs and the listeners!",
+  "just_a_website": "its just a website",
+  "about_datafruits_1": "Datafruits is a cooperatively owned and operated free-form net radio station. This website was created by and for fans of internet radio and netlabels. Our station has little to no curation, and we believe that any song can be played.",
+  "about_datafruits_2": "With artists around the globe, we are located throughout the US, Tokyo, and Seoul.  Our goal is to provide an accessible space for the international music community; Particularly for underserved and marginalized communities.",
+  "about_datafruits_3": "The site has had no sponsorships or advertisements since 2012, and all of our support comes from the listeners, artists, and the generosity of strangers on the internet. We may live in a \"Platform capitalist\" world now, but that doesn't mean we're alone. We can help make the world a better place with a bit of cooperation and understanding. And remember, it's just a website.",
   "twitter": {
     "title": "Twitter",
     "aria": "Visit the @datafruits Twitter page"
@@ -206,14 +232,15 @@
     "aria": "Notify datafruits by email"
   },
   "patron": {
-    "title": "Patreon",
-    "aria": "Vist the datafruits.fm Patreon page to learn more about supporting the site"
+    "title": "Ampled",
+    "aria": "Vist the datafruits.fm Ampled page to learn more about supporting the site"
   },
   "secret": "secret",
   "thanks_patrons": "THANKS TO ALL THE PATRONS!",
   "code_of_conduct": "Code of Conduct",
   "what_is_datafruits": "What is datafruits...",
   "loading": "Loading...",
+  "error": "Something went wrong. Refresh the page and try again.",
   "next_broadcast": "Next live on air: ",
   "now_playing": "Now playing",
   "dj": {
@@ -250,8 +277,8 @@
     "label": "Theme"
   },
   "about_page": {
-    "listenersupport": "Datafruits is listener supported. You can join our patreon and get stickers and other goodies sent to you every 2 months.",
-    "donate_request": "Or if you'd like you can make a one time donation to our paypal.",
+    "listenersupport": "Datafruits.fm is possible thanks to the generous support of the listeners. The best way to support us is with a monthly pledge of your choosing on Ampled. You'll get exclusive posts along with a monthly update video.",
+    "donate_request": "If you'd like to make an one-time donation.",
     "donate_linktext": "https://paypal.me/datafruitsfm",
     "donate_aria": "Make a donation to datafruits.fm through PayPal"
   },
@@ -289,7 +316,8 @@
       "p1_part1": "Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the datafruits administrators (email",
       "p1_part2": "). All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances. The project team is obligated to maintain confidentiality with regard to the reporter of an incident. Further details of specific enforcement policies may be posted separately.",
       "p1_linktext": "info@datafruits.fm",
-      "p2": "Datafruits administrators who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership."
+      "p2": "Datafruits administrators who do not follow or enforce the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other members of the project's leadership.",
+      "policy": "CoC Enforcement Policy"
     },
     "attribution": {
       "title": "Attribution",
@@ -298,7 +326,10 @@
       "p1_linktext": "http://contributor-covenant.org/version/1/4"
     }
   },
-  "donate": "DONATE",
+  "donate": {
+    "title": "SUPPORT",
+    "dj_link": "The current DJ's donation link is here:"
+  },
   "microtext": {
     "we_need_it": "we need your datafruit. please add it.",
     "submit": "Datafruit!",

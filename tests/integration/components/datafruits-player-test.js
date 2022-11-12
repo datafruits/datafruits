@@ -4,7 +4,7 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import Service from '@ember/service';
 
-const metadataStub = Service.extend({});
+const metadataStub = class StubMetadata extends Service {};
 
 module('Integration | Component | datafruits player', function (hooks) {
   setupRenderingTest(hooks);
@@ -18,6 +18,6 @@ module('Integration | Component | datafruits player', function (hooks) {
     // Handle any actions with this.on('myAction', function(val) { ... });
 
     await render(hbs`<DatafruitsPlayer />}`);
-    assert.equal(this.element.textContent.trim().includes('▶︎'), true);
+    assert.true(this.element.textContent.trim().includes('▶︎'));
   });
 });

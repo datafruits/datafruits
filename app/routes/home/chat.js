@@ -8,6 +8,6 @@ export default class ChatRoute extends Route {
 
   setHeadTags() {
     const headTags = ENV.headTags;
-    this.set('headTags', Object.values(headTags));
+    this.headTags = Object.values(headTags);
   }
 }

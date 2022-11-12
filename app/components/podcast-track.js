@@ -1,37 +1,103 @@
-import classic from 'ember-classic-decorator';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { debounce } from '@ember/runloop';
 
-@classic
 export default class PodcastTrack extends Component {
-  init() {
+  constructor(owner, args) {
+    super(owner, args);
     this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
-    super.init(...arguments);
   }
 
   @service
   eventBus;
 
+  @service
+  router;
+
+  @service
+  currentUser;
+
+  @service
+  session;
+
+  @service
+  store;
+
+  @tracked
+  playing;
+
   @action
   play() {
-    this.set('playing', true);
-    this.set('paused', false);
-    this.eventBus.publish('trackPlayed', this);
+    this.playing = true;
+    this.paused = false;
+    this.eventBus.publish('trackPlayed', { title: this.args.track.title, cdnUrl: this.args.track.cdnUrl });
   }
 
   @action
   pause() {
-    this.set('playing', false);
-    this.set('paused', true);
+    this.playing = false;
+    this.paused = true;
     this.eventBus.publish('trackPaused', this);
+  }
+
+  @action
+  selectLabel(label) {
+    let tags = this.args.selectedLabels;
+    tags.pushObject(label);
+    const queryParams = { tags: tags, query: this.router.currentRoute.queryParams.query };
+    this.router.transitionTo({ queryParams: queryParams });
+    debounce(this, this.args.search, 400);
   }
 
   onTrackPlayed(event) {
     if (this !== event) {
       if (!(this.isDestroyed || this.isDestroying)) {
-        this.set('playing', false);
+        this.playing = false;
       }
     }
+  }
+
+  @action
+  favoriteTrack() {
+    let trackFavorite = this.store.createRecord('trackFavorite', {
+      track: this.args.track,
+    });
+    trackFavorite
+      .save()
+      .then(() => {
+        this.currentUser.user.trackFavorites.pushObject(trackFavorite);
+        console.log('faved ya ');
+      })
+      .catch((error) => {
+        console.log(`oh no error: ${error}`);
+      });
+  }
+
+  @action
+  unfavoriteTrack() {
+    let trackFavorite = this.currentUser.user.trackFavorites.find((trackFavorite) => {
+      return trackFavorite.trackId === parseInt(this.args.track.get('id'));
+    });
+    trackFavorite
+      .destroyRecord()
+      .then(() => {
+        console.log('unfaved ya ');
+      })
+      .catch((error) => {
+        console.log(`oh no error: ${error}`);
+      });
+  }
+
+  get isFavorited() {
+    let id;
+    if (typeof this.args.track.get === 'function') {
+      id = this.args.track.get('id');
+    } else {
+      id = this.args.track.id;
+    }
+
+    return this.currentUser.user.trackFavorites.map((favorite) => favorite.trackId).includes(parseInt(id));
   }
 }

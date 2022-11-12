@@ -16,6 +16,7 @@ module('Acceptance | sign up', function (hooks) {
     await fillIn('[data-test-username]', 'djnameko');
     await fillIn('[data-test-email]', 'dj.nameko@datafruits.fm');
     await fillIn('[data-test-password]', 'mypassword1234');
+    await click('[data-test-age]');
     await click('[data-test-coc]');
     await click('[data-test-submit]');
 

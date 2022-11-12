@@ -1,3 +1,4 @@
+// snow from https://codepen.io/jh3y/pen/VdMBaR
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import * as PIXI from 'pixi.js';
@@ -16,7 +17,7 @@ export default class PixiComponent extends Component {
   alphaFilterValue = 1.0;
   alphaFadeout = false;
 
-  fruits = ['strawberry', 'lemon', 'orange', 'banana', 'watermelon'];
+  fruits = ['strawberry', 'lemon', 'orange', 'banana', 'watermelon', 'cabbage'];
 
   paidFruitTipSprites = [];
 
@@ -158,6 +159,7 @@ export default class PixiComponent extends Component {
 
   @action
   willDestroy() {
+    super.willDestroy(...arguments);
     this.app.destroy({
       removeView: true,
     });
@@ -173,15 +175,21 @@ export default class PixiComponent extends Component {
     PIXI.utils.sayHello(type);
 
     this.app = new PIXI.Application({
+      view: document.getElementById("pixi"),
       autoResize: true,
       resolution: devicePixelRatio,
-      transparent: true,
+      backgroundAlpha: 0,
     });
 
     document.body.appendChild(this.app.view);
 
-    // move this into resize handler later
     this.app.renderer.resize(window.innerWidth, window.innerHeight);
+    let _resize = () => {
+      this.handleResize();
+    };
+    this._resize = _resize;
+    window.addEventListener('resize', _resize);
+    this.handleResize();
 
     this.app.stop();
 
@@ -198,6 +206,7 @@ export default class PixiComponent extends Component {
     this.app.loader.add('lemon', '/assets/images/sprites/lemon.json');
     this.app.loader.add('banana', '/assets/images/sprites/banana.json');
     this.app.loader.add('watermelon', '/assets/images/sprites/watermelon.json');
+    this.app.loader.add('cabbage', '/assets/images/sprites/cabbage.json');
     this.app.loader.add('shader', '/assets/shaders/shader.frag');
 
     this.app.loader.add('stars', '/assets/images/sprites/stars.json');
@@ -212,9 +221,10 @@ export default class PixiComponent extends Component {
 
       this.animations.strawberry = res.strawberry.spritesheet.animations['strawberry2_wiggle.png'];
       this.animations.orange = res.orange.spritesheet.animations['orange.png'];
-      this.animations.lemon = res.lemon.spritesheet.animations['lemon.png'];
-      this.animations.banana = res.banana.spritesheet.animations['banana.png'];
-      this.animations.watermelon = res.watermelon.spritesheet.animations['watermelon.png'];
+      this.animations.lemon = res.lemon.spritesheet.animations['lemon.webp'];
+      this.animations.banana = res.banana.spritesheet.animations['banana.webp'];
+      this.animations.watermelon = res.watermelon.spritesheet.animations['watermelon.webp'];
+      this.animations.cabbage = res.cabbage.spritesheet.animations['cabbage.webp'];
       this.animations.stars = res.stars.spritesheet.animations['stars'];
       this.animations.weirdBlobs = res.weirdBlobs.spritesheet.animations['WEIRDBLOBS'];
       this.animations.metalPineapple = res.metalPineapple.spritesheet.animations['metal_pineapple.png'];
@@ -255,5 +265,9 @@ export default class PixiComponent extends Component {
         }
       });
     });
+  }
+
+  handleResize() {
+    this.app.renderer.resize(window.innerWidth, window.innerHeight);
   }
 }

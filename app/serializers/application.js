@@ -1,15 +1,14 @@
+import { underscore } from '@ember/string';
+import JSONAPISerializer from '@ember-data/serializer/json-api';
 import classic from 'ember-classic-decorator';
-import App from '../app';
-import { ActiveModelSerializer } from 'active-model-adapter';
-
-App.storeMeta = {};
 
 @classic
-export default class Application extends ActiveModelSerializer {
-  host = 'https://datafruits.streampusher.com';
+export default class ApplicationSerializer extends JSONAPISerializer {
+  keyForAttribute(attr) {
+    return underscore(attr);
+  }
 
-  normalizeResponse(store, primaryModelClass, payload) {
-    App.storeMeta[primaryModelClass.modelName] = payload.meta; //ember data only allows meta data on 'query', this adds support for all other methods
-    return super.normalizeResponse(...arguments);
+  keyForRelationship(rawKey) {
+    return underscore(rawKey);
   }
 }

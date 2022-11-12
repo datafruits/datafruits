@@ -13,6 +13,6 @@ module('Integration | Component | user list item', function (hooks) {
 
     await render(hbs`<UserListItem @user={{user}} />`);
 
-    assert.dom('*').hasText('');
+    assert.dom(this.element).hasText('garfield');
   });
 });

@@ -12,9 +12,9 @@
   {{else}}
     <NetworkStatus as |status|>
       <DatafruitsChat
-        class="flex flex-col flex-grow min-h-0 flex-basis-0 overflow-hidden md:px-8"
         @networkStatus={{status}}
         @authenticate={{fn this.authenticate}}
+        @isAuthenticating={{this.isAuthenticating}}
       />
     </NetworkStatus>
 {{/if}}

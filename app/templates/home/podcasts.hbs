@@ -1,16 +1,13 @@
-<div class="mt-5 pt-2 px-5">
-  {{page-title (t "podcasts.title")}}
-  <h1>
+{{page-title (t "podcasts.title")}}
+<div class="page-spacing">
+  <h1 class="debussy-header">
     {{t "podcasts.title"}}
   </h1>
-  <div>
-    <PodcastsSearch
-      @tracks={{model.tracks}}
-      @labels={{model.labels}}
-      @meta={{model.meta}}
-      @updateSearch={{action "updateSearch"}}
-      @selectedTags={{tags}}
-      @searchParams={{searchParams}}
+  <div class="page-bg">
+    <Podcasts
+      @labels={{this.model.labels}}
+      @query={{this.router.currentRoute.queryParams}}
+      @page={{this.router.currentRoute.queryParams.page}}
     />
   </div>
 </div>

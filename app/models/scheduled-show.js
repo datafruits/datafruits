@@ -1,6 +1,4 @@
 import classic from 'ember-classic-decorator';
-import { computed } from '@ember/object';
-import { alias } from '@ember/object/computed';
 import Model, { attr, hasMany } from '@ember-data/model';
 
 @classic
@@ -29,10 +27,9 @@ export default class ScheduledShow extends Model {
   @hasMany('track')
   tracks;
 
-  @hasMany('dj')
+  @hasMany('user') // TODO merge the user and dj models together
   djs;
 
-  @computed('djs')
   get host() {
     return this.djs.get('firstObject');
   }
@@ -43,15 +40,12 @@ export default class ScheduledShow extends Model {
   @attr()
   tweetContent;
 
-  @alias('start')
-  startsAt;
-
-  @alias('end')
-  endsAt;
-
   @attr()
   isGuest;
 
   @attr()
   guest;
+
+  @attr()
+  slug;
 }

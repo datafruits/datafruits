@@ -1,0 +1,143 @@
+<div
+  class="flex-col flex justify-center classic:bg-df-pink blm:bg-black trans:bg-df-blue text-xl py-2 text-white leading-none
+        {{ if this.playingPodcast "playing-podcast" "" }}
+        {{ if this.isLive "is-live" "" }}
+        {{ if this.playButtonHover "bleed" "" }}
+         "
+  {{did-insert this.didInsert}}
+  >
+  <audio preload="" id="radio-player" class="hidden">
+    <source
+      src="https://streampusher-relay.club/datafruits.mp3"
+      type="audio/mp3"
+    >
+    <source
+      src="https://streampusher-relay.club/datafruits.ogg"
+      type="audio/ogg"
+    >
+  </audio>
+  <div class="radio-container flex flex-row justify-between items-center text-3xl text-shadow">
+    <div class="player-controls mx-2 flex space-x-2">
+      {{#if this.playingPodcast}}
+        <a
+          aria-label={{t "player.aria.return_to_live"}}
+          href="javascript:;"
+          role="button"
+          {{on "click" this.playLiveStream}}
+        >
+          <FaIcon @icon="chevron-left" alt={{t 'return_to_live'}} />
+        </a>
+      {{/if}}
+      {{#if this.loading}}
+        <div id="loading-stream"
+          name="loading-stream"
+          class="player-loading">
+        </div>
+      {{else if this.playing}}
+        <a id="pause-stream"
+          name="pause-stream"
+          role="button"
+          aria-label={{t "player.aria.stop"}}
+          {{action "pause"}}
+          class="jp-pause"
+          tabindex="0"
+        >
+          {{t (if this.playingPodcast "player.pause" "player.stop")}}
+        </a>
+      {{else if this.paused}}
+        <a id="play-stream"
+          name="play-stream"
+          class="jp-play"
+          href="#"
+          tabindex="0"
+          role="button"
+          aria-label={{t "player.aria.play"}}
+          title={{t "player.aria.play"}}
+          {{action "play"}}
+          onMouseEnter={{action "playButtonMouseEnter"}}
+          onMouseLeave={{action "playButtonMouseOut"}}
+        >
+          {{t "player.play"}}
+        </a>
+      {{/if}}
+      <span
+        id="volume-control"
+        name="volume-control"
+        role="button"
+        class="jp-volume-controls"
+        aria-label={{t "player.aria.volume"}}
+        {{action "showVolumeControl" on="mouseEnter"}}
+        {{action "hideVolumeControl" on="mouseLeave"}}
+      >
+        {{#if this.muted}}
+          {{!-- template-lint-disable no-nested-interactive --}}
+          <a
+            class="jp-unmute"
+            tabindex="0"
+            role="button"
+            title={{t "player.aria.unmute"}}
+            aria-label={{t "player.aria.unmute"}}
+            {{action "unmute"}}
+          >
+            <FaIcon @icon="volume-off" />
+          </a>
+        {{else}}
+          <a
+            class="jp-mute"
+            tabindex="0"
+            role="button"
+            title={{t "player.aria.mute"}}
+            aria-label={{t "player.aria.mute"}}
+            {{action "mute"}}
+          >
+            <FaIcon @icon="volume-up" />
+          </a>
+        {{/if}}
+        {{#if this.showingVolumeControl}}
+          <input
+            class="volume-control"
+            type="range"
+            min="0"
+            max="1"
+            step="0.1"
+            aria-label={{t "player.aria.volume"}}
+            oninput={{action "volumeChanged"}}
+            value={{this.volume}}
+          >
+        {{/if}}
+      </span>
+    </div>
+    <div class="now-playing flex-grow">
+      {{#if this.error}}
+        <span>
+          {{this.error}}
+        </span>
+      {{else}}
+        <span class="jp-title">
+          {{this.title}}
+        </span>
+      {{/if}}
+    </div>
+    {{#if (and this.playingPodcast this.playing)}}
+      <span class="mx-2">
+        {{this.formattedPlayTime}}
+      </span>
+    {{/if}}
+    <div class="flex mr-1 items-center">
+      {{yield}}
+    </div>
+  </div>
+  {{#if this.playingPodcast}}
+    <div class="seek">
+      <div class="seek-bar-wrapper">
+        <input
+          class="seek-bar"
+          type="range"
+          step="any"
+          oninput={{action "seek"}}
+          value={{this.playTimePercentage}}
+        >
+      </div>
+    </div>
+  {{/if}}
+</div>

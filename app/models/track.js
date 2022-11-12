@@ -1,5 +1,4 @@
 import classic from 'ember-classic-decorator';
-import { mapBy } from '@ember/object/computed';
 import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
 
 @classic
@@ -28,12 +27,13 @@ export default class Track extends Model {
   @belongsTo('podcast')
   podcast;
 
-  @belongsTo('scheduled-show', { inverse: null })
+  @belongsTo('scheduled-show')
   scheduledShow;
 
   @belongsTo('dj')
   dj;
 
-  @mapBy('labels', 'name')
-  labelNames;
+  get labelNames() {
+    return this.labels.map((label) => { return label.name });
+  }
 }

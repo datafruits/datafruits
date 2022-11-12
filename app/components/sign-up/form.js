@@ -6,6 +6,7 @@ import { debounce } from '@ember/runloop';
 
 export default class SignUpFormComponent extends Component {
   @tracked cocAccepted = false;
+  @tracked minAge = false;
 
   @service
   session;
@@ -58,7 +59,7 @@ export default class SignUpFormComponent extends Component {
   }
 
   get everythingLooksNice() {
-    return this.args.changeset.isValid && !this.args.changeset.isSaving && this.cocAccepted;
+    return this.args.changeset.isValid && !this.args.changeset.isSaving && this.cocAccepted && this.minAge;
   }
 
   _updateEmail() {

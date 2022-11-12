@@ -6,7 +6,7 @@ import { run } from '@ember/runloop';
 
 module('Unit | Initializer | custom emoji', function (hooks) {
   hooks.beforeEach(function () {
-    this.TestApplication = Application.extend();
+    this.TestApplication = class TestApplication extends Application {};
     this.TestApplication.initializer({
       name: 'initializer under test',
       initialize,

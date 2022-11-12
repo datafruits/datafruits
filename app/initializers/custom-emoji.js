@@ -10,19 +10,26 @@ export function initialize(/* application */) {
       shortnames: [':bgs:'],
       keywords: ['bgs'],
     },
-    ':tony:': {
+    ':bgs_pog:': {
       custom: true,
-      uc_base: 'tony',
+      uc_base: 'bgs_pog',
       uc_output: '',
-      shortnames: [':firedrill:', ':freedrull:', ':mcfiredrill:'],
-      keywords: ['firedrill', 'freedrull', 'mcfiredrill'],
+      shortnames: [':bgs_pog:'],
+      keywords: ['bgs_pog'],
+    },
+    ':mcfiredrill:': {
+      custom: true,
+      uc_base: 'mcfiredrill',
+      uc_output: '',
+      shortnames: [':mcfiredrill:'],
+      keywords: ['mcfiredrill'],
     },
     ':ovenrake:': {
       custom: true,
       uc_base: 'ovenrake',
       uc_output: '',
-      shortnames: [':dakota:', ':oven:'],
-      keywords: ['dakota', 'oven'],
+      shortnames: [':ovenrake:'],
+      keywords: ['ovenrake'],
     },
     ':snailzone:': {
       custom: true,
@@ -62,41 +69,6 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':trash:', ':cooltrash:'],
       keywords: ['trash', 'cooltrash'],
-    },
-    ':sr388:': {
-      custom: true,
-      uc_base: 'sr388',
-      uc_output: '',
-      shortnames: [':sr388:'],
-      keywords: ['sr388', 'sr'],
-    },
-    ':eatdis:': {
-      custom: true,
-      uc_base: 'eatdis',
-      uc_output: '',
-      shortnames: [':eatdis:'],
-      keywords: ['eatdis'],
-    },
-    ':tspicy:': {
-      custom: true,
-      uc_base: 'tspicy',
-      uc_output: '',
-      shortnames: [':tspicy:'],
-      keywords: ['tspicy'],
-    },
-    ':tsick:': {
-      custom: true,
-      uc_base: 'tsick',
-      uc_output: '',
-      shortnames: [':tsick:'],
-      keywords: ['tsick'],
-    },
-    ':tparty:': {
-      custom: true,
-      uc_base: 'tparty',
-      uc_output: '',
-      shortnames: [':tparty:'],
-      keywords: ['tparty'],
     },
     ':pizza_spin:': {
       custom: true,
@@ -160,6 +132,14 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':lemoner:'],
       keywords: ['lemoner'],
+    },
+    ':cabbage:': {
+      custom: true,
+      animated: true,
+      uc_base: 'cabbage',
+      uc_output: '',
+      shortnames: [':cabbage:'],
+      keywords: ['cabbage'],
     },
     ':banaynay:': {
       custom: true,
@@ -278,6 +258,94 @@ export function initialize(/* application */) {
       keywords: ['acid'],
       animated: true,
     },
+    ':good_beverage:': {
+      custom: true,
+      uc_base: 'good_beverage',
+      uc_output: '',
+      shortnames: [':good_beverage:'],
+      keywords: ['good_beverage'],
+    },
+    ':sshrimp:': {
+      custom: true,
+      uc_base: 'sshrimp',
+      uc_output: '',
+      shortnames: [':sshrimp:'],
+      keywords: ['sshrimp'],
+    },
+    ':sshrimp_clear:': {
+      custom: true,
+      uc_base: 'sshrimp_clear',
+      uc_output: '',
+      shortnames: [':sshrimp_clear:'],
+      keywords: ['sshrimp_clear'],
+    },
+    ':thisisamazing:': {
+      custom: true,
+      animated: true,
+      uc_base: 'thisisamazing',
+      uc_output: '',
+      shortnames: [':thisisamazing:'],
+      keywords: ['thisisamazing'],
+    },
+    ':sorrymustabeentheonionsaladdressing:': {
+      custom: true,
+      animated: true,
+      uc_base: 'sorrymustabeentheonionsaladdressing',
+      uc_output: '',
+      shortnames: [':sorrymustabeentheonionsaladdressing:'],
+      keywords: ['sorrymustabeentheonionsaladdressing'],
+    },
+    ':greasyhotdogs:': {
+      custom: true,
+      animated: true,
+      uc_base: 'greasyhotdogs',
+      uc_output: '',
+      shortnames: [':greasyhotdogs:', ':greasyfries:', ':greasyonionrings:'],
+      keywords: ['greasyhotdogs'],
+    },
+    ':iphone_girl:': {
+      custom: true,
+      uc_base: 'iphone_girl',
+      uc_output: '',
+      shortnames: [':iphone_girl:'],
+      keywords: ['iphone_girl'],
+    },
+    ':bomboclart_bart:': {
+      custom: true,
+      uc_base: 'bomboclart_bart',
+      uc_output: '',
+      shortnames: [':bomboclart_bart:'],
+      keywords: ['bomboclart_bart'],
+    },
+    ':mango_hd:': {
+      custom: true,
+      uc_base: 'mango_hd',
+      uc_output: '',
+      shortnames: [':mango_hd:'],
+      keywords: ['mango_hd'],
+    },
+    ':viz:': {
+      custom: true,
+      animated: true,
+      uc_base: 'viz',
+      uc_output: '',
+      shortnames: [':viz:'],
+      keywords: ['viz'],
+    },
+    ':blend:': {
+      custom: true,
+      uc_base: 'blend',
+      uc_output: '',
+      shortnames: [':blend:'],
+      keywords: ['blend'],
+    },
+    ':fire2:': {
+      custom: true,
+      uc_base: 'fire2',
+      uc_output: '',
+      shortnames: [':fire2:'],
+      keywords: ['fire2'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
@@ -285,7 +353,6 @@ export function initialize(/* application */) {
   });
 
   emojione.shortnames = emojione.shortnames.concat(`|${Object.keys(customEmojis).join('|')}`);
-  //emojione.shortnames = emojione.shortnames.concat("|:bgs:");
 
   emojione.regShortNames = new RegExp(
     '<object[^>]*>.*?</object>|<span[^>]*>.*?</span>|<(?:object|embed|svg|img|div|span|p|a)[^>]*>|(' +

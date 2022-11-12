@@ -1,0 +1,27 @@
+{{page-title (t "wiki.title")}}
+<div class="page-spacing">
+  <h1 class="debussy-header">{{ t "wiki.welcome"}}</h1>
+
+  <div class="page-bg">
+    {{#if this.session.isAuthenticated}}
+      <div class="pt-6 my-4 mx-4">
+        <LinkTo @route="home.wiki.new" class="cool-button">
+          NEW ARTICLE
+        </LinkTo>
+      </div>
+    {{/if}}
+
+    <section>
+      <h2 class="text-3xl font-cursive md:pl-2">{{ t "wiki.latest"}}</h2>
+      <ul class="text-2xl bold underline md:pl-4">
+        {{#each this.model as |wikiPage|}}
+          <li>
+            <LinkTo @route="home.wiki.show" @model={{wikiPage.title}}>
+              {{wikiPage.title}}
+            </LinkTo>
+          </li>
+        {{/each}}
+      </ul>
+    </section>
+  </div>
+</div>

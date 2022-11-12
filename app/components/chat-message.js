@@ -1,33 +1,31 @@
-import classic from 'ember-classic-decorator';
-import { computed } from '@ember/object';
-import Component from '@ember/component';
+import { tracked } from '@glimmer/tracking';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
-@classic
 export default class ChatMessage extends Component {
-  gifsEnabled = true;
-  imgRegex = /https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpg|gif|png|webp)(\?.*$)*/;
+  @tracked gifsEnabled = true;
+  @tracked imgRegex = /https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpg|gif|png|webp)(\?.*$)*/;
 
-  get isDj() {
-    if (!this.message.role) return false;
-    return this.message.role.includes('dj') || this.message.role.includes('admin');
+  get canShowAvatar() {
+    if (!this.args.message.role) return false;
+    return (
+      this.args.message.role.includes('dj') ||
+      this.args.message.role.includes('admin') ||
+      this.args.message.role.includes('listener')
+    );
   }
 
-  @computed('message.body', 'imgRegex')
   get hasImage() {
-    return this.imgRegex.test(this.message.body);
+    return this.imgRegex.test(this.args.message.body);
   }
 
-  @computed('message.body', 'imgRegex')
   get imgUrl() {
-    return this.message.body.match(this.imgRegex)[0];
+    return this.args.message.body.match(this.imgRegex)[0];
   }
 
-  willRender() {
-    this.setupAutoscroll();
-  }
-
-  didInsertElement() {
-    super.didInsertElement(...arguments);
-    this.adjustScrolling();
+  @action
+  setScrolling() {
+    this.args.setupAutoscroll();
+    this.args.adjustScrolling();
   }
 }

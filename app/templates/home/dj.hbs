@@ -1,17 +1,35 @@
 <div class="mt-5 pt-2 px-5">
-  <div class="">
-    <h1 class="font-cursive text-2xl">
-      {{this.model.username}}
-    </h1>
-    <img src={{this.model.imageMediumUrl}} alt={{this.model.username}}>
-    <p>
-      {{this.model.bio}}
-    </p>
-    <span>{{t "profile.style"}} <span class="text-df-yellow font-bold">{{this.model.style}}</span></span>
+  <div class="bg-df-pink fancy-box p-2">
+    <div class="flex">
+      <div class="w-1/2">
+        <h1 class="font-cursive text-2xl">
+          {{this.model.username}}
+        </h1>
+        <img
+          class="rounded-lg mt-2"
+          src={{this.model.imageMediumUrl}}
+          alt={{this.model.username}}
+          >
+        <User::Badges @role={{this.model.role}} />
+        <p class="mt-2 mb-2">
+          {{this.model.bio}}
+        </p>
+        <p class="mt-2 mb-2">
+          <a href="{{this.model.homepage}}" target="_blank" rel="noreferrer noopener">
+            {{this.model.homepage}}
+          </a>
+        </p>
+        <span>{{t "profile.style"}} <span class="text-df-yellow font-bold">{{this.model.style}}</span></span>
+      </div>
+      <div class="w-1/2">
+        {{log this.model.fruitsAffinity}}
+        <FruitsAffinity @fruitsAffinity={{this.model.fruitsAffinity}} />
+      </div>
+    </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-6 mt-5">
     {{#if this.model.nextShow}}
-      <h2>
+      <h2 class="text-xl">
         {{t "dj.upcoming_shows"}}
       </h2>
       <LinkTo @route="home.show" @model={{this.model.nextShow}}>
@@ -20,20 +38,15 @@
     {{/if}}
   </div>
 </div>
-<div class="mt-5 pt-2 px-5">
-  <h2>
-    {{t "dj.podcasts"}}
-  </h2>
-  {{#each this.model.tracks as |track|}}
-    <PodcastTrack
-      @cdnUrl={{track.cdnUrl}}
-      @title={{track.title}}
-      @labels={{track.labels}}
-      @scheduledShow={{track.scheduledShow}}
-      @selectLabel={{this.browseLabel}}
-    />
-  {{/each}}
-</div>
+
+{{#if (includes 'dj' this.model.roles)}}
+  <div class="mt-5 pt-2 px-5">
+    <h2 class="text-xl">
+      {{t "dj.podcasts"}}
+    </h2>
+    <Djs::Tracks @dj={{this.model}} @page={{this.router.currentRoute.queryParams.page}} />
+  </div>
+{{/if}}
 <div class="row">
   {{#each this.model.link as |link|}}
     <a href={{link.url}} target="_blank" rel="noopener noreferrer">

@@ -73,12 +73,12 @@
 	"sourceSize": {"w":540,"h":540}
 }},
 "animations": {
-	"banana.png": ["0001.png","0002.png","0003.png","0004.png","0005.png","0006.png","0007.png","0008.png","0009.png"]
+	"banana.webp": ["0001.png","0002.png","0003.png","0004.png","0005.png","0006.png","0007.png","0008.png","0009.png"]
 },
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "banana.png",
+	"image": "banana.webp",
 	"format": "RGBA8888",
 	"size": {"w":1620,"h":1620},
 	"scale": "1",

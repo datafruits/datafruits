@@ -1,16 +1,18 @@
-import ActiveModelAdapter from 'active-model-adapter';
 /* eslint-disable ember/no-mixins */
+import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import FastbootAdapter from 'ember-data-storefront/mixins/fastboot-adapter';
 import ENV from 'datafruits13/config/environment';
-import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
+import classic from 'ember-classic-decorator';
+import { underscore } from '@ember/string';
+import { pluralize } from 'ember-inflector';
 
-export default class Application extends ActiveModelAdapter.extend(FastbootAdapter) {
+@classic
+export default class Application extends JSONAPIAdapter.extend(FastbootAdapter) {
   @service session;
 
   host = ENV.API_HOST;
 
-  @computed('session.{data.authenticated.token,isAuthenticated}')
   get headers() {
     const headers = {};
     if (this.session.isAuthenticated) {
@@ -24,5 +26,10 @@ export default class Application extends ActiveModelAdapter.extend(FastbootAdapt
     var base;
     base = super.buildURL.apply(this, arguments); //eslint-disable-line ember/no-ember-super-in-es-classes
     return '' + base + '.json';
+  }
+
+  pathForType(type) {
+    var underscored = underscore(type);
+    return pluralize(underscored);
   }
 }

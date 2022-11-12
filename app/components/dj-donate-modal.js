@@ -18,6 +18,15 @@ export default class DjDonateModalComponent extends Component {
     this.donationLink = this.metadata.donationLink;
   }
 
+  get qualifiedDonationLink() {
+    let pattern = /^http(s?):\/\//;
+    if (this.donationLink && pattern.test(this.donationLink)) {
+      return this.donationLink;
+    } else {
+      return `https://${this.donationLink}`;
+    }
+  }
+
   @tracked
   showingDjDonateModal = false;
 

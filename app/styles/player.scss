@@ -1,3 +1,18 @@
+@keyframes scroll-text {
+  0% {
+    transform: translateX(0%);
+  }
+  90% {
+    transform: translateX(-100%);
+  }
+  95% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 .radio-container {
   .player-controls {
     min-width: 65px;
@@ -6,15 +21,25 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    display: inline-block;
+    &:not(:hover) {
+      span {
+        text-overflow: ellipsis;
+        animation: none;
+      }
+    }
+    &:hover,
+    &:focus {
+      span {
+        display: block;
+        animation: scroll-text 5s infinite linear;
+      }
+    }
   }
 }
 
-div.radio-bar.is-live {
+.is-live {
   background-image: url("/assets/images/pink_sparkles.gif");
-}
-
-.playing-podcast {
-  background: $green !important;
 }
 
 div.radio-bar a:hover {
@@ -29,7 +54,7 @@ div.radio-bar a:hover {
 .jp-title {
   font-style: italic;
   text-shadow: #333 1px 1px 1px;
-  color: yellow;
+  color: white;
 }
 
 .jp-play, .podcast-controls {
@@ -144,6 +169,10 @@ div.radio-bar a:hover {
 
 .jp-volume-controls {
   position: relative;
+  filter: drop-shadow(1px 1px 1px #333);
+  label {
+    filter: none;
+  }
   .jp-unmute {
     display: inline-block;
     width: 1em;
