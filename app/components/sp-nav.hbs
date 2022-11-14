@@ -132,7 +132,12 @@
 
     <div class="">
       {{#if this.session.isAuthenticated}}
-        <a href="#" class="" role="button" {{on "click" this.args.toggleUserMenu}}>
+        <a
+          href="#"
+          class=""
+          role="button"
+          aria-label="{{t "usermenu.dropdown-aria"}}"
+          {{on "click" this.args.toggleUserMenu}}>
           <img
             class="inline rounded-lg"
             style="height: 3rem;"
