@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { inject as service } from '@ember/service';
 
 interface UserBadgesArgs {
   role: string;
@@ -11,11 +12,17 @@ interface Badge {
 }
 
 export default class UserBadges extends Component<UserBadgesArgs> {
-  validBadges = ['dj', 'supporter'];
+  @service declare intl: any;
 
-  descriptions: any = {
-    'dj': 'plays the music on the website',
-    'supporter': 'supports the website on patreon or ampled'
+  validBadges = ['dj', 'supporter'];
+  descriptions: any;
+
+  constructor(owner: unknown, args: UserBadgesArgs) {
+    super(owner, args);
+    this.descriptions = {
+      'dj': this.intl.t('profile.badges.dj'),
+      'supporter': this.intl.t('profile.badges.supporter')
+    };
   }
 
   get badges(): Badge[] | undefined  {

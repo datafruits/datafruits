@@ -167,7 +167,11 @@
     "style": "Style",
     "submit": "SAVE",
     "pronouns": "Pronouns",
-    "bio": "About me"
+    "bio": "About me",
+    "badges": {
+      "dj": "plays the music on the website",
+      "supporter": "supports the website on patreon or ampled"
+    }
   },
   "usermenu": {
     "settings": "Settings",
