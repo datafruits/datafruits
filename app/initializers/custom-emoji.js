@@ -10,19 +10,26 @@ export function initialize(/* application */) {
       shortnames: [':bgs:'],
       keywords: ['bgs'],
     },
-    ':tony:': {
+    ':bgs_pog:': {
       custom: true,
-      uc_base: 'tony',
+      uc_base: 'bgs_pog',
       uc_output: '',
-      shortnames: [':firedrill:', ':freedrull:', ':mcfiredrill:'],
-      keywords: ['firedrill', 'freedrull', 'mcfiredrill'],
+      shortnames: [':bgs_pog:'],
+      keywords: ['bgs_pog'],
+    },
+    ':mcfiredrill:': {
+      custom: true,
+      uc_base: 'mcfiredrill',
+      uc_output: '',
+      shortnames: [':mcfiredrill:'],
+      keywords: ['mcfiredrill'],
     },
     ':ovenrake:': {
       custom: true,
       uc_base: 'ovenrake',
       uc_output: '',
-      shortnames: [':dakota:', ':oven:'],
-      keywords: ['dakota', 'oven'],
+      shortnames: [':ovenrake:'],
+      keywords: ['ovenrake'],
     },
     ':snailzone:': {
       custom: true,
@@ -331,6 +338,13 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':blend:'],
       keywords: ['blend'],
+    },
+    ':fire2:': {
+      custom: true,
+      uc_base: 'fire2',
+      uc_output: '',
+      shortnames: [':fire2:'],
+      keywords: ['fire2'],
     },
   };
 

@@ -4,10 +4,10 @@ import ApplicationAdapter from './application';
 @classic
 export default class Podcast extends ApplicationAdapter {
   urlForQueryRecord() {
-    return `${this.urlPrefix()}/podcasts/datafruits`;
+    return `${this.urlPrefix()}/api/archives`;
   }
 
   urlForQuery() {
-    return `${this.urlPrefix()}/podcasts/datafruits`;
+    return `${this.urlPrefix()}/api/archives`;
   }
 }

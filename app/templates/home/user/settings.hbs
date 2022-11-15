@@ -1,52 +1,105 @@
-<div class="m-2">
-  <h1 class="py-4 font-semibold text-3xl text-df-yellow">
-    {{this.currentUser.user.username}}
-  </h1>
-  <ul>
-    <li>
-      <LinkTo @route="home.user.favorites">{{t "profile.favorites"}}</LinkTo>
-    </li>
-  </ul>
-  <img
-    src="{{this.currentUser.user.avatarUrl}}">
-  <input type="file"
-         {{on "change" this.updateFile}}
-         />
-  <div class="py-4">
-    <form {{on "submit" this.saveUser}}>
-      <label>{{t "profile.bio"}}</label>
-      <Textarea
-        @value={{this.currentUser.user.bio}}
-        />
-      <br />
-      <label>{{t "profile.pronouns"}}</label>
-      <Input
-        @value={{this.currentUser.user.pronouns}}
-        />
-      <br />
-      <label>{{t "profile.style"}}</label>
-      <select
-        id="style-selector"
-        name="style-selector"
-        class="classic:bg-df-pink blm:bg-black trans:bg-df-blue border-solid border-2 border-df-blue text-white"
-        aria-label="{{ t "style"}}"
-        onchange={{action setUserStyle value="target.value"}}>
-        {{#each this.availableStyles as |style|}}
-          <option
-            value={{style}}
-            selected={{eq this.currentUser.user.style style}}
+<div class="page-spacing">
+  <div class="px-4 rounded bg-df-blue-dark blm:bg-black">
+    <h1 class="py-4 font-semibold text-4xl font-cursive">
+      {{this.currentUser.user.username}}
+    </h1>
+    <ul class="py-4">
+      <li>
+        <LinkTo class="underline" @route="home.user.favorites">
+          <FaIcon @icon="heart" />
+          {{t "profile.favorites"}}
+          <FaIcon @icon="heart" />
+        </LinkTo>
+      </li>
+    </ul>
+
+    <h1 class="font-cursive py-2">{{t "profile.settings"}}</h1>
+
+    <div class="border-white border-2 w-3/5">
+      <div class="flex flex-wrap justify-evenly">
+        <div>
+          <label class="align-top" for="updateProfilePicture"> {{t "profile.my_pic"}}</label>
+          <br/>
+          <input
+            class="py-4 px-4 my-2 text-df-yellow w-full semibold border-dashed"
+            id="updateProfilePicture"
+            name="updateProfilePicture"
+            type="file"
+            {{on "change" this.updateFile}}
+          />
+        </div>
+        <div>
+          <label for="chatPreview">{{t "profile.chat"}}</label>
+          <div
+            class="py-4 my-2 flex flex-wrap border-white border-dashed border-2"
+            id="chatPreview"
+            name="chatPreview"
+          >
+            <img class="mx-4 w-6" src="{{this.currentUser.user.avatarUrl}}">
+            <span class="text-df-yellow align-text-bottom">
+              {{this.currentUser.user.username}}
+            </span>
+            <span class="px-2 text-df-yellow">
+              {{t "profile.chat_test"}}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="mx-2 py-2">
+        <form {{on "submit" this.saveUser}}>
+          <div>
+            <label class="align-top text-white">{{t "profile.bio"}}</label>
+            <Textarea
+              class="w-full user-settings-input"
+              @value={{this.currentUser.user.bio}}
+            />
+          </div>
+          <div>
+            <label class="align-top text-white">{{t "profile.homepage"}}</label>
+            <Input
+              class="user-settings-input"
+              @value={{this.currentUser.user.homepage}}
+            />
+          </div>
+          <br />
+          <div>
+          <div class="flex flex-wrap justify-evenly">
+            <div>
+              <label class="align-top text-white">{{t "profile.pronouns"}}</label>
+              <Input
+                class="user-settings-input"
+                @value={{this.currentUser.user.pronouns}}
+              />
+            </div>
+            <div>
+              <label class="text-white">{{t "profile.style"}}</label>
+              <select
+                id="style-selector"
+                name="style-selector"
+                class="user-settings-input h-9"
+                aria-label="{{ t "style"}}"
+                onchange={{action setUserStyle value="target.value"}}>
+                {{#each this.availableStyles as |style|}}
+                  <option
+                    value={{style}}
+                    selected={{eq this.currentUser.user.style style}}
+                  >
+                    {{style}}
+                  </option>
+                {{/each}}
+              </select>
+            </div>
+            </div>
+          </div>
+          <br />
+          <input
+            type="submit"
+            value="{{t "profile.submit"}}"
+            class="cool-button mt-2"
+            data-test-submit
             >
-            {{style}}
-          </option>
-        {{/each}}
-      </select>
-      <br />
-      <input
-        type="submit"
-        value="{{t "profile.submit"}}"
-        class="cool-button mt-2"
-        data-test-submit
-        >
-    </form>
+        </form>
+      </div>
+    </div>
   </div>
 </div>

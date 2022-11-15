@@ -1,15 +1,20 @@
-<h1 class="text-3xl">{{t "timetable.title"}}</h1>
-{{t "timetable.timezone" }}{{current-timezone}}
-<br />
-<br />
+
 <Await @promise={{this.fetchShows}} as |await|>
   <await.Pending>
     {{t "timetable.loading"}}
   </await.Pending>
 
   <await.Fulfilled as |shows|>
-  <table>
+  <table class="page-bg block px-6 py-4">
     <thead>
+      <tr>
+      <th scope="col" colspan="2">
+        {{t "timetable.timezone" }}
+        <span class="italic">
+          {{current-timezone}}
+        </span>
+      </th>
+      </tr>
     </thead>
     <tbody>
       {{#each-in this.groupedShows as |day shows|}}

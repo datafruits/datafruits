@@ -29,7 +29,7 @@ export default class HomeUserSettingsController extends Controller {
     'sexy',
     'sadness',
     'chill',
-    'lazy',
+    'layzee',
     'unknown',
   ];
 
