@@ -110,18 +110,17 @@
   <ul class="hidden md:block px-4 py-4 font-semibold text-3xl">
     <li
       class="flex items-center space-x-2 justify-center mx-6">
-      <img
-        class="inline rounded-lg"
-        style="height: 2rem;"
-        src="{{this.currentUser.user.avatarUrl}}"
-        align="center"
-        alt={{this.currentUser.user.username}} />
       <a href="#"
         class=""
         role="button"
         aria-label="{{t "usermenu.dropdown-aria"}}"
         {{on "click" this.args.toggleUserMenu}}>
-        {{this.currentUser.user.username}}
+        <img
+          class="inline rounded-lg"
+          style="height: 2rem;"
+          src="{{this.currentUser.user.avatarUrl}}"
+          align="center"
+          alt={{this.currentUser.user.username}} />
       </a>
     </li>
   </ul>
