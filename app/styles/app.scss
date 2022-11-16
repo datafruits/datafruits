@@ -661,9 +661,23 @@ body::-webkit-scrollbar-thumb {
 .about-section-text {
   @apply md:mx-8;
 }
-.about-section-text > p, 
+.about-section-text > p,
 .about-section-text > div {
   @apply my-2;
 }
+
+.skip-to-content-link {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.skip-to-content-link:focus {
+  z-index: 999;
+  height: auto;
+  width: auto;
+}
+
 @tailwind utilities;
 /* purgecss end ignore */
