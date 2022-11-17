@@ -133,6 +133,13 @@ export function initialize(/* application */) {
       shortnames: [':lemoner:'],
       keywords: ['lemoner'],
     },
+    ':lemoner_real:': {
+      custom: true,
+      uc_base: 'lemoner_real',
+      uc_output: '',
+      shortnames: [':lemoner_real:'],
+      keywords: ['lemoner_real'],
+    },
     ':cabbage:': {
       custom: true,
       animated: true,
