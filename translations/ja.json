@@ -48,7 +48,8 @@
     "pronouns": "性別代名詞"
   },
   "usermenu": {
-    "settings": "設定",
+    "settings": "プロフィール編集",
+    "dropdown-aria": "ユーザーメニューを表示する",
     "logout": "ログアウト"
   },
   "signup": {

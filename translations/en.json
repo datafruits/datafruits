@@ -180,8 +180,8 @@
     }
   },
   "usermenu": {
-    "settings": "Settings",
-    "dropdown-aria": "User Menu",
+    "settings": "Edit Profile",
+    "dropdown-aria": "Show user menu",
     "logout": "Logout"
   },
   "label": "Label",

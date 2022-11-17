@@ -55,8 +55,9 @@
     "pronouns": "성별 대명사"
   },
   "usermenu": {
-    "settings": "Settings",
-    "logout": "Logout"
+    "settings": "프로필 편집",
+    "dropdown-aria": "사용자 메뉴 표시",
+    "logout": "로그아웃"
   },
   "podcasts": {
     "title": "아카이브",
