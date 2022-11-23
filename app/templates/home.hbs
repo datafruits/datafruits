@@ -1,5 +1,8 @@
 <section class="h-handle-resize flex flex-col justify-between">
   <div class="flex classic:bg-df-pink blm:bg-black trans:bg-df-blue">
+    <a class="skip-to-content-link" href="#main-content">
+      {{t "skip_to_content"}}
+    </a>
     <PcNav
       @toggleSubMenu={{this.toggleSubMenu}}
       @submenuOpen={{this.submenuOpen}}
@@ -17,7 +20,7 @@
   <NewVersionNotifier
     @updateMessage="A new version of datafruits was released: {newVersion}"
   />
-  <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow ">
+  <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow" id="main-content">
     {{outlet}}
   </div>
   <DatafruitsPlayer
