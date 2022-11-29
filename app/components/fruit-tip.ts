@@ -8,6 +8,7 @@ import type Fruit from '../fruit';
 
 export default class FruitTipComponent extends Component {
   @service declare chat: ChatService;
+  @service declare store: any;
 
   @tracked fruitTypes = fruitTypes;
 
@@ -33,14 +34,21 @@ export default class FruitTipComponent extends Component {
   }
 
   @action
-  fruitTip(fruit: Fruit, event: PointerEvent) {
+  async fruitTip(fruit: Fruit, event: PointerEvent) {
     event.preventDefault();
     if (fruit.cost > 0) {
       const result = confirm(`This fruit summon will cost Ƒ${fruit.cost} fruit tickets. Are you sure you want to blow your hard earned cash?`);
       if (result) {
         // TODO make xhr to subtract fruit tickets
         // /api/fruit_summons
-        this._pushFruitTip(fruit.name);
+        const fruitSummon = this.store.createRecord('fruit-summon', { name: fruit.name });
+        try {
+          await fruitSummon.save();
+          this._pushFruitTip(fruit.name);
+        } catch (error) {
+          alert('couldnt do fruit summon!');
+          console.log(error);
+        }
       }
     } else {
       this._pushFruitTip(fruit.name);

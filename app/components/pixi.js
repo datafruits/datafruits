@@ -104,7 +104,7 @@ export default class PixiComponent extends Component {
   addFruitTip(event) {
     if (this.app) {
       let animation;
-      if (event === 'metalPineapple') {
+      if (event === 'metal-pineapple') {
         return this.metalPineappleAnimation();
       } else if (this.fruits.includes(event)) {
         animation = event;
