@@ -47,6 +47,9 @@ export default class UserModel extends Model {
   @attr()
   fruitsAffinity;
 
+  @attr()
+  fruitTicketBalance;
+
   @hasMany('track-favorite', { async: false }) trackFavorites; // ugh
 
   async favoritedTrack(trackId) {
