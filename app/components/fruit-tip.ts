@@ -7,6 +7,14 @@ import ChatService from 'datafruits13/services/chat';
 import CurrentUserService from 'datafruits13/services/current-user';
 import type Fruit from '../fruit';
 
+interface FruitTipPayload {
+  user: string
+  fruit: string
+  timestamp: number
+  token?: string
+  isFruitSummon?: boolean
+}
+
 export default class FruitTipComponent extends Component {
   @service declare chat: ChatService;
   @service declare store: any;
@@ -18,21 +26,19 @@ export default class FruitTipComponent extends Component {
     return this.chat.getFruitCount('total');
   }
 
-  _pushFruitTip(fruitName: string) {
+  _pushFruitTip(fruitName: string, isFruitSummon: boolean = false) {
+    const payload: FruitTipPayload = {
+        user: this.chat.username,
+        fruit: fruitName,
+        timestamp: Date.now(),
+    };
     if (this.chat.token) {
-      this.chat.push('new:fruit_tip', {
-        user: this.chat.username,
-        fruit: fruitName,
-        timestamp: Date.now(),
-        token: this.chat.token,
-      });
-    } else {
-      this.chat.push('new:fruit_tip', {
-        user: this.chat.username,
-        fruit: fruitName,
-        timestamp: Date.now(),
-      });
+        payload.token = this.chat.token;
     }
+    if(isFruitSummon) {
+      payload.isFruitSummon = true;
+    }
+    this.chat.push('new:fruit_tip', payload);
   }
 
   @action
@@ -46,7 +52,7 @@ export default class FruitTipComponent extends Component {
           await fruitSummon.save();
           // reload current user to get new balance
           await this.currentUser.load(true);
-          this._pushFruitTip(fruit.name);
+          this._pushFruitTip(fruit.name, true);
         } catch (error) {
           alert('couldnt do fruit summon!');
           console.log(error);
