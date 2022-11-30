@@ -1,7 +1,9 @@
-import Model, { attr } from '@ember-data/model';
+import Model, { attr, belongsTo } from '@ember-data/model';
+import type User from './user';
 
 export default class FruitSummon extends Model {
   @attr('string') declare name: string;
+  @belongsTo('user', { async: true }) declare user: User;
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

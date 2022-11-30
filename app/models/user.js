@@ -52,6 +52,8 @@ export default class UserModel extends Model {
 
   @hasMany('track-favorite', { async: false }) trackFavorites; // ugh
 
+  @hasMany('fruit-summon') fruitSummons;
+
   async favoritedTrack(trackId) {
     let trackFavorites = await this.trackFavorites;
     let trackIds = trackFavorites.map((trackFavorite) => {
