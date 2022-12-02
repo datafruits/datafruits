@@ -353,6 +353,13 @@ export function initialize(/* application */) {
       shortnames: [':fire2:'],
       keywords: ['fire2'],
     },
+    ':cheese_teen:': {
+      custom: true,
+      uc_base: 'cheese_teen',
+      uc_output: '',
+      shortnames: [':cheese_teen:'],
+      keywords: ['cheese_teen'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
