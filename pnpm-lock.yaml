@@ -87,7 +87,7 @@ specifiers:
   ember-cli-htmlbars: ^6.0.1
   ember-cli-inject-live-reload: 2.1.0
   ember-cli-marked-down: ^3.16.0
-  ember-cli-meta-tags: ^6.2.0
+  ember-cli-meta-tags: 7.0.0
   ember-cli-mirage: 2.4.0
   ember-cli-netlify: ^0.4.1
   ember-cli-new-version: ^4.1.0
@@ -243,7 +243,7 @@ devDependencies:
   ember-cli-htmlbars: 6.0.1
   ember-cli-inject-live-reload: 2.1.0
   ember-cli-marked-down: 3.16.0
-  ember-cli-meta-tags: 6.2.0_@babel+core@7.18.5
+  ember-cli-meta-tags: 7.0.0_vr53p6gtpwtxfzcw7gwxxwiyoe
   ember-cli-mirage: 2.4.0_6xhwwv7m3yeprv3gezxx5ibbhi
   ember-cli-netlify: 0.4.1
   ember-cli-new-version: 4.1.0_@babel+core@7.18.5
@@ -3055,6 +3055,20 @@ packages:
 
   /@embroider/util/1.8.0_ember-source@4.9.1:
     resolution: {integrity: sha512-uCR8fpBBVexW1FvqEJMzI52iiEM7aYJIIJgQ3S5za+d1Je2jPH3YUVJ2RR6gAxhjYBdazRG7FbUCYvZz/6cOPA==}
+    engines: {node: 12.* || 14.* || >= 16}
+    peerDependencies:
+      ember-source: '*'
+    dependencies:
+      '@embroider/macros': 1.8.3
+      broccoli-funnel: 3.0.8
+      ember-cli-babel: 7.26.11
+      ember-source: 4.9.1_6hpu4xcffjn7itpjjp6mspr5da
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@embroider/util/1.9.0_ember-source@4.9.1:
+    resolution: {integrity: sha512-9I63iJK6N01OHJafmS/BX0msUkTlmhFMIEmDl/SRNACVi0nS6QfNyTgTTeji1P/DALf6eobg/9t/N4VhS9G9QA==}
     engines: {node: 12.* || 14.* || >= 16}
     peerDependencies:
       ember-source: '*'
@@ -9238,12 +9252,12 @@ packages:
   /ember-cli-get-component-path-option/1.0.0:
     resolution: {integrity: sha512-k47TDwcJ2zPideBCZE8sCiShSxQSpebY2BHcX2DdipMmBox5gsfyVrbKJWIHeSTTKyEUgmBIvQkqTOozEziCZA==}
 
-  /ember-cli-head/1.0.0:
-    resolution: {integrity: sha512-7gj8H/KSF+e4pxSKxj9F8hq9PUt2vOjCaOvRdxdmyoHnko4QbiUnv8ASpXuop+m15eNIUGOlaLrJJ3jM8oQEUw==}
-    engines: {node: 10.* || >= 12}
+  /ember-cli-head/2.0.0:
+    resolution: {integrity: sha512-i9qwljBlpzU/ei0xN+FiCHUvU1ZdjVXk0OzRKoeMZJK3m4p29CvB095klT0q+PigvYFYHIyTaeSWmbgjP8CZiw==}
+    engines: {node: 12.* || >= 14}
     dependencies:
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 4.5.0
+      ember-cli-htmlbars: 5.7.2
       ember-in-element-polyfill: 1.0.1
     transitivePeerDependencies:
       - supports-color
@@ -9368,16 +9382,18 @@ packages:
       - webpack-command
     dev: true
 
-  /ember-cli-meta-tags/6.2.0_@babel+core@7.18.5:
-    resolution: {integrity: sha512-bWznJttpkyscpM1MolVBdxvBsKSNOAYO4t6rN4huBl4WWup74spOpO+O/3T+qdgWTQ4UEyNaQMZK5EeFT+hScg==}
-    engines: {node: 10.* || >= 12}
+  /ember-cli-meta-tags/7.0.0_vr53p6gtpwtxfzcw7gwxxwiyoe:
+    resolution: {integrity: sha512-fvfNB3TNVwNQOHWJ0vd+I1kFiRHcamEDJ9iNTtU9oxX1JIusSrp7JPb/t3DojMQUfEze/eiWQ98VE/zsFar31g==}
+    engines: {node: 14.* || 16.* || >= 18}
     dependencies:
+      '@glimmer/component': 1.1.2_@babel+core@7.18.5
       ember-cli-babel: 7.26.11
-      ember-cli-head: 1.0.0
-      ember-cli-htmlbars: 4.5.0
-      ember-compatibility-helpers: 1.2.6_@babel+core@7.18.5
+      ember-cli-head: 2.0.0
+      ember-cli-htmlbars: 6.0.1
+      ember-element-helper: 0.6.1_ember-source@4.9.1
     transitivePeerDependencies:
       - '@babel/core'
+      - ember-source
       - supports-color
     dev: true
 
@@ -10000,9 +10016,9 @@ packages:
     peerDependencies:
       ember-source: ^3.8 || 4
     dependencies:
-      '@embroider/util': 1.8.0_ember-source@4.9.1
+      '@embroider/util': 1.9.0_ember-source@4.9.1
       ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.1.1
+      ember-cli-htmlbars: 6.0.1
       ember-source: 4.9.1_6hpu4xcffjn7itpjjp6mspr5da
     transitivePeerDependencies:
       - supports-color
@@ -10247,7 +10263,7 @@ packages:
     resolution: {integrity: sha512-FLVShZr3cYdLzymP+/0rXkfH5tD/FD958kynY86MWvn7ZyL2tXowlgVKY08n+PJHdo/vCrzqubRYckvXRSH6Bg==}
     engines: {node: '>= 12'}
     dependencies:
-      '@embroider/util': 1.8.0_ember-source@4.9.1
+      '@embroider/util': 1.9.0_ember-source@4.9.1
       '@glimmer/component': 1.1.2_@babel+core@7.18.5
       '@glimmer/tracking': 1.1.2
       ember-assign-helper: 0.4.0
