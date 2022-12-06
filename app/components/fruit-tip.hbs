@@ -5,6 +5,7 @@
         @fruitTip={{this.fruitTip}}
         @fruit={{fruit}}
         @cost={{fruit.cost}}
+        @disabled={{lt this.currentUser.user.fruitTicketBalance fruit.cost}}
         />
     {{else}}
       <FruitTip::Fruit
