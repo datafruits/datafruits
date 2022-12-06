@@ -10,6 +10,9 @@ export default class IndexRoute extends Route {
   @service
   fastboot;
 
+  @service
+  store;
+
   async model() {
     let query = {
       start: dayjs().format('YYYY-MM-DD'),
