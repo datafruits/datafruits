@@ -84,7 +84,7 @@
     "chart.js": "^3.9.1",
     "cross-env": "7.0.3",
     "dayjs": "^1.10.7",
-    "ember-auto-import": "2.4.2",
+    "ember-auto-import": "2.5.0",
     "ember-await": "^2.0.0",
     "ember-basic-dropdown": "^6.0.1",
     "ember-changeset": "^4.1.0",
