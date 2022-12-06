@@ -1,0 +1,39 @@
+{"frames": {
+
+"WEIRDBLOBS_1.png":
+{
+	"frame": {"x":1,"y":1,"w":1592,"h":928},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":114,"y":84,"w":1592,"h":928},
+	"sourceSize": {"w":1920,"h":1080}
+},
+"WEIRDBLOBS_2.png":
+{
+	"frame": {"x":1,"y":931,"w":1138,"h":660},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":366,"y":180,"w":1138,"h":660},
+	"sourceSize": {"w":1920,"h":1080}
+},
+"WEIRDBLOBS_3.png":
+{
+	"frame": {"x":1141,"y":931,"w":558,"h":348},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":666,"y":344,"w":558,"h":348},
+	"sourceSize": {"w":1920,"h":1080}
+}},
+"animations": {
+	"WEIRDBLOBS": ["WEIRDBLOBS_1.png","WEIRDBLOBS_2.png","WEIRDBLOBS_3.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "weird_blobs_1.png",
+	"format": "RGBA8888",
+	"size": {"w":1594,"h":1592},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:96da3f58f17b15ad2cf9d55ebd18243b:218f14fcc7880bfcf7b5a2ae45eee0d1:afbe7387d53393004594f1a48ee04813$"
+}
+}

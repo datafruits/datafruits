@@ -38,12 +38,8 @@
   }
 }
 
-div.radio-bar.is-live {
+.is-live {
   background-image: url("/assets/images/pink_sparkles.gif");
-}
-
-.playing-podcast {
-  background: $green !important;
 }
 
 div.radio-bar a:hover {
@@ -58,7 +54,7 @@ div.radio-bar a:hover {
 .jp-title {
   font-style: italic;
   text-shadow: #333 1px 1px 1px;
-  color: yellow;
+  color: white;
 }
 
 .jp-play, .podcast-controls {

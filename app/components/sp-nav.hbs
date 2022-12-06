@@ -25,6 +25,7 @@
               <LinkTo
                 class="text-white text-shadow-light"
                 aria-label={{t "djs.aria"}}
+                @invokeAction={{@toggleMenu}}
                 @route="home.djs">
                 {{t "djs.title"}}
               </LinkTo>
@@ -33,6 +34,7 @@
               <LinkTo
                 class="text-white text-shadow-light"
                 aria-label={{t "podcasts.aria"}}
+                @invokeAction={{@toggleMenu}}
                 @route="home.podcasts">
                 {{t "podcasts.title"}}
               </LinkTo>
@@ -41,6 +43,7 @@
               <LinkTo
                 class="text-white text-shadow-light"
                 aria-label={{t "timetable.aria"}}
+                @invokeAction={{@toggleMenu}}
                 @route="home.timetable">
                 {{t "timetable.title"}}
               </LinkTo>
@@ -49,8 +52,18 @@
               <LinkTo
                 class="text-white text-shadow-light"
                 aria-label={{t "djinquiry.aria"}}
+                @invokeAction={{@toggleMenu}}
                 @route="home.dj-inquiry">
                 {{t "djinquiry.title"}}
+              </LinkTo>
+            </li>
+            <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+              <LinkTo
+                class="text-white text-shadow-light"
+                aria-label={{t "wiki.aria"}}
+                @invokeAction={{@toggleMenu}}
+                @route="home.wiki">
+                {{t "wiki.title"}}
               </LinkTo>
             </li>
           </ul>
@@ -59,6 +72,7 @@
           <LinkTo
             class="text-white text-shadow-light"
             aria-label={{t "chat.label.aria"}}
+            @invokeAction={{@toggleMenu}}
             @route="home.chat">
             {{t "chat.title"}}
           </LinkTo>
@@ -72,22 +86,6 @@
           </a>
         </li>
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-          <LinkTo
-            class="text-white text-shadow-light"
-            aria-label={{t "about.aria"}}
-            @route="home.about">
-            {{t "about.title"}}
-          </LinkTo>
-        </li>
-        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-          <LinkTo
-            class="text-white text-shadow-light"
-            aria-label={{t "upcoming.aria"}}
-            @route="home">
-            {{t "upcoming.title"}}
-          </LinkTo>
-        </li>
-        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
           <a
             class="text-white text-shadow-light"
             aria-label={{t "shop.title"}}
@@ -98,9 +96,10 @@
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
           <LinkTo
             class="text-white text-shadow-light"
-            aria-label={{t "subscribe.aria"}}
-            @route="home.subscribe">
-            {{t "subscribe.title"}}
+            aria-label={{t "about.aria"}}
+            @invokeAction={{@toggleMenu}}
+            @route="home.about">
+            {{t "about.title"}}
           </LinkTo>
         </li>
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
@@ -119,6 +118,7 @@
           <LinkTo
             class="text-white text-shadow-light"
             aria-label={{t "settings.title"}}
+            @invokeAction={{@toggleMenu}}
             @route="home.site-settings">
             {{t "settings.title"}}
           </LinkTo>
@@ -132,7 +132,12 @@
 
     <div class="">
       {{#if this.session.isAuthenticated}}
-        <a href="#" class="" role="button" {{on "click" this.args.toggleUserMenu}}>
+        <a
+          href="#"
+          class=""
+          role="button"
+          aria-label="{{t "usermenu.dropdown-aria"}}"
+          {{on "click" this.args.toggleUserMenu}}>
           <img
             class="inline rounded-lg"
             style="height: 3rem;"

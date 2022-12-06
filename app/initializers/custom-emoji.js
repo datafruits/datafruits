@@ -10,19 +10,26 @@ export function initialize(/* application */) {
       shortnames: [':bgs:'],
       keywords: ['bgs'],
     },
-    ':tony:': {
+    ':bgs_pog:': {
       custom: true,
-      uc_base: 'tony',
+      uc_base: 'bgs_pog',
       uc_output: '',
-      shortnames: [':firedrill:', ':freedrull:', ':mcfiredrill:'],
-      keywords: ['firedrill', 'freedrull', 'mcfiredrill'],
+      shortnames: [':bgs_pog:'],
+      keywords: ['bgs_pog'],
+    },
+    ':mcfiredrill:': {
+      custom: true,
+      uc_base: 'mcfiredrill',
+      uc_output: '',
+      shortnames: [':mcfiredrill:'],
+      keywords: ['mcfiredrill'],
     },
     ':ovenrake:': {
       custom: true,
       uc_base: 'ovenrake',
       uc_output: '',
-      shortnames: [':dakota:', ':oven:'],
-      keywords: ['dakota', 'oven'],
+      shortnames: [':ovenrake:'],
+      keywords: ['ovenrake'],
     },
     ':snailzone:': {
       custom: true,
@@ -125,6 +132,13 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':lemoner:'],
       keywords: ['lemoner'],
+    },
+    ':lemoner_real:': {
+      custom: true,
+      uc_base: 'lemoner_real',
+      uc_output: '',
+      shortnames: [':lemoner_real:'],
+      keywords: ['lemoner_real'],
     },
     ':cabbage:': {
       custom: true,
@@ -317,6 +331,35 @@ export function initialize(/* application */) {
       shortnames: [':mango_hd:'],
       keywords: ['mango_hd'],
     },
+    ':viz:': {
+      custom: true,
+      animated: true,
+      uc_base: 'viz',
+      uc_output: '',
+      shortnames: [':viz:'],
+      keywords: ['viz'],
+    },
+    ':blend:': {
+      custom: true,
+      uc_base: 'blend',
+      uc_output: '',
+      shortnames: [':blend:'],
+      keywords: ['blend'],
+    },
+    ':fire2:': {
+      custom: true,
+      uc_base: 'fire2',
+      uc_output: '',
+      shortnames: [':fire2:'],
+      keywords: ['fire2'],
+    },
+    ':cheese_teen:': {
+      custom: true,
+      uc_base: 'cheese_teen',
+      uc_output: '',
+      shortnames: [':cheese_teen:'],
+      keywords: ['cheese_teen'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
@@ -324,7 +367,6 @@ export function initialize(/* application */) {
   });
 
   emojione.shortnames = emojione.shortnames.concat(`|${Object.keys(customEmojis).join('|')}`);
-  //emojione.shortnames = emojione.shortnames.concat("|:bgs:");
 
   emojione.regShortNames = new RegExp(
     '<object[^>]*>.*?</object>|<span[^>]*>.*?</span>|<(?:object|embed|svg|img|div|span|p|a)[^>]*>|(' +

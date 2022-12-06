@@ -1,15 +1,20 @@
-<h1 class="text-3xl">{{t "timetable.title"}}</h1>
-{{t "timetable.timezone" }}{{current-timezone}}
-<br />
-<br />
+
 <Await @promise={{this.fetchShows}} as |await|>
   <await.Pending>
     {{t "timetable.loading"}}
   </await.Pending>
 
   <await.Fulfilled as |shows|>
-  <table>
+  <table class="page-bg block px-6 py-4">
     <thead>
+      <tr>
+      <th scope="col" colspan="2">
+        {{t "timetable.timezone" }}
+        <span class="italic">
+          {{current-timezone}}
+        </span>
+      </th>
+      </tr>
     </thead>
     <tbody>
       {{#each-in this.groupedShows as |day shows|}}
@@ -20,13 +25,13 @@
             <td>{{format-time show.start}} ~ {{format-time show.end}}</td>
             {{#if (is-current-show show)}}
               <td class="bleed">
-                <LinkTo @route="home.show" @model={{show.id}} @title={{show.title}}>
+                <LinkTo @route="home.show" @model={{show.slug}} @title={{show.title}}>
                   {{show.title}}
                 </LinkTo>
               </td>
             {{else}}
               <td>
-                <LinkTo @route="home.show" @model={{show.id}} @title={{show.title}}>
+                <LinkTo @route="home.show" @model={{show.slug}} @title={{show.title}}>
                   {{show.title}}
                 </LinkTo>
               </td>
@@ -40,6 +45,6 @@
   </await.Fulfilled>
 
   <await.Rejected>
-    {{t "timetable.error"}}
+    {{t "error"}}{{format-message-body ":sorrymustabeentheonionsaladdressing:"}}
   </await.Rejected>
 </Await>

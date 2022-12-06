@@ -26,7 +26,9 @@ export default class DatafruitsPlayer extends Component {
   @tracked playerState = 'paused'; //"playing", "loading"
   @tracked playButtonPressed = false;
   @tracked oldVolume = 0.8;
+  @tracked playTimePercentage = 0.0;
   @tracked playTime = 0.0;
+  @tracked duration = 0.0;
   @tracked volume = 1.0;
   @tracked videoAudioOn = false;
 
@@ -78,9 +80,13 @@ export default class DatafruitsPlayer extends Component {
     this.setPageTitle();
     this.playingPodcast = true;
     this.playTime = 0.0;
+    this.playTimePercentage = 0.0;
 
     let audioTag = document.getElementById('radio-player');
     audioTag.src = track.cdnUrl;
+    if (audioTag.readyState === 0) {
+      this.playerState = 'loading';
+    }
     audioTag.play();
   }
 
@@ -111,8 +117,12 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   playLiveStream() {
+    let audioTag = document.getElementById('radio-player');
+    audioTag.pause();
     this.playingPodcast = false;
     this.setRadioTitle();
+    audioTag.src = 'https://streampusher-relay.club/datafruits.mp3';
+    audioTag.play();
   }
 
   @action
@@ -208,6 +218,21 @@ export default class DatafruitsPlayer extends Component {
     audioTag.currentTime = time;
   }
 
+  get formattedPlayTime() {
+    if(this.playTime) {
+      return `${this._formatTime(this.playTime)} / ${this._formatTime(this.duration)}`;
+    } else {
+      return "...";
+    }
+  }
+
+  _formatTime(time) {
+    const hours = Math.floor(time / (60 * 60));
+    const minutes = Math.floor(time / 60) % 60;
+    const seconds = Math.floor(time % 60);
+    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  }
+
   @action
   didInsert() {
     if (!this.fastboot.isFastBoot) {
@@ -229,10 +254,19 @@ export default class DatafruitsPlayer extends Component {
       audioTag.addEventListener('playing', () => {
         this.playerState = 'playing';
       });
-      audioTag.addEventListener('timeupdate', () => {
-        const value = (100 / audioTag.duration) * audioTag.currentTime;
+      audioTag.addEventListener('seeked', () => {
+        this.playTimePercentage = (100 / audioTag.duration) * audioTag.currentTime;
 
-        this.playTime = value;
+        if(this.playingPodcast) {
+          this.playTime = audioTag.currentTime;
+        }
+      });
+      audioTag.addEventListener('timeupdate', () => {
+        this.playTimePercentage = (100 / audioTag.duration) * audioTag.currentTime;
+
+        if(this.playingPodcast) {
+          this.playTime = audioTag.currentTime;
+        }
       });
       audioTag.addEventListener('seeking', () => {
         if (document.getElementsByClassName('seek-bar-wrapper').length) {
@@ -240,6 +274,7 @@ export default class DatafruitsPlayer extends Component {
         }
       });
       audioTag.addEventListener('canplay', () => {
+        this.duration = audioTag.duration;
         if (document.getElementsByClassName('seek-bar-wrapper').length) {
           document.getElementsByClassName('seek-bar-wrapper')[0].classList.remove('seeking');
         }

@@ -44,7 +44,7 @@ export default class DjRoute extends Route {
       },
     };
 
-    this.set('headTags', Object.values({ ...ENV.headTags, ...headTags }));
+    this.headTags = Object.values({ ...ENV.headTags, ...headTags });
   }
 
   serialize(dj) {

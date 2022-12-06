@@ -8,12 +8,9 @@
       </p>
     </await.Pending>
     <await.Fulfilled as |result|>
-      {{#each result.tracks as |track|}}
+      {{#each result as |track|}}
         <PodcastTrack
-          @cdnUrl={{track.cdn_url}}
-          @title={{track.title}}
-          @labels={{track.labels}}
-          @scheduledShow={{track.scheduledShow}}
+          @track={{track}}
           @selectLabel={{this.browseLabel}}
         />
       {{/each}}

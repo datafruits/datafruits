@@ -80,7 +80,7 @@ export default class ChatService extends Service {
   constructor() {
     super(...arguments);
 
-    let socket = this.socket.socket;
+    const socket = this.socket.socket;
 
     this.chan = socket.channel('rooms:lobby', {});
 
@@ -111,7 +111,7 @@ export default class ChatService extends Service {
       if (msg['role']) {
         msg['role'] = msg.role.split(' ');
       }
-      this.messages.pushObject(msg);
+      this.messages = [...this.messages, msg];
     });
 
     this.chan.on('new:fruit_tip', (msg) => {
@@ -160,13 +160,13 @@ export default class ChatService extends Service {
 
     this.chan.on('presence_state', (state) => {
       if (isDestroyed(this) || isDestroying(this)) return;
-      let presences = this.presences;
+      const presences = this.presences;
       this.presences = Presence.syncState(presences, state);
     });
 
     this.chan.on('presence_diff', (diff) => {
       if (isDestroyed(this) || isDestroying(this)) return;
-      let presences = this.presences;
+      const presences = this.presences;
       this.presences = Presence.syncDiff(presences, diff);
     });
 

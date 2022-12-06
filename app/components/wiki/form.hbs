@@ -1,0 +1,46 @@
+<div class="grid grid-cols-2 gap-2">
+  <div class="">
+    <span>You can format this article with <a href="https://www.markdownguide.org/basic-syntax" target="_blank" rel="noopener noreferrer">Markdown</a>.</span>
+    {{#let (changeset @model WikiPageValidations) as |changeset|}}
+      <Ui::ChangesetForm
+        @changeset={{changeset}}
+        @onError={{this.onError}}
+        @onSubmit={{this.onSubmit}} as |Form|>
+        <Form.Input
+          @label={{t "wiki.form.title"}}
+          @fieldName="title"
+          @containerClass='mb-2'
+          @onInput={{this.setPreviewTitle}}
+          />
+        <Form.Textarea
+          @label={{t "wiki.form.body"}}
+          @fieldName="body"
+          @containerClass='mb-2'
+          @size='lg'
+          @onInput={{this.setPreviewBody}}
+          rows='20'
+          cols='50'
+          />
+        {{#unless @model.isNew}}
+          <Form.Input
+            @label={{t "wiki.form.summary"}}
+            @fieldName="summary"
+            @containerClass='mb-2'
+            />
+        {{/unless}}
+        <Button
+          @type="submit"
+          @intent="primary"
+          class="cool-button"
+          disabled={{changeset.isInvalid}}
+          >
+          {{t "wiki.form.submit"}}
+        </Button>
+      </Ui::ChangesetForm>
+    {{/let}}
+  </div>
+  <div class="">
+    <h1>{{this.previewTitle}}</h1>
+    {{marked-down this.previewBody}}
+  </div>
+</div>

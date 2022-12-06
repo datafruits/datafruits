@@ -387,6 +387,24 @@ form {
   box-shadow: 10px 10px 2px grey;
 }
 
+.wiki-article {
+  border-image: repeating-linear-gradient(
+    90deg,
+    $green,
+    $green 20px,
+    $pink 20px,
+    $pink 40px,
+    $yellow 40px,
+    $yellow 60px,
+    $blue 60px,
+    $blue 80px
+  );
+  border-width: 10px;
+  border-style: solid;
+  border-image-slice: 1;
+  box-shadow: 10px 10px 2px grey;
+}
+
 .show-info {
   padding: 1em;
   border-image: repeating-linear-gradient(
@@ -409,11 +427,14 @@ form {
   box-shadow: 10px 10px 2px grey;
   position: absolute;
 
+  @apply bg-df-blue-dark blm:bg-black;
+
   @media (max-width: 480px) {
     width: 100%;
     max-width: 100%;
     left: 0;
   }
+
 }
 
 .show-image {
@@ -427,7 +448,7 @@ form {
   display: flex;
 }
 
-canvas {
+canvas#pixi {
   position: absolute;
   top: 0;
   left: 0;
@@ -557,6 +578,24 @@ canvas {
   animation: 10s linear infinite slidedown;
 }
 
+#subscribe-links > li {
+  padding: 0 1em 0;
+  @apply underline;
+}
+
+#podcast-search-controls > h1 {
+  @apply font-cursive;
+}
+
+.playing-podcast {
+  @apply bg-df-green blm:bg-black trans:bg-df-pink #{!important};
+}
+
+
+#tag_search {
+  height: 2.3rem;
+}
+
 body {
   scrollbar-color: $pink;
   scrollbar-width: auto;
@@ -573,6 +612,71 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: $pink;
   outline: 1px solid $blue;
+}
+
+.pagination-wrapper {
+  @apply px-10 flex flex-wrap justify-between bg-df-green blm:bg-black trans:bg-df-pink;
+}
+
+.pagination {
+  @apply px-4 text-xl font-extrabold;
+}
+
+.pagination.number:hover {
+  @apply rounded bg-df-blue blm:bg-white;
+  a {
+    @apply text-white blm:text-black;
+  }
+}
+
+.active-page {
+  @apply rounded bg-df-blue blm:bg-white blm:text-black;
+}
+
+.pagination.prev-link:hover,
+.pagination.next-link:hover {
+  @apply rounded bg-df-blue text-white rounded blm:bg-white blm:text-black;
+}
+
+.debussy-header {
+  @apply text-center text-4xl font-debussy tracking-widest pb-2;
+}
+
+.page-spacing {
+  @apply mt-5 mx-2 pt-2 px-5;
+}
+
+.page-bg {
+  @apply bg-df-blue-dark blm:bg-black rounded;
+}
+
+.page-section-bg {}
+.user-settings-input {
+  @apply classic:bg-df-pink blm:bg-black trans:bg-df-blue border-solid border-2 border-df-blue text-white;
+}
+
+.about-section {
+  @apply my-4 md:mx-4;
+}
+.about-section-text {
+  @apply md:mx-8;
+}
+.about-section-text > p,
+.about-section-text > div {
+  @apply my-2;
+}
+
+.skip-to-content-link {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.skip-to-content-link:focus {
+  z-index: 999;
+  height: auto;
+  width: auto;
 }
 
 @tailwind utilities;

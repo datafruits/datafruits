@@ -10,7 +10,7 @@
     {{#if this.showingDatafruits}}
       <marquee>
         [<img style="height: 20px; display: inline;" src="{{this.currentDatafruit.avatarUrlOrDefault}}" alt={{this.currentDatafruit.username}} / >
-{{this.currentDatafruit.username}}]: {{this.currentDatafruit.content}}
+        <LinkTo @model={{this.currentDatafruit.username}} @route="home.dj">{{this.currentDatafruit.username}}</LinkTo>]: {{this.currentDatafruit.content}}
       </marquee>
       {{#if this.session.isAuthenticated}}
         <button {{action "addDatafruit"}} type="button" class="cool-button">{{t "microtext.add"}}</button>

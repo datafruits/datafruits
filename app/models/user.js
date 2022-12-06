@@ -16,7 +16,17 @@ export default class UserModel extends Model {
   @attr()
   avatarUrl;
 
-  @attr('file')
+  @attr()
+  imageUrl;
+
+  @attr()
+  imageThumbUrl;
+
+  @attr()
+  imageMediumUrl;
+
+
+  @attr()
   avatar;
 
   @attr()
@@ -31,7 +41,18 @@ export default class UserModel extends Model {
   @attr()
   bio;
 
+  @attr()
+  homepage;
+
+  @attr()
+  fruitsAffinity;
+
+  @attr()
+  fruitTicketBalance;
+
   @hasMany('track-favorite', { async: false }) trackFavorites; // ugh
+
+  @hasMany('fruit-summon') fruitSummons;
 
   async favoritedTrack(trackId) {
     let trackFavorites = await this.trackFavorites;
@@ -42,5 +63,9 @@ export default class UserModel extends Model {
     console.log(`trackId: ${trackId}`);
     console.log(trackIds.includes(parseInt(trackId)));
     return trackIds.includes(trackId);
+  }
+
+  get roles() {
+    return this.role.split(" ")
   }
 }

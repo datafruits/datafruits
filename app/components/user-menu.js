@@ -5,6 +5,7 @@ import { action } from '@ember/object';
 export default class UserMenuComponent extends Component {
   @service session;
   @service chat;
+  @service currentUser;
 
   @action
   logout() {

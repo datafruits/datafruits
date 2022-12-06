@@ -48,7 +48,8 @@
     "pronouns": "性別代名詞"
   },
   "usermenu": {
-    "settings": "設定",
+    "settings": "プロフィール編集",
+    "dropdown-aria": "ユーザーメニューを表示する",
     "logout": "ログアウト"
   },
   "signup": {
@@ -126,5 +127,9 @@
   },
   "locale": "言語",
   "theme": { "label": "テーマ" },
-  "donate": "寄付する"
+  "donate": "寄付する",
+  "donate": {
+    "title": "寄付する",
+    "dj_link": "現状のDJに寄付するリンクはこちらです。"
+  }
 }

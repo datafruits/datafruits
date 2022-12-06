@@ -30,6 +30,14 @@ Router.map(function () {
       this.route('favorites');
     });
     this.route('site-settings');
+    this.route('wiki', function() {
+      this.route('edit');
+      this.route('history');
+    });
+    this.route('wiki.show', { path: '/wiki/:title' });
+    this.route('wiki.new', { path: '/wiki/new' });
+    this.route('wiki.edit', { path: '/wiki/:title/edit' });
+    this.route('wiki.history', { path: '/wiki/:title/history' });
   });
   this.route('container', function () {
     this.route('show', { path: '/shows/:id' });

@@ -1,13 +1,11 @@
-import classic from 'ember-classic-decorator';
-import { computed } from '@ember/object';
-import Model, { attr, hasMany } from '@ember-data/model';
+import { attr, hasMany } from '@ember-data/model';
 import dayjs from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import User from 'datafruits13/models/user';
 
 dayjs.extend(isSameOrAfter);
 
-@classic
-export default class Dj extends Model {
+export default class Dj extends User {
   @attr()
   username;
 
@@ -35,15 +33,21 @@ export default class Dj extends Model {
   @hasMany('track')
   tracks;
 
+  @attr()
+  role;
+
   @hasMany('scheduled-show')
   scheduledShows;
 
-  @computed('scheduledShows')
   get nextShow() {
     return this.scheduledShows
       .filter((scheduledShow) => {
         return dayjs(scheduledShow.start).isSameOrAfter(Date.now());
       })
       .get('firstObject');
+  }
+
+  get roles() {
+    return this.roles.split(" ")
   }
 }

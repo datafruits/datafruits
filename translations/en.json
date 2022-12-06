@@ -1,4 +1,5 @@
 {
+  "skip_to_content": "Skip to main content",
   "meow": "meow",
   "new": "New",
   "settings": {
@@ -63,6 +64,17 @@
       "gif_close": "Close GIF search"
     }
   },
+  "wiki": {
+    "title": "Fruitopiyeah",
+    "welcome": "Welcome to Fruitopiyeah",
+    "latest": "Latest articles:",
+    "form": {
+      "title": "Title",
+      "body": "Article",
+      "submit": "Save",
+      "summary": "Short note explaining your changes"
+    }
+  },
   "releases": {
     "title": "Label",
     "aria": "View EPs and other releases from datafruits.fm"
@@ -103,11 +115,10 @@
     "title": "Timetable",
     "aria": "Browse scheduled shows and events",
     "timezone": "All events displayed in your local timezone: ",
-    "loading": "Loading...",
-    "error": "Something went wrong. Refresh the page and try again."
+    "loading": "Loading..."
   },
   "djs": {
-    "title": "DJs",
+    "title": "Fruits",
     "aria": "Browse DJs who perform on datafruits.fm"
   },
   "nav_toggle": "Toggle navigation",
@@ -130,7 +141,8 @@
   "thanks": "Thanks!",
   "subscribe": {
     "title": "Subscribe",
-    "aria": "Join the datafruits.fm newsletter for occasional updates"
+    "description": "We also have a newsletter email about special events, releases on the netlabel, and any changes to the site.",
+    "aria": "Join the datafruits.fm e-mail newsletter for occasional updates"
   },
   "newsletter_modal": {
     "title": "DATAFRUITS.FM NEWSLETTER",
@@ -152,15 +164,25 @@
     "min_age": "I am at least 13 years old"
   },
   "profile": {
-    "favorites": "Favorites",
-    "my_favorites": "My Favorite Mixes",
+    "favorites": "View My Favorites",
+    "my_favorites": "My Favorite",
+    "my_pic": "Update avatar",
+    "settings": "Profile Settings",
+    "chat": "Chat Preview",
+    "chat_test": "This is a test message",
     "style": "Style",
     "submit": "SAVE",
     "pronouns": "Pronouns",
-    "bio": "About me"
+    "bio": "About me",
+    "homepage": "Home page",
+    "badges": {
+      "dj": "plays the music on the website",
+      "supporter": "supports the website on patreon or ampled"
+    }
   },
   "usermenu": {
-    "settings": "Settings",
+    "settings": "Edit Profile",
+    "dropdown-aria": "Show user menu",
     "logout": "Logout"
   },
   "label": "Label",
@@ -186,8 +208,10 @@
     "email": "email",
     "submit": "Send password reset link"
   },
-  "just_a_website": "It's just a website.",
-  "about_datafruits": "Independent radio made for and by the international music community. Open source. Breaking down borders and genres. We play any song. We are dedicated to putting the spotlight and sharing music from underserved and marginalized communities. We believe that the only platform that can *truely* serve its users is one that is owned and operated by the people using the platform, the DJs and the listeners!",
+  "just_a_website": "its just a website",
+  "about_datafruits_1": "Datafruits is a cooperatively owned and operated free-form net radio station. This website was created by and for fans of internet radio and netlabels. Our station has little to no curation, and we believe that any song can be played.",
+  "about_datafruits_2": "With artists around the globe, we are located throughout the US, Tokyo, and Seoul.  Our goal is to provide an accessible space for the international music community; Particularly for underserved and marginalized communities.",
+  "about_datafruits_3": "The site has had no sponsorships or advertisements since 2012, and all of our support comes from the listeners, artists, and the generosity of strangers on the internet. We may live in a \"Platform capitalist\" world now, but that doesn't mean we're alone. We can help make the world a better place with a bit of cooperation and understanding. And remember, it's just a website.",
   "twitter": {
     "title": "Twitter",
     "aria": "Visit the @datafruits Twitter page"
@@ -259,7 +283,7 @@
   },
   "about_page": {
     "listenersupport": "Datafruits.fm is possible thanks to the generous support of the listeners. The best way to support us is with a monthly pledge of your choosing on Ampled. You'll get exclusive posts along with a monthly update video.",
-    "donate_request": "Or if you'd like you can make a one time donation to our paypal.",
+    "donate_request": "If you'd like to make an one-time donation.",
     "donate_linktext": "https://paypal.me/datafruitsfm",
     "donate_aria": "Make a donation to datafruits.fm through PayPal"
   },

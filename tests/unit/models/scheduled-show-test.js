@@ -6,8 +6,8 @@ module('Unit | Model | scheduled-show', function (hooks) {
 
   test('it can determine host from djs list', function (assert) {
     let store = this.owner.lookup('service:store');
-    let hostDJ = store.createRecord('dj');
-    let secondDJ = store.createRecord('dj');
+    let hostDJ = store.createRecord('user');
+    let secondDJ = store.createRecord('user');
     let model = store.createRecord('scheduled-show', {
       djs: [hostDJ, secondDJ],
     });

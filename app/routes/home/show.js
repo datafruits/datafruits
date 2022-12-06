@@ -51,6 +51,6 @@ export default class ShowRoute extends Route {
     }
 
     // TODO extract this to a function...
-    this.set('headTags', Object.values({ ...ENV.headTags, ...headTags }));
+    this.headTags = Object.values({ ...ENV.headTags, ...headTags });
   }
 }

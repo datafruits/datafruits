@@ -23,9 +23,9 @@
           aria-label={{t "player.aria.return_to_live"}}
           href="javascript:;"
           role="button"
-          {{action "playLiveStream"}}
+          {{on "click" this.playLiveStream}}
         >
-          {{t "player.return_to_live"}}
+          <FaIcon @icon="chevron-left" alt={{t 'return_to_live'}} />
         </a>
       {{/if}}
       {{#if this.loading}}
@@ -118,6 +118,11 @@
         </span>
       {{/if}}
     </div>
+    {{#if (and this.playingPodcast this.playing)}}
+      <span class="mx-2">
+        {{this.formattedPlayTime}}
+      </span>
+    {{/if}}
     <div class="flex mr-1 items-center">
       {{yield}}
     </div>
@@ -130,7 +135,7 @@
           type="range"
           step="any"
           oninput={{action "seek"}}
-          value={{this.playTime}}
+          value={{this.playTimePercentage}}
         >
       </div>
     </div>

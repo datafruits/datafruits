@@ -17,19 +17,19 @@
       <div>
         <Input
           @type="text"
-          @name="username"
+          name="username"
           @value={{this.username}}
-          @autocorrect="off"
-          @autocapitalize="none"
+          autocorrect="off"
+          autocapitalize="none"
           placeholder={{t "chat.username"}}
           data-test-username
         />
         <Input
           @type="password"
-          @name="pass"
+          name="pass"
           @value={{this.pass}}
-          @autocorrect="off"
-          @autocapitalize="none"
+          autocorrect="off"
+          autocapitalize="none"
           placeholder={{t "chat.password"}}
           data-test-password
         />
@@ -46,7 +46,10 @@
       </div>
 
     <div class="flex items-center justify-between mt-3">
-      <LinkTo @route="home.password-reset">
+      <LinkTo
+        @route="home.password-reset"
+        @invokeAction={{@toggleModal}}
+        >
         {{t "chat.forgot_password"}}
       </LinkTo>
       <div class="relative">
@@ -55,7 +58,10 @@
             style="top: -15px; left: -30px;"
             src="/assets/images/new.gif"
             alt="{{ t "new" }}" />
-        <LinkTo @route="home.sign-up">
+        <LinkTo
+          @route="home.sign-up"
+          @invokeAction={{@toggleModal}}
+          >
           {{t "chat.sign_up"}}
         </LinkTo>
       </div>

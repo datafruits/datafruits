@@ -5,4 +5,5 @@ export default class TrackFavorite extends Model {
   @belongsTo('track') track;
 
   @attr() trackId;
+  @attr() userId;
 }
