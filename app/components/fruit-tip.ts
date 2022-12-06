@@ -19,6 +19,7 @@ export default class FruitTipComponent extends Component {
   @service declare chat: ChatService;
   @service declare store: any;
   @service declare currentUser: CurrentUserService;
+  @service declare session: any;
 
   @tracked fruitTypes = fruitTypes;
 

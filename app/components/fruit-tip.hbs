@@ -5,7 +5,7 @@
         @fruitTip={{this.fruitTip}}
         @fruit={{fruit}}
         @cost={{fruit.cost}}
-        @disabled={{lt this.currentUser.user.fruitTicketBalance fruit.cost}}
+        @disabled={{or (lt this.currentUser.user.fruitTicketBalance fruit.cost) (not this.session.isAuthenticated)}}
         />
     {{else}}
       <FruitTip::Fruit
