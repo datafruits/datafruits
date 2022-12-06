@@ -118,7 +118,6 @@
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^8.1.1",
     "ember-intl": "^5.7.2",
-    "ember-link-action": "^2.0.4",
     "ember-load-initializers": "^2.1.2",
     "ember-lodash": "4.19.5",
     "ember-modal-dialog": "4.0.1",
