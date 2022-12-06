@@ -11,11 +11,11 @@ export default class CurrentUserService extends Service {
   @tracked
   user;
 
-  async load() {
+  async load(forceReload = false) {
     if (this.session.isAuthenticated) {
       // use existing record if its already loaded
       let user = this.store.peekRecord('user', this.session.data.authenticated.id || '');
-      if (user) {
+      if (user && !forceReload) {
         this.user = user;
       } else {
         // otherwise we need to get it from the API
