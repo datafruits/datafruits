@@ -14,6 +14,6 @@ module('Integration | Component | fruit-tip/fruit', function (hooks) {
 
     await render(hbs`<FruitTip::Fruit @fruitTip={{this.fruitTip}} @fruit={{this.fruit}} />`);
 
-    assert.dom(this.element).hasText('');
+    assert.dom(this.element).hasText('Ƒ200');
   });
 });
