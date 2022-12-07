@@ -1,9 +1,7 @@
-import classic from 'ember-classic-decorator';
 import Route from '@ember/routing/route';
 import ENV from 'datafruits13/config/environment';
 import { inject as service } from '@ember/service';
 
-@classic
 export default class DjRoute extends Route {
   @service store;
 
