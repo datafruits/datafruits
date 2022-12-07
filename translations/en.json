@@ -163,6 +163,11 @@
     "already_signed_up": "You are already have an account, and in fact you are signed in. ",
     "min_age": "I am at least 13 years old"
   },
+  "password_new": {
+    "heading": "Reset your password",
+    "password": "New Password",
+    "password_confirmation": "Confirm New Password"
+  },
   "profile": {
     "favorites": "View My Favorites",
     "my_favorites": "My Favorite",

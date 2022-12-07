@@ -25,6 +25,7 @@ Router.map(function () {
     this.route('sign-up');
     this.route('login');
     this.route('password-reset');
+    this.route('new-password');
     this.route('user', function () {
       this.route('settings');
       this.route('favorites');
