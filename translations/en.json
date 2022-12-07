@@ -166,7 +166,8 @@
   "password_new": {
     "heading": "Reset your password",
     "password": "New Password",
-    "password_confirmation": "Confirm New Password"
+    "password_confirmation": "Confirm New Password",
+    "submit": "Save"
   },
   "profile": {
     "favorites": "View My Favorites",
