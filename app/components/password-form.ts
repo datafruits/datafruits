@@ -40,7 +40,7 @@ export default class PasswordForm extends Component<PasswordFormArgs> {
       body: JSON.stringify(data),
     })
       .then((data) => {
-        if (data.status == 201) {
+        if (data.status == 200) {
           alert('Password reset successfully!');
         } else {
           alert('Something went wrong!');
