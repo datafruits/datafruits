@@ -22,6 +22,7 @@
     "logging_you_in": "フルーツバースにログイン中です。少々お待ちください。",
     "loading": "チャットの準備を発行しています",
     "login_why": "チャットにログインしてみてください。絶対流行るからです。",
+    "forgot_password": "パスワード忘れた方",
     "label": {
       "nick": "ニックネーム",
       "input": "メッセージ",
@@ -102,14 +103,14 @@
   "password_reset": {
     "heading": "パスワード忘れた方",
     "email": "メールアドレス",
-    "submit": "パスワードをリセットするリンクを送る",
+    "submit": "助けて！！",
     "errors": {
       "no_match": "パスワード確認が合ってないようです",
       "too_short": "パスワードの長さはかならず8文字以上です"
     }
   },
   "password_new": {
-    "heading": "パスワードリセットする",
+    "heading": "パスワードをリセットする",
     "password": "新しいパスワード",
     "password_confirmation": "新しいパスワード確認",
     "submit": "方存"
@@ -142,7 +143,6 @@
   },
   "locale": "言語",
   "theme": { "label": "テーマ" },
-  "donate": "寄付する",
   "donate": {
     "title": "寄付する",
     "dj_link": "現状のDJに寄付するリンクはこちらです。"

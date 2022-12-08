@@ -163,12 +163,6 @@
     "already_signed_up": "You are already have an account, and in fact you are signed in. ",
     "min_age": "I am at least 13 years old"
   },
-  "password_new": {
-    "heading": "Reset your password",
-    "password": "New Password",
-    "password_confirmation": "Confirm New Password",
-    "submit": "Save"
-  },
   "profile": {
     "favorites": "View My Favorites",
     "my_favorites": "My Favorite",
@@ -209,10 +203,16 @@
     "aria": "Apply to DJ on datafruits.fm",
     "min_age": "I am at least 18 years old"
   },
+  "password_new": {
+    "heading": "Set a new password",
+    "password": "New Password",
+    "password_confirmation": "Confirm New Password",
+    "submit": "Save my new best password!"
+  },
   "password_reset": {
-    "heading": "Forgot your password?",
-    "email": "email",
-    "submit": "Send password reset link",
+    "heading": "Forgot your password? Just give us your email, pardner.",
+    "email": "Email",
+    "submit": "HalP",
     "errors": {
       "no_match": "Password confirmation doesn't match, check again",
       "too_short": "Password should be at least 8 characters, don't you think so?"
