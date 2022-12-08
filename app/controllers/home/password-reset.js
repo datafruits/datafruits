@@ -32,7 +32,7 @@ export default class PasswordResetController extends Controller {
       body: JSON.stringify(data),
     })
       .then((data) => {
-        if (data.status == 201) {
+        if (data.status == 200) {
           alert('Password reset link sent!');
         } else {
           alert('Something went wrong!');
