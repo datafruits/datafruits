@@ -14,18 +14,23 @@ export default class PasswordForm extends Component<PasswordFormArgs> {
   @tracked password: string = "";
   @tracked passwordConfirmation: string = "";
 
-  get cantSubmit(): boolean {
-    return false;
+  get errors(): string[] {
+    const errors: string[] = [];
+    if(this.password !== this.passwordConfirmation) {
+      errors.push("password_reset.errors.no_match");
+    }
+    if(this.password.length < 8) {
+      errors.push("password_reset.errors.too_short");
+    }
+    return errors;
   }
 
   @action
   submit(e: any) {
     e.preventDefault();
-    console.log(this.args.token);
-    // what endpoint do we hit....
     const data = {
       user: {
-        token: this.args.token,
+        reset_password_token: this.args.token,
         password: this.password,
         passwordConfirmation: this.passwordConfirmation
       },

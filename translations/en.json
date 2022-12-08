@@ -212,7 +212,11 @@
   "password_reset": {
     "heading": "Forgot your password?",
     "email": "email",
-    "submit": "Send password reset link"
+    "submit": "Send password reset link",
+    "errors": {
+      "no_match": "Password confirmation doesn't match, check again",
+      "too_short": "Password should be at least 8 characters, don't you think so?"
+    }
   },
   "just_a_website": "its just a website",
   "about_datafruits_1": "Datafruits is a cooperatively owned and operated free-form net radio station. This website was created by and for fans of internet radio and netlabels. Our station has little to no curation, and we believe that any song can be played.",
