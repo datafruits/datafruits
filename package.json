@@ -22,7 +22,8 @@
     "dev": "FASTBOOT_DISABLED=true ./node_modules/.bin/ember s",
     "test": "npm-run-all lint test:*",
     "coverage": "cross-env COVERAGE=true ember test",
-    "lighthouse": "lhci autorun --config=config/lighthouserc.js"
+    "lighthouse": "lhci autorun --config=config/lighthouserc.js",
+    "audit-translate": "node find-missing-translations.js"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.18.2",
@@ -183,6 +184,7 @@
     "fastboot-app-server": "^3.0.0",
     "fruits-ui": "https://github.com/datafruits/fruits-ui",
     "jsdom": "^20.0.0",
+    "json-diff": "^1.0.0",
     "pixi.js": "6.4.2",
     "postcss": "^8.4.14",
     "rollup": "^2.74.0",
