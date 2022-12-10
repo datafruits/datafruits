@@ -218,6 +218,15 @@
       "too_short": "Password should be at least 8 characters, don't you think so?"
     }
   },
+  "funny_password_msgs": {
+    "0": "What the heck, forgot my password!",
+    "1": "Forgot your password? Just give us your email, pardner.",
+    "2": "How embarassing...maybe you should write it down next time",
+    "3": "Forgot your password? Did you try 'snowman'?",
+    "4": "I love passwords so much I'm going to send you a new one",
+    "5": "Bloody heck m8, forgot your password? Just give us your email then...",
+    "6": "It's ok buddy, just let us know your email so we can help you reset it"
+  },
   "just_a_website": "its just a website",
   "about_datafruits_1": "Datafruits is a cooperatively owned and operated free-form net radio station. This website was created by and for fans of internet radio and netlabels. Our station has little to no curation, and we believe that any song can be played.",
   "about_datafruits_2": "With artists around the globe, we are located throughout the US, Tokyo, and Seoul.  Our goal is to provide an accessible space for the international music community; Particularly for underserved and marginalized communities.",
