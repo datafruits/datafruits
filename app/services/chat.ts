@@ -77,6 +77,11 @@ export default class ChatService extends Service {
     this.chan.push(message, object);
   }
 
+  onTrackPlayed(event: any) {
+    console.log(event);
+    this.chan.push("track_playback", { track_id: event.id })
+  }
+
   constructor() {
     super(...arguments);
 
@@ -175,5 +180,7 @@ export default class ChatService extends Service {
         this.setFruitCount(key, value);
       }
     });
+
+    this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
   }
 }
