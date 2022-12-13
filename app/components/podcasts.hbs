@@ -57,14 +57,16 @@
             @totalPages={{result.meta.total_pages}}
             @page={{@page}}
             @route="home.podcasts" />
-          {{#each result.tracks as |track|}}
-            <PodcastTrack
-              @track={{track}}
-              @selectedLabels={{this.selectedLabels}}
-              @search={{await.reload}} />
-          {{else}}
-            {{t "podcasts.no_result"}}
-          {{/each}}
+          <div class="p-2">
+            {{#each result.tracks as |track|}}
+              <PodcastTrack
+                @track={{track}}
+                @selectedLabels={{this.selectedLabels}}
+                @search={{await.reload}} />
+            {{else}}
+              {{t "podcasts.no_result"}}
+            {{/each}}
+          </div>
           <FruitsUi::Pagination
             @totalPages={{result.meta.total_pages}}
             @page={{@page}}
