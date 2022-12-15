@@ -10,6 +10,12 @@
           src={{this.model.imageMediumUrl}}
           alt={{this.model.username}}
           >
+        <p class="mt-2 mb-2">
+          <span>Lv. 0</span>
+          <div>
+            <span class="text-xs">Ƒ</span><span>{{this.model.fruitTicketBalance}}</span>
+          </div>
+        </p>
         <User::Badges @role={{this.model.role}} />
         <p class="mt-2 mb-2">
           {{this.model.bio}}
