@@ -1,5 +1,22 @@
-<input type="range" name="size" id="size" min="24" max="60" step="24" {{on "change" this.sizeChange}}>
-<label for="size">Size</label>
+<div class="mx-8">
+  <input 
+    {{on "change" this.sizeChange}}
+    type="range" 
+    name="size"
+    id="size"
+    list="tickmarks"
+    step="12"
+    min="24"
+    max="72" 
+  >
+  <datalist id="emoji-width-datalist">
+    <option value="24" label="S"></option>
+    <option value="36" label="M"></option>
+    <option value="48" label="L"></option>
+    <option value="60" label="XL"></option>
+    <option value="72" label="XXL"></option>
+  </datalist>
+</div>
 {{#each this.customEmojis as |emoji|}}
   <button
     type="button"
