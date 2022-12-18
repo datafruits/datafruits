@@ -12,6 +12,6 @@ module('Integration | Component | emoji-selector/gif', function (hooks) {
 
     await render(hbs`<EmojiSelector::Gif />`);
 
-    assert.dom(this.element).hasText('search by tag Gifs Stickers');
+    assert.dom(this.element).hasText('search by tag GIFs Stickers');
   });
 });
