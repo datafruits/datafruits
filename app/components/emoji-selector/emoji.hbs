@@ -1,10 +1,12 @@
+<input type="range" name="size" id="size" min="24" max="60" step="24" {{on "change" this.sizeChange}}>
+<label for="size">Size</label>
 {{#each this.customEmojis as |emoji|}}
   <button
     type="button"
     {{on "click" (fn this.closeDialogAndSendEmoji emoji.shortname)}}
     >
     <img
-      width="24"
+      width={{this.width}}
       alt={{emoji.shortname}}
       src={{emoji-url emoji}} />
   </button>
