@@ -10,9 +10,9 @@
   />
   <div>
     <input type="radio" id="gifs" value="gifs" name="gif-type" {{on "click" this.useGifs}} checked={{eq this.gifType "gifs"}} />
-    <label for="gifs">Gifs</label>
+    <label for="gifs">{{t "chat.gifs"}}</label>
     <input type="radio" id="stickers" value="stickers" name="gif-type" {{on "click" this.useStickers}} checked={{eq this.gifType "stickers"}} />
-    <label for="stickers">stickers</label>
+    <label for="stickers">{{t "chat.stickers"}}</label>
   </div>
 </div>
 <GiphyLoader @query={{this.query}} @gifType={{this.gifType}} as |loader|>
