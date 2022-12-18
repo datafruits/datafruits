@@ -9,9 +9,9 @@
     @value={{this.query}}
   />
   <div>
-    <input type="radio" id="gifs" value="gifs" name="gif-type" {{on "click" this.useGifs}} />
+    <input type="radio" id="gifs" value="gifs" name="gif-type" {{on "click" this.useGifs}} checked={{eq this.gifType "gifs"}} />
     <label for="gifs">Gifs</label>
-    <input type="radio" id="stickers" value="stickers" name="gif-type" {{on "click" this.useStickers}} />
+    <input type="radio" id="stickers" value="stickers" name="gif-type" {{on "click" this.useStickers}} checked={{eq this.gifType "stickers"}} />
     <label for="stickers">stickers</label>
   </div>
 </div>
