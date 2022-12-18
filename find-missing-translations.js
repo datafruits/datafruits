@@ -1,8 +1,9 @@
+/* eslint-env node*/
 var {parse} = require('path')
 var jsonDiff = require('json-diff');
 const prototype = "./translations/en.json";
 const data = require(prototype);
-const langs = ["./translations/en-us.json", 
+const langs = ["./translations/en-us.json",
 "./translations/cn.json",
 "./translations/es.json",
 "./translations/ja.json",
@@ -24,7 +25,7 @@ for (const lang of langs) {
     const missingKey = /__deleted$/;
     const missingKeys = diffKeys.filter(k => missingKey.test(k));
     const friendlyMissingKeys = missingKeys.map(k => k.replace(missingKey, ''));
-    
+
     const parsedLang = parse(lang);
     const changedKeys = diffKeys.filter(k => missingKeys.indexOf(k) === -1)
     var addedKeys= []
@@ -49,13 +50,13 @@ for (const lang of langs) {
                 throw Error(`Unrecognized type encountered "${jsonType}`)
         }
     }
-    
+
     console.log(`${parsedLang.base} audit details:`);
     console.log(`${friendlyMissingKeys.length} missing keys`);
     if (debug) printKeys(friendlyMissingKeys);
 
     console.log(`${addedKeys.length} added keys`)
-    if (debug) printKeys(addedKeys)   
+    if (debug) printKeys(addedKeys)
 
     console.log(`${modifiedKeys.length} modified keys`)
     if (debug) printKeys(modifiedKeys)
@@ -63,7 +64,7 @@ for (const lang of langs) {
     console.log('===============================')
 
     if (!debug & (friendlyMissingKeys.length > 0 || addedKeys.length > 0 || modifiedKeys.length > 0)) console.log("to view keys, add '-- -d' at the end of this script (npm run audit-translate -- -d)`")
-} 
+}
 function printKeys(keys) {
     for (const key of keys) {
         console.log(`\t${key}`)
