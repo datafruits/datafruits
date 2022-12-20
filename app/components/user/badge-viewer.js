@@ -14,6 +14,7 @@ export default class UserBadgeViewer extends Component {
   didInsert(){
     const animate = () => {
       this.renderer.render(this.scene, this.camera);
+      this.controls.update();
       requestAnimationFrame(animate);
     };
 
@@ -32,11 +33,14 @@ export default class UserBadgeViewer extends Component {
       5000
     );
 
-    this.camera.position.z = 10;
+    //this.camera.position.z = 10;
+    this.camera.position.set( 0, 10, 12 );
+
 
     /// controles
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.update();
+    this.controls.autoRotate = true;
 
     //lights
     const ambient = new THREE.AmbientLight(0x222222, 4);
