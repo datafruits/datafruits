@@ -5,13 +5,18 @@ import { action } from '@ember/object';
 
 export default class EmojiSelectorEmojiComponent extends Component {
   @tracked emojis = emojiStrategy;
+  @tracked width = 24;
 
   get customEmojis() {
     return Object.values(this.emojis).filter((emoji) => {
-      return emoji.custom === true;
+      return emoji.custom;
     });
   }
 
+  @action
+  sizeChange(event) {
+    this.width = event.target.value;
+  }
   @action
   closeDialogAndSendEmoji(shortname) {
     this.args.sendEmoji(shortname);

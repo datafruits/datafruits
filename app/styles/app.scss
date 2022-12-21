@@ -517,6 +517,26 @@ canvas#pixi {
   height: 250px;
 }
 
+#emoji-width-datalist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  writing-mode: vertical-lr;
+  width: 200px;
+}
+
+#emoji-width-datalist > option {
+  padding: 0;
+  margin: -10px;
+}
+
+#emoji-width-datalist > input[type="range"] {
+  width: 200px;
+  margin: 0;
+}
+
+
+
 @keyframes slidedown {
   from {
     transform: translate(0, 0) scaleY(-1);
