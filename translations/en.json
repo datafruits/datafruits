@@ -253,6 +253,10 @@
     "title": "Instagram",
     "aria": "Browse posts from datafruits on Instagram"
   },
+  "youtube": {
+    "title": "Youtube",
+    "aria": "datafruits youtube channel"
+  },
   "email": {
     "title": "Email info@datafruits.fm",
     "aria": "Notify datafruits by email"
