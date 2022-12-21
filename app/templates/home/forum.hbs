@@ -1,0 +1,8 @@
+<section class="page-spacing">
+  <LinkTo class="cool-button" @route="home.forum.new">
+    NEW TOPIC
+  </LinkTo>
+  {{#each this.model as |forumThread|}}
+    <h1>{{forumThread.title}}</h1>
+  {{/each}}
+</section>

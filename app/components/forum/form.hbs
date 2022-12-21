@@ -1,0 +1,14 @@
+<form {{on "submit" this.saveThread}}>
+  <Input
+    @type="text"
+    @value={{@thread.title}}
+    />
+  <Input
+    @type="text"
+    @value={{@thread.body}}
+    />
+  <Input
+    @type="submit"
+    @value="POSTTTT"
+    />
+</form>
