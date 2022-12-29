@@ -1,12 +1,26 @@
 import Component from '@glimmer/component';
 import type ForumThread from 'datafruits13/models/forum-thread';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 interface ForumFormArgs {
-  thread: ForumThread
+  thread: ForumThread;
 }
 
 export default class ForumForm extends Component<ForumFormArgs> {
-  @action submit() {
+  @service declare router: any;
+
+  @action saveThread(event: any) {
+    event.preventDefault();
+    const thread = this.args.thread;
+    try {
+      thread.save().then(() => {
+        alert('posted !!!!');
+        this.router.transitionTo('forum.show', thread);
+      });
+    } catch (error) {
+      alert('couldnt save thread');
+      console.log(error);
+    }
   }
 }

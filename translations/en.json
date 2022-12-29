@@ -361,5 +361,9 @@
     "submit": "Datafruit!",
     "add": "Add datafruit",
     "loading": "..."
+  },
+  "forum": {
+    "title": "Title",
+    "body": "what's up"
   }
 }
