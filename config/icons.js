@@ -19,7 +19,10 @@ module.exports = function () {
       'soundcloud', 
       'mixcloud',
       'discord', 
-      'youtube'
+      'paypal',
+      'patreon',
+      'youtube',
+      'bandcamp',
     ],
   };
 };

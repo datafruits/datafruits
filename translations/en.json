@@ -249,17 +249,33 @@
     "title": "Mixcloud",
     "aria": "Check out the datafruits Mixcloud page"
   },
+  "bandcamp": {
+    "title": "Bandcamp",
+    "aria": "Find releases on the datafruits label on Bandcamp"
+  },
+  "discord": {
+    "title": "Discord",
+    "aria": "Join the datafruits Discord"
+  },
+  "patreon": {
+    "title": "Patreon",
+    "aria": "Support datafruits through Patreon"
+  },
+  "paypal": {
+    "title": "Paypal",
+    "aria": "Donate to datafruits via Paypal"
+  },
   "instagram": {
     "title": "Instagram",
     "aria": "Browse posts from datafruits on Instagram"
   },
   "youtube": {
     "title": "Youtube",
-    "aria": "datafruits youtube channel"
+    "aria": "Watch the datafruits Youtube channel"
   },
   "email": {
     "title": "Email info@datafruits.fm",
-    "aria": "Notify datafruits by email"
+    "aria": "Message datafruits by email"
   },
   "patron": {
     "title": "Ampled",
