@@ -15,19 +15,25 @@
       </span>
     {{/if}}
   {{/if}}
-    <span class="mr-2" data-test-username>
-      <Chat::Username
-        @dontShowPopup={{true}}
-        @role={{@message.role}}
-        @style={{@message.style}}
-        @pronouns={{@message.pronouns}}
-        @username={{@message.user}}
-        @avatarUrl={{@message.avatarUrl}}
-        />
-    </span>
-  <span class="" data-test-message-body>
-    {{format-message-body @message.body}}
+  <span class="mr-2" data-test-username>
+    <Chat::Username
+      @dontShowPopup={{true}}
+      @role={{@message.role}}
+      @style={{@message.style}}
+      @pronouns={{@message.pronouns}}
+      @username={{@message.user}}
+      @avatarUrl={{@message.avatarUrl}}
+      />
   </span>
+  {{#if @message.hasMention}}
+    <span class="bg-red" data-test-message-body>
+      {{format-message-body @message.body}}
+    </span>
+  {{else}}
+    <span class="" data-test-message-body>
+      {{format-message-body @message.body}}
+    </span>
+  {{/if}}
 </li>
 {{#if @gifsEnabled}}
   {{#if this.hasImage}}
