@@ -117,11 +117,7 @@ export default class ChatService extends Service {
         msg['role'] = msg.role.split(' ');
       }
       if (this.currentUser.user) {
-        const username = this.currentUser.user.username;
-        const containsMention = msg.body.indexOf(username) > -1;
-        if (containsMention) {
-          msg.hasMention = true;
-        }
+        msg.hasMention = msg.body.indexOf(`@${this.currentUser.user.username}`) > -1;
       }
       this.messages = [...this.messages, msg];
     });

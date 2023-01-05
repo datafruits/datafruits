@@ -25,15 +25,9 @@
       @avatarUrl={{@message.avatarUrl}}
       />
   </span>
-  {{#if @message.hasMention}}
-    <span class="bg-red" data-test-message-body>
-      {{format-message-body @message.body}}
-    </span>
-  {{else}}
-    <span class="" data-test-message-body>
-      {{format-message-body @message.body}}
-    </span>
-  {{/if}}
+  <span class={{if @message.hasMention "bg-df-green-dark"}}>
+    {{format-message-body @message.body}}
+  </span>
 </li>
 {{#if @gifsEnabled}}
   {{#if this.hasImage}}
