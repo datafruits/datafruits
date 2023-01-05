@@ -25,7 +25,7 @@
       @avatarUrl={{@message.avatarUrl}}
       />
   </span>
-  <span class={{if @message.hasMention "bg-df-green-dark"}}>
+  <span class={{if @message.hasMention "bg-df-green-dark"}} data-test-message-body>
     {{format-message-body @message.body}}
   </span>
 </li>
