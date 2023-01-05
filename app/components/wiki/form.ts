@@ -25,6 +25,7 @@ export default class WikiForm extends Component<WikiFormArgs> {
 
   @action didInsert() {
     this.previewBody = htmlSafe(emojione.shortnameToImage(this.args.model.body || ""));
+    this.previewTitle = htmlSafe(emojione.shortnameToImage(this.args.model.title || ""));
   }
 
   @action
