@@ -15,6 +15,21 @@
 
 @tailwind components;
 
+@layer base {
+  h1 {
+    @apply text-2xl font-semibold;
+  }
+  h2 {
+    @apply text-xl font-semibold;
+  }
+  h3 {
+    @apply text-lg font-semibold;
+  }
+  h4 {
+    @apply text-base font-semibold;
+  }
+}
+
 * {
   cursor:url('/assets/images/mousepointer.png'), auto !important;
 }
@@ -209,10 +224,6 @@ a {
 
 a:hover {
   @apply text-df-yellow-dark;
-}
-
-h1 {
-  @apply text-2xl font-semibold;
 }
 
 input {
