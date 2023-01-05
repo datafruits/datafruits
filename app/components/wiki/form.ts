@@ -24,7 +24,7 @@ export default class WikiForm extends Component<WikiFormArgs> {
   @tracked previewTitle: SafeString = new SafeString('');
 
   @action didInsert() {
-    this.previewBody = htmlSafe(emojione.shortnameToImage(this.args.model.body));
+    this.previewBody = htmlSafe(emojione.shortnameToImage(this.args.model.body || ""));
   }
 
   @action
