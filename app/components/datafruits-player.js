@@ -237,9 +237,6 @@ export default class DatafruitsPlayer extends Component {
   didInsert() {
     if (!this.fastboot.isFastBoot) {
       window.addEventListener('keydown', (event) => {
-        console.log(event.target);
-        console.log(event.key);
-        console.log(event.keyCode);
         // IME events
         if (event.isComposing || event.keyCode === 229) {
           return;
