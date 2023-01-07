@@ -236,6 +236,29 @@ export default class DatafruitsPlayer extends Component {
   @action
   didInsert() {
     if (!this.fastboot.isFastBoot) {
+      window.addEventListener('keydown', (event) => {
+        console.log(event.target);
+        console.log(event.key);
+        console.log(event.keyCode);
+        // IME events
+        if (event.isComposing || event.keyCode === 229) {
+          return;
+        }
+
+        if(
+          (event.key == " " ||
+          event.code == "Space" ||
+          event.keyCode == 32)
+         && event.target instanceof HTMLBodyElement) {
+          if(this.playerState === 'paused') {
+            this.play();
+          } else {
+            this.pause()
+          }
+        }
+
+      });
+
       let audioTag = document.getElementById('radio-player');
       audioTag.addEventListener('loadstart', () => {
         if (this.playButtonPressed === true) {
