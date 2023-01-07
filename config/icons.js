@@ -23,6 +23,7 @@ module.exports = function () {
       'patreon',
       'youtube',
       'bandcamp',
+      'tiktok',
     ],
   };
 };

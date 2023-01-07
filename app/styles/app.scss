@@ -315,6 +315,10 @@ form {
   @include stripe-animation;
 }
 
+#social-media-links a:hover {
+  animation: colorfade 3s infinite;
+}
+
 .djs {
   .dj {
     width: 150px;

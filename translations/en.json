@@ -237,6 +237,10 @@
     "title": "Twitter",
     "aria": "Visit the @datafruits Twitter page"
   },
+  "tiktok": {
+    "title": "TikTok",
+    "aria": "Follow @datafruits on TikTok"
+  },
   "github": {
     "title": "Github",
     "aria": "Vist the datafruits repo on Github"
