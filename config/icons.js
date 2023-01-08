@@ -17,7 +17,6 @@ module.exports = function () {
       'github', 
       'twitter', 
       'soundcloud', 
-      'mixcloud',
       'discord', 
       'paypal',
       'patreon',

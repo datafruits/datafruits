@@ -249,10 +249,6 @@
     "title": "Soundcloud",
     "aria": "Check out the datafruits Soundcloud page"
   },
-  "mixcloud": {
-    "title": "Mixcloud",
-    "aria": "Check out the datafruits Mixcloud page"
-  },
   "bandcamp": {
     "title": "Bandcamp",
     "aria": "Find releases on the datafruits label on Bandcamp"
