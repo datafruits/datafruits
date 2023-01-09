@@ -40,18 +40,18 @@
             {{t "about_page.listenersupport"}}
           </p>
           <div>
-            <a href="https://www.ampled.com/artist/datafruits" target="_blank" rel="noopener" aria-label={{t "patron_aria"}}>
-              {{t "patron.title"}}
+            <a href="https://www.ampled.com/artist/datafruits" target="_blank" rel="noopener noreferrer" aria-label="Ampled">
+              <img src="/assets/images/ampled.svg" aria-hidden="true" class="md:w-72">
             </a>
           </div>
-          <div>
-            <p>
-              {{t "about_page.donate_request"}}
-            </p>
-            <a href="https://paypal.me/datafruitsfm" target="_blank" rel="noopener" aria-label={{t "about_page.donate_aria"}}>
-              {{t "about_page.donate_linktext"}}
-            </a>
-          </div>
+        </div>
+        <div class="about-section">
+          <p>
+            {{t "about_page.donate_request"}}
+          </p>
+          <a href="https://paypal.me/datafruitsfm" target="_blank" rel="noopener" aria-label={{t "about_page.donate_aria"}}>
+            {{t "about_page.donate_linktext"}}
+          </a>
         </div>
       </div>
       <div id="subscribe-details">
@@ -65,13 +65,13 @@
         </LinkTo>
         </div>
       </div>
-      <hr class="border-df-green blm:border-white"/>
-      <div id="social-media-links" class="text-4xl">
+      <hr class="border-df-green my-4 blm:border-white"/>
+      <div id="social-media-links" class="text-4xl py-2">
         <ul class="flex flex-wrap mb-4 justify-evenly">
           <li>
             <a
               href="https://discord.gg/83mteTQDvu"
-              title={{t "discord"}}
+              title={{t "discord.title"}}
               aria-label={{t "discord.aria"}}
               target="_blank"
               rel="noopener"
@@ -81,46 +81,24 @@
           </li>
           <li>
             <a
+              href="https://www.youtube.com/channel/UCYTXGeHBvKP0Q9Wcxfop5FA/"
+              title={{t "youtube.title"}}
+              aria-label={{t "youtube.aria"}}
+              target="_blank"
+              rel="noopener"
+            >
+              <FaIcon @icon="youtube" @prefix="fab" />
+            </a>
+          </li>
+          <li>
+            <a
               href="http://twitter.com/datafruits"
-              title={{t "twitter"}}
+              title={{t "twitter.title"}}
               aria-label={{t "twitter.aria"}}
               target="_blank"
               rel="noopener"
             >
               <FaIcon @icon="twitter" @prefix="fab" />
-            </a>
-          </li>
-          <li>
-            <a
-              href="http://github.com/datafruits"
-              title={{t "github.title"}}
-              aria-label={{t "github.aria"}}
-              target="_blank"
-              rel="noopener"
-            >
-              <FaIcon @icon="github" @prefix="fab" />
-            </a>
-          </li>
-          <li>
-            <a
-              href="http://soundcloud.com/datafruits"
-              title={{t "soundcloud.title"}}
-              aria-label={{t "soundcloud.aria"}}
-              target="_blank"
-              rel="noopener"
-            >
-              <FaIcon @icon="soundcloud" @prefix="fab" />
-            </a>
-          </li>
-          <li>
-            <a
-              href="http://mixcloud.com/datafruits"
-              title={{t "mixcloud.title"}}
-              aria-label={{t "mixcloud.aria"}}
-              target="_blank"
-              rel="noopener"
-            >
-              <FaIcon @icon="mixcloud" @prefix="fab" />
             </a>
           </li>
           <li>
@@ -136,13 +114,67 @@
           </li>
           <li>
             <a
-              href="https://www.youtube.com/channel/UCYTXGeHBvKP0Q9Wcxfop5FA/"
-              title={{t "youtube.title"}}
-              aria-label={{t "youtube.aria"}}
+              href="http://soundcloud.com/datafruits"
+              title={{t "soundcloud.title"}}
+              aria-label={{t "soundcloud.aria"}}
               target="_blank"
               rel="noopener"
             >
-              <FaIcon @icon="youtube" @prefix="fab" />
+              <FaIcon @icon="soundcloud" @prefix="fab" />
+            </a>
+          </li>
+          <li>
+            <a 
+              href="https://datafruits.bandcamp.com/"
+              title={{t "bandcamp.title"}}
+              aria-label={{t "bandcamp.aria"}}
+              target="_blank"
+              rel="noopener"
+            >
+              <FaIcon @icon="bandcamp" @prefix="fab" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="http://mixcloud.com/datafruits"
+              title={{t "mixcloud.title"}}
+              aria-label={{t "mixcloud.aria"}}
+              target="_blank"
+              rel="noopener"
+            >
+              <FaIcon @icon="mixcloud" @prefix="fab" />
+            </a>
+          </li>
+          <li>
+            <a 
+              href="https://www.patreon.com/datafruits"
+              title={{t "patreon.title"}}
+              aria-label={{t "patreon.aria"}}
+              target="_blank"
+              rel="noopener"
+            >
+              <FaIcon @icon="patreon" @prefix="fab" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="http://github.com/datafruits"
+              title={{t "github.title"}}
+              aria-label={{t "github.aria"}}
+              target="_blank"
+              rel="noopener"
+            >
+              <FaIcon @icon="github" @prefix="fab" />
+            </a>
+          </li>
+          <li>
+            <a href="https://paypal.me/datafruitsfm" 
+              title={{t "paypal.title"}}
+              target="_blank" 
+              rel="noopener" 
+              aria-label={{t "about_page.donate_aria"}}
+            >
+              <FaIcon @icon="paypal" @prefix="fab" />
             </a>
           </li>
           <li>

@@ -11,6 +11,18 @@ module.exports = function () {
       'times',
       'heart',
     ],
-    'free-brands-svg-icons': ['twitter', 'instagram', 'github', 'twitter', 'soundcloud', 'mixcloud'],
+    'free-brands-svg-icons': [
+      'twitter', 
+      'instagram', 
+      'github', 
+      'twitter', 
+      'soundcloud', 
+      'mixcloud',
+      'discord', 
+      'paypal',
+      'patreon',
+      'youtube',
+      'bandcamp',
+    ],
   };
 };
