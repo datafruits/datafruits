@@ -19,7 +19,7 @@ export default class UserBadges extends Component<UserBadgesArgs> {
   @tracked currentBadgeViewer: Badge | null = null;
   @tracked badgeViewerOpen: boolean = false;
 
-  validBadges = ['dj', 'supporter', 'strawberry', 'lemon', 'orange'];
+  validBadges = ['dj', 'supporter', 'strawberry', 'lemon', 'orange', 'watermelon', 'banana'];
   descriptions: any;
 
   constructor(owner: unknown, args: UserBadgesArgs) {
