@@ -360,6 +360,13 @@ export function initialize(/* application */) {
       shortnames: [':cheese_teen:'],
       keywords: ['cheese_teen'],
     },
+    ':metal_guitar:': {
+      custom: true,
+      uc_base: 'metal_guitar',
+      uc_output: '',
+      shortnames: [':metal_guitar:'],
+      keywords: ['metal_guitar'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
