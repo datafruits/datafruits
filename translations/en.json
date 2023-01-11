@@ -179,7 +179,12 @@
     "homepage": "Home page",
     "badges": {
       "dj": "plays the music on the website",
-      "supporter": "supports the website on patreon or ampled"
+      "supporter": "supports the website on patreon or ampled",
+      "strawberry": "strawbur liker",
+      "lemon": "lemoner liker",
+      "orange": "orangey liker",
+      "watermelon": "watermel liker",
+      "cabbage": "evil cabbage freak"
     }
   },
   "usermenu": {
