@@ -21,7 +21,7 @@
           {{this.model.bio}}
         </p>
         <p class="mt-2 mb-2">
-          <a href="{{this.model.homepage}}" target="_blank" rel="noreferrer noopener">
+          <a href="{{this.qualifiedHomepageUrl}}" target="_blank" rel="noreferrer noopener">
             {{this.model.homepage}}
           </a>
         </p>
@@ -53,10 +53,3 @@
     <Djs::Tracks @dj={{this.model}} @page={{this.router.currentRoute.queryParams.page}} />
   </div>
 {{/if}}
-<div class="row">
-  {{#each this.model.link as |link|}}
-    <a href={{link.url}} target="_blank" rel="noopener noreferrer">
-      {{link.url}}
-    </a>
-  {{/each}}
-</div>

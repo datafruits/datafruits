@@ -15,6 +15,29 @@
 
 @tailwind components;
 
+@layer base {
+  h1 {
+    @apply text-2xl font-semibold;
+  }
+  h2 {
+    @apply text-xl font-semibold;
+  }
+  h3 {
+    @apply text-lg font-semibold;
+  }
+  h4 {
+    @apply text-base font-semibold;
+  }
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #dfdfdf;
+  color: black;
+  text-shadow: none;
+  padding: 5px;
+}
+
 * {
   cursor:url('/assets/images/mousepointer.png'), auto !important;
 }
@@ -211,10 +234,6 @@ a:hover {
   @apply text-df-yellow-dark;
 }
 
-h1 {
-  @apply text-2xl font-semibold;
-}
-
 input {
   @apply text-black border-solid border-2 border-gray-300 rounded-sm p-1;
 }
@@ -294,6 +313,10 @@ form {
 
 .patron:hover {
   @include stripe-animation;
+}
+
+#social-media-links a:hover {
+  animation: colorfade 3s infinite;
 }
 
 .djs {
@@ -516,6 +539,26 @@ canvas#pixi {
   width: 300px;
   height: 250px;
 }
+
+#emoji-width-datalist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  writing-mode: vertical-lr;
+  width: 200px;
+}
+
+#emoji-width-datalist > option {
+  padding: 0;
+  margin: -10px;
+}
+
+#emoji-width-datalist > input[type="range"] {
+  width: 200px;
+  margin: 0;
+}
+
+
 
 @keyframes slidedown {
   from {

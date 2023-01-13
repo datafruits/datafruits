@@ -8,9 +8,10 @@ import { tracked } from '@glimmer/tracking';
 import emojione from 'emojione';
 import { SafeString } from 'handlebars';
 import { htmlSafe } from '@ember/template';
+import type WikiPage from 'datafruits13/models/wiki-page';
 
 interface WikiFormArgs {
-  changeset: any;
+  model: WikiPage;
 }
 
 export default class WikiForm extends Component<WikiFormArgs> {
@@ -21,6 +22,11 @@ export default class WikiForm extends Component<WikiFormArgs> {
 
   @tracked previewBody: SafeString = new SafeString('');
   @tracked previewTitle: SafeString = new SafeString('');
+
+  @action didInsert() {
+    this.previewBody = htmlSafe(emojione.shortnameToImage(this.args.model.body || ""));
+    this.previewTitle = htmlSafe(emojione.shortnameToImage(this.args.model.title || ""));
+  }
 
   @action
   setPreviewBody(value: string) {

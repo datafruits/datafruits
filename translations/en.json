@@ -179,7 +179,12 @@
     "homepage": "Home page",
     "badges": {
       "dj": "plays the music on the website",
-      "supporter": "supports the website on patreon or ampled"
+      "supporter": "supports the website on patreon or ampled",
+      "strawberry": "strawbur liker",
+      "lemon": "lemoner liker",
+      "orange": "orangey liker",
+      "watermelon": "watermel liker",
+      "cabbage": "evil cabbage freak"
     }
   },
   "usermenu": {
@@ -237,6 +242,10 @@
     "title": "Twitter",
     "aria": "Visit the @datafruits Twitter page"
   },
+  "tiktok": {
+    "title": "TikTok",
+    "aria": "Follow @datafruits on TikTok"
+  },
   "github": {
     "title": "Github",
     "aria": "Vist the datafruits repo on Github"
@@ -245,17 +254,33 @@
     "title": "Soundcloud",
     "aria": "Check out the datafruits Soundcloud page"
   },
-  "mixcloud": {
-    "title": "Mixcloud",
-    "aria": "Check out the datafruits Mixcloud page"
+  "bandcamp": {
+    "title": "Bandcamp",
+    "aria": "Find releases on the datafruits label on Bandcamp"
+  },
+  "discord": {
+    "title": "Discord",
+    "aria": "Join the datafruits Discord"
+  },
+  "patreon": {
+    "title": "Patreon",
+    "aria": "Support datafruits through Patreon"
+  },
+  "paypal": {
+    "title": "Paypal",
+    "aria": "Donate to datafruits via Paypal"
   },
   "instagram": {
     "title": "Instagram",
     "aria": "Browse posts from datafruits on Instagram"
   },
+  "youtube": {
+    "title": "Youtube",
+    "aria": "Watch the datafruits Youtube channel"
+  },
   "email": {
     "title": "Email info@datafruits.fm",
-    "aria": "Notify datafruits by email"
+    "aria": "Message datafruits by email"
   },
   "patron": {
     "title": "Ampled",

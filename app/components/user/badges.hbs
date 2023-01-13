@@ -1,5 +1,9 @@
 <div class="mt-2">
   {{#each this.badges as |badge|}}
+    <button
+      class="cursor-pointer"
+      {{on "click" (fn this.showBadge badge)}}
+      >
     <img
       class="inline rounded-lg"
       style="height: 2rem;"
@@ -7,5 +11,9 @@
       align="center"
       alt={{badge.description}}
       title={{badge.description}} / >
+    </button>
   {{/each}}
 </div>
+{{#if this.badgeViewerOpen}}
+  <User::BadgeViewer @badge={{this.currentBadgeViewer}} @closeModal={{this.closeBadgeViewer}}/>
+{{/if}}
