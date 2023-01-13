@@ -388,7 +388,11 @@
     "loading": "..."
   },
   "forum": {
-    "title": "Title",
-    "body": "what's up"
+    "title": "da fruit standz",
+    "aria": "a forum to communicate with your fellow fruits",
+    "form": {
+      "title": "post title",
+      "body": "what's up"
+    }
   }
 }
