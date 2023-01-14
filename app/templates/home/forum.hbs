@@ -1,9 +1,29 @@
 <section class="page-spacing">
-  <h1>{{t "forum.title"}}</h1>
-  <LinkTo class="cool-button" @route="home.forum.new">
-    NEW TOPIC
-  </LinkTo>
-  {{#each this.model as |forumThread|}}
-    <h1>{{forumThread.title}}</h1>
-  {{/each}}
+  <section class="flex justify-between mb-4">
+    <h1 class="">{{t "forum.title"}}</h1>
+    <LinkTo class="cool-button" @route="home.forum.new">
+      {{t "forum.new_topic"}}
+    </LinkTo>
+  </section>
+  <section class="mb-2">
+    <ul>
+      {{#each this.model as |forumThread|}}
+        <li class="">
+          <LinkTo class="bg-df-pink text-2xl rounded-lg p-2 mb-2 block hover:bg-white flex justify-between" @route="home.forum.show" @model={{forumThread}}>
+            <span>
+              {{forumThread.title}}
+            </span>
+            <div class="flex">
+              <span class="text-sm">
+                {{forumThread.posterUsername}}
+              </span>
+              <span>
+                <img src="{{forumThread.posterAvatar}}" />
+              </span>
+            </div>
+          </LinkTo>
+        </li>
+      {{/each}}
+    </ul>
+  </section>
 </section>

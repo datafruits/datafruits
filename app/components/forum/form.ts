@@ -16,7 +16,7 @@ export default class ForumForm extends Component<ForumFormArgs> {
     try {
       thread.save().then(() => {
         alert('posted !!!!');
-        this.router.transitionTo('forum.show', thread);
+        this.router.transitionTo('home.forum.show', thread);
       });
     } catch (error) {
       alert('couldnt save thread');

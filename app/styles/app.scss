@@ -410,7 +410,7 @@ form {
   box-shadow: 10px 10px 2px grey;
 }
 
-.wiki-article {
+@mixin cool-border {
   border-image: repeating-linear-gradient(
     90deg,
     $green,
@@ -428,26 +428,16 @@ form {
   box-shadow: 10px 10px 2px grey;
 }
 
+.wiki-article {
+  @include cool-border;
+}
+
 .show-info {
+  @include cool-border;
   padding: 1em;
-  border-image: repeating-linear-gradient(
-    90deg,
-    $green,
-    $green 20px,
-    $pink 20px,
-    $pink 40px,
-    $yellow 40px,
-    $yellow 60px,
-    $blue 60px,
-    $blue 80px
-  );
-  border-width: 10px;
-  border-style: solid;
-  border-image-slice: 1;
   max-width: 50%;
   bottom: 20px;
   left: 20px;
-  box-shadow: 10px 10px 2px grey;
   position: absolute;
 
   @apply bg-df-blue-dark blm:bg-black;
@@ -458,6 +448,10 @@ form {
     left: 0;
   }
 
+}
+
+.forum-post {
+  @include cool-border;
 }
 
 .show-image {
