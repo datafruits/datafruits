@@ -1,6 +1,6 @@
 <section class="page-spacing">
-  <h1 class="text-3xl font-cursive mb-2">{{model.title}}</h1>
-  {{#each model.posts as |post|}}
+  <h1 class="text-3xl font-cursive mb-2">{{this.model.title}}</h1>
+  {{#each this.model.posts as |post|}}
     <section class="flex bg-df-pink mb-2">
       <span
         class="p-4 shrink-0"

@@ -1,10 +1,10 @@
 import Model, { attr, belongsTo } from '@ember-data/model';
 import type User from './user';
-import type ForumThread from './forum-thread';
+//import type ForumThread from './forum-thread';
 
 export default class Post extends Model {
   @attr('string') declare body: string;
-  @belongsTo('forum-thread') declare forumThread: ForumThread;
+  //@belongsTo('forum-thread') declare forumThread: ForumThread;
   @belongsTo('user') declare user: User;
 
   @attr('string') declare posterUsername: string;
