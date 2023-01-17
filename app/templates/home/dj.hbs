@@ -5,11 +5,19 @@
         <h1 class="font-cursive text-2xl mb-2">
           {{this.model.username}}
         </h1>
-        <img
-          class="rounded-lg mb-2"
-          src={{this.model.imageMediumUrl}}
-          alt={{this.model.username}}
-          >
+        {{#if this.model.imageMediumUrl}}
+          <img
+            class="rounded-lg mb-2"
+            src={{this.model.imageMediumUrl}}
+            alt={{this.model.username}}
+            >
+        {{else}}
+          <img
+            class="rounded-lg mb-2"
+            src="/assets/images/show_placeholder.jpg"
+            alt={{this.model.username}}
+            >
+        {{/if}}
         <p class="mt-2 mb-2">
           <span>Lv. 0</span>
           <div>
