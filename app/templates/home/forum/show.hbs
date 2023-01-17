@@ -1,35 +1,7 @@
 <section class="page-spacing">
   <h1 class="text-3xl font-cursive mb-2">{{this.model.title}}</h1>
   {{#each this.model.sortedPosts as |post|}}
-    <section class="flex bg-df-pink my-2 py-4 rounded-lg">
-      <span
-        class="p-4 shrink-0"
-        style="height: 10rem; width: 10rem; flex-shrink: 0;"
-        >
-        <img
-        class="rounded-lg inline self-center"
-        style="height: 10rem; width: 100%;"
-        align="center"
-        alt="{{post.posterUsername}}"
-        src="https://dongles.streampusher-relay.club/images/thumb/FREAKY_gREEN.png?1667432215" />
-      </span>
-      <section class="flex flex-col grow">
-        <span class="user-info">
-          <LinkTo
-            @route="home.dj"
-            @model={{post.posterUsername}}
-            class="text-3xl df-text-yellow"
-            >
-            {{post.posterUsername}}
-          </LinkTo>
-          <span>{{post.createdAt}}</span>
-          <User::Badges @role={{post.posterRole}} />
-        </span>
-        <p class="bg-df-blue-dark p-4 forum-post">
-          {{marked-down post.body}}
-        </p>
-      </section>
-    </section>
+    <Post @post={{post}} />
   {{/each}}
   <section>
     {{#if this.session.isAuthenticated}}

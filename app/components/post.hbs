@@ -1,0 +1,29 @@
+  <section class="flex bg-df-pink my-2 py-4 rounded-lg" id="forum-post">
+    <span
+      class="p-4 shrink-0"
+      style="height: 10rem; width: 10rem; flex-shrink: 0;"
+      >
+      <img
+      class="rounded-lg inline self-center"
+      style="height: 10rem; width: 100%;"
+      align="center"
+      alt="{{@post.posterUsername}}"
+      src="{{@post.posterAvatar}}" />
+    </span>
+    <section class="flex flex-col grow">
+      <span class="user-info">
+        <LinkTo
+          @route="home.dj"
+          @model={{@post.posterUsername}}
+          class="text-3xl df-text-yellow"
+          >
+          {{@post.posterUsername}}
+        </LinkTo>
+        <span>{{@post.createdAt}}</span>
+        <User::Badges @role={{@post.posterRole}} />
+      </span>
+      <p class="bg-df-blue-dark p-4 forum-post">
+        {{marked-down body}}
+      </p>
+    </section>
+  </section>
