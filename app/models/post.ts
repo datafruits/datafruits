@@ -11,6 +11,9 @@ export default class Post extends Model {
   @attr('string') declare posterAvatar: string;
   @attr('string') declare posterRole: string;
   @attr('string') declare createdAt: string;
+
+  @attr('string') declare postableType: string;
+  @attr('number') declare postableId: number;
 }
 
 
