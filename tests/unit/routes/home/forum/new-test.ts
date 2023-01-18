@@ -5,7 +5,7 @@ module('Unit | Route | home/forum/new', function(hooks) {
   setupTest(hooks);
 
   test('it exists', function(assert) {
-    let route = this.owner.lookup('route:home/forum/new');
+    const route = this.owner.lookup('route:home/forum/new');
     assert.ok(route);
   });
 });
