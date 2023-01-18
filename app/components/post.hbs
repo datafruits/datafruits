@@ -1,4 +1,4 @@
-  <section class="flex bg-df-pink my-2 py-4 rounded-lg" id="forum-post">
+  <section class="flex bg-df-pink my-2 py-4 rounded-lg forum-post">
     <span
       class="p-4 shrink-0"
       style="height: 10rem; width: 10rem; flex-shrink: 0;"
@@ -19,7 +19,7 @@
           >
           {{@post.posterUsername}}
         </LinkTo>
-        <span>{{@post.createdAt}}</span>
+        <span>{{this.formattedDate}}</span>
         <User::Badges @role={{@post.posterRole}} />
       </span>
       <p class="bg-df-blue-dark p-4 forum-post">

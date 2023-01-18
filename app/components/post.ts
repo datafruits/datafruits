@@ -3,6 +3,14 @@ import { htmlSafe } from '@ember/template';
 import { SafeString } from 'handlebars';
 import emojione from 'emojione';
 import type PostModel from 'datafruits13/models/post';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+import localizedFormat from 'dayjs/plugin/localizedFormat';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.extend(localizedFormat);
 
 interface PostArgs {
   post: PostModel;
@@ -11,5 +19,10 @@ interface PostArgs {
 export default class Post extends Component<PostArgs> {
   get body(): SafeString {
     return htmlSafe(emojione.shortnameToImage(this.args.post.body));
+  }
+
+  get formattedDate(): string {
+    const timeZone = dayjs.tz.guess();
+    return dayjs(this.args.post.createdAt).tz(timeZone).format('LLL');
   }
 }
