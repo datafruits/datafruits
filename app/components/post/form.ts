@@ -3,6 +3,7 @@ import type ForumThread from 'datafruits13/models/forum-thread';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import { next } from '@ember/runloop';
 
 interface PostFormArgs {
   thread: ForumThread;
@@ -25,7 +26,13 @@ export default class PostForm extends Component<PostFormArgs> {
     try {
       post.save().then(() => {
         thread.posts.pushObject(post);
-        alert('posted reply !!!!');
+        this.body = '';
+        next(this, () => {
+          const forumPosts = document.querySelectorAll("section.forum-post") as NodeListOf<Element>;
+          const el = forumPosts[forumPosts.length-1];
+          el.classList.add("bounce");
+          (el as HTMLElement).focus();
+        });
       });
     } catch (error) {
       alert('couldnt save post');
