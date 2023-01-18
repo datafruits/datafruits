@@ -19,11 +19,15 @@
               {{forumThread.title}}
             </span>
             <div class="flex">
-              <span class="text-sm">
+              <span class="text-sm mr-2">
                 {{forumThread.posterUsername}}
               </span>
               <span>
-                <img src="{{forumThread.posterAvatar}}" />
+                <img
+                  style="height: 3rem;"
+                  class="inline rounded-lg"
+                  src="{{forumThread.posterAvatar}}"
+                  />
               </span>
             </div>
           </LinkTo>
