@@ -386,5 +386,14 @@
     "submit": "Datafruit!",
     "add": "Add datafruit",
     "loading": "..."
+  },
+  "forum": {
+    "title": "da fruit standz",
+    "new_topic": "NEW TOPIC",
+    "aria": "a forum to communicate with your fellow fruits",
+    "form": {
+      "title": "post title",
+      "body": "what's up"
+    }
   }
 }

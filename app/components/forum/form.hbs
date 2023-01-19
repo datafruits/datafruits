@@ -1,0 +1,25 @@
+<form {{on "submit" this.saveThread}}>
+  <div>
+    <label class="block text-sm font-bold mb-2" for="title">{{t "forum.form.title"}}</label>
+    <Input
+      @type="text"
+      @id="title"
+      @value={{@thread.title}}
+      />
+  </div>
+  <div>
+    <label class="block text-sm font-bold mb-2" for="body">{{t "forum.form.body"}}</label>
+    <Textarea
+      @value={{@thread.body}}
+      rows='5'
+      cols='100'
+      />
+  </div>
+  <div>
+    <Input
+      class="cool-button"
+      @type="submit"
+      @value="POSTTTT"
+      />
+  </div>
+</form>
