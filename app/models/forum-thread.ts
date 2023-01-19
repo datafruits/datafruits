@@ -10,6 +10,7 @@ export default class ForumThread extends Model {
 
   @attr('string') declare posterUsername: string;
   @attr('string') declare posterAvatar: string;
+  @attr('string') declare createdAt: string;
 
   get sortedPosts() {
     return this.posts.sortBy('createdAt');
