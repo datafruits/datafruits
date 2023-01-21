@@ -11,7 +11,8 @@ export default class ChatMessage extends Component {
     return (
       this.args.message.role.includes('dj') ||
       this.args.message.role.includes('admin') ||
-      this.args.message.role.includes('listener')
+      this.args.message.role.includes('listener') ||
+      this.args.message.role.includes('bot')
     );
   }
 
