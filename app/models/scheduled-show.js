@@ -48,4 +48,12 @@ export default class ScheduledShow extends Model {
 
   @attr()
   slug;
+
+  @attr() repeating;
+
+  @attr() recurringInterval;
+
+  get isWeekly() {
+    return this.recurringInterval === 'week';
+  }
 }

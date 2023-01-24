@@ -1,0 +1,99 @@
+<form {{on "submit" this.saveShow}}>
+  <div>
+    <label class="block text-sm font-bold mb-2" for="title">{{t "profile.my-shows.form.title"}}</label>
+    <Input
+      @type="text"
+      @id="title"
+      @value={{@show.title}}
+      />
+  </div>
+  <div>
+    <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.description"}}</label>
+    <Textarea
+      @value={{@show.description}}
+      rows='5'
+      cols='100'
+      />
+  </div>
+  <div>
+    <label class="block text-sm font-bold mb-2" for="repeating">{{t "profile.my-shows.form.repeating"}}</label>
+    <select
+      id="repeating"
+      {{on "change" (mut @show.repeating)}}
+      >
+      <option value="true">Repeating</option>
+      <option value="false">One-off</option>
+    </select>
+  </div>
+  {{#if @show.repeating}}
+    <select
+      id="repeating-interval"
+      {{on "change" (mut @show.recurringInterval)}}
+      >
+      <option value="week">Weekly</option>
+      <option value="biweek">Bi-weekly (every other week)</option>
+      <option value="month">Monthly</option>
+    </select>
+    {{#if @show.isWeekly}}
+      <select
+        id="weekly-interval"
+        >
+        <option value="mondays">Every Monday</option>
+        <option value="tuesdays">Every Tuesday</option>
+      </select>
+    {{/if}}
+    {{#if @show.isBiweekly}}
+    {{/if}}
+    {{#if @show.isMonthly}}
+      <span>Every</span>
+      <select
+        id="monthly-interval"
+        >
+        <option value="first">First</option>
+        <option value="second">Second</option>
+        <option value="third">Third</option>
+        <option value="forth">Forth</option>
+        <option value="last">Last</option>
+      </select>
+      <select
+        id="monthly-interval-weekday"
+        >
+        <option value="mondays">Every Monday</option>
+        <option value="tuesdays">Every Tuesday</option>
+      </select>
+    {{/if}}
+  {{/if}}
+  <div>
+    <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.start"}}</label>
+    <Input
+      @type="date"
+      @id="start-date"
+      @value={{@show.start}}
+    />
+    <Input
+      @type="time"
+      @id="start-time"
+      @value={{@show.start}}
+    />
+  </div>
+  <div>
+    <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.end"}}</label>
+    <Input
+      @type="date"
+      @id="end-date"
+      @value={{@show.end}}
+    />
+    <Input
+      @type="time"
+      @id="end-time"
+      @value={{@show.end}}
+    />
+  </div>
+  <div class="mt-2">
+    <Input
+      class="cool-button"
+      @type="submit"
+      @value="SAVE SHOW"
+      />
+  </div>
+</form>

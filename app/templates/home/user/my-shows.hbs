@@ -1,0 +1,11 @@
+<section class="page-spacing">
+  <h1>{{t "profile.my-shows.title"}}</h1>
+  <LinkTo
+    class="cool-button"
+    @route="home.user.my-shows.new">
+    NEW SHOW
+  </LinkTo>
+  {{#each this.model as |show|}}
+    <User::ShowCard @show={{show}} />
+  {{/each}}
+</section>

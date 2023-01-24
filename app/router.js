@@ -14,6 +14,7 @@ Router.map(function () {
     this.route('about');
     this.route('subscribe');
     this.route('show', { path: '/shows/:id' });
+    this.route('shows.episode', { path: '/shows/:id/episodes/:title' });
     this.route('dj-inquiry');
     this.route('coc');
     this.route('djs');
@@ -29,6 +30,12 @@ Router.map(function () {
     this.route('user', function () {
       this.route('settings');
       this.route('favorites');
+      this.route('my-shows', function() {
+        this.route('new');
+      });
+      this.route('my-shows.new', { path: 'my-shows/new' });
+      this.route('my-shows.edit', { path: 'my-shows/:title/edit' });
+      this.route('my-shows.archive', { path: 'my-shows/:title/archive' });
     });
     this.route('site-settings');
     this.route('wiki', function() {

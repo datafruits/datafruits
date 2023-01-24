@@ -9,6 +9,9 @@
     <li class="hover:bg-df-blue rounded px-2 py-1">
       <LinkTo @route="home.user.favorites" @invokeAction={{@toggleUserMenu}}>{{t "profile.favorites"}}</LinkTo>
     </li>
+    <li class="hover:bg-df-blue rounded px-2 py-1">
+      <LinkTo @route="home.user.my-shows" @invokeAction={{@toggleUserMenu}}>{{t "profile.my-shows.title"}}</LinkTo>
+    </li>
     <li class="h-1 bg-df-green"></li>
     <li class="hover:bg-df-blue rounded px-2 py-1">
       <a href="#" {{on "click" this.logout}}>{{t "usermenu.logout"}}</a>

@@ -6,7 +6,11 @@ export default class ScheduledShow extends ApplicationAdapter {
   namespace = 'api';
 
   urlForQuery(query) {
-    return `${this.urlPrefix()}/scheduled_shows`;
+    if (query.my) {
+      return `${this.urlPrefix()}/my_shows`;
+    } else {
+      return `${this.urlPrefix()}/scheduled_shows`;
+    }
   }
 
   urlForQueryRecord(query) {
