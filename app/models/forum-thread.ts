@@ -14,6 +14,8 @@ export default class ForumThread extends Model {
 
   @attr('number') declare repliesCount: number;
 
+  @attr() declare replyPosterAvatars: any;
+
   get sortedPosts() {
     return this.posts.sortBy('createdAt');
   }
