@@ -13,6 +13,10 @@ export default class ForumThread extends Model {
   @attr('string') declare createdAt: string;
   @attr('string') declare slug: string;
 
+  @attr('number') declare repliesCount: number;
+
+  @attr() declare replyPosterAvatars: any;
+
   get sortedPosts() {
     return this.posts.sortBy('createdAt');
   }
