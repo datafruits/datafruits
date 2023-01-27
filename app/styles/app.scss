@@ -545,6 +545,10 @@ canvas#pixi {
   animation: bounce linear 200ms;
 }
 
+.update-notification span {
+  text-shadow: 0 0 0.6em $blue, 0 2px 0.4em black;
+}
+
 .emoji-selector-dialog {
   // top: -265px;
   // left: 0;

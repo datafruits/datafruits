@@ -42,7 +42,7 @@ export default class WikiForm extends Component<WikiFormArgs> {
   onSubmit(data: any, event: Event) {
     console.log(data);
     console.log(event);
-    this.router.transitionTo('home.wiki.show', data.title);
+    this.router.transitionTo('home.wiki.show', data.slug);
   }
 
   @action
