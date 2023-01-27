@@ -367,6 +367,20 @@ export function initialize(/* application */) {
       shortnames: [':metal_guitar:'],
       keywords: ['metal_guitar'],
     },
+    ':pensive_booty:': {
+      custom: true,
+      uc_base: 'pensive_booty',
+      uc_output: '',
+      shortnames: [':pensive_booty:'],
+      keywords: ['pensive_booty'],
+    },
+    ':pricemaster:': {
+      custom: true,
+      uc_base: 'pricemaster',
+      uc_output: '',
+      shortnames: [':pricemaster:'],
+      keywords: ['pricemaster'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
