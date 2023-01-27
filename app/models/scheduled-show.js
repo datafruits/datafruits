@@ -56,4 +56,8 @@ export default class ScheduledShow extends Model {
   get isWeekly() {
     return this.recurringInterval === 'week';
   }
+
+  get isMonthly() {
+    return this.recurringInterval === 'month';
+  }
 }
