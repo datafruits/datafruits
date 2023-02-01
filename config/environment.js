@@ -2,6 +2,9 @@
 
 module.exports = function (environment) {
   let ENV = {
+    showdown: {
+      simplifiedAutoLink: true
+    },
     modulePrefix: 'datafruits13',
     environment: environment,
     contentSecurityPolicy: {
