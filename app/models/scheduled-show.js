@@ -16,6 +16,12 @@ export default class ScheduledShow extends Model {
   imageUrl;
 
   @attr()
+  imageFilename;
+
+  @attr()
+  image;
+
+  @attr()
   thumbImageUrl;
 
   @attr()

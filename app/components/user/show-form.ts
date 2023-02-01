@@ -7,6 +7,24 @@ interface UserShowFormArgs {
 }
 
 export default class UserShowForm extends Component<UserShowFormArgs> {
+  file: Blob | null = null;
+
+  @action updateFile(e: any){
+    this.file = e.target.files[0];
+    this.args.show.imageFilename = e.target.files[0].name;
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      this.args.show.image = e.target?.result as string;
+    };
+    reader.onerror = (e) => {
+      console.log('error reading file');
+      console.log(e);
+    };
+
+    reader.readAsDataURL(this.file as Blob);
+  }
+
   @action
   saveShow() {
   }

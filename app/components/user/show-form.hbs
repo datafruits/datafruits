@@ -8,6 +8,17 @@
       />
   </div>
   <div>
+    <label class="align-top" for="show-artwork"> {{t "profile.my-shows.form.artwork"}}</label>
+    <br/>
+    <input
+      class="py-4 px-4 my-2 text-df-yellow w-full semibold border-dashed"
+      id="showArtwork"
+      name="showArtwork"
+      type="file"
+      {{on "change" this.updateFile}}
+    />
+  </div>
+  <div>
     <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.description"}}</label>
     <Textarea
       @value={{@show.description}}
