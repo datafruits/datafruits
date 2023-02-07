@@ -7,6 +7,6 @@ interface ForumThreadListArgs {
 
 export default class ForumThreadList extends Component<ForumThreadListArgs> {
   get sortedThreads() {
-    return this.args.forumThreads.sortBy('createdAt').reverse();
+    return this.args.forumThreads.sortBy('updatedAt').reverse();
   }
 }
