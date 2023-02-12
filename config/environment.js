@@ -27,6 +27,12 @@ module.exports = function (environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      showdown: {
+        simplifiedAutoLink: true,
+        simpleLineBreaks: true,
+        parseImgDimensions: true,
+        openLinksInNewWindow: true
+      },
     },
 
     fastboot: {
