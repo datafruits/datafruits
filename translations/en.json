@@ -175,7 +175,7 @@
       "form": {
         "title": "Title",
         "description": "Description",
-        "artwork": "Artwork",
+        "artwork": "Default Artwork",
         "start": "Start",
         "end": "End",
         "repeating": "Repeating or one off"

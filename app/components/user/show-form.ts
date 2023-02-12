@@ -9,6 +9,16 @@ interface UserShowFormArgs {
 export default class UserShowForm extends Component<UserShowFormArgs> {
   file: Blob | null = null;
 
+  weekdays = {
+    'Sunday': 'sunday',
+    'Monday': 'monday',
+    'Tuesday': 'tuesday',
+    'Wednesday': 'wednesday',
+    'Thursday': 'thursday',
+    'Friday': 'friday',
+    'Saturday': 'saturday'
+  };
+
   @action updateFile(e: any){
     this.file = e.target.files[0];
     this.args.show.imageFilename = e.target.files[0].name;

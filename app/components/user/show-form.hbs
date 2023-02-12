@@ -76,8 +76,9 @@
       <select
         id="weekly-interval"
         >
-        <option value="mondays">Monday</option>
-        <option value="tuesdays">Tuesday</option>
+        {{#each-in this.weekdays as |key val|}}
+          <option value="{{val}}">{{key}}</option>
+        {{/each-in}}
       </select>
     {{/if}}
     {{#if @show.isBiweekly}}
@@ -96,8 +97,9 @@
       <select
         id="monthly-interval-weekday"
         >
-        <option value="mondays">Every Monday</option>
-        <option value="tuesdays">Every Tuesday</option>
+        {{#each-in this.weekdays as |key val|}}
+          <option value="{{val}}">{{key}}</option>
+        {{/each-in}}
       </select>
     {{/if}}
   {{/if}}
