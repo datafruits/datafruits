@@ -1,12 +1,15 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import type ScheduledShow from 'datafruits13/models/scheduled-show';
+import { inject as service } from '@ember/service';
 
 interface UserShowFormArgs {
   show: ScheduledShow;
 }
 
 export default class UserShowForm extends Component<UserShowFormArgs> {
+  @service declare router: any;
+
   file: Blob | null = null;
 
   weekdays = {
@@ -36,7 +39,18 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   }
 
   @action
-  saveShow() {
+  saveShow(event: any) {
+    event.preventDefault();
+    const show = this.args.show;
+    try {
+      show.save().then(() => {
+        alert('saved the show!');
+        this.router.transitionTo('show',show);
+      });
+    } catch (error) {
+      alert('could not save show :(');
+      console.log(error);
+    }
   }
 
   @action
