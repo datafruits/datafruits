@@ -33,11 +33,9 @@
       @id="start-date"
       @value={{@show.start}}
     />
-    <Input
-      @type="time"
-      @id="start-time"
+    <TimePicker
       @value={{@show.start}}
-    />
+      />
   </div>
   <div>
     <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.end"}}</label>
@@ -46,11 +44,9 @@
       @id="end-date"
       @value={{@show.end}}
     />
-    <Input
-      @type="time"
-      @id="end-time"
+    <TimePicker
       @value={{@show.end}}
-    />
+      />
   </div>
   <div>
     <label class="block text-sm font-bold mb-2" for="repeating">{{t "profile.my-shows.form.repeating"}}</label>
