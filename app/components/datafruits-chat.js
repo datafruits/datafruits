@@ -12,10 +12,18 @@ export default class DatafruitsChat extends Component {
   @tracked isJoiningChat = false;
 
   @tracked
+  showingUserList = true;
+  
+  @tracked
   showingLoginModal = false;
 
   get disableJoinButton() {
     return this.nick.length < 1 || this.isJoiningChat;
+  }
+
+  @action
+  toggleUserList() {
+    this.showingUserList = !this.showingUserList;
   }
 
   @action

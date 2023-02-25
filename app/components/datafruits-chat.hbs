@@ -6,6 +6,21 @@
   {{else if this.chat.loading}}
     {{t "chat.loading"}}
   {{else}}
+    <div class="md:hidden flex flex-shrink pl-4 border-2 border-df-yellow">
+      <button {{action "toggleUserList"}}
+        type="button"
+        class="cool-button"
+        title="TOGGLE"
+        data-test-userlist-button
+      >
+        {{if this.showingUserList "HIDE" "SHOW"}}
+      </button>
+      <ul id="userlist" class={{if this.showingUserList "h-1/5 block" "h-0 hidden"}}>
+        {{#each-in this.chat.presences as |username user|}}
+          <UserListItem @user={{user}} />
+        {{/each-in}}
+      </ul>
+    </div>
     <div id="chat-area"
       class="text-df-yellow font-bold flex flex-row flex-grow min-h-0 relative text-shadow mb-5 flex-basis-0"
       {{did-insert this.didInsert}}
