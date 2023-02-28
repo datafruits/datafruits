@@ -9,6 +9,9 @@ export default class ShowSeries extends Model {
   @attr('string') declare recurringWeekday: string;
   @attr('string') declare recurringCadence: string;
 
+  @attr('string') declare image: string;
+  @attr('string') declare imageFilename: string;
+
   get isWeekly() {
     return this.recurringInterval === 'week';
   }
