@@ -1,7 +1,12 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-export default class TimePickerComponent extends Component {
+interface TimePickerArgs {
+  value: Date;
+  onChange?: (val: Date) => void;
+}
+
+export default class TimePickerComponent extends Component<TimePickerArgs> {
   times = [
     '00:00',
     '01:00',
@@ -39,22 +44,24 @@ export default class TimePickerComponent extends Component {
   }
 
   @action
-  setTime(value) {
+  setTime(value: string) {
     //const property = this.args.property;
-    let hours = value.split(':')[0];
-    let minutes = value.split(':')[1];
+    const hours = value.split(':')[0];
+    const minutes = value.split(':')[1];
     const oldDate = this.args.value;
     // if(oldDate) {
     // } else {
     // }
-    let newDate = new Date(
+    const newDate = new Date(
       oldDate.getFullYear(),
       oldDate.getMonth(),
       oldDate.getDate(),
-      hours,
-      minutes
+      parseInt(hours),
+      parseInt(minutes)
     );
-    this.args.onChange(newDate);
+    if(this.args.onChange) {
+      this.args.onChange(newDate);
+    }
     // this.args.changeset.set(property, newDate);
     // this.args.changeset.validate(property);
   }
