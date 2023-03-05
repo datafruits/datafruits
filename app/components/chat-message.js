@@ -7,6 +7,16 @@ export default class ChatMessage extends Component {
   @tracked imgRegex = /https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpg|gif|png|webp)(\?.*$)*/;
   @tracked discordRegex = /^New msg in discord from (.+): (.+)$/;
 
+  get canShowAvatar() {
+    if (!this.args.message.role) return false;
+    return (
+      this.args.message.role.includes('dj') ||
+      this.args.message.role.includes('admin') ||
+      this.args.message.role.includes('listener') ||
+      this.args.message.role.includes('bot')
+    );
+  }
+  
   get hasImage() {
     return this.imgRegex.test(this.args.message.body);
   }
