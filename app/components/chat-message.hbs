@@ -1,33 +1,48 @@
 <li
   {{did-insert this.setScrolling}}
   class="message">
+
   <span class="mr-2">
     {{format-message-timestamp @message.timestamp}}
   </span>
-  {{#if this.canShowAvatar}}
-    {{#if @message.avatarUrl}}
-      <span class="mr-2" data-test-avatar>
-        <img style="height: 20px;" src="{{@message.avatarUrl}}" alt={{@message.user}} / >
-      </span>
-    {{else}}
-      <span class="mr-2" data-test-avatar>
-        <img style="height: 20px;" src="/assets/images/show_placeholder.jpg" alt={{@message.user}} / >
-      </span>
-    {{/if}}
+
+  {{#if @message.avatarUrl}}
+    <span class="mr-2" data-test-avatar>
+      <img style="height: 20px;" src="{{@message.avatarUrl}}" alt={{@message.user}} / >
+    </span>
+  {{else}}
+    <span class="mr-2" data-test-avatar>
+      <img style="height: 20px;" src="/assets/images/show_placeholder.jpg" alt={{@message.user}} / >
+    </span>
   {{/if}}
+
   <span class="mr-2" data-test-username>
     <Chat::Username
       @dontShowPopup={{true}}
       @role={{@message.role}}
       @style={{@message.style}}
       @pronouns={{@message.pronouns}}
-      @username={{@message.user}}
+      @username={{if this.fromDiscord this.discordUser @message.user}}
       @avatarUrl={{@message.avatarUrl}}
       />
   </span>
+
+  {{#if this.fromDiscord}}
+    <a
+      href="https://discord.gg/83mteTQDvu"
+      title={{t "chat.discord"}}
+      aria-label={{t "discord.aria"}}
+      target="_blank"
+      rel="noopener"
+    >
+      <FaIcon @icon="discord" @prefix="fab" />
+    </a>
+  {{/if}}
+
   <span class={{if @message.hasMention "bg-df-green-dark"}} data-test-message-body>
-    {{format-message-body @message.body}}
+    {{format-message-body (if this.fromDiscord this.discordMsg @message.body)}}
   </span>
+
 </li>
 {{#if @gifsEnabled}}
   {{#if this.hasImage}}
