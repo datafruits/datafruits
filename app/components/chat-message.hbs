@@ -23,13 +23,25 @@
       @role={{@message.role}}
       @style={{@message.style}}
       @pronouns={{@message.pronouns}}
-      @username={{@message.user}}
+      @username={{if this.fromDiscord this.discordUser @message.user}}
       @avatarUrl={{@message.avatarUrl}}
       />
   </span>
   
+    {{#if this.fromDiscord}}
+    <a
+      href="https://discord.gg/83mteTQDvu"
+      title={{t "chat.discord"}}
+      aria-label={{t "discord.aria"}}
+      target="_blank"
+      rel="noopener"
+    >
+      <FaIcon @icon="discord" @prefix="fab" />
+    </a>
+  {{/if}}
+
   <span class={{if @message.hasMention "bg-df-green-dark"}} data-test-message-body>
-    {{format-message-body @message.body}}
+    {{format-message-body (if this.fromDiscord this.discordMsg @message.body)}}
   </span>
 </li>
 {{#if @gifsEnabled}}
