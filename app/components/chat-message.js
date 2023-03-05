@@ -16,7 +16,8 @@ export default class ChatMessage extends Component {
   }
 
   get fromDiscord() {
-    return this.discordRegex.test(this.args.message.body);
+    return this.discordRegex.test(this.args.message.body) && this.args.message.user == "coach"
+      
   }
   
   get discordUser() {
