@@ -6,7 +6,7 @@
   {{else if this.chat.loading}}
     {{t "chat.loading"}}
   {{else}}
-    <div class="md:hidden flex flex-shrink pl-4 border-2 border-df-yellow">
+    <div class="md:hidden {{if this.showingUserList "h-32"}} flex flex-shrink pl-4 border-2 border-df-yellow overflow-y-scroll">
       <button {{action "toggleUserList"}}
         type="button"
         class="cool-button"
