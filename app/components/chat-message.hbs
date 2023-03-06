@@ -17,7 +17,7 @@
     {{/if}}
   {{/if}}
 
-  <span data-test-username>
+  <span class="{{if this.fromDiscord "" "mr-2"}}" data-test-username>
     <Chat::Username
       @dontShowPopup={{true}}
       @role={{@message.role}}
@@ -29,7 +29,7 @@
   </span>
   
     {{#if this.fromDiscord}}
-    <a
+    <a class="mr-2"
       href="https://discord.gg/83mteTQDvu"
       title={{t "chat.discord"}}
       aria-label={{t "discord.aria"}}
