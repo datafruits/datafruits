@@ -17,9 +17,9 @@
   <UserMenu
     @showing={{this.isShowingUserMenu}}
     @toggleUserMenu={{this.toggleUserMenu}} />
-  <NewVersionNotifier
-    @updateMessage="A new version of datafruits was released: {newVersion}"
-  />
+  <OurVersionNotifier
+    @updateMessage="Updates have been made to datafruits! Refresh to stay up-to-date 💻" 
+    @reloadButtonText="Refresh" />
   <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow" id="main-content">
     {{outlet}}
   </div>

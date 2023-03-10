@@ -25,19 +25,22 @@ Router.map(function () {
     this.route('sign-up');
     this.route('login');
     this.route('password-reset');
+    this.route('new-password');
     this.route('user', function () {
       this.route('settings');
       this.route('favorites');
     });
     this.route('site-settings');
     this.route('wiki', function() {
-      this.route('edit');
-      this.route('history');
     });
     this.route('wiki.show', { path: '/wiki/:title' });
     this.route('wiki.new', { path: '/wiki/new' });
     this.route('wiki.edit', { path: '/wiki/:title/edit' });
     this.route('wiki.history', { path: '/wiki/:title/history' });
+    this.route('forum', function() {
+    });
+    this.route('forum.new', { path: '/forum/new' });
+    this.route('forum.show', { path: '/forum/:title' });
   });
   this.route('container', function () {
     this.route('show', { path: '/shows/:id' });

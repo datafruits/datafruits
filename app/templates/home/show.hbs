@@ -7,22 +7,20 @@
   {{/if}}
   <div class="show-info">
     <h1 class="font-cursive text-3xl">
-      {{model.title}}
+      {{this.model.title}}
     </h1>
     <h2>
       {{t "show.hosted_prefix"}}
-      {{#if model.isGuest}}
-      <span class="font-cursive text-xl">
-        {{model.guest}}
-      </span>
+      {{#if this.model.isGuest}}
+        <span class="font-cursive text-xl">
+          {{this.model.guest}}
+        </span>
       {{else}}
-      {{#each model.djs as |dj|}}
-      <span class="font-cursive text-xl">
-        <LinkTo @route="home.dj" @model={{dj.username}}>
-          {{dj.username}}
-        </LinkTo>
-      </span>
-      {{/each}}
+        <span class="font-cursive text-xl">
+          <LinkTo @route="home.dj" @model={{this.model.hostedBy}}>
+            {{this.model.hostedBy}}
+          </LinkTo>
+        </span>
       {{/if}}
     </h2>
     <h3 class="modal-title" id="myModalLabel">

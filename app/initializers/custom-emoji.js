@@ -360,6 +360,41 @@ export function initialize(/* application */) {
       shortnames: [':cheese_teen:'],
       keywords: ['cheese_teen'],
     },
+    ':metal_guitar:': {
+      custom: true,
+      uc_base: 'metal_guitar',
+      uc_output: '',
+      shortnames: [':metal_guitar:'],
+      keywords: ['metal_guitar'],
+    },
+    ':pensive_booty:': {
+      custom: true,
+      uc_base: 'pensive_booty',
+      uc_output: '',
+      shortnames: [':pensive_booty:'],
+      keywords: ['pensive_booty'],
+    },
+    ':pricemaster:': {
+      custom: true,
+      uc_base: 'pricemaster',
+      uc_output: '',
+      shortnames: [':pricemaster:'],
+      keywords: ['pricemaster'],
+    },
+    ':glop:': {
+      custom: true,
+      uc_base: 'glop',
+      uc_output: '',
+      shortnames: [':glop:'],
+      keywords: ['glop'],
+    },
+    ':glorp:': {
+      custom: true,
+      uc_base: 'glorp',
+      uc_output: '',
+      shortnames: [':glorp:'],
+      keywords: ['glorp'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {

@@ -60,6 +60,15 @@
             <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
               <LinkTo
                 class="text-white text-shadow-light"
+                aria-label={{t "forum.aria"}}
+                @invokeAction={{@toggleMenu}}
+                @route="home.forum">
+                {{t "forum.title"}}
+              </LinkTo>
+            </li>
+            <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+              <LinkTo
+                class="text-white text-shadow-light"
                 aria-label={{t "wiki.aria"}}
                 @invokeAction={{@toggleMenu}}
                 @route="home.wiki">

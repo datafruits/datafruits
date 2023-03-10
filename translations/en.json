@@ -32,10 +32,13 @@
     "offline": "You appear to be offline. I guess you won't be able to chat. Musta been the onion salad dressing",
     "send": "Send",
     "message_placeholder": "enter your message here...",
+    "discord": "This was sent from our Discord server",
     "join": "Join chat",
     "img_on": "Images are on",
     "img_off": "Images are off",
     "gif": "GIF",
+    "gifs": "GIFs",
+    "stickers": "Stickers",
     "join_anonymously": "Join chat",
     "coc_label": "By joining the chat, I agree with the datafruits Code of Conduct and will abide by its guidelines",
     "login": "Login",
@@ -177,7 +180,13 @@
     "homepage": "Home page",
     "badges": {
       "dj": "plays the music on the website",
-      "supporter": "supports the website on patreon or ampled"
+      "vj": "does the VIZ on the website",
+      "supporter": "supports the website on patreon or ampled",
+      "strawberry": "strawbur liker",
+      "lemon": "lemoner liker",
+      "orange": "orangey liker",
+      "watermelon": "watermel liker",
+      "cabbage": "evil cabbage freak"
     }
   },
   "usermenu": {
@@ -203,10 +212,29 @@
     "aria": "Apply to DJ on datafruits.fm",
     "min_age": "I am at least 18 years old"
   },
+  "password_new": {
+    "heading": "Set a new password",
+    "password": "New Password",
+    "password_confirmation": "Confirm New Password",
+    "submit": "Save my new best password!"
+  },
   "password_reset": {
-    "heading": "Forgot your password?",
-    "email": "email",
-    "submit": "Send password reset link"
+    "heading": "Forgot your password? Just give us your email, pardner.",
+    "email": "Email",
+    "submit": "HalP",
+    "errors": {
+      "no_match": "Password confirmation doesn't match, check again",
+      "too_short": "Password should be at least 8 characters, don't you think so?"
+    }
+  },
+  "funny_password_msgs": {
+    "0": "What the heck, forgot my password!",
+    "1": "Forgot your password? Just give us your email, pardner.",
+    "2": "How embarassing...maybe you should write it down next time",
+    "3": "Forgot your password? Did you try 'snowman'?",
+    "4": "I love passwords so much I'm going to send you a new one",
+    "5": "Bloody heck m8, forgot your password? Just give us your email then...",
+    "6": "It's ok buddy, just let us know your email so we can help you reset it"
   },
   "just_a_website": "its just a website",
   "about_datafruits_1": "Datafruits is a cooperatively owned and operated free-form net radio station. This website was created by and for fans of internet radio and netlabels. Our station has little to no curation, and we believe that any song can be played.",
@@ -216,6 +244,10 @@
     "title": "Twitter",
     "aria": "Visit the @datafruits Twitter page"
   },
+  "tiktok": {
+    "title": "TikTok",
+    "aria": "Follow @datafruits on TikTok"
+  },
   "github": {
     "title": "Github",
     "aria": "Vist the datafruits repo on Github"
@@ -224,17 +256,33 @@
     "title": "Soundcloud",
     "aria": "Check out the datafruits Soundcloud page"
   },
-  "mixcloud": {
-    "title": "Mixcloud",
-    "aria": "Check out the datafruits Mixcloud page"
+  "bandcamp": {
+    "title": "Bandcamp",
+    "aria": "Find releases on the datafruits label on Bandcamp"
+  },
+  "discord": {
+    "title": "Discord",
+    "aria": "Join the datafruits Discord"
+  },
+  "patreon": {
+    "title": "Patreon",
+    "aria": "Support datafruits through Patreon"
+  },
+  "paypal": {
+    "title": "Paypal",
+    "aria": "Donate to datafruits via Paypal"
   },
   "instagram": {
     "title": "Instagram",
     "aria": "Browse posts from datafruits on Instagram"
   },
+  "youtube": {
+    "title": "Youtube",
+    "aria": "Watch the datafruits Youtube channel"
+  },
   "email": {
     "title": "Email info@datafruits.fm",
-    "aria": "Notify datafruits by email"
+    "aria": "Message datafruits by email"
   },
   "patron": {
     "title": "Ampled",
@@ -282,7 +330,7 @@
     "label": "Theme"
   },
   "about_page": {
-    "listenersupport": "Datafruits.fm is possible thanks to the generous support of the listeners. The best way to support us is with a monthly pledge of your choosing on Ampled. You'll get exclusive posts along with a monthly update video.",
+    "listenersupport": "Datafruits.fm is possible thanks to the generous support of the listeners. The best way to support us is with a monthly pledge of your choosing on Ampled. You'll get exclusive posts along with a monthly update video. You will also get 1000 fruit tickets per month, along with a cool supporter badge in your profile. Neat!",
     "donate_request": "If you'd like to make an one-time donation.",
     "donate_linktext": "https://paypal.me/datafruitsfm",
     "donate_aria": "Make a donation to datafruits.fm through PayPal"
@@ -340,5 +388,14 @@
     "submit": "Datafruit!",
     "add": "Add datafruit",
     "loading": "..."
+  },
+  "forum": {
+    "title": "da fruit standz",
+    "new_topic": "NEW TOPIC",
+    "aria": "a forum to communicate with your fellow fruits",
+    "form": {
+      "title": "post title",
+      "body": "what's up"
+    }
   }
 }

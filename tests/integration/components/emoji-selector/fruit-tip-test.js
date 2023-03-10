@@ -12,6 +12,6 @@ module('Integration | Component | emoji-selector/fruit-tip', function (hooks) {
 
     await render(hbs`<EmojiSelector::FruitTip />`);
 
-    assert.dom(this.element).hasText('Ƒ200');
+    assert.dom(this.element).hasText('Ƒ200 Ƒ400');
   });
 });

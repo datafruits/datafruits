@@ -8,8 +8,14 @@
     autocomplete="off"
     @value={{this.query}}
   />
+  <div>
+    <input type="radio" id="gifs" value="gifs" name="gif-type" {{on "click" this.useGifs}} checked={{eq this.gifType "gifs"}} />
+    <label for="gifs">{{t "chat.gifs"}}</label>
+    <input type="radio" id="stickers" value="stickers" name="gif-type" {{on "click" this.useStickers}} checked={{eq this.gifType "stickers"}} />
+    <label for="stickers">{{t "chat.stickers"}}</label>
+  </div>
 </div>
-<GiphyLoader @query={{this.query}} as |loader|>
+<GiphyLoader @query={{this.query}} @gifType={{this.gifType}} as |loader|>
   {{#if loader.isRunning}}
     <p>{{t "loading"}}</p>
   {{else}}

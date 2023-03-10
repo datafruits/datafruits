@@ -15,6 +15,29 @@
 
 @tailwind components;
 
+@layer base {
+  h1 {
+    @apply text-2xl font-semibold;
+  }
+  h2 {
+    @apply text-xl font-semibold;
+  }
+  h3 {
+    @apply text-lg font-semibold;
+  }
+  h4 {
+    @apply text-base font-semibold;
+  }
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #dfdfdf;
+  color: black;
+  text-shadow: none;
+  padding: 5px;
+}
+
 * {
   cursor:url('/assets/images/mousepointer.png'), auto !important;
 }
@@ -138,6 +161,24 @@
   }
 }
 
+@keyframes bounce2 {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.8, 1.7);
+  }
+
+  50% {
+    transform: scale(2);
+  }
+
+  80% {
+    transform: scale(1.8, 1.7);
+  }
+}
+
 .bleed {
   @include stripe-animation;
 }
@@ -209,10 +250,6 @@ a {
 
 a:hover {
   @apply text-df-yellow-dark;
-}
-
-h1 {
-  @apply text-2xl font-semibold;
 }
 
 input {
@@ -294,6 +331,10 @@ form {
 
 .patron:hover {
   @include stripe-animation;
+}
+
+#social-media-links a:hover {
+  animation: colorfade 3s infinite;
 }
 
 .djs {
@@ -387,7 +428,7 @@ form {
   box-shadow: 10px 10px 2px grey;
 }
 
-.wiki-article {
+@mixin cool-border {
   border-image: repeating-linear-gradient(
     90deg,
     $green,
@@ -405,26 +446,16 @@ form {
   box-shadow: 10px 10px 2px grey;
 }
 
+.wiki-article {
+  @include cool-border;
+}
+
 .show-info {
+  @include cool-border;
   padding: 1em;
-  border-image: repeating-linear-gradient(
-    90deg,
-    $green,
-    $green 20px,
-    $pink 20px,
-    $pink 40px,
-    $yellow 40px,
-    $yellow 60px,
-    $blue 60px,
-    $blue 80px
-  );
-  border-width: 10px;
-  border-style: solid;
-  border-image-slice: 1;
   max-width: 50%;
   bottom: 20px;
   left: 20px;
-  box-shadow: 10px 10px 2px grey;
   position: absolute;
 
   @apply bg-df-blue-dark blm:bg-black;
@@ -435,6 +466,10 @@ form {
     left: 0;
   }
 
+}
+
+.forum-post {
+  @include cool-border;
 }
 
 .show-image {
@@ -510,12 +545,36 @@ canvas#pixi {
   animation: bounce linear 200ms;
 }
 
+.update-notification span {
+  text-shadow: 0 0 0.6em $blue, 0 2px 0.4em black;
+}
+
 .emoji-selector-dialog {
   // top: -265px;
   // left: 0;
   width: 300px;
   height: 250px;
 }
+
+#emoji-width-datalist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  writing-mode: vertical-lr;
+  width: 200px;
+}
+
+#emoji-width-datalist > option {
+  padding: 0;
+  margin: -10px;
+}
+
+#emoji-width-datalist > input[type="range"] {
+  width: 200px;
+  margin: 0;
+}
+
+
 
 @keyframes slidedown {
   from {
@@ -677,6 +736,10 @@ body::-webkit-scrollbar-thumb {
   z-index: 999;
   height: auto;
   width: auto;
+}
+
+.bounce {
+  animation: bounce2 500ms cubic-bezier(0.280, 0.840, 0.420, 1);
 }
 
 @tailwind utilities;

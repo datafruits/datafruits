@@ -11,9 +11,13 @@
     "offline": "오프라인 상태인 것 같아요. 채팅이 안 될 것 같아요.혹시 양파 샐러드 드레싱일지도 몰랐어요.",
     "send": "송신",
     "message_placeholder": "여기에 당신의 메시지를 입력하시오...",
+    "discord": "Discord 서버에서 전송되었습니다.",
     "join": "잡담을 나누다",
     "img_on": "이미지가 켜져 있습니다",
     "img_off": "이미지가 꺼져 있습니다",
+    "gif": "GIF",
+    "gifs": "GIF",
+    "stickers": "스티커",
     "nickname": "여기에 사용자 이름을 입력...",
     "sign_up": "어카운트 등록",
     "logging_you_in": "과일버스에 로그인 중입니다.잠깐만 기다려 주십시오.",
@@ -111,6 +115,24 @@
   "loading": "로드 중...",
   "next_broadcast": "다음 생방송: ",
   "now_playing": "Now playing",
-  "donate": "DONATE",
-  "code_of_conduct": "Code of Conduct"
+  "donate": {
+    "title": "기부합니다",
+    "dj_link": "현재 DJ에게 기부하는 링크는 이쪽입니다."
+  },
+  "code_of_conduct": "Code of Conduct",
+  "password_reset": {
+    "heading": "비밀번호 잊어버리신 분입니다",
+    "email": "e메일",
+    "submit": "살려주세요!!",
+    "errors": {
+      "no_match": "비밀번호 확인이 맞지 않는 것 같습니다.",
+      "too_short": "패스워드의 길이는 반드시 8자 이상입니다."
+    }
+  },
+  "password_new": {
+    "heading": "새 비밀번호를 만듭니다.",
+    "password": "새 비밀번호입니다",
+    "password_confirmation": "새로운 비밀번호 확인입니다.",
+    "submit": "생각합니다"
+  }
 }
