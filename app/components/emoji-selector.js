@@ -4,10 +4,11 @@ import { tracked } from '@glimmer/tracking';
 import fruitTypes from '../fruit-types';
 import emojione from 'emojione';
 import { htmlSafe } from '@ember/string';
+import { formatEmojiHtml } from 'datafruits13/helpers/format-emoji-html';
 
 export default class EmojiSelectorComponent extends Component {
   get smileEmoji() {
-    return htmlSafe(emojione.shortnameToImage(':smile:'));
+    return formatEmojiHtml(":smile:");
   }
 
   get randomFruitImage() {
