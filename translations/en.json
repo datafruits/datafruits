@@ -58,13 +58,15 @@
       "coc": "CoC"
     },
     "titles": {
+      "enter": "Enter the chatroom",
       "join": "Join chat with nickname",
       "login": "Join chat with registered account",
       "send": "Send message to chat",
       "img_on": "Images in chat will be displayed",
       "img_off": "Images in chat will not be displayed",
       "gif": "Share GIF with chat",
-      "gif_close": "Close GIF search"
+      "fruits": "View the fruits",
+      "emoji": "Post an emoji"
     }
   },
   "wiki": {
