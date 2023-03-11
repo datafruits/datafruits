@@ -1,26 +1,16 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import type ScheduledShow from 'datafruits13/models/scheduled-show';
+import type ShowSeries from 'datafruits13/models/show-series';
 import { inject as service } from '@ember/service';
 
 interface UserShowFormArgs {
-  show: ScheduledShow;
+  show: ShowSeries;
 }
 
 export default class UserShowForm extends Component<UserShowFormArgs> {
   @service declare router: any;
 
   file: Blob | null = null;
-
-  weekdays = {
-    'Sunday': 'sunday',
-    'Monday': 'monday',
-    'Tuesday': 'tuesday',
-    'Wednesday': 'wednesday',
-    'Thursday': 'thursday',
-    'Friday': 'friday',
-    'Saturday': 'saturday'
-  };
 
   @action updateFile(e: any){
     this.file = e.target.files[0];
@@ -59,10 +49,5 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
     if(this.args.show.repeating) {
       this.args.show.recurringInterval = 'week';
     }
-  }
-
-  @action
-  setInterval(event: any) {
-    this.args.show.recurringInterval = event.target.value;
   }
 }

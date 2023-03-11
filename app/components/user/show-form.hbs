@@ -31,10 +31,11 @@
     <Input
       @type="date"
       @id="start-date"
-      @value={{@show.start}}
+      @value={{@show.startDateFormatted}}
+      {{on "change" (pick "target.value" (set @show "startDate"))}}
     />
     <TimePicker
-      @value={{@show.start}}
+      @value={{@show.startTime}}
       />
   </div>
   <div>
@@ -42,10 +43,10 @@
     <Input
       @type="date"
       @id="end-date"
-      @value={{@show.end}}
+      @value={{@show.endDate}}
     />
     <TimePicker
-      @value={{@show.end}}
+      @value={{@show.endTime}}
       />
   </div>
   <div>
@@ -61,7 +62,7 @@
   {{#if @show.repeating}}
     <select
       id="repeating-interval"
-      {{on "change" this.setInterval}}
+      {{on "change" (pick "target.value" (set @show "recurringInterval"))}}
       >
       <option value="week" selected>Weekly</option>
       <option value="biweek">Bi-weekly (every other week)</option>
@@ -69,23 +70,15 @@
     </select>
     {{#if @show.isWeekly}}
       <span>On</span>
-      <select
-        id="weekly-interval"
-        >
-        {{#each-in this.weekdays as |key val|}}
-          <option value="{{val}}">{{key}}</option>
-        {{/each-in}}
-      </select>
+      <User::ShowForm::WeekdaySelect
+        @show={{@show}}
+        />
     {{/if}}
     {{#if @show.isBiweekly}}
       <span>On</span>
-      <select
-        id="weekly-interval"
-        >
-        {{#each-in this.weekdays as |key val|}}
-          <option value="{{val}}">{{key}}</option>
-        {{/each-in}}
-      </select>
+      <User::ShowForm::WeekdaySelect
+        @show={{@show}}
+        />
     {{/if}}
     {{#if @show.isMonthly}}
       <span>Every</span>
@@ -98,13 +91,9 @@
         <option value="forth">Forth</option>
         <option value="last">Last</option>
       </select>
-      <select
-        id="monthly-interval-weekday"
-        >
-        {{#each-in this.weekdays as |key val|}}
-          <option value="{{val}}">{{key}}</option>
-        {{/each-in}}
-      </select>
+      <User::ShowForm::WeekdaySelect
+        @show={{@show}}
+        />
     {{/if}}
   {{/if}}
   <div class="mt-2">

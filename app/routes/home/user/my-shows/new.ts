@@ -2,6 +2,9 @@ import Route from '@ember/routing/route';
 
 export default class HomeUserMyShowsNew extends Route {
   model() {
-    return this.store.createRecord('show-series');
+    return this.store.createRecord('show-series', {
+      startDate: new Date(),
+      endDate: new Date(),
+    });
   }
 }

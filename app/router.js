@@ -13,6 +13,7 @@ Router.map(function () {
     this.route('podcasts');
     this.route('about');
     this.route('subscribe');
+    this.route('shows');
     this.route('show', { path: '/shows/:id' });
     this.route('shows.episode', { path: '/shows/:id/episodes/:title' });
     this.route('dj-inquiry');

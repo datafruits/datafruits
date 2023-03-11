@@ -12,6 +12,11 @@ export default class ShowSeries extends Model {
   @attr('string') declare image: string;
   @attr('string') declare imageFilename: string;
 
+  @attr('date') declare startTime: Date;
+  @attr('date') declare endTime: Date;
+  @attr('date') declare startDate: Date;
+  @attr('date') declare endDate: Date;
+
   get isWeekly() {
     return this.recurringInterval === 'week';
   }
@@ -22,6 +27,10 @@ export default class ShowSeries extends Model {
 
   get isMonthly() {
     return this.recurringInterval === 'month';
+  }
+
+  get startDateFormatted() {
+    return this.startDate.toISOString().split("T")[0];
   }
 }
 
