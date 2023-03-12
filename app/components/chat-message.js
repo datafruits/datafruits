@@ -5,7 +5,7 @@ import { action } from '@ember/object';
 export default class ChatMessage extends Component {
   @tracked gifsEnabled = true;
   @tracked imgRegex = /https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpg|gif|png|webp)(\?.*$)*/;
-  @tracked discordRegex = /^New\ msg\ in\ discord\ from\ (.+):\ (.+)$/;
+  @tracked discordRegex = /^New\ msg\ in\ discord\ from\ (.+):\ (.+)$/; // eslint-disable-line no-useless-escape
 
   get canShowAvatar() {
     if (!this.args.message.role) return false;
