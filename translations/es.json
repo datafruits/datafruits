@@ -12,6 +12,7 @@
     "title": "Charla",
     "new_messages": "Nuevas mensajes debajo.",
     "offline": "Parece que estás desconectado. Supongo que no podrás chatear. Debe haber sido el aderezo de ensalada de cebolla",
+    "discord": "Esto fue enviado desde nuestro servidor Discord",
     "send": "Enviar",
     "message_placeholder": "introduzca su mensaje aquí...",
     "join": "Únete al chat",
@@ -25,11 +26,14 @@
     },
     "titles": {
       "enter": "Entrar al chat",
+      "join": "Unirse al chat con apodo",
+      "login": "Unirse al chat con cuenta registrada",
       "send": "Enviar mensaje para chatear",
       "img_on": "Se mostrarán las imágenes en el chat",
       "img_off": "Las imágenes en el chat no se mostrarán",
       "gif": "Compartir GIF con chat",
-      "gif_close": "Cerrar búsqueda de GIF"
+      "fruits": "ver los frutos",
+      "emoji": "Publica un emoticón"
     }
   },
   "podcasts": {
@@ -161,5 +165,8 @@
       "p1_linktext": "https://www.contributor-covenant.org/es/version/1/4/code-of-conduct/"
     }
   },
-  "donate": "DONAR"
+  "donate": {
+    "title": "APOYO",
+    "dj_link": "El enlace de donación del DJ actual está aquí:"
+  }
 }

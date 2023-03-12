@@ -13,6 +13,7 @@
     "offline": "您下線了. 現在不能聊天. 應該是那個洋蔥沙拉醬的問題.",
     "send": "發送",
     "message_placeholder": "請在這裡發留言",
+    "discord": "这是从我们的 Discord 服务器发送的",
     "join": "進聊天室",
     "img_on": "圖片",
     "img_off": "沒圖片",
@@ -29,11 +30,14 @@
     },
     "titles": {
       "enter": "進入聊天",
+      "join": "使用昵称加入聊天",
+      "login": "使用注册帐户加入聊天",
       "send": "發送",
       "img_on": "圖片",
       "img_off": "沒圖片",
       "gif": "聊天中分享 GIF",
-      "gif_close": "關閉 GIF 搜索"
+      "fruits": "查看水果",
+      "emoji": "发布表情符号"
     },
     "login": "登錄",
     "username": "用戶名",
@@ -117,5 +121,8 @@
   },
   "locale": "語言",
   "theme": { "label": "主題" },
-  "donate": "捐"
+  "donate": {
+    "title": "支持",
+    "dj_link": "当前DJ的捐赠链接在这里"
+  }
 }
