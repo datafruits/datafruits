@@ -31,8 +31,7 @@
     <Input
       @type="date"
       @id="start-date"
-      @value={{@show.startDateFormatted}}
-      {{on "change" (pick "target.value" (set @show "startDate"))}}
+      @value={{@show.startDate}}
     />
     <TimePicker
       @value={{@show.startTime}}

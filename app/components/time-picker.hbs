@@ -1,8 +1,10 @@
-<PowerSelect
-  @searchEnabled={{true}}
-  @selected={{this.selected}}
-  @onChange={{this.setTime}}
-  @options={{this.times}} as |time|
->
-  {{time}}
-</PowerSelect>
+<div class="w-32 text-black">
+  <PowerSelect
+    @searchEnabled={{true}}
+    @selected={{this.selected}}
+    @onChange={{this.setTime}}
+    @options={{this.times}} as |time|
+  >
+    {{time}}
+  </PowerSelect>
+</div>

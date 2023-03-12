@@ -14,8 +14,8 @@ export default class ShowSeries extends Model {
 
   @attr('date') declare startTime: Date;
   @attr('date') declare endTime: Date;
-  @attr('date') declare startDate: Date;
-  @attr('date') declare endDate: Date;
+  @attr('string') declare startDate: string;
+  @attr('string') declare endDate: string;
 
   get isWeekly() {
     return this.recurringInterval === 'week';
@@ -27,10 +27,6 @@ export default class ShowSeries extends Model {
 
   get isMonthly() {
     return this.recurringInterval === 'month';
-  }
-
-  get startDateFormatted() {
-    return this.startDate.toISOString().split("T")[0];
   }
 }
 
