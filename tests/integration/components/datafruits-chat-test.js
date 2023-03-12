@@ -24,7 +24,7 @@ module('Integration | Component | datafruits chat', function (hooks) {
       'Join chat',
       'join chat button is visible',
     );
-    assert.true(this.element.textContent.trim().includes('Images are off'));
+    assert.dom(this.element.querySelector('img.emojione')).hasNoAttribute("title");
     assert.true(this.element.textContent.trim().includes('Login'));
     assert.dom('[data-test-join-chat]').isDisabled();
   });

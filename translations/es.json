@@ -26,11 +26,14 @@
     },
     "titles": {
       "enter": "Entrar al chat",
+      "join": "Unirse al chat con apodo",
+      "login": "Unirse al chat con cuenta registrada",
       "send": "Enviar mensaje para chatear",
       "img_on": "Se mostrarán las imágenes en el chat",
       "img_off": "Las imágenes en el chat no se mostrarán",
       "gif": "Compartir GIF con chat",
-      "gif_close": "Cerrar búsqueda de GIF"
+      "fruits": "ver los frutos",
+      "emoji": "Publica un emoticón"
     }
   },
   "podcasts": {
@@ -162,5 +165,8 @@
       "p1_linktext": "https://www.contributor-covenant.org/es/version/1/4/code-of-conduct/"
     }
   },
-  "donate": "DONAR"
+  "donate": {
+    "title": "APOYO",
+    "dj_link": "El enlace de donación del DJ actual está aquí:"
+  }
 }
