@@ -10,8 +10,8 @@
     </button>
   </div>
   <div class="modal-body m-1">
-    <div class="md:hidden h-32 flex flex-shrink pl-4 border-2 border-df-yellow overflow-y-scroll">
-      <ul id="userlist" class="h-1/5">
+    <div class="flex flex-shrink overflow-y-scroll">
+      <ul id="userlist">
         {{#each-in this.chat.presences as |username user|}}
           <UserListItem @user={{user}} />
         {{/each-in}}
