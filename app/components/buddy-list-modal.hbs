@@ -1,0 +1,21 @@
+<ModalDialog
+  translucentOverlay={{true}}
+>
+  <div class="modal-top">
+    <button {{on "click" (fn @toggleModal)}}
+      type="button"
+      class="cool-button"
+      >
+      X
+    </button>
+  </div>
+  <div class="modal-body m-1">
+    <div class="md:hidden h-32 flex flex-shrink pl-4 border-2 border-df-yellow overflow-y-scroll">
+      <ul id="userlist" class="h-1/5">
+        {{#each-in this.chat.presences as |username user|}}
+          <UserListItem @user={{user}} />
+        {{/each-in}}
+      </ul>
+    </div>
+  </div>
+</ModalDialog>

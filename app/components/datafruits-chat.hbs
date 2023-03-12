@@ -6,21 +6,7 @@
   {{else if this.chat.loading}}
     {{t "chat.loading"}}
   {{else}}
-    <div class="md:hidden {{if this.showingUserList "h-32"}} flex flex-shrink pl-4 border-2 border-df-yellow overflow-y-scroll">
-      <button {{action "toggleUserList"}}
-        type="button"
-        class="cool-button"
-        title="TOGGLE"
-        data-test-userlist-button
-      >
-        {{if this.showingUserList "HIDE" "SHOW"}}
-      </button>
-      <ul id="userlist" class={{if this.showingUserList "h-1/5 block" "h-0 hidden"}}>
-        {{#each-in this.chat.presences as |username user|}}
-          <UserListItem @user={{user}} />
-        {{/each-in}}
-      </ul>
-    </div>
+
     <div id="chat-area"
       class="text-df-yellow font-bold flex flex-row flex-grow min-h-0 relative text-shadow mb-5 flex-basis-0"
       {{did-insert this.didInsert}}
@@ -49,57 +35,75 @@
     </div>
     <div class="flex flex-col justify-center items-center w-full">
       {{#if this.chat.joinedChat}}
-        <form align="center" class="mb-3 w-full">
-          <Chat::InputMessage  @isOffline={{@networkStatus.isOffline}} />
-          <Chat::EnableGifsButton @toggleGifs={{this.toggleGifsEnabled}} @enabled={{this.chat.gifsEnabled}} />
-        </form>
+        <div align="center" class="mb-3 w-full">
+          <form>
+            <Chat::InputMessage  @isOffline={{@networkStatus.isOffline}} />
+            <Chat::EnableGifsButton @toggleGifs={{this.toggleGifsEnabled}} @enabled={{this.chat.gifsEnabled}} />
+            <button {{action "toggleBuddyListModal"}}
+              type="button"
+              class="cool-button md:hidden"
+              title="Show the buddy list"
+            >
+              {{this.buddyListIcon}}
+            </button>
+          </form>
+        </div>
       {{else}}
       <form align="center" class="mb-3" {{on "submit" this.enterChatAnonymously}}>
+        <div>
           <div>
-            <div>
-              <label for="nick">{{t "chat.label.nick"}}</label>
-              <Input
-                @type="text"
-                @value={{this.nick}}
-                autocorrect="off"
-                autocapitalize="none"
-                class="max-h-full"
-                placeholder={{t "chat.nickname"}}
-              />
-              <input
-                data-test-join-chat
-                class="cool-button"
-                type="submit"
-                disabled={{this.disableJoinButton}}
-                title={{t "chat.titles.enter"}}
-                value={{t "chat.join_anonymously"}}
-              >
-              <Chat::EnableGifsButton @toggleGifs={{this.toggleGifsEnabled}} @enabled={{this.chat.gifsEnabled}} />
-            </div>
-            <div>
-              <label class="text-xs" for="agree-to-coc">
-                {{t "chat.coc_label"}}
-              </label>
-              <a class="text-sm" href="/coc"><abbr title={{t "code_of_conduct"}}>{{t "chat.label.coc"}}</abbr></a>
-            </div>
+            <label for="nick">{{t "chat.label.nick"}}</label>
+            <Input
+              @type="text"
+              @value={{this.nick}}
+              autocorrect="off"
+              autocapitalize="none"
+              class="max-h-full"
+              placeholder={{t "chat.nickname"}}
+            />
+            <input
+              data-test-join-chat
+              class="cool-button"
+              type="submit"
+              disabled={{this.disableJoinButton}}
+              title={{t "chat.titles.enter"}}
+              value={{t "chat.join_anonymously"}}
+            />
+            <Chat::EnableGifsButton 
+              @toggleGifs={{this.toggleGifsEnabled}}
+              @enabled={{this.chat.gifsEnabled}}
+            />
+          </div>
+          <div>
+            <label class="text-xs" for="agree-to-coc">
+              {{t "chat.coc_label"}}
+            </label>
+            <a class="text-sm" href="/coc"><abbr title={{t "code_of_conduct"}}>{{t "chat.label.coc"}}</abbr></a>
           </div>
           <div class="flex justify-center">
-            <button {{action "toggleLoginModal"}}
-                 type="button"
-                 class="cool-button"
-                 title={{t "chat.titles.login"}}
-                 data-test-login-button
-                 >
-                 {{t "chat.login"}}
-            </button>
+          <button {{action "toggleLoginModal"}}
+            type="button"
+            class="cool-button"
+            title={{t "chat.titles.login"}}
+            data-test-login-button
+          >
+            {{t "chat.login"}}
+          </button>
           </div>
-        </form>
+        </div>
+      </form>
       {{/if}}
     </div>
     {{#if this.showingLoginModal}}
       <LoginModal
         @login={{action "enterChat"}}
         @toggleModal={{action "toggleLoginModal"}}
+      />
+    {{/if}}
+    {{#if this.showingBuddyListModal}}
+      <BuddyListModal
+        @chat={{this.chat}}
+        @toggleModal={{action "toggleBuddyListModal"}}
       />
     {{/if}}
   {{/if}}

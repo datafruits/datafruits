@@ -2,6 +2,7 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import Component from '@glimmer/component';
+import { formatEmojiHtml } from 'datafruits13/helpers/format-emoji-html';
 
 export default class DatafruitsChat extends Component {
   @service
@@ -12,18 +13,22 @@ export default class DatafruitsChat extends Component {
   @tracked isJoiningChat = false;
 
   @tracked
-  showingUserList = true;
-  
-  @tracked
   showingLoginModal = false;
+
+  @tracked
+  showingBuddyListModal = false;
 
   get disableJoinButton() {
     return this.nick.length < 1 || this.isJoiningChat;
   }
 
+  get buddyListIcon() {
+    return formatEmojiHtml(":busts_in_silhouette:");
+  }
+
   @action
-  toggleUserList() {
-    this.showingUserList = !this.showingUserList;
+  toggleBuddyListModal() {
+    this.showingBuddyListModal = !this.showingBuddyListModal;
   }
 
   @action
