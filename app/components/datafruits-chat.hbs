@@ -39,13 +39,7 @@
           <form>
             <Chat::InputMessage  @isOffline={{@networkStatus.isOffline}} />
             <Chat::EnableGifsButton @toggleGifs={{this.toggleGifsEnabled}} @enabled={{this.chat.gifsEnabled}} />
-            <button {{action "toggleBuddyListModal"}}
-              type="button"
-              class="cool-button md:hidden"
-              title="Show the buddy list"
-            >
-              {{this.buddyListIcon}}
-            </button>
+            <Chat::BuddyListButton />
           </form>
         </div>
       {{else}}
@@ -73,6 +67,7 @@
               @toggleGifs={{this.toggleGifsEnabled}}
               @enabled={{this.chat.gifsEnabled}}
             />
+            <Chat::BuddyListButton />
           </div>
           <div>
             <label class="text-xs" for="agree-to-coc">
@@ -98,12 +93,6 @@
       <LoginModal
         @login={{action "enterChat"}}
         @toggleModal={{action "toggleLoginModal"}}
-      />
-    {{/if}}
-    {{#if this.showingBuddyListModal}}
-      <BuddyListModal
-        @chat={{this.chat}}
-        @toggleModal={{action "toggleBuddyListModal"}}
       />
     {{/if}}
   {{/if}}

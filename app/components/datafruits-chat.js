@@ -15,20 +15,8 @@ export default class DatafruitsChat extends Component {
   @tracked
   showingLoginModal = false;
 
-  @tracked
-  showingBuddyListModal = false;
-
   get disableJoinButton() {
     return this.nick.length < 1 || this.isJoiningChat;
-  }
-
-  get buddyListIcon() {
-    return formatEmojiHtml(":busts_in_silhouette:");
-  }
-
-  @action
-  toggleBuddyListModal() {
-    this.showingBuddyListModal = !this.showingBuddyListModal;
   }
 
   @action
