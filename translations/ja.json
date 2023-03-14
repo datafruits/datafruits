@@ -44,7 +44,8 @@
       "img_off": "チャット中の画像は表示されません",
       "gif": "チャットでGIFを共有する",
       "fruits": "果物を見る",
-      "emoji": "絵文字を投稿する"
+      "emoji": "絵文字を投稿する",
+      "buddy_list_button": "チャットルームでユーザーを表示する"
     },
     "login": "ログイン",
     "username": "username",

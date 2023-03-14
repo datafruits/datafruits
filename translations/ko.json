@@ -40,7 +40,8 @@
       "img_off": "채팅중인 이미지가 표시되지 않습니다",
       "gif": "채팅으로 GIF 공유",
       "fruits": "과일보기",
-      "emoji": "이모티콘 게시"
+      "emoji": "이모티콘 게시",
+      "buddy_list_button": "채팅방에 사용자 표시"
     }
   },
   "login": "Login",
