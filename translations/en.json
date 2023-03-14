@@ -66,7 +66,8 @@
       "img_off": "Images in chat will not be displayed",
       "gif": "Share GIF with chat",
       "fruits": "View the fruits",
-      "emoji": "Post an emoji"
+      "emoji": "Post an emoji",
+      "buddy_list_button": "Show users in the chatroom"
     }
   },
   "wiki": {

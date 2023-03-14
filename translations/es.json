@@ -33,7 +33,8 @@
       "img_off": "Las imágenes en el chat no se mostrarán",
       "gif": "Compartir GIF con chat",
       "fruits": "ver los frutos",
-      "emoji": "Publica un emoticón"
+      "emoji": "Publica un emoticón",
+      "buddy_list_button": "Mostrar usuarios en la sala de chat"
     }
   },
   "podcasts": {
