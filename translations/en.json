@@ -169,6 +169,7 @@
     "min_age": "I am at least 13 years old"
   },
   "profile": {
+    "time_zone": "Time Zone",
     "favorites": "View My Favorites",
     "my_favorites": "My Favorite",
     "my_pic": "Update avatar",

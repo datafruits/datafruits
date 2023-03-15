@@ -1,0 +1,9 @@
+<PowerSelect
+  @searchEnabled={{true}}
+  @renderInPlace={{true}}
+  @options={{this.availableTimeZones}}
+  @selected={{this.selectedPlaylist}}
+  @onChange={{@onChange}}
+  as |timeZone|>
+      {{timeZone}}
+</PowerSelect>
