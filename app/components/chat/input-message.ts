@@ -16,6 +16,12 @@ export default class ChatInputMessage extends Component {
 
   @tracked inputMessage: string = '';
 
+  @tracked hasMessage = false;
+  
+  @action setMessage() { 
+    this.hasMessage = this.inputMessage.length > 0;
+  }
+
   @action
   sendEmoji(shortcode: string) {
     if (this.inputMessage.length === 0) {

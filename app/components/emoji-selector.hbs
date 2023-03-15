@@ -1,6 +1,16 @@
 <span class="relative">
+  <div class="inline-block md:hidden">
+    <button
+      class="cool-button hidden md:inline-block"
+      type="button"
+      title={{t "chat.titles.emoji"}}
+      {{on "click" this.openEmojiDialog}}
+      >
+      {{this.smileEmoji}}
+    </button>
+  </div>
   <button
-    class="cool-button"
+    class="cool-button hidden md:inline-block"
     type="button"
     title={{t "chat.titles.gif"}}
     {{on "click" this.openGifDialog}}
@@ -8,7 +18,7 @@
     {{t "chat.gif"}}
   </button>
   <button
-    class="cool-button fruit-tip-button text-xl font-black"
+    class="cool-button hidden md:inline-block fruit-tip-button text-xl font-black"
     type="button"
     style="padding: 0.1em !important;"
     title={{t "chat.titles.fruits"}}
@@ -20,7 +30,7 @@
     </span>
   </button>
   <button
-    class="cool-button"
+    class="cool-button hidden md:inline-block"
     type="button"
     title={{t "chat.titles.emoji"}}
     {{on "click" this.openEmojiDialog}}
