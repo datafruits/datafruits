@@ -1,0 +1,101 @@
+<span class="relative">
+  <div class="inline-block md:hidden">
+    <button
+      class="cool-button"
+      type="button"
+      title={{t "chat.titles.emoji"}}
+      {{on "click" this.openEmojiDialog}}
+    >
+      {{this.pineappleEmoji}}
+    </button>
+  </div>
+  <div class="hidden md:inline-block">
+    <button
+      class="cool-button"
+      type="button"
+      title={{t "chat.titles.gif"}}
+      {{on "click" this.openGifDialog}}
+    >
+      {{t "chat.gif"}}
+    </button>
+    <button
+      class="cool-button fruit-tip-button text-xl font-black"
+      type="button"
+      style="padding: 0.1em !important;"
+      title={{t "chat.titles.fruits"}}
+      {{on "click" this.openFruittipDialog}}
+    >
+      <span class="flex">
+        <img src="{{this.randomFruitImage}}" style="height: 3ex !important;" width="33px" height="33px" alt="send fruit" >
+        <h1>{{this.fruitCountTotal}}</h1>
+      </span>
+    </button>
+    <button
+      class="cool-button"
+      type="button"
+      title={{t "chat.titles.emoji"}}
+      {{on "click" this.openEmojiDialog}}
+    >
+      {{this.smileEmoji}}
+    </button>
+  </div>
+  <div class="inline-block">
+    <div>
+
+      <Chat::ChatSettings />
+    </div>
+  </div>
+  {{#if this.dialogOpen}}
+    <ModalDialog
+      @onClose={{this.closeDialog}}
+      @hasOverlay={{false}}
+      @clickOutsideToClose={{true}}
+    >
+      <div class="p-2 border-white border-4 border-solid bg-df-blue overflow-scroll emoji-selector-dialog">
+        <div class="flex-row flex justify-between">
+          <button
+            class="cool-button"
+            type="button"
+            title={{t "chat.titles.gif"}}
+            {{on "click" this.openGifDialog}}
+            >
+            {{t "chat.gif"}}
+          </button>
+          <button
+            class="cool-button fruit-tip-button text-xl font-black"
+            type="button"
+            style="padding: 0.1em !important;"
+            title={{t "chat.titles.fruits"}}
+            {{on "click" this.openFruittipDialog}}
+          >
+            <span class="flex">
+              <img src="{{this.randomFruitImage}}" style="height: 3ex !important;" width="33px" height="33px" alt="send fruit" >
+              <h1>{{this.fruitCountTotal}}</h1>
+            </span>
+          </button>
+          <button
+            class="cool-button"
+            type="button"
+            title={{t "chat.titles.emoji"}}
+            {{on "click" this.openEmojiDialog}}
+            >
+            {{this.smileEmoji}}
+          </button>
+        </div>
+        {{#if (eq this.currentTab "gif")}}
+          <EmojiSelector::Gif
+            @closeDialog={{this.closeDialog}}
+            @sendGif={{@sendGif}}
+          />
+        {{else if (eq this.currentTab "fruitTip")}}
+          <EmojiSelector::FruitTip />
+        {{else if (eq this.currentTab "emoji")}}
+          <EmojiSelector::Emoji
+            @closeDialog={{this.closeDialog}}
+            @sendEmoji={{@sendEmoji}}
+          />
+        {{/if}}
+      </div>
+    </ModalDialog>
+  {{/if}}
+</span>

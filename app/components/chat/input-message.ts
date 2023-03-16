@@ -18,7 +18,8 @@ export default class ChatInputMessage extends Component {
 
   @tracked hasMessage = false;
   
-  @action setMessage() { 
+  @action
+  setMessage() {
     this.hasMessage = this.inputMessage.length > 0;
   }
 
@@ -41,6 +42,7 @@ export default class ChatInputMessage extends Component {
     const button: HTMLButtonElement | null = document.querySelector('#send-message-button');
     if (button) {
       button.focus();
+      this.setMessage();
     }
   }
 
