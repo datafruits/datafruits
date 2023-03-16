@@ -33,6 +33,7 @@ export default class ChatInputMessage extends Component {
     const button: HTMLButtonElement | null = document.querySelector('#send-message-button');
     if (button) {
       button.focus();
+      this.setMessage();
     }
   }
 
