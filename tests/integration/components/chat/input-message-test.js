@@ -13,7 +13,7 @@ module('Integration | Component | chat/input-message', function (hooks) {
 
     await render(hbs`<Chat::InputMessage />`);
 
-    assert.true(this.element.textContent.trim().includes('Send'));
+    assert.true(this.element.querySelector('#send-message-button').classList.contains('invisible'))
     assert.true(this.element.textContent.trim().includes('GIF'));
   });
 });
