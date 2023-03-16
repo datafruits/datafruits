@@ -316,6 +316,11 @@ form {
   text-shadow: none !important;
 }
 
+.ember-power-select-selected-item {
+  text-shadow: none !important;
+  color: black
+}
+
 .fc-center {
   text-shadow: 3px 3px 3px #333, 7px 7px 0 #ff00fc;
   transform: rotate(-3.5deg);
