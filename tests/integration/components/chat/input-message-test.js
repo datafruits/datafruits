@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { fillIn, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | chat/input-message', function (hooks) {
@@ -13,7 +13,10 @@ module('Integration | Component | chat/input-message', function (hooks) {
 
     await render(hbs`<Chat::InputMessage />`);
 
-    assert.true(this.element.querySelector('#send-message-button').classList.contains('invisible'))
-    assert.true(this.element.textContent.trim().includes('GIF'));
+    assert.equal(this.element.querySelectorAll('#send-message-button').length, 0);
+
+    await fillIn('#input-message', "musta been the onion salad dressing");
+
+    assert.equal(this.element.querySelectorAll('#send-message-button').length, 1);
   });
 });
