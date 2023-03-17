@@ -10,6 +10,7 @@ module.exports = function () {
       'chevron-left',
       'times',
       'heart',
+      'arrow-right',
     ],
     'free-brands-svg-icons': [
       'twitter', 

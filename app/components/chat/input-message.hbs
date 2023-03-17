@@ -8,20 +8,22 @@
     @value={{this.inputMessage}}
     @autofocus="autofocus"
     placeholder={{t "chat.message_placeholder"}}
-    class="sm:w-1/4 md:w-3/5 lg:w-3/4"
+    class="sm:w-1/5 md:w-3/5 lg:w-3/4"
     aria-label="{{t "chat.label.input"}}"
     data-test-chat-input-message
   />
-  <button {{on "click" this.sendMessage}}
-    type="submit"
-    class="cool-button"
-    id="send-message-button"
-    disabled={{@isOffline}}
-    title={{t "chat.titles.send"}}
-  >
-    {{t "chat.send"}}
-  </button>
-  <EmojiSelector
+  {{#if this.hasMessage}}
+    <button {{on "click" this.sendMessage}}
+      type="submit"
+      class="cool-button"
+      id="send-message-button"
+      disabled={{@isOffline}}
+      title={{t "chat.titles.send"}}
+      >
+        <FaIcon @icon="arrow-right" />
+    </button>
+  {{/if}}
+  <Chat::EmojiSelector
     @sendGif={{this.sendGif}}
     @sendEmoji={{this.sendEmoji}}
   />
