@@ -30,21 +30,21 @@ export default class ChatInputMessage extends Component {
     } else {
       this.inputMessage = `${this.inputMessage} ${shortcode}`;
     }
+    this.setMessageAndFocus()
+  }
+
+  setMessageAndFocus(){
+    this.setMessage();
     const button: HTMLButtonElement | null = document.querySelector('#send-message-button');
     if (button) {
       button.focus();
-      this.setMessage();
     }
   }
 
   @action
   sendGif(gif: Gif) {
     this.inputMessage = gif.url;
-    const button: HTMLButtonElement | null = document.querySelector('#send-message-button');
-    if (button) {
-      button.focus();
-      this.setMessage();
-    }
+    this.setMessageAndFocus()
   }
 
   @action
@@ -71,6 +71,7 @@ export default class ChatInputMessage extends Component {
         this.chat.push('new:msg', { user: this.chat.username, body: message, timestamp: Date.now() });
       }
       this.inputMessage = '';
+      this.setMessage();
     }
   }
 

@@ -15,12 +15,14 @@
   />
   <button {{on "click" this.sendMessage}}
     type="submit"
-    class="{{if this.hasMessage "visible cool-button" "invisible w-0"}}"
+    class="{{if this.hasMessage "cool-button" "w-0"}}"
     id="send-message-button"
     disabled={{@isOffline}}
     title={{t "chat.titles.send"}}
     >
-      <FaIcon @icon="arrow-right" />
+      {{#if this.hasMessage}}
+        <FaIcon @icon="arrow-right" />
+      {{/if}}
   </button>
   <Chat::EmojiSelector
     @sendGif={{this.sendGif}}
