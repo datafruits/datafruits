@@ -9,21 +9,20 @@
     @autofocus="autofocus"
     placeholder={{t "chat.message_placeholder"}}
     class="sm:w-1/5 md:w-3/5 lg:w-3/4"
-    {{on 'keyup' this.setMessage}} 
     aria-label="{{t "chat.label.input"}}"
     data-test-chat-input-message
   />
-  <button {{on "click" this.sendMessage}}
-    type="submit"
-    class="{{if this.hasMessage "cool-button" "w-0"}}"
-    id="send-message-button"
-    disabled={{@isOffline}}
-    title={{t "chat.titles.send"}}
-    >
-      {{#if this.hasMessage}}
+  {{#if this.hasMessage}}
+    <button {{on "click" this.sendMessage}}
+      type="submit"
+      class="cool-button"
+      id="send-message-button"
+      disabled={{@isOffline}}
+      title={{t "chat.titles.send"}}
+      >
         <FaIcon @icon="arrow-right" />
-      {{/if}}
-  </button>
+    </button>
+  {{/if}}
   <Chat::EmojiSelector
     @sendGif={{this.sendGif}}
     @sendEmoji={{this.sendEmoji}}

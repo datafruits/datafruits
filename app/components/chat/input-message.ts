@@ -8,6 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import CurrentUserService from 'datafruits13/services/current-user';
 import ChatService from 'datafruits13/services/chat';
 import Gif from 'datafruits13/models/gif';
+import { next } from '@ember/runloop';
 
 export default class ChatInputMessage extends Component {
   @service declare chat: ChatService;
@@ -16,13 +17,10 @@ export default class ChatInputMessage extends Component {
 
   @tracked inputMessage: string = '';
 
-  @tracked hasMessage = false;
-  
-  @action
-  setMessage() {
-    this.hasMessage = this.inputMessage.length > 0;
+  get hasMessage () {
+    return this.inputMessage.length > 0;
   }
-
+  
   @action
   sendEmoji(shortcode: string) {
     if (this.inputMessage.length === 0) {
@@ -30,22 +28,24 @@ export default class ChatInputMessage extends Component {
     } else {
       this.inputMessage = `${this.inputMessage} ${shortcode}`;
     }
-    this.setMessageAndFocus()
-  }
-
-  setMessageAndFocus(){
-    this.setMessage();
-    const button: HTMLButtonElement | null = document.querySelector('#send-message-button');
-    if (button) {
-      button.focus();
-    }
+    this.setFocus()
   }
 
   @action
   sendGif(gif: Gif) {
     this.inputMessage = gif.url;
-    this.setMessageAndFocus()
+    this.setFocus()
   }
+
+  setFocus(){
+    next(this, ()=> {
+      const button: HTMLButtonElement | null = document.querySelector('#send-message-button');
+      if (button) {
+        button.focus();
+      }
+    });
+  }
+
 
   @action
   sendMessage(e: Event) {
@@ -71,7 +71,6 @@ export default class ChatInputMessage extends Component {
         this.chat.push('new:msg', { user: this.chat.username, body: message, timestamp: Date.now() });
       }
       this.inputMessage = '';
-      this.setMessage();
     }
   }
 
