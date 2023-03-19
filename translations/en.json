@@ -170,10 +170,10 @@
     "min_age": "I am at least 13 years old"
   },
   "profile": {
-    "time_zone": "Time Zone",
-    "favorites": "View My Favorites",
+    "time_zone": "Timezone",
+    "favorites": "Favorites",
     "my_favorites": "My Favorite",
-    "my_pic": "Update avatar",
+    "my_pic": "Update Avatar",
     "settings": "Profile Settings",
     "chat": "Chat Preview",
     "chat_test": "This is a test message",

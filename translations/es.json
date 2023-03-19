@@ -3,6 +3,14 @@
     "message": "Página no encontrada",
     "return_linktext": "volver a la seguridad"
   },
+  "profile": {
+    "favorites": "Favoritas"
+  },
+  "usermenu": {
+    "settings": "Editar perfil",
+    "dropdown-aria": "Mostrar menú de usuario",
+    "logout": "Cerrar sesión"
+  },
   "home": {
     "upcoming_shows": "PRÓXIMOS PROGRAMAS",
     "latest_podcasts": "ÚLTIMOS ARCHIVOS",

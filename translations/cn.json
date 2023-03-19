@@ -7,6 +7,9 @@
     "latest_podcasts": "最新存檔",
     "events": "活動"
   },
+  "profile": {
+    "favorites": "收藏夹"
+  },
   "chat": {
     "title": "聊天室",
     "new_messages": "新留言在下.",
@@ -45,6 +48,7 @@
     "password": "密碼"
   },
   "usermenu": {
+    "dropdown-aria": "显示用户菜单",
     "settings": "設置",
     "logout": "登出"
   },

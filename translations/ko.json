@@ -60,7 +60,8 @@
   "profile": {
     "style": "스타일",
     "submit": "보존",
-    "pronouns": "성별 대명사"
+    "pronouns": "성별 대명사",
+    "favorites": "즐겨찾기"
   },
   "usermenu": {
     "settings": "프로필 편집",
