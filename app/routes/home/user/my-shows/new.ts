@@ -7,6 +7,7 @@ export default class HomeUserMyShowsNew extends Route {
     return this.store.createRecord('show-series', {
       startDate: date,
       endDate: date,
+      recurringInterval: 'not_recurring'
     });
   }
 }

@@ -45,9 +45,12 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
 
   @action
   setRepeating(event: any) {
-    this.args.show.repeating = event.target.value;
-    if(this.args.show.repeating) {
-      this.args.show.recurringInterval = 'week';
+    if(event.target.value) {
+      if(!this.args.show.repeating) {
+        this.args.show.recurringInterval = 'week';
+      }
+    } else {
+      this.args.show.recurringInterval = 'not_recurring';
     }
   }
 }

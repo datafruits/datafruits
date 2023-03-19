@@ -4,8 +4,7 @@ export default class ShowSeries extends Model {
   @attr('string') declare title: string;
   @attr('string') declare description: string;
 
-  @attr('boolean') declare repeating: boolean;
-  @attr('string') declare recurringInterval: string;
+  @attr('string') declare recurringInterval: 'not_recurring' | 'week' | 'biweek' | 'month';
   @attr('string') declare recurringWeekday: string;
   @attr('string') declare recurringCadence: string;
 
@@ -27,6 +26,10 @@ export default class ShowSeries extends Model {
 
   get isMonthly() {
     return this.recurringInterval === 'month';
+  }
+
+  get repeating() {
+    return this.recurringInterval != 'not_recurring';
   }
 }
 
