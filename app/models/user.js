@@ -14,6 +14,9 @@ export default class UserModel extends Model {
   role;
 
   @attr()
+  timeZone;
+
+  @attr()
   avatarUrl;
 
   @attr()

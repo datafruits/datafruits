@@ -381,6 +381,20 @@ export function initialize(/* application */) {
       shortnames: [':pricemaster:'],
       keywords: ['pricemaster'],
     },
+    ':glop:': {
+      custom: true,
+      uc_base: 'glop',
+      uc_output: '',
+      shortnames: [':glop:'],
+      keywords: ['glop'],
+    },
+    ':glorp:': {
+      custom: true,
+      uc_base: 'glorp',
+      uc_output: '',
+      shortnames: [':glorp:'],
+      keywords: ['glorp'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {

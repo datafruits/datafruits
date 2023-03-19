@@ -8,6 +8,7 @@ const fruitTypes: Array<Fruit> = [
   new Fruit('watermelon', '/assets/images/emojis/watermel.gif'),
   new Fruit('cabbage', '/assets/images/emojis/cabbage.gif'),
   new Fruit('metal-pineapple', '/assets/images/emojis/metal_pineapple.png', 200),
+  new Fruit('real-lemoner', '/assets/images/emojis/lemoner_real.png', 400),
 ];
 
 export default fruitTypes;

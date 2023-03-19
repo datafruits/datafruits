@@ -59,6 +59,11 @@ export default class HomeUserSettingsController extends Controller {
   }
 
   @action
+  setTimezone(timeZone) {
+    this.currentUser.user.timeZone = timeZone;
+  }
+
+  @action
   saveUser(e) {
     e.preventDefault();
     this.currentUser.user
