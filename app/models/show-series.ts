@@ -11,8 +11,8 @@ export default class ShowSeries extends Model {
   @attr('string') declare image: string;
   @attr('string') declare imageFilename: string;
 
-  @attr('date') declare startTime: Date;
-  @attr('date') declare endTime: Date;
+  @attr('string') declare startTime: string;
+  @attr('string') declare endTime: string;
   @attr('string') declare startDate: string;
   @attr('string') declare endDate: string;
 
