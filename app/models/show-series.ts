@@ -10,6 +10,8 @@ export default class ShowSeries extends Model {
 
   @attr('string') declare image: string;
   @attr('string') declare imageFilename: string;
+  @attr('string') declare imageUrl: string;
+  @attr('string') declare thumbImageUrl: string;
 
   @attr('string') declare startTime: string;
   @attr('string') declare endTime: string;

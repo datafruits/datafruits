@@ -36,6 +36,7 @@ export default class TimePickerComponent extends Component<TimePickerArgs> {
 
   get selected() {
     const time = this.args.value;
+    console.log(time);
     if (time) {
       return `${time.getHours()}:00`;
     } else {
