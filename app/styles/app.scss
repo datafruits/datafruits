@@ -724,6 +724,10 @@ body::-webkit-scrollbar-thumb {
   @apply classic:bg-df-pink blm:bg-black trans:bg-df-blue border-solid border-2 border-df-blue text-white;
 }
 
+.ember-power-select-selected-item {
+  color: white;  
+}
+
 .about-section {
   @apply my-4 md:mx-4;
 }
