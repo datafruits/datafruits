@@ -2,12 +2,15 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import type ShowSeries from 'datafruits13/models/show-series';
 import { inject as service } from '@ember/service';
+import ShowSeriesValidations from '../../validations/show-series';
 
 interface UserShowFormArgs {
   show: ShowSeries;
 }
 
 export default class UserShowForm extends Component<UserShowFormArgs> {
+  ShowSeriesValidations = ShowSeriesValidations;
+
   @service declare router: any;
 
   file: Blob | null = null;

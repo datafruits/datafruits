@@ -1,105 +1,112 @@
-<form {{on "submit" this.saveShow}}>
-  <div>
-    <label class="block text-sm font-bold mb-2" for="title">{{t "profile.my-shows.form.title"}}</label>
-    <Input
-      @type="text"
-      @id="title"
-      @value={{@show.title}}
-      />
-  </div>
-  <div>
-    <label class="align-top" for="show-artwork"> {{t "profile.my-shows.form.artwork"}}</label>
-    <br/>
-    <input
-      class="py-4 px-4 my-2 text-df-yellow w-full semibold border-dashed"
-      id="showArtwork"
-      name="showArtwork"
-      type="file"
-      {{on "change" this.updateFile}}
-    />
-  </div>
-  <div>
-    <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.description"}}</label>
-    <Textarea
-      @value={{@show.description}}
-      rows='5'
-      cols='100'
-      />
-  </div>
-  <div>
-    <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.start"}}</label>
-    <Input
-      @type="date"
-      @id="start-date"
-      @value={{@show.startDate}}
-    />
-    <TimePicker
-      @value={{@show.startTime}}
-      />
-  </div>
-  <div>
-    <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.end"}}</label>
-    <Input
-      @type="date"
-      @id="end-date"
-      @value={{@show.endDate}}
-    />
-    <TimePicker
-      @value={{@show.endTime}}
-      />
-  </div>
-  <div>
-    <label class="block text-sm font-bold mb-2" for="repeating">{{t "profile.my-shows.form.repeating"}}</label>
-    <select
-      id="repeating"
-      {{on "change" this.setRepeating}}
-      >
-      <option value="true">Repeating</option>
-      <option value="false" selected>One-off</option>
-    </select>
-  </div>
-  {{#if @show.repeating}}
-    <select
-      id="repeating-interval"
-      {{on "change" (pick "target.value" (set @show "recurringInterval"))}}
-      >
-      <option value="week" selected>Weekly</option>
-      <option value="biweek">Bi-weekly (every other week)</option>
-      <option value="month">Monthly</option>
-    </select>
-    {{#if @show.isWeekly}}
-      <span>On</span>
-      <User::ShowForm::WeekdaySelect
-        @show={{@show}}
+{{#let (changeset @show ShowSeriesValidations) as |changeset|}}
+  <Ui::ChangesetForm
+        @changeset={{changeset}}
+        @onError={{this.onError}}
+        @onSubmit={{this.onSubmit}} as |Form|>
+      <Form.Input
+        @label={{t "profile.my-shows.form.title"}}
+        @fieldName="title"
+        @containerClass='mb-2'
         />
-    {{/if}}
-    {{#if @show.isBiweekly}}
-      <span>On</span>
-      <User::ShowForm::WeekdaySelect
-        @show={{@show}}
+      <div>
+        <label class="align-top" for="show-artwork"> {{t "profile.my-shows.form.artwork"}}</label>
+        <br/>
+        <input
+          class="py-4 px-4 my-2 text-df-yellow w-full semibold border-dashed"
+          id="showArtwork"
+          name="showArtwork"
+          type="file"
+          {{on "change" this.updateFile}}
         />
-    {{/if}}
-    {{#if @show.isMonthly}}
-      <span>Every</span>
-      <select
-        id="monthly-interval"
+      </div>
+      <Form.Textarea
+        @label={{t "profile.my-shows.form.description"}}
+        @fieldName="description"
+        @containerClass='mb-2'
+        @size='lg'
+        @value={{@show.description}}
+        rows='20'
+        cols='50'
+        />
+      <div>
+        <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.start"}}</label>
+        <Input
+          @type="date"
+          @id="start-date"
+          @value={{@show.startDate}}
+        />
+        <TimePicker
+          @value={{@show.startTime}}
+          />
+      </div>
+      <div>
+        <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.end"}}</label>
+        <Input
+          @type="date"
+          @id="end-date"
+          @value={{@show.endDate}}
+        />
+        <TimePicker
+          @value={{@show.endTime}}
+          />
+      </div>
+      <div>
+        <label class="block text-sm font-bold mb-2" for="repeating">{{t "profile.my-shows.form.repeating"}}</label>
+        <select
+          id="repeating"
+          {{on "change" this.setRepeating}}
+          >
+          <option value="true">Repeating</option>
+          <option value="false" selected>One-off</option>
+        </select>
+      </div>
+      {{#if @show.repeating}}
+        <select
+          id="repeating-interval"
+          {{on "change" (pick "target.value" (set @show "recurringInterval"))}}
+          >
+          <option value="week" selected>Weekly</option>
+          <option value="biweek">Bi-weekly (every other week)</option>
+          <option value="month">Monthly</option>
+        </select>
+        {{#if @show.isWeekly}}
+          <span>On</span>
+          <User::ShowForm::WeekdaySelect
+            @show={{@show}}
+            />
+        {{/if}}
+        {{#if @show.isBiweekly}}
+          <span>On</span>
+          <User::ShowForm::WeekdaySelect
+            @show={{@show}}
+            />
+        {{/if}}
+        {{#if @show.isMonthly}}
+          <span>Every</span>
+          <select
+            id="monthly-interval"
+            >
+            <option value="first">First</option>
+            <option value="second">Second</option>
+            <option value="third">Third</option>
+            <option value="forth">Forth</option>
+            <option value="last">Last</option>
+          </select>
+          <User::ShowForm::WeekdaySelect
+            @show={{@show}}
+            />
+        {{/if}}
+      {{/if}}
+      <Button
+        @type='submit'
+        @intent='primary'
+        disabled={{changeset.isInvalid}}
+        class='cool-button'
         >
-        <option value="first">First</option>
-        <option value="second">Second</option>
-        <option value="third">Third</option>
-        <option value="forth">Forth</option>
-        <option value="last">Last</option>
-      </select>
-      <User::ShowForm::WeekdaySelect
-        @show={{@show}}
-        />
-    {{/if}}
-  {{/if}}
-  <div class="mt-2">
-    <Input
-      class="cool-button"
-      @type="submit"
-      @value="SAVE SHOW"
-      />
-  </div>
-</form>
+        SAVE SHOW
+      </Button>
+      {{#if Form.state.hasSubmitted}}
+        <marquee>SAVING....DON'T TURN OFF THE POWER.........</marquee>
+      {{/if}}
+  </Ui::ChangesetForm>
+{{/let}}

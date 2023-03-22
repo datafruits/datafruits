@@ -27,6 +27,7 @@ specifiers:
   '@textcomplete/textarea': ^0.1.12
   '@tsconfig/ember': ^1.0.1
   '@types/ember': ^4.0.1
+  '@types/ember-changeset-validations': ^4.1.1
   '@types/ember-data': ^4.4.1
   '@types/ember-data__adapter': ^4.0.0
   '@types/ember-data__model': ^4.0.0
@@ -193,6 +194,7 @@ devDependencies:
   '@textcomplete/textarea': 0.1.12_@textcomplete+core@0.1.12
   '@tsconfig/ember': 1.0.1
   '@types/ember': 4.0.1_@babel+core@7.18.5
+  '@types/ember-changeset-validations': 4.1.1_@babel+core@7.18.5
   '@types/ember-data': 4.4.1_@babel+core@7.18.5
   '@types/ember-data__adapter': 4.0.0_@babel+core@7.18.5
   '@types/ember-data__model': 4.0.0_@babel+core@7.18.5
@@ -2837,6 +2839,15 @@ packages:
     resolution: {integrity: sha512-w8oigUCDjElRHRRrMvn/spybSMyX8MTkKA5Dv+tS1IE/TgmNZPqUYtvYBXGY8cieSE66gm+szeK+bnbxC2xHTQ==}
     dev: false
 
+  /@types/ember-changeset-validations/4.1.1_@babel+core@7.18.5:
+    resolution: {integrity: sha512-izsBnIcBu33zcesrLJXWifAk3s4plvRf7Unw93ouezCJjTelCRCIjSpXTY79txr4yMSNC9jw5OVFBcm26/QQWg==}
+    dependencies:
+      '@types/ember__array': 4.0.2_@babel+core@7.18.5
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+    dev: true
+
   /@types/ember-data/4.4.1_@babel+core@7.18.5:
     resolution: {integrity: sha512-5fLex5VrLZVvqhH4k1jC13rrDvtwoG1xAMVcgEZQbKQMDuPx/AY3rgd6mnOhrUGMyAAGOhXDmVK4Qtz8VdVvsg==}
     dependencies:
@@ -2960,7 +2971,7 @@ packages:
     resolution: {integrity: sha512-ggF6EoKp7o0FKmZ9UKUzsLXHfcho+mKFnHQfUL1k/sUjkHxSd33fIATYuNIGZARRn2JzhYYfRqkgRIRBsoEiaQ==}
     dependencies:
       '@types/ember': 4.0.1_@babel+core@7.18.5
-      '@types/ember__object': 4.0.4_@babel+core@7.18.5
+      '@types/ember__object': 4.0.4
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -2969,7 +2980,7 @@ packages:
   /@types/ember__controller/4.0.1:
     resolution: {integrity: sha512-4hX+CjjX2KBpcOyEpcs1SSBmxYlavdAZqcyR23JUnBS+dGjlku15BQu6ZXFKIf84x7izNhC+TrYvAOeLE/Af3w==}
     dependencies:
-      '@types/ember__object': 4.0.4_@babel+core@7.18.5
+      '@types/ember__object': 4.0.4
     dev: true
 
   /@types/ember__controller/4.0.1_@babel+core@7.18.5:

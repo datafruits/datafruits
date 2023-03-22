@@ -46,6 +46,7 @@
     "@textcomplete/textarea": "^0.1.12",
     "@tsconfig/ember": "^1.0.1",
     "@types/ember": "^4.0.1",
+    "@types/ember-changeset-validations": "^4.1.1",
     "@types/ember-data": "^4.4.1",
     "@types/ember-data__adapter": "^4.0.0",
     "@types/ember-data__model": "^4.0.0",
