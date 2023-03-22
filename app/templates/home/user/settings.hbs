@@ -53,78 +53,80 @@
       </div>
     </div>
 
+   
     <hr class="my-8"/>
 
-    <form>
+    <form {{on "submit" this.saveUser}}>
 
       <div class="flex justify-around">
-        <label class="ml-4 align-top text-white">
+        <label class="ml-4 align-top text-white w-1/5">
           {{t "profile.bio"}}
         </label>
         <Textarea
-          class="user-settings-input h-20"
+          class="user-settings-input h-40 w-4/5"
           @value={{this.currentUser.user.bio}}
         />
       </div>
-      
-      <div class="flex justify-around">
-        <label class="align-top text-white min-h-min">
+    
+      <div class="mt-4 flex justify-around">
+        <label class="ml-4 align-top text-white w-1/5">
           {{t "profile.homepage"}}
         </label>
         <Input
-          class="user-settings-input"
+          class="user-settings-input w-4/5"
           @value={{this.currentUser.user.homepage}}
         />
       </div>
-      
+    
       <br />
-      
+    
       <div class="flex flex-wrap justify-evenly">
         <div>
-          <label class="align-top text-white">{{t "profile.pronouns"}}</label>
-          <Input
-            class="user-settings-input"
-            @value={{this.currentUser.user.pronouns}}
+        <label class="align-top text-white">{{t "profile.pronouns"}}</label>
+        <Input
+          class="user-settings-input"
+          @value={{this.currentUser.user.pronouns}}
+        />
+        </div>
+        <div>
+        <label class="text-white">{{t "profile.style"}}</label>
+        <select
+          id="style-selector"
+          name="style-selector"
+          class="user-settings-input h-9"
+          aria-label="{{ t "style"}}"
+          onchange={{action setUserStyle value="target.value"}}>
+          {{#each this.availableStyles as |style|}}
+          <option
+            value={{style}}
+            selected={{eq this.currentUser.user.style style}}
+          >
+            {{style}}
+          </option>
+          {{/each}}
+        </select>
+        </div>
+        <div>
+        <label class="text-white">
+          {{t "profile.time_zone"}}
+        </label>
+        <TimezoneSelect
+          @selectedTimezone={{this.currentUser.user.timeZone}}
+          @onChange={{this.setTimezone}}
           />
         </div>
-        <div>
-          <label class="text-white">{{t "profile.style"}}</label>
-          <select
-            id="style-selector"
-            name="style-selector"
-            class="user-settings-input h-9"
-            aria-label="{{ t "style"}}"
-            onchange={{action setUserStyle value="target.value"}}>
-            {{#each this.availableStyles as |style|}}
-              <option
-                value={{style}}
-                selected={{eq this.currentUser.user.style style}}
-              >
-                {{style}}
-              </option>
-            {{/each}}
-          </select>
-        </div>
-        <div>
-          <label class="text-white">
-            {{t "profile.time_zone"}}
-          </label>
-          <TimezoneSelect
-            @selectedTimezone={{this.currentUser.user.timeZone}}
-            @onChange={{this.setTimezone}}
-            />
-        </div>        
       </div>
 
       <br />
 
-      <div class="my-2 flex justify-center">
+      <div class="flex justify-around">
+
         <input
           type="submit"
           value="{{t "profile.submit"}}"
           class="cool-button"
           data-test-submit
-        >
+        />
       </div>
     </form>
 
