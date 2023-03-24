@@ -12,9 +12,18 @@
     <a href={{@track.cdnUrl}} download="">
       <FaIcon
         @icon="download"
-        class="fa fa-download text-df-green hover:text-df-yellow text-xxl" 
+        class="fa fa-download text-df-green hover:text-df-yellow text-xxl"
       />
     </a>
+    {{#if @track.youtubeLink}}
+      <a href={{@track.youtubeLink}} target="_blank" rel="noreferrer noopener">
+        <FaIcon
+          @icon="youtube"
+          @prefix="fab"
+          class="text-df-green hover:text-df-yellow text-xxl"
+        />
+      </a>
+    {{/if}}
   </div>
   {{#if this.session.isAuthenticated}}
     {{#if this.isFavorited}}
@@ -53,17 +62,17 @@
   <div class="flex space-x-2">
     {{#each @track.labels as |label|}}
       <a
-        class="track-label 
-          text-df-yellow 
-          classic:bg-df-pink 
-          blm:bg-black 
-          hover:text-white 
-          p-1 
-          uppercase 
-          border-solid 
-          border-white 
-          border-2 
-          p-x-2 
+        class="track-label
+          text-df-yellow
+          classic:bg-df-pink
+          blm:bg-black
+          hover:text-white
+          p-1
+          uppercase
+          border-solid
+          border-white
+          border-2
+          p-x-2
           font-extrabold"
         {{on "click" (fn this.selectLabel label.name)}}
         href="#">
