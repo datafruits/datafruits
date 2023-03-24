@@ -8,14 +8,21 @@ import ENV from 'datafruits13/config/environment';
 import { tracked } from '@glimmer/tracking';
 
 export default class DatafruitsVisuals extends Component {
-  @tracked draggable = false;
-  @tracked top = 0;
-  @tracked left = 0;
-  @tracked width = '100vw';
-  @tracked height = '100vh';
-  @tracked zIndex = '-999';
+
+  get draggable() {
+    if(this.videoStreamMode === 'tv'){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   get styleProperties() {
-    return `top: ${this.top}px !important; left: ${this.left}px !important; width: ${this.width} !important; height: ${this.height} !important; z-index: ${this.zIndex}`;
+    if(this.videoStreamMode === 'tv'){
+      return `top: 0 !important; left: 0 !important; width: 300px !important; height: 300px !important; z-index: 1`;
+    } else {
+      return `top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important; z-index: -999`;
+    }
   }
 
   @service
@@ -26,21 +33,6 @@ export default class DatafruitsVisuals extends Component {
 
   @oneWay('videoStream.mode')
   videoStreamMode; // off, bg, tv
-
-  @observes('videoStreamMode')
-  setTvMode() {
-    if(this.videoStreamMode === 'tv'){
-      this.draggable = true;
-      this.width = "300px";
-      this.height = "300px";
-      this.zIndex = '1';
-    }else{
-      this.draggable = false;
-      this.width = "100vw";
-      this.height = "100vh";
-      this.zIndex = '-999';
-    }
-  }
 
   @action
   initIfActive() {
