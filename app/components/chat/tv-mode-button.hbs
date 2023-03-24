@@ -1,0 +1,7 @@
+<button 
+  class="cool-button"
+  title={{if @enabled (t "chat.titles.video_on") (t "chat.titles.video_off") }}
+  {{on "click" this.toggle}}
+>
+  {{this.tvModeIcon}}
+</button>

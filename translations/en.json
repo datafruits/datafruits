@@ -64,6 +64,8 @@
       "send": "Send message to chat",
       "img_on": "Images in chat will be displayed",
       "img_off": "Images in chat will not be displayed",
+      "video_on": "Video will be displayed",
+      "video_off": "Video will not be displayed",
       "gif": "Share GIF with chat",
       "fruits": "View the fruits",
       "emoji": "Post an emoji",
