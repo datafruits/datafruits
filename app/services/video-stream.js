@@ -8,17 +8,23 @@ export default class VideoStreamService extends Service {
   @service
   rollbar;
 
+  @tracked
+  mode = "bg";
+
   @service
   eventBus;
+
+  @tracked 
+  active = false;
+  
+  @tracked
+  useVideoAudio = false;
 
   constructor() {
     super(...arguments);
     this.streamHost = ENV.STREAM_HOST;
     this.streamName = ENV.STREAM_NAME;
   }
-
-  @tracked active = false;
-  @tracked useVideoAudio = false;
 
   async initializePlayer() {
     const module = await import('video.js');
@@ -139,6 +145,15 @@ export default class VideoStreamService extends Service {
     if (path === 'live') {
       this.useVideoAudio = true;
     }
+  }
+
+  toggleMode() {
+    if (this.mode == 'bg') {
+      this.mode = 'tv';
+    } else {
+      this.mode = "bg";
+    }
+    console.log(this.mode)
   }
 
   fetchStream() {
