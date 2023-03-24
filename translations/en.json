@@ -127,6 +127,10 @@
     "title": "Fruits",
     "aria": "Browse DJs who perform on datafruits.fm"
   },
+  "shows": {
+    "title": "Shows",
+    "aria": "Browse shows on datafruits.fm"
+  },
   "nav_toggle": "Toggle navigation",
   "radio": {
     "title": "Radio",
