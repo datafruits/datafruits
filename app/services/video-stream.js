@@ -149,7 +149,7 @@ export default class VideoStreamService extends Service {
 
   toggleMode() {
     if (this.mode == 'bg') {
-      this.mode = 'tv';
+      this.mode = 'off';
     } else {
       this.mode = "bg";
     }

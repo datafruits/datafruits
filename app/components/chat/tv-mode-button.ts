@@ -7,10 +7,10 @@ import { tracked } from '@glimmer/tracking';
 
 export default class TvModeButton extends Component {
   @tracked
-  currentMode = true;
+  showingViz = true;
 
   get tvModeIcon() {
-    if (this.currentMode) {
+    if (this.showingViz) {
       return formatEmojiHtml(":tv:");
     } else {
       return formatEmojiHtml(":no_entry_sign:");
@@ -21,7 +21,7 @@ export default class TvModeButton extends Component {
 
   @action
   toggle() {
-    this.currentMode = !this.currentMode;
+    this.showingViz = !this.showingViz;
     this.videoStream.toggleMode();
   }
 }

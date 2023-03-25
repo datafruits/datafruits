@@ -20,6 +20,8 @@ export default class DatafruitsVisuals extends Component {
   get styleProperties() {
     if(this.videoStreamMode === 'tv'){
       return `top: 0 !important; left: 0 !important; width: 300px !important; height: 300px !important; z-index: 1`;
+    } else if (this.videoStreamMode === "off") {
+      return 'display: none';
     } else {
       return `top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important; z-index: -999`;
     }
