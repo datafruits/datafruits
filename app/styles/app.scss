@@ -620,9 +620,17 @@ body::-webkit-scrollbar-thumb {
 
   background: $blue;
   padding: 0;
+
+  border-style: solid;
+  border-color: #ebebeb;
+  border-width: 5px;
   .modal-top {
     padding: 5px;
-    background: $pink;
+    filter: contrast(180%) brightness(100%);
+
+    background:
+      linear-gradient(90deg, #de5dff, transparent),
+      url('/assets/images/noise.svg');
     border-radius: 8px 8px 0 0;
   }
   .modal-body {
