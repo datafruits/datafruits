@@ -1,7 +1,16 @@
 <button 
   class="cool-button"
   title={{if this.showingViz (t "chat.titles.video_on") (t "chat.titles.video_off") }}
-  {{on "click" this.toggle}}
+  {{on "click" this.toggleDisplay}}
 >
   {{this.tvModeIcon}}
 </button>
+{{#if this.showingViz}}
+  <button
+    class="cool-button"
+    title={{if this.vizFitted (t "chat.titles.video_fit" ) (t "chat.titles.video_fill")}}
+    {{on "click" this.toggleMode}}
+  >
+    {{this.tvPositionIcon}}  
+  </button>
+{{/if}}

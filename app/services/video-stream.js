@@ -9,6 +9,9 @@ export default class VideoStreamService extends Service {
   rollbar;
 
   @tracked
+  displaying = true;
+
+  @tracked
   mode = "bg";
 
   @service
@@ -147,13 +150,16 @@ export default class VideoStreamService extends Service {
     }
   }
 
+  toggleDisplay() {
+    this.displaying = !this.displaying;
+  }
+
   toggleMode() {
-    if (this.mode == 'bg') {
-      this.mode = 'off';
+    if (this.mode == "bg") {
+      this.mode = "tv";
     } else {
       this.mode = "bg";
     }
-    console.log(this.mode)
   }
 
   fetchStream() {

@@ -18,11 +18,13 @@ export default class DatafruitsVisuals extends Component {
   }
 
   get styleProperties() {
+    if (!this.videoDisplaying) {
+      return 'display: none';
+    }
+
     if(this.videoStreamMode === 'tv'){
       return `top: 0 !important; left: 0 !important; width: 300px !important; height: 300px !important; z-index: 1`;
-    } else if (this.videoStreamMode === "off") {
-      return 'display: none';
-    } else {
+    } else if (this.videoStreamMode === 'bg') {
       return `top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important; z-index: -999`;
     }
   }
@@ -34,7 +36,10 @@ export default class DatafruitsVisuals extends Component {
   videoStream;
 
   @oneWay('videoStream.mode')
-  videoStreamMode; // off, bg, tv
+  videoStreamMode; // bg, tv
+
+  @oneWay('videoStream.displaying')
+  videoDisplaying;
 
   @action
   initIfActive() {
