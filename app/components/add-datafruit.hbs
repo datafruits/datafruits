@@ -8,7 +8,7 @@
 
   <await.Fulfilled as |datafruits|>
     {{#if this.showingDatafruits}}
-      <marquee>
+      <marquee id="add-datafruit-bar">
         [<img style="height: 20px; display: inline;" src="{{this.currentDatafruit.avatarUrlOrDefault}}" alt={{this.currentDatafruit.username}} / >
         <LinkTo @model={{this.currentDatafruit.username}} @route="home.dj">{{this.currentDatafruit.username}}</LinkTo>]: {{this.currentDatafruit.content}}
       </marquee>

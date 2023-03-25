@@ -23,9 +23,30 @@ export default class DatafruitsVisuals extends Component {
     }
 
     if(this.videoStreamMode === 'tv'){
-      return `top: 0 !important; left: 0 !important; width: 300px !important; height: 300px !important; z-index: 1`;
+      let navbarHeight = Math.max(
+        document.querySelector('#mobile-navbar').clientHeight,
+        document.querySelector('#desktop-navbar').clientHeight
+      );
+      navbarHeight+=10;
+      let windowHeight = document.querySelector('body').clientHeight;
+      let tvWidth = document.querySelector('body').clientWidth;
+      let nowPlaying = document.querySelector('#now-playing-bar').clientHeight + 200;
+      let addDatafruit = document.querySelector('#add-datafruit-bar').clientHeight;
+      let tvHeight = windowHeight - (nowPlaying - addDatafruit);
+      tvHeight;
+
+      return `border: dashed red !important; \
+        top: ${navbarHeight}px !important; \
+        left: 0 !important; \
+        width: ${tvWidth}px !important; \
+        height: ${tvHeight}px !important; \
+        z-index: 1`;
     } else if (this.videoStreamMode === 'bg') {
-      return `top: 0 !important; left: 0 !important; width: 100vw !important; height: 100vh !important; z-index: -999`;
+      return `top: 0 !important; \
+        left: 0 !important; \
+        width: 100vw !important; \
+        height: 100vh !important; \
+        z-index: -999`;
     }
   }
 
