@@ -14,11 +14,16 @@ export default class LoginModalComponent extends Component {
     }
   }
 
+  clickedOffsetX = 0;
+  clickedOffsetY = 0;
+
   @action
   didInsert() {
     console.log('adding event listeners');
     document.addEventListener('mousedown', (event) => {
-      console.log('mousedown');
+      console.log('mousedown', event);
+      this.clickedOffsetX = event.offsetX;
+      this.clickedOffsetY = event.offsetY;
       let modalTop = document.getElementById('login-modal-top');
       if(event.target === modalTop) {
         console.log('set dragging true', event.target);
@@ -37,10 +42,10 @@ export default class LoginModalComponent extends Component {
     });
     document.addEventListener('mousemove', (event) => {
       if (this.dragging) {
-        console.log('setting x and y');
+        console.log('setting x and y', event);
         let loginModal = document.getElementById('login-modal');
-        loginModal.style.top = `${event.clientY}px`;
-        loginModal.style.left = `${event.clientX}px`;
+        loginModal.style.top = `${event.clientY - this.clickedOffsetY}px`;
+        loginModal.style.left = `${event.clientX - this.clickedOffsetX}px`;
       }
     });
   }
