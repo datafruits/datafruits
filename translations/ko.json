@@ -61,7 +61,10 @@
     "style": "스타일",
     "submit": "보존",
     "pronouns": "성별 대명사",
-    "favorites": "즐겨찾기"
+    "favorites": "즐겨찾기",
+    "bio": "나에 대해",
+    "joined": "만들 때",
+    "last_login": "여기서 마지막"
   },
   "usermenu": {
     "settings": "프로필 편집",

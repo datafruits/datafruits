@@ -186,6 +186,8 @@
     "pronouns": "Pronouns",
     "bio": "About me",
     "homepage": "Home page",
+    "joined": "Joined",
+    "last_login": "Last here",
     "badges": {
       "dj": "plays the music on the website",
       "vj": "does the VIZ on the website",
