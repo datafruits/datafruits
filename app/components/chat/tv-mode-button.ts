@@ -9,9 +9,6 @@ export default class TvModeButton extends Component {
   @tracked
   showingViz = true;
 
-  @tracked
-  vizFitted = false;
-
   get tvModeIcon() {
     if (this.showingViz) {
       return formatEmojiHtml(":tv:");
@@ -20,15 +17,8 @@ export default class TvModeButton extends Component {
     }
   }
 
-  get tvPositionIcon() {
-    if (this.vizFitted) {
-      return formatEmojiHtml(":white_small_square:")
-    } else {
-      return formatEmojiHtml(":white_large_square:");
-    }
-  }
-
-  @service declare videoStream: VideoStreamService;
+  @service 
+  declare videoStream: VideoStreamService;
 
   @action
   toggleDisplay() {
@@ -36,9 +26,4 @@ export default class TvModeButton extends Component {
     this.videoStream.toggleDisplay();
   }
 
-  @action
-  toggleMode() {
-    this.vizFitted = !this.vizFitted;
-    this.videoStream.toggleMode();
-  }
 }

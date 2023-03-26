@@ -263,9 +263,9 @@ input {
     // background: none;
     width: 100vw !important;
     video {
-      // width: 100vw !important;
-      // height: 100vh !important;
-      // @apply absolute left-0 object-cover;
+      width: 100vw !important;
+      height: 100vh !important;
+      @apply absolute left-0 object-cover;
     }
   }
 }

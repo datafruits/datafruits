@@ -5,12 +5,3 @@
 >
   {{this.tvModeIcon}}
 </button>
-{{#if this.showingViz}}
-  <button
-    class="cool-button"
-    title={{if this.vizFitted (t "chat.titles.video_fit" ) (t "chat.titles.video_fill")}}
-    {{on "click" this.toggleMode}}
-  >
-    {{this.tvPositionIcon}}  
-  </button>
-{{/if}}
