@@ -1,18 +1,15 @@
-import { oneWay } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
 import { later } from '@ember/runloop';
-import { observes } from '@ember-decorators/object';
 import { action } from '@ember/object';
 import ENV from 'datafruits13/config/environment';
-import { tracked } from '@glimmer/tracking';
 
 export default class DatafruitsVisuals extends Component {
 
   get draggable() {
-    if(this.videoStreamMode === 'tv'){
+    if (this.videoStreamMode === 'tv') {
       return true;
-    }else{
+    } else {
       return false;
     }
   }
@@ -48,6 +45,7 @@ export default class DatafruitsVisuals extends Component {
         height: 100vh !important; \
         z-index: -999`;
     }
+    return "";
   }
 
   @service
@@ -56,11 +54,17 @@ export default class DatafruitsVisuals extends Component {
   @service
   videoStream;
 
-  @oneWay('videoStream.mode')
-  videoStreamMode; // bg, tv
+  // @oneWay('videoStream.mode')
+  // videoStreamMode; // bg, tv
+  get videoStreamMode() {
+    return this.videoStream.mode;
+  }
 
-  @oneWay('videoStream.displaying')
-  videoDisplaying;
+  // @oneWay('videoStream.displaying')
+  // videoDisplaying;
+  get videoDisplaying() {
+    return this.videoDisplaying;
+  }
 
   @action
   initIfActive() {

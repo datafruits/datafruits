@@ -72,20 +72,19 @@ export default class VideoStreamService extends Service {
       let promise = player.play();
 
       if (promise !== undefined) {
-        promise
-          .then(() => {
-            console.log('video autoplayed'); // eslint-disable-line no-console
-            if (this.useVideoAudio) {
-              this.eventBus.publish('liveVideoAudio');
-            }
-            player.userActive(false);
-          })
-          .catch((error) => {
-            // Autoplay was prevented.
-            console.log(`video autoplay failed: ${error}`); // eslint-disable-line no-console
-            player.userActive(false);
-            this.rollbar.error(`video autoplay failed: ${error}`);
-          });
+        promise.then(() => {
+          console.log('video autoplayed'); // eslint-disable-line no-console
+          if (this.useVideoAudio) {
+            this.eventBus.publish('liveVideoAudio');
+          }
+          player.userActive(false);
+        })
+        .catch((error) => {
+          // Autoplay was prevented.
+          console.log(`video autoplay failed: ${error}`); // eslint-disable-line no-console
+          player.userActive(false);
+          this.rollbar.error(`video autoplay failed: ${error}`);
+        });
       }
     });
   }

@@ -3,7 +3,9 @@
   {{did-update this.initIfActive this.videoStream.active}}
   class="visuals">
   {{#if this.videoStream.active}}
-    <Visuals::Video @styleProperties={{this.styleProperties}} @draggable={{this.draggable}} />
-    {{this.draggable}}
+    <Visuals::Video 
+      @styleProperties={{this.styleProperties}}
+      @draggable={{this.draggable}}
+    />
   {{/if}}
 </div>
