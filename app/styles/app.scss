@@ -260,6 +260,7 @@ input {
   z-index: -999;
   @apply absolute left-0 top-0;
   .video-js {
+    // background: none;
     width: 100vw !important;
     video {
       width: 100vw !important;

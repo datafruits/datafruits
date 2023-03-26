@@ -306,4 +306,13 @@ export default class DatafruitsPlayer extends Component {
       this.setRadioTitle();
     }
   }
+  dragStart(event) {
+    console.log('dragStart');
+    console.log(event);
+  }
+
+  drag(event) {
+    console.log('drag');
+    console.log(event);
+  }
 }
