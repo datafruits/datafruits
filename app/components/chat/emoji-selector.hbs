@@ -41,7 +41,6 @@
   </div>
   <div class="inline-block">
     <div>
-
       <Chat::ChatSettings />
     </div>
   </div>
@@ -51,7 +50,15 @@
       @hasOverlay={{false}}
       @clickOutsideToClose={{true}}
     >
-      <div class="p-2 border-white border-4 border-solid bg-df-blue overflow-scroll emoji-selector-dialog">
+      <div class="modal-top">
+        <button {{on "click" this.closeDialog}}
+          type="button"
+          class="cool-button"
+        >
+          X
+        </button>
+      </div>
+      <div class="p-2 bg-df-blue overflow-scroll emoji-selector-dialog">
         <div class="flex-row flex justify-between">
           <button
             class="cool-button"

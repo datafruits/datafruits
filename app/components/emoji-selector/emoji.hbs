@@ -1,13 +1,13 @@
-<div class="mx-8">
+<div class="flex flex-wrap justify-evenly">
   <input 
     {{on "change" this.sizeChange}}
     type="range" 
     name="size"
     id="size"
-    list="tickmarks"
+    list="emoji-width-datalist"
     step="12"
     min="24"
-    max="72" 
+    max="72"
   >
   <datalist id="emoji-width-datalist">
     <option value="24" label="S"></option>

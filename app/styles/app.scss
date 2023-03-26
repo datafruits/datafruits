@@ -560,9 +560,7 @@ canvas#pixi {
 }
 
 .emoji-selector-dialog {
-  // top: -265px;
-  // left: 0;
-  width: 300px;
+  width: 360px;
   height: 250px;
 }
 
@@ -575,13 +573,11 @@ canvas#pixi {
 }
 
 #emoji-width-datalist > option {
-  padding: 0;
-  margin: -10px;
+  margin-top: 0.25rem;
 }
 
 #emoji-width-datalist > input[type="range"] {
   width: 200px;
-  margin: 0;
 }
 
 
