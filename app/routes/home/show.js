@@ -1,24 +1,17 @@
 import Route from '@ember/routing/route';
 import ENV from 'datafruits13/config/environment';
-import { service } from '@ember/service';
-import type StoreService from '@ember-data/store';
-import type ScheduledShowModel from 'datafruits13/models/scheduled-show';
 
 export default class ShowRoute extends Route {
-  @service declare store: StoreService;
-
-  headTags: any;
-
-  model(params: any) {
-    return this.store.findRecord('scheduled-show', params.id);
+  model(params) {
+    return this.store.findRecord('show-series', params.title);
   }
 
-  afterModel(model: ScheduledShowModel) {
+  afterModel(model) {
     this.setHeadTags(model);
   }
 
-  setHeadTags(model: ScheduledShowModel) {
-    const headTags: any = {
+  setHeadTags(model) {
+    const headTags = {
       title: {
         type: 'meta',
         attrs: {

@@ -20,6 +20,8 @@ export default class ShowSeries extends Model {
   @attr('string') declare startDate: string;
   @attr('string') declare endDate: string;
 
+  @attr('string') declare slug: string;
+
   get isWeekly() {
     return this.recurringInterval === 'week';
   }
