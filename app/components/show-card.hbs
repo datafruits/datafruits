@@ -1,14 +1,11 @@
 <div class="m-3 bg-df-blue-dark rounded-lg border-4 border-white w-full md:w-1/4 p-2 flex flex-col justify-between shadow-md">
-  <LinkTo @route="home.show" @model={{@show.id}}>
-    {{@show.title}}
+  <LinkTo @route="home.show" @model={{@showSeries.id}}>
+    {{@showSeries.title}}
   </LinkTo>
-  <div class="">
-    {{format-date @show.start}}
-  </div>
   <div class="self-center w-full h-full">
     <LinkTo
       @route="home.show"
-      @model={{@show.id}}
+      @model={{@showSeries.id}}
       class="h-80 bg-center bg-cover block overflow-hidden rounded-xl"
       style="{{this.backgroundStyle}}">
     </LinkTo>

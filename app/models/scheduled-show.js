@@ -1,8 +1,10 @@
 import classic from 'ember-classic-decorator';
-import Model, { attr, hasMany } from '@ember-data/model';
+import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
 
 @classic
 export default class ScheduledShow extends Model {
+  @belongsTo('show-series') showSeries;
+
   @attr()
   start;
 
