@@ -7,6 +7,9 @@
     "latest_podcasts": "最新存檔",
     "events": "活動"
   },
+  "profile": {
+    "favorites": "收藏夹"
+  },
   "chat": {
     "title": "聊天室",
     "new_messages": "新留言在下.",
@@ -30,17 +33,22 @@
     },
     "titles": {
       "enter": "進入聊天",
+      "join": "使用昵称加入聊天",
+      "login": "使用注册帐户加入聊天",
       "send": "發送",
       "img_on": "圖片",
       "img_off": "沒圖片",
       "gif": "聊天中分享 GIF",
-      "gif_close": "關閉 GIF 搜索"
+      "fruits": "查看水果",
+      "emoji": "发布表情符号",
+      "buddy_list_button": "在聊天室中显示用户"
     },
     "login": "登錄",
     "username": "用戶名",
     "password": "密碼"
   },
   "usermenu": {
+    "dropdown-aria": "显示用户菜单",
     "settings": "設置",
     "logout": "登出"
   },
@@ -118,5 +126,8 @@
   },
   "locale": "語言",
   "theme": { "label": "主題" },
-  "donate": "捐"
+  "donate": {
+    "title": "支持",
+    "dj_link": "当前DJ的捐赠链接在这里"
+  }
 }

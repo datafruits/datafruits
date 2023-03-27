@@ -14,6 +14,9 @@ export default class UserModel extends Model {
   role;
 
   @attr()
+  timeZone;
+
+  @attr()
   avatarUrl;
 
   @attr()
@@ -37,6 +40,12 @@ export default class UserModel extends Model {
 
   @attr()
   pronouns;
+
+  @attr()
+  createdAt;
+
+  @attr()
+  lastSignInAt;
 
   @attr()
   bio;

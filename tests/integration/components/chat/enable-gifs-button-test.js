@@ -7,13 +7,11 @@ module('Integration | Component | chat/enable-gifs-button', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-    //
     this.toggleGifs = function () {};
 
     await render(hbs`<Chat::EnableGifsButton @toggleGifs={{this.toggleGifs}} />`);
 
-    assert.dom(this.element).hasText('Images are off');
+    const emoji = this.element.querySelector('img.emojione');
+    assert.dom(emoji).hasNoAttribute('title')
   });
 });

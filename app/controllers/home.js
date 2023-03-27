@@ -16,6 +16,9 @@ export default class HomeController extends Controller {
   router;
 
   @service
+  videoStream;
+
+  @service
   session;
 
   @service

@@ -32,12 +32,16 @@
       "i_agree": "나는 행동 강령을 읽었으며 그 약관을 따르는 데 동의하며 그렇게하지 않을 경우 제거 될 수 있음을 이해합니다."
     },
     "titles": {
-      "enter": "Enter chat",
+      "enter": "채팅 시작",
+      "join": "닉네임으로 채팅에 참여",
+      "login": "등록된 계정으로 채팅에 참여",
       "send": "채팅 메시지 보내기",
       "img_on": "채팅중인 이미지가 표시됩니다",
       "img_off": "채팅중인 이미지가 표시되지 않습니다",
       "gif": "채팅으로 GIF 공유",
-      "gif_close": "GIF 검색 닫기"
+      "fruits": "과일보기",
+      "emoji": "이모티콘 게시",
+      "buddy_list_button": "채팅방에 사용자 표시"
     }
   },
   "login": "Login",
@@ -56,7 +60,11 @@
   "profile": {
     "style": "스타일",
     "submit": "보존",
-    "pronouns": "성별 대명사"
+    "pronouns": "성별 대명사",
+    "favorites": "즐겨찾기",
+    "bio": "나에 대해",
+    "joined": "만들 때",
+    "last_login": "여기서 마지막"
   },
   "usermenu": {
     "settings": "프로필 편집",

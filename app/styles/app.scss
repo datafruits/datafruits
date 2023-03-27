@@ -260,6 +260,7 @@ input {
   z-index: -999;
   @apply absolute left-0 top-0;
   .video-js {
+    // background: none;
     width: 100vw !important;
     video {
       width: 100vw !important;
@@ -314,6 +315,11 @@ form {
 
 .ember-power-select-placeholder {
   text-shadow: none !important;
+}
+
+.ember-power-select-selected-item {
+  text-shadow: none !important;
+  color: black
 }
 
 .fc-center {
@@ -446,6 +452,10 @@ form {
   box-shadow: 10px 10px 2px grey;
 }
 
+.user-settings-menu {
+  @include cool-border;
+}
+
 .wiki-article {
   @include cool-border;
 }
@@ -550,9 +560,7 @@ canvas#pixi {
 }
 
 .emoji-selector-dialog {
-  // top: -265px;
-  // left: 0;
-  width: 300px;
+  width: 360px;
   height: 250px;
 }
 
@@ -565,13 +573,11 @@ canvas#pixi {
 }
 
 #emoji-width-datalist > option {
-  padding: 0;
-  margin: -10px;
+  margin-top: 0.25rem;
 }
 
 #emoji-width-datalist > input[type="range"] {
   width: 200px;
-  margin: 0;
 }
 
 
@@ -711,7 +717,12 @@ body::-webkit-scrollbar-thumb {
 
 .page-section-bg {}
 .user-settings-input {
+  @apply w-full mx-2 md:w-3/4;
   @apply classic:bg-df-pink blm:bg-black trans:bg-df-blue border-solid border-2 border-df-blue text-white;
+}
+
+.ember-power-select-selected-item {
+  color: white;  
 }
 
 .about-section {

@@ -58,13 +58,20 @@
       "coc": "CoC"
     },
     "titles": {
+      "enter": "Enter the chatroom",
       "join": "Join chat with nickname",
       "login": "Join chat with registered account",
       "send": "Send message to chat",
       "img_on": "Images in chat will be displayed",
       "img_off": "Images in chat will not be displayed",
+      "video_on": "Video will be displayed",
+      "video_off": "Video will not be displayed",
+      "video_fit": "Video will fit within display",
+      "video_fill": "Video will fill the entire background",
       "gif": "Share GIF with chat",
-      "gif_close": "Close GIF search"
+      "fruits": "View the fruits",
+      "emoji": "Post an emoji",
+      "buddy_list_button": "Show users in the chatroom"
     }
   },
   "wiki": {
@@ -167,9 +174,10 @@
     "min_age": "I am at least 13 years old"
   },
   "profile": {
-    "favorites": "View My Favorites",
+    "time_zone": "Timezone",
+    "favorites": "Favorites",
     "my_favorites": "My Favorite",
-    "my_pic": "Update avatar",
+    "my_pic": "Update Avatar",
     "settings": "Profile Settings",
     "chat": "Chat Preview",
     "chat_test": "This is a test message",
@@ -178,6 +186,8 @@
     "pronouns": "Pronouns",
     "bio": "About me",
     "homepage": "Home page",
+    "joined": "Joined",
+    "last_login": "Last here",
     "badges": {
       "dj": "plays the music on the website",
       "vj": "does the VIZ on the website",
