@@ -8,7 +8,7 @@
     <label class="block text-sm font-bold mb-2" for="user-email">{{t "signup.email"}}</label>
     <Input
       class="form-input focus:outline-none focus:shadow-outline"
-      @id="user-email"
+      id="user-email"
       @type="text"
       autofocus={{true}}
       data-test-email
@@ -32,9 +32,9 @@
     <label class="block text-sm font-bold mb-2" for="user-email">{{t "signup.username"}}</label>
     <Input
       class="form-input focus:outline-none focus:shadow-outline"
-      @id="user-username"
+      id="user-username"
       @type="text"
-      @autofocus={{true}}
+      autofocus={{true}}
       data-test-username
       {{on "change" this.updateUsername}}
       />
@@ -51,7 +51,7 @@
       @type="password"
       @changeset={{@changeset}}
       @property="password"
-      @updateProperty={{fn this.updateProperty}}
+      @updateProperty={{this.updateProperty}}
       data-test-password
       />
   </div>

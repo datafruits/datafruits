@@ -2,7 +2,7 @@
   translucentOverlay={{true}}
   >
   <div class="modal-top">
-    <button {{on "click" (fn @toggleModal)}}
+    <button {{on "click" @toggleModal}}
       type="button"
       class="cool-button"
       >
@@ -10,7 +10,7 @@
     </button>
   </div>
   <div class="modal-body m-1">
-    <form {{on "submit" (fn this.submit)}}>
+    <form {{on "submit" this.submit}}>
       <p class="mt-2 mb-2">
         {{t "chat.login_why"}}
       </p>

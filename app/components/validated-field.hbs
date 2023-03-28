@@ -11,7 +11,7 @@
     ...attributes
     id={{concat @type "-" @property}}
     class="form-input focus:outline-none focus:shadow-outline"
-    @cols="80" @rows="6"
+    cols="80" rows="6"
     oninput={{action (mut (get @changeset @property)) value="target.value"}}
     onblur={{action "validateProperty" @changeset @property}}
   >{{get @changeset @property}}</Textarea>
@@ -21,7 +21,7 @@
     class="form-input focus:outline-none focus:shadow-outline"
     @type={{@type}}
     autofocus={{true}}
-    @id={{concat @type "-" @property}}
+    id={{concat @type "-" @property}}
     @value={{get @changeset @property}}
     {{on "change" this.updateProperty}}
     />
