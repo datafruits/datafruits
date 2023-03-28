@@ -6,7 +6,7 @@
       <Input
         id="search-tracks"
         name="search-tracks"
-        @autofocus="autofocus"
+        autofocus="autofocus"
         @value={{@query}}
         @escape-press={{this.clearSearch}}
         {{on "keyup" this.updateQueryAndSearch}}

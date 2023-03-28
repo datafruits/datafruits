@@ -20,7 +20,7 @@
     ...attributes
     class="form-input focus:outline-none focus:shadow-outline"
     @type={{@type}}
-    @autofocus={{true}}
+    autofocus={{true}}
     @id={{concat @type "-" @property}}
     @value={{get @changeset @property}}
     {{on "change" this.updateProperty}}
