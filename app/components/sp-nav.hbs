@@ -23,69 +23,90 @@
           </span>
           <ul class="">
             <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-              <LinkTo
-                class="text-white text-shadow-light"
-                aria-label={{t "djs.aria"}}
-                @invokeAction={{@toggleMenu}}
-                @route="home.djs">
-                {{t "djs.title"}}
-              </LinkTo>
+              <span
+                  {{on "click" @toggleMenu}}
+                >
+                <LinkTo
+                  class="text-white text-shadow-light"
+                  aria-label={{t "djs.aria"}}
+                  @route="home.djs">
+                  {{t "djs.title"}}
+                </LinkTo>
+              </span>
             </li>
             <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-              <LinkTo
-                class="text-white text-shadow-light"
-                aria-label={{t "podcasts.aria"}}
-                @invokeAction={{@toggleMenu}}
-                @route="home.podcasts">
-                {{t "podcasts.title"}}
-              </LinkTo>
+              <span
+                  {{on "click" @toggleMenu}}
+                >
+                <LinkTo
+                  class="text-white text-shadow-light"
+                  aria-label={{t "podcasts.aria"}}
+                  @route="home.podcasts">
+                  {{t "podcasts.title"}}
+                </LinkTo>
+              </span>
             </li>
             <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-              <LinkTo
-                class="text-white text-shadow-light"
-                aria-label={{t "timetable.aria"}}
-                @invokeAction={{@toggleMenu}}
-                @route="home.timetable">
-                {{t "timetable.title"}}
-              </LinkTo>
+              <span
+                  {{on "click" @toggleMenu}}
+                >
+                <LinkTo
+                  class="text-white text-shadow-light"
+                  aria-label={{t "timetable.aria"}}
+                  @route="home.timetable">
+                  {{t "timetable.title"}}
+                </LinkTo>
+              </span>
             </li>
             <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-              <LinkTo
-                class="text-white text-shadow-light"
-                aria-label={{t "djinquiry.aria"}}
-                @invokeAction={{@toggleMenu}}
-                @route="home.dj-inquiry">
-                {{t "djinquiry.title"}}
-              </LinkTo>
+              <span
+                  {{on "click" @toggleMenu}}
+                >
+                <LinkTo
+                  class="text-white text-shadow-light"
+                  aria-label={{t "djinquiry.aria"}}
+                  @route="home.dj-inquiry">
+                  {{t "djinquiry.title"}}
+                </LinkTo>
+              </span>
             </li>
             <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-              <LinkTo
-                class="text-white text-shadow-light"
-                aria-label={{t "forum.aria"}}
-                @invokeAction={{@toggleMenu}}
-                @route="home.forum">
-                {{t "forum.title"}}
-              </LinkTo>
+              <span
+                  {{on "click" @toggleMenu}}
+                >
+                <LinkTo
+                  class="text-white text-shadow-light"
+                  aria-label={{t "forum.aria"}}
+                  @route="home.forum">
+                  {{t "forum.title"}}
+                </LinkTo>
+              </span>
             </li>
             <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-              <LinkTo
-                class="text-white text-shadow-light"
-                aria-label={{t "wiki.aria"}}
-                @invokeAction={{@toggleMenu}}
-                @route="home.wiki">
-                {{t "wiki.title"}}
-              </LinkTo>
+              <span
+                  {{on "click" @toggleMenu}}
+                >
+                <LinkTo
+                  class="text-white text-shadow-light"
+                  aria-label={{t "wiki.aria"}}
+                  @route="home.wiki">
+                  {{t "wiki.title"}}
+                </LinkTo>
+              </span>
             </li>
           </ul>
         </li>
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-          <LinkTo
-            class="text-white text-shadow-light"
-            aria-label={{t "chat.label.aria"}}
-            @invokeAction={{@toggleMenu}}
-            @route="home.chat">
-            {{t "chat.title"}}
-          </LinkTo>
+          <span
+              {{on "click" @toggleMenu}}
+            >
+            <LinkTo
+              class="text-white text-shadow-light"
+              aria-label={{t "chat.label.aria"}}
+              @route="home.chat">
+              {{t "chat.title"}}
+            </LinkTo>
+          </span>
         </li>
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
           <a
@@ -104,13 +125,16 @@
           </a>
         </li>
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-          <LinkTo
-            class="text-white text-shadow-light"
-            aria-label={{t "about.aria"}}
-            @invokeAction={{@toggleMenu}}
-            @route="home.about">
-            {{t "about.title"}}
-          </LinkTo>
+          <span
+              {{on "click" @toggleMenu}}
+            >
+            <LinkTo
+              class="text-white text-shadow-light"
+              aria-label={{t "about.aria"}}
+              @route="home.about">
+              {{t "about.title"}}
+            </LinkTo>
+          </span>
         </li>
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
           <a
@@ -125,13 +149,16 @@
           </a>
         </li>
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-          <LinkTo
-            class="text-white text-shadow-light"
-            aria-label={{t "settings.title"}}
-            @invokeAction={{@toggleMenu}}
-            @route="home.site-settings">
-            {{t "settings.title"}}
-          </LinkTo>
+          <span
+              {{on "click" @toggleMenu}}
+            >
+            <LinkTo
+              class="text-white text-shadow-light"
+              aria-label={{t "settings.title"}}
+              @route="home.site-settings">
+              {{t "settings.title"}}
+            </LinkTo>
+          </span>
         </li>
       </ul>
     {{/if}}
