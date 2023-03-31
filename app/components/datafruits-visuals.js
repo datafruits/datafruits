@@ -6,7 +6,7 @@ import ENV from 'datafruits13/config/environment';
 export default class DatafruitsVisuals extends Component {
 
   get draggable() {
-    if (this.videoStreamMode === 'tv') {
+    if (this.videoStream.mode === 'tv') {
       return true;
     } else {
       return false;
@@ -14,11 +14,11 @@ export default class DatafruitsVisuals extends Component {
   }
 
   get styleProperties() {
-    if (!this.videoDisplaying) {
+    if (!this.videoStream.displaying) {
       return 'display: none';
     }
 
-    if (this.videoStreamMode === 'bg') {
+    if (this.videoStream.mode === 'bg') {
       return `top: 0 !important; \
         left: 0 !important; \
         width: 100vw !important; \
@@ -33,14 +33,6 @@ export default class DatafruitsVisuals extends Component {
 
   @service
   videoStream;
-
-  get videoStreamMode() {
-    return this.videoStream.mode;
-  }
-
-  get videoDisplaying() {
-    return this.videoStream.displaying;
-  }
 
   @action
   initIfActive() {
@@ -78,7 +70,7 @@ export default class DatafruitsVisuals extends Component {
   dragEnd(event) {
     console.log('dragEnd');
     console.log(event);
-    if(this.videoStreamMode === "tv"){
+    if(this.videoStream.mode === "tv"){
       this.left = event.clientX;
       this.top = event.clientY;
     }

@@ -3,27 +3,20 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import VideoStreamService from '../../services/video-stream'
 import { formatEmojiHtml } from 'datafruits13/helpers/format-emoji-html';
-import { tracked } from '@glimmer/tracking';
 
 export default class TvModeButton extends Component {
-  @tracked
-  showingViz = true;
-
   get tvModeIcon() {
-    if (this.showingViz) {
+    if (this.videoStream.displaying) {
       return formatEmojiHtml(":tv:");
     } else {
       return formatEmojiHtml(":no_entry_sign:");
     }
   }
 
-  @service 
+  @service
   declare videoStream: VideoStreamService;
 
-  @action
-  toggleDisplay() {
-    this.showingViz = !this.showingViz;
+  @action toggleDisplay() {
     this.videoStream.toggleDisplay();
   }
-
 }

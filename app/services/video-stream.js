@@ -3,6 +3,7 @@ import { later, run } from '@ember/runloop';
 import ENV from 'datafruits13/config/environment';
 import fetch from 'fetch';
 import { tracked } from '@glimmer/tracking';
+import videojs from 'video.js';
 
 export default class VideoStreamService extends Service {
   @service
@@ -17,9 +18,9 @@ export default class VideoStreamService extends Service {
   @service
   eventBus;
 
-  @tracked 
+  @tracked
   active = false;
-  
+
   @tracked
   useVideoAudio = false;
 
@@ -30,8 +31,6 @@ export default class VideoStreamService extends Service {
   }
 
   async initializePlayer() {
-    const module = await import('video.js');
-    const videojs = module.default;
     let name = this.streamName;
     let extension = this.extension;
     let path = this.path;
@@ -102,6 +101,11 @@ export default class VideoStreamService extends Service {
     }, 1000);
   }
 
+  pause() {
+    let player = this.player;
+    player.pause();
+  }
+
   play() {
     let player = this.player;
     if (player) {
@@ -151,6 +155,7 @@ export default class VideoStreamService extends Service {
 
   toggleDisplay() {
     this.displaying = !this.displaying;
+    this.pause();
   }
 
   toggleMode() {
