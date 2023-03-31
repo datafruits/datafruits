@@ -57,6 +57,7 @@ specifiers:
   '@types/phoenix': ^1.5.4
   '@types/qunit': ^2.19.2
   '@types/rsvp': ^4.0.4
+  '@types/video.js': ^7.3.51
   '@typescript-eslint/eslint-plugin': ^5.29.0
   '@typescript-eslint/parser': ^5.29.0
   autolink-js: ^1.0.2
@@ -222,6 +223,7 @@ devDependencies:
   '@types/phoenix': 1.5.4
   '@types/qunit': 2.19.2
   '@types/rsvp': 4.0.4
+  '@types/video.js': 7.3.51
   autolink-js: 1.0.2
   babel-plugin-istanbul: 6.1.1
   broccoli-asset-rev: 3.0.0
@@ -3253,6 +3255,10 @@ packages:
 
   /@types/ungap__structured-clone/0.3.0:
     resolution: {integrity: sha512-eBWREUhVUGPze+bUW22AgUr05k8u+vETzuYdLYSvWqGTUe0KOf+zVnOB1qER5wMcw8V6D9Ar4DfJmVvD1yu0kQ==}
+    dev: true
+
+  /@types/video.js/7.3.51:
+    resolution: {integrity: sha512-xLlt/ZfCuWYBvG2MRn018RvaEplcK6dI63aOiVUeeAWFyjx3Br1hL749ndFgbrvNdY4m9FoHG1FQ/PB6IpfSAQ==}
     dev: true
 
   /@typescript-eslint/eslint-plugin/5.33.1_mvqvnlpcydgaq76b4tga2j25ji:
@@ -6469,7 +6475,7 @@ packages:
       - supports-color
 
   /concat-map/0.0.1:
-    resolution: {integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=}
+    resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
   /concat-stream/1.6.2:
     resolution: {integrity: sha512-27HBghJxjiZtIk3Ycvn/4kbJk/1uZuJFfuPEns6LaEvpvG1f0hTea8lilrouyo9mVc2GWdcEZ8OLoGmSADlrCw==}
@@ -9109,7 +9115,7 @@ packages:
       is-arrayish: 0.2.1
 
   /error-stack-parser/1.3.3:
-    resolution: {integrity: sha1-+tpuOpzSsOCA5tb8dRQYZJc081w=}
+    resolution: {integrity: sha512-clK4YPJ6la0EOFrlup17G8CtzsUYa8jT3Dx2y3N/NdHaK00+8hZOg4G5uBtD+a47VnK82HM0UFpuuAuQIW93Ig==}
     dependencies:
       stackframe: 0.3.1
     dev: true
@@ -14210,7 +14216,7 @@ packages:
     dev: true
 
   /querystring/0.2.0:
-    resolution: {integrity: sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=}
+    resolution: {integrity: sha512-X/xY82scca2tau62i9mDyU9K+I+djTMUsvwf7xnUX5GLvVzgJybOJf4Y6o9Zx3oJK/LSXg5tTZBjwzqVPaPO2g==}
     engines: {node: '>=0.4.x'}
     deprecated: The querystring API is considered Legacy. new code should use the URLSearchParams API instead.
 
@@ -15316,6 +15322,7 @@ packages:
 
   /sourcemap-codec/1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
+    deprecated: Please use @jridgewell/sourcemap-codec instead
 
   /sourcemap-validator/1.1.1:
     resolution: {integrity: sha512-pq6y03Vs6HUaKo9bE0aLoksAcpeOo9HZd7I8pI6O480W/zxNZ9U32GfzgtPP0Pgc/K1JHna569nAbOk3X8/Qtw==}
@@ -16274,7 +16281,7 @@ packages:
     dev: false
 
   /tty-browserify/0.0.0:
-    resolution: {integrity: sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY=}
+    resolution: {integrity: sha512-JVa5ijo+j/sOoHGjw0sxw734b1LhBkQ3bvUGNdxnVXDCX81Yx7TFgnZygxrIIWn23hbfTaMYLwRmAxFyDuFmIw==}
     dev: true
 
   /tunnel-agent/0.6.0:

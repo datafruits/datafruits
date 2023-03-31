@@ -17,6 +17,10 @@ export default class TvModeButton extends Component {
     }
   }
 
+  get deactivateVideoIcon() {
+    return formatEmojiHtml(":electric_plug:");
+  }
+
   @service 
   declare videoStream: VideoStreamService;
 
@@ -26,4 +30,10 @@ export default class TvModeButton extends Component {
     this.videoStream.toggleDisplay();
   }
 
+  @action
+  deactivateVideo() {
+    if (confirm("Continue with disconnecting the video? The entire page must be refreshed if you wish to see the video again.")) {
+      this.videoStream.disposePlayer()
+    }
+  }
 }

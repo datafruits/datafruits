@@ -89,7 +89,7 @@ export default class VideoStreamService extends Service {
     });
   }
 
-  errorHandler(event) {
+  disposePlayer(event) {
     console.log('in errorHandler');
     console.log(event);
     this.active = false;
@@ -97,6 +97,10 @@ export default class VideoStreamService extends Service {
     this.player = null;
     this.useVideoAudio = false;
     this.eventBus.publish('liveVideoAudioOff');
+  }
+
+  errorHandler(event) {
+    this.disposePlayer(event)
     later(() => {
       this.fetchStream();
     }, 1000);
@@ -164,6 +168,7 @@ export default class VideoStreamService extends Service {
   fetchStream() {
     let name = this.streamName;
     let host = this.streamHost;
+
     fetch(`${host}/hls/${name}.m3u8`, { method: 'HEAD' })
       .then((response) => {
         if (response.status == 200) {

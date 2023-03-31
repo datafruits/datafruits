@@ -1,8 +1,18 @@
-<button 
-  class="cool-button"
-  type="button"
-  title={{if this.showingViz (t "chat.titles.video_on") (t "chat.titles.video_off") }}
-  {{on "click" this.toggleDisplay}}
->
-  {{this.tvModeIcon}}
-</button>
+{{#if this.videoStream.active}}
+  <button 
+    class="cool-button"
+    type="button"
+    title={{if this.showingViz (t "chat.titles.video_on") (t "chat.titles.video_off") }}
+    {{on "click" this.toggleDisplay}}
+  >
+    {{this.tvModeIcon}}
+  </button>
+  <button
+    class="cool-button"
+    type="button"
+    title={{if this.videoStream.active "deactivate the video" "video has been deactived"}}
+    {{on "click" this.deactivateVideo}}
+  >
+    {{this.deactivateVideoIcon}}
+  </button>  
+{{/if}}
