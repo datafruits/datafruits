@@ -2,7 +2,7 @@
   translucentOverlay={{true}}
   >
   <div class="modal-top">
-    <button {{on "click" (fn @toggleModal)}}
+    <button {{on "click" @toggleModal}}
       type="button"
       class="cool-button"
       >
@@ -10,7 +10,7 @@
     </button>
   </div>
   <div class="modal-body m-1">
-    <form {{on "submit" (fn this.submit)}}>
+    <form {{on "submit" this.submit}}>
       <p class="mt-2 mb-2">
         {{t "chat.login_why"}}
       </p>
@@ -46,19 +46,25 @@
       </div>
 
       <div class="flex items-center justify-between mt-3">
-        <LinkTo
-          @route="home.password-reset"
-          @invokeAction={{@toggleModal}}
+        <span
+            {{on "click" @toggleModal}}
           >
-          {{t "chat.forgot_password"}}
-        </LinkTo>
-        <div class="relative">
           <LinkTo
-            @route="home.sign-up"
-            @invokeAction={{@toggleModal}}
+            @route="home.password-reset"
             >
-            {{t "chat.sign_up"}}
+            {{t "chat.forgot_password"}}
           </LinkTo>
+        </span>
+        <div class="relative">
+          <span
+              {{on "click" @toggleModal}}
+            >
+            <LinkTo
+              @route="home.sign-up"
+              >
+              {{t "chat.sign_up"}}
+            </LinkTo>
+          </span>
         </div>
       </div>
     </form>

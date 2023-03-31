@@ -16,9 +16,9 @@ module('Integration | Component | timetable-loader', function (hooks) {
 
     // Template block usage:
     await render(hbs`
-      {{#timetable-loader}}
+      <TimetableLoader>
         template block text
-      {{/timetable-loader}}
+      </TimetableLoader>
     `);
 
     assert.dom(this.element).hasText('template block text');

@@ -39,7 +39,7 @@
           name="pause-stream"
           role="button"
           aria-label={{t "player.aria.stop"}}
-          {{action "pause"}}
+          {{on "click" this.pause}}
           class="jp-pause"
           tabindex="0"
         >
@@ -54,9 +54,9 @@
           role="button"
           aria-label={{t "player.aria.play"}}
           title={{t "player.aria.play"}}
-          {{action "play"}}
-          onMouseEnter={{action "playButtonMouseEnter"}}
-          onMouseLeave={{action "playButtonMouseOut"}}
+          {{on "click" this.play}}
+          {{on "mouseenter" this.playButtonMouseEnter}}
+          {{on "mouseleave" this.playButtonMouseOut}}
         >
           {{t "player.play"}}
         </a>
@@ -67,8 +67,8 @@
         role="button"
         class="jp-volume-controls"
         aria-label={{t "player.aria.volume"}}
-        {{action "showVolumeControl" on="mouseEnter"}}
-        {{action "hideVolumeControl" on="mouseLeave"}}
+        {{on "mouseenter" this.showVolumeControl}}
+        {{on "mouseleave" this.hideVolumeControl}}
       >
         {{#if this.muted}}
           {{!-- template-lint-disable no-nested-interactive --}}
@@ -78,7 +78,7 @@
             role="button"
             title={{t "player.aria.unmute"}}
             aria-label={{t "player.aria.unmute"}}
-            {{action "unmute"}}
+            {{on 'click' this.unmute}}
           >
             <FaIcon @icon="volume-off" />
           </a>
@@ -89,7 +89,7 @@
             role="button"
             title={{t "player.aria.mute"}}
             aria-label={{t "player.aria.mute"}}
-            {{action "mute"}}
+            {{on "click" this.mute}}
           >
             <FaIcon @icon="volume-up" />
           </a>
@@ -102,7 +102,7 @@
             max="1"
             step="0.1"
             aria-label={{t "player.aria.volume"}}
-            oninput={{action "volumeChanged"}}
+            {{on "input" this.volumeChanged}}
             value={{this.volume}}
           >
         {{/if}}
@@ -135,7 +135,7 @@
           class="seek-bar"
           type="range"
           step="any"
-          oninput={{action "seek"}}
+          {{on "input" this.seek}}
           value={{this.playTimePercentage}}
         >
       </div>
