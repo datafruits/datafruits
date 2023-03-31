@@ -33,7 +33,7 @@
     "@ember/test-helpers": "^2.8.1",
     "@fortawesome/ember-fontawesome": "^0.2.3",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@frontile/buttons": "^0.14.0",
     "@frontile/changeset-form": "^0.14.0",
     "@frontile/core": "^0.14.0",
