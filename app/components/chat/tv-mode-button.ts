@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
-import VideoStreamService from '../../services/video-stream'
+import VideoStreamService from 'datafruits13/services/video-stream'
 import { formatEmojiHtml } from 'datafruits13/helpers/format-emoji-html';
 
 export default class TvModeButton extends Component {
