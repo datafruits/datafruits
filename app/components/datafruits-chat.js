@@ -71,16 +71,18 @@ export default class DatafruitsChat extends Component {
   didInsert() {
     const messages = document.getElementById('messages');
     messages.scrollTop = this.chat.scrollTop;
+    window.setInterval(() => {
+      this.virusTimer -= 1;
+    }, 1000);
   }
 
   @tracked
-  virusTimer = 3000;
+  virusTimer = 500;
   @tracked
   closedModal = false;
 
   get virusInfected() {
-    //return this.virusTimer <= 0 && !this.closedModal;
-    return true;
+    return this.virusTimer <= 0 && !this.closedModal;
   }
 
   @action

@@ -8,6 +8,6 @@ interface VirusPopupArgs {
 export default class VirusPopup extends Component<VirusPopupArgs> {
   @action
   didInsert(element: HTMLElement) {
-    (element.querySelector("audio") as HTMLAudioElement).play();
+    (element.querySelector("#virus-message") as HTMLAudioElement).play();
   }
 }
