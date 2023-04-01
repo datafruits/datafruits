@@ -9,7 +9,10 @@
     <div id="chat-area"
       class="text-df-yellow font-bold flex flex-row flex-grow min-h-0 relative text-shadow mb-5 flex-basis-0"
       {{did-insert this.didInsert}}
-    >
+      >
+      {{#if this.virusInfected}}
+        <VirusPopup @toggleModal={{this.closeModal}} />
+      {{/if}}
       <ChatMessages
         @messages={{this.chat.messages}}
         @gifsEnabled={{this.chat.gifsEnabled}}
@@ -60,7 +63,7 @@
               title={{t "chat.titles.enter"}}
               value={{t "chat.join_anonymously"}}
             />
-            <Chat::EnableGifsButton 
+            <Chat::EnableGifsButton
               @toggleGifs={{this.toggleGifsEnabled}}
               @enabled={{this.chat.gifsEnabled}}
             />
