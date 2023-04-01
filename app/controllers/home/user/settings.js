@@ -6,6 +6,13 @@ export default class HomeUserSettingsController extends Controller {
   @service
   currentUser;
 
+  greetings = [
+    'hello'
+  ]
+  get randomGreeting() {
+    return this.greetings[Math.floor(Math.random() * this.greetings.length)];
+  }
+  
   availableStyles = [
     'funny',
     'gooey',
@@ -29,7 +36,7 @@ export default class HomeUserSettingsController extends Controller {
     'sexy',
     'sadness',
     'chill',
-    'lazy',
+    'layzee',
     'unknown',
   ];
 
@@ -56,6 +63,11 @@ export default class HomeUserSettingsController extends Controller {
   @action
   setUserStyle(style) {
     this.currentUser.user.style = style;
+  }
+
+  @action
+  setTimezone(timeZone) {
+    this.currentUser.user.timeZone = timeZone;
   }
 
   @action

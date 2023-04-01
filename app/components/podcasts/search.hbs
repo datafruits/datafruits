@@ -1,13 +1,12 @@
-<div id="podcast-search-forms" class="flex flex-wrap p-2 items-center">
-  <h4 class="text-l px-3 text-center">{{t "podcasts.search_title"}}</h4>
-  <form role="search" class="px-3" aria-label={{ t "podcasts.text_search.label"}}
-  {{on "submit" this.nop}}>
-    <div class="flex flex-col">
-      <label class="text-white" for="search-tracks">{{t "podcasts.title_search"}}</label>
+<div id="podcast-search-forms" class="my-4 flex flex-wrap">
+  <form role="search" aria-label={{ t "podcasts.text_search.label"}}
+    {{on "submit" this.nop}}>
+    <div class="md:mx-10 flex flex-col">
+      <label class="text-center text-white" for="search-tracks">{{t "podcasts.title_search"}}</label>
       <Input
         id="search-tracks"
         name="search-tracks"
-        @autofocus="autofocus"
+        autofocus="autofocus"
         @value={{@query}}
         @escape-press={{this.clearSearch}}
         {{on "keyup" this.updateQueryAndSearch}}
@@ -17,9 +16,10 @@
   </form>
   <form role="search" class="px-3" aria-label={{ t "podcasts.tag_search.label"}}>
     <div class="flex flex-col">
-      <label class="text-white" for="tag_search">{{t "podcasts.tag_search"}}</label>
+      <label class="text-center text-white" for="tag_search">{{t "podcasts.tag_search"}}</label>
       <PowerSelectMultiple
         name="tag_search"
+        id="tag_search"
         @placeholder={{t "podcasts.placeholders.tag"}}
         @searchEnabled={{true}}
         @options={{this.labelNames}}

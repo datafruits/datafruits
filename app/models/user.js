@@ -14,6 +14,9 @@ export default class UserModel extends Model {
   role;
 
   @attr()
+  timeZone;
+
+  @attr()
   avatarUrl;
 
   @attr()
@@ -39,12 +42,26 @@ export default class UserModel extends Model {
   pronouns;
 
   @attr()
+  createdAt;
+
+  @attr()
+  lastSignInAt;
+
+  @attr()
   bio;
+
+  @attr()
+  homepage;
 
   @attr()
   fruitsAffinity;
 
+  @attr()
+  fruitTicketBalance;
+
   @hasMany('track-favorite', { async: false }) trackFavorites; // ugh
+
+  @hasMany('fruit-summon') fruitSummons;
 
   async favoritedTrack(trackId) {
     let trackFavorites = await this.trackFavorites;

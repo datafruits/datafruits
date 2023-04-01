@@ -16,6 +16,9 @@ export default class HomeController extends Controller {
   router;
 
   @service
+  videoStream;
+
+  @service
   session;
 
   @service
@@ -69,9 +72,7 @@ export default class HomeController extends Controller {
 
   @action
   toggleLoginModal() {
-    console.log('toggling login modal');
     this.showingLoginModal = !this.showingLoginModal;
-    console.log(this.showingLoginModal);
   }
 
   @action

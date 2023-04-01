@@ -1,0 +1,135 @@
+{"frames": {
+
+"real_lemoner_3d_01.png":
+{
+	"frame": {"x":1,"y":984,"w":520,"h":289},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":11,"y":65,"w":520,"h":289},
+	"sourceSize": {"w":532,"h":452}
+},
+"real_lemoner_3d_02.png":
+{
+	"frame": {"x":1,"y":450,"w":532,"h":337},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":62,"w":532,"h":337},
+	"sourceSize": {"w":532,"h":452}
+},
+"real_lemoner_3d_03.png":
+{
+	"frame": {"x":638,"y":945,"w":350,"h":320},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":126,"y":51,"w":350,"h":320},
+	"sourceSize": {"w":532,"h":452}
+},
+"real_lemoner_3d_04.png":
+{
+	"frame": {"x":987,"y":1194,"w":411,"h":325},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":52,"y":51,"w":411,"h":325},
+	"sourceSize": {"w":532,"h":452}
+},
+"real_lemoner_3d_05.png":
+{
+	"frame": {"x":1,"y":1506,"w":235,"h":331},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":154,"y":59,"w":235,"h":331},
+	"sourceSize": {"w":532,"h":452}
+},
+"real_lemoner_3d_06.png":
+{
+	"frame": {"x":334,"y":1434,"w":310,"h":319},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":114,"y":64,"w":310,"h":319},
+	"sourceSize": {"w":532,"h":452}
+},
+"real_lemoner_3d_07.png":
+{
+	"frame": {"x":649,"y":421,"w":458,"h":311},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":48,"y":73,"w":458,"h":311},
+	"sourceSize": {"w":532,"h":452}
+},
+"real_lemoner_3d_08.png":
+{
+	"frame": {"x":340,"y":450,"w":493,"h":307},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":24,"y":62,"w":493,"h":307},
+	"sourceSize": {"w":532,"h":452}
+},
+"real_lemoner_3d_09.png":
+{
+	"frame": {"x":292,"y":984,"w":448,"h":344},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":60,"y":51,"w":448,"h":344},
+	"sourceSize": {"w":532,"h":452}
+},
+"real_lemoner_3d_10.png":
+{
+	"frame": {"x":886,"y":1,"w":370,"h":438},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":49,"y":0,"w":370,"h":438},
+	"sourceSize": {"w":532,"h":452}
+},
+"real_lemoner_3d_11.png":
+{
+	"frame": {"x":1,"y":1,"w":461,"h":447},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":61,"y":0,"w":461,"h":447},
+	"sourceSize": {"w":532,"h":452}
+},
+"real_lemoner_3d_12.png":
+{
+	"frame": {"x":464,"y":1,"w":420,"h":418},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":66,"y":0,"w":420,"h":418},
+	"sourceSize": {"w":532,"h":452}
+},
+"real_lemoner_3d_13.png":
+{
+	"frame": {"x":962,"y":373,"w":398,"h":395},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":27,"y":0,"w":398,"h":395},
+	"sourceSize": {"w":532,"h":452}
+},
+"real_lemoner_3d_14.png":
+{
+	"frame": {"x":962,"y":773,"w":419,"h":376},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":15,"y":16,"w":419,"h":376},
+	"sourceSize": {"w":532,"h":452}
+},
+"real_lemoner_3d_15.png":
+{
+	"frame": {"x":655,"y":1297,"w":446,"h":330},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":17,"y":34,"w":446,"h":330},
+	"sourceSize": {"w":532,"h":452}
+}},
+"animations": {
+	"real_lemoner_3d": ["real_lemoner_3d_01.png","real_lemoner_3d_02.png","real_lemoner_3d_03.png","real_lemoner_3d_04.png","real_lemoner_3d_05.png","real_lemoner_3d_06.png","real_lemoner_3d_07.png","real_lemoner_3d_08.png","real_lemoner_3d_09.png","real_lemoner_3d_10.png","real_lemoner_3d_11.png","real_lemoner_3d_12.png","real_lemoner_3d_13.png","real_lemoner_3d_14.png","real_lemoner_3d_15.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "real_lemoner_3d.png",
+	"format": "RGBA8888",
+	"size": {"w":1358,"h":1745},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:409a6c6bec006266891e318f4b2777b7:c9aa052689420d287fce311edb3f89c4:a5d39fd0f67297ef6967aac8017c0fdd$"
+}
+}

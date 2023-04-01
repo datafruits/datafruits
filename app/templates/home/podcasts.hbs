@@ -1,9 +1,9 @@
-<div class="mt-5 pt-2 px-5">
-  {{page-title (t "podcasts.title")}}
-  <h1>
+{{page-title (t "podcasts.title")}}
+<div class="page-spacing">
+  <h1 class="debussy-header">
     {{t "podcasts.title"}}
   </h1>
-  <div>
+  <div class="page-bg">
     <Podcasts
       @labels={{this.model.labels}}
       @query={{this.router.currentRoute.queryParams}}

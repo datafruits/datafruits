@@ -77,6 +77,11 @@ export default class ChatService extends Service {
     this.chan.push(message, object);
   }
 
+  onTrackPlayed(event: any) {
+    console.log(event);
+    this.chan.push("track_playback", { track_id: event.id })
+  }
+
   constructor() {
     super(...arguments);
 
@@ -110,6 +115,9 @@ export default class ChatService extends Service {
     this.chan.on('new:msg', (msg) => {
       if (msg['role']) {
         msg['role'] = msg.role.split(' ');
+      }
+      if (this.currentUser.user) {
+        msg.hasMention = msg.body.indexOf(`@${this.currentUser.user.username}`) > -1;
       }
       this.messages = [...this.messages, msg];
     });
@@ -175,5 +183,7 @@ export default class ChatService extends Service {
         this.setFruitCount(key, value);
       }
     });
+
+    this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
   }
 }

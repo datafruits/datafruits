@@ -38,12 +38,8 @@
   }
 }
 
-div.radio-bar.is-live {
+.is-live {
   background-image: url("/assets/images/pink_sparkles.gif");
-}
-
-.playing-podcast {
-  background: $green !important;
 }
 
 div.radio-bar a:hover {

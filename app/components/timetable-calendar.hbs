@@ -5,11 +5,10 @@
   </await.Pending>
 
   <await.Fulfilled as |shows|>
-  <table class="bg-df-blue-dark border-dotted border-df-green border-8">
+  <table class="page-bg block px-6 py-4">
     <thead>
       <tr>
       <th scope="col" colspan="2">
-        <h1 class="text-3xl text-center">{{t "timetable.title"}}</h1>
         {{t "timetable.timezone" }}
         <span class="italic">
           {{current-timezone}}
@@ -26,13 +25,13 @@
             <td>{{format-time show.start}} ~ {{format-time show.end}}</td>
             {{#if (is-current-show show)}}
               <td class="bleed">
-                <LinkTo @route="home.show" @model={{show.slug}} @title={{show.title}}>
+                <LinkTo @route="home.show" @model={{show.slug}} title={{show.title}}>
                   {{show.title}}
                 </LinkTo>
               </td>
             {{else}}
               <td>
-                <LinkTo @route="home.show" @model={{show.slug}} @title={{show.title}}>
+                <LinkTo @route="home.show" @model={{show.slug}} title={{show.title}}>
                   {{show.title}}
                 </LinkTo>
               </td>

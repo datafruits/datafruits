@@ -1,8 +1,12 @@
 <button
-  {{on "click" (fn @fruitTip @fruit.name)}}
+  {{on "click" (fn @fruitTip @fruit)}}
   class="cool-button fruit-tip-button tip mr-1 ml-1 mt-1 text-xl font-black"
   type="button"
+  disabled={{@disabled}}
   >
+  {{#if @cost}}
+    <span class="xs">Ƒ</span><span>{{@cost}}</span>
+  {{/if}}
   <img src={{@fruit.image}} alt={{@fruit.name}} />
   <h1 class="text-xl">{{this.count}}</h1>
 </button>

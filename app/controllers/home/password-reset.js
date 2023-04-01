@@ -15,6 +15,8 @@ export default class PasswordResetController extends Controller {
     return isEmpty(this.email);
   }
 
+  @tracked submitted = false;
+
   @action
   submit() {
     let data = {
@@ -32,8 +34,9 @@ export default class PasswordResetController extends Controller {
       body: JSON.stringify(data),
     })
       .then((data) => {
-        if (data.status == 201) {
+        if (data.status == 200) {
           alert('Password reset link sent!');
+          this.submitted = true;
         } else {
           alert('Something went wrong!');
         }

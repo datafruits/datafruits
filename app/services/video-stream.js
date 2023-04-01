@@ -8,17 +8,26 @@ export default class VideoStreamService extends Service {
   @service
   rollbar;
 
+  @tracked
+  displaying = true;
+
+  @tracked
+  mode = "bg";
+
   @service
   eventBus;
+
+  @tracked 
+  active = false;
+  
+  @tracked
+  useVideoAudio = false;
 
   constructor() {
     super(...arguments);
     this.streamHost = ENV.STREAM_HOST;
     this.streamName = ENV.STREAM_NAME;
   }
-
-  @tracked active = false;
-  @tracked useVideoAudio = false;
 
   async initializePlayer() {
     const module = await import('video.js');
@@ -63,20 +72,19 @@ export default class VideoStreamService extends Service {
       let promise = player.play();
 
       if (promise !== undefined) {
-        promise
-          .then(() => {
-            console.log('video autoplayed'); // eslint-disable-line no-console
-            if (this.useVideoAudio) {
-              this.eventBus.publish('liveVideoAudio');
-            }
-            player.userActive(false);
-          })
-          .catch((error) => {
-            // Autoplay was prevented.
-            console.log(`video autoplay failed: ${error}`); // eslint-disable-line no-console
-            player.userActive(false);
-            this.rollbar.error(`video autoplay failed: ${error}`);
-          });
+        promise.then(() => {
+          console.log('video autoplayed'); // eslint-disable-line no-console
+          if (this.useVideoAudio) {
+            this.eventBus.publish('liveVideoAudio');
+          }
+          player.userActive(false);
+        })
+        .catch((error) => {
+          // Autoplay was prevented.
+          console.log(`video autoplay failed: ${error}`); // eslint-disable-line no-console
+          player.userActive(false);
+          this.rollbar.error(`video autoplay failed: ${error}`);
+        });
       }
     });
   }
@@ -138,6 +146,18 @@ export default class VideoStreamService extends Service {
     this.path = path;
     if (path === 'live') {
       this.useVideoAudio = true;
+    }
+  }
+
+  toggleDisplay() {
+    this.displaying = !this.displaying;
+  }
+
+  toggleMode() {
+    if (this.mode == "bg") {
+      this.mode = "tv";
+    } else {
+      this.mode = "bg";
     }
   }
 

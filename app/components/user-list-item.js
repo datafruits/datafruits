@@ -1,8 +1,14 @@
 import Component from '@glimmer/component';
+import { isEmpty } from '@ember/utils';
 
 export default class UserListItem extends Component {
   get avatarUrl() {
-    return this.args.user.metas[0].avatarUrl;
+    const avatarUrl = this.args.user.metas[0].avatarUrl;
+    if (isEmpty(avatarUrl)) {
+      return '/assets/images/show_placeholder.jpg';
+    } else {
+      return avatarUrl;
+    }
   }
 
   get username() {

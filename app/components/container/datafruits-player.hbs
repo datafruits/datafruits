@@ -18,13 +18,13 @@
           {{t "player.loading"}}
         </a>
       {{else if playing}}
-        <a class="jp-pause" tabindex="1" {{action "pause"}}>
+        <a class="jp-pause" tabindex="1" {{on "click" this.pause}}>
           {{t (if this.playingPodcast "player.pause" "player.stop")}}
         </a>
       {{else if paused}}
-        <a {{action "play"}}
-          onMouseEnter={{action "playButtonMouseEnter"}}
-          onMouseLeave={{action "playButtonMouseOut"}}
+        <a {{on "click" this.play}}
+          {{on "mouseenter" this.playButtonMouseEnter}}
+          {{on "mouseleave" this.playButtonMouseOut}}
           title={{t "player.title.play"}}
           class="jp-play"
           href="javascript:;"
@@ -39,16 +39,18 @@
         role="button"
         class="jp-volume-controls"
         aria-label={{t "player.aria.volume"}}
-        {{action "showVolumeControl" on="mouseEnter"}}
-        {{action "hideVolumeControl" on="mouseLeave"}}
+        {{on "mouseEnter" this.showVolumeControl}}
+        {{on "mouseLeave" this.hideVolumeControl}}
       >
         {{#if muted}}
           {{!-- template-lint-disable no-nested-interactive --}}
-          <a class="jp-unmute" tabindex="1" {{action "unmute"}}>
+          <a class="jp-unmute" tabindex="1"
+            {{on 'click' this.unmute}} >
             <FaIcon @icon="volume-off" />
           </a>
         {{else}}
-          <a class="jp-mute" tabindex="1" {{action "mute"}}>
+          <a class="jp-mute" tabindex="1"
+            {{on "click" this.mute}} >
             <FaIcon @icon="volume-up" />
           </a>
         {{/if}}
@@ -59,7 +61,7 @@
             min="0"
             max="1"
             step="0.1"
-            oninput={{action "volumeChanged"}}
+            {{on "input" this.volumeChanged}}
             value={{volume}}
           >
         {{/if}}
@@ -84,7 +86,7 @@
           class="seek-bar"
           type="range"
           step="any"
-          oninput={{action "seek"}}
+          {{on "input" this.seek}}
           value={{playTime}}
         >
       </div>

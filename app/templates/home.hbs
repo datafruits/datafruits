@@ -1,5 +1,8 @@
 <section class="h-handle-resize flex flex-col justify-between">
   <div class="flex classic:bg-df-pink blm:bg-black trans:bg-df-blue">
+    <a class="skip-to-content-link" href="#main-content">
+      {{t "skip_to_content"}}
+    </a>
     <PcNav
       @toggleSubMenu={{this.toggleSubMenu}}
       @submenuOpen={{this.submenuOpen}}
@@ -14,10 +17,10 @@
   <UserMenu
     @showing={{this.isShowingUserMenu}}
     @toggleUserMenu={{this.toggleUserMenu}} />
-  <NewVersionNotifier
-    @updateMessage="A new version of datafruits was released: {newVersion}"
-  />
-  <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow ">
+  <OurVersionNotifier
+    @updateMessage="Updates have been made to datafruits! Refresh to stay up-to-date 💻" 
+    @reloadButtonText="Refresh" />
+  <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow" id="main-content">
     {{outlet}}
   </div>
   <DatafruitsPlayer
@@ -38,25 +41,25 @@
       />
     </div>
   </DatafruitsPlayer>
-  <div class="flex-row flex justify-between text-xl classic:bg-df-green blm:bg-black trans:bg-df-blue">
+  <div class="flex-row flex justify-between text-xl classic:bg-df-green-dark blm:bg-black trans:bg-df-blue">
     <AddDatafruit />
   </div>
 </section>
 <DatafruitsVisuals
   class="block absolute top-0 w-screen h-screen h-handle-resize"
 />
-{{#if (not this.fastboot.isFastBoot)}}
+{{#unless this.fastboot.isFastBoot}}
   <Notifications />
   <WindowResizeHandler />
   {{#if this.showingPixi}}
     <Pixi />
   {{/if}}
-{{/if}}
+{{/unless}}
 
 {{#if april-fools}}
-  <!-- bgs -->
+  {{!-- bgs --}}
   <a href="https://datafruits.bandcamp.com/album/bgs-vs-firedrill-studio-phone-3" rel="noopener noreferrer" target="_blank"><img class="tiny-guy" alt=":bgs:" src="/assets/images/bgs_small.png" /></a>
-  <!-- grumby -->
+  {{!-- grumby --}}
   <a href="https://www.youtube.com/shorts/9_g8YA_vJzg" rel="noopener noreferrer" target="_blank"><img class="tiny-grumby" alt=":bgs:" src="/assets/images/emojis/grumby.gif" /></a>
 {{/if}}
 
