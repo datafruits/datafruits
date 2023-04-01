@@ -136,7 +136,7 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   play() {
-    let audioTag = document.getElementById('radio-player') as HTMLAudioElement;
+    const audioTag = document.getElementById('radio-player') as HTMLAudioElement;
     if (this.playingPodcast === false) {
       // reload stream
       audioTag.src = 'https://streampusher-relay.club/datafruits.mp3';
