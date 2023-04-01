@@ -82,7 +82,7 @@ div.radio-bar a:hover {
   input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 20px;
-    cursor: pointer;
+    cursor: url('/assets/images/pointer.png'), auto;
     background: $yellow;
     border-radius: 1.3px;
     border: none;
@@ -92,14 +92,14 @@ div.radio-bar a:hover {
     width: 25px;
     border-radius: 3px;
     background: $pink;
-    cursor: pointer;
+    cursor: url('/assets/images/pointer.png'), auto;
     -webkit-appearance: none;
     margin-top: -2px;
   }
   input[type=range]::-moz-range-track {
     width: 100%;
     height: 20px;
-    cursor: pointer;
+    cursor: url('/assets/images/pointer.png'), auto;
     background: $yellow;
     border-radius: 1.3px;
     border: none;
@@ -109,7 +109,7 @@ div.radio-bar a:hover {
     width: 25px;
     border-radius: 3px;
     background: $pink;
-    cursor: pointer;
+    cursor: url('/assets/images/pointer.png'), auto;
     -webkit-appearance: none;
     margin-top: -2px;
     border: none;
@@ -117,7 +117,7 @@ div.radio-bar a:hover {
   input[type=range]::-ms-track {
     width: 100%;
     height: 20px;
-    cursor: pointer;
+    cursor: url('/assets/images/pointer.png'), auto;
     background: transparent;
     border: none;
     color: transparent;
@@ -135,7 +135,7 @@ div.radio-bar a:hover {
     width: 25px;
     border-radius: 3px;
     background: $yellow;
-    cursor: pointer;
+    cursor: url('/assets/images/pointer.png'), auto;
   }
   .seek-bar-wrapper {
     flex-grow: 1;
@@ -199,7 +199,7 @@ div.radio-bar a:hover {
   input[type=range]::-webkit-slider-runnable-track {
     height: 100%;
     width: 8.4px;
-    cursor: pointer;
+    cursor: url('/assets/images/pointer.png'), auto;
     background: $pink;
     border-radius: 5px;
   }
@@ -208,7 +208,7 @@ div.radio-bar a:hover {
     width: 16px;
     border-radius: 5px;
     background: $yellow;
-    cursor: pointer;
+    cursor: url('/assets/images/pointer.png'), auto;
     -webkit-appearance: none;
     margin-top: -8px;
   }
@@ -218,7 +218,7 @@ div.radio-bar a:hover {
   input[type=range]::-moz-range-track {
     height: 100%;
     width: 100%;
-    cursor: pointer;
+    cursor: url('/assets/images/pointer.png'), auto;
     background: $pink;
     border-radius: 5px;
   }
@@ -227,12 +227,12 @@ div.radio-bar a:hover {
     width: 16px;
     border-radius: 5px;
     background: $yellow;
-    cursor: pointer;
+    cursor: url('/assets/images/pointer.png'), auto;
   }
   input[type=range]::-ms-track {
     height: 100%;
     width: 100%;
-    cursor: pointer;
+    cursor: url('/assets/images/pointer.png'), auto;
     background: transparent;
     border-color: transparent;
     border-width: 16px 0;
@@ -251,7 +251,7 @@ div.radio-bar a:hover {
     width: 16px;
     border-radius: 5px;
     background: $yellow;
-    cursor: pointer;
+    cursor: url('/assets/images/pointer.png'), auto;
   }
   input[type=range]:focus::-ms-fill-lower {
     background: $pink;
