@@ -76,6 +76,7 @@
     "@types/phoenix": "^1.5.4",
     "@types/qunit": "^2.19.2",
     "@types/rsvp": "^4.0.4",
+    "@types/video.js": "^7.3.51",
     "autolink-js": "^1.0.2",
     "babel-plugin-istanbul": "^6.1.1",
     "broccoli-asset-rev": "^3.0.0",
