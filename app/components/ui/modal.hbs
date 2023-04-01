@@ -1,6 +1,8 @@
-<div class="modal" ...attributes>
+<div class="modal"
+  {{did-insert this.didInsert}}
+  {{will-destroy this.removeListeners}}
+  ...attributes>
   <div class="modal-top"
-    {{did-insert this.didInsert}}
     >
     <button {{on "click" (fn @toggleModal)}}
       type="button"

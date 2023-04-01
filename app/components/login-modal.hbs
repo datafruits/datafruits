@@ -1,5 +1,5 @@
 <Ui::Modal
-    id="login-modal"
+    @toggleModal={{@toggleModal}}
   >
   <div class="modal-body m-1">
     <form {{on "submit" (fn this.submit)}}>
