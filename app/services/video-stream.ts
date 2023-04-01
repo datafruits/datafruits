@@ -4,25 +4,41 @@ import ENV from 'datafruits13/config/environment';
 import fetch from 'fetch';
 import { tracked } from '@glimmer/tracking';
 import videojs from 'video.js';
+import type EventBusService from 'datafruits13/services/event-bus';
+
+enum PlayerState {
+  Playing = 'playing',
+  Paused = 'paused'
+}
+
+enum Mode {
+  BG = "bg",
+  TV = "tv"
+}
 
 export default class VideoStreamService extends Service {
   @service
-  rollbar;
-
-  @tracked
-  displaying = true;
-
-  @tracked
-  mode = "bg";
+  declare rollbar: any;
 
   @service
-  eventBus;
+  declare eventBus: EventBusService;
 
-  @tracked
-  active = false;
+  @tracked displaying: boolean = true;
 
-  @tracked
-  useVideoAudio = false;
+  @tracked mode: Mode = Mode.BG;
+
+  @tracked active: boolean = false;
+
+  @tracked useVideoAudio: boolean = false;
+
+  streamName: string = "";
+  streamHost: string = "";
+  extension: string = "";
+  path: string = "";
+
+  player: videojs.Player | null = null;
+
+  playerState: PlayerState = PlayerState.Paused;
 
   constructor() {
     super(...arguments);
@@ -31,13 +47,13 @@ export default class VideoStreamService extends Service {
   }
 
   async initializePlayer() {
-    let name = this.streamName;
-    let extension = this.extension;
-    let path = this.path;
+    const name = this.streamName;
+    const extension = this.extension;
+    const path = this.path;
     run(() => {
       let type;
-      let host = this.streamHost;
-      let streamUrl = `${host}/${path}/${name}.${extension}`;
+      const host = this.streamHost;
+      const streamUrl = `${host}/${path}/${name}.${extension}`;
       if (extension == 'mp4') {
         type = 'video/mp4';
       } else if (extension == 'm3u8') {
@@ -48,11 +64,10 @@ export default class VideoStreamService extends Service {
         return;
       }
 
-      let preview = name;
+      const preview = name;
 
-      let player = videojs('video-player', {
+      const player = videojs('video-player', {
         poster: `previews/${preview}.png`,
-        userActive: false,
         controls: false,
       });
 
@@ -68,7 +83,7 @@ export default class VideoStreamService extends Service {
 
       player.tech().on('retryplaylist', this.errorHandler.bind(this));
 
-      let promise = player.play();
+      const promise = player.play();
 
       if (promise !== undefined) {
         promise.then(() => {
@@ -77,8 +92,9 @@ export default class VideoStreamService extends Service {
             this.eventBus.publish('liveVideoAudio');
           }
           player.userActive(false);
+          this.playerState = PlayerState.Playing;
         })
-        .catch((error) => {
+        .catch((error: Error) => {
           // Autoplay was prevented.
           console.log(`video autoplay failed: ${error}`); // eslint-disable-line no-console
           player.userActive(false);
@@ -88,11 +104,12 @@ export default class VideoStreamService extends Service {
     });
   }
 
-  errorHandler(event) {
+  errorHandler(event: any) {
+    const player = this.player as videojs.Player;
     console.log('in errorHandler');
     console.log(event);
     this.active = false;
-    this.player.dispose();
+    player.dispose();
     this.player = null;
     this.useVideoAudio = false;
     this.eventBus.publish('liveVideoAudioOff');
@@ -102,14 +119,19 @@ export default class VideoStreamService extends Service {
   }
 
   pause() {
-    let player = this.player;
-    player.pause();
+    const player = this.player as videojs.Player;
+    if(this.playerState === PlayerState.Playing) {
+      player.pause();
+    } else {
+      player.reset();
+      player.play();
+    }
   }
 
   play() {
-    let player = this.player;
+    const player = this.player as videojs.Player;
     if (player) {
-      let promise = player.play();
+      const promise = player.play();
       if (promise !== undefined) {
         promise
           .then(() => {
@@ -119,7 +141,7 @@ export default class VideoStreamService extends Service {
             }
             player.userActive(false);
           })
-          .catch((error) => {
+          .catch((error: any) => {
             // Autoplay was prevented.
             console.log(`video play failed: ${error}`); // eslint-disable-line no-console
             player.userActive(false);
@@ -132,18 +154,21 @@ export default class VideoStreamService extends Service {
   }
 
   unmute() {
-    this.player.muted(false);
+    const player = this.player as videojs.Player;
+    player.muted(false);
   }
 
   mute() {
-    this.player.muted(true);
+    const player = this.player as videojs.Player;
+    player.muted(true);
   }
 
-  setVolume(vol) {
-    this.player.volume(vol);
+  setVolume(vol: number) {
+    const player = this.player as videojs.Player;
+    player.volume(vol);
   }
 
-  streamIsActive(name, extension, path) {
+  streamIsActive(name: string, extension: string, path: string) {
     this.active = true;
     this.streamName = name;
     this.extension = extension;
@@ -159,16 +184,16 @@ export default class VideoStreamService extends Service {
   }
 
   toggleMode() {
-    if (this.mode == "bg") {
-      this.mode = "tv";
+    if (this.mode == Mode.BG) {
+      this.mode = Mode.TV;
     } else {
-      this.mode = "bg";
+      this.mode = Mode.BG;
     }
   }
 
   fetchStream() {
-    let name = this.streamName;
-    let host = this.streamHost;
+    const name = this.streamName;
+    const host = this.streamHost;
     fetch(`${host}/hls/${name}.m3u8`, { method: 'HEAD' })
       .then((response) => {
         if (response.status == 200) {
