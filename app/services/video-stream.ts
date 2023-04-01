@@ -120,12 +120,8 @@ export default class VideoStreamService extends Service {
 
   pause() {
     const player = this.player as videojs.Player;
-    if(this.playerState === PlayerState.Playing) {
-      player.pause();
-    } else {
-      player.reset();
-      player.play();
-    }
+    player.pause();
+    this.playerState = PlayerState.Paused;
   }
 
   play() {
@@ -180,7 +176,11 @@ export default class VideoStreamService extends Service {
 
   toggleDisplay() {
     this.displaying = !this.displaying;
-    this.pause();
+    if(this.playerState === PlayerState.Playing) {
+      this.pause();
+    } else {
+      this.play();
+    }
   }
 
   toggleMode() {
