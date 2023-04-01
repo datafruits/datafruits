@@ -1,14 +1,6 @@
-<ModalDialog
-  translucentOverlay={{true}}
+<Ui::Modal
+    @toggleModal={{@toggleModal}}
   >
-  <div class="modal-top">
-    <button {{on "click" @toggleModal}}
-      type="button"
-      class="cool-button"
-      >
-      X
-    </button>
-  </div>
   <div class="modal-body m-1">
     <form {{on "submit" this.submit}}>
       <p class="mt-2 mb-2">
@@ -69,4 +61,4 @@
       </div>
     </form>
   </div>
-</ModalDialog>
+</Ui::Modal>

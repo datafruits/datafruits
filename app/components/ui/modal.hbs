@@ -1,0 +1,15 @@
+<div class="modal"
+  {{did-insert this.didInsert}}
+  {{will-destroy this.removeListeners}}
+  ...attributes>
+  <div class="modal-top"
+    >
+    <button {{on "click" (fn @toggleModal)}}
+      type="button"
+      class="cool-button"
+      >
+      X
+    </button>
+  </div>
+  {{yield}}
+</div>
