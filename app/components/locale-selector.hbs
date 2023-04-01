@@ -12,7 +12,7 @@
   {{#each this.locales as |localeChoice|}}
     <option
       value={{localeChoice.value}}
-      selected={{eq selectedLocale localeChoice.value}}
+      selected={{eq @selectedLocale localeChoice.value}}
     >
       {{localeChoice.text}}
     </option>
