@@ -46,6 +46,7 @@ export default class LoginModalComponent extends Component {
         let loginModal = document.getElementById('login-modal');
         loginModal.style.top = `${event.clientY - this.clickedOffsetY}px`;
         loginModal.style.left = `${event.clientX - this.clickedOffsetX}px`;
+        loginModal.style.transform = 'none';
       }
     });
   }
