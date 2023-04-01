@@ -18,7 +18,7 @@
     @showing={{this.isShowingUserMenu}}
     @toggleUserMenu={{this.toggleUserMenu}} />
   <OurVersionNotifier
-    @updateMessage="Updates have been made to datafruits! Refresh to stay up-to-date 💻" 
+    @updateMessage="Updates have been made to datafruits! Refresh to stay up-to-date 💻"
     @reloadButtonText="Refresh" />
   <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow" id="main-content">
     {{outlet}}
@@ -56,7 +56,7 @@
   {{/if}}
 {{/unless}}
 
-{{#if april-fools}}
+{{#if this.aprilFools}}
   {{!-- bgs --}}
   <a href="https://datafruits.bandcamp.com/album/bgs-vs-firedrill-studio-phone-3" rel="noopener noreferrer" target="_blank"><img class="tiny-guy" alt=":bgs:" src="/assets/images/bgs_small.png" /></a>
   {{!-- grumby --}}

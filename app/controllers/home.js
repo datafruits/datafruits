@@ -107,4 +107,9 @@ export default class HomeController extends Controller {
         return false;
       });
   }
+
+  get aprilFools() {
+    let today = new Date();
+    return today.getMonth() === 3 && today.getDate() === 1;
+  }
 }
