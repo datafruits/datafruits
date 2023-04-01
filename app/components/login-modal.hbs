@@ -1,17 +1,6 @@
 <Ui::Modal
     id="login-modal"
   >
-  <div class="modal-top"
-    id="login-modal-top"
-    {{did-insert this.didInsert}}
-    >
-    <button {{on "click" (fn @toggleModal)}}
-      type="button"
-      class="cool-button"
-      >
-      X
-    </button>
-  </div>
   <div class="modal-body m-1">
     <form {{on "submit" (fn this.submit)}}>
       <p class="mt-2 mb-2">
