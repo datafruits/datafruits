@@ -15,6 +15,29 @@
 
 @tailwind components;
 
+@layer base {
+  h1 {
+    @apply text-2xl font-semibold;
+  }
+  h2 {
+    @apply text-xl font-semibold;
+  }
+  h3 {
+    @apply text-lg font-semibold;
+  }
+  h4 {
+    @apply text-base font-semibold;
+  }
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #dfdfdf;
+  color: black;
+  text-shadow: none;
+  padding: 5px;
+}
+
 * {
   cursor:url('/assets/images/mousepointer.png'), auto !important;
 }
@@ -138,6 +161,24 @@
   }
 }
 
+@keyframes bounce2 {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.8, 1.7);
+  }
+
+  50% {
+    transform: scale(2);
+  }
+
+  80% {
+    transform: scale(1.8, 1.7);
+  }
+}
+
 .bleed {
   @include stripe-animation;
 }
@@ -211,10 +252,6 @@ a:hover {
   @apply text-df-yellow-dark;
 }
 
-h1 {
-  @apply text-2xl font-semibold;
-}
-
 input {
   @apply text-black border-solid border-2 border-gray-300 rounded-sm p-1;
 }
@@ -223,6 +260,7 @@ input {
   z-index: -999;
   @apply absolute left-0 top-0;
   .video-js {
+    // background: none;
     width: 100vw !important;
     video {
       width: 100vw !important;
@@ -279,6 +317,11 @@ form {
   text-shadow: none !important;
 }
 
+.ember-power-select-selected-item {
+  text-shadow: none !important;
+  color: black
+}
+
 .fc-center {
   text-shadow: 3px 3px 3px #333, 7px 7px 0 #ff00fc;
   transform: rotate(-3.5deg);
@@ -294,6 +337,10 @@ form {
 
 .patron:hover {
   @include stripe-animation;
+}
+
+#social-media-links a:hover {
+  animation: colorfade 3s infinite;
 }
 
 .djs {
@@ -387,7 +434,7 @@ form {
   box-shadow: 10px 10px 2px grey;
 }
 
-.wiki-article {
+@mixin cool-border {
   border-image: repeating-linear-gradient(
     90deg,
     $green,
@@ -405,33 +452,34 @@ form {
   box-shadow: 10px 10px 2px grey;
 }
 
+.user-settings-menu {
+  @include cool-border;
+}
+
+.wiki-article {
+  @include cool-border;
+}
+
 .show-info {
+  @include cool-border;
   padding: 1em;
-  border-image: repeating-linear-gradient(
-    90deg,
-    $green,
-    $green 20px,
-    $pink 20px,
-    $pink 40px,
-    $yellow 40px,
-    $yellow 60px,
-    $blue 60px,
-    $blue 80px
-  );
-  border-width: 10px;
-  border-style: solid;
-  border-image-slice: 1;
   max-width: 50%;
   bottom: 20px;
   left: 20px;
-  box-shadow: 10px 10px 2px grey;
   position: absolute;
+
+  @apply bg-df-blue-dark blm:bg-black;
 
   @media (max-width: 480px) {
     width: 100%;
     max-width: 100%;
     left: 0;
   }
+
+}
+
+.forum-post {
+  @include cool-border;
 }
 
 .show-image {
@@ -507,12 +555,32 @@ canvas#pixi {
   animation: bounce linear 200ms;
 }
 
+.update-notification span {
+  text-shadow: 0 0 0.6em $blue, 0 2px 0.4em black;
+}
+
 .emoji-selector-dialog {
-  // top: -265px;
-  // left: 0;
-  width: 300px;
+  width: 360px;
   height: 250px;
 }
+
+#emoji-width-datalist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  writing-mode: vertical-lr;
+  width: 200px;
+}
+
+#emoji-width-datalist > option {
+  margin-top: 0.25rem;
+}
+
+#emoji-width-datalist > input[type="range"] {
+  width: 200px;
+}
+
+
 
 @keyframes slidedown {
   from {
@@ -575,6 +643,24 @@ canvas#pixi {
   animation: 10s linear infinite slidedown;
 }
 
+#subscribe-links > li {
+  padding: 0 1em 0;
+  @apply underline;
+}
+
+#podcast-search-controls > h1 {
+  @apply font-cursive;
+}
+
+.playing-podcast {
+  @apply bg-df-green blm:bg-black trans:bg-df-pink #{!important};
+}
+
+
+#tag_search {
+  height: 2.3rem;
+}
+
 body {
   scrollbar-color: $pink;
   scrollbar-width: auto;
@@ -593,23 +679,78 @@ body::-webkit-scrollbar-thumb {
   outline: 1px solid $blue;
 }
 
+.pagination-wrapper {
+  @apply px-10 flex flex-wrap justify-between bg-df-green blm:bg-black trans:bg-df-pink;
+}
+
 .pagination {
-  @apply p-1 mx-2 font-extrabold;
+  @apply px-4 text-xl font-extrabold;
 }
 
 .pagination.number:hover {
-  @apply bg-df-green text-white rounded;
+  @apply rounded bg-df-blue blm:bg-white;
   a {
-    @apply text-white;
+    @apply text-white blm:text-black;
   }
 }
 
-.pagination.prev-link:hover {
-  @apply bg-df-green text-white rounded;
+.active-page {
+  @apply rounded bg-df-blue blm:bg-white blm:text-black;
 }
 
+.pagination.prev-link:hover,
 .pagination.next-link:hover {
-  @apply bg-df-green text-white rounded;
+  @apply rounded bg-df-blue text-white rounded blm:bg-white blm:text-black;
+}
+
+.debussy-header {
+  @apply text-center text-4xl font-debussy tracking-widest pb-2;
+}
+
+.page-spacing {
+  @apply mt-5 mx-2 pt-2 px-5;
+}
+
+.page-bg {
+  @apply bg-df-blue-dark blm:bg-black rounded;
+}
+
+.page-section-bg {}
+.user-settings-input {
+  @apply w-full mx-2 md:w-3/4;
+  @apply classic:bg-df-pink blm:bg-black trans:bg-df-blue border-solid border-2 border-df-blue text-white;
+}
+
+.ember-power-select-selected-item {
+  color: white;  
+}
+
+.about-section {
+  @apply my-4 md:mx-4;
+}
+.about-section-text {
+  @apply md:mx-8;
+}
+.about-section-text > p,
+.about-section-text > div {
+  @apply my-2;
+}
+
+.skip-to-content-link {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+.skip-to-content-link:focus {
+  z-index: 999;
+  height: auto;
+  width: auto;
+}
+
+.bounce {
+  animation: bounce2 500ms cubic-bezier(0.280, 0.840, 0.420, 1);
 }
 
 .modal {

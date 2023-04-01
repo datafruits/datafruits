@@ -13,6 +13,6 @@ module('Integration | Component | podcasts/search', function (hooks) {
 
     await render(hbs`<Podcasts::Search @labels={{this.labels}} />`);
 
-    assert.dom(this.element).hasText('Search Title Tag');
+    assert.dom(this.element).hasText('Title Tag');
   });
 });

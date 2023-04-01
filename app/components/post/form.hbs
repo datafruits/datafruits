@@ -1,0 +1,17 @@
+<form {{on "submit" this.savePost}}>
+  <div>
+    <label class="block text-sm font-bold mb-2" for="body">{{t "forum.form.body"}}</label>
+    <Textarea
+      @value={{this.body}}
+      rows='5'
+      cols='100'
+      />
+  </div>
+  <div>
+    <Input
+      class="cool-button"
+      @type="submit"
+      @value="POSTTTT"
+      />
+  </div>
+</form>

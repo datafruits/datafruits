@@ -8,6 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import CurrentUserService from 'datafruits13/services/current-user';
 import ChatService from 'datafruits13/services/chat';
 import Gif from 'datafruits13/models/gif';
+import { next } from '@ember/runloop';
 
 export default class ChatInputMessage extends Component {
   @service declare chat: ChatService;
@@ -16,6 +17,10 @@ export default class ChatInputMessage extends Component {
 
   @tracked inputMessage: string = '';
 
+  get hasMessage () {
+    return this.inputMessage.length > 0;
+  }
+  
   @action
   sendEmoji(shortcode: string) {
     if (this.inputMessage.length === 0) {
@@ -23,20 +28,24 @@ export default class ChatInputMessage extends Component {
     } else {
       this.inputMessage = `${this.inputMessage} ${shortcode}`;
     }
-    const button: HTMLButtonElement | null = document.querySelector('#send-message-button');
-    if (button) {
-      button.focus();
-    }
+    this.setFocus()
   }
 
   @action
   sendGif(gif: Gif) {
     this.inputMessage = gif.url;
-    const button: HTMLButtonElement | null = document.querySelector('#send-message-button');
-    if (button) {
-      button.focus();
-    }
+    this.setFocus()
   }
+
+  setFocus(){
+    next(this, ()=> {
+      const button: HTMLButtonElement | null = document.querySelector('#send-message-button');
+      if (button) {
+        button.focus();
+      }
+    });
+  }
+
 
   @action
   sendMessage(e: Event) {

@@ -1,0 +1,33 @@
+<button
+  {{on "click" this.toggleDialog}}
+  type="button"
+  class="cool-button"
+  title={{t "chat.titles.buddy_list_button"}}
+>
+  {{this.buddyListIcon}}
+</button>
+{{#if this.showingDialog}}
+  <ModalDialog
+    @onClose={{this.closeDialog}}
+    @hasOverlay={{false}}
+    @clickOutsideToClose={{true}}
+  >
+    <div class="modal-top">
+      <button {{on "click" this.toggleDialog}}
+        type="button"
+        class="cool-button"
+      >
+        X
+      </button>
+    </div>
+    <div class="modal-body m-1">
+      <div class="flex flex-shrink overflow-y-scroll">
+        <ul id="userlist">
+          {{#each-in this.chat.presences as |username user|}}
+            <UserListItem @user={{user}} />
+          {{/each-in}}
+        </ul>
+      </div>
+    </div>
+  </ModalDialog>
+{{/if}}

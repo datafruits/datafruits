@@ -4,6 +4,7 @@
   <span class="mr-2">
     {{format-message-timestamp @message.timestamp}}
   </span>
+
   {{#if this.canShowAvatar}}
     {{#if @message.avatarUrl}}
       <span class="mr-2" data-test-avatar>
@@ -15,17 +16,31 @@
       </span>
     {{/if}}
   {{/if}}
-    <span class="mr-2" data-test-username>
-      <Chat::Username
-        @role={{@message.role}}
-        @style={{@message.style}}
-        @pronouns={{@message.pronouns}}
-        @username={{@message.user}}
-        @avatarUrl={{@message.avatarUrl}}
-        />
-    </span>
-  <span class="" data-test-message-body>
-    {{format-message-body @message.body}}
+
+  <span class="{{if this.fromDiscord "" "mr-2"}}" data-test-username>
+    <Chat::Username
+      @dontShowPopup={{true}}
+      @role={{@message.role}}
+      @style={{@message.style}}
+      @pronouns={{@message.pronouns}}
+      @username={{if this.fromDiscord this.discordUser @message.user}}
+      @avatarUrl={{@message.avatarUrl}}
+      />
+  </span>
+  
+    {{#if this.fromDiscord}}
+    <a class="mr-2"
+      href="https://discord.gg/83mteTQDvu"
+      title={{t "chat.discord"}}
+      aria-label={{t "discord.aria"}}
+      target="_blank" rel="noopener noreferrer"
+    >
+      <FaIcon @icon="discord" @prefix="fab" />
+    </a>
+  {{/if}}
+
+  <span class={{if @message.hasMention "bg-df-green-dark"}} data-test-message-body>
+    {{format-message-body (if this.fromDiscord this.discordMsg @message.body)}}
   </span>
 </li>
 {{#if @gifsEnabled}}

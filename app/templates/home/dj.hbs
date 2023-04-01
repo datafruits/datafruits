@@ -2,17 +2,42 @@
   <div class="bg-df-pink fancy-box p-2">
     <div class="flex">
       <div class="w-1/2">
-        <h1 class="font-cursive text-2xl">
+        <h1 class="font-cursive text-2xl mb-2">
           {{this.model.username}}
         </h1>
-        <img
-          class="rounded-lg mt-2"
-          src={{this.model.imageMediumUrl}}
-          alt={{this.model.username}}
-          >
+        {{#if this.model.imageMediumUrl}}
+          <img
+            class="rounded-lg mb-2"
+            src={{this.model.imageMediumUrl}}
+            alt={{this.model.username}}
+            >
+        {{else}}
+          <img
+            class="rounded-lg mb-2"
+            src="/assets/images/show_placeholder.jpg"
+            alt={{this.model.username}}
+            >
+        {{/if}}
+        <p class="">
+          <span>{{t "profile.joined"}}</span> - {{format-day this.model.createdAt}}
+        </p>
+        <p class="">
+          <span>{{t "profile.last_login"}}</span> - <span>{{format-day this.model.lastSignInAt}}</span>
+        </p>
+        <p class="mt-2 mb-2">
+          <span>Lv. 0</span>
+          <div>
+            <span class="text-xs">Ƒ</span><span>{{this.model.fruitTicketBalance}}</span>
+          </div>
+        </p>
         <User::Badges @role={{this.model.role}} />
         <p class="mt-2 mb-2">
           {{this.model.bio}}
+        </p>
+        <p class="mt-2 mb-2">
+          <a href="{{this.qualifiedHomepageUrl}}" target="_blank" rel="noreferrer noopener">
+            {{this.model.homepage}}
+          </a>
         </p>
         <span>{{t "profile.style"}} <span class="text-df-yellow font-bold">{{this.model.style}}</span></span>
       </div>
@@ -42,10 +67,3 @@
     <Djs::Tracks @dj={{this.model}} @page={{this.router.currentRoute.queryParams.page}} />
   </div>
 {{/if}}
-<div class="row">
-  {{#each this.model.link as |link|}}
-    <a href={{link.url}} target="_blank" rel="noopener noreferrer">
-      {{link.url}}
-    </a>
-  {{/each}}
-</div>

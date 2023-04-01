@@ -27,6 +27,12 @@ export default class Dj extends User {
   @attr()
   pronouns;
 
+  @attr()
+  createdAt;
+
+  @attr()
+  lastSignInAt;
+
   @hasMany('link')
   links;
 
