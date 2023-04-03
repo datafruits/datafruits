@@ -72,9 +72,7 @@ export default class HomeController extends Controller {
 
   @action
   toggleLoginModal() {
-    console.log('toggling login modal');
     this.showingLoginModal = !this.showingLoginModal;
-    console.log(this.showingLoginModal);
   }
 
   @action
@@ -108,5 +106,10 @@ export default class HomeController extends Controller {
         this.isAuthenticating = false;
         return false;
       });
+  }
+
+  get aprilFools() {
+    let today = new Date();
+    return today.getMonth() === 3 && today.getDate() === 1;
   }
 }

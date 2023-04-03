@@ -753,5 +753,40 @@ body::-webkit-scrollbar-thumb {
   animation: bounce2 500ms cubic-bezier(0.280, 0.840, 0.420, 1);
 }
 
+.modal {
+  z-index: 51;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 8px;
+  box-shadow: 4px 4px 1px #333;
+
+  background: $blue;
+  padding: 0;
+
+  border-style: solid;
+  border-color: #ebebeb;
+  border-width: 5px;
+  .modal-top {
+    padding: 5px;
+    filter: contrast(180%) brightness(100%);
+
+    background:
+      linear-gradient(90deg, #de5dff, transparent),
+      url('/assets/images/noise.svg');
+    border-radius: 8px 8px 0 0;
+  }
+  .modal-body {
+    padding: 5px;
+    border-radius: 8px;
+  }
+}
+
+.modal.dragging {
+  box-shadow: none;
+  @apply border-4 border-dotted border-df-green;
+}
+
 @tailwind utilities;
 /* purgecss end ignore */

@@ -13,7 +13,7 @@
     <NetworkStatus as |status|>
       <DatafruitsChat
         @networkStatus={{status}}
-        @authenticate={{fn this.authenticate}}
+        @authenticate={{this.authenticate}}
         @isAuthenticating={{this.isAuthenticating}}
       />
     </NetworkStatus>
