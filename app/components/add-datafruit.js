@@ -20,9 +20,10 @@ export default class AddDatafruit extends Component {
   datafruit = null;
 
   get currentTimestamp() {
-    let timestamp = new Date(this.currentDatafruit.createdAt);
-    return `(${timestamp.toLocaleString()})`;
+    if (this.currentDatafruit) 
+      return `(${new Date(this.currentDatafruit.createdAt).toLocaleString()})`;
   }
+
   get isSubmittable() {
     let datafruit = this.datafruit;
     return !(!isEmpty(datafruit.content) && !datafruit.isSaving);
