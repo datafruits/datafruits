@@ -20,8 +20,11 @@ export default class AddDatafruit extends Component {
   datafruit = null;
 
   get currentTimestamp() {
-    if (this.currentDatafruit) 
+    if (this.currentDatafruit) {
       return `(${new Date(this.currentDatafruit.createdAt).toLocaleString()})`;
+    } else {
+      return "Unable to find timestamp"
+    }
   }
 
   get isSubmittable() {
