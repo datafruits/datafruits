@@ -38,9 +38,7 @@
     <div class="flex flex-col justify-center items-center w-full">
       {{#if this.chat.joinedChat}}
         <div align="center" class="mb-3 w-full">
-          <form>
-            <Chat::InputMessage  @isOffline={{@networkStatus.isOffline}} />
-          </form>
+          <Chat::InputMessage  @isOffline={{@networkStatus.isOffline}} />
         </div>
       {{else}}
       <form align="center" class="mb-3" {{on "submit" this.enterChatAnonymously}}>
