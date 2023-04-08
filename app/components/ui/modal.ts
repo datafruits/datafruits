@@ -15,6 +15,7 @@ export default class UiModal extends Component<UiModalArgs> {
   @action
   didInsert(element: HTMLElement) {
     element.addEventListener('mousedown', (event) => {
+      console.log('setting offset', event);
       this.clickedOffsetX = event.offsetX;
       this.clickedOffsetY = event.offsetY;
       const modalTop = element.querySelector('.modal-top') as HTMLElement;
@@ -34,15 +35,21 @@ export default class UiModal extends Component<UiModalArgs> {
     document.addEventListener('mousemove', (event: any) => {
       if (this.dragging) {
         console.log('setting x and y', event);
+        console.log('offsetY', this.clickedOffsetY);
+        console.log('event.pageY - offsetY', event.pageY - this.clickedOffsetY);
         const modal = element as HTMLElement;
-        modal.style.top = `${event.clientY - this.clickedOffsetY}px`;
+        // modal.style.transform = 'none';
+        //modal.style.top = `${event.clientY - this.clickedOffsetY}px`;
+        modal.style.top = `${event.clientY - (this.clickedOffsetY)}px`;
         modal.style.left = `${event.clientX - this.clickedOffsetX}px`;
-        modal.style.transform = 'none';
       }
     });
   }
 
   @action
   removeListeners() {
+    //window.removeEventListener('mousemove');
+    //window.removeEventListener('mouseup');
+    //window.removeEventListener('mousedown');
   }
 }
