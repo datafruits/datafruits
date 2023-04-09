@@ -15,12 +15,16 @@ export default class EmojiSelectorComponent extends Component {
     return formatEmojiHtml(":smile:");
   }
 
+  get cameraEmoji() {
+    return formatEmojiHtml(":camera:");
+  }
+
   get randomFruitImage() {
     return fruitTypes[Math.floor(Math.random() * fruitTypes.length)].image;
   }
   
   @tracked dialogOpen = false;
-  @tracked currentTab; //"gif", "emoji", "fruitTip"
+  @tracked currentTab; //"gif", "emoji", "fruitTip", "camera"
 
   @action
   closeDialog() {
@@ -43,5 +47,11 @@ export default class EmojiSelectorComponent extends Component {
   openEmojiDialog() {
     this.dialogOpen = true;
     this.currentTab = 'emoji';
+  }
+
+  @action
+  openCameraDialog() {
+    this.dialogOpen = true;
+    this.currentTab = 'camera';
   }
 }
