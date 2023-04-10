@@ -1,13 +1,29 @@
 <div class="border-solid border-4 border-df-green">
-  <div class="border-solid border-4 border-white">
+  <div class="absolute flex justify-end">
     <button
-      class="cool-button absolute z-10"
+      class="cool-button z-10 opacity-40 hover:opacity-100"
       id="camera--trigger"
       {{on "click" this.cameraAction}}
       
     >
     📸
     </button>
-    <video id="camera--view" autoplay playsinline></video>
+    <button
+      class="cool-button z-10 opacity-40 hover:opacity-100"
+      id="camera--send"
+      {{on "click" this.sendImage}}
+      disabled
+    >
+    ✅
+    </button>
+      <button
+      class="cool-button z-10 opacity-40 hover:opacity-100"
+      id="camera--send"
+      {{on "click" this.retyImage}}
+      disabled
+    >
+    ❎
+    </button>
   </div>
+  <video id="camera--view" autoplay playsinline></video>
 </div>
