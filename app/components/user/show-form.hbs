@@ -97,14 +97,16 @@
             />
         {{/if}}
       {{/if}}
-      <Button
-        @type='submit'
-        @intent='primary'
-        disabled={{changeset.isInvalid}}
-        class='cool-button'
-        >
-        SAVE SHOW
-      </Button>
+      <div>
+        <Button
+          @type='submit'
+          @intent='primary'
+          disabled={{changeset.isInvalid}}
+          class='cool-button'
+          >
+          SAVE SHOW
+        </Button>
+      </div>
       {{#if Form.state.hasSubmitted}}
         <marquee>SAVING....DON'T TURN OFF THE POWER.........</marquee>
       {{/if}}
