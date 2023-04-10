@@ -260,6 +260,7 @@ input {
   z-index: -999;
   @apply absolute left-0 top-0;
   .video-js {
+    // background: none;
     width: 100vw !important;
     video {
       width: 100vw !important;
@@ -451,6 +452,10 @@ form {
   box-shadow: 10px 10px 2px grey;
 }
 
+.user-settings-menu {
+  @include cool-border;
+}
+
 .wiki-article {
   @include cool-border;
 }
@@ -555,9 +560,7 @@ canvas#pixi {
 }
 
 .emoji-selector-dialog {
-  // top: -265px;
-  // left: 0;
-  width: 300px;
+  width: 360px;
   height: 250px;
 }
 
@@ -570,13 +573,11 @@ canvas#pixi {
 }
 
 #emoji-width-datalist > option {
-  padding: 0;
-  margin: -10px;
+  margin-top: 0.25rem;
 }
 
 #emoji-width-datalist > input[type="range"] {
   width: 200px;
-  margin: 0;
 }
 
 
@@ -716,7 +717,12 @@ body::-webkit-scrollbar-thumb {
 
 .page-section-bg {}
 .user-settings-input {
+  @apply w-full mx-2 md:w-3/4;
   @apply classic:bg-df-pink blm:bg-black trans:bg-df-blue border-solid border-2 border-df-blue text-white;
+}
+
+.ember-power-select-selected-item {
+  color: white;  
 }
 
 .about-section {
@@ -745,6 +751,41 @@ body::-webkit-scrollbar-thumb {
 
 .bounce {
   animation: bounce2 500ms cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+
+.modal {
+  z-index: 51;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 8px;
+  box-shadow: 4px 4px 1px #333;
+
+  background: $blue;
+  padding: 0;
+
+  border-style: solid;
+  border-color: #ebebeb;
+  border-width: 5px;
+  .modal-top {
+    padding: 5px;
+    filter: contrast(180%) brightness(100%);
+
+    background:
+      linear-gradient(90deg, #de5dff, transparent),
+      url('/assets/images/noise.svg');
+    border-radius: 8px 8px 0 0;
+  }
+  .modal-body {
+    padding: 5px;
+    border-radius: 8px;
+  }
+}
+
+.modal.dragging {
+  box-shadow: none;
+  @apply border-4 border-dotted border-df-green;
 }
 
 @tailwind utilities;

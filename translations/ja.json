@@ -54,7 +54,11 @@
   "profile": {
     "style": "スタイル",
     "submit": "保存",
-    "pronouns": "性別代名詞"
+    "pronouns": "性別代名詞",
+    "bio": "私について",
+    "favorites": "お気に入り",
+    "joined": "作成した時",
+    "last_login": "ここで最後"
   },
   "usermenu": {
     "settings": "プロフィール編集",

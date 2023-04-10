@@ -16,6 +16,9 @@ export default class Track extends Model {
   mixcloudKey;
 
   @attr()
+  youtubeLink;
+
+  @attr()
   title;
 
   @attr()

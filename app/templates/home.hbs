@@ -18,7 +18,7 @@
     @showing={{this.isShowingUserMenu}}
     @toggleUserMenu={{this.toggleUserMenu}} />
   <OurVersionNotifier
-    @updateMessage="Updates have been made to datafruits! Refresh to stay up-to-date 💻" 
+    @updateMessage="Updates have been made to datafruits! Refresh to stay up-to-date 💻"
     @reloadButtonText="Refresh" />
   <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow" id="main-content">
     {{outlet}}
@@ -48,18 +48,18 @@
 <DatafruitsVisuals
   class="block absolute top-0 w-screen h-screen h-handle-resize"
 />
-{{#if (not this.fastboot.isFastBoot)}}
+{{#unless this.fastboot.isFastBoot}}
   <Notifications />
   <WindowResizeHandler />
   {{#if this.showingPixi}}
     <Pixi />
   {{/if}}
-{{/if}}
+{{/unless}}
 
-{{#if april-fools}}
-  <!-- bgs -->
+{{#if this.aprilFools}}
+  {{!-- bgs --}}
   <a href="https://datafruits.bandcamp.com/album/bgs-vs-firedrill-studio-phone-3" rel="noopener noreferrer" target="_blank"><img class="tiny-guy" alt=":bgs:" src="/assets/images/bgs_small.png" /></a>
-  <!-- grumby -->
+  {{!-- grumby --}}
   <a href="https://www.youtube.com/shorts/9_g8YA_vJzg" rel="noopener noreferrer" target="_blank"><img class="tiny-grumby" alt=":bgs:" src="/assets/images/emojis/grumby.gif" /></a>
 {{/if}}
 

@@ -42,6 +42,12 @@ export default class UserModel extends Model {
   pronouns;
 
   @attr()
+  createdAt;
+
+  @attr()
+  lastSignInAt;
+
+  @attr()
   bio;
 
   @attr()

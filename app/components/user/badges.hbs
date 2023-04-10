@@ -1,8 +1,7 @@
 <div class="mt-2">
   {{#each this.badges as |badge|}}
     <button
-      class="cursor-pointer"
-      {{on "click" (fn this.showBadge badge)}}
+      class="cursor-pointer" type="button" {{on "click" (fn this.showBadge badge)}}
       >
     <img
       class="inline rounded-lg"

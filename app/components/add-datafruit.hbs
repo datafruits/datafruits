@@ -8,9 +8,18 @@
 
   <await.Fulfilled as |datafruits|>
     {{#if this.showingDatafruits}}
-      <marquee>
+      <marquee id="add-datafruit-bar">
         [<img style="height: 20px; display: inline;" src="{{this.currentDatafruit.avatarUrlOrDefault}}" alt={{this.currentDatafruit.username}} / >
-        <LinkTo @model={{this.currentDatafruit.username}} @route="home.dj">{{this.currentDatafruit.username}}</LinkTo>]: {{this.currentDatafruit.content}}
+        <LinkTo @model={{this.currentDatafruit.username}} @route="home.dj">
+          {{this.currentDatafruit.username}}
+        </LinkTo>]
+        :
+        <span>
+          {{this.currentDatafruit.content}}
+        </span>
+        <span class="italic text-sm">
+          {{this.currentTimestamp}}
+        </span>
       </marquee>
       {{#if this.session.isAuthenticated}}
         <button {{action "addDatafruit"}} type="button" class="cool-button">{{t "microtext.add"}}</button>

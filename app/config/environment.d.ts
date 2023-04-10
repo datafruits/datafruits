@@ -11,6 +11,8 @@ declare const config: {
   APP: Record<string, unknown>;
   API_HOST: string;
   headTags: any;
+  STREAM_NAME: string;
+  STREAM_HOST: string;
 };
 
 export default config;

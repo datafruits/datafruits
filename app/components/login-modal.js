@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { htmlSafe } from '@ember/template';
 import { action } from '@ember/object';
 
 export default class LoginModalComponent extends Component {
@@ -9,4 +10,5 @@ export default class LoginModalComponent extends Component {
       this.args.toggleModal();
     }
   }
+
 }

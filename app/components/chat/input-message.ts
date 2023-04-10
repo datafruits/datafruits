@@ -9,6 +9,7 @@ import CurrentUserService from 'datafruits13/services/current-user';
 import ChatService from 'datafruits13/services/chat';
 import Gif from 'datafruits13/models/gif';
 import { next } from '@ember/runloop';
+import { isEmpty } from '@ember/utils';
 
 export default class ChatInputMessage extends Component {
   @service declare chat: ChatService;
@@ -20,7 +21,7 @@ export default class ChatInputMessage extends Component {
   get hasMessage () {
     return this.inputMessage.length > 0;
   }
-  
+
   @action
   sendEmoji(shortcode: string) {
     if (this.inputMessage.length === 0) {
@@ -51,7 +52,7 @@ export default class ChatInputMessage extends Component {
   sendMessage(e: Event) {
     e.preventDefault();
     const message = this.inputMessage;
-    if (message) {
+    if (!isEmpty(message)) {
       if (this.chat.token) {
         const role = this.currentUser.user.role;
         const avatarUrl = this.currentUser.user.avatarUrl;

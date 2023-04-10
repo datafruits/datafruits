@@ -1,8 +1,11 @@
 <div class="mb-2" {{did-insert this.focus}}>
-  <label for="giphy-search-term">{{t "chat.label.search"}}</label>
+  <label for="giphy-search-term">
+    {{t "chat.label.search"}}
+  </label>
   <Input
+    class="w-full"
     @type="text"
-    @id="giphy-search-term"
+    id="giphy-search-term"
     name="giphy-search-term"
     placeholder={{t "chat.search"}}
     autocomplete="off"
