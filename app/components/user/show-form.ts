@@ -56,4 +56,16 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
       this.args.show.recurringInterval = 'not_recurring';
     }
   }
+
+  @action
+  onSubmit(result: any, event: any) {
+    console.log(result);
+    console.log(event);
+    this.router.transitionTo('home.show', result);
+  }
+
+  @action
+  onError() {
+    console.log('couldnt ssave show');
+  }
 }

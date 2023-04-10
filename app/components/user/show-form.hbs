@@ -1,4 +1,4 @@
-{{#let (changeset @show ShowSeriesValidations) as |changeset|}}
+{{#let (changeset @show this.ShowSeriesValidations) as |changeset|}}
   <Ui::ChangesetForm
         @changeset={{changeset}}
         @onError={{this.onError}}
@@ -101,7 +101,7 @@
         <Button
           @type='submit'
           @intent='primary'
-          disabled={{changeset.isInvalid}}
+          disabled={{(or Form.state.hasSubmitted changeset.isInvalid)}}
           class='cool-button'
           >
           SAVE SHOW
