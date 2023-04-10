@@ -393,6 +393,9 @@
     "title": "SUPPORT",
     "dj_link": "The current DJ's donation link is here:"
   },
+  "hack": {
+    "title": "HACK"
+  },
   "microtext": {
     "we_need_it": "we need your datafruit. please add it.",
     "submit": "Datafruit!",
