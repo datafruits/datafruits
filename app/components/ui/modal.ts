@@ -43,7 +43,7 @@ export default class UiModal extends Component<UiModalArgs> {
     //window.removeEventListener('mousedown');
   }
 
-  get destinationElement() {
-    return document.getElementById("modals-container");
+  get destinationElement(): HTMLElement {
+    return document.getElementById("modals-container") as HTMLElement;
   }
 }
