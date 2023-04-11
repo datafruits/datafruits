@@ -758,6 +758,7 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 8px;
   box-shadow: 4px 4px 1px #333;
 

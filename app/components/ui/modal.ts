@@ -29,6 +29,7 @@ export default class UiModal extends Component<UiModalArgs> {
       const modal = this._element as HTMLElement;
       modal.style.top = `${event.clientY - (this.clickedOffsetY)}px`;
       modal.style.left = `${event.clientX - this.clickedOffsetX}px`;
+      modal.style.transform = 'none';
     }
   };
 
