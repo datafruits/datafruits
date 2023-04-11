@@ -12,7 +12,10 @@ module('Integration | Component | login-modal', function (hooks) {
 
     this.login = () => {};
     this.toggleModal = () => {};
-    await render(hbs`<LoginModal @login={{this.login}} @toggleModal={{this.toggleModal}} />`);
+    await render(hbs`
+      <div id="modals-container"></div>
+      <LoginModal @login={{this.login}} @toggleModal={{this.toggleModal}} />
+      `);
 
     assert.true(this.element.textContent.trim().includes('Login'));
   });
