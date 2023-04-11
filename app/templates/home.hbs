@@ -18,7 +18,7 @@
     @showing={{this.isShowingUserMenu}}
     @toggleUserMenu={{this.toggleUserMenu}} />
   <OurVersionNotifier
-    @updateMessage="Updates have been made to datafruits! Refresh to stay up-to-date 💻" 
+    @updateMessage="Updates have been made to datafruits! Refresh to stay up-to-date 💻"
     @reloadButtonText="Refresh" />
   <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow" id="main-content">
     {{outlet}}
@@ -69,3 +69,6 @@
     @toggleModal={{this.toggleLoginModal}}
   />
 {{/if}}
+
+<div id="modals-container">
+</div>
