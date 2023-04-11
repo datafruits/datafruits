@@ -77,7 +77,7 @@ export default class DatafruitsChat extends Component {
   }
 
   @tracked
-  virusTimer = 3;
+  virusTimer = 3000;
 
   @tracked
   closedModal = false;
