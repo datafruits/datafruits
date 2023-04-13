@@ -5,7 +5,7 @@ import { action } from '@ember/object';
 export default class ChatMessage extends Component {
   @tracked gifsEnabled = true;
   @tracked imgRegex = /https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpg|gif|png|webp)(\?.*$)*/;
-  @tracked dataRegex = /data:image\/png;base64,.+/;
+  @tracked dataRegex = /data:image\/(?:png|jpeg|webp);base64,.+/;
   @tracked discordRegex = /^New\ msg\ in\ discord\ from\ (.+):\ (.+)$/; // eslint-disable-line no-useless-escape
 
   get canShowAvatar() {
@@ -34,6 +34,13 @@ export default class ChatMessage extends Component {
     return this.args.message.body.match(this.dataRegex)[0];
   }
 
+  get getImage() {
+    if (this.hasImage) return this.imgUrl();
+    if (this.hasData) return this.dataUrl();
+
+    return null;
+  }
+  
   get fromDiscord() {
     return this.discordRegex.test(this.args.message.body) && this.args.message.user == "coach";
   }
