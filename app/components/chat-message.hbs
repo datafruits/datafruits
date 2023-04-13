@@ -28,7 +28,7 @@
       />
   </span>
   
-    {{#if this.fromDiscord}}
+  {{#if this.fromDiscord}}
     <a class="mr-2"
       href="https://discord.gg/83mteTQDvu"
       title={{t "chat.discord"}}
@@ -39,9 +39,12 @@
     </a>
   {{/if}}
 
-  <span class={{if @message.hasMention "bg-df-green-dark"}} data-test-message-body>
-    {{format-message-body (if this.fromDiscord this.discordMsg @message.body)}}
-  </span>
+  {{#unless (or this.hasImage this.hasData)}}
+    <span class={{if @message.hasMention "bg-df-green-dark"}} data-test-message-body>
+      {{format-message-body (if this.fromDiscord this.discordMsg @message.body)}}
+    </span>
+  {{/unless}}
+
 </li>
 {{#if @gifsEnabled}}
   {{#if this.hasImage}}
@@ -49,6 +52,15 @@
       <span class="">
         <ChatLazyImage
           @url={{this.imgUrl}}
+          @adjustScrolling={{@adjustScrolling}}
+        />
+      </span>
+    </li>
+  {{else if this.hasData}}
+    <li class="message">
+      <span>
+        <ChatLazyImage
+          @url={{this.dataUrl}}
           @adjustScrolling={{@adjustScrolling}}
         />
       </span>
