@@ -5,14 +5,21 @@
       class="cool-button z-10 opacity-40 hover:opacity-100"
       {{on "click" this.cameraAction}}
     >
-    📸
+      📸
     </button>
     <button
       id="camera--retry"
       class="cool-button z-10 opacity-40 hover:opacity-100"
       {{on "click" this.reloadCamera}}
     >
-    ❎
+      ❎
+    </button>
+    <button
+      id="camera--send"
+      class="cool-button z-10 opacity-40 hover:opacity-100"
+      {{on "click" this.sendCamera}}
+    >
+      ✅
     </button>
   </div>
   <canvas id="camera--canvas" width="0" height="0"></canvas>

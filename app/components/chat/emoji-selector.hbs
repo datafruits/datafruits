@@ -110,7 +110,10 @@
             @sendEmoji={{@sendEmoji}}
           />
         {{else if (eq this.currentTab "camera")}}
-          <EmojiSelector::Camera />
+          <EmojiSelector::Camera 
+            @closeDialog={{this.closeDialog}}
+            @sendPhoto={{@sendGif}}
+          />
         {{/if}}
       </div>
     </ModalDialog>
