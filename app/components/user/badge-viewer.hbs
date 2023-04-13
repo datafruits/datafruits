@@ -2,11 +2,11 @@
   {{did-insert this.didInsert}}
   >
   <Ui::Modal
-      @toggleModal={{@closeModal}}
+      @toggleModal={{@toggleModal}}
     >
     <div class="modal-body m-1">
       <h1 class="text-center">{{@badge.name}}</h1>
-      <div id="viewer">
+      <div id="viewer-{{this.domId}}">
       </div>
     </div>
   </Ui::Modal>

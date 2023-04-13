@@ -1,7 +1,5 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 
 interface UserBadgesArgs {
   role: string;
@@ -15,9 +13,6 @@ interface Badge {
 
 export default class UserBadges extends Component<UserBadgesArgs> {
   @service declare intl: any;
-
-  @tracked currentBadgeViewer: Badge | null = null;
-  @tracked badgeViewerOpen: boolean = false;
 
   validBadges = ['dj', 'vj', 'supporter', 'strawberry', 'lemon', 'orange', 'watermelon', 'banana', 'cabbage'];
   descriptions: any;
@@ -58,17 +53,5 @@ export default class UserBadges extends Component<UserBadgesArgs> {
     } else {
       return undefined;
     }
-  }
-
-  @action
-  showBadge(badge: Badge) {
-    this.currentBadgeViewer = badge;
-    this.badgeViewerOpen = true;
-    console.log(badge);
-  }
-
-  @action
-  closeBadgeViewer() {
-    this.badgeViewerOpen = false;
   }
 }

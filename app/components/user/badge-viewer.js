@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import * as THREE from "three";
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -10,8 +11,16 @@ export default class UserBadgeViewer extends Component {
   renderer;
   controls;
 
+  uniqueId() {
+    return ([3e7] + -1e3 + -4e3 + -2e3 + -1e11).replace(/[0-3]/g, (a) =>
+      ((a * 4) ^ ((Math.random() * 16) >> (a & 2))).toString(16)
+    );
+  }
+
+  @tracked domId = this.uniqueId();
+
   @action
-  didInsert(){
+  didInsert(element: HTMLElement){
     const animate = () => {
       this.renderer.render(this.scene, this.camera);
       this.controls.update();
@@ -24,7 +33,7 @@ export default class UserBadgeViewer extends Component {
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     //renderer.setSize(window.innerWidth, window.innerHeight);
-    document.getElementById("viewer").appendChild(this.renderer.domElement);
+    document.getElementById(`viewer-${this.domId}`).appendChild(this.renderer.domElement);
 
     this.camera = new THREE.PerspectiveCamera(
       40,
