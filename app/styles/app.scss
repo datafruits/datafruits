@@ -771,7 +771,7 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   border-radius: 8px;
   box-shadow: 4px 4px 1px #333;
 
@@ -791,6 +791,7 @@ body::-webkit-scrollbar-thumb {
     border-radius: 8px 8px 0 0;
   }
   .modal-body {
+    max-width: 50vw;
     padding: 5px;
     border-radius: 8px;
   }

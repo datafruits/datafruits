@@ -1,0 +1,14 @@
+<button
+  class="cursor-pointer" type="button" {{on "click" this.showBadge}}
+  >
+  <img
+    class="inline rounded-lg"
+    style="height: 2rem;"
+    src="{{@badge.url}}"
+    align="center"
+    alt={{@badge.description}}
+    title={{@badge.description}} / >
+</button>
+{{#if this.badgeViewerOpen}}
+  <User::BadgeViewer @badge={{@badge}} @toggleModal={{this.closeBadgeViewer}} />
+{{/if}}
