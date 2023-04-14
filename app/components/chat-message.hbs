@@ -47,11 +47,11 @@
 
 </li>
 {{#if @gifsEnabled}}
-  {{#if (or this.hasImage this.hasData)}}
+  {{#if this.hasImageData}}
     <li class="message">
       <span class="">
         <ChatLazyImage
-          @url={{this.getImage}}
+          @url={{this.imgUrl}}
           @adjustScrolling={{@adjustScrolling}}
         />
       </span>
