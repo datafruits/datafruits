@@ -29,7 +29,7 @@ export default class ChatMessage extends Component {
   get hasImageData() {
     return this.hasImage || this.hasData;
   }
-  
+
   get imgUrl() {
     if (this.hasImage)
       return this.args.message.body.match(this.imgRegex)[0];
@@ -38,6 +38,19 @@ export default class ChatMessage extends Component {
       return this.args.message.body.match(this.dataRegex)[0];
 
     return ""
+  }
+  
+  get messageText() {
+    var body = this.args.message.body;
+
+    if (this.hasImage) {
+      body = this.args.message.body.replace(this.imgRegex, "");
+    }
+    if (this.hasData) {
+      body = this.args.message.body.replace(this.dataRegex, "");
+    }
+
+    return body;
   }
   
   get fromDiscord() {

@@ -35,7 +35,7 @@ module('Integration | Component | chat message', function (hooks) {
     await render(hbs`{{chat-message message=message setupAutoscroll=setupAutoscroll adjustScrolling=adjustScrolling}}`);
 
     assert.dom('[data-test-username]').hasText('tony');
-    assert.dom('[data-test-message-body]').hasText('hey a cat http://cat.com/cat.png');
+    assert.dom('[data-test-message-body]').hasText('hey a cat');
     assert.equal(this.element.querySelector('a').getAttribute('href'), 'http://cat.com/cat.png');
     assert.equal(this.element.querySelector('img').getAttribute('src'), 'http://cat.com/cat.png');
   });
@@ -56,8 +56,7 @@ module('Integration | Component | chat message', function (hooks) {
     );
 
     assert.dom('[data-test-username]').hasText('tony');
-    assert.dom('[data-test-message-body]').hasText('hey a cat http://cat.com/cat.png');
-    assert.equal(this.element.querySelector('a').getAttribute('href'), 'http://cat.com/cat.png');
+    assert.dom('[data-test-message-body]').hasText('hey a cat');
     assert.notOk(this.element.querySelector('img'));
   });
 });

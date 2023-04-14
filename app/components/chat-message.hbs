@@ -39,9 +39,9 @@
     </a>
   {{/if}}
 
-  {{#unless (or this.hasImage this.hasData)}}
+  {{#unless (this.hasImageData)}}
     <span class={{if @message.hasMention "bg-df-green-dark"}} data-test-message-body>
-      {{format-message-body (if this.fromDiscord this.discordMsg @message.body)}}
+      {{format-message-body (if this.fromDiscord this.discordMsg this.messageText)}}
     </span>
   {{/unless}}
 
