@@ -137,7 +137,7 @@
         class=""
         role="button"
         aria-label="{{t "usermenu.dropdown-aria"}}"
-        {{on "click" this.args.toggleUserMenu}}>
+        {{on "click" @toggleUserMenu}}>
         <img
           class="inline rounded-lg"
           style="height: 3rem;"
@@ -147,7 +147,7 @@
       </a>
     </li>
     <li class="flex space-x-2 whitespace-nowrap">
-      <span>Lv. 0</span>
+      <span>Lv. {{this.currentUser.user.level}}</span>
       <div>
         <span class="text-xs">Ƒ</span><span>{{this.currentUser.user.fruitTicketBalance}}</span>
       </div>
