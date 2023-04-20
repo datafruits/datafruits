@@ -36,17 +36,20 @@ export default class ChatInputMessage extends Component {
   }
 
   @action
-  async onPasteInput() {
-    var items = await navigator.clipboard.read();
-    var imageData = "";
-    for (let item of items) {
-      if (imageData) return;
-      for (let type of item.types) {
-        if (type.startsWith("image/")) {
-          const imageBlob = await item.getType(type);
-          imageData = await this.getBase64Data(imageBlob);
-          this.inputMessage = imageData;
+  async onPasteInput(event: ClipboardEvent) {
+    event.preventDefault();
+
+    if (!event.clipboardData) return;
+
+    for (const file of event.clipboardData.files) {
+      if (file.type.startsWith('image/')) {
+        var reader = new FileReader();
+        reader.onload = (onLoadEvent) => {
+          if (onLoadEvent.target?.result) {
+            this.inputMessage = onLoadEvent.target.result as string;
+          }
         }
+        reader.readAsDataURL(file);
       }
     }
   }
