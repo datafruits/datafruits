@@ -22,6 +22,38 @@ export default class ChatInputMessage extends Component {
     return this.inputMessage.length > 0;
   }
 
+  async getBase64Data(blob: Blob): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        resolve(reader.result);
+      }
+      reader.onerror = (err: ProgressEvent) => {
+        reject(err)
+      }
+      reader.readAsDataURL(blob);
+    });
+  }
+
+  @action
+  async onPasteInput(event: ClipboardEvent) {
+    event.preventDefault();
+
+    if (!event.clipboardData) return;
+
+    for (const file of event.clipboardData.files) {
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = (onLoadEvent) => {
+          if (onLoadEvent.target?.result) {
+            this.inputMessage = onLoadEvent.target.result as string;
+          }
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+  }
+
   @action
   sendEmoji(shortcode: string) {
     if (this.inputMessage.length === 0) {
