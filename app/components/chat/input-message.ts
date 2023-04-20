@@ -24,7 +24,7 @@ export default class ChatInputMessage extends Component {
 
   async getBase64Data(blob: Blob): Promise<any> {
     return new Promise((resolve, reject) => {
-      var reader = new FileReader();
+      const reader = new FileReader();
       reader.onloadend = () => {
         resolve(reader.result);
       }
@@ -43,7 +43,7 @@ export default class ChatInputMessage extends Component {
 
     for (const file of event.clipboardData.files) {
       if (file.type.startsWith('image/')) {
-        var reader = new FileReader();
+        const reader = new FileReader();
         reader.onload = (onLoadEvent) => {
           if (onLoadEvent.target?.result) {
             this.inputMessage = onLoadEvent.target.result as string;
