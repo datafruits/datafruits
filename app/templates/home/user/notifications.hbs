@@ -1,0 +1,5 @@
+<h1>The pidgeon has brought you a message!</h1>
+
+{{#each this.model as |notification|}}
+  <UserNotification @notification={{notification}} />
+{{/each}}
