@@ -37,9 +37,9 @@ export default class ChatInputMessage extends Component {
 
   @action
   async onPasteInput(event: ClipboardEvent) {
-    event.preventDefault();
+    if (!event.clipboardData?.files.length) return;
 
-    if (!event.clipboardData) return;
+    event.preventDefault();
 
     for (const file of event.clipboardData.files) {
       if (file.type.startsWith('image/')) {
