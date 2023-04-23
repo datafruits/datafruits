@@ -31,6 +31,7 @@ export default class ChatService extends Service {
   username: string = '';
 
   chan: Channel;
+  notificationChan: Channel;
 
   setFruitCount(key: string, value: number) {
     this._fruitCounts[key] = value;
@@ -185,5 +186,25 @@ export default class ChatService extends Service {
     });
 
     this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
+
+    this.notificationChan = socket.channel('user_notifications', {});
+
+    this.notificationChan
+      .join()
+      .receive('ok', () => {
+        if (isDestroyed(this) || isDestroying(this)) return;
+          return console.log('notification chan join ok'); // eslint-disable-line no-console
+      })
+      .receive('timeout', function () {
+        //return console.log("Connection interruption");
+      });
+
+    this.notificationChan.on('new:msg', (msg) => {
+      if (this.currentUser.user) {
+        msg.hasMention = msg.body.indexOf(`@${this.currentUser.user.username}`) > -1;
+      }
+      this.messages = [...this.messages, msg];
+    });
+
   }
 }
