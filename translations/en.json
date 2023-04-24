@@ -197,6 +197,10 @@
       "orange": "orangey liker",
       "watermelon": "watermel liker",
       "cabbage": "evil cabbage freak"
+    },
+    "notifications": {
+      "header": "The pidgeon has brought you a message!",
+      "pidgeon": "a nice pidgeon wearing a hat"
     }
   },
   "usermenu": {

@@ -1,6 +1,12 @@
-<h1>The pidgeon has brought you a message!</h1>
-<img src="/assets/images/futsu.png" />
+<div class="page-spacing">
+  <div class="flex">
+    <h1>{{t "profile.notifications.header"}}</h1>
+    <img src="/assets/images/futsu.png" alt="{{t "profile.notifications.pidgeon"}}" class="ml-2" />
+  </div>
 
-{{#each this.model as |notification|}}
-  <UserNotification @notification={{notification}} />
-{{/each}}
+  <ul>
+    {{#each this.model as |notification|}}
+      <UserNotification @notification={{notification}} />
+    {{/each}}
+  </ul>
+</div>
