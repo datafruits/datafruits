@@ -58,7 +58,11 @@
     "bio": "私について",
     "favorites": "お気に入り",
     "joined": "作成した時",
-    "last_login": "ここで最後"
+    "last_login": "ここで最後",
+    "notifications": {
+      "header": "鳩さんが通知を持ってきました!",
+      "pidgeon": "素敵な帽子をかぶってる鳩"
+    }
   },
   "usermenu": {
     "settings": "プロフィール編集",

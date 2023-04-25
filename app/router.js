@@ -29,6 +29,7 @@ Router.map(function () {
     this.route('user', function () {
       this.route('settings');
       this.route('favorites');
+      this.route('notifications');
     });
     this.route('site-settings');
     this.route('wiki', function() {
