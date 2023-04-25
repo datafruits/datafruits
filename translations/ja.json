@@ -60,6 +60,7 @@
     "joined": "作成した時",
     "last_login": "ここで最後",
     "notifications": {
+      "title": "通知",
       "header": "鳩さんが通知を持ってきました!",
       "pidgeon": "素敵な帽子をかぶってる鳩"
     }

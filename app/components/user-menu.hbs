@@ -23,6 +23,17 @@
           {{on "click" @toggleUserMenu}}
         >
         <LinkTo
+          @route="home.user.notifications"
+          >
+          {{t "profile.notifications.title"}}
+        </LinkTo>
+      </span>
+    </li>
+    <li class="hover:bg-df-blue rounded px-2 py-1">
+      <span
+          {{on "click" @toggleUserMenu}}
+        >
+        <LinkTo
           @route="home.user.settings"
           >
           {{t "usermenu.settings"}}
