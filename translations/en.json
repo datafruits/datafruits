@@ -199,6 +199,7 @@
       "cabbage": "evil cabbage freak"
     },
     "notifications": {
+      "title": "Notifications",
       "header": "The pidgeon has brought you a message!",
       "pidgeon": "a nice pidgeon wearing a hat"
     }
