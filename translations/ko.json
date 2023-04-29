@@ -64,7 +64,13 @@
     "favorites": "즐겨찾기",
     "bio": "나에 대해",
     "joined": "만들 때",
-    "last_login": "여기서 마지막"
+    "last_login": "여기서 마지막",
+    "notifications": {
+      "title": "통지",
+      "header": "비둘기씨가 알림을 가져왔어요!",
+      "pidgeon": "멋진 모자를 쓰고 있는 비둘기",
+      "no_notifications_yet": "아직 알림이 오지 않습니다."
+    }
   },
   "usermenu": {
     "settings": "프로필 편집",

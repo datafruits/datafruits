@@ -1,6 +1,10 @@
 <div class="page-spacing">
   <div class="flex">
-    <h1>{{t "profile.notifications.header"}}</h1>
+    {{#if this.model.length}}
+      <h1>{{t "profile.notifications.header"}}</h1>
+    {{else}}
+      <h1>{{t "profile.notifications.no_notifications_yet"}}</h1>
+    {{/if}}
     <img src="/assets/images/futsu.png" alt="{{t "profile.notifications.pidgeon"}}" class="ml-2" />
   </div>
 
