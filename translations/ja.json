@@ -62,7 +62,8 @@
     "notifications": {
       "title": "通知",
       "header": "鳩さんが通知を持ってきました!",
-      "pidgeon": "素敵な帽子をかぶってる鳩"
+      "pidgeon": "素敵な帽子をかぶってる鳩",
+      "no_notifications_yet": "通知はまだ届きませんでした。"
     }
   },
   "usermenu": {

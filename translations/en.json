@@ -201,7 +201,8 @@
     "notifications": {
       "title": "Notifications",
       "header": "The pidgeon has brought you a message!",
-      "pidgeon": "a nice pidgeon wearing a hat"
+      "pidgeon": "a nice pidgeon wearing a hat",
+      "no_notifications_yet": "You have no notifications yet."
     }
   },
   "usermenu": {
