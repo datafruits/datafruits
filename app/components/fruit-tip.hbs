@@ -1,11 +1,11 @@
 <div class="flex flex-wrap">
   {{#each this.fruitTypes as |fruit|}}
-    {{#if (gt fruit.cost 0)}}
+    {{#if (or (gt fruit.cost 0) (gt fruit.levelReq 0))}}
       <FruitTip::Fruit
         @fruitTip={{this.fruitTip}}
         @fruit={{fruit}}
         @cost={{fruit.cost}}
-        @disabled={{or (lt this.currentUser.user.fruitTicketBalance fruit.cost) (not this.session.isAuthenticated)}}
+        @disabled={{or (lt this.currentUser.user.level fruit.levelReq) ((lt this.currentUser.user.fruitTicketBalance fruit.cost) (not this.session.isAuthenticated))}}
         />
     {{else}}
       <FruitTip::Fruit
