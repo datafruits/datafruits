@@ -22,6 +22,9 @@ specifiers:
   '@fullhuman/postcss-purgecss': ^4.1.3
   '@glimmer/component': ^1.0.4
   '@glimmer/tracking': ^1.0.4
+  '@glint/core': ^1.0.2
+  '@glint/environment-ember-loose': ^1.0.2
+  '@glint/template': ^1.0.2
   '@lhci/cli': 0.8.2
   '@textcomplete/core': ^0.1.12
   '@textcomplete/textarea': ^0.1.12
@@ -188,6 +191,9 @@ devDependencies:
   '@fullhuman/postcss-purgecss': 4.1.3_postcss@8.4.14
   '@glimmer/component': 1.1.2_@babel+core@7.18.5
   '@glimmer/tracking': 1.1.2
+  '@glint/core': 1.0.2_typescript@4.8.3
+  '@glint/environment-ember-loose': 1.0.2_mhxsblt4dp3j7ff3pupvz5xfzi
+  '@glint/template': 1.0.2
   '@lhci/cli': 0.8.2
   '@textcomplete/core': 0.1.12
   '@textcomplete/textarea': 0.1.12_@textcomplete+core@0.1.12
@@ -1596,7 +1602,7 @@ packages:
       npm-git-info: 1.0.3
       rimraf: 3.0.2
       rsvp: 4.8.5
-      semver: 7.3.7
+      semver: 7.5.1
       silent-error: 1.1.1
     transitivePeerDependencies:
       - '@babel/core'
@@ -1759,7 +1765,7 @@ packages:
       calculate-cache-key-for-tree: 2.0.0
       ember-cli-babel: 7.26.11
       ember-cli-version-checker: 5.1.2
-      semver: 7.3.7
+      semver: 7.5.1
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1775,7 +1781,7 @@ packages:
       find-up: 5.0.0
       lodash: 4.17.21
       resolve: 1.22.1
-      semver: 7.3.7
+      semver: 7.5.1
     transitivePeerDependencies:
       - supports-color
 
@@ -1789,7 +1795,7 @@ packages:
       js-string-escape: 1.0.1
       lodash: 4.17.21
       resolve-package-path: 4.0.3
-      semver: 7.3.7
+      semver: 7.5.1
       typescript-memoize: 1.1.0
     dev: true
 
@@ -1803,7 +1809,7 @@ packages:
       js-string-escape: 1.0.1
       lodash: 4.17.21
       resolve-package-path: 4.0.3
-      semver: 7.3.7
+      semver: 7.5.1
       typescript-memoize: 1.1.0
 
   /@embroider/util/0.41.0:
@@ -2110,6 +2116,12 @@ packages:
       '@simple-dom/interface': 1.4.0
     dev: true
 
+  /@glimmer/interfaces/0.84.3:
+    resolution: {integrity: sha512-dk32ykoNojt0mvEaIW6Vli5MGTbQo58uy3Epj7ahCgTHmWOKuw/0G83f2UmFprRwFx689YTXG38I/vbpltEjzg==}
+    dependencies:
+      '@simple-dom/interface': 1.4.0
+    dev: true
+
   /@glimmer/reference/0.83.1:
     resolution: {integrity: sha512-BThEwDlMkJB1WBPWDrww+VxgGyDbwxh5FFPvGhkovvCZnCb7fAMUCt9pi6CUZtviugkWOBFtE9P4eZZbOLkXeg==}
     dependencies:
@@ -2138,6 +2150,15 @@ packages:
       simple-html-tokenizer: 0.5.11
     dev: true
 
+  /@glimmer/syntax/0.84.3:
+    resolution: {integrity: sha512-ioVbTic6ZisLxqTgRBL2PCjYZTFIwobifCustrozRU2xGDiYvVIL0vt25h2c1ioDsX59UgVlDkIK4YTAQQSd2A==}
+    dependencies:
+      '@glimmer/interfaces': 0.84.3
+      '@glimmer/util': 0.84.3
+      '@handlebars/parser': 2.0.0
+      simple-html-tokenizer: 0.5.11
+    dev: true
+
   /@glimmer/tracking/1.1.2:
     resolution: {integrity: sha512-cyV32zsHh+CnftuRX84ALZpd2rpbDrhLhJnTXn9W//QpqdRZ5rdMsxSY9fOsj0CKEc706tmEU299oNnDc0d7tA==}
     dependencies:
@@ -2156,6 +2177,14 @@ packages:
     dependencies:
       '@glimmer/env': 0.1.7
       '@glimmer/interfaces': 0.83.1
+      '@simple-dom/interface': 1.4.0
+    dev: true
+
+  /@glimmer/util/0.84.3:
+    resolution: {integrity: sha512-qFkh6s16ZSRuu2rfz3T4Wp0fylFj3HBsONGXQcrAdZjdUaIS6v3pNj6mecJ71qRgcym9Hbaq/7/fefIwECUiKw==}
+    dependencies:
+      '@glimmer/env': 0.1.7
+      '@glimmer/interfaces': 0.84.3
       '@simple-dom/interface': 1.4.0
     dev: true
 
@@ -2180,6 +2209,68 @@ packages:
     resolution: {integrity: sha512-gNhityUr9HODYH9GydHVk7C6NZ57MqSbdGzC5TM8VdPibtd72N3+3Zggrm12Faw4E4zTvTM1692Sz/bNwMxLNw==}
     dependencies:
       '@glimmer/util': 0.27.0
+    dev: true
+
+  /@glint/core/1.0.2_typescript@4.8.3:
+    resolution: {integrity: sha512-0bVt/lT/NurpD8nBG9RTPKYlcpg51UDGCKgLoBEFOiTXv3aCSxAVKPud1IYaitGBKE0C+s5pl2PHkgptotVS+w==}
+    hasBin: true
+    peerDependencies:
+      typescript: '>=4.8.0'
+    dependencies:
+      '@glimmer/syntax': 0.84.3
+      escape-string-regexp: 4.0.0
+      semver: 7.5.1
+      silent-error: 1.1.1
+      typescript: 4.8.3
+      uuid: 8.3.2
+      vscode-languageserver: 8.1.0
+      vscode-languageserver-textdocument: 1.0.8
+      vscode-uri: 3.0.7
+      yargs: 17.7.1
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@glint/environment-ember-loose/1.0.2_mhxsblt4dp3j7ff3pupvz5xfzi:
+    resolution: {integrity: sha512-tVLYzAx6c/4vcSaijiAubwR27/+K2tujuozArxeNud58MTwncGxhUkCHSM9xl+wn4VJjsjkzI6+nmzjEdkszSg==}
+    peerDependencies:
+      '@glimmer/component': ^1.1.2
+      '@glint/template': ^1.0.2
+      '@types/ember__array': ^4.0.2
+      '@types/ember__component': ^4.0.10
+      '@types/ember__controller': ^4.0.2
+      '@types/ember__object': ^4.0.4
+      '@types/ember__routing': ^4.0.11
+      ember-cli-htmlbars: ^6.0.1
+      ember-modifier: ^3.2.7 || ^4.0.0
+    peerDependenciesMeta:
+      '@types/ember__array':
+        optional: true
+      '@types/ember__component':
+        optional: true
+      '@types/ember__controller':
+        optional: true
+      '@types/ember__object':
+        optional: true
+      '@types/ember__routing':
+        optional: true
+      ember-cli-htmlbars:
+        optional: true
+      ember-modifier:
+        optional: true
+    dependencies:
+      '@glimmer/component': 1.1.2_@babel+core@7.18.5
+      '@glint/template': 1.0.2
+      '@types/ember__array': 4.0.2_@babel+core@7.18.5
+      '@types/ember__component': 4.0.10_@babel+core@7.18.5
+      '@types/ember__controller': 4.0.1_@babel+core@7.18.5
+      '@types/ember__object': 4.0.4_@babel+core@7.18.5
+      '@types/ember__routing': 4.0.10_@babel+core@7.18.5
+      ember-cli-htmlbars: 6.0.1
+    dev: true
+
+  /@glint/template/1.0.2:
+    resolution: {integrity: sha512-kFWfJrS7XM0NjC5YSN0CWA9FiN0mhUvWVlQ2O7YRz/uhrO8+TVYNLst0WKELRbfCXbdI7wyYQkazNgz6FoL9CA==}
     dev: true
 
   /@handlebars/parser/2.0.0:
@@ -3424,7 +3515,7 @@ packages:
       debug: 4.3.4
       globby: 11.1.0
       is-glob: 4.0.3
-      semver: 7.3.7
+      semver: 7.5.1
       tsutils: 3.21.0_typescript@4.8.3
       typescript: 4.8.3
     transitivePeerDependencies:
@@ -6603,7 +6694,7 @@ packages:
       postcss-modules-values: 4.0.0_postcss@8.4.14
       postcss-value-parser: 4.2.0
       schema-utils: 3.1.1
-      semver: 7.3.7
+      semver: 7.5.1
       webpack: 5.73.0
     dev: true
 
@@ -7101,7 +7192,7 @@ packages:
       mkdirp: 0.5.6
       resolve-package-path: 3.1.0
       rimraf: 2.7.1
-      semver: 7.3.7
+      semver: 7.5.1
       symlink-or-copy: 1.3.1
       typescript-memoize: 1.1.0
       walk-sync: 0.3.4
@@ -7449,7 +7540,7 @@ packages:
       hash-for-dep: 1.5.1
       heimdalljs-logger: 0.1.10
       json-stable-stringify: 1.0.1
-      semver: 7.3.7
+      semver: 7.5.1
       silent-error: 1.1.1
       strip-bom: 4.0.0
       walk-sync: 2.2.0
@@ -7746,7 +7837,7 @@ packages:
       fs-extra: 9.1.0
       resolve: 1.22.1
       rsvp: 4.8.5
-      semver: 7.3.7
+      semver: 7.5.1
       stagehand: 1.0.0
       walk-sync: 2.2.0
     transitivePeerDependencies:
@@ -7806,7 +7897,7 @@ packages:
     engines: {node: 10.* || >= 12.*}
     dependencies:
       resolve-package-path: 3.1.0
-      semver: 7.3.7
+      semver: 7.5.1
       silent-error: 1.1.1
     transitivePeerDependencies:
       - supports-color
@@ -8774,7 +8865,7 @@ packages:
       has: 1.0.3
       has-property-descriptors: 1.0.0
       has-symbols: 1.0.3
-      internal-slot: 1.0.3
+      internal-slot: 1.0.5
       is-callable: 1.2.4
       is-negative-zero: 2.0.2
       is-regex: 1.1.4
@@ -9992,7 +10083,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -10857,14 +10948,6 @@ packages:
       through: 2.3.8
     dev: true
 
-  /internal-slot/1.0.3:
-    resolution: {integrity: sha512-O0DB1JC/sPyZl7cIo78n5dR7eUSwwpYPiXRhTzNxZVAMUuB8vlnRFyLxdrVToks6XPLVnFfbzaVd5WLjhgg+vA==}
-    engines: {node: '>= 0.4'}
-    dependencies:
-      get-intrinsic: 1.2.0
-      has: 1.0.3
-      side-channel: 1.0.4
-
   /internal-slot/1.0.5:
     resolution: {integrity: sha512-Y+R5hJrzs52QCG2laLn4udYVnxsfny9CpOhNhUvk/SSSVyF6T27FzRbF0sroPidSu3X8oEAkOn2K804mjpt6UQ==}
     engines: {node: '>= 0.4'}
@@ -10872,7 +10955,6 @@ packages:
       get-intrinsic: 1.2.0
       has: 1.0.3
       side-channel: 1.0.4
-    dev: true
 
   /intl-messageformat-parser/1.8.1:
     resolution: {integrity: sha512-IMSCKVf0USrM/959vj3xac7s8f87sc+80Y/ipBzdKy4ifBv5Gsj2tZ41EAaURVg01QU71fYr77uA8Meh6kELbg==}
@@ -12937,7 +13019,7 @@ packages:
     dependencies:
       growly: 1.3.0
       is-wsl: 2.2.0
-      semver: 7.3.7
+      semver: 7.5.1
       shellwords: 0.1.1
       uuid: 8.3.2
       which: 2.0.2
@@ -12972,7 +13054,7 @@ packages:
     dependencies:
       hosted-git-info: 4.1.0
       is-core-module: 2.9.0
-      semver: 7.3.7
+      semver: 7.5.1
       validate-npm-package-license: 3.0.4
 
   /normalize-path/2.1.1:
@@ -13004,7 +13086,7 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       hosted-git-info: 4.1.0
-      semver: 7.3.7
+      semver: 7.5.1
       validate-npm-package-name: 3.0.0
     dev: true
 
@@ -14809,6 +14891,13 @@ packages:
     dependencies:
       lru-cache: 6.0.0
 
+  /semver/7.5.1:
+    resolution: {integrity: sha512-Wvss5ivl8TMRZXXESstBA4uR5iXgEN/VC5/sOcuXdVLzcdkz4HWetIoRfG5gb5X+ij/G9rw9YoGn3QoQ8OCSpw==}
+    engines: {node: '>=10'}
+    hasBin: true
+    dependencies:
+      lru-cache: 6.0.0
+
   /send/0.18.0:
     resolution: {integrity: sha512-qqWzuOjSFOuqPjFe4NOsMLafToQQwBSOEpS+FwEt3A2V3vKubTquT3vmLTQpFgMXp8AlFWFuP1qKaJZOtPpVXg==}
     engines: {node: '>= 0.8.0'}
@@ -15321,7 +15410,7 @@ packages:
       es-abstract: 1.20.1
       get-intrinsic: 1.2.0
       has-symbols: 1.0.3
-      internal-slot: 1.0.3
+      internal-slot: 1.0.5
       regexp.prototype.flags: 1.4.3
       side-channel: 1.0.4
 
@@ -16463,7 +16552,7 @@ packages:
     resolution: {integrity: sha512-nd2HUpKc6RWblPZQ2GDuI65sxJ2n/UqZwSBVtj64xlWjMx0m7ZB2m9b2JS3v1f+n9VWH/dd1CMhkHfP6pIdckA==}
     dependencies:
       resolve-package-path: 3.1.0
-      semver: 7.3.7
+      semver: 7.5.1
     dev: true
 
   /validated-changeset/1.3.3:
@@ -16522,6 +16611,37 @@ packages:
 
   /vm-browserify/1.1.2:
     resolution: {integrity: sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==}
+    dev: true
+
+  /vscode-jsonrpc/8.1.0:
+    resolution: {integrity: sha512-6TDy/abTQk+zDGYazgbIPc+4JoXdwC8NHU9Pbn4UJP1fehUyZmM4RHp5IthX7A6L5KS30PRui+j+tbbMMMafdw==}
+    engines: {node: '>=14.0.0'}
+    dev: true
+
+  /vscode-languageserver-protocol/3.17.3:
+    resolution: {integrity: sha512-924/h0AqsMtA5yK22GgMtCYiMdCOtWTSGgUOkgEDX+wk2b0x4sAfLiO4NxBxqbiVtz7K7/1/RgVrVI0NClZwqA==}
+    dependencies:
+      vscode-jsonrpc: 8.1.0
+      vscode-languageserver-types: 3.17.3
+    dev: true
+
+  /vscode-languageserver-textdocument/1.0.8:
+    resolution: {integrity: sha512-1bonkGqQs5/fxGT5UchTgjGVnfysL0O8v1AYMBjqTbWQTFn721zaPGDYFkOKtfDgFiSgXM3KwaG3FMGfW4Ed9Q==}
+    dev: true
+
+  /vscode-languageserver-types/3.17.3:
+    resolution: {integrity: sha512-SYU4z1dL0PyIMd4Vj8YOqFvHu7Hz/enbWtpfnVbJHU4Nd1YNYx8u0ennumc6h48GQNeOLxmwySmnADouT/AuZA==}
+    dev: true
+
+  /vscode-languageserver/8.1.0:
+    resolution: {integrity: sha512-eUt8f1z2N2IEUDBsKaNapkz7jl5QpskN2Y0G01T/ItMxBxw1fJwvtySGB9QMecatne8jFIWJGWI61dWjyTLQsw==}
+    hasBin: true
+    dependencies:
+      vscode-languageserver-protocol: 3.17.3
+    dev: true
+
+  /vscode-uri/3.0.7:
+    resolution: {integrity: sha512-eOpPHogvorZRobNqJGhapa0JdwaxpjVvyBp0QIUMRMSf8ZAlqOdEquKuRmw9Qwu0qXtJIWqFtMkmvJjUZmMjVA==}
     dev: true
 
   /w3c-hr-time/1.0.2:
