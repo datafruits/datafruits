@@ -2,9 +2,12 @@
   {{on "click" (fn @fruitTip @fruit)}}
   class="cool-button fruit-tip-button tip mr-1 ml-1 mt-1 text-xl font-black"
   type="button"
-  disabled={{@disabled}}
+  disabled={{this.disabled}}
   >
-  {{#if @cost}}
+  {{#if (gt @fruit.levelReq 0)}}
+    <span class="s">Lv. {{@fruit.levelReq}}</span>
+  {{/if}}
+  {{#if @fruit.cost}}
     <span class="xs">Ƒ</span><span>{{@cost}}</span>
   {{/if}}
   <img src={{@fruit.image}} alt={{@fruit.name}} />
