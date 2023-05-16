@@ -7,7 +7,7 @@ import ChatService from 'datafruits13/services/chat';
 interface FruitTipFruitComponentArgs {
   fruit: Fruit;
   cost: number;
-  fruitTip: Function;
+  fruitTip: any;
 }
 
 export default class FruitTipFruitComponent extends Component<FruitTipFruitComponentArgs> {
@@ -16,7 +16,6 @@ export default class FruitTipFruitComponent extends Component<FruitTipFruitCompo
   @service declare session: any;
 
   get count() {
-    console.log(`in count: ${this.args.fruit.name}`);
     return this.chat.getFruitCount(this.args.fruit.name);
   }
 
