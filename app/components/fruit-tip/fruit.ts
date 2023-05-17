@@ -20,8 +20,8 @@ export default class FruitTipFruitComponent extends Component<FruitTipFruitCompo
   }
 
   get disabled() {
-    return (this.currentUser.user.level < this.args.fruit.levelReq) ||
-      (this.currentUser.user.fruitTicketBalance < this.args.fruit.cost) ||
+    return (this.currentUser.user?.level < this.args.fruit.levelReq) ||
+      (this.currentUser.user?.fruitTicketBalance < this.args.fruit.cost) ||
       (!this.session.isAuthenticated);
   }
 }
