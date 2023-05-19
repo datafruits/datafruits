@@ -17,7 +17,7 @@ export default class PixiComponent extends Component {
   alphaFilterValue = 1.0;
   alphaFadeout = false;
 
-  fruits = ['strawberry', 'lemon', 'orange', 'banana', 'watermelon', 'cabbage'];
+  fruits = ['strawberry', 'lemon', 'orange', 'banana', 'watermelon', 'cabbage', 'pineapple'];
 
   paidFruitTipSprites = [];
 

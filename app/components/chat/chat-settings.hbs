@@ -1,32 +1,22 @@
-<button 
+<button
   type="button"
   class="cool-button"
   {{on "click" this.toggleDialog}}
   title="Show the chat settings"
-> 
+>
   {{this.gearIcon}}
 </button>
 {{#if this.showingDialog}}
-  <ModalDialog
-    @onClose={{this.closeDialog}}
-    @hasOverlay={{false}}
-    @clickOutsideToClose={{true}}
+  <Ui::Modal
+    @toggleModal={{this.closeDialog}}
   >
-    <div class="modal-top">
-      <button {{on "click" this.toggleDialog}}
-        type="button"
-        class="cool-button"
-      >
-        X
-      </button>
-    </div>
     <div class="modal-body m-1">
-      <Chat::EnableGifsButton 
+      <Chat::EnableGifsButton
         @toggleGifs={{this.toggleGifsEnabled}}
         @enabled={{this.chat.gifsEnabled}}
       />
       <Chat::TvModeButton />
       <Chat::BuddyListButton />
     </div>
-  </ModalDialog>
+  </Ui::Modal>
 {{/if}}

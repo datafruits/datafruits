@@ -59,6 +59,15 @@ export default class UserModel extends Model {
   @attr()
   fruitTicketBalance;
 
+  @attr()
+  level;
+
+  @attr()
+  experiencePoints;
+
+  @attr()
+  xpNeededForNextLevel;
+
   @hasMany('track-favorite', { async: false }) trackFavorites; // ugh
 
   @hasMany('fruit-summon') fruitSummons;

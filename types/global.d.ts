@@ -1,3 +1,5 @@
+import '@glint/environment-ember-loose';
+
 // Types for compiled templates
 declare module 'datafruits13/templates/*' {
   import { TemplateFactory } from 'ember-cli-htmlbars';

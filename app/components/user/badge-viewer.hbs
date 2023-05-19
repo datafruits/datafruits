@@ -1,23 +1,13 @@
 <div
   {{did-insert this.didInsert}}
   >
-  <ModalDialog
-    translucentOverlay={{true}}
-  >
-    <div class="modal-top">
-      <button {{on "click" @closeModal}}
-        type="button"
-        class="cool-button"
-        >
-        X
-      </button>
-    </div>
-
+  <Ui::Modal
+      @toggleModal={{@toggleModal}}
+    >
     <div class="modal-body m-1">
       <h1 class="text-center">{{@badge.name}}</h1>
-      <div id="viewer">
+      <div id="viewer-{{this.domId}}">
       </div>
     </div>
-
-  </ModalDialog>
+  </Ui::Modal>
 </div>
