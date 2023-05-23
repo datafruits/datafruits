@@ -24,7 +24,7 @@
         @fieldName="description"
         @containerClass='mb-2'
         @size='lg'
-        @value={{@show.description}}
+        @value={{changeset.description}}
         rows='20'
         cols='50'
         />
@@ -33,10 +33,12 @@
         <Input
           @type="date"
           @id="start-date"
-          @value={{@show.startDate}}
+          @value={{changeset.startDate}}
         />
         <TimePicker
-          @value={{@show.startTime}}
+          @value={{changeset.startTime}}
+          @property="startTime"
+          @changeset={{changeset}}
           />
       </div>
       <div>
@@ -44,13 +46,15 @@
         <Input
           @type="date"
           @id="end-date"
-          @value={{@show.endDate}}
+          @value={{changeset.endDate}}
         />
         <TimePicker
-          @value={{@show.endTime}}
+          @value={{changeset.endTime}}
+          @property="endTime"
+          @changeset={{changeset}}
           />
       </div>
-      <div>
+      <div class="mb-2">
         <label class="block text-sm font-bold mb-2" for="repeating">{{t "profile.my-shows.form.repeating"}}</label>
         <select
           id="repeating"
@@ -60,49 +64,51 @@
           <option value="false" selected>One-off</option>
         </select>
       </div>
-      {{#if @show.repeating}}
-        <select
-          id="repeating-interval"
-          {{on "change" (pick "target.value" (set @show "recurringInterval"))}}
-          >
-          <option value="week" selected>Weekly</option>
-          <option value="biweek">Bi-weekly (every other week)</option>
-          <option value="month">Monthly</option>
-        </select>
-        {{#if @show.isWeekly}}
-          <span>On</span>
-          <User::ShowForm::WeekdaySelect
-            @show={{@show}}
-            />
-        {{/if}}
-        {{#if @show.isBiweekly}}
-          <span>On</span>
-          <User::ShowForm::WeekdaySelect
-            @show={{@show}}
-            />
-        {{/if}}
-        {{#if @show.isMonthly}}
-          <span>Every</span>
+      {{#if changeset.repeating}}
+        <div class="mb-2">
           <select
-            id="monthly-interval"
+            id="repeating-interval"
+            {{on "change" (pick "target.value" (set changeset "recurringInterval"))}}
             >
-            <option value="first">First</option>
-            <option value="second">Second</option>
-            <option value="third">Third</option>
-            <option value="forth">Forth</option>
-            <option value="last">Last</option>
+            <option value="week" selected>Weekly</option>
+            <option value="biweek">Bi-weekly (every other week)</option>
+            <option value="month">Monthly</option>
           </select>
-          <User::ShowForm::WeekdaySelect
-            @show={{@show}}
-            />
-        {{/if}}
+          {{#if changeset.isWeekly}}
+            <span>On</span>
+            <User::ShowForm::WeekdaySelect
+              @show={{@show}}
+              />
+          {{/if}}
+          {{#if @show.isBiweekly}}
+            <span>On</span>
+            <User::ShowForm::WeekdaySelect
+              @show={{@show}}
+              />
+          {{/if}}
+          {{#if @show.isMonthly}}
+            <span>Every</span>
+            <select
+              id="monthly-interval"
+              >
+              <option value="first">First</option>
+              <option value="second">Second</option>
+              <option value="third">Third</option>
+              <option value="forth">Forth</option>
+              <option value="last">Last</option>
+            </select>
+            <User::ShowForm::WeekdaySelect
+              @show={{@show}}
+              />
+          {{/if}}
+        </div>
       {{/if}}
       <div>
         <Button
           @type='submit'
           @intent='primary'
           disabled={{(or Form.state.hasSubmitted changeset.isInvalid)}}
-          class='cool-button'
+          class='cool-button mb-2'
           >
           SAVE SHOW
         </Button>

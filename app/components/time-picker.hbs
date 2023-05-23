@@ -1,6 +1,7 @@
 <div class="w-32 text-black">
   <PowerSelect
     @searchEnabled={{true}}
+    @renderInPlace={{true}}
     @selected={{this.selected}}
     @onChange={{this.setTime}}
     @options={{this.times}} as |time|
