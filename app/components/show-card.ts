@@ -22,3 +22,10 @@ export default class ShowCardComponent extends Component<ShowCardArgs> {
     return htmlSafe(`background-image: url('${image}');`);
   }
 }
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ShowCardComponent: typeof ShowCardComponent;
+  }
+}
+
