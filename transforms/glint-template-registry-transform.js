@@ -20,4 +20,4 @@ export default function transformer(file, api) {
   root.get().node.program.body.push(code);
 
   return root.toSource();
-};
+}
