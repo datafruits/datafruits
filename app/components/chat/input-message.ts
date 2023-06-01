@@ -208,3 +208,11 @@ export default class ChatInputMessage extends Component {
     }
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ChatInputMessage: typeof ChatInputMessage;
+  }
+}
+  

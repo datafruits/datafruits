@@ -23,3 +23,11 @@ export default class EmojiSelectorEmojiComponent extends Component {
     this.args.closeDialog();
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    EmojiSelectorEmojiComponent: typeof EmojiSelectorEmojiComponent;
+  }
+}
+  

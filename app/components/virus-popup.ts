@@ -11,3 +11,11 @@ export default class VirusPopup extends Component<VirusPopupArgs> {
     (element.querySelector("#virus-message") as HTMLAudioElement).play();
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    VirusPopup: typeof VirusPopup;
+  }
+}
+  

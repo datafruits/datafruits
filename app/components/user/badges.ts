@@ -55,3 +55,11 @@ export default class UserBadges extends Component<UserBadgesArgs> {
     }
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    UserBadges: typeof UserBadges;
+  }
+}
+  

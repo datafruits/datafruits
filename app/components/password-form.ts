@@ -56,3 +56,11 @@ export default class PasswordForm extends Component<PasswordFormArgs> {
       });
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    PasswordForm: typeof PasswordForm;
+  }
+}
+  

@@ -19,3 +19,11 @@ export default class DjsTracks extends Component<DjsTracksArgs> {
     return this.store.query('track', { dj: this.args.dj.id, page: this.args.page });
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    DjsTracks: typeof DjsTracks;
+  }
+}
+  

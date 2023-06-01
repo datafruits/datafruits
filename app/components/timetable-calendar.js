@@ -40,3 +40,11 @@ export default class TimetableCalendarComponent extends Component {
     return showsPromise;
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    TimetableCalendarComponent: typeof TimetableCalendarComponent;
+  }
+}
+  

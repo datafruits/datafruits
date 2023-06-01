@@ -346,3 +346,11 @@ export default class PixiComponent extends Component {
     this.app.renderer.resize(window.innerWidth, window.innerHeight);
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    PixiComponent: typeof PixiComponent;
+  }
+}
+  

@@ -29,3 +29,11 @@ export default class ChatSettings extends Component {
     this.chat.gifsEnabled = !this.chat.gifsEnabled;
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ChatSettings: typeof ChatSettings;
+  }
+}
+  

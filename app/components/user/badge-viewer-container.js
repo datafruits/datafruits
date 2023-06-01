@@ -15,3 +15,11 @@ export default class UserBadgeViewerContainer extends Component {
     this.badgeViewerOpen = false;
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    UserBadgeViewerContainer: typeof UserBadgeViewerContainer;
+  }
+}
+  
