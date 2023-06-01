@@ -9,3 +9,11 @@ export default class LocaleSelector extends Component {
     { text: '中文', value: 'cn' },
   ];
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    LocaleSelector: typeof LocaleSelector;
+  }
+}
+  

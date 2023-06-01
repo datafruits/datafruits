@@ -45,3 +45,11 @@ export default class EmojiSelectorComponent extends Component {
     this.currentTab = 'emoji';
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    EmojiSelectorComponent: typeof EmojiSelectorComponent;
+  }
+}
+  

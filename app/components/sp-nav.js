@@ -8,3 +8,11 @@ export default class SpNav extends Component {
   @service
   currentUser;
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    SpNav: typeof SpNav;
+  }
+}
+  

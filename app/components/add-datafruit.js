@@ -91,3 +91,11 @@ export default class AddDatafruit extends Component {
       });
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    AddDatafruit: typeof AddDatafruit;
+  }
+}
+  

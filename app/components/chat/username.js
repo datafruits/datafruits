@@ -32,3 +32,11 @@ export default class ChatUsernameComponent extends Component {
     this.showingDjInfo = false;
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ChatUsernameComponent: typeof ChatUsernameComponent;
+  }
+}
+  

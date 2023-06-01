@@ -24,3 +24,11 @@ export default class ThemeSelector extends Component {
     { text: this.intl.t('themes.trans'), value: 'trans' },
   ];
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ThemeSelector: typeof ThemeSelector;
+  }
+}
+  

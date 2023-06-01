@@ -35,3 +35,11 @@ export default class Notifications extends Component {
     }
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    Notifications: typeof Notifications;
+  }
+}
+  

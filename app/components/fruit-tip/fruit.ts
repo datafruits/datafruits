@@ -25,3 +25,11 @@ export default class FruitTipFruitComponent extends Component<FruitTipFruitCompo
       (!this.session.isAuthenticated);
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    FruitTipFruitComponent: typeof FruitTipFruitComponent;
+  }
+}
+  

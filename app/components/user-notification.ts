@@ -20,3 +20,11 @@ export default class UserNotification extends Component<UserNotificationArgs> {
     return dayjs(this.args.notification.createdAt).tz(timeZone).format('LLL');
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    UserNotification: typeof UserNotification;
+  }
+}
+  

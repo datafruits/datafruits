@@ -51,3 +51,11 @@ export default class ChatMessages extends Component {
     return result;
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ChatMessages: typeof ChatMessages;
+  }
+}
+  

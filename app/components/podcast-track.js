@@ -102,3 +102,11 @@ export default class PodcastTrack extends Component {
     return this.currentUser.user.trackFavorites.map((favorite) => favorite.trackId).includes(parseInt(id));
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    PodcastTrack: typeof PodcastTrack;
+  }
+}
+  

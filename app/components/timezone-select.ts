@@ -20,3 +20,11 @@ export default class TimezoneSelect extends Component<TimezoneSelectArgs> {
     return this.timeZones;
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    TimezoneSelect: typeof TimezoneSelect;
+  }
+}
+  
