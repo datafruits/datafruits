@@ -40,3 +40,11 @@ export default class PostForm extends Component<PostFormArgs> {
     }
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    PostForm: typeof PostForm;
+  }
+}
+  

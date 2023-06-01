@@ -15,3 +15,11 @@ export default class WikiArticle extends Component<WikiArticleArgs> {
     return htmlSafe(emojione.shortnameToImage(this.args.page.body));
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    WikiArticle: typeof WikiArticle;
+  }
+}
+  

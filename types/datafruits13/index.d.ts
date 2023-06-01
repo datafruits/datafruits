@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import '@glint/environment-ember-loose';
 
 declare global {
   // Prevents ESLint from "fixing" this via its auto-fix to turn it into a type

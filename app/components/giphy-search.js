@@ -20,3 +20,11 @@ export default class GiphySearch extends Component {
     this.gifType = "stickers";
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    GiphySearch: typeof GiphySearch;
+  }
+}
+  

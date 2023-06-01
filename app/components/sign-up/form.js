@@ -125,3 +125,11 @@ export default class SignUpFormComponent extends Component {
     });
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    SignUpFormComponent: typeof SignUpFormComponent;
+  }
+}
+  

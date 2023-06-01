@@ -57,3 +57,11 @@ export default class UiModal extends Component<UiModalArgs> {
     return document.getElementById("modals-container") as HTMLElement;
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    UiModal: typeof UiModal;
+  }
+}
+  

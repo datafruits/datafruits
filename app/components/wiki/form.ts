@@ -51,3 +51,11 @@ export default class WikiForm extends Component<WikiFormArgs> {
   }
 
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    WikiForm: typeof WikiForm;
+  }
+}
+  

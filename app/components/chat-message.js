@@ -71,3 +71,11 @@ export default class ChatMessage extends Component {
     this.args.adjustScrolling();
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ChatMessage: typeof ChatMessage;
+  }
+}
+  

@@ -10,3 +10,11 @@ export default class ForumThreadList extends Component<ForumThreadListArgs> {
     return this.args.forumThreads.sortBy('updatedAt').reverse();
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ForumThreadList: typeof ForumThreadList;
+  }
+}
+  
