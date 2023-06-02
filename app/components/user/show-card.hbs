@@ -1,10 +1,14 @@
 <section class="bg-df-pink p-4 my-4">
-  <h1>{{@show.title}}</h1>
-  <img src={{@show.thumbImageUrl}} />
-  <LinkTo @route="home.user.my-shows.edit" @model={{@show}} class="cool-button">
-    EDIT
-  </LinkTo>
-  <LinkTo @route="home.user.my-shows.archive" @model={{@show}} class="cool-button">
-    ARCHIVE
-  </LinkTo>
+  <div class="mb-2">
+    <h1>{{@show.title}}</h1>
+    <img src={{@show.thumbImageUrl}} />
+  </div>
+  <div class="flex">
+    <LinkTo @route="home.user.my-shows.edit" @model={{@show}} class="cool-button mr-2">
+      EDIT
+    </LinkTo>
+    <LinkTo @route="home.user.my-shows.archive" @model={{@show}} class="cool-button">
+      ARCHIVE
+    </LinkTo>
+  </div>
 </section>
