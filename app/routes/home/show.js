@@ -3,7 +3,7 @@ import ENV from 'datafruits13/config/environment';
 
 export default class ShowRoute extends Route {
   model(params) {
-    return this.store.findRecord('show-series', params.id);
+    return this.store.findRecord('show-series', params.title);
   }
 
   afterModel(model) {
