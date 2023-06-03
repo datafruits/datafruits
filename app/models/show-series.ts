@@ -5,8 +5,7 @@ import type Label from 'datafruits13/models/label';
 export default class ShowSeries extends Model {
   @hasMany('scheduled-show', { async: false }) declare episodes: ScheduledShowModel;
 
-  @hasMany('label', { async: false }) declare
-  labels: Label;
+  @hasMany('label', { async: false }) declare labels: Label;
 
   @attr('string') declare title: string;
   @attr('string') declare description: string;
