@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import type Scheduledshow from 'datafruits13/models/scheduled-show';
+import type ScheduledShow from 'datafruits13/models/scheduled-show';
 
 interface ShowEpisodeCardArgs {
   episode: ScheduledShow;
