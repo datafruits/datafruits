@@ -4,10 +4,10 @@
     <img src={{@show.thumbImageUrl}} />
   </div>
   <div class="flex">
-    <LinkTo @route="home.user.my-shows.edit" @model={{@show}} class="cool-button mr-2">
+    <LinkTo @route="home.user.my-shows.edit" @model={{@show.slug}} class="cool-button mr-2">
       {{t "profile.my-shows.edit"}}
     </LinkTo>
-    <LinkTo @route="home.user.my-shows.episodes" @model={{@show}} class="cool-button">
+    <LinkTo @route="home.user.my-shows.episodes" @model={{@show.slug}} class="cool-button">
       {{t "profile.my-shows.episodes"}}
     </LinkTo>
   </div>

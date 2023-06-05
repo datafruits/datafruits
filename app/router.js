@@ -35,7 +35,7 @@ Router.map(function () {
       this.route('my-shows.new', { path: 'my-shows/new' });
       this.route('my-shows.edit', { path: 'my-shows/:title/edit' });
       this.route('my-shows.episodes', { path: 'my-shows/:title/episodes' });
-      this.route('my-shows.episode', { path: 'my-shows/:show_title/episode/:title' });
+      this.route('my-shows.episode', { path: 'my-shows/:show_slug/episode/:title' });
       this.route('notifications');
     });
     this.route('site-settings');
