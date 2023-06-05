@@ -1,0 +1,8 @@
+<section class="page-spacing">
+  <section>
+    <h1>ARCHIVES</h1>
+    {{#each this.model.episodes as |episode|}}
+      <MyShows::EpisodeCard @episode={{episode}} />
+    {{/each}}
+  </section>
+</section>

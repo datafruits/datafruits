@@ -1,0 +1,16 @@
+<div class="mb-2">
+  <LinkTo
+    @route="home.shows.episode"
+    @model={{@episode.slug}}
+    class="text-2xl">
+    {{@episode.title}}
+  </LinkTo>
+  <img src={{@episode.imageUrl}} />
+  <LinkTo
+    @route="home.user.my-shows.episode"
+    @model={{@episode.slug}}
+    class="text-2xl">
+    {{t "profile.my-shows.edit"}}
+  </LinkTo>
+
+</div>
