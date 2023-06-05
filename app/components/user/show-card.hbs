@@ -5,10 +5,10 @@
   </div>
   <div class="flex">
     <LinkTo @route="home.user.my-shows.edit" @model={{@show}} class="cool-button mr-2">
-      EDIT
+      {{t "profile.my-shows.edit"}}
     </LinkTo>
-    <LinkTo @route="home.user.my-shows.archive" @model={{@show}} class="cool-button">
-      ARCHIVE
+    <LinkTo @route="home.user.my-shows.episodes" @model={{@show}} class="cool-button">
+      {{t "profile.my-shows.episodes"}}
     </LinkTo>
   </div>
 </section>

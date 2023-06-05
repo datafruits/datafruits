@@ -185,6 +185,9 @@
     "settings": "Profile Settings",
     "my-shows": {
       "title": "My Shows",
+      "edit": "EDIT",
+      "new": "Your New Show...begins here",
+      "episodes": "EPISODES",
       "form": {
         "title": "Title",
         "description": "Description",
