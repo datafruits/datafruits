@@ -1,7 +1,7 @@
 <div class="mb-2">
   <LinkTo
     @route="home.shows.episode"
-    @model={{@episode.slug}}
+    @models={{array @episode.showSeries.slug @episode.slug}}
     class="text-2xl">
     {{@episode.title}}
   </LinkTo>

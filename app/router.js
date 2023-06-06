@@ -13,7 +13,9 @@ Router.map(function () {
     this.route('podcasts');
     this.route('about');
     this.route('subscribe');
-    this.route('shows');
+    this.route('shows', function() {
+      this.route('episode');
+    });
     this.route('show', { path: '/shows/:title' });
     this.route('shows.episode', { path: '/shows/:show_title/episodes/:title' });
     this.route('dj-inquiry');

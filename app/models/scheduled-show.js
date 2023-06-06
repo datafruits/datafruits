@@ -3,7 +3,7 @@ import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
 
 @classic
 export default class ScheduledShow extends Model {
-  @belongsTo('show-series') showSeries;
+  @belongsTo('show-series', { async: false }) showSeries;
 
   @attr()
   start;
@@ -13,6 +13,9 @@ export default class ScheduledShow extends Model {
 
   @attr()
   title;
+
+  @attr()
+  formattedEpisodeTitle;
 
   @attr()
   imageUrl;
