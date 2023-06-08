@@ -107,4 +107,3 @@ declare module '@glint/environment-ember-loose/registry' {
     UiChangesetFormComponent: typeof UiChangesetFormComponent;
   }
 }
-  

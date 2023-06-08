@@ -2,4 +2,7 @@
   <h1 class="text-3xl">
     {{this.model.formattedEpisodeTitle}}
   </h1>
+  <section class="flex">
+    <MyShows::EpisodeForm @episode={{this.model}} />
+  </section>
 </section>

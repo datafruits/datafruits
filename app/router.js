@@ -14,7 +14,7 @@ Router.map(function () {
     this.route('about');
     this.route('subscribe');
     this.route('shows');
-    this.route('show', { path: '/shows/:title' });
+    this.route('show', { path: '/shows/:slug' });
     this.route('shows.episode', { path: '/shows/:show_title/episodes/:title' });
     this.route('dj-inquiry');
     this.route('coc');

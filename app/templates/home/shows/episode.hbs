@@ -42,6 +42,14 @@
       </div>
       <div>
         <h1>COMMENTS</h1>
+        <section>
+          {{#if this.session.isAuthenticated}}
+            <h1 class="text-2xl font-cursive mb-2">Hey, {{this.currentUser.user.username}}, leave a comment.....???</h1>
+            <Post::Form @postable={{this.model}} />
+          {{else}}
+            Login or register to post!
+          {{/if}}
+        </section>
       </div>
     </section>
     <section class="w-1/2">

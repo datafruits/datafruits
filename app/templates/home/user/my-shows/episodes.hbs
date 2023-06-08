@@ -1,12 +1,14 @@
 <section class="page-spacing">
   <h1 class="text-3xl">MANAGE EPISODES</h1>
-  <section>
-    <h1>ARCHIVES</h1>
-    {{#each this.model.episodes as |episode|}}
-      <MyShows::EpisodeCard @episode={{episode}} />
-    {{/each}}
-  </section>
-  <section>
-    <h1>UPCOMING</h1>
+  <section class="flex">
+    <section>
+      <h1>ARCHIVES</h1>
+      {{#each this.model.episodes as |episode|}}
+        <MyShows::EpisodeCard @episode={{episode}} />
+      {{/each}}
+    </section>
+    <section>
+      <h1>UPCOMING</h1>
+    </section>
   </section>
 </section>
