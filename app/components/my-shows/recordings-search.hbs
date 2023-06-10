@@ -1,0 +1,14 @@
+<h4
+  class="block text-gray-700 text-sm font-bold mb-2">
+  Select recording
+</h4>
+<PowerSelect
+  {{did-insert this.didInsert}}
+  @searchEnabled={{true}}
+  @search={{this.searchRecordings}}
+  @renderInPlace={{true}}
+  @options={{this.recordings}}
+  @selected={{@changeset.recording}}
+  @onChange={{this.selectRecording}} as |recording|>
+  {{recording.path}}
+</PowerSelect>

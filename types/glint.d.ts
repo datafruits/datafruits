@@ -12,6 +12,7 @@ declare module '@glint/environment-ember-loose/registry' {
       Args: { Positional: [title: string] };
       Return: void;
     }>;
+    PowerSelect: ComponentLike;
   }
 }
 
