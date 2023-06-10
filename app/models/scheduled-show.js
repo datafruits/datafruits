@@ -4,6 +4,7 @@ import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
 @classic
 export default class ScheduledShow extends Model {
   @belongsTo('show-series', { async: false }) showSeries;
+  @belongsTo('recording', { async: false }) recording;
   @hasMany('posts', { async: false }) posts;
 
   @attr()
@@ -35,6 +36,9 @@ export default class ScheduledShow extends Model {
 
   @attr()
   hostedBy;
+
+  @attr()
+  status;
 
   @hasMany('track')
   tracks;

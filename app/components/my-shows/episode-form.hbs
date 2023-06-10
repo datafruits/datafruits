@@ -3,34 +3,57 @@
         @changeset={{changeset}}
         @onError={{this.onError}}
         @onSubmit={{this.onSubmit}} as |Form|>
-      <Form.Input
-        @label={{t "profile.my-shows.form.title"}}
-        @fieldName="title"
-        @containerClass='mb-2'
-        />
-      <div>
-        <label class="align-top" for="show-artwork"> {{t "profile.my-shows.form.artwork"}}</label>
-        <br/>
-        <input
-          class="py-4 px-4 my-2 text-df-yellow w-full semibold border-dashed"
-          id="showArtwork"
-          name="showArtwork"
-          type="file"
-          {{on "change" this.updateFile}}
-        />
-      </div>
-      <Form.Textarea
-        @label={{t "profile.my-shows.form.description"}}
-        @fieldName="description"
-        @containerClass='mb-2'
-        @size='lg'
-        @value={{changeset.description}}
-        rows='20'
-        cols='50'
-        />
-      <MyShows::RecordingsSearch
-        @changeset={{changeset}}
-        />
+      <section class="flex">
+        <div class="mr-2">
+          <Form.Input
+            @label={{t "profile.my-shows.form.title"}}
+            @fieldName="title"
+            @containerClass='mb-2'
+            />
+          <div>
+            <label class="align-top" for="show-artwork"> {{t "profile.my-shows.form.artwork"}}</label>
+            <br/>
+            <input
+              class="py-4 px-4 my-2 text-df-yellow w-full semibold border-dashed"
+              id="showArtwork"
+              name="showArtwork"
+              type="file"
+              {{on "change" this.updateFile}}
+            />
+          </div>
+          <Form.Textarea
+            @label={{t "profile.my-shows.form.description"}}
+            @fieldName="description"
+            @containerClass='mb-2'
+            @size='lg'
+            @value={{changeset.description}}
+            rows='20'
+            cols='50'
+            />
+        </div>
+        <div>
+          <h3
+            class="text-l">
+            Select Prerecorded Show
+          </h3>
+          <h3
+            class="text-l">
+            Select recording
+          </h3>
+          <MyShows::RecordingsSearch
+            @changeset={{changeset}}
+            />
+          <Form.Select
+            @label='Archive Status'
+            @fieldName='status'
+            @options={{this.statusOptions}}
+            @selected={{changeset.status}}
+            as |status|
+            >
+            {{status}}
+          </Form.Select>
+        </div>
+      </section>
       <div>
         <Button
           @type='submit'
