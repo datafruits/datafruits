@@ -16,7 +16,6 @@ export default class ScheduledShow extends ApplicationAdapter {
   }
 
   urlForUpdateRecord(id, modelName, snapshot) {
-    debugger
-    return `${this.urlPrefix}/my_shows/${snapshot.belongsTo('showSeries').attr('slug')}/episodes/${snapshot.attr('slug')}`;
+    return `${this.urlPrefix()}/my_shows/${snapshot.belongsTo('showSeries').attr('slug')}/episodes/${snapshot.attr('slug')}`;
   }
 }
