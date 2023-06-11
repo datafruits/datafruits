@@ -3,9 +3,21 @@
   <section class="flex">
     <section>
       <h1>ARCHIVES</h1>
-      {{#each this.model.episodes as |episode|}}
-        <MyShows::EpisodeCard @episode={{episode}} />
-      {{/each}}
+      <Await @promise={{this.fetchEpisodes}} as |await|>
+        <await.Pending>
+          Loading episodes...
+        </await.Pending>
+
+        <await.Fulfilled as |episodes|>
+          {{#each episodes as |episode|}}
+            <MyShows::EpisodeCard @episode={{episode}} />
+          {{/each}}
+        </await.Fulfilled>
+
+        <await.Rejected>
+          Something went wrong :(
+        </await.Rejected>
+      </Await>
     </section>
     <section>
       <h1>UPCOMING</h1>
