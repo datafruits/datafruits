@@ -8,6 +8,7 @@ import { next } from '@ember/runloop';
 
 interface PostFormArgs {
   postable: ForumThread | ScheduledShow;
+  postableType: 'ForumThread' | 'ScheduledShow';
 }
 
 export default class PostForm extends Component<PostFormArgs> {
@@ -21,7 +22,7 @@ export default class PostForm extends Component<PostFormArgs> {
     const postable = this.args.postable;
     const post = this.store.createRecord('post', {
       postableId: postable.id,
-      postableType: 'ForumThread',
+      postableType: this.args.postableType,
       body: this.body
     });
     try {
@@ -29,7 +30,7 @@ export default class PostForm extends Component<PostFormArgs> {
         postable.posts.pushObject(post);
         this.body = '';
         next(this, () => {
-          const forumPosts = document.querySelectorAll("section.forum-post") as NodeListOf<Element>;
+          const forumPosts = document.querySelectorAll("section.post") as NodeListOf<Element>;
           const el = forumPosts[forumPosts.length-1];
           el.classList.add("bounce");
           (el as HTMLElement).focus();

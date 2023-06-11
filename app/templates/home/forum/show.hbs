@@ -6,7 +6,7 @@
   <section>
     {{#if this.session.isAuthenticated}}
       <h1 class="text-2xl font-cursive mb-2">Hey, {{this.currentUser.user.username}}, leave a reply.....???</h1>
-      <Post::Form @postable={{this.model}} />
+      <Post::Form @postable={{this.model}} @postableType={{'ForumThread'}} />
     {{else}}
       Login or register to post!
     {{/if}}

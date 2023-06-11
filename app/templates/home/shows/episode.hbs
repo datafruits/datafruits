@@ -50,6 +50,11 @@
             Login or register to post!
           {{/if}}
         </section>
+        <section class="posts">
+          {{#each this.model.posts as |post|}}
+            <Post @post={{post}} />
+          {{/each}}
+        </section>
       </div>
     </section>
     <section class="w-1/2">

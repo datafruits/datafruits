@@ -6,7 +6,7 @@ export default class HomeShowsEpisode extends Route {
 
   model(params: any) {
     return this.store.findRecord('scheduled-show', params.title, {
-      include: 'show-series'
+      include: ['show-series', 'posts']
     });
   }
 }

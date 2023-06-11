@@ -17,6 +17,10 @@ export default class ScheduledShow extends ApplicationAdapter {
     return `${this.urlPrefix()}/my_shows`;
   }
 
+  urlForUpdateRecord(id, modelName, snapshot) {
+    return `${this.urlPrefix()}/my_shows/${id}`;
+  }
+
   urlForFindRecord(id, modelName, snapshot) {
     if (snapshot.adapterOptions?.my) {
       return `${this.urlPrefix()}/my_shows/${id}`;
