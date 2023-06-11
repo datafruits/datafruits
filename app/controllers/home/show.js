@@ -9,8 +9,8 @@ export default class ShowController extends Controller {
     this.transitionToRoute('home.podcasts', { queryParams: { tags: label.name } });
   }
 
-  get randomFruitEmoji() {
-    const emojis = ['🍎', '🍏', '🍊', '🍋', '🍒', '🍇', '🍉', '🍓', '🍑', '🍈', '🍌', '🍐', '🍍'];
-    return emojis[Math.floor(Math.random() * emojis.length)];
+  @action
+  fetchEpisodes() {
+    return this.store.query('scheduled-show', { showSeries: this.model.slug });
   }
 }

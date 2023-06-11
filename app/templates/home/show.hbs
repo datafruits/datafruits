@@ -18,7 +18,7 @@
         {{format-date model.start}}
       </h3>
       <p>
-        {{marked-down model.description}}
+        {{marked-down this.model.description}}
       </p>
     </div>
     <div class="">
@@ -46,8 +46,20 @@
     <h1 class="text-2xl">
       {{t "show.episodes"}}
     </h1>
-    {{#each this.model.episodes as |episode|}}
-      <ShowEpisodeCard @episode={{episode}} />
-    {{/each}}
+    <Await @promise={{this.fetchEpisodes}} as |await|>
+      <await.Pending>
+        Loading episodes...
+      </await.Pending>
+
+      <await.Fulfilled as |episodes|>
+        {{#each episodes as |episode|}}
+          <ShowEpisodeCard @episode={{episode}} />
+        {{/each}}
+      </await.Fulfilled>
+
+      <await.Rejected>
+        Something went wrong :(
+      </await.Rejected>
+    </Await>
   </div>
 </div>
