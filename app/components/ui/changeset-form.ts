@@ -31,7 +31,7 @@ interface ChangesetFormArgs {
   onSubmit?: (data: unknown, event: Event) => void;
 
   /** Callback exeuted when from form submit errors */
-  onError?: () => void;
+  onError?: (errors: unknown) => void;
 
   /** Callback exeuted when from `onreset` event is triggered */
   onReset?: (data: unknown, event: Event) => void;
@@ -83,7 +83,7 @@ export default class UiChangesetFormComponent extends Component<ChangesetFormArg
         console.log('couldnt save changeset');
         console.log(error);
         if (typeof this.args.onError === 'function') {
-          this.args.onError();
+          this.args.onError(error.errors);
         }
       }
     }
@@ -107,3 +107,11 @@ declare module '@glint/environment-ember-loose/registry' {
     UiChangesetFormComponent: typeof UiChangesetFormComponent;
   }
 }
+
+
+  declare module '@glint/environment-ember-loose/registry' {
+    export default interface Registry {
+      UiChangesetFormComponent: typeof UiChangesetFormComponent;
+    }
+  }
+

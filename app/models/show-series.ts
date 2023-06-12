@@ -1,11 +1,12 @@
 import Model, { attr, hasMany } from '@ember-data/model';
 import type ScheduledShowModel from 'datafruits13/models/scheduled-show';
 import type Label from 'datafruits13/models/label';
+import type User from 'datafruits13/models/user';
 
 export default class ShowSeries extends Model {
   @hasMany('scheduled-show', { async: false }) declare episodes: ScheduledShowModel;
-
   @hasMany('label', { async: false }) declare labels: Label;
+  @hasMany('user', { async: false }) declare users: User;
 
   @attr('string') declare title: string;
   @attr('string') declare description: string;

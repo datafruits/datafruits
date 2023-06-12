@@ -84,3 +84,11 @@ declare module '@glint/environment-ember-loose/registry' {
     TimePickerComponent: typeof TimePickerComponent;
   }
 }
+
+
+  declare module '@glint/environment-ember-loose/registry' {
+    export default interface Registry {
+      TimePickerComponent: typeof TimePickerComponent;
+    }
+  }
+  

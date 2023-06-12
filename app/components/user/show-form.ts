@@ -1,8 +1,11 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import type ShowSeries from 'datafruits13/models/show-series';
 import { inject as service } from '@ember/service';
+import { debounce } from '@ember/runloop';
+import { tracked } from '@glimmer/tracking';
 import ShowSeriesValidations from '../../validations/show-series';
+import type ShowSeries from 'datafruits13/models/show-series';
+import type User from 'datafruits13/models/user';
 
 interface UserShowFormArgs {
   show: ShowSeries;
@@ -12,8 +15,12 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   ShowSeriesValidations = ShowSeriesValidations;
 
   @service declare router: any;
+  @service declare store: any;
 
   file: Blob | null = null;
+
+  @tracked users: User[] = [];
+  @tracked errors: { [key: string]: string[] } = {};
 
   @action updateFile(e: any){
     this.file = e.target.files[0];
@@ -65,7 +72,30 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   }
 
   @action
-  onError() {
+  onError(errors: { [key: string]: string[] }) {
+    window.alert("Couldn't save show, check the form for errors");
     console.log('couldnt ssave show');
+    console.log(errors);
+    this.errors = errors;
+  }
+
+  @action
+  searchDjs(term: string) {
+    return new Promise((resolve, reject) => {
+      debounce(this, this._performDjsSearch, term, resolve, reject, 600);
+    });
+  }
+
+  _performDjsSearch(term: string, resolve: any, reject: any) {
+    this.store
+      .query('user', {
+        search: {
+          keyword: term,
+        },
+      })
+      .then((users: any) => {
+        this.users = users;
+        return resolve(users);
+      }, reject);
   }
 }
