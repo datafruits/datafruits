@@ -6,13 +6,18 @@
       <h1 class="font-cursive text-3xl">
         {{this.model.title}}
       </h1>
+      <h2 class="text-xl uppercase">
+        {{this.model.formattedRecurringInterval}}
+      </h2>
       <h2>
         {{t "show.hosted_prefix"}}
-        <span class="font-cursive text-xl">
-          <LinkTo @route="home.dj" @model={{this.model.hostedBy}}>
-            {{this.model.hostedBy}}
-          </LinkTo>
-        </span>
+        {{#each this.model.users as |host|}}
+          <span class="font-cursive text-xl">
+            <LinkTo @route="home.dj" @model={{host.username}}>
+              {{host.username}}
+            </LinkTo>
+          </span>
+        {{/each}}
       </h2>
       <h3 class="modal-title" id="myModalLabel">
         {{format-date model.start}}

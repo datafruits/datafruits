@@ -3,6 +3,10 @@ import classic from 'ember-classic-decorator';
 
 @classic
 export default class UserAdapter extends ApplicationAdapter {
+  urlForQuery(query) {
+    return `${this.urlPrefix()}/api/djs`;
+  }
+
   urlForQueryRecord(query) {
     if (query.me) {
       delete query.me;

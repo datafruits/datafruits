@@ -1,0 +1,17 @@
+<h4 class="block text-sm font-bold mb-2">Tags</h4>
+<div class="error">
+  {{#if this.error}}
+    {{this.error}}
+  {{/if}}
+</div>
+<PowerSelectMultipleWithCreate
+  @options={{this.labels}}
+  @selected={{@changeset.labels}}
+  @searchEnabled={{true}}
+  @search={{this.searchLabels}}
+  @renderInPlace={{true}}
+  @onChange={{this.setSelectedLabels}}
+  @onCreate={{this.createTag}}
+  @showCreateWhen={{this.hideCreateOptionOnSameName}} as |label|>
+  {{label.name}}
+</PowerSelectMultipleWithCreate>

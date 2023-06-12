@@ -42,6 +42,10 @@ export default class ShowSeries extends Model {
   get repeating() {
     return this.recurringInterval != 'not_recurring';
   }
+
+  get formattedRecurringInterval() {
+    return `${this.recurringInterval}ly`;
+  }
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

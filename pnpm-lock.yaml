@@ -116,7 +116,7 @@ specifiers:
   ember-modal-dialog: 4.0.1
   ember-page-title: ^6.2.2
   ember-parachute: 1.0.2
-  ember-power-select: github:mcfiredrill/ember-power-select#fix-deprecate-import
+  ember-power-select-with-create: github:mcfiredrill/ember-power-select-with-create
   ember-qunit: ^5.1.5
   ember-resolver: ^8.0.3
   ember-rollbar-client: github:davewasmer/ember-rollbar-client#fastboot-memory-leak-fix
@@ -167,7 +167,7 @@ dependencies:
   autoprefixer: 10.4.7_postcss@8.4.14
   babel-plugin-ember-modules-api-polyfill: 2.13.0
   ember-destroyable-polyfill: 2.0.3_@babel+core@7.18.5
-  ember-power-select: github.com/mcfiredrill/ember-power-select/62730d853f7feed342aa797d46245cd424dfd432_cbfu52vf6vx4mudzpntp74lihu
+  ember-power-select-with-create: github.com/mcfiredrill/ember-power-select-with-create/9c1a83ff08dff102817eccd00caf214923bcfbc4_cbfu52vf6vx4mudzpntp74lihu
   fastboot-app-server: 3.3.2
   fruits-ui: github.com/datafruits/fruits-ui/21a49edb5e6b34fd0935f54698ee7fd92fa9db89
   jsdom: 20.0.0
@@ -1848,7 +1848,6 @@ packages:
       ember-source: 3.28.9_@babel+core@7.18.5
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /@eslint/eslintrc/0.4.3:
     resolution: {integrity: sha512-J6KFFz5QCYUJq3pf0mjEcCJVERbzv71PUIDczuh9JkwGEzced6CO5ADLHB1rbf/+oPBtoPfMYNOpGDzCANlbXw==}
@@ -7149,16 +7148,6 @@ packages:
       minimalistic-crypto-utils: 1.0.1
     dev: true
 
-  /ember-assign-helper/0.3.0:
-    resolution: {integrity: sha512-kDY0IRP6PUSJjghM2gIq24OD7d6XcZ1666zmZrywxEVjCenhaR0Oi/BXUU8JEATrIcXIExMIu34GKrHHlCLw0Q==}
-    engines: {node: 10.* || >= 12}
-    dependencies:
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 4.5.0
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /ember-assign-helper/0.4.0:
     resolution: {integrity: sha512-GKHhT4HD2fhtDnuBk6eCdCA8XGew9hY7TVs8zjrykegiI7weC0CGtpJscmIG3O0gEEb0d07UTkF2pjfNGLx4Nw==}
     engines: {node: '>= 12'}
@@ -7167,7 +7156,6 @@ packages:
       ember-cli-htmlbars: 6.0.1
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /ember-ast-helpers/0.3.5:
     resolution: {integrity: sha512-ZtaGAUDvRX13G9D4t4WbTMhcUzqsw6KqhcHreIiZi3ZhRFlSZ3BumgyJ6buDZj+tCBLiQsxRv7l5AY6imqNR6Q==}
@@ -8467,7 +8455,6 @@ packages:
       - '@babel/core'
       - ember-source
       - supports-color
-    dev: true
 
   /ember-qunit/5.1.5_m2vpijm5kklvqmlfibufmotnbi:
     resolution: {integrity: sha512-2cFA4oMygh43RtVcMaBrr086Tpdhgbn3fVZ2awLkzF/rnSN0D0PSRpd7hAD7OdBPerC/ZYRwzVyGXLoW/Zes4A==}
@@ -17372,24 +17359,16 @@ packages:
       - supports-color
     dev: true
 
-  github.com/mcfiredrill/ember-power-select/62730d853f7feed342aa797d46245cd424dfd432_cbfu52vf6vx4mudzpntp74lihu:
-    resolution: {tarball: https://codeload.github.com/mcfiredrill/ember-power-select/tar.gz/62730d853f7feed342aa797d46245cd424dfd432}
-    id: github.com/mcfiredrill/ember-power-select/62730d853f7feed342aa797d46245cd424dfd432
-    name: ember-power-select
-    version: 4.1.6
+  github.com/mcfiredrill/ember-power-select-with-create/9c1a83ff08dff102817eccd00caf214923bcfbc4_cbfu52vf6vx4mudzpntp74lihu:
+    resolution: {tarball: https://codeload.github.com/mcfiredrill/ember-power-select-with-create/tar.gz/9c1a83ff08dff102817eccd00caf214923bcfbc4}
+    id: github.com/mcfiredrill/ember-power-select-with-create/9c1a83ff08dff102817eccd00caf214923bcfbc4
+    name: ember-power-select-with-create
+    version: 0.9.1
     engines: {node: 10.* || >= 12}
     dependencies:
-      '@glimmer/component': 1.1.2_@babel+core@7.18.5
-      '@glimmer/tracking': 1.1.2
-      ember-assign-helper: 0.3.0
-      ember-basic-dropdown: 3.1.0_cbfu52vf6vx4mudzpntp74lihu
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 5.7.2
-      ember-cli-typescript: 4.2.1
-      ember-concurrency: 2.3.7_@babel+core@7.18.5
-      ember-concurrency-decorators: 2.0.3_@babel+core@7.18.5
-      ember-text-measurer: 0.6.0
-      ember-truth-helpers: 3.0.0
+      ember-power-select: 5.0.4_cbfu52vf6vx4mudzpntp74lihu
     transitivePeerDependencies:
       - '@babel/core'
       - ember-source

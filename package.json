@@ -187,7 +187,7 @@
     "autoprefixer": "^10.4.7",
     "babel-plugin-ember-modules-api-polyfill": "2.13.0",
     "ember-destroyable-polyfill": "^2.0.3",
-    "ember-power-select": "github:mcfiredrill/ember-power-select#fix-deprecate-import",
+    "ember-power-select-with-create": "github:mcfiredrill/ember-power-select-with-create",
     "fastboot-app-server": "^3.3.2",
     "fruits-ui": "github:datafruits/fruits-ui",
     "jsdom": "^20.0.0",
