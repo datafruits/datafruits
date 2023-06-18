@@ -4,7 +4,7 @@ import { validatePresence, validateLength } from 'ember-changeset-validations/va
 
 export default {
   title: validatePresence(true),
-  description: validateLength({ max: 10000 }),
+  description: [validatePresence(true), validateLength({ max: 10000 })],
   // start: notInPast(),
   // end: [notInPast(), notBeforeStart()],
 };
