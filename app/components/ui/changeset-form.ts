@@ -84,6 +84,7 @@ export default class UiChangesetFormComponent extends Component<ChangesetFormArg
         console.log(error);
         if (typeof this.args.onError === 'function') {
           this.args.onError(error.errors);
+          this.hasSubmitted = false;
         }
       }
     }
@@ -107,11 +108,3 @@ declare module '@glint/environment-ember-loose/registry' {
     UiChangesetFormComponent: typeof UiChangesetFormComponent;
   }
 }
-
-
-  declare module '@glint/environment-ember-loose/registry' {
-    export default interface Registry {
-      UiChangesetFormComponent: typeof UiChangesetFormComponent;
-    }
-  }
-
