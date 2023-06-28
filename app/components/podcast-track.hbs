@@ -1,11 +1,19 @@
-<div class="podcast py-1 flex space-x-1" >
+<div class="podcast py-1 flex space-x-1">
   <div class="podcast-actions mt-1 text-xl flex space-x-1">
     {{#if this.playing}}
-      <a class="text-df-green hover:text-df-yellow text-xxl" {{action "pause"}} href="#">
+      <a
+        class="text-df-green hover:text-df-yellow text-xxl"
+        {{action "pause"}}
+        href="#"
+      >
         {{t "player.pause"}}
       </a>
     {{else}}
-      <a class="text-df-green hover:text-df-yellow text-xxl" {{action "play"}} href="#">
+      <a
+        class="text-df-green hover:text-df-yellow text-xxl"
+        {{action "play"}}
+        href="#"
+      >
         {{t "player.play"}}
       </a>
     {{/if}}
@@ -28,51 +36,54 @@
   {{#if this.session.isAuthenticated}}
     {{#if this.isFavorited}}
       <button
-         class="cool-button favorited"
-         type="button"
-         aria-label="Remove From Favorites"
-         title="Remove From Favorites"
+        class="cool-button favorited"
+        type="button"
+        aria-label="Remove From Favorites"
+        title="Remove From Favorites"
         {{on "click" this.unfavoriteTrack}}
-        >
+      >
         <FaIcon @icon="heart" />
       </button>
     {{else}}
       <button
-         class="cool-button not-favorited"
-         type="button"
-         aria-label="Add To Favorites"
-         title="Add To Favorites"
+        class="cool-button not-favorited"
+        type="button"
+        aria-label="Add To Favorites"
+        title="Add To Favorites"
         {{on "click" this.favoriteTrack}}
-        >
-          <FaIcon @icon="heart" />
+      >
+        <FaIcon @icon="heart" />
       </button>
     {{/if}}
   {{/if}}
   <div class="podcast-info mt-1 flex flex-wrap items-center">
     {{#if @track.scheduledShow}}
-    <LinkTo @route="home.show" @model={{@track.scheduledShow}}>
-      {{@track.title}}
-    </LinkTo>
+      <LinkTo @route="home.show" @model={{@track.scheduledShow}}>
+        {{@track.title}}
+      </LinkTo>
     {{else}}
-    <span class="text-xl">
-      {{@track.title}}
-    </span>
+      <span class="text-xl">
+        {{@track.title}}
+      </span>
     {{/if}}
     {{#each @track.labels as |label|}}
-    <a class="track-label
-                text-df-yellow
-                classic:bg-df-pink
-                blm:bg-black
-                hover:text-white
-                p-1
-                uppercase
-                border-solid
-                border-white
-                border-2
-                p-x-2
-                font-extrabold" {{on "click" (fn this.selectLabel label.name)}} href="#">
-      {{label.name}}
-    </a>
+    <a
+      {{on "click" (fn this.selectLabel label.name)}}
+      href="#" 
+      class="track-label
+            text-df-yellow
+            classic:bg-df-pink
+            blm:bg-black
+            hover:text-white
+            p-1
+            uppercase
+            border-solid
+            border-white
+            border-2
+            p-x-2
+            font-extrabold" >
+        {{label.name}}
+      </a>
     {{/each}}
   </div>
 </div>
