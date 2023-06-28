@@ -18,8 +18,6 @@
     min-width: 65px;
   }
   .now-playing {
-    white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
     display: inline-block;
     &:not(:hover) {
@@ -73,7 +71,6 @@ div.radio-bar a:hover {
   justify-content: center;
   input[type=range] {
     -webkit-appearance: none;
-    margin: 18px 0;
     width: 100%;
   }
   input[type=range]:focus {
@@ -266,24 +263,6 @@ audio {
 }
 
 div.radio-container {
-
-  @media only screen and (max-width: 600px) {
-
-    .now-playing,
-    marquee {
-      font-size: 1rem;
-      line-height: 18px;
-    }
-
-    .now-playing {
-      white-space: initial;
-      //      text-wrap: normal;
-    }
-
-    #next-show {
-      display: none;
-    }
-  }
   label {
     font-family: cursive;
   }

@@ -1,11 +1,11 @@
 <nav
   id="mobile-navbar"
-  class="pb-3 relative flex justify-between w-full md:hidden items-center mt-3 mr-3 ml-3 "
+  class="relative flex justify-between w-full md:hidden items-center m-0 ml-3 p-0 sm:pb-3 sm:mt-3 sm:mr-3 sm:ml-3 max-h-screen"
   role="navigation">
-  <div class="flex flex-col justify-center">
+  <div class="flex flex-col justify-center h-full">
     <button
       type="button"
-      class="collapsed text-xl"
+      class="collapsed text-xl w-4"
       aria-label={{t "nav_toggle"}}
       {{on "click" @toggleMenu}}>
       <span class="sr-only">
@@ -16,7 +16,7 @@
         aria-hidden="true" />
     </button>
     {{#if @menuOpen}}
-      <ul id="navigation" class="flex flex-wrap">
+      <ul class="flex flex-wrap overflow-y-scroll">
         <li class="py-2 pr-3 text-white text-shadow-light w-full border-dashed border-white border-t-4">
           <span class="" href="#" aria-label={{t "radio.aria"}}>
             {{t "radio.title"}}
