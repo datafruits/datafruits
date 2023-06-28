@@ -1,8 +1,8 @@
-<div class="podcast py-1 flex space-x-1">
-  <div class="podcast-actions mt-1 text-xl flex space-x-1">
+<div class="sm:py-1 flex space-x-1 text-xs sm:text-xl">
+  <div class="mt-1 flex space-x-1">
     {{#if this.playing}}
       <a
-        class="text-df-green hover:text-df-yellow text-xxl"
+        class="text-df-green hover:text-df-yellow text-xl"
         {{action "pause"}}
         href="#"
       >
@@ -10,7 +10,7 @@
       </a>
     {{else}}
       <a
-        class="text-df-green hover:text-df-yellow text-xxl"
+        class="text-df-green hover:text-df-yellow text-xl"
         {{action "play"}}
         href="#"
       >
@@ -20,7 +20,7 @@
     <a href={{@track.cdnUrl}} download="">
       <FaIcon
         @icon="download"
-        class="fa fa-download text-df-green hover:text-df-yellow text-xxl"
+        class="fa fa-download text-df-green hover:text-df-yellow text-xl"
       />
     </a>
     {{#if @track.youtubeLink}}
@@ -28,7 +28,7 @@
         <FaIcon
           @icon="youtube"
           @prefix="fab"
-          class="text-df-green hover:text-df-yellow text-xxl"
+          class="text-df-green hover:text-df-yellow text-xl"
         />
       </a>
     {{/if}}
@@ -56,13 +56,13 @@
       </button>
     {{/if}}
   {{/if}}
-  <div class="podcast-info mt-1 flex flex-wrap items-center">
+  <div class="mt-1 flex flex-wrap items-center gap-0.5 sm:gap-1.5">
     {{#if @track.scheduledShow}}
       <LinkTo @route="home.show" @model={{@track.scheduledShow}}>
         {{@track.title}}
       </LinkTo>
     {{else}}
-      <span class="text-xl">
+      <span >
         {{@track.title}}
       </span>
     {{/if}}
@@ -75,12 +75,16 @@
             classic:bg-df-pink
             blm:bg-black
             hover:text-white
-            p-1
+            p-0.5
+            p-x-1
+            sm:p-1
+            sm:p-x-2
+            sm:text-base
             uppercase
             border-solid
             border-white
-            border-2
-            p-x-2
+            border
+            sm:border-2
             font-extrabold" >
         {{label.name}}
       </a>

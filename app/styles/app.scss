@@ -825,48 +825,6 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-.podcast-info {
-  gap:0.25rem;
-}
-
-.podcast {
-  max-width: 100%;
-}
-
-#podcast-search-results {
-
-  @media only screen and (max-width: 600px) {
-
-    .podcast {
-      padding: 1px 0;
-
-      *,
-      .text-xl {
-        font-size: 0.8rem !important;
-      }
-    }
-
-    .podcast-info {
-      margin-top: 0;
-    }
-
-    .track-label {
-      padding: 0 0.175rem;
-      border-width: 1px;
-      // margin:0.1rem;
-    }
-
-    .podcast-actions {
-
-      a,
-      svg {
-        font-size: 1.25rem !important;
-        height: 1.25rem;
-        width: 1.25rem;
-      }
-    }
-  }
-}
 
 @tailwind utilities;
 /* purgecss end ignore */
