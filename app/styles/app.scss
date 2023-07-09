@@ -185,6 +185,9 @@ pre {
 }
 
 .shake {
+  background: $green;
+  border: solid 1px white;
+  @apply p-2 rounded-lg;
   @include shake-animation;
 }
 
