@@ -1,8 +1,9 @@
 <div
   {{did-insert this.setUnread}}
   >
-  <a {{on "click" this.toggleNotificationsModal}} ...attributes class="donate-button text-shadow">
+  <a {{on "click" this.toggleNotificationsModal}} ...attributes class="text-shadow">
     <img src="/assets/images/futsu.png"
+         style="max-width: none;"
          alt="{{this.pidgeonTranslation}}"
          class="{{if this.hasUnread "shake" ""}}" />
   </a>
