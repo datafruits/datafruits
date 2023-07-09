@@ -1,37 +1,41 @@
-<a {{on "click" this.toggleNotificationsModal}} ...attributes class="donate-button text-shadow">
-  <img src="/assets/images/futsu.png"
-       alt="{{this.pidgeonTranslation}}"
-       class="{{if this.hasUnread "shake" ""}}" />
-</a>
-{{#if this.showingNotificationsModal}}
-  <Ui::Modal
-      @toggleModal={{this.toggleNotificationsModal}}
-    >
-    <div class="modal-body m-1">
-      <h1>
-        {{t "profile.notifications.title"}}
-      </h1>
-      <div>
-        <Await @promise={{this.fetchNotifications}} as |await|>
-          <await.Pending>
-            <p id="podcast-search-loading" class="">
-              {{t "loading"}}
-            </p>
-          </await.Pending>
+<div
+  {{did-insert this.setUnread}}
+  >
+  <a {{on "click" this.toggleNotificationsModal}} ...attributes class="donate-button text-shadow">
+    <img src="/assets/images/futsu.png"
+         alt="{{this.pidgeonTranslation}}"
+         class="{{if this.hasUnread "shake" ""}}" />
+  </a>
+  {{#if this.showingNotificationsModal}}
+    <Ui::Modal
+        @toggleModal={{this.toggleNotificationsModal}}
+      >
+      <div class="modal-body m-1">
+        <h1>
+          {{t "profile.notifications.title"}}
+        </h1>
+        <div>
+          <Await @promise={{this.fetchNotifications}} as |await|>
+            <await.Pending>
+              <p id="podcast-search-loading" class="">
+                {{t "loading"}}
+              </p>
+            </await.Pending>
 
-          <await.Fulfilled as |result|>
-            <ul>
-              {{#each result as |notification|}}
-                <UserNotification @notification={{notification}} />
-              {{/each}}
-            </ul>
-          </await.Fulfilled>
+            <await.Fulfilled as |result|>
+              <ul>
+                {{#each result as |notification|}}
+                  <UserNotification @notification={{notification}} />
+                {{/each}}
+              </ul>
+            </await.Fulfilled>
 
-          <await.Rejected>
-            {{t "error"}}{{format-message-body ":sorrymustabeentheonionsaladdressing:"}}
-          </await.Rejected>
-        </Await>
+            <await.Rejected>
+              {{t "error"}}{{format-message-body ":sorrymustabeentheonionsaladdressing:"}}
+            </await.Rejected>
+          </Await>
+        </div>
       </div>
-    </div>
-  </Ui::Modal>
-{{/if}}
+    </Ui::Modal>
+  {{/if}}
+</div>

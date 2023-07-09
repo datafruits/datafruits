@@ -2,12 +2,14 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import CurrentUserService from 'datafruits13/services/current-user';
 
 interface UserNotificationsWindowArgs {}
 
 export default class UserNotificationsWindow extends Component<UserNotificationsWindowArgs> {
   @service declare intl: any;
   @service declare store: any;
+  @service declare currentUser: CurrentUserService;
   @tracked showingNotificationsModal: boolean = false;
   @tracked hasUnread: boolean = true;
 
@@ -18,7 +20,15 @@ export default class UserNotificationsWindow extends Component<UserNotifications
 
   @action
   fetchNotifications() {
-    return this.store.findAll('notification');
+    return this.store.findAll('notification').then((notifications: any) => {
+      this.hasUnread = false;
+      return notifications;
+    });
+  }
+
+  @action
+  setUnread() {
+    this.hasUnread = this.currentUser.user.hasUnreadNotifications;
   }
 
   get pidgeonTranslation() {
