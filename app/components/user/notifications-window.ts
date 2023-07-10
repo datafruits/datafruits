@@ -28,7 +28,7 @@ export default class UserNotificationsWindow extends Component<UserNotifications
 
   @action
   setUnread() {
-    this.hasUnread = this.currentUser.user.hasUnreadNotifications;
+    this.hasUnread = this.currentUser.user?.hasUnreadNotifications;
   }
 
   get pidgeonTranslation() {
