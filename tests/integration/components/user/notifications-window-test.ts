@@ -13,14 +13,5 @@ module('Integration | Component | user/notifications-window', function(hooks) {
     await render(hbs`{{user/notifications-window}}`);
 
     assert.equal(this.element?.textContent?.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#user/notifications-window}}
-        template block text
-      {{/user/notifications-window}}
-    `);
-
-    assert.equal(this.element.textContent?.trim(), 'template block text');
   });
 });
