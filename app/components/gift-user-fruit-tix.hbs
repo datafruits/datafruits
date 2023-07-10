@@ -1,0 +1,34 @@
+<button
+  {{on "click" this.showFruitTixModal}}
+  class="cool-button">
+  Send Gift Ƒ
+</button>
+{{#if this.showingModal}}
+  <Ui::Modal
+      @toggleModal={{this.showFruitTixModal}}
+    >
+    <div class="m-2">
+      {{#let (changeset this.fruitTicketGift FruitTicketGiftValidations) as |changeset|}}
+        <Ui::ChangesetForm
+            @changeset={{changeset}}
+            @onError={{this.onError}}
+            @onSubmit={{this.onSubmit}} as |Form|>
+          <Form.Input
+            @label={{t "fruit-tickets.amount"}}
+            @fieldName="amount"
+            @type="number"
+            @containerClass='mb-2'
+            />
+          <Button
+            @type="submit"
+            @intent="primary"
+            class="cool-button"
+            disabled={{changeset.isInvalid}}
+            >
+            {{t "fruit-tickets.submit"}}
+          </Button>
+        </Ui::ChangesetForm>
+      {{/let}}
+    </div>
+  </Ui::Modal>
+{{/if}}
