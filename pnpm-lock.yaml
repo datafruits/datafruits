@@ -112,7 +112,6 @@ specifiers:
   ember-load-initializers: ^2.1.2
   ember-lodash: 4.19.5
   ember-maybe-import-regenerator: 1.0.0
-  ember-modal-dialog: 4.0.1
   ember-page-title: ^6.2.2
   ember-parachute: 1.0.2
   ember-power-select: github:mcfiredrill/ember-power-select#fix-deprecate-import
@@ -277,7 +276,6 @@ devDependencies:
   ember-load-initializers: 2.1.2_@babel+core@7.18.5
   ember-lodash: 4.19.5
   ember-maybe-import-regenerator: 1.0.0
-  ember-modal-dialog: 4.0.1_ember-source@3.28.9
   ember-page-title: 6.2.2
   ember-parachute: 1.0.2
   ember-qunit: 5.1.5_m2vpijm5kklvqmlfibufmotnbi
@@ -9873,27 +9871,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /ember-modal-dialog/4.0.1_ember-source@3.28.9:
-    resolution: {integrity: sha512-6RQjQClvufYB7Y/sOS90HF3tfmLe7LLDM3fgl8BsAEu9xSJTHZTz+xpBY467hxIkl2vAXH6rNLFCf7W/Rm9Jcw==}
-    engines: {node: 12.* || 14.* || >= 16}
-    peerDependencies:
-      ember-tether: ^2.0.1
-    peerDependenciesMeta:
-      ember-tether:
-        optional: true
-    dependencies:
-      '@embroider/macros': 1.8.3
-      '@embroider/util': 1.8.0_ember-source@3.28.9
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.0.1
-      ember-cli-version-checker: 2.2.0
-      ember-decorators: 6.1.1
-      ember-wormhole: 0.6.0
-    transitivePeerDependencies:
-      - ember-source
-      - supports-color
-    dev: true
-
   /ember-modifier-manager-polyfill/1.2.0_@babel+core@7.18.5:
     resolution: {integrity: sha512-bnaKF1LLKMkBNeDoetvIJ4vhwRPKIIumWr6dbVuW6W6p4QV8ZiO+GdF8J7mxDNlog9CeL9Z/7wam4YS86G8BYA==}
     engines: {node: 6.* || 8.* || >= 10.*}
@@ -10226,16 +10203,6 @@ packages:
       - canvas
       - supports-color
       - utf-8-validate
-    dev: true
-
-  /ember-wormhole/0.6.0:
-    resolution: {integrity: sha512-b7RrRxkwCBEJxM2zR34dEzIET81BOZWTcYNJtkidLycLQvdbxPys5QJEjJ/IfDikT/z5HuQBdZRKBhXI0vZNXQ==}
-    engines: {node: 10.* || >= 12}
-    dependencies:
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 5.7.2
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /emoji-regex/7.0.3:
