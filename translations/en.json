@@ -197,6 +197,12 @@
       "orange": "orangey liker",
       "watermelon": "watermel liker",
       "cabbage": "evil cabbage freak"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "header": "The pidgeon has brought you a message!",
+      "pidgeon": "a nice pidgeon wearing a hat",
+      "no_notifications_yet": "You have no notifications yet."
     }
   },
   "usermenu": {
@@ -392,6 +398,9 @@
   "donate": {
     "title": "SUPPORT",
     "dj_link": "The current DJ's donation link is here:"
+  },
+  "hack": {
+    "title": "HACK"
   },
   "microtext": {
     "we_need_it": "we need your datafruit. please add it.",

@@ -1,20 +1,10 @@
 <a {{on "click" this.toggleDjDonateModal}} ...attributes class="donate-button text-shadow">
   {{t "donate.title"}}
 </a>
-
 {{#if this.showingDjDonateModal}}
-  <ModalDialog
-    translucentOverlay={{true}}
+  <Ui::Modal
+      @toggleModal={{this.toggleDjDonateModal}}
     >
-    <div class="modal-top">
-      <button {{on "click" this.toggleDjDonateModal}}
-        type="button"
-        class="cool-button"
-        >
-        X
-      </button>
-    </div>
-
     <div class="modal-body m-1">
       <p>
         {{t "about_page.listenersupport"}}
@@ -32,5 +22,5 @@
         {{t "about_page.donate_linktext"}}
       </a>
     </div>
-  </ModalDialog>
+  </Ui::Modal>
 {{/if}}

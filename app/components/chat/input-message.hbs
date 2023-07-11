@@ -1,30 +1,33 @@
-<span
-  class="chat-input"
-  {{did-insert this.didInsert}}>
-  <Input
-    @type="text"
-    id="input-message"
-    autocomplete="off"
-    @value={{this.inputMessage}}
-    autofocus="autofocus"
-    placeholder={{t "chat.message_placeholder"}}
-    class="sm:w-1/5 md:w-3/5 lg:w-3/4"
-    aria-label="{{t "chat.label.input"}}"
-    data-test-chat-input-message
-  />
-  {{#if this.hasMessage}}
-    <button {{on "click" this.sendMessage}}
-      type="submit"
-      class="cool-button"
-      id="send-message-button"
-      disabled={{@isOffline}}
-      title={{t "chat.titles.send"}}
-      >
-        <FaIcon @icon="arrow-right" />
-    </button>
-  {{/if}}
-  <Chat::EmojiSelector
-    @sendGif={{this.sendGif}}
-    @sendEmoji={{this.sendEmoji}}
-  />
-</span>
+<form {{on "submit" this.sendMessage}}>
+  <span
+    class="chat-input"
+    {{did-insert this.didInsert}}>
+    <Input
+      @type="text"
+      id="input-message"
+      autocomplete="off"
+      @value={{this.inputMessage}}
+      autofocus="autofocus"
+      placeholder={{t "chat.message_placeholder"}}
+      class="sm:w-1/5 md:w-3/5 lg:w-3/4"
+      aria-label="{{t "chat.label.input"}}"
+      {{on "paste" this.onPasteInput}}
+      data-test-chat-input-message
+    />
+    {{#if this.hasMessage}}
+      <button {{on "click" this.sendMessage}}
+        type="submit"
+        class="cool-button"
+        id="send-message-button"
+        disabled={{@isOffline}}
+        title={{t "chat.titles.send"}}
+        >
+          <FaIcon @icon="arrow-right" />
+      </button>
+    {{/if}}
+    <Chat::EmojiSelector
+      @sendGif={{this.sendGif}}
+      @sendEmoji={{this.sendEmoji}}
+    />
+  </span>
+</form>

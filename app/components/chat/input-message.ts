@@ -9,6 +9,7 @@ import CurrentUserService from 'datafruits13/services/current-user';
 import ChatService from 'datafruits13/services/chat';
 import Gif from 'datafruits13/models/gif';
 import { next } from '@ember/runloop';
+import { isEmpty } from '@ember/utils';
 
 export default class ChatInputMessage extends Component {
   @service declare chat: ChatService;
@@ -20,7 +21,39 @@ export default class ChatInputMessage extends Component {
   get hasMessage () {
     return this.inputMessage.length > 0;
   }
-  
+
+  async getBase64Data(blob: Blob): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        resolve(reader.result);
+      }
+      reader.onerror = (err: ProgressEvent) => {
+        reject(err)
+      }
+      reader.readAsDataURL(blob);
+    });
+  }
+
+  @action
+  async onPasteInput(event: ClipboardEvent) {
+    if (!event.clipboardData?.files.length) return;
+
+    event.preventDefault();
+
+    for (const file of event.clipboardData.files) {
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = (onLoadEvent) => {
+          if (onLoadEvent.target?.result) {
+            this.inputMessage = onLoadEvent.target.result as string;
+          }
+        }
+        reader.readAsDataURL(file);
+      }
+    }
+  }
+
   @action
   sendEmoji(shortcode: string) {
     if (this.inputMessage.length === 0) {
@@ -51,7 +84,7 @@ export default class ChatInputMessage extends Component {
   sendMessage(e: Event) {
     e.preventDefault();
     const message = this.inputMessage;
-    if (message) {
+    if (!isEmpty(message)) {
       if (this.chat.token) {
         const role = this.currentUser.user.role;
         const avatarUrl = this.currentUser.user.avatarUrl;
@@ -175,3 +208,11 @@ export default class ChatInputMessage extends Component {
     }
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ChatInputMessage: typeof ChatInputMessage;
+  }
+}
+  

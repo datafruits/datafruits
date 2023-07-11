@@ -35,9 +35,6 @@ export default class ScheduledShow extends Model {
   }
 
   @attr()
-  htmlDescription;
-
-  @attr()
   tweetContent;
 
   @attr()

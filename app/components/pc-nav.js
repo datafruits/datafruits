@@ -8,3 +8,11 @@ export default class PcNav extends Component {
   @service
   currentUser;
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    PcNav: typeof PcNav;
+  }
+}
+  

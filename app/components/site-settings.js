@@ -19,3 +19,11 @@ export default class SiteSettingsComponent extends Component {
     this.theme.setTheme(theme);
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    SiteSettingsComponent: typeof SiteSettingsComponent;
+  }
+}
+  

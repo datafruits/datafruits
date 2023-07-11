@@ -19,6 +19,14 @@ export default class AddDatafruit extends Component {
   @tracked
   datafruit = null;
 
+  get currentTimestamp() {
+    if (this.currentDatafruit) {
+      return `(${new Date(this.currentDatafruit.createdAt).toLocaleDateString()})`;
+    } else {
+      return "Unable to find timestamp"
+    }
+  }
+
   get isSubmittable() {
     let datafruit = this.datafruit;
     return !(!isEmpty(datafruit.content) && !datafruit.isSaving);
@@ -83,3 +91,11 @@ export default class AddDatafruit extends Component {
       });
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    AddDatafruit: typeof AddDatafruit;
+  }
+}
+  

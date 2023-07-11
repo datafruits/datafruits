@@ -11,6 +11,9 @@ export default class Microtext extends Model {
   @attr
   avatarUrl;
 
+  @attr
+  createdAt;
+  
   get avatarUrlOrDefault() {
     if (isEmpty(this.avatarUrl)) {
       return '/assets/images/show_placeholder.jpg';

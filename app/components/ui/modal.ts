@@ -12,37 +12,55 @@ export default class UiModal extends Component<UiModalArgs> {
   clickedOffsetX = 0;
   clickedOffsetY = 0;
 
+  _element: HTMLElement | null = null;
+
+  _mousedownListener = (event: MouseEvent) => {
+    this.clickedOffsetX = event.offsetX;
+    this.clickedOffsetY = event.offsetY;
+    const modalTop = (this._element as HTMLElement).querySelector('.modal-top') as HTMLElement;
+    if(event.target === modalTop) {
+      this.dragging = true;
+      (this._element as HTMLElement).classList.add('dragging');
+    }
+  };
+
+  _mousemoveListener = (event: MouseEvent) => {
+    if (this.dragging) {
+      const modal = this._element as HTMLElement;
+      modal.style.top = `${event.clientY - (this.clickedOffsetY)}px`;
+      modal.style.left = `${event.clientX - this.clickedOffsetX}px`;
+      modal.style.transform = 'none';
+    }
+  };
+
+  _mouseupListener = () => {
+      this.dragging = false;
+      (this._element as HTMLElement).classList.remove('dragging');
+  };
+
   @action
   didInsert(element: HTMLElement) {
-    element.addEventListener('mousedown', (event) => {
-      this.clickedOffsetX = event.offsetX;
-      this.clickedOffsetY = event.offsetY;
-      const modalTop = element.querySelector('.modal-top') as HTMLElement;
-      console.log('event.target', event.target);
-      console.log(modalTop);
-      if(event.target === modalTop) {
-        console.log('set dragging true', event.target);
-        this.dragging = true;
-        element.classList.add('dragging');
-      }
-    });
-    document.addEventListener('mouseup', () => {
-      console.log('mouseUp');
-      this.dragging = false;
-      element.classList.remove('dragging');
-    });
-    document.addEventListener('mousemove', (event: any) => {
-      if (this.dragging) {
-        console.log('setting x and y', event);
-        const modal = element as HTMLElement;
-        modal.style.top = `${event.clientY - this.clickedOffsetY}px`;
-        modal.style.left = `${event.clientX - this.clickedOffsetX}px`;
-        modal.style.transform = 'none';
-      }
-    });
+    this._element = element;
+    element.addEventListener('mousedown', this._mousedownListener);
+    document.addEventListener('mouseup', this._mouseupListener);
+    document.addEventListener('mousemove', this._mousemoveListener);
   }
 
   @action
   removeListeners() {
+    window.removeEventListener('mousemove', this._mousemoveListener);
+    window.removeEventListener('mouseup', this._mouseupListener);
+    window.removeEventListener('mousedown', this._mousedownListener);
+  }
+
+  get destinationElement(): HTMLElement {
+    return document.getElementById("modals-container") as HTMLElement;
   }
 }
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    UiModal: typeof UiModal;
+  }
+}
+

@@ -38,3 +38,11 @@ export default class PodcastsSearch extends Component {
     return podcastsPromise;
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    PodcastsSearch: typeof PodcastsSearch;
+  }
+}
+  

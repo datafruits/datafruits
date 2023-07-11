@@ -26,3 +26,11 @@ export default class Post extends Component<PostArgs> {
     return dayjs(this.args.post.createdAt).tz(timeZone).format('LLL');
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    Post: typeof Post;
+  }
+}
+  

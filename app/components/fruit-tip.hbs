@@ -1,16 +1,8 @@
 <div class="flex flex-wrap">
   {{#each this.fruitTypes as |fruit|}}
-    {{#if (gt fruit.cost 0)}}
-      <FruitTip::Fruit
-        @fruitTip={{this.fruitTip}}
-        @fruit={{fruit}}
-        @cost={{fruit.cost}}
-        @disabled={{or (lt this.currentUser.user.fruitTicketBalance fruit.cost) (not this.session.isAuthenticated)}}
-        />
-    {{else}}
-      <FruitTip::Fruit
-        @fruitTip={{this.fruitTip}}
-        @fruit={{fruit}} />
-    {{/if}}
+    <FruitTip::Fruit
+      @fruitTip={{this.fruitTip}}
+      @fruit={{fruit}}
+      />
   {{/each}}
 </div>

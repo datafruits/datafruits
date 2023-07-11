@@ -17,7 +17,7 @@ export default class PixiComponent extends Component {
   alphaFilterValue = 1.0;
   alphaFadeout = false;
 
-  fruits = ['strawberry', 'lemon', 'orange', 'banana', 'watermelon', 'cabbage'];
+  fruits = ['strawberry', 'lemon', 'orange', 'banana', 'watermelon', 'cabbage', 'pineapple'];
 
   paidFruitTipSprites = [];
 
@@ -280,6 +280,7 @@ export default class PixiComponent extends Component {
     this.app.loader.add('banana', '/assets/images/sprites/banana.json');
     this.app.loader.add('watermelon', '/assets/images/sprites/watermelon.json');
     this.app.loader.add('cabbage', '/assets/images/sprites/cabbage.json');
+    this.app.loader.add('pineapple', '/assets/images/sprites/pineapple.json');
     this.app.loader.add('shader', '/assets/shaders/shader.frag');
 
     this.app.loader.add('stars', '/assets/images/sprites/stars.json');
@@ -303,6 +304,7 @@ export default class PixiComponent extends Component {
       this.animations.weirdBlobs = res.weirdBlobs.spritesheet.animations['WEIRDBLOBS'];
       this.animations.metalPineapple = res.metalPineapple.spritesheet.animations['metal_pineapple.png'];
       this.animations.realLemoner = res.realLemoner.spritesheet.animations["real_lemoner_3d"];
+      this.animations.pineapple = res.pineapple.spritesheet.animations['pineapple_anim.png'];
 
       //background.filters = [this.filter];
 
@@ -346,3 +348,11 @@ export default class PixiComponent extends Component {
     this.app.renderer.resize(window.innerWidth, window.innerHeight);
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    PixiComponent: typeof PixiComponent;
+  }
+}
+

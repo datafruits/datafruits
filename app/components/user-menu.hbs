@@ -13,6 +13,23 @@
       </span>
     </li>
     <li class="hover:bg-df-blue rounded px-2 py-1">
+      <span>XP: </span>{{this.currentUser.user.experiencePoints}}
+    </li>
+    <li class="hover:bg-df-blue rounded px-2 py-1">
+      <span>Next level in: </span>{{this.currentUser.user.xpNeededForNextLevel}}
+    </li>
+    <li class="hover:bg-df-blue rounded px-2 py-1">
+      <span
+          {{on "click" @toggleUserMenu}}
+        >
+        <LinkTo
+          @route="home.user.notifications"
+          >
+          {{t "profile.notifications.title"}}
+        </LinkTo>
+      </span>
+    </li>
+    <li class="hover:bg-df-blue rounded px-2 py-1">
       <span
           {{on "click" @toggleUserMenu}}
         >

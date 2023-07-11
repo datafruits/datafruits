@@ -20,3 +20,11 @@ export default class TvModeButton extends Component {
     this.videoStream.toggleDisplay();
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    TvModeButton: typeof TvModeButton;
+  }
+}
+  

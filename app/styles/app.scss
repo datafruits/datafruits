@@ -7,6 +7,7 @@
 @import 'loading-spinner.scss';
 @import 'container.scss';
 @import 'stripe-animation.scss';
+@import 'shake.scss';
 
 @import 'ember-modal-dialog/ember-modal-structure';
 @import 'ember-modal-dialog/ember-modal-appearance';
@@ -183,14 +184,30 @@ pre {
   @include stripe-animation;
 }
 
+.shake {
+  background: $green;
+  border: solid 1px white;
+  @apply p-2 rounded-lg;
+  @include shake-animation;
+}
+
 .cool-button {
   cursor: pointer;
   white-space: nowrap;
   vertical-align: middle;
+  box-shadow: inset 0.2em 0.2em 0.2em 0 rgba(255,255,255,0.5), inset -0.2em -0.2em 0.2em 0 rgba(0,0,0,0.5);
   @apply border-solid border-2 border-white text-lg rounded-sm;
   @apply text-white font-semibold p-2 leading-none bg-df-blue;
   @apply transition-all duration-100 ease-in-out;
   @apply cursor-pointer;
+  &.hack {
+    @apply bg-df-yellow text-black;
+    text-shadow: none;
+    &:hover,
+    &:focus {
+      @apply bg-df-yellow-dark;
+    }
+  }
 }
 
 .cool-button {
@@ -205,6 +222,9 @@ pre {
 
   &:disabled {
     @apply cursor-not-allowed opacity-50;
+  }
+
+  &:active {
   }
 
   &.not-favorited {
@@ -368,6 +388,7 @@ form {
 }
 
 .donate-button {
+  box-shadow: inset 0.2em 0.2em 0.2em 0 rgba(255,255,255,0.5), inset -0.2em -0.2em 0.2em 0 rgba(0,0,0,0.5);
   @apply border-solid border-2 border-white text-lg rounded-sm;
   @apply text-white font-semibold p-2 leading-none bg-df-green;
   @apply transition-all duration-100 ease-in-out;
@@ -722,7 +743,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .ember-power-select-selected-item {
-  color: white;  
+  color: white;
 }
 
 .about-section {
@@ -758,7 +779,7 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   border-radius: 8px;
   box-shadow: 4px 4px 1px #333;
 
@@ -778,6 +799,7 @@ body::-webkit-scrollbar-thumb {
     border-radius: 8px 8px 0 0;
   }
   .modal-body {
+    max-width: 50vw;
     padding: 5px;
     border-radius: 8px;
   }

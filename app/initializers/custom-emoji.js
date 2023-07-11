@@ -395,6 +395,13 @@ export function initialize(/* application */) {
       shortnames: [':glorp:'],
       keywords: ['glorp'],
     },
+    ':futsu:': {
+      custom: true,
+      uc_base: 'futsu',
+      uc_output: '',
+      shortnames: [':futsu:'],
+      keywords: ['futsu'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
