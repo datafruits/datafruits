@@ -19,8 +19,8 @@
           </span>
         {{/each}}
       </h2>
-      <h3 class="modal-title" id="myModalLabel">
-        {{format-date model.start}}
+      <h3 class="modal-title uppercase" id="myModalLabel">
+        Every {{this.model.formattedCadence}} at {{format-time this.model.startTime}}
       </h3>
       <p>
         {{marked-down this.model.description}}

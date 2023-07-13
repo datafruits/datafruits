@@ -46,6 +46,19 @@ export default class ShowSeries extends Model {
   get formattedRecurringInterval() {
     return `${this.recurringInterval}ly`;
   }
+
+  get formattedCadence(): string | undefined {
+    if(this.isWeekly) {
+      return this.recurringWeekday;
+    }else if(this.isBiweekly) {
+      // TODO i18n
+      return `other ${this.recurringWeekday}`;
+    }else if(this.isMonthly) {
+      return `Every ${this.recurringCadence} ${this.recurringWeekday}`;
+    } else {
+      return undefined;
+    }
+  }
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.
