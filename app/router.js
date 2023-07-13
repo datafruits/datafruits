@@ -42,6 +42,7 @@ Router.map(function () {
     });
     this.route('forum.new', { path: '/forum/new' });
     this.route('forum.show', { path: '/forum/:title' });
+    this.route('support');
   });
   this.route('container', function () {
     this.route('show', { path: '/shows/:id' });
