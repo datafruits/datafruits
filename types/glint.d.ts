@@ -4,6 +4,7 @@ import { ComponentLike, HelperLike } from '@glint/template';
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     WelcomePage: ComponentLike;
+    Await: ComponentLike;
     'page-title': HelperLike<{
       Args: { Positional: [title: string] };
       Return: void;
@@ -13,6 +14,7 @@ declare module '@glint/environment-ember-loose/registry' {
       Return: void;
     }>;
     PowerSelect: ComponentLike;
+    'format-message-body': HelperLike;
   }
 }
 

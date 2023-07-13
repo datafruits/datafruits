@@ -20,9 +20,12 @@ export default class FruitTipFruitComponent extends Component<FruitTipFruitCompo
   }
 
   get disabled() {
-    return (this.currentUser.user?.level < this.args.fruit.levelReq) ||
-      (this.currentUser.user?.fruitTicketBalance < this.args.fruit.cost) ||
-      (!this.session.isAuthenticated);
+    if(this.session.isAuthenticated) {
+      return (this.currentUser.user?.level < this.args.fruit.levelReq) ||
+        (this.currentUser.user?.fruitTicketBalance < this.args.fruit.cost);
+    } else {
+      return this.args.fruit.levelReq || this.args.fruit.cost;
+    }
   }
 }
 
@@ -32,4 +35,4 @@ declare module '@glint/environment-ember-loose/registry' {
     FruitTipFruitComponent: typeof FruitTipFruitComponent;
   }
 }
-  
+
