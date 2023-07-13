@@ -57,29 +57,35 @@
         />
       <div>
         <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.start"}}</label>
-        <Input
-          @type="date"
-          @id="start-date"
-          @value={{changeset.startDate}}
-        />
-        <TimePicker
-          @value={{changeset.startTime}}
-          @property="startTime"
-          @changeset={{changeset}}
+        <div class="flex">
+          <Input
+            class="mr-2"
+            @type="date"
+            @id="start-date"
+            @value={{changeset.startDate}}
           />
+          <TimePicker
+            @value={{changeset.startTime}}
+            @property="startTime"
+            @changeset={{changeset}}
+            />
+        </div>
       </div>
       <div>
         <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.end"}}</label>
-        <Input
-          @type="date"
-          @id="end-date"
-          @value={{changeset.endDate}}
-        />
-        <TimePicker
-          @value={{changeset.endTime}}
-          @property="endTime"
-          @changeset={{changeset}}
+        <div class="flex">
+          <Input
+            class="mr-2"
+            @type="date"
+            @id="end-date"
+            @value={{changeset.endDate}}
           />
+          <TimePicker
+            @value={{changeset.endTime}}
+            @property="endTime"
+            @changeset={{changeset}}
+            />
+        </div>
       </div>
       <div class="mb-2">
         <label class="block text-sm font-bold mb-2" for="repeating">{{t "profile.my-shows.form.repeating"}}</label>
@@ -132,9 +138,10 @@
         </div>
       {{/if}}
       <LabelsSelect
+        class="mb-2"
         @changeset={{changeset}}
         />
-      <div>
+      <div class="mb-2">
         <Button
           @type='submit'
           @intent='primary'
