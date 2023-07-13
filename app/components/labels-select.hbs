@@ -1,9 +1,9 @@
 <h4 class="block text-sm font-bold mb-2">Tags</h4>
-<div class="error">
-  {{#if this.error}}
-    {{this.error}}
-  {{/if}}
-</div>
+{{#if this.error}}
+  <div class="error">
+      {{this.error}}
+  </div>
+{{/if}}
 <PowerSelectMultipleWithCreate
   @options={{this.labels}}
   @selected={{@changeset.labels}}
