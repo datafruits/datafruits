@@ -14,6 +14,8 @@ declare module '@glint/environment-ember-loose/registry' {
       Return: void;
     }>;
     PowerSelect: ComponentLike;
+    PowerSelectMultipleWithCreate: ComponentLike;
+    changeset: HelperLike;
     'format-message-body': HelperLike;
   }
 }
