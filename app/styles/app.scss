@@ -300,6 +300,7 @@ form {
   }
   .error {
     @apply text-red bg-white rounded-sm p-1;
+    text-shadow: none;
   }
 }
 

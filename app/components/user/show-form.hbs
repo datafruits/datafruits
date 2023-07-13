@@ -1,13 +1,14 @@
-<section>
-  {{#each this.errors as |error|}}
-    {{error}}
-  {{/each}}
-</section>
 {{#let (changeset @show this.ShowSeriesValidations) as |changeset|}}
   <Ui::ChangesetForm
+        class="max-w-md"
         @changeset={{changeset}}
         @onError={{this.onError}}
         @onSubmit={{this.onSubmit}} as |Form|>
+      {{#each-in this.errors as |field error|}}
+        <div class="error">
+          {{field}}: {{error}}
+        </div>
+      {{/each-in}}
       <Form.Input
         @label={{t "profile.my-shows.form.title"}}
         @fieldName="title"

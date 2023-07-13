@@ -72,11 +72,12 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   }
 
   @action
-  onError(errors: { [key: string]: string[] }) {
+  onError(errors: [{ [key: string]: string[] }]) {
     window.alert("Couldn't save show, check the form for errors");
     console.log('couldnt ssave show');
     console.log(errors);
-    this.errors = errors;
+    console.log(errors[0]);
+    this.errors = errors[0];
   }
 
   @action
