@@ -75,6 +75,7 @@ export default class UiChangesetFormComponent extends Component<ChangesetFormArg
       result = changeset.execute();
     } else {
       try {
+        console.log(changeset.get('startTime'));
         result = await changeset.save({});
         if (typeof this.args.onSubmit === 'function') {
           this.args.onSubmit(result, event);
@@ -104,6 +105,6 @@ export default class UiChangesetFormComponent extends Component<ChangesetFormArg
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    UiChangesetFormComponent: typeof UiChangesetFormComponent;
+    'Ui::ChangesetForm': typeof UiChangesetFormComponent;
   }
 }

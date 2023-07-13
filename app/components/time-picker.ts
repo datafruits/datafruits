@@ -2,12 +2,13 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { BufferedChangeset } from 'ember-changeset/types';
 import { tracked } from '@glimmer/tracking';
+import dayjs, { Dayjs } from "dayjs";
 
 interface TimePickerArgs {
   changeset: BufferedChangeset;
-  value: Date;
+  value: Dayjs;
   property: string;
-  onChange?: (val: Date) => void;
+  onChange?: (val: Dayjs) => void;
 }
 
 export default class TimePickerComponent extends Component<TimePickerArgs> {
@@ -38,44 +39,28 @@ export default class TimePickerComponent extends Component<TimePickerArgs> {
     '23:00',
   ];
 
-  @tracked selected = '20:00';
-  // get selected() {
-  //   console.log('in selected()');
-  //   const time = this.args.changeset.get(this.args.property);
-  //   console.log(time);
-  //   if (time) {
-  //     console.log('time: ');
-  //     console.log(`${time.getHours()}:00`);
-  //     return `${String(time.getHours()).padStart(2, '0')}:00`;
-  //   } else {
-  //     return '00:00';
-  //   }
-  // }
-  //
+  @tracked selected: string = '20:00';
+
   @action
   setTime(value: string) {
-    //const property = this.args.property;
     const hours = value.split(':')[0];
     const minutes = value.split(':')[1];
     const oldDate = this.args.value;
-    // if(oldDate) {
-    // } else {
-    // }
-    const newDate = new Date(
-      oldDate.getFullYear(),
-      oldDate.getMonth(),
-      oldDate.getDate(),
-      parseInt(hours),
-      parseInt(minutes)
-    );
+    let newDate = dayjs((oldDate as any).content); //sorry musta been the onion salad dressing
+
+    newDate = newDate.hour(parseInt(hours)).minute(parseInt(minutes));
+    this.selected = value;
+    const property = this.args.property;
+    this.args.changeset.set(property, newDate.toISOString());
+    this.args.changeset.validate(property);
     if(this.args.onChange) {
       this.args.onChange(newDate);
     }
-    this.selected = value;
-    const property = this.args.property;
-    // doesnt work?
-    this.args.changeset.set(property, newDate);
-    this.args.changeset.validate(property);
+  }
+
+  constructor(owner: unknown, args: any) {
+    super(owner, args);
+    this.selected = `${this.args.value.format("HH")}:00`;
   }
 }
 
@@ -84,11 +69,3 @@ declare module '@glint/environment-ember-loose/registry' {
     TimePickerComponent: typeof TimePickerComponent;
   }
 }
-
-
-  declare module '@glint/environment-ember-loose/registry' {
-    export default interface Registry {
-      TimePickerComponent: typeof TimePickerComponent;
-    }
-  }
-  
