@@ -99,4 +99,8 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
         return resolve(users);
       }, reject);
   }
+
+  get currentDate() {
+    return (new Date()).toISOString().split("T")[0]
+  }
 }

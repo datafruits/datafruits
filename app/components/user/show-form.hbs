@@ -62,6 +62,7 @@
             class="mr-2"
             @type="date"
             @id="start-date"
+            @min={{this.currentDate}}
             @value={{changeset.startDate}}
           />
           <TimePicker
@@ -78,6 +79,7 @@
             class="mr-2"
             @type="date"
             @id="end-date"
+            @min={{this.currentDate}}
             @value={{changeset.endDate}}
           />
           <TimePicker
