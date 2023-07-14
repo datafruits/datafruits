@@ -66,9 +66,9 @@
             @value={{changeset.startDate}}
           />
           <TimePicker
-            @value={{changeset.startTime}}
             @property="startTime"
             @changeset={{changeset}}
+            @onChange={{this.setEndAfterStart}}
             />
         </div>
       </div>
@@ -83,7 +83,6 @@
             @value={{changeset.endDate}}
           />
           <TimePicker
-            @value={{changeset.endTime}}
             @property="endTime"
             @changeset={{changeset}}
             />

@@ -1,14 +1,12 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { BufferedChangeset } from 'ember-changeset/types';
-import { tracked } from '@glimmer/tracking';
 import dayjs, { Dayjs } from "dayjs";
 
 interface TimePickerArgs {
   changeset: BufferedChangeset;
-  value: Dayjs;
   property: string;
-  onChange?: (val: Dayjs) => void;
+  onChange?: (val: Dayjs, changeset: BufferedChangeset) => void;
 }
 
 export default class TimePickerComponent extends Component<TimePickerArgs> {
@@ -39,28 +37,49 @@ export default class TimePickerComponent extends Component<TimePickerArgs> {
     '23:00',
   ];
 
-  @tracked selected: string = '20:00';
+  get availableTimes() {
+    let times;
+    if(this.args.property === 'endTime' &&
+       this.args.changeset.get('startTime')) {
+      const startTime = dayjs(this.args.changeset.get('startTime')).format('HH');
+      times = this.times.filter((time) => {
+        return parseInt(time.split(':')[0]) > parseInt(startTime.split(':')[0]);
+      });
+    } else {
+      times = this.times;
+    }
+    return times;
+  }
+
+  get selected() {
+    const property = this.args.property;
+    const changeset = this.args.changeset;
+    let time;
+    // sometimes changeset.get returns a proxy
+    if(changeset.get(property).content) {
+      time = dayjs(changeset.get(property).content);
+    } else {
+      time = dayjs(changeset.get(property));
+    }
+    return time.format("HH:00");
+  }
 
   @action
   setTime(value: string) {
+    const property = this.args.property;
+    const changeset = this.args.changeset;
+
     const hours = value.split(':')[0];
     const minutes = value.split(':')[1];
-    const oldDate = this.args.value;
-    let newDate = dayjs((oldDate as any).content); //sorry musta been the onion salad dressing
+    const oldDate = changeset.get(property).content;
+    let newDate = dayjs(oldDate); //sorry musta been the onion salad dressing
 
     newDate = newDate.hour(parseInt(hours)).minute(parseInt(minutes));
-    this.selected = value;
-    const property = this.args.property;
-    this.args.changeset.set(property, newDate.toISOString());
-    this.args.changeset.validate(property);
+    changeset.set(property, newDate.toISOString());
+    changeset.validate(property);
     if(this.args.onChange) {
-      this.args.onChange(newDate);
+      this.args.onChange(newDate, this.args.changeset);
     }
-  }
-
-  constructor(owner: unknown, args: any) {
-    super(owner, args);
-    this.selected = `${this.args.value.format("HH")}:00`;
   }
 }
 

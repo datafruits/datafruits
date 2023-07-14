@@ -75,7 +75,6 @@ export default class UiChangesetFormComponent extends Component<ChangesetFormArg
       result = changeset.execute();
     } else {
       try {
-        console.log(changeset.get('startTime'));
         result = await changeset.save({});
         if (typeof this.args.onSubmit === 'function') {
           this.args.onSubmit(result, event);

@@ -6,6 +6,8 @@ import { tracked } from '@glimmer/tracking';
 import ShowSeriesValidations from '../../validations/show-series';
 import type ShowSeries from 'datafruits13/models/show-series';
 import type User from 'datafruits13/models/user';
+import dayjs, { Dayjs } from "dayjs";
+import { BufferedChangeset } from 'ember-changeset/types';
 
 interface UserShowFormArgs {
   show: ShowSeries;
@@ -22,7 +24,8 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   @tracked users: User[] = [];
   @tracked errors: { [key: string]: string[] } = {};
 
-  @action updateFile(e: any){
+  @action
+  updateFile(e: any){
     this.file = e.target.files[0];
     this.args.show.imageFilename = e.target.files[0].name;
     const reader = new FileReader();
@@ -78,6 +81,14 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
     console.log(errors);
     console.log(errors[0]);
     this.errors = errors[0];
+  }
+
+  @action
+  setEndAfterStart(startTime: Dayjs, changeset: BufferedChangeset) {
+    if(startTime.hour() > dayjs(changeset.get('endTime')).hour()) {
+      console.log('setting end time to: ', startTime.add(1, 'hour').hour());
+      changeset.set('endTime', startTime.add(1, 'hour'));
+    }
   }
 
   @action
