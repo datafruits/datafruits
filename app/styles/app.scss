@@ -9,9 +9,6 @@
 @import 'stripe-animation.scss';
 @import 'shake.scss';
 
-@import 'ember-modal-dialog/ember-modal-structure';
-@import 'ember-modal-dialog/ember-modal-appearance';
-
 @import 'player.scss';
 
 @tailwind components;
@@ -412,20 +409,6 @@ form {
   }
 }
 
-.ember-modal-dialog {
-  background: $blue;
-  padding: 0;
-  .modal-top {
-    padding: 5px;
-    background: $pink;
-    border-radius: 8px 8px 0 0;
-  }
-  .modal-body {
-    padding: 5px;
-    border-radius: 8px;
-  }
-}
-
 .donate-button {
   &:hover,
   &:focus {
@@ -805,6 +788,8 @@ body::-webkit-scrollbar-thumb {
   }
   .modal-body {
     max-width: 50vw;
+    max-height: 50vh;
+    overflow-y: scroll;
     padding: 5px;
     border-radius: 8px;
   }
