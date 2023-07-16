@@ -102,7 +102,7 @@
         <div class="mb-2">
           <select
             id="repeating-interval"
-            {{on "change" (pick "target.value" (set this.args.show "recurringInterval"))}}
+            {{on "change" (pick "target.value" (set changeset "recurringInterval"))}}
             >
             <option value="week" selected>Weekly</option>
             <option value="biweek">Bi-weekly (every other week)</option>
@@ -111,20 +111,20 @@
           {{#if changeset.isWeekly}}
             <span>On</span>
             <User::ShowForm::WeekdaySelect
-              @show={{@show}}
+              @changeset={{changeset}}
               />
           {{/if}}
           {{#if changeset.isBiweekly}}
             <span>On</span>
             <User::ShowForm::WeekdaySelect
-              @show={{@show}}
+              @changeset={{changeset}}
               />
           {{/if}}
           {{#if changeset.isMonthly}}
             <span>Every</span>
             <select
               id="monthly-interval"
-              {{on "change" (pick "target.value" (set this.args.show "recurringCadence"))}}
+              {{on "change" (pick "target.value" (set changeset "recurringCadence"))}}
               >
               <option value="first">First</option>
               <option value="second">Second</option>
@@ -133,7 +133,7 @@
               <option value="last">Last</option>
             </select>
             <User::ShowForm::WeekdaySelect
-              @show={{@show}}
+              @changeset={{changeset}}
               />
           {{/if}}
         </div>

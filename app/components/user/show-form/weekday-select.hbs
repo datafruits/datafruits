@@ -1,6 +1,6 @@
 <select
   id="weekly-interval"
-  {{on "change" (pick "target.value" (set @show "recurringWeekday"))}}
+  {{on "change" (pick "target.value" (set @changeset "recurringWeekday"))}}
   >
   {{#each-in this.weekdays as |key val|}}
     <option value="{{val}}">{{key}}</option>

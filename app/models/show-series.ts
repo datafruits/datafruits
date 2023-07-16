@@ -54,7 +54,7 @@ export default class ShowSeries extends Model {
       // TODO i18n
       return `other ${this.recurringWeekday}`;
     }else if(this.isMonthly) {
-      return `Every ${this.recurringCadence} ${this.recurringWeekday}`;
+      return `${this.recurringCadence} ${this.recurringWeekday}`;
     } else {
       return undefined;
     }

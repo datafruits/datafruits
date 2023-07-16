@@ -1,27 +1,25 @@
 import Component from '@glimmer/component';
-import type ShowSeries from 'datafruits13/models/show-series';
+import { BufferedChangeset } from 'ember-changeset/types';
 
 interface UserShowFormWeekdaySelectArgs {
-  show: ShowSeries;
+  changeset: BufferedChangeset;
 }
 
 export default class UserShowFormWeekdaySelect extends Component<UserShowFormWeekdaySelectArgs> {
+  // TODO i18n
   weekdays = {
-    'Sunday': 'sunday',
-    'Monday': 'monday',
-    'Tuesday': 'tuesday',
-    'Wednesday': 'wednesday',
-    'Thursday': 'thursday',
-    'Friday': 'friday',
-    'Saturday': 'saturday'
+    'Sunday': 'Sunday',
+    'Monday': 'Monday',
+    'Tuesday': 'Tuesday',
+    'Wednesday': 'Wednesday',
+    'Thursday': 'Thursday',
+    'Friday': 'Friday',
+    'Saturday': 'Saturday'
   };
 }
 
-
-  declare module '@glint/environment-ember-loose/registry' {
-    export default interface Registry {
-      UserShowFormWeekdaySelect: typeof UserShowFormWeekdaySelect;
-    }
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    'User::ShowForm::WeekdaySelect': typeof UserShowFormWeekdaySelect;
   }
-  
-
+}
