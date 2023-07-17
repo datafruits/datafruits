@@ -92,13 +92,13 @@
         <label class="block text-sm font-bold mb-2" for="repeating">{{t "profile.my-shows.form.repeating"}}</label>
         <select
           id="repeating"
-          {{on "change" this.setRepeating}}
+          {{on "change" (fn this.setRepeating changeset)}}
           >
           <option value="true">Repeating</option>
           <option value="false" selected>One-off</option>
         </select>
       </div>
-      {{#if changeset.repeating}}
+      {{#if (get changeset "repeating")}}
         <div class="mb-2">
           <select
             id="repeating-interval"

@@ -57,13 +57,13 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   }
 
   @action
-  setRepeating(event: any) {
+  setRepeating(changeset: BufferedChangeset, event: any) {
     if(event.target.value) {
-      if(!this.args.show.repeating) {
-        this.args.show.recurringInterval = 'week';
+      if(!changeset.repeating) {
+        changeset.set('recurringInterval', 'week');
       }
     } else {
-      this.args.show.recurringInterval = 'not_recurring';
+      changeset.set('recurringInterval', 'not_recurring');
     }
   }
 
