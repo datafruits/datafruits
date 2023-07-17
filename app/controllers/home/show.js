@@ -11,6 +11,6 @@ export default class ShowController extends Controller {
 
   @action
   fetchEpisodes() {
-    return this.store.query('scheduled-show', { showSeries: this.model.slug });
+    return this.store.query('scheduled-show', { showSeries: this.model.slug, status: 'archive_npublished' });
   }
 }

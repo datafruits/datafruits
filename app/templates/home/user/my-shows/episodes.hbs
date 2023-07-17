@@ -1,9 +1,9 @@
 <section class="page-spacing">
   <h1 class="text-3xl">MANAGE EPISODES</h1>
-  <section class="flex">
+  <section class="flex space-x-2 w-full">
     <section>
       <h1>ARCHIVES</h1>
-      <Await @promise={{this.fetchEpisodes}} as |await|>
+      <Await @promise={{this.fetchArchives}} as |await|>
         <await.Pending>
           Loading episodes...
         </await.Pending>
@@ -21,6 +21,21 @@
     </section>
     <section>
       <h1>UPCOMING</h1>
+      <Await @promise={{this.fetchUpcoming}} as |await|>
+        <await.Pending>
+          Loading episodes...
+        </await.Pending>
+
+        <await.Fulfilled as |episodes|>
+          {{#each episodes as |episode|}}
+            <MyShows::EpisodeCard @episode={{episode}} />
+          {{/each}}
+        </await.Fulfilled>
+
+        <await.Rejected>
+          Something went wrong :(
+        </await.Rejected>
+      </Await>
     </section>
   </section>
 </section>

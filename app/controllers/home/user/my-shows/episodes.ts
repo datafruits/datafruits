@@ -9,10 +9,14 @@ export default class HomeUserMyShowsEpisodesController extends Controller{
   @service declare store: any;
 
   @action
-  fetchEpisodes() {
-    return this.store.query('scheduled-show', { showSeries: this.model.slug });
+  fetchArchives() {
+    return this.store.query('scheduled-show', { showSeries: this.model.slug, status: 'archive_published' });
   }
-  // normal class body definition here
+
+  @action
+  fetchUpcoming() {
+    return this.store.query('scheduled-show', { showSeries: this.model.slug, status: 'archive_unpublished' });
+  } // normal class body definition here
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your controllers.
