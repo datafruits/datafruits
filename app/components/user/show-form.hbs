@@ -98,7 +98,7 @@
           <option value="false" selected>One-off</option>
         </select>
       </div>
-      {{#if (get changeset "repeating")}}
+      {{#if (not-eq changeset.recurringInterval "not_recurring")}}
         <div class="mb-2">
           <select
             id="repeating-interval"
@@ -108,19 +108,19 @@
             <option value="biweek">Bi-weekly (every other week)</option>
             <option value="month">Monthly</option>
           </select>
-          {{#if changeset.isWeekly}}
+          {{#if (eq changeset.recurringInterval "week")}}
             <span>On</span>
             <User::ShowForm::WeekdaySelect
               @changeset={{changeset}}
               />
           {{/if}}
-          {{#if changeset.isBiweekly}}
+          {{#if (eq changeset.recurringInterval "biweek")}}
             <span>On</span>
             <User::ShowForm::WeekdaySelect
               @changeset={{changeset}}
               />
           {{/if}}
-          {{#if changeset.isMonthly}}
+          {{#if (eq changeset.recurringInterval "month")}}
             <span>Every</span>
             <select
               id="monthly-interval"
@@ -151,9 +151,9 @@
           >
           SAVE SHOW
         </Button>
+        {{#if Form.state.hasSubmitted}}
+          <marquee>SAVING....DON'T TURN OFF THE POWER.........</marquee>
+        {{/if}}
       </div>
-      {{#if Form.state.hasSubmitted}}
-        <marquee>SAVING....DON'T TURN OFF THE POWER.........</marquee>
-      {{/if}}
   </Ui::ChangesetForm>
 {{/let}}

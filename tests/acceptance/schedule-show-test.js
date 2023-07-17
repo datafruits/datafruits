@@ -21,5 +21,6 @@ module('Acceptance | schedule show', function (hooks) {
     assert.equal(currentURL(), '/chat');
 
     await visit('/user/my-shows/');
+    await fillIn('', 'test');
   });
 });

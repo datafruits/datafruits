@@ -58,8 +58,8 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
 
   @action
   setRepeating(changeset: BufferedChangeset, event: any) {
-    if(event.target.value) {
-      if(!changeset.repeating) {
+    if(event.target.value === 'true') {
+      if(changeset.recurringInterval === 'not_recurring') {
         changeset.set('recurringInterval', 'week');
       }
     } else {
