@@ -18,7 +18,18 @@ export default class PixiComponent extends Component {
   alphaFadeout = false;
 
   // TODO should these be pulled from fruit-types.ts ???
-  fruits = ['strawberry', 'lemon', 'orange', 'banana', 'watermelon', 'cabbage', 'pineapple', 'limer'];
+  fruits = [
+    'strawberry', 
+    'lemon', 
+    'orange', 
+    'banana', 
+    'watermelon', 
+    'cabbage', 
+    'pineapple', 
+    'limer',
+    'dragion-fruit',
+    'blueberrinies',
+  ];
 
   paidFruitTipSprites = [];
 
@@ -283,6 +294,8 @@ export default class PixiComponent extends Component {
     this.app.loader.add('cabbage', '/assets/images/sprites/cabbage.json');
     this.app.loader.add('pineapple', '/assets/images/sprites/pineapple.json');
     this.app.loader.add('limer', '/assets/images/sprites/limer.json');
+    this.app.loader.add('dragion-fruit', '/assets/images/sprites/dragion-fruit.json');
+    this.app.loader.add('blueberrinies', '/assets/images/sprites/blueberrinies.json');
     this.app.loader.add('shader', '/assets/shaders/shader.frag');
 
     this.app.loader.add('stars', '/assets/images/sprites/stars.json');
@@ -308,6 +321,8 @@ export default class PixiComponent extends Component {
       this.animations.realLemoner = res.realLemoner.spritesheet.animations["real_lemoner_3d"];
       this.animations.pineapple = res.pineapple.spritesheet.animations['pineapple_anim.png'];
       this.animations.limer = res.limer.spritesheet.animations['limer_anim.png']; // TODO
+      this.animations.dragionFruit = res.limer.spritesheet.animations['dragion_fruit.png']; // TODO
+      this.animations.blueberrinies = res.limer.spritesheet.animations['blueberrinies.png']; // TODO
 
       //background.filters = [this.filter];
 
