@@ -10,7 +10,7 @@
         {{marked-down this.model.description}}
       </p>
       {{#each this.model.tracks as |track|}}
-        <PodcastTrack @track={{this.model.track}} />
+        <PodcastTrack @track={{track}} />
       {{/each}}
       <p>
         Check out more episodes of
