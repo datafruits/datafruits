@@ -5,7 +5,14 @@
     class="text-2xl">
     {{@episode.title}}
   </LinkTo>
-  <img src={{@episode.imageUrl}} />
+  <div class="self-center w-full h-full">
+    <LinkTo
+      @route="home.shows.episode"
+      @models={{array @episode.showSeries.slug @episode.slug}}
+      class="h-80 bg-center bg-cover block overflow-hidden rounded-xl"
+      style="{{this.backgroundStyle}}">
+    </LinkTo>
+  </div>
   <LinkTo
     @route="home.user.my-shows.episode"
     @models={{array @episode.showSeries.slug @episode.slug}}
