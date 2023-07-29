@@ -192,7 +192,7 @@ export default class PixiComponent extends Component {
       } else if (event === 'real-lemoner') {
         return this.realLemonerAnimation();
       } else if (this.fruits.includes(event)) {
-        animation = event;
+        animation = event.replace(/-./g, x=>x[1].toUpperCase());
       } else {
         console.log(`invalid fruit: ${event}`); // eslint-disable-line no-console
         return;
@@ -294,7 +294,7 @@ export default class PixiComponent extends Component {
     this.app.loader.add('cabbage', '/assets/images/sprites/cabbage.json');
     this.app.loader.add('pineapple', '/assets/images/sprites/pineapple.json');
     this.app.loader.add('limer', '/assets/images/sprites/lime.json');
-    this.app.loader.add('dragion-fruit', '/assets/images/sprites/dragion-fruit.json');
+    this.app.loader.add('dragionFruit', '/assets/images/sprites/dragon_fruit.json');
     this.app.loader.add('blueberrinies', '/assets/images/sprites/blueberrinies.json');
     this.app.loader.add('shader', '/assets/shaders/shader.frag');
 
@@ -321,8 +321,8 @@ export default class PixiComponent extends Component {
       this.animations.realLemoner = res.realLemoner.spritesheet.animations["real_lemoner_3d"];
       this.animations.pineapple = res.pineapple.spritesheet.animations['pineapple_anim.png'];
       this.animations.limer = res.limer.spritesheet.animations['limer.png']; // TODO
-      this.animations.dragionFruit = res.limer.spritesheet.animations['dragion_fruit.png']; // TODO
-      this.animations.blueberrinies = res.limer.spritesheet.animations['blueberrinies.png']; // TODO
+      this.animations.dragionFruit = res.dragionFruit.spritesheet.animations['dragon_fruit.png']; 
+      this.animations.blueberrinies = res.blueberrinies.spritesheet.animations['blueberrinies.png']; 
 
       //background.filters = [this.filter];
 
