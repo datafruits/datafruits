@@ -402,6 +402,13 @@ export function initialize(/* application */) {
       shortnames: [':futsu:'],
       keywords: ['futsu'],
     },
+    ':beamsprout:': {
+      custom: true,
+      uc_base: 'beamsprout',
+      uc_output: '',
+      shortnames: [':beamsprout:'],
+      keywords: ['beamsprout'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
