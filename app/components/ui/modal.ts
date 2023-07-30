@@ -58,10 +58,9 @@ export default class UiModal extends Component<UiModalArgs> {
   }
 }
 
-
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     UiModal: typeof UiModal;
   }
 }
-  
+
