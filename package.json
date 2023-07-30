@@ -126,8 +126,8 @@
     "ember-intl": "^5.7.2",
     "ember-load-initializers": "^2.1.2",
     "ember-lodash": "4.19.5",
-    "ember-modal-dialog": "4.0.1",
     "ember-page-title": "^7.0.0",
+    "ember-maybe-import-regenerator": "1.0.0",
     "ember-parachute": "1.0.2",
     "ember-qunit": "^5.1.5",
     "ember-resolver": "^8.0.3",
@@ -197,6 +197,6 @@
     "stylelint": "^14.9.1"
   },
   "volta": {
-    "node": "14.20.0"
+    "node": "18.17.0"
   }
 }

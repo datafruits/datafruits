@@ -16,7 +16,7 @@ export default class ForumForm extends Component<ForumFormArgs> {
     try {
       thread.save().then(() => {
         alert('posted !!!!');
-        this.router.transitionTo('home.forum.show', thread);
+        this.router.transitionTo('home.forum.show', thread.slug);
       });
     } catch (error) {
       alert('couldnt save thread');
@@ -31,4 +31,4 @@ declare module '@glint/environment-ember-loose/registry' {
     ForumForm: typeof ForumForm;
   }
 }
-  
+
