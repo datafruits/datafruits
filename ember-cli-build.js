@@ -23,7 +23,7 @@ module.exports = function (defaults) {
     exclude: ['assets/images/emojis/*', 'assets/images/sprites/*'],
   };
 
-  let app = new EmberApp(defaults, {
+  const app = new EmberApp(defaults, {
     newVersion: {
       enabled: true,
       useAppVersion: true,
