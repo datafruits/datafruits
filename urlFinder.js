@@ -20,6 +20,8 @@ module.exports = async function ({ _distDir, visit }) {
     //'/djs',
     '/chat',
     '/sign-up',
+    '/forum',
+    '/wiki'
   ];
 
   // need to recursively crawl all the links on every page somehow
@@ -35,7 +37,7 @@ module.exports = async function ({ _distDir, visit }) {
           }
         }
       }
-      if (url === '/podcasts') {
+      if (['/podcasts', '/forum', '/wiki'].includes(url)) {
         for (let aTag of [...dom.window.document.querySelectorAll('span.pagination a')]) {
           page = await visit(aTag.href);
           if (page.statusCode === 200) {
