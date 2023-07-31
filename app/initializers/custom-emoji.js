@@ -409,6 +409,13 @@ export function initialize(/* application */) {
       shortnames: [':beamsprout:'],
       keywords: ['beamsprout'],
     },
+    ':pineapplee:': {
+      custom: true,
+      uc_base: 'pineapplee',
+      uc_output: '',
+      shortnames: [':pineapplee:'],
+      keywords: ['pineapplee'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
