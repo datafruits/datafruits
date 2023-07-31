@@ -37,7 +37,7 @@ module.exports = async function ({ _distDir, visit }) {
           }
         }
       }
-      if (['/podcasts', '/forum', '/wiki'].include(url)) {
+      if (['/podcasts', '/forum', '/wiki'].includes(url)) {
         for (let aTag of [...dom.window.document.querySelectorAll('span.pagination a')]) {
           page = await visit(aTag.href);
           if (page.statusCode === 200) {
