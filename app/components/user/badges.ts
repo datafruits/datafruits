@@ -14,7 +14,7 @@ interface Badge {
 export default class UserBadges extends Component<UserBadgesArgs> {
   @service declare intl: any;
 
-  validBadges = ['dj', 'vj', 'supporter', 'strawberry', 'lemon', 'orange', 'watermelon', 'banana', 'cabbage'];
+  validBadges = ['dj', 'vj', 'supporter', 'strawberry', 'lemon', 'orange', 'watermelon', 'banana', 'cabbage', 'pineapple'];
   descriptions: any;
 
   constructor(owner: unknown, args: UserBadgesArgs) {
@@ -28,6 +28,7 @@ export default class UserBadges extends Component<UserBadgesArgs> {
       'orange': this.intl.t('profile.badges.orange'),
       'watermelon': this.intl.t('profile.badges.watermelon'),
       'cabbage': this.intl.t('profile.badges.cabbage'),
+      'pineapple': this.intl.t('profile.badges.pineapple'),
     };
   }
 
@@ -62,4 +63,4 @@ declare module '@glint/environment-ember-loose/registry' {
     UserBadges: typeof UserBadges;
   }
 }
-  
+
