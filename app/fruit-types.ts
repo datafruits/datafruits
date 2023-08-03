@@ -7,6 +7,7 @@ const fruitTypes: Array<Fruit> = [
   new Fruit('banana', '/assets/images/emojis/banaynay.gif'),
   new Fruit('watermelon', '/assets/images/emojis/watermel.gif'),
   new Fruit('cabbage', '/assets/images/emojis/cabbage.gif'),
+  new Fruit('beamsprout', '/assets/images/emojis/beamsprout.png'),
   new Fruit('pineapple', '/assets/images/emojis/pineapplee.gif', 0, 3),
   new Fruit('limer', '/assets/images/emojis/limer.gif', 0, 4),
   new Fruit('dragion-fruit', '/assets/images/emojis/dragion-fruit.gif', 0, 5),
