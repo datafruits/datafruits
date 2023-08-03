@@ -185,6 +185,9 @@ export default class PixiComponent extends Component {
     }, 5000);
   }
 
+megaBeamsprout() {
+}
+
   addFruitTip(event) {
     if (this.app) {
       let animation;
@@ -192,6 +195,8 @@ export default class PixiComponent extends Component {
         return this.metalPineappleAnimation();
       } else if (event === 'real-lemoner') {
         return this.realLemonerAnimation();
+      } else if (event === 'mega-beamsprout') {
+	return this.megaBeamsprout();
       } else if (this.fruits.includes(event)) {
         animation = event.replace(/-./g, x=>x[1].toUpperCase());
       } else {
