@@ -17,7 +17,20 @@ export default class PixiComponent extends Component {
   alphaFilterValue = 1.0;
   alphaFadeout = false;
 
-  fruits = ['strawberry', 'lemon', 'orange', 'banana', 'watermelon', 'cabbage', 'pineapple'];
+  // TODO should these be pulled from fruit-types.ts ???
+  fruits = [
+    'strawberry',
+    'lemon',
+    'orange',
+    'banana',
+    'watermelon',
+    'cabbage',
+    'beamsprout',
+    'pineapple',
+    'limer',
+    'dragion-fruit',
+    'blueberrinies',
+  ];
 
   paidFruitTipSprites = [];
 
@@ -172,6 +185,81 @@ export default class PixiComponent extends Component {
     }, 5000);
   }
 
+megaBeamsprout() {
+    console.log('MEGA beamsprout!');
+    let sprite = new PIXI.AnimatedSprite(this.animations['megaBeamsprout']);
+    let text = new PIXI.Text('MEGA BEAMSPROUT', {
+      fontFamily: 'Arial',
+      fontSize: 48,
+      fill: ['yellow', 'green', 'blue', 'pink'],
+      align: 'center',
+      dropShadow: true,
+    });
+    text.width = this.app.screen.width;
+    text.height = this.app.screen.height;
+    // text.x = this.app.screen.width / 2;
+    // text.y = this.app.screen.height / 2;
+    let noise = new PIXI.filters.NoiseFilter(0.2);
+
+    text.filters = [this.filter, noise];
+    this.app.stage.addChild(text);
+    this.paidFruitTipSprites.pushObject(text);
+
+    let blobSprite;
+    for (let i = 0; i < 10; i++) {
+      blobSprite = new PIXI.AnimatedSprite(this.animations['weirdBlobs']);
+      blobSprite.x = Math.random() * this.app.screen.width;
+      blobSprite.y = Math.random() * this.app.screen.height;
+      blobSprite.scale.x = 0.25;
+      blobSprite.scale.y = 0.25;
+      blobSprite.animationSpeed = 0.15;
+      //blobSprite.rotation = Math.floor(Math.random() * 360);
+      let randomFrame = Math.floor(Math.random() * blobSprite.totalFrames);
+      blobSprite.gotoAndPlay(randomFrame);
+      this.app.stage.addChild(blobSprite);
+      //sprite.filters = [this.filter];
+      //this.sprites.pushObject(sprite);
+      this.paidFruitTipSprites.pushObject(blobSprite);
+    }
+
+    let randomMegaBeamsprout;
+    for (let i = 0; i < 5; i++) {
+      randomMegaBeamsprout = new PIXI.AnimatedSprite(this.animations['metalPineapple']);
+      randomMegaBeamsprout.x = Math.random() * this.app.screen.width;
+      randomMegaBeamsprout.y = Math.random() * this.app.screen.height;
+      randomMegaBeamsprout.scale.x = Math.random() * 1;
+      randomMegaBeamsprout.scale.y = Math.random() * 1;
+      let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
+      randomMegaBeamsprout.gotoAndPlay(randomFrame);
+      this.app.stage.addChild(randomMegaBeamsprout);
+      this.paidFruitTipSprites.pushObject(randomMegaBeamsprout);
+    }
+
+    sprite.scale.x = 1;
+    sprite.scale.y = 1;
+    sprite.x = this.app.screen.width / 4;
+    sprite.y = this.app.screen.height / 4;
+
+    // sprite.animationSpeed = Math.random() * 2;
+    // sprite.rotation = Math.floor(Math.random() * 360);
+    let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
+    sprite.gotoAndPlay(randomFrame);
+
+    //sprite.filters = [this.filter];
+    this.app.stage.addChild(sprite);
+    this.paidFruitTipSprites.pushObject(sprite);
+
+    later(() => {
+      // kill everything after 5000 ms
+      //this.app.stage.removeChild(text);
+      //text.filters = [this.filter, this.alphaFilter];
+      this.paidFruitTipSprites.forEach((sprite) => {
+        sprite.filters = [noise, this.alphaFilter];
+      });
+      this.alphaFadeout = true;
+    }, 5000);
+}
+
   addFruitTip(event) {
     if (this.app) {
       let animation;
@@ -179,8 +267,10 @@ export default class PixiComponent extends Component {
         return this.metalPineappleAnimation();
       } else if (event === 'real-lemoner') {
         return this.realLemonerAnimation();
+      } else if (event === 'mega-beamsprout') {
+	return this.megaBeamsprout();
       } else if (this.fruits.includes(event)) {
-        animation = event;
+        animation = event.replace(/-./g, x=>x[1].toUpperCase());
       } else {
         console.log(`invalid fruit: ${event}`); // eslint-disable-line no-console
         return;
@@ -280,7 +370,11 @@ export default class PixiComponent extends Component {
     this.app.loader.add('banana', '/assets/images/sprites/banana.json');
     this.app.loader.add('watermelon', '/assets/images/sprites/watermelon.json');
     this.app.loader.add('cabbage', '/assets/images/sprites/cabbage.json');
+    this.app.loader.add('beamsprout', '/assets/images/sprites/beamsprout.json');
     this.app.loader.add('pineapple', '/assets/images/sprites/pineapple.json');
+    this.app.loader.add('limer', '/assets/images/sprites/lime.json');
+    this.app.loader.add('dragionFruit', '/assets/images/sprites/dragon_fruit.json');
+    this.app.loader.add('blueberrinies', '/assets/images/sprites/blueberrinies.json');
     this.app.loader.add('shader', '/assets/shaders/shader.frag');
 
     this.app.loader.add('stars', '/assets/images/sprites/stars.json');
@@ -300,11 +394,15 @@ export default class PixiComponent extends Component {
       this.animations.banana = res.banana.spritesheet.animations['banana.webp'];
       this.animations.watermelon = res.watermelon.spritesheet.animations['watermelon.webp'];
       this.animations.cabbage = res.cabbage.spritesheet.animations['cabbage.webp'];
+      this.animations.beamsprout = res.beamsprout.spritesheet.animations['beamsprout'];
       this.animations.stars = res.stars.spritesheet.animations['stars'];
       this.animations.weirdBlobs = res.weirdBlobs.spritesheet.animations['WEIRDBLOBS'];
       this.animations.metalPineapple = res.metalPineapple.spritesheet.animations['metal_pineapple.png'];
       this.animations.realLemoner = res.realLemoner.spritesheet.animations["real_lemoner_3d"];
       this.animations.pineapple = res.pineapple.spritesheet.animations['pineapple_anim.png'];
+      this.animations.limer = res.limer.spritesheet.animations['limer.png']; // TODO
+      this.animations.dragionFruit = res.dragionFruit.spritesheet.animations['dragon_fruit.png'];
+      this.animations.blueberrinies = res.blueberrinies.spritesheet.animations['blueberrinies.png'];
 
       //background.filters = [this.filter];
 
@@ -348,7 +446,6 @@ export default class PixiComponent extends Component {
     this.app.renderer.resize(window.innerWidth, window.innerHeight);
   }
 }
-
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {

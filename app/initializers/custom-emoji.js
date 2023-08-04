@@ -164,6 +164,14 @@ export function initialize(/* application */) {
       shortnames: [':watermel:'],
       keywords: ['watermel'],
     },
+    ':pineapplee:': {
+      custom: true,
+      animated: true,
+      uc_base: 'pineapplee',
+      uc_output: '',
+      shortnames: [':pineapplee:'],
+      keywords: ['pineapplee'],
+    },
     ':miniburger:': {
       custom: true,
       uc_base: 'miniburger',
