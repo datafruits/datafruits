@@ -4,13 +4,15 @@ import type Fruit from '../../fruit';
 import CurrentUserService from 'datafruits13/services/current-user';
 import ChatService from 'datafruits13/services/chat';
 
-interface FruitTipFruitComponentArgs {
-  fruit: Fruit;
-  cost: number;
-  fruitTip: any;
+interface FruitTipFruitSignature {
+  Args: {
+    fruit: Fruit;
+    cost: number;
+    fruitTip: any;
+  };
 }
 
-export default class FruitTipFruitComponent extends Component<FruitTipFruitComponentArgs> {
+export default class FruitTipFruitComponent extends Component<FruitTipFruitSignature> {
   @service declare chat: ChatService;
   @service declare currentUser: CurrentUserService;
   @service declare session: any;

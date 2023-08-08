@@ -5,7 +5,11 @@ import { tracked } from '@glimmer/tracking';
 import { formatEmojiHtml } from 'datafruits13/helpers/format-emoji-html';
 import ChatService from 'datafruits13/services/chat';
 
-export default class BuddyListButton extends Component {
+interface ChatBuddyListButtonSignature {
+  Args: {};
+}
+
+export default class BuddyListButton extends Component<ChatBuddyListButtonSignature> {
   @service declare chat: ChatService;
 
   @tracked showingDialog = false;

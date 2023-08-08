@@ -3,11 +3,13 @@ import { Chart, RadarController, RadialLinearScale, LineElement, PointElement, C
 //import Chart from 'chart.js/auto';
 import { action } from '@ember/object';
 
-interface FruitsAffinityArgs {
-  fruitsAffinity: any;
+interface FruitsAffinitySignature {
+  Args: {
+    fruitsAffinity: any;
+  };
 }
 
-export default class FruitsAffinity extends Component<FruitsAffinityArgs> {
+export default class FruitsAffinity extends Component<FruitsAffinitySignature> {
   @action
   didInsert() {
     if(Object.keys(this.args.fruitsAffinity).length) {

@@ -1,7 +1,11 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 
-export default class RandomPasswordMessage extends Component {
+interface RandomPasswordMessageSignature {
+  Args: {};
+}
+
+export default class RandomPasswordMessage extends Component<RandomPasswordMessageSignature> {
   @service declare intl: any;
   get randomMessage() {
     const n = Math.floor(Math.random() * 7);

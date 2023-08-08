@@ -3,7 +3,11 @@ import { inject as service } from '@ember/service';
 import CurrentUserService from 'datafruits13/services/current-user';
 import { action } from '@ember/object';
 
-export default class UserFavorites extends Component {
+interface UserFavoritesSignature {
+  Args: {};
+}
+
+export default class UserFavorites extends Component<UserFavoritesSignature> {
   @service declare currentUser: CurrentUserService;
   @service declare store: any;
 
