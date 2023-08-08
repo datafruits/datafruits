@@ -6,7 +6,6 @@ import ChatService from 'datafruits13/services/chat';
 
 interface FruitTipFruitComponentArgs {
   fruit: Fruit;
-  cost: number;
   fruitTip: any;
 }
 
@@ -32,7 +31,7 @@ export default class FruitTipFruitComponent extends Component<FruitTipFruitCompo
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    FruitTipFruitComponent: typeof FruitTipFruitComponent;
+    'FruitTip::Fruit': typeof FruitTipFruitComponent;
   }
 }
 

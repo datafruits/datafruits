@@ -65,10 +65,8 @@ export default class FruitTipComponent extends Component {
   }
 }
 
-
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     FruitTipComponent: typeof FruitTipComponent;
   }
 }
-  
