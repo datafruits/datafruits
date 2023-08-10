@@ -3,11 +3,7 @@ import { inject as service } from '@ember/service';
 import CurrentUserService from 'datafruits13/services/current-user';
 import { action } from '@ember/object';
 
-interface UserFavoritesSignature {
-  Args: {};
-}
-
-export default class UserFavorites extends Component<UserFavoritesSignature> {
+export default class UserFavorites extends Component {
   @service declare currentUser: CurrentUserService;
   @service declare store: any;
 
@@ -26,4 +22,4 @@ declare module '@glint/environment-ember-loose/registry' {
     UserFavorites: typeof UserFavorites;
   }
 }
-  
+
