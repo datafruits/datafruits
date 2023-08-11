@@ -338,7 +338,11 @@
     "hosted_prefix": "Hosted by:",
     "archive": "Listen to the archive",
     "episodes": "Previous Episodes",
-    "tracklist": "Tracklist"
+    "tracklist": "Tracklist",
+    "episode": {
+      "comments": "COMMENTS",
+      "leave_a_comment": "leave a comment....???"
+    }
   },
   "player": {
     "play_button_label": "play",
@@ -432,6 +436,7 @@
     "title": "da fruit standz",
     "new_topic": "NEW TOPIC",
     "aria": "a forum to communicate with your fellow fruits",
+    "login_or_register": "Login or register to post!",
     "form": {
       "title": "post title",
       "body": "what's up"
