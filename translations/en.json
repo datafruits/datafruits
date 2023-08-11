@@ -337,7 +337,8 @@
   "show": {
     "hosted_prefix": "Hosted by:",
     "archive": "Listen to the archive",
-    "episodes": "Previous Episodes"
+    "episodes": "Previous Episodes",
+    "tracklist": "Tracklist"
   },
   "player": {
     "play_button_label": "play",
