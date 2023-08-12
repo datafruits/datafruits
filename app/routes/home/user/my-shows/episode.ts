@@ -6,6 +6,9 @@ export default class HomeUserMyShowsEpisode extends Route {
 
   model(params: any) {
     return this.store.findRecord('scheduled-show', params.title, {
+      adapterOptions: {
+        show_series_id: params.show_slug,
+      },
       include: 'show-series'
     });
   }
