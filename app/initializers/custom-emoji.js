@@ -425,6 +425,13 @@ export function initialize(/* application */) {
       shortnames: [':beamsprout:'],
       keywords: ['beamsprout'],
     },
+    ':lain_dad:': {
+      custom: true,
+      uc_base: 'lain_dad',
+      uc_output: '',
+      shortnames: [':lain_dad:'],
+      keywords: ['lain_dad'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
