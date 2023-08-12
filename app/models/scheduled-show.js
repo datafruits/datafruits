@@ -65,4 +65,12 @@ export default class ScheduledShow extends Model {
 
   @attr()
   status;
+
+  get imageOrDefault() {
+    if(this.imageUrl) {
+      return this.imageUrl;
+    } else {
+      return this.showSeries.imageUrl;
+    }
+  }
 }
