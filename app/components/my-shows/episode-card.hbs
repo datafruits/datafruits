@@ -5,7 +5,7 @@
     class="text-2xl">
     {{@episode.title}}
   </LinkTo>
-  <div class="self-center w-full h-full">
+  <div class="self-center w-full h-full mb-2">
     <LinkTo
       @route="home.shows.episode"
       @models={{array @episode.showSeries.slug @episode.slug}}
@@ -16,7 +16,7 @@
   <LinkTo
     @route="home.user.my-shows.episode"
     @models={{array @episode.showSeries.slug @episode.slug}}
-    class="text-2xl">
+    class="text-2xl cool-button mt-2">
     {{t "profile.my-shows.edit"}}
   </LinkTo>
 </div>

@@ -1,7 +1,7 @@
 <section class="page-spacing">
   <h1 class="text-3xl">MANAGE EPISODES</h1>
   <section class="flex space-x-2 w-full">
-    <section>
+    <section class="w-1/2">
       <h1>ARCHIVES</h1>
       <Await @promise={{this.fetchArchives}} as |await|>
         <await.Pending>
@@ -19,7 +19,7 @@
         </await.Rejected>
       </Await>
     </section>
-    <section>
+    <section class="w-1/2">
       <h1>UPCOMING</h1>
       <Await @promise={{this.fetchUpcoming}} as |await|>
         <await.Pending>

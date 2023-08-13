@@ -48,7 +48,7 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
     try {
       show.save().then(() => {
         alert('saved the show!');
-        this.router.transitionTo('home.show', show);
+        this.router.transitionTo('home.show', show.title);
       });
     } catch (error) {
       alert('could not save show :(');
