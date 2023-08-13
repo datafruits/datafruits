@@ -51,20 +51,22 @@
     <h1 class="text-2xl">
       {{t "show.episodes"}}
     </h1>
-    <Await @promise={{this.fetchEpisodes}} as |await|>
-      <await.Pending>
-        Loading episodes...
-      </await.Pending>
+    {{#if this.model}}
+      <Await @promise={{this.fetchEpisodes}} as |await|>
+        <await.Pending>
+          Loading episodes...
+        </await.Pending>
 
-      <await.Fulfilled as |episodes|>
-        {{#each episodes as |episode|}}
-          <ShowEpisodeCard @episode={{episode}} />
-        {{/each}}
-      </await.Fulfilled>
+        <await.Fulfilled as |episodes|>
+          {{#each episodes as |episode|}}
+            <ShowEpisodeCard @episode={{episode}} />
+          {{/each}}
+        </await.Fulfilled>
 
-      <await.Rejected>
-        Something went wrong :(
-      </await.Rejected>
-    </Await>
+        <await.Rejected>
+          Something went wrong :(
+        </await.Rejected>
+      </Await>
+    {{/if}}
   </div>
 </div>
