@@ -1,0 +1,15 @@
+<section class="page-spacing">
+  <h1 class="text-2xl">
+    THE POWER OF SHRIMPO COMPELS YOU
+  </h1>
+
+  {{#if this.session.isAuthenticated}}
+    <LinkTo @route="home.shrimpos.new" class="cool-button">
+      BEGIN A NEW SHRIMPO
+    </LinkTo>
+  {{/if}}
+
+  {{#each this.model as |shrimpo|}}
+    <ShrimpoCard @shrimpo={{shrimpo}} />
+  {{/each}}
+</section>

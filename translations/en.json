@@ -140,6 +140,16 @@
     "title": "About",
     "aria": "See what datafruits.fm is about"
   },
+  "shrimpo": {
+    "title": "SHRIMPO",
+    "aria": "listen to or join a shrimpo musical battle",
+    "form": {
+      "title": "title",
+      "description": "description",
+      "length": "duration of shrimpo",
+      "submit": "SHRIMP IT"
+    }
+  },
   "upcoming": {
     "title": "Upcoming",
     "aria": "View the latest datafruits.fm shows"

@@ -1,0 +1,41 @@
+<h1 class="text-2xl">
+  THIS IS THE BEGINNING OF A NEW SHRIMPO
+</h1>
+{{#let (changeset @model ShrimpoValidations) as |changeset|}}
+  <Ui::ChangesetForm
+    @changeset={{changeset}}
+    @onError={{this.onError}}
+    @onSubmit={{this.onSubmit}} as |Form|>
+    <Form.Input
+      @label={{t "shrimpo.form.title"}}
+      @fieldName="title"
+      @containerClass='mb-2'
+      />
+    <Form.Textarea
+      @label={{t "shrimpo.form.description"}}
+      @fieldName="description"
+      @containerClass='mb-2'
+      @size='lg'
+      rows='10'
+      cols='50'
+      />
+    <Form.Select
+      @label={{t "shrimpo.form.length"}}
+      @fieldName='length'
+      @options={{this.lengths}}
+      @containerClass='mt-4'
+      as |option|
+    >
+      {{option}}
+    </Form.Select>
+
+    <Button
+      @type="submit"
+      @intent="primary"
+      class="cool-button"
+      disabled={{changeset.isInvalid}}
+      >
+      {{t "shrimpo.form.submit"}}
+    </Button>
+  </Ui::ChangesetForm>
+{{/let}}
