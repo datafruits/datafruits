@@ -65,12 +65,15 @@ export default class ScheduledShow extends Model {
 
   @attr()
   status;
-  
+
   @attr
   showSeriesTitle;
 
   @attr
   showSeriesSlug;
+
+  @attr
+  prerecordTrackId;
 
   get imageOrDefault() {
     if(this.imageUrl) {
@@ -78,5 +81,9 @@ export default class ScheduledShow extends Model {
     } else {
       return this.showSeries.imageUrl;
     }
+  }
+
+  get airDatePassed() {
+    return this.end > new Date();
   }
 }

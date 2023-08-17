@@ -32,26 +32,34 @@
             />
         </div>
         <div>
-          <h2
-            class="text-x">
-            Select Prerecorded Show
-          </h2>
-          <h3
-            class="text-l">
-            Select recording
-          </h3>
-          <MyShows::RecordingsSearch
-            @changeset={{changeset}}
-            />
-          <Form.Select
-            @label='Archive Status'
-            @fieldName='status'
-            @options={{this.statusOptions}}
-            @selected={{changeset.status}}
-            as |status|
-            >
-            {{status}}
-          </Form.Select>
+          {{#if @episode.airDatePassed}}
+            <h2
+              class="text-x">
+              ARCHIVE
+            </h2>
+            <h3
+              class="text-l">
+              Select recording
+            </h3>
+            <MyShows::RecordingsSearch
+              @changeset={{changeset}}
+              />
+            <Form.Select
+              @label='Archive Status'
+              @fieldName='status'
+              @options={{this.statusOptions}}
+              @selected={{changeset.status}}
+              as |status|
+              >
+              {{status}}
+            </Form.Select>
+          {{else}}
+            <h2
+              class="text-x">
+              PRERECORDED SET
+            </h2>
+            <TrackUploader @changeset={{changeset}} />
+          {{/if}}
         </div>
       </section>
       <div>
