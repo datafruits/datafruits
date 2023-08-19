@@ -39,6 +39,7 @@ export default class TrackUploader extends Component<TrackUploaderArgs> {
       filesize: file.size,
     });
     //this.args.pushTrack(track);
+    // set changeset pre
     let mimeType;
     if (file.type == 'audio/mp3') {
       mimeType = 'audio/mpeg';
@@ -71,6 +72,7 @@ export default class TrackUploader extends Component<TrackUploaderArgs> {
             console.log('track saved!');
             //this.flashMessages.success('Track uploaded!');
             window.onbeforeunload = null;
+            this.args.changeset.set('prerecordTrackId', track.id);
           })
           .catch((reason: any) => {
             console.log(`track save failed: ${reason}`);
