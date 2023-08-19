@@ -11,12 +11,8 @@
     {{#if dropzone.supported}}
       Drag and drop images onto this area to upload them or
     {{/if}}
-    <FileUpload @name="images"
-                accept="image/*"
-                multiple="true"
-                @onfileadd={{this.uploadTrack}}>
-      <a class=""><FaIcon @icon="plus" />Add</a>
-    </FileUpload>
+    <input type="file" accept="audio/*" {{queue.selectFile}}>
+    <a class=""><FaIcon @icon="plus" />Add</a>
   {{/if}}
 
   {{yield}}
