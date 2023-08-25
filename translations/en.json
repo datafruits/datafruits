@@ -145,7 +145,7 @@
     "aria": "listen to or join a shrimpo musical battle",
     "form": {
       "title": "title",
-      "description": "description",
+      "rulepack": "Enter the rules for this shrimpo here!",
       "length": "duration of shrimpo",
       "submit": "SHRIMP IT"
     }

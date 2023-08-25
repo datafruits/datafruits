@@ -18,6 +18,9 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
     '1 week'
   ];
   @service declare router: RouterService;
+  @service declare activeStorage: any;
+
+  @tracked uploadProgress = 0;
 
   @action
   onSubmit(data: any, event: Event) {
@@ -29,5 +32,28 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
   @action
   onError() {
     alert("Couldn't save shrimpo...check the form for errors.");
+  }
+
+  @action
+  uploadZip(event, changeset) {
+    const files = event.target.files;
+    if (files) {
+      const directUploadURL = '/rails/active_storage/direct_uploads';
+
+      for (let i = 0; i < files.length; i++) {
+        this.activeStorage
+        .upload(files.item(i), directUploadURL, {
+          onProgress: (progress, event) => {
+            this.uploadProgress = progress;
+          },
+        })
+        .then((blob) => {
+          const signedId = blob.signedId;
+
+          changeset.set('zipFile', signedId);
+        });
+      }
+    }
+
   }
 }

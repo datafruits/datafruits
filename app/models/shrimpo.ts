@@ -12,6 +12,8 @@ export default class Shrimpo extends Model {
   @attr('string') declare rulePack: string;
 
   @attr('string') declare zipFileUrl: string;
+
+  @attr('string') declare zipFile: string;
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

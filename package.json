@@ -26,6 +26,7 @@
     "audit-translate": "node find-missing-translations.js"
   },
   "devDependencies": {
+    "@algonauti/ember-active-storage": "^2.3.0",
     "@babel/eslint-parser": "^7.18.9",
     "@csstools/postcss-sass": "github:sinankeskin/postcss-sass",
     "@ember/optional-features": "^2.0.0",
@@ -122,6 +123,7 @@
     "ember-decorators": "^6.1.1",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^8.1.1",
+    "ember-file-upload": "^8.2.0",
     "ember-intl": "^5.7.2",
     "ember-load-initializers": "^2.1.2",
     "ember-lodash": "4.19.5",

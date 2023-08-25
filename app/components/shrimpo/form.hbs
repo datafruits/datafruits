@@ -1,5 +1,7 @@
 <h1 class="text-2xl">
+  <img src="/assets/images/emojis/sshrimp.png" /> 
   THIS IS THE BEGINNING OF A NEW SHRIMPO
+  <img src="/assets/images/emojis/sshrimp_clear.png" /> 
 </h1>
 {{#let (changeset @model ShrimpoValidations) as |changeset|}}
   <Ui::ChangesetForm
@@ -12,8 +14,8 @@
       @containerClass='mb-2'
       />
     <Form.Textarea
-      @label={{t "shrimpo.form.description"}}
-      @fieldName="description"
+      @label={{t "shrimpo.form.rulePack"}}
+      @fieldName="rulePack"
       @containerClass='mb-2'
       @size='lg'
       rows='10'
@@ -28,6 +30,14 @@
     >
       {{option}}
     </Form.Select>
+
+    <div>
+      <label>
+        Upload zip sample pack
+        <input type="file" {{on "change" (fn this.uploadZip changeset)}}>
+      </label>
+      {{this.uploadProgress}}
+    </div>
 
     <Button
       @type="submit"
