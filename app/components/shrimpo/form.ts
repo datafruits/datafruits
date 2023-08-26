@@ -1,8 +1,11 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
 import type Shrimpo from 'datafruits13/models/shrimpo';
+import { BufferedChangeset } from 'ember-changeset/types';
+import ENV from 'datafruits13/config/environment';
 
 interface ShrimpoFormArgs {
   model: Shrimpo;
@@ -35,19 +38,20 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
   }
 
   @action
-  uploadZip(event, changeset) {
-    const files = event.target.files;
+  uploadZip(changeset: BufferedChangeset, event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    const files = inputElement.files;
     if (files) {
-      const directUploadURL = '/rails/active_storage/direct_uploads';
+      const directUploadURL = `${ENV.API_HOST}/rails/active_storage/direct_uploads`;
 
       for (let i = 0; i < files.length; i++) {
         this.activeStorage
         .upload(files.item(i), directUploadURL, {
-          onProgress: (progress, event) => {
+          onProgress: (progress: any) => {
             this.uploadProgress = progress;
           },
         })
-        .then((blob) => {
+        .then((blob: any) => {
           const signedId = blob.signedId;
 
           changeset.set('zipFile', signedId);

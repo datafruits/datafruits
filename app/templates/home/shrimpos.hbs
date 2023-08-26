@@ -7,9 +7,11 @@
   </p>
 
   {{#if this.session.isAuthenticated}}
-    <LinkTo @route="home.shrimpos.new" class="cool-button">
-      BEGIN A NEW SHRIMPO
-    </LinkTo>
+    <div class="my-2">
+      <LinkTo @route="home.shrimpos.new" class="cool-button">
+        BEGIN A NEW SHRIMPO
+      </LinkTo>
+    </div>
   {{/if}}
 
   {{#each this.model as |shrimpo|}}
