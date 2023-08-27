@@ -15,11 +15,7 @@ export default class Shrimpo extends Model {
 
   @attr('string') declare zipFile: string;
 
-  @attr('string') delcare status: string; // 'running' | 'voting' | 'completed';
-
-  get isOver() {
-    return Date.now() > this.endAt;
-  }
+  @attr('string') declare status: string; // 'running' | 'voting' | 'completed';
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

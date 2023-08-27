@@ -11,5 +11,9 @@ export default function (server) {
       { content: 'i like the website', username: 'ovenrake' },
       { content: 'i like the website', username: 'ovenrake' },
     ],
+    shrimpos: [
+      { title: "maximum glorp" },
+      { title: "deeyex and deeyef's album" },
+    ]
   });
 }

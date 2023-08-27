@@ -12,7 +12,7 @@
     <h2>SUBMIT ENTRY</h2>
     <Shrimpo::EntryUploader @shrimpo={{this.model}} />
   {{else}}
-    <span>Sign up to join the shrimpo.</span>
+    <span><LinkTo @route="home.sign-up">Create an account</LinkTo> to join the shrimpo.</span>
   {{/if}}
 {{else if (eq this.model.status 'voting')}}
   <Shrimpo::VotingTable  @shrimpo={{this.model}}/>
