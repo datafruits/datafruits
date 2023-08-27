@@ -1,19 +1,21 @@
-<h1>{{this.model.title}}</h1>
+<section class="page-spacing">
+  <h1>{{this.model.title}}</h1>
 
-{{#if (eq this.model.status 'completed')}}
-  <h3>Listen Entries</h3>
-  {{#each this.model.shrimpoEntries as |shrimpoEntry|}}
-    <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
-  {{/each}}
-{{else if (eq this.model.status 'running')}}
-  Time left: {{this.model.timeleft}}
+  {{#if (eq this.model.status 'completed')}}
+    <h3>Listen Entries</h3>
+    {{#each this.model.shrimpoEntries as |shrimpoEntry|}}
+      <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
+    {{/each}}
+  {{else if (eq this.model.status 'running')}}
+    Time left: {{this.model.timeleft}}
 
-  {{#if this.session.isAuthenticated}}
-    <h2>SUBMIT ENTRY</h2>
-    <Shrimpo::EntryUploader @shrimpo={{this.model}} />
-  {{else}}
-    <span><LinkTo @route="home.sign-up">Create an account</LinkTo> to join the shrimpo.</span>
+    {{#if this.session.isAuthenticated}}
+      <h2>SUBMIT ENTRY</h2>
+      <Shrimpo::EntryUploader @shrimpo={{this.model}} />
+    {{else}}
+      <span><LinkTo @route="home.sign-up">Create an account</LinkTo> to join the shrimpo.</span>
+    {{/if}}
+  {{else if (eq this.model.status 'voting')}}
+    <Shrimpo::VotingTable  @shrimpo={{this.model}}/>
   {{/if}}
-{{else if (eq this.model.status 'voting')}}
-  <Shrimpo::VotingTable  @shrimpo={{this.model}}/>
-{{/if}}
+</section>

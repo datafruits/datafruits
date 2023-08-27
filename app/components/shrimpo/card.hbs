@@ -1,5 +1,8 @@
-<h2 class="text-xl">
-  <LinkTo @route="home.shrimpos.show" @model={{@shrimpo}}>
-    {{@shrimpo.title}}
-  </LinkTo>
-</h2>
+<div class="m-3 classic:bg-df-pink blm:bg-black rounded-lg border-4 border-white flex flex-col items-center justify-between w-full md:w-1/4 p-2 shadow-md">
+  <h2 class="text-xl">
+    <LinkTo @route="home.shrimpos.show" @model={{@shrimpo.slug}}>
+      {{@shrimpo.title}}
+    </LinkTo>
+    {{@shrimpo.status}}
+  </h2>
+</div>

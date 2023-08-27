@@ -15,7 +15,8 @@ export default class Shrimpo extends Model {
 
   @attr('string') declare zipFile: string;
 
-  @attr('string') declare status: string; // 'running' | 'voting' | 'completed';
+  @attr('string') declare status: 'running' | 'voting' | 'completed';
+  @attr('string') declare slug: string;
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.
