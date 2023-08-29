@@ -44,9 +44,12 @@
       @type="submit"
       @intent="primary"
       class="cool-button"
-      disabled={{changeset.isInvalid}}
+      disabled={{or Form.state.hasSubmitted changeset.isInvalid}}
       >
       {{t "shrimpo.form.submit"}}
     </Button>
+    {{#if Form.state.hasSubmitted}}
+      <marquee>SAVING....DON'T TURN OFF THE POWER.........</marquee>
+    {{/if}}
   </Ui::ChangesetForm>
 {{/let}}
