@@ -1,7 +1,7 @@
 <h1 class="text-2xl">
-  <img class="inline" src="/assets/images/emojis/sshrimp.png" /> 
+  <img class="inline" src="/assets/images/emojis/sshrimp.png" />
   THIS IS THE BEGINNING OF A NEW SHRIMPO
-  <img class="inline" src="/assets/images/emojis/sshrimp_clear.png" /> 
+  <img class="inline" src="/assets/images/emojis/sshrimp_clear.png" />
 </h1>
 {{#let (changeset @model this.ShrimpoValidations) as |changeset|}}
   <Ui::ChangesetForm
@@ -21,16 +21,16 @@
       rows='10'
       cols='50'
       />
-    <Form.Select
-      @label={{t "shrimpo.form.length"}}
-      @fieldName='length'
-      @options={{this.lengths}}
-      @selected={{changeset.length}}
-      @containerClass='mt-4'
-      as |option|
-    >
-      {{option}}
-    </Form.Select>
+    <div>
+      <select
+        id="length"
+        {{on "change" (fn this.setLength changeset)}}
+        >
+        {{#each this.lengths as |length|}}
+          <option value="{{length}}" selected={{(eq changeset.length length)}}>{{length}}</option>
+        {{/each}}
+      </select>
+    </div>
 
     <div>
       <label>

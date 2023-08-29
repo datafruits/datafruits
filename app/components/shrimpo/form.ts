@@ -29,6 +29,11 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
   @tracked uploadProgress = 0;
 
   @action
+  setLength(changeset: BufferedChangeset, event: any){
+    changeset.set('length', event.target.value);
+  }
+
+  @action
   onSubmit(data: any, event: Event) {
     console.log(data);
     console.log(event);
