@@ -3,7 +3,7 @@
   THIS IS THE BEGINNING OF A NEW SHRIMPO
   <img class="inline" src="/assets/images/emojis/sshrimp_clear.png" /> 
 </h1>
-{{#let (changeset @model ShrimpoValidations) as |changeset|}}
+{{#let (changeset @model this.ShrimpoValidations) as |changeset|}}
   <Ui::ChangesetForm
     @changeset={{changeset}}
     @onError={{this.onError}}
@@ -25,6 +25,7 @@
       @label={{t "shrimpo.form.length"}}
       @fieldName='length'
       @options={{this.lengths}}
+      @selected={{changeset.length}}
       @containerClass='mt-4'
       as |option|
     >

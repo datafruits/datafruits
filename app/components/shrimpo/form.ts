@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import ShrimpoValidations from '../../validations/shrimpo';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
@@ -12,6 +13,8 @@ interface ShrimpoFormArgs {
 }
 
 export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
+  ShrimpoValidations = ShrimpoValidations
+
   lengths = [
     '1 hour',
     '2 hours',
