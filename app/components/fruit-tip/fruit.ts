@@ -7,7 +7,6 @@ import ChatService from 'datafruits13/services/chat';
 interface FruitTipFruitSignature {
   Args: {
     fruit: Fruit;
-    cost: number;
     fruitTip: any;
   };
 }
@@ -34,7 +33,7 @@ export default class FruitTipFruitComponent extends Component<FruitTipFruitSigna
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    FruitTipFruitComponent: typeof FruitTipFruitComponent;
+    'FruitTip::Fruit': typeof FruitTipFruitComponent;
   }
 }
 

@@ -172,6 +172,14 @@ export function initialize(/* application */) {
       shortnames: [':pineapplee:'],
       keywords: ['pineapplee'],
     },
+    ':limer:': {
+      custom: true,
+      animated: true,
+      uc_base: 'limer',
+      uc_output: '',
+      shortnames: [':limer:'],
+      keywords: ['limer'],
+    },
     ':miniburger:': {
       custom: true,
       uc_base: 'miniburger',
@@ -417,12 +425,12 @@ export function initialize(/* application */) {
       shortnames: [':beamsprout:'],
       keywords: ['beamsprout'],
     },
-    ':pineapplee:': {
+    ':lain_dad:': {
       custom: true,
-      uc_base: 'pineapplee',
+      uc_base: 'lain_dad',
       uc_output: '',
-      shortnames: [':pineapplee:'],
-      keywords: ['pineapplee'],
+      shortnames: [':lain_dad:'],
+      keywords: ['lain_dad'],
     },
   };
 
