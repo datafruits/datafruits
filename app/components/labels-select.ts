@@ -18,14 +18,14 @@ export default class LabelsSelect extends Component<LabelsSelectArgs> {
 
   @action
   hideCreateOptionOnSameName(term: string) {
-    let existingOption = this.labels.findBy('name', term);
+    const existingOption = this.labels.findBy('name', term);
     return !existingOption;
   }
 
   @action
   setSelectedLabels(labels: Label[]) {
     this.args.changeset.set('labels', labels);
-    let labelIds = labels.map((label) => {
+    const labelIds = labels.map((label) => {
       return label.get('id');
     });
     this.args.changeset.set('labelIds', labelIds);
@@ -33,14 +33,14 @@ export default class LabelsSelect extends Component<LabelsSelectArgs> {
 
   @action
   createTag(name: string) {
-    let store = this.store;
-    let label = store.createRecord('label', { name: name });
-    let onSuccess = (label: Label) => {
+    const store = this.store;
+    const label = store.createRecord('label', { name: name });
+    const onSuccess = (label: Label) => {
       console.log('label saved!');
       this.args.changeset.get('labels').pushObject(label);
       this.args.changeset.get('labelIds').pushObject(label.get('id'));
     };
-    let onFail = (response: any) => {
+    const onFail = (response: any) => {
       this.error = 'Failed to save tag: ' + response.errors[0].detail;
       //this.flashMessages.danger('Sorry, something went wrong!');
       console.log('label save failed');

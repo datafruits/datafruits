@@ -5,7 +5,7 @@ module('Unit | Route | home/user/my-shows/episode', function(hooks) {
   setupTest(hooks);
 
   test('it exists', function(assert) {
-    let route = this.owner.lookup('route:home/user/my-shows/episode');
+    const route = this.owner.lookup('route:home/user/my-shows/episode');
     assert.ok(route);
   });
 });
