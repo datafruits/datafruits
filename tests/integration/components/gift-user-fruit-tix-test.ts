@@ -12,15 +12,6 @@ module('Integration | Component | gift-user-fruit-tix', function(hooks) {
 
     await render(hbs`{{gift-user-fruit-tix}}`);
 
-    assert.equal(this.element.textContent?.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#gift-user-fruit-tix}}
-        template block text
-      {{/gift-user-fruit-tix}}
-    `);
-
-    assert.equal(this.element.textContent?.trim(), 'template block text');
+    assert.equal(this.element.textContent?.trim(), 'Send Gift Ƒ');
   });
 });
