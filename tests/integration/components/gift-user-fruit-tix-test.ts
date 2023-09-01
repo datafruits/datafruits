@@ -9,8 +9,9 @@ module('Integration | Component | gift-user-fruit-tix', function(hooks) {
   test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set('user', { id: 2, username: 'garfield' });
 
-    await render(hbs`{{gift-user-fruit-tix}}`);
+    await render(hbs`{{gift-user-fruit-tix @toUser=this.user}}`);
 
     assert.equal(this.element.textContent?.trim(), 'Send Gift Ƒ');
   });
