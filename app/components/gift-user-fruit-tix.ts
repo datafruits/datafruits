@@ -35,7 +35,9 @@ export default class GiftUserFruitTix extends Component<GiftUserFruitTixArgs> {
   onSubmit(result: any, event: any) {
     console.log(result);
     console.log(event);
-    alert('successsssss!');
+    this.currentUser.load().then(() => {
+      alert('successsssss!');
+    });
   }
 
   @action
