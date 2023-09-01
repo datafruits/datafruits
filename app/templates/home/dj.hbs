@@ -40,7 +40,7 @@
           </a>
         </p>
         <span>{{t "profile.style"}} <span class="text-df-yellow font-bold">{{this.model.style}}</span></span>
-        <GiftUserFruitTix />
+        <GiftUserFruitTix @toUser={{this.model}} />
       </div>
       <div class="w-1/2">
         {{log this.model.fruitsAffinity}}
