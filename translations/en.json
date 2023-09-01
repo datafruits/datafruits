@@ -416,5 +416,9 @@
       "title": "post title",
       "body": "what's up"
     }
+  },
+  "fruit-tickets": {
+    "amount": "How much fruit tix to give?",
+    "submit": "Say goodbye to your precious fruit tix"
   }
 }
