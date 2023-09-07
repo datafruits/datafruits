@@ -5,6 +5,9 @@
     class="text-2xl">
     {{@episode.title}}
   </LinkTo>
+  <div>
+    <span>Date:</span> {{format-day @episode.start}}
+  </div>
   <div class="self-center w-full h-full mb-2">
     <LinkTo
       @route="home.shows.episode"
@@ -13,10 +16,17 @@
       style="{{this.backgroundStyle}}">
     </LinkTo>
   </div>
-  <LinkTo
-    @route="home.user.my-shows.episode"
-    @models={{array @episode.showSeries.slug @episode.slug}}
-    class="text-2xl cool-button mt-2">
-    {{t "profile.my-shows.edit"}}
-  </LinkTo>
+  <div class="my-2">
+    <div>
+      <span>Status:</span> {{@episode.status}}
+    </div>
+  </div>
+  <div class="my-2">
+    <LinkTo
+      @route="home.user.my-shows.episode"
+      @models={{array @episode.showSeries.slug @episode.slug}}
+      class="text-2xl cool-button">
+      {{t "profile.my-shows.edit"}}
+    </LinkTo>
+  </div>
 </div>
