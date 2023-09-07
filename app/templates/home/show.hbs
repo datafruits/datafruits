@@ -6,22 +6,28 @@
       <h1 class="font-cursive text-3xl">
         {{this.model.title}}
       </h1>
-      <h2 class="text-xl uppercase">
-        {{this.model.formattedRecurringInterval}}
-      </h2>
-      <h2>
-        {{t "show.hosted_prefix"}}
-        {{#each this.model.users as |host|}}
-          <span class="font-cursive text-xl">
-            <LinkTo @route="home.dj" @model={{host.username}}>
-              {{host.username}}
-            </LinkTo>
-          </span>
-        {{/each}}
-      </h2>
-      <h3 class="modal-title uppercase" id="myModalLabel">
-        Every {{this.model.formattedCadence}} at {{format-time this.model.startTime}}
-      </h3>
+      {{#if this.model.repeating}}
+        <h2 class="text-xl uppercase">
+          {{this.model.formattedRecurringInterval}}
+        </h2>
+      {{/if}}
+      {{#if this.model.users.length}}
+        <h2>
+          {{t "show.hosted_prefix"}}
+          {{#each this.model.users as |host|}}
+            <span class="font-cursive text-xl">
+              <LinkTo @route="home.dj" @model={{host.username}}>
+                {{host.username}}
+              </LinkTo>
+            </span>
+          {{/each}}
+        </h2>
+      {{/if}}
+      {{#if this.model.repeating}}
+        <h3 class="modal-title uppercase" id="myModalLabel">
+          Every {{this.model.formattedCadence}} at {{format-time this.model.startTime}}
+        </h3>
+      {{/if}}
       <p>
         {{marked-down this.model.description}}
       </p>
