@@ -84,6 +84,6 @@ export default class ScheduledShow extends Model {
   }
 
   get airDatePassed() {
-    return this.end > new Date();
+    return new Date(this.end) < new Date();
   }
 }
