@@ -2,7 +2,5 @@
   {{t "shows.title"}}
 </h2>
 <div class="flex flex-wrap flex-shrink-0">
-  {{#each this.model as |showSeries|}}
-    <ShowCard @showSeries={{showSeries}} />
-  {{/each}}
+  <ShowsList @shows={{this.model}} />
 </div>

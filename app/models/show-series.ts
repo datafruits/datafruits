@@ -27,6 +27,8 @@ export default class ShowSeries extends Model {
 
   @attr('string') declare slug: string;
 
+  @attr('string') declare status: 'active' | 'archived' | 'disabled';
+
   get isWeekly() {
     return this.recurringInterval === 'week';
   }
