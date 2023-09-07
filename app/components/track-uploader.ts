@@ -71,6 +71,7 @@ export default class TrackUploader extends Component<TrackUploaderArgs> {
             //this.flashMessages.success('Track uploaded!');
             window.onbeforeunload = null;
             this.args.changeset.set('prerecordTrackId', track.id);
+            this.args.changeset.set('prerecordTrackFilename', track.audioFileName);
           })
           .catch((reason: any) => {
             console.log(`track save failed: ${reason}`);

@@ -1,19 +1,10 @@
-<FileDropzone @name="images" as |dropzone queue|>
-  {{#if dropzone.active}}
-    {{#if dropzone.valid}}
-      Drop to upload
-    {{else}}
-      Invalid
-    {{/if}}
-  {{else if queue.files.length}}
-    Uploading {{queue.files.length}} files. ({{queue.progress}}%)
-  {{else}}
-    {{#if dropzone.supported}}
-      Drag and drop images onto this area to upload them or
-    {{/if}}
-    <input type="file" accept="audio/*" {{queue.selectFile}}>
-    <a class=""><FaIcon @icon="plus" />Add</a>
-  {{/if}}
+{{#let (file-queue name="track" onFileAdded=this.uploadTrack) as |queue|}}
+  <label>
+    Choose a track
+    <input type="file" {{queue.selectFile}}>
+  </label>
 
-  {{yield}}
-</FileDropzone>
+  {{#if queue.files.length}}
+    Uploading {{queue.files.length}} files. ({{queue.progress}}%)
+  {{/if}}
+{{/let}}

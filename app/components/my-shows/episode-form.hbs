@@ -59,6 +59,9 @@
               PRERECORDED SET
             </h2>
             <TrackUploader @changeset={{changeset}} />
+            {{#if changeset.prerecordTrackId}}
+              {{changeset.prerecordTrackFilename}}
+            {{/if}}
           {{/if}}
         </div>
       </section>

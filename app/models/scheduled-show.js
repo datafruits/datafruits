@@ -75,6 +75,9 @@ export default class ScheduledShow extends Model {
   @attr
   prerecordTrackId;
 
+  @attr
+  prerecordTrackFilename;
+
   get imageOrDefault() {
     if(this.imageUrl) {
       return this.imageUrl;
