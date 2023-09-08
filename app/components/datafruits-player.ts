@@ -53,7 +53,7 @@ export default class DatafruitsPlayer extends Component {
     return this.playerState === PlayerState.Loading;
   }
 
-  constructor(owner: unknown, args: DatafruitsPlayerSignature['Args']) {
+  constructor(owner: unknown, args: any) {
     super(owner, args);
     this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
     this.eventBus.subscribe('metadataUpdate', this, 'setRadioTitle');
