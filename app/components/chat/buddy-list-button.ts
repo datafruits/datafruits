@@ -5,11 +5,7 @@ import { tracked } from '@glimmer/tracking';
 import { formatEmojiHtml } from 'datafruits13/helpers/format-emoji-html';
 import ChatService from 'datafruits13/services/chat';
 
-interface ChatBuddyListButtonSignature {
-  Args: {};
-}
-
-export default class BuddyListButton extends Component<ChatBuddyListButtonSignature> {
+export default class BuddyListButton extends Component {
   @service declare chat: ChatService;
 
   @tracked showingDialog = false;
@@ -29,4 +25,4 @@ declare module '@glint/environment-ember-loose/registry' {
     BuddyListButton: typeof BuddyListButton;
   }
 }
-  
+

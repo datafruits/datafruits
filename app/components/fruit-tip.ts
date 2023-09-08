@@ -15,11 +15,7 @@ interface FruitTipPayload {
   isFruitSummon?: boolean
 }
 
-interface FruitTipSignature {
-  Args: {};
-}
-
-export default class FruitTipComponent extends Component<FruitTipSignature> {
+export default class FruitTipComponent extends Component {
   @service declare chat: ChatService;
   @service declare store: any;
   @service declare currentUser: CurrentUserService;
