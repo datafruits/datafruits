@@ -1,12 +1,7 @@
 import templateOnlyComponent from '@ember/component/template-only';
 
-interface HackButtonSignature {
-  Args: {};
-  Element: HTMLAnchorElement;
-}
-
 const HackButtonComponent =
-  templateOnlyComponent<HackButtonSignature>();
+  templateOnlyComponent();
 
 export default HackButtonComponent;
 
