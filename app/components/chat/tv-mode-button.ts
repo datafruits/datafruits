@@ -4,11 +4,7 @@ import { action } from '@ember/object';
 import VideoStreamService from 'datafruits13/services/video-stream'
 import { formatEmojiHtml } from 'datafruits13/helpers/format-emoji-html';
 
-interface ChatTvModeButtonSignature {
-  Args: {};
-}
-
-export default class TvModeButton extends Component<ChatTvModeButtonSignature> {
+export default class TvModeButton extends Component {
   get tvModeIcon() {
     if (this.videoStream.displaying) {
       return formatEmojiHtml(":tv:");
@@ -31,4 +27,4 @@ declare module '@glint/environment-ember-loose/registry' {
     TvModeButton: typeof TvModeButton;
   }
 }
-  
+

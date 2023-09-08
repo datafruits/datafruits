@@ -14,14 +14,7 @@ enum PlayerState {
   Seeking = 'seeking'
 }
 
-interface DatafruitsPlayerSignature {
-  Args: {};
-  Blocks: {
-    default: [];
-  };
-}
-
-export default class DatafruitsPlayer extends Component<DatafruitsPlayerSignature> {
+export default class DatafruitsPlayer extends Component {
   @service
   declare eventBus: any;
 
@@ -330,4 +323,4 @@ declare module '@glint/environment-ember-loose/registry' {
     DatafruitsPlayer: typeof DatafruitsPlayer;
   }
 }
-  
+

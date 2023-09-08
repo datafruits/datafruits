@@ -1,11 +1,7 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 
-interface RandomPasswordMessageSignature {
-  Args: {};
-}
-
-export default class RandomPasswordMessage extends Component<RandomPasswordMessageSignature> {
+export default class RandomPasswordMessage extends Component {
   @service declare intl: any;
   get randomMessage() {
     const n = Math.floor(Math.random() * 7);
@@ -19,4 +15,4 @@ declare module '@glint/environment-ember-loose/registry' {
     RandomPasswordMessage: typeof RandomPasswordMessage;
   }
 }
-  
+

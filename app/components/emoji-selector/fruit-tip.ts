@@ -1,11 +1,7 @@
 import templateOnlyComponent from '@ember/component/template-only';
 
-interface EmojiSelectorFruitTipSignature {
-  Args: {};
-}
-
 const EmojiSelectorFruitTipComponent =
-  templateOnlyComponent<EmojiSelectorFruitTipSignature>();
+  templateOnlyComponent();
 
 export default EmojiSelectorFruitTipComponent;
 

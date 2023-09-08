@@ -4,12 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import CurrentUserService from 'datafruits13/services/current-user';
 
-interface UserNotificationsWindowSignature {
-  Args: {};
-  Element: HTMLAnchorElement;
-}
-
-export default class UserNotificationsWindow extends Component<UserNotificationsWindowSignature> {
+export default class UserNotificationsWindow extends Component {
   @service declare intl: any;
   @service declare store: any;
   @service declare currentUser: CurrentUserService;
