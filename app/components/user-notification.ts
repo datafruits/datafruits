@@ -11,11 +11,13 @@ dayjs.extend(timezone);
 dayjs.extend(localizedFormat);
 dayjs.extend(relativeTime)
 
-interface UserNotificationArgs {
-  notification: Notification;
+interface UserNotificationSignature {
+  Args: {
+    notification: Notification;
+  };
 }
 
-export default class UserNotification extends Component<UserNotificationArgs> {
+export default class UserNotification extends Component<UserNotificationSignature> {
   get formattedDate(): string {
     const timeZone = dayjs.tz.guess();
     return dayjs().to(dayjs(this.args.notification.createdAt).tz(timeZone).format('LLL'));

@@ -5,40 +5,40 @@ import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { next } from '@ember/runloop';
 
-interface ChangesetFormArgs {
-  /** Changeset Object */
-  changeset: BufferedChangeset;
-
-  /**
-   * Run Changeset execute method instead of save
-   * @defaultValue false
-   * */
-  runExecuteInsteadOfSave?: boolean;
-
-  /**
-   * Always show errors if there are any
-   * @defaultValue false
-   */
-  alwaysShowErrors?: boolean;
-
-  /**
-   * Validate the changeset on initialization
-   * @defaultValue false
-   */
-  validateOnInit?: boolean;
-
-  /** Callback exeuted when from `onsubmit` event is triggered */
-  onSubmit?: (data: unknown, event: Event) => void;
-
-  /** Callback exeuted when from form submit errors */
-  onError?: () => void;
-
-  /** Callback exeuted when from `onreset` event is triggered */
-  onReset?: (data: unknown, event: Event) => void;
+interface UiChangesetFormSignature {
+  Args: {
+    /** Changeset Object */
+    changeset: BufferedChangeset;
+    /**
+     * Run Changeset execute method instead of save
+     * @defaultValue false
+     * */
+    runExecuteInsteadOfSave?: boolean;
+    /**
+     * Always show errors if there are any
+     * @defaultValue false
+     */
+    alwaysShowErrors?: boolean;
+    /**
+     * Validate the changeset on initialization
+     * @defaultValue false
+     */
+    validateOnInit?: boolean;
+    /** Callback exeuted when from `onsubmit` event is triggered */
+    onSubmit?: (data: unknown, event: Event) => void;
+    /** Callback exeuted when from form submit errors */
+    onError?: () => void;
+    /** Callback exeuted when from `onreset` event is triggered */
+    onReset?: (data: unknown, event: Event) => void;
+  };
+  Blocks: {
+    default: [unknown];
+  };
+  Element: HTMLFormElement;
 }
 
-export default class UiChangesetFormComponent extends Component<ChangesetFormArgs> {
-  constructor(owner: unknown, args: ChangesetFormArgs) {
+export default class UiChangesetFormComponent extends Component<UiChangesetFormSignature> {
+  constructor(owner: unknown, args: UiChangesetFormSignature['Args']) {
     super(owner, args);
     assert(
       '@changeset must be defined on <ChangesetForm> component',
@@ -104,7 +104,7 @@ export default class UiChangesetFormComponent extends Component<ChangesetFormArg
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    UiChangesetFormComponent: typeof UiChangesetFormComponent;
+    'Ui::ChangesetForm': typeof UiChangesetFormComponent;
   }
 }
-  
+

@@ -2,11 +2,17 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-interface UiModalArgs {
-  toggleModal: any;
+interface UiModalSignature {
+  Args: {
+    toggleModal: any;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLDivElement;
 }
 
-export default class UiModal extends Component<UiModalArgs> {
+export default class UiModal extends Component<UiModalSignature> {
   @tracked dragging = false;
 
   clickedOffsetX = 0;

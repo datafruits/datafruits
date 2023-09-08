@@ -10,11 +10,13 @@ import { SafeString } from 'handlebars';
 import { htmlSafe } from '@ember/template';
 import type WikiPage from 'datafruits13/models/wiki-page';
 
-interface WikiFormArgs {
-  model: WikiPage;
+interface WikiFormSignature {
+  Args: {
+    model: WikiPage;
+  };
 }
 
-export default class WikiForm extends Component<WikiFormArgs> {
+export default class WikiForm extends Component<WikiFormSignature> {
   WikiPageValidations = WikiPageValidations;
 
   @service declare store: Store;

@@ -29,7 +29,7 @@
     "@babel/eslint-parser": "^7.18.9",
     "@csstools/postcss-sass": "github:sinankeskin/postcss-sass",
     "@ember/optional-features": "^2.0.0",
-    "@ember/render-modifiers": "^1.0.2",
+    "@ember/render-modifiers": "^2.1.0",
     "@ember/test-helpers": "^2.8.1",
     "@fortawesome/ember-fontawesome": "^0.2.3",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
