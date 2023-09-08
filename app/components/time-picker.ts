@@ -6,6 +6,7 @@ import dayjs, { Dayjs } from "dayjs";
 interface TimePickerArgs {
   changeset: BufferedChangeset;
   property: string;
+  startTime: string;
   onChange?: (val: Dayjs, changeset: BufferedChangeset) => void;
 }
 

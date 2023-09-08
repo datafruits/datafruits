@@ -70,22 +70,20 @@
             @changeset={{changeset}}
             @onChange={{this.setEndAfterStart}}
             />
-        </div>
-      </div>
-      <div>
-        <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.end"}}</label>
-        <div class="flex">
-          <Input
-            class="mr-2"
-            @type="date"
-            @id="end-date"
-            @min={{this.currentDate}}
-            @value={{changeset.endDate}}
-          />
           <TimePicker
             @property="endTime"
             @changeset={{changeset}}
+            @startTime={{changeset.startTime}}
             />
+          {{#if this.shouldShowEndDate}}
+            <Input
+              class="mr-2"
+              @type="date"
+              @id="end-date"
+              @min={{this.currentDate}}
+              @value={{changeset.endDate}}
+            />
+          {{/if}}
         </div>
       </div>
       <div class="mb-2">

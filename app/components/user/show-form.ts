@@ -24,6 +24,8 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   @tracked users: User[] = [];
   @tracked errors: { [key: string]: string[] } = {};
 
+  @tracked shouldShowEndDate = false;
+
   @action
   updateFile(e: any){
     this.file = e.target.files[0];
