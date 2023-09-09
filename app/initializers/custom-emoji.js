@@ -164,6 +164,22 @@ export function initialize(/* application */) {
       shortnames: [':watermel:'],
       keywords: ['watermel'],
     },
+    ':pineapplee:': {
+      custom: true,
+      animated: true,
+      uc_base: 'pineapplee',
+      uc_output: '',
+      shortnames: [':pineapplee:'],
+      keywords: ['pineapplee'],
+    },
+    ':limer:': {
+      custom: true,
+      animated: true,
+      uc_base: 'limer',
+      uc_output: '',
+      shortnames: [':limer:'],
+      keywords: ['limer'],
+    },
     ':miniburger:': {
       custom: true,
       uc_base: 'miniburger',
@@ -408,6 +424,13 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':beamsprout:'],
       keywords: ['beamsprout'],
+    },
+    ':lain_dad:': {
+      custom: true,
+      uc_base: 'lain_dad',
+      uc_output: '',
+      shortnames: [':lain_dad:'],
+      keywords: ['lain_dad'],
     },
   };
 

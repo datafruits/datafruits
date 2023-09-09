@@ -1,8 +1,10 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 
-interface UserBadgesArgs {
-  role: string;
+interface UserBadgesSignature {
+  Args: {
+    role: string;
+  };
 }
 
 interface Badge {
@@ -11,13 +13,13 @@ interface Badge {
   description: string;
 }
 
-export default class UserBadges extends Component<UserBadgesArgs> {
+export default class UserBadges extends Component<UserBadgesSignature> {
   @service declare intl: any;
 
-  validBadges = ['dj', 'vj', 'supporter', 'strawberry', 'lemon', 'orange', 'watermelon', 'banana', 'cabbage'];
+  validBadges = ['dj', 'vj', 'supporter', 'strawberry', 'lemon', 'orange', 'watermelon', 'banana', 'cabbage', 'pineapple'];
   descriptions: any;
 
-  constructor(owner: unknown, args: UserBadgesArgs) {
+  constructor(owner: unknown, args: UserBadgesSignature['Args']) {
     super(owner, args);
     this.descriptions = {
       'dj': this.intl.t('profile.badges.dj'),
@@ -28,6 +30,7 @@ export default class UserBadges extends Component<UserBadgesArgs> {
       'orange': this.intl.t('profile.badges.orange'),
       'watermelon': this.intl.t('profile.badges.watermelon'),
       'cabbage': this.intl.t('profile.badges.cabbage'),
+      'pineapple': this.intl.t('profile.badges.pineapple'),
     };
   }
 
@@ -62,4 +65,4 @@ declare module '@glint/environment-ember-loose/registry' {
     UserBadges: typeof UserBadges;
   }
 }
-  
+

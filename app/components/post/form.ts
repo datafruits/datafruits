@@ -6,12 +6,14 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { next } from '@ember/runloop';
 
-interface PostFormArgs {
-  postable: ForumThread | ScheduledShow;
-  postableType: 'ForumThread' | 'ScheduledShow';
+interface PostFormSignature {
+  Args: {
+    postable: ForumThread | ScheduledShow;
+    postableType: 'ForumThread' | 'ScheduledShow';
+  };
 }
 
-export default class PostForm extends Component<PostFormArgs> {
+export default class PostForm extends Component<PostFormSignature> {
   @tracked body: string = '';
 
   @service declare store: any;

@@ -424,7 +424,7 @@
     "dj_link": "The current DJ's donation link is here:"
   },
   "hack": {
-    "title": "EXPO"
+    "title": "HACK"
   },
   "microtext": {
     "we_need_it": "we need your datafruit. please add it.",
@@ -441,5 +441,9 @@
       "title": "post title",
       "body": "what's up"
     }
+  },
+  "fruit-tickets": {
+    "amount": "How much fruit tix to give?",
+    "submit": "Say goodbye to your precious fruit tix"
   }
 }

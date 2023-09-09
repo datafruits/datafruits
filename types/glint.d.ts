@@ -5,8 +5,10 @@ import { BufferedChangeset } from 'ember-changeset/types';
 import type EmberFileUploadRegistry from 'ember-file-upload/template-registry';
 
 
+import type RenderModifiersRegistry from '@ember/render-modifiers/template-registry';
+
 declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry extends EmberFileUploadRegistry {
+  export default interface Registry extends RenderModifiersRegistry, EmberFileUploadRegistry{
     WelcomePage: ComponentLike;
     Await: ComponentLike;
     'page-title': HelperLike<{
