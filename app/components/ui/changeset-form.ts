@@ -107,7 +107,3 @@ declare module '@glint/environment-ember-loose/registry' {
     'Ui::ChangesetForm': typeof UiChangesetFormComponent;
   }
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/main
