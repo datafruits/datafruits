@@ -66,6 +66,22 @@ export default class TimePickerComponent extends Component<TimePickerArgs> {
   }
 
   @action
+  setInitialTime() {
+    const property = this.args.property;
+    const changeset = this.args.changeset;
+    let time;
+    // sometimes changeset.get returns a proxy
+    if(changeset.get(property).content) {
+      time = dayjs(changeset.get(property).content);
+    } else {
+      time = dayjs(changeset.get(property));
+    }
+    console.log('time');
+    changeset.set(property, time);
+    changeset.validate(property);
+  }
+
+  @action
   setTime(value: string) {
     const property = this.args.property;
     const changeset = this.args.changeset;

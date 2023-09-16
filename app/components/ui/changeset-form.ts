@@ -27,7 +27,7 @@ interface UiChangesetFormSignature {
     /** Callback exeuted when from `onsubmit` event is triggered */
     onSubmit?: (data: unknown, event: Event) => void;
     /** Callback exeuted when from form submit errors */
-    onError?: () => void;
+    onError?: (error: any) => void;
     /** Callback exeuted when from `onreset` event is triggered */
     onReset?: (data: unknown, event: Event) => void;
   };
