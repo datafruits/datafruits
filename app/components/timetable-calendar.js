@@ -29,7 +29,6 @@ export default class TimetableCalendarComponent extends Component {
 
   @action
   async fetchShows(query) {
-    /* TODO support query string... */
     query.timezone = dayjs.tz.guess();
     query.start = dayjs(new Date()).startOf('day').toString();
     query.end = dayjs(query.start).endOf('month').add(1, 'month').format('YYYY-MM-DD');
@@ -47,4 +46,4 @@ declare module '@glint/environment-ember-loose/registry' {
     TimetableCalendarComponent: typeof TimetableCalendarComponent;
   }
 }
-  
+

@@ -11,7 +11,11 @@ export default class ScheduledShow extends ApplicationAdapter {
   }
 
   urlForQuery(query) {
-    return `${this.urlPrefix()}/show_series/${query.showSeries}/episodes`;
+    if(query.start) {
+      return `${this.urlPrefix()}/scheduled_shows`;
+    } else {
+      return `${this.urlPrefix()}/show_series/${query.showSeries}/episodes`;
+    }
   }
 
   urlForQueryRecord(query) {
