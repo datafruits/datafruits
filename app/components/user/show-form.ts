@@ -26,6 +26,14 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
 
   @tracked shouldShowEndDate = false;
 
+  weekdayCadences = [
+    'First',
+    'Second',
+    'Third',
+    'Forth',
+    'Last'
+  ];
+
   @action
   updateFile(e: any){
     this.file = e.target.files[0];
@@ -91,6 +99,46 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
       console.log('setting end time to: ', startTime.add(1, 'hour').hour());
       changeset.set('endTime', startTime.add(1, 'hour'));
     }
+  }
+
+  @action
+  adjustRecurringForDate(changeset: BufferedChangeset, event: any) {
+    const date = new Date(event.target.value.split("-").join(","));
+    if(changeset.recurringInterval !== 'not_recurring') {
+      const weekday = date.getDay();
+      const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      changeset.set('recurringWeekday', weekdays[weekday]);
+      if (changeset.recurringInterval === 'month') {
+        const cadence = this._getWeekdayCadenceInMonth(date);
+        changeset.set('recurringCadence', cadence);
+      }
+    }
+  }
+
+  _getWeekdayCadenceInMonth(date: Date): string {
+    const dayOfMonth: number = date.getDate();
+
+    const dayOfWeek: number = date.getDay();
+
+    const firstDay: number = dayOfMonth - dayOfWeek;
+
+    const position: number = Math.floor(firstDay / 7) + 1;
+
+    let label: string;
+
+    if (position === 1) {
+      label = 'First';
+    } else if (position === 2) {
+      label = 'Second';
+    } else if (position === 3) {
+      label = 'Third';
+    } else if (position === 4 || (position === 5 && dayOfMonth + 7 > new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate())) {
+      label = 'Last';
+    } else {
+      label = 'Fourth';
+    }
+
+    return label;
   }
 
   @action

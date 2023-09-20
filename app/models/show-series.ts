@@ -12,8 +12,8 @@ export default class ShowSeries extends Model {
   @attr('string') declare description: string;
 
   @attr('string') declare recurringInterval: 'not_recurring' | 'week' | 'biweek' | 'month';
-  @attr('string') declare recurringWeekday: string;
-  @attr('string') declare recurringCadence: string;
+  @attr('string') declare recurringWeekday: 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday';
+  @attr('string') declare recurringCadence: 'First' | 'Second' | 'Third' | 'Forth' | 'Last';
 
   @attr('string') declare image: string;
   @attr('string') declare imageFilename: string;

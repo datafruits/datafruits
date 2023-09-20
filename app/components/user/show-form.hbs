@@ -64,6 +64,7 @@
             @id="start-date"
             @min={{this.currentDate}}
             @value={{changeset.startDate}}
+            {{on "change" (fn this.adjustRecurringForDate changeset)}}
           />
           <TimePicker
             @property="startTime"
@@ -124,11 +125,14 @@
               id="monthly-interval"
               {{on "change" (pick "target.value" (set changeset "recurringCadence"))}}
               >
-              <option value="First">First</option>
-              <option value="Second">Second</option>
-              <option value="Third">Third</option>
-              <option value="Forth">Forth</option>
-              <option value="Last">Last</option>
+              {{#each this.weekdayCadences as |cadence|}}
+                <option
+                  value={{cadence}}
+                  selected={{eq changeset.recurringCadence cadence}}
+                  >
+                  {{cadence}}
+                </option>
+              {{/each}}
             </select>
             <User::ShowForm::WeekdaySelect
               @changeset={{changeset}}
