@@ -192,7 +192,7 @@
         "title": "Title",
         "description": "Description",
         "artwork": "Default Artwork",
-        "start": "Start",
+        "start": "Date/Time",
         "end": "End",
         "repeating": "Repeating or one off"
       }
