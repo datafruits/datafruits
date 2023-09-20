@@ -1,4 +1,4 @@
-<div class="sm:py-1 flex space-x-1 text-xs sm:text-xl">
+<div class="bg-df-pink text-2xl rounded-lg sm:py-1 flex space-x-1 text-xs sm:text-xl">
   <div class="mt-1 flex space-x-1">
     {{#if this.playing}}
       <a
@@ -69,7 +69,7 @@
     {{#each @track.labels as |label|}}
     <a
       {{on "click" (fn this.selectLabel label.name)}}
-      href="#" 
+      href="#"
       class="track-label
             text-df-yellow
             classic:bg-df-pink

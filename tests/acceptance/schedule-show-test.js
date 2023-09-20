@@ -23,4 +23,9 @@ module('Acceptance | schedule show', function (hooks) {
     await visit('/user/my-shows/');
     await fillIn('', 'test');
   });
+
+  // test one off
+  // test weekly
+  // test biweekly
+  // test monthly
 });
