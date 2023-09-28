@@ -19,6 +19,10 @@ export default class Recording extends Model {
     return this.processingStatus === 'processing_failed';
   }
 
+  get filename() {
+    return this.path.split("/home/deploy/datafruits/recordings/")[1];
+  }
+
   // get downloadLink() {
   //   return `${ENV.API_HOST}/recordings/${this.id}?token=${this.session.data.authenticated.token}`;
   // }
