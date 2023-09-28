@@ -4,7 +4,7 @@
         @onError={{this.onError}}
         @onSubmit={{this.onSubmit}} as |Form|>
       <section class="flex">
-        <div class="mr-2">
+        <div>
           <Form.Input
             @label={{t "profile.my-shows.form.title"}}
             @fieldName="title"
@@ -33,8 +33,6 @@
             rows='20'
             cols='50'
             />
-        </div>
-        <div>
           {{#if @episode.airDatePassed}}
             <h2
               class="text-x">
