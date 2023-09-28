@@ -3,6 +3,17 @@
   <div class="w-1/2">
     <div style="background-image: url({{this.model.imageUrl}})" alt={{this.model.title}} class="w-full h-full show-image bg-top bg-cover"></div>
     <div class="show-info">
+      {{#if (includes this.currentUser.user this.model.users)}}
+        <div class="my-2">
+          <LinkTo
+            @route="home.user.my-shows.edit"
+            @model={{this.model}}
+            class="cool-button absolute top-0 right-0"
+          >
+            EDIT
+          </LinkTo>
+        </div>
+      {{/if}}
       <h1 class="font-cursive text-3xl">
         {{this.model.title}}
       </h1>
