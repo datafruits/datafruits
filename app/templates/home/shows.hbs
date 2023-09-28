@@ -2,7 +2,7 @@
   <h2 class="text-4xl text-shadow mb-2 uppercase">
     {{t "shows.title"}}
   </h2>
-  <div class="flex flex-wrap flex-shrink-0">
+  <div>
     {{#if this.session.isAuthenticated}}
       <LinkTo
         @route="home.user.my-shows"
@@ -11,6 +11,8 @@
         {{t "profile.my-shows.title"}}
       </LinkTo>
     {{/if}}
+  </div>
+  <div class="flex flex-wrap flex-shrink-0">
     <ShowsList @shows={{this.model}} />
   </div>
 </section>

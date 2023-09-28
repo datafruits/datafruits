@@ -15,6 +15,14 @@
         <h2>
           {{t "show.hosted_prefix"}}
           {{#each this.model.users as |host|}}
+            <div>
+              <img
+                class="inline rounded-lg"
+                style="height: 2rem;"
+                src="{{host.avatarUrl}}"
+                align="center"
+                alt={{host.username}} / >
+            </div>
             <span class="font-cursive text-xl">
               <LinkTo @route="home.dj" @model={{host.username}}>
                 {{host.username}}

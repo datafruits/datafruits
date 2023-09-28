@@ -14,4 +14,39 @@
       style="{{this.backgroundStyle}}">
     </LinkTo>
   </div>
+  <div>
+    {{#each @showSeries.users as |user|}}
+      <div>
+        <img
+          class="inline rounded-lg"
+          style="height: 2rem;"
+          src="{{user.avatarUrl}}"
+          align="center"
+          alt={{user.username}} / >
+        <LinkTo @route="home.dj" @model={{user.username}}>
+          {{user.username}}
+        </LinkTo>
+      </div>
+    {{/each}}
+  </div>
+  <div class="p-2">
+    {{#each @showSeries.labels as |label|}}
+      <a
+        class="track-label
+          text-df-yellow
+          classic:bg-df-pink
+          blm:bg-black
+          hover:text-white
+          p-1
+          uppercase
+          border-solid
+          border-white
+          border-2
+          p-x-2
+          font-extrabold"
+        href="#">
+        {{label.name}}
+      </a>
+    {{/each}}
+  </div>
 </div>
