@@ -32,9 +32,8 @@ export default class PodcastsSearch extends Component<PodcastsSearchArgs> {
 
   @action
   fetchPodcasts() {
-    // fetch shows instead ? idk
     const query = this.args.query;
-    let podcastsPromise = this.store.queryRecord('podcast', query);
+    const podcastsPromise = this.store.query('podcast', query);
 
     return podcastsPromise;
   }
