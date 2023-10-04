@@ -1,4 +1,4 @@
-<div class="bg-df-pink text-2xl rounded-lg sm:py-1 flex space-x-1 text-xs sm:text-xl">
+<div class="bg-df-pink text-2xl rounded-lg sm:py-1 flex space-x-1 text-xs sm:text-xl mb-2 p-2">
   <div class="mt-1 flex space-x-1">
     {{#if this.playing}}
       <a
@@ -57,16 +57,12 @@
     {{/if}}
   {{/if}}
   <div class="mt-1 flex flex-wrap items-center gap-0.5 sm:gap-1.5">
-    {{#if @track.scheduledShow}}
-      <LinkTo @route="home.show" @model={{@track.scheduledShow}}>
-        {{@track.title}}
-      </LinkTo>
-    {{else}}
-      <span >
-        {{@track.title}}
-      </span>
-    {{/if}}
-    {{#each @track.labels as |label|}}
+    <LinkTo
+      @route="home.shows.episode"
+      @models={{array @show.showSeriesSlug @show.slug}}>
+      {{@show.title}}
+    </LinkTo>
+    {{#each @show.labels as |label|}}
     <a
       {{on "click" (fn this.selectLabel label.name)}}
       href="#"

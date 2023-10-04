@@ -58,9 +58,10 @@
             @page={{@page}}
             @route="home.podcasts" />
           <div class="p-2">
-            {{#each result.tracks as |track|}}
+            {{#each result as |show|}}
               <PodcastTrack
-                @track={{track}}
+                @track={{show.tracks.firstObject}}
+                @show={{show}}
                 @selectedLabels={{this.selectedLabels}}
                 @search={{await.reload}} />
             {{else}}
