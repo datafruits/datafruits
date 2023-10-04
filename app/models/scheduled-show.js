@@ -39,6 +39,9 @@ export default class ScheduledShow extends Model {
   hostedBy;
 
   @attr()
+  hostAvatarUrl;
+
+  @attr()
   status;
 
   @hasMany('track')
