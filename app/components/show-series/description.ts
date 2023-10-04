@@ -4,11 +4,15 @@ import { SafeString } from 'handlebars';
 import emojione from 'emojione';
 
 interface ShowSeriesDescriptionArgs {
-  description: string;
+  description: string | undefined;
 }
 
 export default class ShowSeriesDescription extends Component<ShowSeriesDescriptionArgs> {
-  get body(): SafeString {
-    return htmlSafe(emojione.shortnameToImage(this.args.description));
+  get body(): SafeString | undefined {
+    if(this.args.description) {
+      return htmlSafe(emojione.shortnameToImage(this.args.description));
+    } else {
+      return undefined;
+    }
   }
 }
