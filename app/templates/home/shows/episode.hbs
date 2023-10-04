@@ -5,10 +5,21 @@
       <h1 class="text-3xl">
         {{this.model.title}}
       </h1>
+      {{#if (eq this.currentUser.user.username this.model.hostedBy)}}
+        <div class="my-2">
+          <LinkTo
+            @route="home.user.my-shows.episode"
+            @model={{array this.model.showSeriesSlug this.model.slug}}
+            class="cool-button"
+          >
+            EDIT
+          </LinkTo>
+        </div>
+      {{/if}}
       <p>
       </p>
       <p>
-        {{marked-down this.model.description}}
+        <ShowSeries::Description @description={{this.model.description}} />
       </p>
       {{#each this.model.tracks as |track|}}
         <PodcastTrack @track={{track}} />
