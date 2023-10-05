@@ -93,8 +93,12 @@
           id="repeating"
           {{on "change" (fn this.setRepeating changeset)}}
           >
-          <option value="true">Repeating</option>
-          <option value="false" selected>One-off</option>
+          <option value="true" selected={{not-eq changeset.recurringInterval 'not_recurring' }}>
+            Repeating
+          </option>
+          <option value="false" selected={{eq changeset.recurringInterval 'not_recurring'}}>
+            One-off
+          </option>
         </select>
       </div>
       {{#if (not-eq changeset.recurringInterval "not_recurring")}}
@@ -103,9 +107,9 @@
             id="repeating-interval"
             {{on "change" (pick "target.value" (set changeset "recurringInterval"))}}
             >
-            <option value="week" selected>Weekly</option>
-            <option value="biweek">Bi-weekly (every other week)</option>
-            <option value="month">Monthly</option>
+            <option value="week" selected={{eq changeset.recurringInterval 'week'}}>Weekly</option>
+            <option value="biweek" selected={{eq changeset.recurringInterval 'biweek'}}>Bi-weekly (every other week)</option>
+            <option value="month" selected={{eq changeset.recurringInterval 'month'}}>Monthly</option>
           </select>
           {{#if (eq changeset.recurringInterval "week")}}
             <span>On</span>
