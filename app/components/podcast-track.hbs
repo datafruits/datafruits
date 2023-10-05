@@ -33,36 +33,41 @@
           />
         </a>
       {{/if}}
-    </div>
-    {{#if this.session.isAuthenticated}}
-      {{#if this.isFavorited}}
-        <button
-          class="cool-button favorited max-h-8"
-          type="button"
-          aria-label="Remove From Favorites"
-          title="Remove From Favorites"
-          {{on "click" this.unfavoriteTrack}}
-        >
-          <FaIcon @icon="heart" />
-        </button>
-      {{else}}
-        <button
-          class="cool-button not-favorited max-h-8"
-          type="button"
-          aria-label="Add To Favorites"
-          title="Add To Favorites"
-          {{on "click" this.favoriteTrack}}
-        >
-          <FaIcon @icon="heart" />
-        </button>
+      {{#if this.session.isAuthenticated}}
+        {{#if this.isFavorited}}
+          <button
+            class="cool-button favorited max-h-8"
+            type="button"
+            aria-label="Remove From Favorites"
+            title="Remove From Favorites"
+            {{on "click" this.unfavoriteTrack}}
+          >
+            <FaIcon @icon="heart" />
+          </button>
+        {{else}}
+          <button
+            class="cool-button not-favorited max-h-8"
+            type="button"
+            aria-label="Add To Favorites"
+            title="Add To Favorites"
+            {{on "click" this.favoriteTrack}}
+          >
+            <FaIcon @icon="heart" />
+          </button>
+        {{/if}}
       {{/if}}
-    {{/if}}
+    </div>
     <div class="mt-1 flex flex-wrap items-center gap-0.5 sm:gap-1.5">
-      <LinkTo
-        @route="home.shows.episode"
-        @models={{array @show.showSeriesSlug @show.slug}}>
-        {{@show.title}}
-      </LinkTo>
+      <div>
+        <LinkTo
+          @route="home.shows.episode"
+          @models={{array @show.showSeriesSlug @show.slug}}>
+          {{@show.formattedEpisodeTitle}}
+        </LinkTo>
+        <span class="text-sm">
+          {{@show.formattedDate}}
+        </span>
+      </div>
       {{#each @show.labels as |label|}}
       <a
         {{on "click" (fn this.selectLabel label.name)}}
@@ -87,6 +92,11 @@
         </a>
       {{/each}}
     </div>
+  </div>
+  <div
+    class="w-1/2 bg-center bg-cover block overflow-hidden rounded-xl"
+    style="{{this.backgroundStyle}}"
+  >
   </div>
   <div>
     <span class="text-sm mr-2 font-cursive">
