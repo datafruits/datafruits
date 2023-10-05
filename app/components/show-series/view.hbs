@@ -2,7 +2,7 @@
   <div class="w-1/2">
     <div style="background-image: url({{@showSeries.imageUrl}})" alt={{@showSeries.title}} class="w-full h-full show-image bg-top bg-cover"></div>
     <div class="show-info">
-      {{#if (includes this.currentUser.user @showSeries.users)}}
+      {{#if (or (includes this.currentUser.user @showSeries.users) (includes 'admin' this.currentUser.user.roles))}}
         <div class="my-2">
           <LinkTo
             @route="home.user.my-shows.edit"

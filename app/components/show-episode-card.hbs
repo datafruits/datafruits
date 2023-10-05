@@ -3,7 +3,7 @@
     @route="home.shows.episode"
     @models={{array @episode.showSeriesSlug @episode.slug}}
     class="text-2xl">
-    {{@episode.title}}
+    {{@episode.formattedEpisodeTitle}}
   </LinkTo>
   <div class="self-center w-full h-full">
     <LinkTo
