@@ -22,7 +22,10 @@
         <ShowSeries::Description @description={{this.model.description}} />
       </p>
       {{#each this.model.tracks as |track|}}
-        <PodcastTrack @track={{track}} />
+        <PodcastTrack
+          @track={{track}}
+          @show={{this.model}}
+          />
       {{/each}}
       <p>
         Check out more episodes of
