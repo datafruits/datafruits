@@ -89,8 +89,10 @@
     </div>
   </div>
   <div>
-    <span class="text-sm mr-2">
-      {{@show.hostedBy}}
+    <span class="text-sm mr-2 font-cursive">
+      <LinkTo @route="home.dj" @model={{@show.hostedBy}}>
+        {{@show.hostedBy}}
+      </LinkTo>
     </span>
     <span>
       <img
