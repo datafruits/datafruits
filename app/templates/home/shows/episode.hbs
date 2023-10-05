@@ -5,7 +5,7 @@
       <h1 class="text-3xl">
         {{this.model.title}}
       </h1>
-      {{#if (eq this.currentUser.user.username this.model.hostedBy)}}
+      {{#if (or (eq this.currentUser.user.username this.model.hostedBy) (includes 'admin' this.currentUser.user.roles))}}
         <div class="my-2">
           <LinkTo
             @route="home.user.my-shows.episode"
