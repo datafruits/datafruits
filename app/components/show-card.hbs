@@ -20,7 +20,7 @@
         <img
           class="inline rounded-lg"
           style="height: 2rem;"
-          src="{{user.avatarUrl}}"
+          src="{{user.avatarUrlOrDefault}}"
           align="center"
           alt={{user.username}} / >
         <LinkTo @route="home.dj" @model={{user.username}}>
