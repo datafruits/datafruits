@@ -1,14 +1,14 @@
 <div class="m-3 bg-df-blue-dark rounded-lg border-4 border-white w-full md:w-1/4 p-2 flex flex-col justify-between shadow-md">
   <LinkTo
     @route="home.shows.episode"
-    @models={{array @episode.showSeries.slug @episode.slug}}
+    @models={{array @episode.showSeriesSlug @episode.slug}}
     class="text-2xl">
     {{@episode.title}}
   </LinkTo>
   <div class="self-center w-full h-full">
     <LinkTo
       @route="home.shows.episode"
-      @models={{array @episode.showSeries.slug @episode.slug}}
+      @models={{array @episode.showSeriesSlug @episode.slug}}
       class="h-80 bg-center bg-cover block overflow-hidden rounded-xl"
       style="{{this.backgroundStyle}}">
     </LinkTo>
