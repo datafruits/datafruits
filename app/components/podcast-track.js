@@ -32,7 +32,7 @@ export default class PodcastTrack extends Component {
   play() {
     this.playing = true;
     this.paused = false;
-    this.eventBus.publish('trackPlayed', { title: this.args.track.title, cdnUrl: this.args.track.cdnUrl, id: this.args.track.id });
+    this.eventBus.publish('trackPlayed', { title: this.args.show.title, cdnUrl: this.args.track.cdnUrl, id: this.args.show.id });
     //
   }
 
@@ -103,10 +103,9 @@ export default class PodcastTrack extends Component {
   }
 }
 
-
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     PodcastTrack: typeof PodcastTrack;
   }
 }
-  
+

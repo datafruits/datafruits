@@ -1,0 +1,15 @@
+<Await @promise={{this.fetchEpisodes}} as |await|>
+  <await.Pending>
+    Loading episodes...
+  </await.Pending>
+
+  <await.Fulfilled as |episodes|>
+    {{#each episodes as |episode|}}
+      <ShowEpisodeCard @episode={{episode}} />
+    {{/each}}
+  </await.Fulfilled>
+
+  <await.Rejected>
+    Something went wrong :(
+  </await.Rejected>
+</Await>

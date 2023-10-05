@@ -10,7 +10,7 @@ dayjs.extend(advancedFormat);
 
 export function formatTime(time) {
   const timeZone = dayjs.tz.guess();
-  const formattedTime = dayjs(time[0]).tz(timeZone).format('HH:mm');
+  const formattedTime = dayjs(time[0]).tz(timeZone).format('HH:mm z');
   return formattedTime;
 }
 

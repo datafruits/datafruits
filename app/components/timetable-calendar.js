@@ -29,9 +29,8 @@ export default class TimetableCalendarComponent extends Component {
 
   @action
   async fetchShows(query) {
-    /* TODO support query string... */
     query.timezone = dayjs.tz.guess();
-    query.start = dayjs(new Date()).startOf('day').toString();
+    query.start = dayjs(new Date()).startOf('day').format('YYYY-MM-DD');
     query.end = dayjs(query.start).endOf('month').add(1, 'month').format('YYYY-MM-DD');
     let showsPromise = this.store.query('scheduled-show', query).then((result) => {
       this.shows = result;
@@ -47,4 +46,4 @@ declare module '@glint/environment-ember-loose/registry' {
     TimetableCalendarComponent: typeof TimetableCalendarComponent;
   }
 }
-  
+

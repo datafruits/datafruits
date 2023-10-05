@@ -1,0 +1,161 @@
+{{#let (changeset @show this.ShowSeriesValidations) as |changeset|}}
+  <Ui::ChangesetForm
+        class="max-w-md"
+        @changeset={{changeset}}
+        @onError={{this.onError}}
+        @onSubmit={{this.onSubmit}} as |Form|>
+      {{#each-in this.errors as |field error|}}
+        <div class="error">
+          {{field}}: {{error}}
+        </div>
+      {{/each-in}}
+      <Form.Input
+        @label={{t "profile.my-shows.form.title"}}
+        @fieldName="title"
+        @containerClass='mb-2'
+        />
+        <h4 class="block text-sm font-bold mb-2">Host</h4>
+        <PowerSelectMultiple
+          @renderInPlace={{true}}
+          @searchEnabled={{true}}
+          @search={{this.searchDjs}}
+          @options={{@users}}
+          @selected={{changeset.users}}
+          @onChange={{fn (mut changeset.users)}} as |dj|>
+          {{dj.username}}
+        </PowerSelectMultiple>
+      <div>
+        <label class="align-top" for="show-artwork"> {{t "profile.my-shows.form.artwork"}}</label>
+        <br/>
+        {{#if @show.isNew}}
+          {{#if changeset.image}}
+            <img alt="artwork" width="300" height="300"
+              src={{changeset.image}}>
+          {{/if}}
+        {{else}}
+          {{#if changeset.thumbImageUrl}}
+            <img alt="artwork" width="300" height="300"
+              src={{changeset.thumbImageUrl}}>
+          {{/if}}
+        {{/if}}
+        <input
+          class="py-4 px-4 my-2 text-df-yellow w-full semibold border-dashed"
+          id="showArtwork"
+          name="showArtwork"
+          type="file"
+          {{on "change" this.updateFile}}
+        />
+      </div>
+      <Form.Textarea
+        @label={{t "profile.my-shows.form.description"}}
+        @fieldName="description"
+        @containerClass='mb-2'
+        @size='lg'
+        @value={{changeset.description}}
+        rows='20'
+        cols='50'
+        />
+      <div>
+        <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.start"}}</label>
+        <div class="flex">
+          <Input
+            class="mr-2"
+            @type="date"
+            @id="start-date"
+            @min={{this.currentDate}}
+            @value={{changeset.startDate}}
+            {{on "change" (fn this.adjustRecurringForDate changeset)}}
+          />
+          <TimePicker
+            @property="startTime"
+            @changeset={{changeset}}
+            @onChange={{this.setEndAfterStart}}
+            />
+          <TimePicker
+            @property="endTime"
+            @changeset={{changeset}}
+            @startTime={{changeset.startTime}}
+            />
+          {{#if this.shouldShowEndDate}}
+            <Input
+              class="mr-2"
+              @type="date"
+              @id="end-date"
+              @min={{this.currentDate}}
+              @value={{changeset.endDate}}
+            />
+          {{/if}}
+        </div>
+      </div>
+      <div class="mb-2">
+        <label class="block text-sm font-bold mb-2" for="repeating">{{t "profile.my-shows.form.repeating"}}</label>
+        <select
+          id="repeating"
+          {{on "change" (fn this.setRepeating changeset)}}
+          >
+          <option value="true">Repeating</option>
+          <option value="false" selected>One-off</option>
+        </select>
+      </div>
+      {{#if (not-eq changeset.recurringInterval "not_recurring")}}
+        <div class="mb-2">
+          <select
+            id="repeating-interval"
+            {{on "change" (pick "target.value" (set changeset "recurringInterval"))}}
+            >
+            <option value="week" selected>Weekly</option>
+            <option value="biweek">Bi-weekly (every other week)</option>
+            <option value="month">Monthly</option>
+          </select>
+          {{#if (eq changeset.recurringInterval "week")}}
+            <span>On</span>
+            <User::ShowForm::WeekdaySelect
+              @changeset={{changeset}}
+              />
+          {{/if}}
+          {{#if (eq changeset.recurringInterval "biweek")}}
+            <span>On</span>
+            <User::ShowForm::WeekdaySelect
+              @changeset={{changeset}}
+              />
+          {{/if}}
+          {{#if (eq changeset.recurringInterval "month")}}
+            <span>Every</span>
+            <select
+              id="monthly-interval"
+              {{on "change" (pick "target.value" (set changeset "recurringCadence"))}}
+              >
+              {{#each this.weekdayCadences as |cadence|}}
+                <option
+                  value={{cadence}}
+                  selected={{eq changeset.recurringCadence cadence}}
+                  >
+                  {{cadence}}
+                </option>
+              {{/each}}
+            </select>
+            <User::ShowForm::WeekdaySelect
+              @changeset={{changeset}}
+              />
+          {{/if}}
+        </div>
+      {{/if}}
+      <LabelsSelect
+        class="mb-2"
+        @changeset={{changeset}}
+        />
+      <div class="mb-2">
+        <Button
+          @type='submit'
+          @intent='primary'
+          disabled={{(or Form.state.hasSubmitted changeset.isInvalid)}}
+          class='cool-button mb-2'
+          >
+          SAVE SHOW
+        </Button>
+        {{#if Form.state.hasSubmitted}}
+          <marquee>SAVING....DON'T TURN OFF THE POWER.........</marquee>
+        {{/if}}
+      </div>
+  </Ui::ChangesetForm>
+{{/let}}

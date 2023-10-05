@@ -27,7 +27,7 @@ interface UiChangesetFormSignature {
     /** Callback exeuted when from `onsubmit` event is triggered */
     onSubmit?: (data: unknown, event: Event) => void;
     /** Callback exeuted when from form submit errors */
-    onError?: () => void;
+    onError?: (error: any) => void;
     /** Callback exeuted when from `onreset` event is triggered */
     onReset?: (data: unknown, event: Event) => void;
   };
@@ -83,7 +83,8 @@ export default class UiChangesetFormComponent extends Component<UiChangesetFormS
         console.log('couldnt save changeset');
         console.log(error);
         if (typeof this.args.onError === 'function') {
-          this.args.onError();
+          this.args.onError(error.errors);
+          this.hasSubmitted = false;
         }
       }
     }
@@ -101,10 +102,8 @@ export default class UiChangesetFormComponent extends Component<UiChangesetFormS
   }
 }
 
-
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     'Ui::ChangesetForm': typeof UiChangesetFormComponent;
   }
 }
-

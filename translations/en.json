@@ -131,6 +131,10 @@
     "title": "Fruits",
     "aria": "Browse DJs who perform on datafruits.fm"
   },
+  "shows": {
+    "title": "Shows",
+    "aria": "Browse shows on datafruits.fm"
+  },
   "nav_toggle": "Toggle navigation",
   "radio": {
     "title": "Radio",
@@ -179,6 +183,20 @@
     "my_favorites": "My Favorite",
     "my_pic": "Update Avatar",
     "settings": "Profile Settings",
+    "my-shows": {
+      "title": "My Shows",
+      "edit": "EDIT",
+      "new": "Your New Show...begins here",
+      "episodes": "EPISODES",
+      "form": {
+        "title": "Title",
+        "description": "Description",
+        "artwork": "Default Artwork",
+        "start": "Date/Time",
+        "end": "End",
+        "repeating": "Repeating or one off"
+      }
+    },
     "chat": "Chat Preview",
     "chat_test": "This is a test message",
     "style": "Style",
@@ -318,7 +336,13 @@
   },
   "show": {
     "hosted_prefix": "Hosted by:",
-    "archive": "Listen to the archive"
+    "archive": "Listen to the archive",
+    "episodes": "Previous Episodes",
+    "tracklist": "Tracklist",
+    "episode": {
+      "comments": "COMMENTS",
+      "leave_a_comment": "leave a comment....???"
+    }
   },
   "player": {
     "play_button_label": "play",
@@ -412,6 +436,7 @@
     "title": "da fruit standz",
     "new_topic": "NEW TOPIC",
     "aria": "a forum to communicate with your fellow fruits",
+    "login_or_register": "Login or register to post!",
     "form": {
       "title": "post title",
       "body": "what's up"
