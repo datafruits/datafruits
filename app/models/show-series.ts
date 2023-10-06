@@ -2,6 +2,7 @@ import Model, { attr, hasMany } from '@ember-data/model';
 import type ScheduledShowModel from 'datafruits13/models/scheduled-show';
 import type Label from 'datafruits13/models/label';
 import type User from 'datafruits13/models/user';
+import dayjs from 'dayjs';
 
 export default class ShowSeries extends Model {
   @hasMany('scheduled-show', { async: false }) declare episodes: ScheduledShowModel;
@@ -43,6 +44,10 @@ export default class ShowSeries extends Model {
 
   get repeating() {
     return this.recurringInterval != 'not_recurring';
+  }
+
+  get formattedStartDate() {
+    return dayjs(this.startDate).format('YYYY-MM-DD');
   }
 
   get formattedRecurringInterval() {

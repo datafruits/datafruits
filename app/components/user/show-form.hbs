@@ -63,7 +63,7 @@
             @type="date"
             @id="start-date"
             @min={{this.currentDate}}
-            @value={{changeset.startDate}}
+            @value={{changeset.formattedStartDate}}
             {{on "change" (fn this.adjustRecurringForDate changeset)}}
           />
           <TimePicker
