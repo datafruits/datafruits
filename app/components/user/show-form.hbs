@@ -58,14 +58,16 @@
       <div>
         <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.start"}}</label>
         <div class="flex">
-          <Input
-            class="mr-2"
-            @type="date"
-            @id="start-date"
-            @min={{this.currentDate}}
-            @value={{changeset.formattedStartDate}}
-            {{on "change" (fn this.adjustRecurringForDate changeset)}}
-          />
+          {{#if (not @edit)}}
+            <Input
+              class="mr-2"
+              @type="date"
+              @id="start-date"
+              @min={{this.currentDate}}
+              @value={{changeset.formattedStartDate}}
+              {{on "change" (fn this.adjustRecurringForDate changeset)}}
+            />
+          {{/if}}
           <TimePicker
             @property="startTime"
             @changeset={{changeset}}
