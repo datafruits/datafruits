@@ -8,7 +8,7 @@ interface ShowsListArgs {
 export default class ShowsList extends Component<ShowsListArgs> {
   get filteredShows() {
     return this.args.shows.filter((show: ShowSeries) => {
-      return show.status !== "disabled";
+      return show.status !== "disabled" && !show.isNew;
     });
   }
 }
