@@ -83,8 +83,8 @@ export default class UiChangesetFormComponent extends Component<UiChangesetFormS
         console.log('couldnt save changeset');
         console.log(error);
         if (typeof this.args.onError === 'function') {
-          this.args.onError(error.errors);
           this.hasSubmitted = false;
+          this.args.onError(error.errors);
         }
       }
     }
