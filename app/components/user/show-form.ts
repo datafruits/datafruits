@@ -81,6 +81,8 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   onSubmit(result: any, event: any) {
     console.log(result);
     console.log(event);
+    // TODO need to redirect to episode if one off show
+    // was saved
     this.router.transitionTo('home.show', result);
   }
 
