@@ -56,5 +56,6 @@ module.exports = async function ({ _distDir, visit }) {
     }
   }
 
+  console.log('url count: ', urls.length);
   return urls;
 };
