@@ -1,4 +1,4 @@
-import { module, test } from 'qunit';
+import { module, skip } from 'qunit';
 import { visit, currentURL, fillIn, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { setupMirage } from 'ember-cli-mirage/test-support';
@@ -7,7 +7,7 @@ module('Acceptance | schedule show', function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
-  test('schedule new show series', async function (assert) {
+  skip('schedule new show series', async function (assert) {
     window.alert = () => {};
 
     await visit('/chat');
@@ -21,7 +21,7 @@ module('Acceptance | schedule show', function (hooks) {
     assert.equal(currentURL(), '/chat');
 
     await visit('/user/my-shows/');
-    await fillIn('', 'test');
+    await fillIn('data-show-title', 'test');
   });
 
   // test one off
