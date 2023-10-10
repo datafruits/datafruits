@@ -32,12 +32,12 @@ module.exports = async function ({ _distDir, visit }) {
       let dom = new JSDOM(html);
       for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
         if (aTag.href) {
-          if (isValidUrl(aTag)) {
+          if (isValidUrl(aTag) && !urls.include(aTag.href)) {
             urls.push(aTag.href);
           }
         }
       }
-      if (['/podcasts', '/forum', '/wiki'].includes(url)) {
+      if (['/podcasts', '/forum', '/wiki', '/shows'].includes(url)) {
         for (let aTag of [...dom.window.document.querySelectorAll('span.pagination a')]) {
           page = await visit(aTag.href);
           if (page.statusCode === 200) {
@@ -45,7 +45,7 @@ module.exports = async function ({ _distDir, visit }) {
             let dom = new JSDOM(html);
             for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
               if (aTag.href) {
-                if (isValidUrl(aTag)) {
+                if (isValidUrl(aTag) && !urls.include(aTag.href)) {
                   urls.push(aTag.href);
                 }
               }
@@ -56,5 +56,6 @@ module.exports = async function ({ _distDir, visit }) {
     }
   }
 
+  console.log('url count: ', urls.length);
   return urls;
 };
