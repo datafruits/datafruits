@@ -42,6 +42,15 @@
               class="text-l">
               Select recording
             </h3>
+            <label
+              for="use-prerecord">
+              usePrerecordedFileForArchive
+            </label>
+            <input
+              type="checkbox"
+              id="use-prerecord"
+              checked={{changeset.usePrerecordedFileForArchive}}
+              />
             <MyShows::RecordingsSearch
               @changeset={{changeset}}
               />
