@@ -82,7 +82,7 @@ export default class ScheduledShow extends Model {
     if(this.imageUrl) {
       return this.imageUrl;
     } else {
-      return this.showSeries.imageUrl;
+      return this.showSeries.get('imageUrl');
     }
   }
 
