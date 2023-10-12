@@ -59,12 +59,12 @@
         <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.start"}}</label>
         <div class="flex">
           {{#if (not @edit)}}
-            <Input
+            <input
               class="mr-2"
-              @type="date"
-              @id="start-date"
-              @min={{this.currentDate}}
-              @value={{changeset.formattedStartDate}}
+              type="date"
+              id="start-date"
+              min={{this.currentDate}}
+              value={{changeset.formattedStartDate}}
               {{on "change" (fn this.adjustRecurringForDate changeset)}}
             />
           {{/if}}
@@ -79,12 +79,12 @@
             @startTime={{changeset.startTime}}
             />
           {{#if this.shouldShowEndDate}}
-            <Input
+            <input
               class="mr-2"
-              @type="date"
-              @id="end-date"
-              @min={{this.currentDate}}
-              @value={{changeset.endDate}}
+              type="date"
+              id="end-date"
+              min={{this.currentDate}}
+              value={{changeset.endDate}}
             />
           {{/if}}
         </div>

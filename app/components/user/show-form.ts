@@ -81,7 +81,7 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   onSubmit(result: any, event: any) {
     console.log(result);
     console.log(event);
-    this.router.transitionTo('home.show', result);
+    this.router.transitionTo('home.show', result.slug);
   }
 
   @action
@@ -113,6 +113,7 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
         changeset.set('recurringCadence', cadence);
       }
     }
+    changeset.set('startDate', date);
   }
 
   _getWeekdayCadenceInMonth(date: Date): string {
