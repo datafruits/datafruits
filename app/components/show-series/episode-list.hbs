@@ -7,6 +7,10 @@
     {{#each episodes as |episode|}}
       <ShowEpisodeCard @episode={{episode}} />
     {{/each}}
+    <FruitsUi::Pagination
+              @totalPages={{episodes.meta.total_pages}}
+              @page={{@page}}
+              @route="home.show" />
   </await.Fulfilled>
 
   <await.Rejected>

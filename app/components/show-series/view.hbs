@@ -75,6 +75,9 @@
     <h1 class="text-2xl">
       {{t "show.episodes"}}
     </h1>
-    <ShowSeries::EpisodeList @showSeries={{@showSeries}} />
+    <ShowSeries::EpisodeList
+      @showSeries={{@showSeries}}
+      @page={{this.router.currentRoute.queryParams.page}}
+    />
   </div>
 </div>
