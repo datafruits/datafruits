@@ -80,8 +80,9 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   @action
   onSubmit(result: any, event: any) {
     console.log(result);
+    console.log(result.slug);
     console.log(event);
-    this.router.transitionTo('home.show', { title: result.slug });
+    this.router.transitionTo('home.show', result.slug);
   }
 
   @action

@@ -28,4 +28,7 @@ module('Acceptance | schedule show', function (hooks) {
   // test weekly
   // test biweekly
   // test monthly
+  //
+  // skip('edit show series')
+  // skip('edit episode')
 });
