@@ -15,7 +15,8 @@ Router.map(function () {
     this.route('subscribe');
     this.route('shows');
     this.route('show', { path: '/shows/:slug' });
-    this.route('shows.episode', { path: '/shows/:show_title/episodes/:title' });
+    // eslint-disable-next-line ember/routes-segments-snake-case
+    this.route('shows.episode', { path: '/shows/:showSeriesSlug/episodes/:slug' });
     this.route('dj-inquiry');
     this.route('coc');
     this.route('djs');
@@ -33,9 +34,9 @@ Router.map(function () {
       this.route('favorites');
       this.route('my-shows');
       this.route('my-shows.new', { path: 'my-shows/new' });
-      this.route('my-shows.edit', { path: 'my-shows/:title/edit' });
-      this.route('my-shows.episodes', { path: 'my-shows/:title/episodes' });
-      this.route('my-shows.episode', { path: 'my-shows/:show_slug/episode/:title' });
+      this.route('my-shows.edit', { path: 'my-shows/:slug/edit' });
+      this.route('my-shows.episodes', { path: 'my-shows/:slug/episodes' });
+      this.route('my-shows.episode', { path: 'my-shows/:show_slug/episode/:slug' });
       this.route('notifications');
     });
     this.route('site-settings');

@@ -5,7 +5,7 @@ export type HomeUserMyShowsEpisodesRouteModel = Resolved<ReturnType<HomeUserMySh
 
 export default class HomeUserMyShowsEpisodes extends Route {
   model(params: any) {
-    return this.store.findRecord('show-series', params.title, {
+    return this.store.findRecord('show-series', params.slug, {
       adapterOptions: {
         my: true
       }

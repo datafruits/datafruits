@@ -34,10 +34,8 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   }
 
   @action
-  onSubmit(result: any, event: any) {
-    console.log(result);
-    console.log(event);
-    this.router.transitionTo('home.shows.episode', { title: result.slug });
+  onSubmit(result: any) {
+    this.router.transitionTo('home.shows.episode', result);
   }
 
   @action

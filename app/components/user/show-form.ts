@@ -52,21 +52,6 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   }
 
   @action
-  saveShow(event: any) {
-    event.preventDefault();
-    const show = this.args.show;
-    try {
-      show.save().then(() => {
-        alert('saved the show!');
-        this.router.transitionTo('home.show', show.title);
-      });
-    } catch (error) {
-      alert('could not save show :(');
-      console.log(error);
-    }
-  }
-
-  @action
   setRepeating(changeset: BufferedChangeset, event: any) {
     if(event.target.value === 'true') {
       if(changeset.recurringInterval === 'not_recurring') {
@@ -78,10 +63,8 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   }
 
   @action
-  onSubmit(result: any, event: any) {
-    console.log(result);
-    console.log(event);
-    this.router.transitionTo('home.show', { title: result.slug });
+  onSubmit(result: any) {
+    this.router.transitionTo('home.show', result);
   }
 
   @action
