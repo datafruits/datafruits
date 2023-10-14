@@ -15,6 +15,7 @@ Router.map(function () {
     this.route('subscribe');
     this.route('shows');
     this.route('show', { path: '/shows/:slug' });
+    // eslint-disable-next-line ember/routes-segments-snake-case
     this.route('shows.episode', { path: '/shows/:showSeriesSlug/episodes/:slug' });
     this.route('dj-inquiry');
     this.route('coc');
