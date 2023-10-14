@@ -5,9 +5,9 @@ export default class HomeShowsEpisode extends Route {
   @service declare store: any;
 
   model(params: any) {
-    return this.store.findRecord('scheduled-show', params.title, {
+    return this.store.findRecord('scheduled-show', params.slug, {
       adapterOptions: {
-        show_series_id: params.show_title, // :shrug:
+        show_series_id: params.showSeriesSlug, // :shrug:
       },
       include: ['show-series', 'posts']
     });
