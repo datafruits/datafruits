@@ -194,7 +194,8 @@
         "artwork": "Default Artwork",
         "start": "Date/Time",
         "end": "End",
-        "repeating": "Repeating or one off"
+        "repeating": "Repeating or one off",
+        "youtube-link": "Youtube Link"
       }
     },
     "chat": "Chat Preview",
