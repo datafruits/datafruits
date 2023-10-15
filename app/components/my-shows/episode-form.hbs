@@ -51,6 +51,11 @@
             <MyShows::RecordingsSearch
               @changeset={{changeset}}
               />
+            <Form.Input
+              @label={{t "profile.my-shows.form.youtube-link"}}
+              @fieldName="youtubeLink"
+              @containerClass='mb-2'
+            />
             <label for="archive-status">Archive Status</label>
             <select
               id="archive-status"
