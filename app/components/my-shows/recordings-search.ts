@@ -34,6 +34,7 @@ export default class MyShowsRecordingsSearch extends Component<MyShowsRecordings
   _performSearch(term: string, resolve: any, reject: any) {
     this.store.query('recording', { term: term }).then((recordings: any) => {
       this.recordings = recordings;
+      // if show has prerecorded file, add a fake option to use the prerecorded file???
       return resolve(recordings);
     }, reject);
   }
