@@ -38,31 +38,33 @@
               class="text-x">
               ARCHIVE
             </h2>
+            <Form.Checkbox
+              @type="checkbox"
+              @label="Use prerecorded file for archive"
+              id="use-prerecord"
+              @fieldName="usePrerecordedFileForArchive"
+              />
             <h3
               class="text-l">
               Select recording
             </h3>
-            <label
-              for="use-prerecord">
-              usePrerecordedFileForArchive
-            </label>
-            <input
-              type="checkbox"
-              id="use-prerecord"
-              checked={{changeset.usePrerecordedFileForArchive}}
-              />
             <MyShows::RecordingsSearch
               @changeset={{changeset}}
               />
-            <Form.Select
-              @label='Archive Status'
-              @fieldName='status'
-              @options={{this.statusOptions}}
-              @selected={{changeset.status}}
-              as |status|
-              >
-              {{status}}
-            </Form.Select>
+            <label for="archive-status">Archive Status</label>
+            <select
+              id="archive-status"
+              {{on "change" (pick "target.value" (set changeset "status"))}}
+            >
+              {{#each-in this.statusOptions as |key val|}}
+                <option
+                  value="{{val}}"
+                  selected={{eq changeset.status val}}
+                  >
+                  {{key}}
+                </option>
+              {{/each-in}}
+            </select>
           {{else}}
             <h2
               class="text-x">
