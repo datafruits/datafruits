@@ -19,7 +19,7 @@
     </div>
 
     <div
-      id="user-profile-settings-avatar" 
+      id="user-profile-settings-avatar"
       class="flex flex-wrap justify-evenly">
       <div>
         <label class="align-top" for="updateProfilePicture"> {{t "profile.my_pic"}}</label>
@@ -53,10 +53,20 @@
       </div>
     </div>
 
-   
+
     <hr class="my-8"/>
 
     <form {{on "submit" this.saveUser}}>
+
+      <div class="mt-4 flex justify-around">
+        <label class="ml-4 align-top text-white w-1/5">
+          {{t "profile.username"}}
+        </label>
+        <Input
+          class="user-settings-input w-4/5"
+          @value={{this.currentUser.user.username}}
+        />
+      </div>
 
       <div class="flex justify-around">
         <label class="ml-4 align-top text-white w-1/5">
@@ -67,7 +77,7 @@
           @value={{this.currentUser.user.bio}}
         />
       </div>
-    
+
       <div class="mt-4 flex justify-around">
         <label class="ml-4 align-top text-white w-1/5">
           {{t "profile.homepage"}}
@@ -77,9 +87,9 @@
           @value={{this.currentUser.user.homepage}}
         />
       </div>
-    
+
       <br />
-    
+
       <div class="flex flex-wrap justify-evenly">
         <div>
         <label class="align-top text-white">{{t "profile.pronouns"}}</label>
