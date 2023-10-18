@@ -44,6 +44,9 @@
               id="use-prerecord"
               @fieldName="usePrerecordedFileForArchive"
               />
+            {{#if @episode.prerecordTrackFilename}}
+              <span>{{@episode.prerecordTrackFilename}}</span>
+            {{/if}}
             <h3
               class="text-l">
               Select recording
