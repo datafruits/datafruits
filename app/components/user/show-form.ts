@@ -30,7 +30,7 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
     'First',
     'Second',
     'Third',
-    'Forth',
+    'Fourth',
     'Last'
   ];
 
