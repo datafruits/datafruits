@@ -16,9 +16,18 @@ module('Integration | Component | podcast track', function (hooks) {
       title: 'cool track',
     });
 
-    await render(hbs`<PodcastTrack @track={{this.track}} />`);
+    this.set('show', {
+      thumbImageUrl: 'https://dongles.com/cat.png',
+      title: 'cool track',
+      formattedEpisodeTitle: 'cool track 12122024'
+    });
+
+    await render(hbs`<PodcastTrack
+      @track={{this.track}}
+      @show={{this.show}}
+    />`);
 
     assert.true(this.element.textContent.trim().includes('▶︎'));
-    assert.true(this.element.textContent.trim().includes('cool track'));
+    assert.true(this.element.textContent.trim().includes('cool track 12122024'));
   });
 });
