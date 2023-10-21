@@ -10,8 +10,8 @@ export default class MyShowsEpisodeCard extends Component<MyShowsEpisodeCardArgs
   get backgroundStyle() {
     let image;
     const show = this.args.episode;
-    if (show.thumbImageUrl) {
-      image = show.thumbImageUrl;
+    if (show.imageUrl) {
+      image = show.imageUrl;
     // } else if (show.isGuest) {
     //   image = '/assets/images/show_placeholder.jpg';
     // } else if (show.host && show.host.imageUrl) {
@@ -23,10 +23,8 @@ export default class MyShowsEpisodeCard extends Component<MyShowsEpisodeCardArgs
   }
 }
 
-
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     MyShowsEpisodeCard: typeof MyShowsEpisodeCard;
   }
 }
-

@@ -12,15 +12,6 @@ module('Integration | Component | track-uploader', function(hooks) {
 
     await render(hbs`{{track-uploader}}`);
 
-    assert.equal(this.element.textContent?.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#track-uploader}}
-        template block text
-      {{/track-uploader}}
-    `);
-
-    assert.equal(this.element.textContent?.trim(), 'template block text');
+    assert.equal(this.element.textContent?.trim(), 'Choose a track');
   });
 });
