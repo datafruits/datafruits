@@ -7,12 +7,37 @@ export default class HomeUserSettingsController extends Controller {
   currentUser;
 
   greetings = [
-    'hello'
+    '你好',
+    'hello',
+    'hej',
+    'hei',
+    "hola",
+    "bonjour",
+    "ciao",
+    // totally not from chat GPT
+    "guten tag",       // german
+    "olá",             // portuguese
+    "namaste",         // hindi
+    "szia",            // hungarian
+    "zdravo",          // serbian
+    "merhaba",         // turkish
+    "dobrý den",       // czech
+    "hallo",           // dutch
+    "shalom",          // hebrew
+    "salam",           // arabic
+    "kamusta",         // filipino
+    "zdravstvuyte",    // russian
+    "jambo",           // swahili
+    "kia ora",         // maori
+    "こんにちは",
+    "مرحبًا",
+    "안녕하세요",
+    "ʔi, ti dsyaʔyaʔ." // duwamish
   ]
   get randomGreeting() {
     return this.greetings[Math.floor(Math.random() * this.greetings.length)];
   }
-  
+
   availableStyles = [
     'funny',
     'gooey',
