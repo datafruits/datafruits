@@ -1,11 +1,9 @@
-import classic from 'ember-classic-decorator';
 import Route from '@ember/routing/route';
 import ENV from 'datafruits13/config/environment';
 
-@classic
 export default class ShowRoute extends Route {
   model(params) {
-    return this.store.loadRecord('scheduled-show', params.id);
+    return this.store.findRecord('show-series', params.slug);
   }
 
   afterModel(model) {

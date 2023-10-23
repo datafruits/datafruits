@@ -18,7 +18,7 @@ export default class IndexRoute extends Route {
       start: dayjs().format('YYYY-MM-DD'),
       end: dayjs().endOf('month').add(1, 'month').format('YYYY-MM-DD'),
     };
-    const podcast = await this.store.queryRecord('podcast', {
+    const shows = await this.store.query('podcast', {
       name: 'datafruits',
       page: 1,
     });
@@ -26,9 +26,10 @@ export default class IndexRoute extends Route {
       upcomingShows: this.store.loadRecords('scheduled-show', query).then((shows) => {
         return shows.slice(0, 6);
       }),
-      latestPodcasts: podcast.get('tracks').then((tracks) => {
-        return tracks.slice(0, 6);
-      }),
+      latestPodcasts: this.store.query('podcast', {
+      }).then((podcasts) => {
+        return podcasts.slice(0, 6);
+      })
     });
   }
 

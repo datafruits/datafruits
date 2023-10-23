@@ -1,7 +1,14 @@
 import Component from '@glimmer/component';
 import { formatEmojiHtml } from 'datafruits13/helpers/format-emoji-html';
 
-export default class EnableGifsButton extends Component {
+interface ChatEnableGifsButtonSignature {
+  Args: {
+    enabled: unknown;
+    toggleGifs: unknown;
+  };
+}
+
+export default class EnableGifsButton extends Component<ChatEnableGifsButtonSignature> {
 
   get imgOn() {
     return formatEmojiHtml(":frame_photo:")

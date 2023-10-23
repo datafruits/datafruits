@@ -323,4 +323,4 @@ declare module '@glint/environment-ember-loose/registry' {
     DatafruitsPlayer: typeof DatafruitsPlayer;
   }
 }
-  
+

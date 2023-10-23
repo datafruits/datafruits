@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 
 export default class ChatMessage extends Component {
   @tracked gifsEnabled = true;
-  imgRegex = /https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpg|gif|png|webp)(\?.*$)*/;
+  imgRegex = /https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpg|gif|png|webp)(\?.*$)*/i;
   dataRegex = /data:image\/.+;base64,.+/;
   discordRegex = /^New\ msg\ in\ discord\ from\ (.+):\ (.+)$/; // eslint-disable-line no-useless-escape
 
@@ -17,7 +17,7 @@ export default class ChatMessage extends Component {
       this.args.message.role.includes('bot')
     );
   }
-  
+
   get hasImage() {
     return this.imgRegex.test(this.args.message.body);
   }
@@ -39,7 +39,7 @@ export default class ChatMessage extends Component {
 
     return ""
   }
-  
+
   get messageText() {
     var body = this.args.message.body;
 
@@ -56,7 +56,7 @@ export default class ChatMessage extends Component {
   get fromDiscord() {
     return this.discordRegex.test(this.args.message.body) && this.args.message.user == "coach";
   }
-  
+
   get discordUser() {
     return this.args.message.body.match(this.discordRegex)[1];
   }
@@ -78,4 +78,4 @@ declare module '@glint/environment-ember-loose/registry' {
     ChatMessage: typeof ChatMessage;
   }
 }
-  
+

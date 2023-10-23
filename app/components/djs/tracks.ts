@@ -5,12 +5,14 @@ import Store from '@ember-data/store';
 import RouterService from '@ember/routing/router-service';
 import Dj from 'datafruits13/models/dj';
 
-interface DjsTracksArgs {
-  page: string;
-  dj: Dj;
+interface DjsTracksSignature {
+  Args: {
+    page: string;
+    dj: Dj;
+  };
 }
 
-export default class DjsTracks extends Component<DjsTracksArgs> {
+export default class DjsTracks extends Component<DjsTracksSignature> {
   @service declare store: Store;
   @service declare router: RouterService;
 

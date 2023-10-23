@@ -12,11 +12,13 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(localizedFormat);
 
-interface PostArgs {
-  post: PostModel;
+interface PostSignature {
+  Args: {
+    post: PostModel;
+  };
 }
 
-export default class Post extends Component<PostArgs> {
+export default class Post extends Component<PostSignature> {
   get body(): SafeString {
     return htmlSafe(emojione.shortnameToImage(this.args.post.body));
   }

@@ -297,6 +297,7 @@ form {
   }
   .error {
     @apply text-red bg-white rounded-sm p-1;
+    text-shadow: none;
   }
 }
 
@@ -337,6 +338,10 @@ form {
 .ember-power-select-selected-item {
   text-shadow: none !important;
   color: black
+}
+
+.ember-power-select-trigger {
+  padding: 0.25rem;
 }
 
 .fc-center {
@@ -725,9 +730,9 @@ body::-webkit-scrollbar-thumb {
   @apply classic:bg-df-pink blm:bg-black trans:bg-df-blue border-solid border-2 border-df-blue text-white;
 }
 
-.ember-power-select-selected-item {
-  color: white;
-}
+// .ember-power-select-selected-item {
+//   color: white;
+// }
 
 .about-section {
   @apply my-4 md:mx-4;

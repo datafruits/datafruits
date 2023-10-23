@@ -10,6 +10,7 @@ declare const config: {
   rootURL: string;
   APP: Record<string, unknown>;
   API_HOST: string;
+  headTags: any;
   STREAM_NAME: string;
   STREAM_HOST: string;
 };

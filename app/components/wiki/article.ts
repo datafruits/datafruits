@@ -4,11 +4,13 @@ import { SafeString } from 'handlebars';
 import emojione from 'emojione';
 import { inject as service } from '@ember/service';
 
-interface WikiArticleArgs {
-  page: any;
+interface WikiArticleSignature {
+  Args: {
+    page: any;
+  };
 }
 
-export default class WikiArticle extends Component<WikiArticleArgs> {
+export default class WikiArticle extends Component<WikiArticleSignature> {
   @service declare session: any;
 
   get body(): SafeString {

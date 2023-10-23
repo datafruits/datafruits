@@ -1,0 +1,16 @@
+<div
+  {{did-insert this.setInitialTime}}
+  class="w-32 text-black">
+  <PowerSelect
+    @searchEnabled={{true}}
+    @renderInPlace={{true}}
+    @selected={{this.selected}}
+    @onChange={{this.setTime}}
+    @options={{this.availableTimes}} as |time|
+  >
+    {{time}}
+    {{#if @startTime}}
+      {{length-in-hours @startTime time}} hours
+    {{/if}}
+  </PowerSelect>
+</div>
