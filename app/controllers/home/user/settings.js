@@ -179,7 +179,8 @@ export default class HomeUserSettingsController extends Controller {
     // yoruba
     "kaabo",
     // zulu
-    "sawubona"
+    "sawubona",
+    "مرحبًا",
   ]
 
   get randomGreeting() {
