@@ -8,11 +8,19 @@
   {{#if this.canShowAvatar}}
     {{#if @message.avatarUrl}}
       <span class="mr-2" data-test-avatar>
-        <img style="height: 20px;" src="{{@message.avatarUrl}}" alt={{@message.user}} / >
+        <img
+          class="inline rounded-md"
+          style="height: 20px;"
+          src="{{@message.avatarUrl}}"
+          alt={{@message.user}} / >
       </span>
     {{else}}
       <span class="mr-2" data-test-avatar>
-        <img style="height: 20px;" src="/assets/images/show_placeholder.jpg" alt={{@message.user}} / >
+        <img
+          class="inline rounded-md"
+          style="height: 20px;"
+          src="/assets/images/show_placeholder.jpg"
+          alt={{@message.user}} / >
       </span>
     {{/if}}
   {{/if}}
@@ -27,7 +35,7 @@
       @avatarUrl={{@message.avatarUrl}}
       />
   </span>
-  
+
   {{#if this.fromDiscord}}
     <a class="mr-2"
       href="https://discord.gg/83mteTQDvu"

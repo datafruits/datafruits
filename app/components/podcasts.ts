@@ -1,14 +1,19 @@
 import { action } from '@ember/object';
+import type Store from '@ember-data/store';
+import type RouterService from '@ember/routing/router-service';
 import { inject as service } from '@ember/service';
-import { hash } from 'rsvp';
+//import { hash } from 'rsvp';
 import Component from '@glimmer/component';
 
-export default class PodcastsSearch extends Component {
-  @service
-  store;
+interface PodcastsSearchArgs {
+  labels: [any];
+  query: any;
+}
 
-  @service
-  router;
+export default class PodcastsSearch extends Component<PodcastsSearchArgs> {
+  @service declare store: Store;
+
+  @service declare router: RouterService;
 
   get labelNames() {
     return this.args.labels.map(function (label) {
@@ -28,21 +33,14 @@ export default class PodcastsSearch extends Component {
   @action
   fetchPodcasts() {
     const query = this.args.query;
-    let podcastsPromise = this.store.queryRecord('podcast', query).then((podcast) => {
-      return hash({
-        tracks: podcast.get('tracks'),
-        meta: podcast.meta,
-      });
-    });
+    const podcastsPromise = this.store.query('podcast', query);
 
     return podcastsPromise;
   }
 }
-
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     PodcastsSearch: typeof PodcastsSearch;
   }
 }
-  

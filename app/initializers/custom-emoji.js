@@ -40,7 +40,6 @@ export function initialize(/* application */) {
     },
     ':trekkie:': {
       custom: true,
-
       uc_base: 'trekkie',
       uc_output: '',
       shortnames: [':trekkie:', ':trekkietrax:'],
@@ -179,6 +178,14 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':limer:'],
       keywords: ['limer'],
+    },
+    ':dragion-fruit:': {
+      custom: true,
+      animated: true,
+      uc_base: 'dragion-fruit',
+      uc_output: '',
+      shortnames: [':dragion-fruit:'],
+      keywords: ['dragion-fruit'],
     },
     ':miniburger:': {
       custom: true,
@@ -431,6 +438,34 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':lain_dad:'],
       keywords: ['lain_dad'],
+    },
+    ':php_ceo:': {
+      custom: true,
+      uc_base: 'php_ceo',
+      uc_output: '',
+      shortnames: [':php_ceo:'],
+      keywords: ['php_ceo'],
+    },
+    ':airhorn:': {
+      custom: true,
+      uc_base: 'airhorn',
+      uc_output: '',
+      shortnames: [':airhorn:'],
+      keywords: ['airhorn'],
+    },
+    ':krango:': {
+      custom: true,
+      uc_base: 'krango',
+      uc_output: '',
+      shortnames: [':krango:'],
+      keywords: ['krango'],
+    },
+    ':thanksbill:': {
+      custom: true,
+      uc_base: 'thanksbill',
+      uc_output: '',
+      shortnames: [':thanksbill:'],
+      keywords: ['thanksbill'],
     },
   };
 

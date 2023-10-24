@@ -27,4 +27,4 @@ declare module '@glint/environment-ember-loose/registry' {
     TvModeButton: typeof TvModeButton;
   }
 }
-  
+

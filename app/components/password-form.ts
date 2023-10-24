@@ -4,11 +4,13 @@ import { tracked } from '@glimmer/tracking';
 import ENV from 'datafruits13/config/environment';
 import fetch from 'fetch';
 
-interface PasswordFormArgs {
-  token: string
+interface PasswordFormSignature {
+  Args: {
+    token: string;
+  };
 }
 
-export default class PasswordForm extends Component<PasswordFormArgs> {
+export default class PasswordForm extends Component<PasswordFormSignature> {
   passwordResetUrl = `${ENV.API_HOST}/users/password`;
 
   @tracked password: string = "";

@@ -11,7 +11,13 @@ import Gif from 'datafruits13/models/gif';
 import { next } from '@ember/runloop';
 import { isEmpty } from '@ember/utils';
 
-export default class ChatInputMessage extends Component {
+interface ChatInputMessageSignature {
+  Args: {
+    isOffline: unknown;
+  };
+}
+
+export default class ChatInputMessage extends Component<ChatInputMessageSignature> {
   @service declare chat: ChatService;
 
   @service declare currentUser: CurrentUserService;

@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { debounce } from '@ember/runloop';
+import { htmlSafe } from '@ember/template';
 
 export default class PodcastTrack extends Component {
   constructor(owner, args) {
@@ -32,7 +33,7 @@ export default class PodcastTrack extends Component {
   play() {
     this.playing = true;
     this.paused = false;
-    this.eventBus.publish('trackPlayed', { title: this.args.track.title, cdnUrl: this.args.track.cdnUrl, id: this.args.track.id });
+    this.eventBus.publish('trackPlayed', { title: this.args.show.formattedEpisodeTitle, cdnUrl: this.args.track.cdnUrl, id: this.args.show.id });
     //
   }
 
@@ -101,12 +102,26 @@ export default class PodcastTrack extends Component {
 
     return this.currentUser.user.trackFavorites.map((favorite) => favorite.trackId).includes(parseInt(id));
   }
-}
 
+  get backgroundStyle() {
+    let image;
+    const show = this.args.show;
+    if (show.thumbImageUrl) {
+      image = show.thumbImageUrl;
+    // } else if (show.isGuest) {
+    //   image = '/assets/images/show_placeholder.jpg';
+    // } else if (show.host && show.host.imageUrl) {
+    //   image = show.host.imageUrl;
+    } else {
+      image = '/assets/images/show_placeholder.jpg';
+    }
+    return htmlSafe(`background-image: url('${image}');`);
+  }
+}
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     PodcastTrack: typeof PodcastTrack;
   }
 }
-  
+

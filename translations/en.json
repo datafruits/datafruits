@@ -131,6 +131,10 @@
     "title": "Fruits",
     "aria": "Browse DJs who perform on datafruits.fm"
   },
+  "shows": {
+    "title": "Shows",
+    "aria": "Browse shows on datafruits.fm"
+  },
   "nav_toggle": "Toggle navigation",
   "radio": {
     "title": "Radio",
@@ -189,6 +193,22 @@
     "my_favorites": "My Favorite",
     "my_pic": "Update Avatar",
     "settings": "Profile Settings",
+    "username": "Username",
+    "my-shows": {
+      "title": "My Shows",
+      "edit": "EDIT",
+      "new": "Your New Show...begins here",
+      "episodes": "EPISODES",
+      "form": {
+        "title": "Title",
+        "description": "Description",
+        "artwork": "Default Artwork",
+        "start": "Date/Time",
+        "end": "End",
+        "repeating": "Repeating or one off",
+        "youtube-link": "Youtube Link"
+      }
+    },
     "chat": "Chat Preview",
     "chat_test": "This is a test message",
     "style": "Style",
@@ -311,8 +331,8 @@
     "aria": "Message datafruits by email"
   },
   "patron": {
-    "title": "Ampled",
-    "aria": "Vist the datafruits.fm Ampled page to learn more about supporting the site"
+    "title": "Patreon",
+    "aria": "Vist the datafruits.fm Patreon page to learn more about supporting the site"
   },
   "secret": "secret",
   "thanks_patrons": "THANKS TO ALL THE PATRONS!",
@@ -328,7 +348,13 @@
   },
   "show": {
     "hosted_prefix": "Hosted by:",
-    "archive": "Listen to the archive"
+    "archive": "Listen to the archive",
+    "episodes": "Previous Episodes",
+    "tracklist": "Tracklist",
+    "episode": {
+      "comments": "COMMENTS",
+      "leave_a_comment": "leave a comment....???"
+    }
   },
   "player": {
     "play_button_label": "play",
@@ -356,7 +382,7 @@
     "label": "Theme"
   },
   "about_page": {
-    "listenersupport": "Datafruits.fm is possible thanks to the generous support of the listeners. The best way to support us is with a monthly pledge of your choosing on Ampled. You'll get exclusive posts along with a monthly update video. You will also get 1000 fruit tickets per month, along with a cool supporter badge in your profile. Neat!",
+    "listenersupport": "Datafruits.fm is possible thanks to the generous support of the listeners. The best way to support us is with a monthly pledge of your choosing on Patreon. You'll get exclusive posts along with a monthly update video. You will also get 1000 fruit tickets per month, along with a cool supporter badge in your profile. Neat!",
     "donate_request": "If you'd like to make an one-time donation.",
     "donate_linktext": "https://paypal.me/datafruitsfm",
     "donate_aria": "Make a donation to datafruits.fm through PayPal"
@@ -410,7 +436,7 @@
     "dj_link": "The current DJ's donation link is here:"
   },
   "hack": {
-    "title": "EXPO"
+    "title": "HACK"
   },
   "microtext": {
     "we_need_it": "we need your datafruit. please add it.",
@@ -422,9 +448,14 @@
     "title": "da fruit standz",
     "new_topic": "NEW TOPIC",
     "aria": "a forum to communicate with your fellow fruits",
+    "login_or_register": "Login or register to post!",
     "form": {
       "title": "post title",
       "body": "what's up"
     }
+  },
+  "fruit-tickets": {
+    "amount": "How much fruit tix to give?",
+    "submit": "Say goodbye to your precious fruit tix"
   }
 }

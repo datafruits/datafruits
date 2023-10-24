@@ -25,4 +25,4 @@ declare module '@glint/environment-ember-loose/registry' {
     BuddyListButton: typeof BuddyListButton;
   }
 }
-  
+

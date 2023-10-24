@@ -15,4 +15,4 @@ declare module '@glint/environment-ember-loose/registry' {
     RandomPasswordMessage: typeof RandomPasswordMessage;
   }
 }
-  
+
