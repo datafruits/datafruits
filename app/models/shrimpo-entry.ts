@@ -8,6 +8,8 @@ export default class ShrimpoEntry extends Model {
 
   @attr('string') declare title: string;
   @attr('string') declare description: string;
+
+  @attr('string') declare audioFile: string;
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

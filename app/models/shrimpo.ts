@@ -18,7 +18,7 @@ export default class Shrimpo extends Model {
   @attr('string') declare status: 'running' | 'voting' | 'completed';
   @attr('string') declare slug: string;
 
-  @attr('string') declare length: string;
+  @attr('string') declare duration: string;
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

@@ -30,7 +30,7 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
 
   @action
   setLength(changeset: BufferedChangeset, event: any){
-    changeset.set('length', event.target.value);
+    changeset.set('duration', event.target.value);
   }
 
   @action
@@ -66,6 +66,5 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
         });
       }
     }
-
   }
 }

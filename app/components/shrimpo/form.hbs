@@ -22,12 +22,26 @@
       cols='50'
       />
     <div>
+      <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.start"}}</label>
+      <input
+        class="mr-2"
+        type="date"
+        id="start-date"
+        min={{this.currentDate}}
+        value={{changeset.startAt}}
+      />
+      <TimePicker
+        @property="startAt"
+        @changeset={{changeset}}
+        />
+    </div>
+    <div>
       <select
         id="length"
         {{on "change" (fn this.setLength changeset)}}
         >
         {{#each this.lengths as |length|}}
-          <option value="{{length}}" selected={{(eq changeset.length length)}}>{{length}}</option>
+          <option value="{{length}}" selected={{(eq changeset.duration length)}}>{{length}}</option>
         {{/each}}
       </select>
     </div>
