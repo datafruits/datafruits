@@ -1,23 +1,28 @@
 import Route from '@ember/routing/route';
 import ENV from 'datafruits13/config/environment';
+import { metaToHeadTags } from 'ember-cli-meta-tags';
 
 export default class ShowRoute extends Route {
+  meta() {
+    return metaToHeadTags({
+      property: {
+          'twitter:title': `datafruits.fm - ${this.model.title}`,
+      },
+    });
+  }
+
   model(params) {
     return this.store.findRecord('show-series', params.slug);
   }
 
-  afterModel(model) {
-    this.setHeadTags(model);
-  }
+  // afterModel(model) {
+  //   this.setHeadTags(model);
+  // }
 
   setHeadTags(model) {
     const headTags = {
-      title: {
-        type: 'meta',
-        attrs: {
-          name: 'twitter:title',
-          content: `datafruits.fm - ${model.title}`,
-        },
+      property: {
+          'twitter:title': `datafruits.fm - ${model.title}`,
       },
     };
     if (model.description) {
@@ -49,6 +54,6 @@ export default class ShowRoute extends Route {
     }
 
     // TODO extract this to a function...
-    this.headTags = Object.values({ ...ENV.headTags, ...headTags });
+    //this.headTags = Object.values({ ...ENV.headTags, ...headTags });
   }
 }
