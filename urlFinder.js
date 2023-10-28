@@ -21,7 +21,8 @@ module.exports = async function ({ _distDir, visit }) {
     '/chat',
     '/sign-up',
     '/forum',
-    '/wiki'
+    '/wiki',
+    '/shows'
   ];
 
   // need to recursively crawl all the links on every page somehow
