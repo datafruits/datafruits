@@ -29,9 +29,9 @@ module.exports = function (defaults) {
       useAppVersion: true,
     },
 
-    // prember: {
-    //   urls: urlFinder,
-    // },
+    prember: {
+      urls: urlFinder,
+    },
 
     // Add options here
     fingerprint: fingerprintOptions,
