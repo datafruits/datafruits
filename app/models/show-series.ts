@@ -46,10 +46,6 @@ export default class ShowSeries extends Model {
     return this.recurringInterval != 'not_recurring';
   }
 
-  get formattedStartDate() {
-    return dayjs(this.startDate).format('YYYY-MM-DD');
-  }
-
   get formattedRecurringInterval() {
     return `${this.recurringInterval}ly`;
   }
