@@ -1,7 +1,28 @@
-<HeadTags @headTags={{this.model.headTags}} />
-<meta name="og:title" content={{this.model.title}} />
-<meta name="og:description" content={{this.model.description}} />
+{{#if this.model.title}}
+  <meta name="og:title" content={{this.model.title}} />
+  <meta name="twitter:title" content={{this.model.title}} />
+{{else}}
+  <meta property="og:title" content="datafruits.fm" />
+  <meta property="twitter:title" content="datafruits.fm" />
+{{/if}}
 
-<meta name="twitter:title" content={{this.model.title}} />
-<meta name="twitter:description" content={{this.model.description}} />
-<meta name="twitter:image" content={{this.model.image}} />
+{{#if this.model.description}}
+  <meta name="og:description" content={{this.model.description}} />
+  <meta name="twitter:description" content={{this.model.description}} />
+{{else}}
+  <meta
+    property="og:description"
+    content="DATAFRUITS.FM is the world wide web's wackiest radio station. It's just a website."
+  />
+  <meta
+    property="twitter:description"
+    content="DATAFRUITS.FM is the world wide web's wackiest radio station. It's just a website."
+  />
+{{/if}}
+
+{{#if this.model.image}}
+  <meta name="twitter:image" content={{this.model.image}} />
+  <meta name="og:image" content={{this.model.description}} />
+{{else}}
+  <meta property="og:image" content="{{rootURL}}assets/images/logo.png" />
+{{/if}}
