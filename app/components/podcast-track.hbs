@@ -69,27 +69,7 @@
         </span>
       </div>
       {{#each @show.labels as |label|}}
-      <a
-        {{on "click" (fn this.selectLabel label.name)}}
-        href="#"
-        class="track-label
-              text-df-yellow
-              classic:bg-df-pink
-              blm:bg-black
-              hover:text-white
-              p-0.5
-              p-x-1
-              sm:p-1
-              sm:p-x-2
-              sm:text-base
-              uppercase
-              border-solid
-              border-white
-              border
-              sm:border-2
-              font-extrabold" >
-          {{label.name}}
-        </a>
+        <TrackLabel @label={{label}} />
       {{/each}}
     </div>
   </div>
