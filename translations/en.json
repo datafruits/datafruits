@@ -377,6 +377,9 @@
     "donate_linktext": "https://paypal.me/datafruitsfm",
     "donate_aria": "Make a donation to datafruits.fm through PayPal"
   },
+  "support": {
+    "title": "$"
+  },
   "coc": {
     "pledge": {
       "title": "Our Pledge",
