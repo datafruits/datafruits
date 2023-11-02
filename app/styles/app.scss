@@ -467,6 +467,9 @@ form {
 
 .wiki-article {
   @include cool-border;
+  img {
+    max-height: 550px;
+  }
 }
 
 .show-info {
