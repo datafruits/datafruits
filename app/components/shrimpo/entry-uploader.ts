@@ -5,22 +5,37 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { BufferedChangeset } from 'ember-changeset/types';
 import type ShrimpoEntry from 'datafruits13/models/shrimpo-entry';
+import type Shrimpo from 'datafruits13/models/shrimpo';
 import ENV from 'datafruits13/config/environment';
 
-interface ShrimpoEntryUploaderArgs {}
+interface ShrimpoEntryUploaderArgs {
+  shrimpo: Shrimpo;
+}
 
 export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploaderArgs> {
   ShrimpoEntryValidations = ShrimpoEntryValidations
 
   @service declare activeStorage: any;
   @service declare store: any;
+  @service declare currentUser: any;
+
   @tracked uploadProgress = 0;
 
   @tracked entry: ShrimpoEntry;
 
   constructor(owner: unknown, args: any) {
     super(owner, args);
-    this.entry = this.store.createRecord('shrimpo-entry');
+    const myEntry = this.args.shrimpo.get('shrimpoEntries').filter((e: ShrimpoEntry) => {
+      return e.username === this.currentUser.user.username;
+    });
+    console.log(myEntry);
+    if(myEntry.length) {
+      this.entry = myEntry[0];
+    } else {
+      this.entry = this.store.createRecord('shrimpo-entry', {
+        shrimpo: this.args.shrimpo
+      });
+    }
   }
 
   @action

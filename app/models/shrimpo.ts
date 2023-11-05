@@ -1,10 +1,10 @@
-import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
+import Model, { attr, hasMany, belongsTo, type SyncHasMany } from '@ember-data/model';
 import type ShrimpoEntry from './shrimpo-entry';
 import type User from './user';
 
 export default class Shrimpo extends Model {
   @belongsTo('user') declare user: User;
-  @hasMany('shrimpo-entry') declare shrimpoEntries: ShrimpoEntry;
+  @hasMany('shrimpo-entry', { async: false }) declare shrimpoEntries: SyncHasMany<ShrimpoEntry>;
   @attr('string') declare title: string;
   @attr('string', { defaultValue: (new Date()).toISOString()}) declare startAt: string;
   @attr('string') declare endAt: string;

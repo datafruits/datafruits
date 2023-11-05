@@ -5,8 +5,8 @@ import ApplicationAdapter from './application';
 export default class Shrimpo extends ApplicationAdapter {
   namespace = 'api';
 
-  urlForCreateRecord() {
-    let shrimpoId = 1 // TODO
+  urlForCreateRecord(modelName, snapshot) {
+    let shrimpoId = snapshot.belongsTo('shrimpo').attributes().slug;
     return `${this.urlPrefix()}/shrimpos/${shrimpoId}/shrimpo_entries`;
   }
 }
