@@ -10,8 +10,10 @@
       />
     <div>
       <label>
-        Upload file plz
-        <input type="file" {{on "change" (fn this.uploadEntry changeset)}}>
+        Upload file plz (mp3 only)
+        <input
+          type="file"
+          {{on "change" (fn this.uploadEntry changeset)}}>
       </label>
       {{this.uploadProgress}}
     </div>

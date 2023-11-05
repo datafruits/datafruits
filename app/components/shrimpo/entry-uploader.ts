@@ -44,6 +44,12 @@ export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploader
       const directUploadURL = `${ENV.API_HOST}/rails/active_storage/direct_uploads`;
 
       for (let i = 0; i < files.length; i++) {
+        const validMimeTypes = ['audio/mp3', 'audio/mpeg'];
+        if(!validMimeTypes.includes(files.item(i)?.type as string)) {
+          alert('Only mp3 is supported! sorry...');
+          return;
+        }
+
         this.activeStorage
         .upload(files.item(i), directUploadURL, {
           onProgress: (progress: any) => {
