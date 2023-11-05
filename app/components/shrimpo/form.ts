@@ -37,7 +37,7 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
   onSubmit(data: any, event: Event) {
     console.log(data);
     console.log(event);
-    this.router.transitionTo('home.shrimpo.show', data.slug);
+    this.router.transitionTo('home.shrimpos.show', data.slug);
   }
 
   @action
