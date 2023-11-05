@@ -467,6 +467,9 @@ form {
 
 .wiki-article {
   @include cool-border;
+  img {
+    max-height: 550px;
+  }
 }
 
 .show-info {
@@ -734,10 +737,10 @@ body::-webkit-scrollbar-thumb {
 //   color: white;
 // }
 
-.about-section {
-  @apply my-4 md:mx-4;
+.about-section, .support-section {
+  @apply my-4 md:mx-4 lg:mx-20;
 }
-.about-section-text {
+.about-section-text, .support-section-text {
   @apply md:mx-8;
 }
 .about-section-text > p,

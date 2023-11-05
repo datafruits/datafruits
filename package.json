@@ -108,7 +108,7 @@
     "ember-cli-htmlbars": "^6.0.1",
     "ember-cli-inject-live-reload": "2.1.0",
     "ember-cli-marked-down": "^3.16.0",
-    "ember-cli-meta-tags": "^6.2.0",
+    "ember-cli-meta-tags": "^7.0.0",
     "ember-cli-mirage": "2.4.0",
     "ember-cli-netlify": "^0.4.1",
     "ember-cli-new-version": "^4.1.0",
