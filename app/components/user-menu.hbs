@@ -51,13 +51,15 @@
         </LinkTo>
       </span>
     </li>
-    <li class="hover:bg-df-blue rounded px-2 py-1">
-      <span
-          {{on "click" @toggleUserMenu}}
-        >
-        <LinkTo @route="home.user.my-shows">{{t "profile.my-shows.title"}}</LinkTo>
-      </span>
-    </li>
+    {{#if (includes 'dj' this.currentUser.user.roles)}}
+      <li class="hover:bg-df-blue rounded px-2 py-1">
+        <span
+            {{on "click" @toggleUserMenu}}
+          >
+          <LinkTo @route="home.user.my-shows">{{t "profile.my-shows.title"}}</LinkTo>
+        </span>
+      </li>
+    {{/if}}
     <li class="h-1 bg-df-green"></li>
     <li class="hover:bg-df-blue rounded px-2 py-1">
       <a href="#" {{on "click" this.logout}}>{{t "usermenu.logout"}}</a>

@@ -179,6 +179,14 @@ export function initialize(/* application */) {
       shortnames: [':limer:'],
       keywords: ['limer'],
     },
+    ':dragion-fruit:': {
+      custom: true,
+      animated: true,
+      uc_base: 'dragion-fruit',
+      uc_output: '',
+      shortnames: [':dragion-fruit:'],
+      keywords: ['dragion-fruit'],
+    },
     ':miniburger:': {
       custom: true,
       uc_base: 'miniburger',

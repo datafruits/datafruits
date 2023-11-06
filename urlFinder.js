@@ -21,9 +21,10 @@ module.exports = async function ({ _distDir, visit }) {
     '/chat',
     '/sign-up',
     '/forum',
-    '/wiki'
+    '/wiki',
+    '/shows',
+    '/support'
   ];
-
   // need to recursively crawl all the links on every page somehow
   for (const url of urls) {
     let page = await visit(url);
@@ -32,7 +33,7 @@ module.exports = async function ({ _distDir, visit }) {
       let dom = new JSDOM(html);
       for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
         if (aTag.href) {
-          if (isValidUrl(aTag) && !urls.include(aTag.href)) {
+          if (isValidUrl(aTag) && !urls.includes(aTag.href)) {
             urls.push(aTag.href);
           }
         }
@@ -45,7 +46,7 @@ module.exports = async function ({ _distDir, visit }) {
             let dom = new JSDOM(html);
             for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
               if (aTag.href) {
-                if (isValidUrl(aTag) && !urls.include(aTag.href)) {
+                if (isValidUrl(aTag) && !urls.includes(aTag.href)) {
                   urls.push(aTag.href);
                 }
               }

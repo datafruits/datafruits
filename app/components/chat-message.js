@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 
 export default class ChatMessage extends Component {
   @tracked gifsEnabled = true;
-  imgRegex = /https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpg|gif|png|webp)(\?.*$)*/i;
+  imgRegex = /https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpg|jpeg|gif|png|webp)(\?.*$)*/i;
   dataRegex = /data:image\/.+;base64,.+/;
   discordRegex = /^New\ msg\ in\ discord\ from\ (.+):\ (.+)$/; // eslint-disable-line no-useless-escape
 

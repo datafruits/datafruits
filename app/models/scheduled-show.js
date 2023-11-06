@@ -78,11 +78,17 @@ export default class ScheduledShow extends Model {
   @attr
   prerecordTrackFilename;
 
+  @attr
+  usePrerecordedFileForArchive;
+
+  @attr
+  youtubeLink;
+
   get imageOrDefault() {
     if(this.imageUrl) {
       return this.imageUrl;
     } else {
-      return this.showSeries.imageUrl;
+      return this.showSeries.get('imageUrl');
     }
   }
 

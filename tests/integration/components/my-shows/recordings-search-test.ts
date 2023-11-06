@@ -13,14 +13,5 @@ module('Integration | Component | my-shows/recordings-search', function(hooks) {
     await render(hbs`{{my-shows/recordings-search}}`);
 
     assert.equal(this.element?.textContent?.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#my-shows/recordings-search}}
-        template block text
-      {{/my-shows/recordings-search}}
-    `);
-
-    assert.equal(this.element?.textContent?.trim(), 'template block text');
   });
 });

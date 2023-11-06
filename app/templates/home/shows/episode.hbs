@@ -5,6 +5,7 @@
       <h1 class="text-3xl">
         {{this.model.title}}
       </h1>
+      <strong>Air date:</strong> {{format-day this.model.start}} - {{format-time this.model.start}}
       {{#if (or (eq this.currentUser.user.username this.model.hostedBy) (includes 'admin' this.currentUser.user.roles))}}
         <div class="my-2">
           <LinkTo
@@ -27,7 +28,7 @@
           @show={{this.model}}
           />
       {{/each}}
-      <p>
+      <p class="wiki-article uppercase text-2xl p-2 mb-4">
         Check out more episodes of
         <LinkTo
           @route="home.show"
@@ -35,26 +36,6 @@
           {{this.model.showSeriesTitle}}
         </LinkTo>
       </p>
-      <div class="">
-        {{#each this.model.labels as |label|}}
-          <a
-            class="track-label
-              text-df-yellow
-              classic:bg-df-pink
-              blm:bg-black
-              hover:text-white
-              p-1
-              uppercase
-              border-solid
-              border-white
-              border-2
-              p-x-2
-              font-extrabold"
-            href="#">
-            {{label.name}}
-          </a>
-        {{/each}}
-      </div>
       <div>
         <h1>{{t "show.episode.comments"}}</h1>
         <section>

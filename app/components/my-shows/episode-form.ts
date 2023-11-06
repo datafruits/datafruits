@@ -12,10 +12,10 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
 
   file: Blob | null = null;
 
-  statusOptions: string[] = [
-    "archive_published",
-    "archive_unpublished"
-  ];
+  statusOptions = {
+    "Published": "archive_published",
+    "Unpublished": "archive_unpublished"
+  };
 
   @action updateFile(e: any){
     this.file = e.target.files[0];
@@ -34,9 +34,7 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   }
 
   @action
-  onSubmit(result: any, event: any) {
-    console.log(result);
-    console.log(event);
+  onSubmit(result: any) {
     this.router.transitionTo('home.shows.episode', result);
   }
 

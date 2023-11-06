@@ -12,15 +12,6 @@ module('Integration | Component | labels-select', function(hooks) {
 
     await render(hbs`{{labels-select}}`);
 
-    assert.equal(this.element?.textContent?.trim(), '');
-
-    // Template block usage:
-    await render(hbs`
-      {{#labels-select}}
-        template block text
-      {{/labels-select}}
-    `);
-
-    assert.equal(this.element?.textContent?.trim(), 'template block text');
+    assert.equal(this.element?.textContent?.trim(), 'Tags');
   });
 });

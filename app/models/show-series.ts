@@ -2,7 +2,6 @@ import Model, { attr, hasMany } from '@ember-data/model';
 import type ScheduledShowModel from 'datafruits13/models/scheduled-show';
 import type Label from 'datafruits13/models/label';
 import type User from 'datafruits13/models/user';
-import dayjs from 'dayjs';
 
 export default class ShowSeries extends Model {
   @hasMany('scheduled-show', { async: false }) declare episodes: ScheduledShowModel;
@@ -14,7 +13,7 @@ export default class ShowSeries extends Model {
 
   @attr('string') declare recurringInterval: 'not_recurring' | 'week' | 'biweek' | 'month';
   @attr('string') declare recurringWeekday: 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday';
-  @attr('string') declare recurringCadence: 'First' | 'Second' | 'Third' | 'Forth' | 'Last';
+  @attr('string') declare recurringCadence: 'First' | 'Second' | 'Third' | 'Fourth' | 'Last';
 
   @attr('string') declare image: string;
   @attr('string') declare imageFilename: string;
@@ -44,10 +43,6 @@ export default class ShowSeries extends Model {
 
   get repeating() {
     return this.recurringInterval != 'not_recurring';
-  }
-
-  get formattedStartDate() {
-    return dayjs(this.startDate).format('YYYY-MM-DD');
   }
 
   get formattedRecurringInterval() {
