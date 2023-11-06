@@ -1,5 +1,5 @@
 <section class="page-spacing">
-  <h1>{{this.model.title}}</h1>
+  <h1 class="text-4xl">{{this.model.title}}</h1>
 
   {{#if (eq this.model.status 'completed')}}
     <h3>Listen Entries</h3>
@@ -7,7 +7,7 @@
       <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
     {{/each}}
   {{else if (eq this.model.status 'running')}}
-    Time left: {{this.model.timeleft}}
+    <Shrimpo::Countdown @endAt={{this.model.endAt}} />
 
     {{#if this.session.isAuthenticated}}
       <h2>SUBMIT ENTRY</h2>
