@@ -65,11 +65,13 @@
           </span>
           <div class="p-2">
             {{#each result as |show|}}
-              <PodcastTrack
-                @track={{show.tracks.firstObject}}
-                @show={{show}}
-                @selectedLabels={{this.selectedLabels}}
-                @search={{await.reload}} />
+              {{#if show.tracks.firstObject}}
+                <PodcastTrack
+                  @track={{show.tracks.firstObject}}
+                  @show={{show}}
+                  @selectedLabels={{this.selectedLabels}}
+                  @search={{await.reload}} />
+              {{/if}}
             {{else}}
               {{t "podcasts.no_result"}}
             {{/each}}
