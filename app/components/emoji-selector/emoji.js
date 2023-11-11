@@ -18,9 +18,8 @@ export default class EmojiSelectorEmojiComponent extends Component {
     this.width = event.target.value;
   }
   @action
-  closeDialogAndSendEmoji(shortname) {
+  sendEmoji(shortname) {
     this.args.sendEmoji(shortname);
-    this.args.closeDialog();
   }
 }
 
@@ -30,4 +29,4 @@ declare module '@glint/environment-ember-loose/registry' {
     EmojiSelectorEmojiComponent: typeof EmojiSelectorEmojiComponent;
   }
 }
-  
+
