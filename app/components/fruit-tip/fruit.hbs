@@ -12,13 +12,13 @@
   {{/if}}
   {{#if this.session.isAuthenticated}}
     {{#if (gt @fruit.levelReq this.currentUser.user.level)}}
-      <span>???</span>
+      <img src={{locked-fruit-image-path @fruit.levelReq}} />
     {{else}}
       <img src={{@fruit.image}} alt={{@fruit.name}} />
     {{/if}}
   {{else}}
     {{#if (gt @fruit.levelReq 0)}}
-      <span>???</span>
+      <img src={{locked-fruit-image-path @fruit.levelReq}} />
     {{else}}
       <img src={{@fruit.image}} alt={{@fruit.name}} />
     {{/if}}
