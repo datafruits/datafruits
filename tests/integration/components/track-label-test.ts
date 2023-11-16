@@ -13,6 +13,6 @@ module('Integration | Component | track-label', function(hooks) {
 
     await render(hbs`<TrackLabel @label={{this.label}} />`);
 
-    assert.equal(this.element.textContent?.trim(), 'ITALO');
+    assert.equal(this.element.textContent?.trim(), 'italo');
   });
 });
