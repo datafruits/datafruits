@@ -1,7 +1,7 @@
 <div class="flex flex-wrap justify-evenly">
-  <input 
+  <input
     {{on "change" this.sizeChange}}
-    type="range" 
+    type="range"
     name="size"
     id="size"
     list="emoji-width-datalist"
@@ -20,7 +20,7 @@
 {{#each this.customEmojis as |emoji|}}
   <button
     type="button"
-    {{on "click" (fn this.closeDialogAndSendEmoji emoji.shortname)}}
+    {{on "click" (fn this.sendEmoji emoji.shortname)}}
     >
     <img
       width={{this.width}}
