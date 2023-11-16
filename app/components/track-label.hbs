@@ -1,4 +1,4 @@
-<a
+<LinkTo
   class="track-label
     text-df-yellow
     classic:bg-df-pink
@@ -11,6 +11,8 @@
     border-2
     mx-2
     font-extrabold"
-  href="#">
+  @route="home.podcasts"
+  @query={{hash tags=@label.name}}
+  >
   {{@label.name}}
-</a>
+</LinkTo>
