@@ -22,9 +22,9 @@ module.exports = async function ({ _distDir, visit }) {
     '/sign-up',
     '/forum',
     '/wiki',
-    '/shows'
+    '/shows',
+    '/support'
   ];
-
   // need to recursively crawl all the links on every page somehow
   for (const url of urls) {
     let page = await visit(url);

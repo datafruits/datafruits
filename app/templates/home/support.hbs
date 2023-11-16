@@ -1,9 +1,31 @@
 <section class="page-spacing">
-  <h1 class="text-2xl">{{t "donate.title"}}</h1>
-  <p>
-    {{t "about_page.listenersupport"}}
-    <a href="https://patreon.com/datafruits" target="_blank" rel="noopener noreferrer" aria-label="Patreon">
-      <img src="/assets/images/patreon.png" alt="patreon" class="md:w-72">
-    </a>
-  </p>
+  <h1 class="debussy-header">
+    {{t "donate.title"}}
+  </h1>
+  <div class="page-bg bg-df-blue-dark wiki-article">
+    <div class="support-section">
+      <div class="support-section-text">
+        <p>
+          {{t "about_page.listenersupport"}}
+        </p>
+      </div>
+      <div>
+        <a
+          class="flex justify-center"
+          href="https://patreon.com/datafruits"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="{{t "about_page.datafruits_premium"}}">
+          <img
+            src="assets/images/badges/supporter.webp"
+            alt="{{t "about_page.datafruits_premium"}}" />
+        </a>
+      </div>
+    </div>
+    <div class="support-section">
+      <a class="flex justify-center" href="https://patreon.com/datafruits" target="_blank" rel="noopener noreferrer" aria-label="Patreon">
+        <img src="/assets/images/patreon.png" alt="patreon" class="md:w-72">
+      </a>
+    </div>
+  </div>
 </section>

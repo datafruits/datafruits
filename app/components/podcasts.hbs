@@ -1,9 +1,11 @@
 <div
-  {{did-insert this.fetchPodcasts @page}}
-  {{did-update this.fetchPodcasts @page}}
+  {{did-insert this.fetchInitial @page}}
+  {{did-update this.fetchInitial @page}}
 >
   <Await
-    @promise={{this.fetchPodcasts}} as |await|>
+    @promise={{this.fetchPodcasts}}
+    @initialData={{this.initialData}}
+      as |await|>
     <div id="podcast-search-controls">
       <div class="flex flex-wrap justify-around">
         <div id="search-controls">
@@ -53,17 +55,23 @@
           </p>
         </await.Pending>
         <await.Fulfilled as |result|>
+          <span
+              {{on "click" await.reload}}
+            >
           <FruitsUi::Pagination
             @totalPages={{result.meta.total_pages}}
             @page={{@page}}
             @route="home.podcasts" />
+          </span>
           <div class="p-2">
             {{#each result as |show|}}
-              <PodcastTrack
-                @track={{show.tracks.firstObject}}
-                @show={{show}}
-                @selectedLabels={{this.selectedLabels}}
-                @search={{await.reload}} />
+              {{#if show.tracks.firstObject}}
+                <PodcastTrack
+                  @track={{show.tracks.firstObject}}
+                  @show={{show}}
+                  @selectedLabels={{this.selectedLabels}}
+                  @search={{await.reload}} />
+              {{/if}}
             {{else}}
               {{t "podcasts.no_result"}}
             {{/each}}
