@@ -3,12 +3,17 @@
     <h1>{{@show.title}}</h1>
     <img src={{@show.thumbImageUrl}} />
   </div>
-  <div class="flex">
+  <div class="flex mb-2">
     <LinkTo @route="home.user.my-shows.edit" @model={{@show.slug}} class="cool-button mr-2">
       {{t "profile.my-shows.edit"}}
     </LinkTo>
     <LinkTo @route="home.user.my-shows.episodes" @model={{@show.slug}} class="cool-button">
       {{t "profile.my-shows.episodes"}}
     </LinkTo>
+  </div>
+  <div class="flex">
+    <span class="uppercase font-bold">
+      {{@show.status}}
+    </span>
   </div>
 </section>
