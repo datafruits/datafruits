@@ -36,6 +36,11 @@
           {{this.model.showSeriesTitle}}
         </LinkTo>
       </p>
+      <div class="">
+        {{#each this.model.labels as |label|}}
+          <TrackLabel @label={{label}} />
+        {{/each}}
+      </div>
       <div>
         <h1>{{t "show.episode.comments"}}</h1>
         <section>
