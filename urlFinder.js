@@ -6,7 +6,7 @@ const { JSDOM } = jsdom;
 
 module.exports = async function ({ _distDir, visit }) {
   function isValidUrl(aTag) {
-    return !aTag.hostname && !urls.includes(aTag.href) && /^(\/)+\S+$/.test(aTag.href);
+    return !aTag.hostname && !urls.includes(aTag.href.toLowerCase()) && /^(\/)+\S+$/.test(aTag.href);
   }
 
   let urls = [
@@ -33,8 +33,8 @@ module.exports = async function ({ _distDir, visit }) {
       let dom = new JSDOM(html);
       for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
         if (aTag.href) {
-          if (isValidUrl(aTag) && !urls.includes(aTag.href)) {
-            urls.push(aTag.href);
+          if (isValidUrl(aTag) && !urls.includes(aTag.href.toLowerCase())) {
+            urls.push(aTag.href.toLowerCase());
           }
         }
       }
@@ -46,8 +46,8 @@ module.exports = async function ({ _distDir, visit }) {
             let dom = new JSDOM(html);
             for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
               if (aTag.href) {
-                if (isValidUrl(aTag) && !urls.includes(aTag.href)) {
-                  urls.push(aTag.href);
+                if (isValidUrl(aTag) && !urls.includes(aTag.href.toLowerCase())) {
+                  urls.push(aTag.href.toLowerCase());
                 }
               }
             }
