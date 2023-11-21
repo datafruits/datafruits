@@ -5,10 +5,6 @@ const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
 module.exports = async function ({ _distDir, visit }) {
-  function isValidUrl(aTag) {
-    return !aTag.hostname && !urls.includes(aTag.href.toLowerCase()) && /^(\/)+\S+$/.test(aTag.href);
-  }
-
   let urls = [
     '/',
     //    '/timetable',
@@ -25,6 +21,14 @@ module.exports = async function ({ _distDir, visit }) {
     '/shows',
     '/support'
   ];
+
+  const isValidUrl = (aTag) => {
+    return !aTag.hostname &&
+      !urls.includes(aTag.href.toLowerCase()) &&
+      /^(\/)+\S+$/.test(aTag.href) &&
+      !aTag.href.toLowerCase().includes('?');
+  };
+
   // need to recursively crawl all the links on every page somehow
   for (const url of urls) {
     let page = await visit(url);
@@ -33,7 +37,7 @@ module.exports = async function ({ _distDir, visit }) {
       let dom = new JSDOM(html);
       for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
         if (aTag.href) {
-          if (isValidUrl(aTag) && !urls.includes(aTag.href.toLowerCase())) {
+          if (isValidUrl(aTag)) {
             urls.push(aTag.href.toLowerCase());
           }
         }
@@ -46,7 +50,7 @@ module.exports = async function ({ _distDir, visit }) {
             let dom = new JSDOM(html);
             for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
               if (aTag.href) {
-                if (isValidUrl(aTag) && !urls.includes(aTag.href.toLowerCase())) {
+                if (isValidUrl(aTag)) {
                   urls.push(aTag.href.toLowerCase());
                 }
               }
