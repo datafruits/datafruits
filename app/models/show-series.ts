@@ -11,7 +11,7 @@ export default class ShowSeries extends Model {
   @attr('string') declare title: string;
   @attr('string') declare description: string;
 
-  @attr('string') declare recurringInterval: 'not_recurring' | 'week' | 'biweek' | 'month';
+  @attr('string') declare recurringInterval: 'not_recurring' | 'week' | 'biweek' | 'month' | 'year';
   @attr('string') declare recurringWeekday: 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday';
   @attr('string') declare recurringCadence: 'First' | 'Second' | 'Third' | 'Fourth' | 'Last';
 
