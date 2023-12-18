@@ -10,11 +10,17 @@
     aria-label="{{ t "locale"}}"
     {{on "change" @setLocale}}>
   {{#each this.locales as |localeChoice|}}
-    <option
-      value={{localeChoice.value}}
-      selected={{eq @selectedLocale localeChoice.value}}
-    >
-      {{localeChoice.text}}
-    </option>
+    {{#if (eq localeChoice.value @selectedLocale)}}
+      <option
+        selected
+        value={{localeChoice.value}}
+      >
+        {{localeChoice.text}}
+      </option>
+    {{else}}
+      <option value={{localeChoice.value}}>
+        {{localeChoice.text}}
+      </option>
+    {{/if}}
   {{/each}}
 </select>
