@@ -419,14 +419,13 @@ export default class PixiComponent extends Component {
 
     let thisWeather = this.weather.currentWeather;
     let particles, reset, update, drops;
-    
+
     if (this.firstInit || thisWeather !== this.lastWeather) {
       switch (thisWeather) {
-        case "snowy":
-            let snowFunctions = this.initSnow();
-            [particles, reset, update, drops] = snowFunctions;
+        case "snowy": {
+          [particles, reset, update, drops] = this.initSnow();
           break;
-
+        }
         default:
           break;
       }
@@ -531,7 +530,7 @@ export default class PixiComponent extends Component {
           for (let particle of particles) {
             if (particle.y > 0) particle.x += particle.vx;
             particle.y += particle.vy;
-  
+
             if (Math.random() > 0.9) particle.vx = update(particle.vx);
             // if (Math.random() > 0.9) particle.vy = Math.min(particle.vy + 1, UPPER_LIMIT_Y)
             if (
