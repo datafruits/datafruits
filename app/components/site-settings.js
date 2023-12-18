@@ -4,9 +4,6 @@ import { action } from '@ember/object';
 
 export default class SiteSettingsComponent extends Component {
   @service
-  eventBus;
-
-  @service
   intl;
 
   @service
@@ -27,8 +24,7 @@ export default class SiteSettingsComponent extends Component {
 
   @action
   setWeather(event) {
-    this.weather.currentWeather = event.target.value;
-    this.eventBus.publish('weatherChanged', event.target.value);
+    this.weather.setWeather(event.target.value);
   }
 }
 

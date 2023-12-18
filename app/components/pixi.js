@@ -419,7 +419,7 @@ export default class PixiComponent extends Component {
 
     let thisWeather = this.weather.currentWeather;
     let particles, reset, update, drops;
-    console.log(`this weather ${thisWeather} last weather ${this.lastWeather}`)
+    
     if (this.firstInit || thisWeather !== this.lastWeather) {
       switch (thisWeather) {
         case "snowy":
