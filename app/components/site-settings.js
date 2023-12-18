@@ -4,10 +4,16 @@ import { action } from '@ember/object';
 
 export default class SiteSettingsComponent extends Component {
   @service
+  eventBus;
+
+  @service
   intl;
 
   @service
   theme;
+
+  @service
+  weather;
 
   @action
   setLocale(locale) {
@@ -17,6 +23,12 @@ export default class SiteSettingsComponent extends Component {
   @action
   setTheme(theme) {
     this.theme.setTheme(theme);
+  }
+
+  @action
+  setWeather(event) {
+    this.weather.currentWeather = event.target.value;
+    this.eventBus.publish('weatherChanged', event.target.value);
   }
 }
 
