@@ -1,9 +1,9 @@
+// @ts-ignore
 import Component from "@glimmer/component";
+// @ts-ignore
 import { tracked } from "@glimmer/tracking";
 
-interface WeatherSelectorArgs {}
-
-export default class WeatherSelector extends Component<WeatherSelectorArgs> {
+export default class WeatherSelector extends Component {
   @tracked currentWeather: string = "snowy";
 
   weathers = [
