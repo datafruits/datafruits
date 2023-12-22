@@ -16,7 +16,7 @@ interface Badge {
 export default class UserBadges extends Component<UserBadgesSignature> {
   @service declare intl: any;
 
-  validBadges = ['dj', 'vj', 'supporter', 'strawberry', 'lemon', 'orange', 'watermelon', 'banana', 'cabbage', 'pineapple'];
+  validBadges = ['dj', 'vj', 'supporter', 'emerald_supporter', 'gold_supporter', 'strawberry', 'lemon', 'orange', 'watermelon', 'banana', 'cabbage', 'pineapple', 'duckle'];
   descriptions: any;
 
   constructor(owner: unknown, args: UserBadgesSignature['Args']) {
