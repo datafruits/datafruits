@@ -42,11 +42,6 @@ export default class EmojiSelectorEmojiComponent extends Component {
   didInsert() {
     this.width = parseInt(localStorage.getItem('emojiWidth'));
   }
-
-  @action
-  didInsert() {
-    this.width = parseInt(localStorage.getItem('emojiWidth'));
-  }
 }
 
 
