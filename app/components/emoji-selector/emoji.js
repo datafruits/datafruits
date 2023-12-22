@@ -23,6 +23,7 @@ export default class EmojiSelectorEmojiComponent extends Component {
 
   @action
   sizeChange(event) {
+    console.log(event);
     this.width = event.target.value;
     localStorage.setItem('emojiWidth', this.width);
   }
@@ -35,6 +36,11 @@ export default class EmojiSelectorEmojiComponent extends Component {
     // https://css-tricks.com/restart-css-animation/
     void element.offsetWidth;
     element.classList.add('bounce');
+  }
+
+  @action
+  didInsert() {
+    this.width = parseInt(localStorage.getItem('emojiWidth'));
   }
 
   @action

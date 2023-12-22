@@ -7,6 +7,10 @@ import { later } from '@ember/runloop';
 
 export default class PixiComponent extends Component {
   @service eventBus;
+  @service weather;
+
+  lastWeather = this.weather.currentWeather;
+  firstInit = true;
 
   filter;
   background;
@@ -19,34 +23,35 @@ export default class PixiComponent extends Component {
 
   // TODO should these be pulled from fruit-types.ts ???
   fruits = [
-    'strawberry',
-    'lemon',
-    'orange',
-    'banana',
-    'watermelon',
-    'cabbage',
-    'beamsprout',
-    'pineapple',
-    'limer',
-    'dragion-fruit',
-    'blueberrinies',
+    "strawberry",
+    "lemon",
+    "orange",
+    "banana",
+    "watermelon",
+    "cabbage",
+    "beamsprout",
+    "pineapple",
+    "limer",
+    "dragion-fruit",
+    "blueberrinies",
   ];
 
   paidFruitTipSprites = [];
 
   constructor() {
     super(...arguments);
-    this.eventBus.subscribe('fruitTipped', this, 'addFruitTip');
+    this.eventBus.subscribe("fruitTipped", this, "addFruitTip");
+    this.eventBus.subscribe("weatherChanged", this, "didInsert");
   }
 
   metalPineappleAnimation() {
-    console.log('metal pineapple!');
-    let sprite = new PIXI.AnimatedSprite(this.animations['metalPineapple']);
-    let text = new PIXI.Text('METAL PINEAPPLE', {
-      fontFamily: 'Arial',
+    console.log("metal pineapple!");
+    let sprite = new PIXI.AnimatedSprite(this.animations["metalPineapple"]);
+    let text = new PIXI.Text("METAL PINEAPPLE", {
+      fontFamily: "Arial",
       fontSize: 48,
-      fill: ['yellow', 'green', 'blue', 'pink'],
-      align: 'center',
+      fill: ["yellow", "green", "blue", "pink"],
+      align: "center",
       dropShadow: true,
     });
     text.width = this.app.screen.width;
@@ -61,7 +66,7 @@ export default class PixiComponent extends Component {
 
     let blobSprite;
     for (let i = 0; i < 10; i++) {
-      blobSprite = new PIXI.AnimatedSprite(this.animations['weirdBlobs']);
+      blobSprite = new PIXI.AnimatedSprite(this.animations["weirdBlobs"]);
       blobSprite.x = Math.random() * this.app.screen.width;
       blobSprite.y = Math.random() * this.app.screen.height;
       blobSprite.scale.x = 0.25;
@@ -78,7 +83,9 @@ export default class PixiComponent extends Component {
 
     let randomMetalPineapple;
     for (let i = 0; i < 5; i++) {
-      randomMetalPineapple = new PIXI.AnimatedSprite(this.animations['metalPineapple']);
+      randomMetalPineapple = new PIXI.AnimatedSprite(
+        this.animations["metalPineapple"],
+      );
       randomMetalPineapple.x = Math.random() * this.app.screen.width;
       randomMetalPineapple.y = Math.random() * this.app.screen.height;
       randomMetalPineapple.scale.x = Math.random() * 1;
@@ -115,12 +122,12 @@ export default class PixiComponent extends Component {
   }
 
   realLemonerAnimation() {
-    let sprite = new PIXI.AnimatedSprite(this.animations['realLemoner']);
-    let text = new PIXI.Text('LEMONER IS REAL', {
-      fontFamily: 'Arial',
+    let sprite = new PIXI.AnimatedSprite(this.animations["realLemoner"]);
+    let text = new PIXI.Text("LEMONER IS REAL", {
+      fontFamily: "Arial",
       fontSize: 48,
-      fill: ['yellow', 'green', 'blue', 'pink'],
-      align: 'center',
+      fill: ["yellow", "green", "blue", "pink"],
+      align: "center",
       dropShadow: true,
     });
     text.width = this.app.screen.width;
@@ -133,7 +140,7 @@ export default class PixiComponent extends Component {
 
     let blobSprite;
     for (let i = 0; i < 15; i++) {
-      blobSprite = new PIXI.AnimatedSprite(this.animations['weirdBlobs']);
+      blobSprite = new PIXI.AnimatedSprite(this.animations["weirdBlobs"]);
       blobSprite.x = Math.random() * this.app.screen.width;
       blobSprite.y = Math.random() * this.app.screen.height;
       blobSprite.scale.x = 0.25;
@@ -150,7 +157,9 @@ export default class PixiComponent extends Component {
 
     let randomRealLemoner;
     for (let i = 0; i < 5; i++) {
-      randomRealLemoner = new PIXI.AnimatedSprite(this.animations['realLemoner']);
+      randomRealLemoner = new PIXI.AnimatedSprite(
+        this.animations["realLemoner"],
+      );
       randomRealLemoner.x = Math.random() * this.app.screen.width;
       randomRealLemoner.y = Math.random() * this.app.screen.height;
       randomRealLemoner.scale.x = Math.random() * 1;
@@ -185,14 +194,14 @@ export default class PixiComponent extends Component {
     }, 5000);
   }
 
-megaBeamsprout() {
-    console.log('MEGA beamsprout!');
-    let sprite = new PIXI.AnimatedSprite(this.animations['megaBeamsprout']);
-    let text = new PIXI.Text('MEGA BEAMSPROUT', {
-      fontFamily: 'Arial',
+  megaBeamsprout() {
+    console.log("MEGA beamsprout!");
+    let sprite = new PIXI.AnimatedSprite(this.animations["megaBeamsprout"]);
+    let text = new PIXI.Text("MEGA BEAMSPROUT", {
+      fontFamily: "Arial",
       fontSize: 48,
-      fill: ['yellow', 'green', 'blue', 'pink'],
-      align: 'center',
+      fill: ["yellow", "green", "blue", "pink"],
+      align: "center",
       dropShadow: true,
     });
     text.width = this.app.screen.width;
@@ -207,7 +216,7 @@ megaBeamsprout() {
 
     let blobSprite;
     for (let i = 0; i < 10; i++) {
-      blobSprite = new PIXI.AnimatedSprite(this.animations['weirdBlobs']);
+      blobSprite = new PIXI.AnimatedSprite(this.animations["weirdBlobs"]);
       blobSprite.x = Math.random() * this.app.screen.width;
       blobSprite.y = Math.random() * this.app.screen.height;
       blobSprite.scale.x = 0.25;
@@ -224,7 +233,9 @@ megaBeamsprout() {
 
     let randomMegaBeamsprout;
     for (let i = 0; i < 5; i++) {
-      randomMegaBeamsprout = new PIXI.AnimatedSprite(this.animations['metalPineapple']);
+      randomMegaBeamsprout = new PIXI.AnimatedSprite(
+        this.animations["metalPineapple"],
+      );
       randomMegaBeamsprout.x = Math.random() * this.app.screen.width;
       randomMegaBeamsprout.y = Math.random() * this.app.screen.height;
       randomMegaBeamsprout.scale.x = Math.random() * 1;
@@ -258,19 +269,19 @@ megaBeamsprout() {
       });
       this.alphaFadeout = true;
     }, 5000);
-}
+  }
 
   addFruitTip(event) {
     if (this.app) {
       let animation;
-      if (event === 'metal-pineapple') {
+      if (event === "metal-pineapple") {
         return this.metalPineappleAnimation();
-      } else if (event === 'real-lemoner') {
+      } else if (event === "real-lemoner") {
         return this.realLemonerAnimation();
-      } else if (event === 'mega-beamsprout') {
-	return this.megaBeamsprout();
+      } else if (event === "mega-beamsprout") {
+        return this.megaBeamsprout();
       } else if (this.fruits.includes(event)) {
-        animation = event.replace(/-./g, x=>x[1].toUpperCase());
+        animation = event.replace(/-./g, (x) => x[1].toUpperCase());
       } else {
         console.log(`invalid fruit: ${event}`); // eslint-disable-line no-console
         return;
@@ -295,7 +306,7 @@ megaBeamsprout() {
         let x = sprite.x;
         let y = sprite.y;
 
-        let starSprite = new PIXI.AnimatedSprite(this.animations['stars']);
+        let starSprite = new PIXI.AnimatedSprite(this.animations["stars"]);
         starSprite.x = x;
         starSprite.y = y;
         starSprite.animationSpeed = Math.random() * 2;
@@ -328,22 +339,7 @@ megaBeamsprout() {
     });
   }
 
-  @action
-  didInsert() {
-    let type = 'WebGL';
-    if (!PIXI.utils.isWebGLSupported()) {
-      type = 'canvas';
-    }
-
-    PIXI.utils.sayHello(type);
-
-    this.app = new PIXI.Application({
-      view: document.getElementById("pixi"),
-      autoResize: true,
-      resolution: devicePixelRatio,
-      backgroundAlpha: 0,
-    });
-
+  initSnow() {
     const UPPER_LIMIT_Y = 10;
     const UPPER_LIMIT_X = 2;
     const LOWER_LIMIT_X = -2;
@@ -359,7 +355,10 @@ megaBeamsprout() {
     };
 
     // Update value by either subtracting to adding
-    const update = (p) => (Math.random() > 0.5 ? Math.max(LOWER_LIMIT_X, p - 1) : Math.min(p + 1, UPPER_LIMIT_X));
+    const update = (p) =>
+      Math.random() > 0.5
+        ? Math.max(LOWER_LIMIT_X, p - 1)
+        : Math.min(p + 1, UPPER_LIMIT_X);
 
     const floored = (v) => Math.floor(Math.random() * v);
     // Generate a particle set based on a given texture
@@ -399,6 +398,40 @@ megaBeamsprout() {
     // Generate a base texture from the base graphic
     const baseTexture = this.app.renderer.generateTexture(p);
     let particles = genParticles(baseTexture);
+    return [particles, reset, update, drops];
+  }
+
+  @action
+  didInsert() {
+    let type = "WebGL";
+    if (!PIXI.utils.isWebGLSupported()) {
+      type = "canvas";
+    }
+
+    PIXI.utils.sayHello(type);
+
+    this.app = new PIXI.Application({
+      view: document.getElementById("pixi"),
+      autoResize: true,
+      resolution: devicePixelRatio,
+      backgroundAlpha: 0,
+    });
+
+    let thisWeather = this.weather.currentWeather;
+    let particles, reset, update, drops;
+
+    if (this.firstInit || thisWeather !== this.lastWeather) {
+      switch (thisWeather) {
+        case "snowy": {
+          [particles, reset, update, drops] = this.initSnow();
+          break;
+        }
+        default:
+          break;
+      }
+      this.lastWeather = thisWeather;
+      this.firstInit = false;
+    }
 
     document.body.appendChild(this.app.view);
 
@@ -407,7 +440,7 @@ megaBeamsprout() {
       this.handleResize();
     };
     this._resize = _resize;
-    window.addEventListener('resize', _resize);
+    window.addEventListener("resize", _resize);
     this.handleResize();
 
     this.app.stop();
@@ -420,23 +453,38 @@ megaBeamsprout() {
     //
     // this.app.stage.addChild(background);
 
-    this.app.loader.add('strawberry', '/assets/images/sprites/strawberry.json');
-    this.app.loader.add('orange', '/assets/images/sprites/orange.json');
-    this.app.loader.add('lemon', '/assets/images/sprites/lemon.json');
-    this.app.loader.add('banana', '/assets/images/sprites/banana.json');
-    this.app.loader.add('watermelon', '/assets/images/sprites/watermelon.json');
-    this.app.loader.add('cabbage', '/assets/images/sprites/cabbage.json');
-    this.app.loader.add('beamsprout', '/assets/images/sprites/beamsprout.json');
-    this.app.loader.add('pineapple', '/assets/images/sprites/pineapple.json');
-    this.app.loader.add('limer', '/assets/images/sprites/lime.json');
-    this.app.loader.add('dragionFruit', '/assets/images/sprites/dragon_fruit.json');
-    this.app.loader.add('blueberrinies', '/assets/images/sprites/blueberrinies.json');
-    this.app.loader.add('shader', '/assets/shaders/shader.frag');
+    this.app.loader.add("strawberry", "/assets/images/sprites/strawberry.json");
+    this.app.loader.add("orange", "/assets/images/sprites/orange.json");
+    this.app.loader.add("lemon", "/assets/images/sprites/lemon.json");
+    this.app.loader.add("banana", "/assets/images/sprites/banana.json");
+    this.app.loader.add("watermelon", "/assets/images/sprites/watermelon.json");
+    this.app.loader.add("cabbage", "/assets/images/sprites/cabbage.json");
+    this.app.loader.add("beamsprout", "/assets/images/sprites/beamsprout.json");
+    this.app.loader.add("pineapple", "/assets/images/sprites/pineapple.json");
+    this.app.loader.add("limer", "/assets/images/sprites/lime.json");
+    this.app.loader.add(
+      "dragionFruit",
+      "/assets/images/sprites/dragon_fruit.json",
+    );
+    this.app.loader.add(
+      "blueberrinies",
+      "/assets/images/sprites/blueberrinies.json",
+    );
+    this.app.loader.add("shader", "/assets/shaders/shader.frag");
 
-    this.app.loader.add('stars', '/assets/images/sprites/stars.json');
-    this.app.loader.add('weirdBlobs', '/assets/images/sprites/weird_blobs_1.json');
-    this.app.loader.add('metalPineapple', '/assets/images/sprites/metal_pineapple.json');
-    this.app.loader.add('realLemoner', '/assets/images/sprites/real_lemoner_3d.json');
+    this.app.loader.add("stars", "/assets/images/sprites/stars.json");
+    this.app.loader.add(
+      "weirdBlobs",
+      "/assets/images/sprites/weird_blobs_1.json",
+    );
+    this.app.loader.add(
+      "metalPineapple",
+      "/assets/images/sprites/metal_pineapple.json",
+    );
+    this.app.loader.add(
+      "realLemoner",
+      "/assets/images/sprites/real_lemoner_3d.json",
+    );
     this.app.loader.load((loader, res) => {
       this.filter = new PIXI.Filter(null, res.shader.data, {
         customUniform: 0.0,
@@ -444,21 +492,31 @@ megaBeamsprout() {
 
       this.alphaFilter = new PIXI.filters.AlphaFilter(1.0);
 
-      this.animations.strawberry = res.strawberry.spritesheet.animations['strawberry2_wiggle.png'];
-      this.animations.orange = res.orange.spritesheet.animations['orange.png'];
-      this.animations.lemon = res.lemon.spritesheet.animations['lemon.webp'];
-      this.animations.banana = res.banana.spritesheet.animations['banana.webp'];
-      this.animations.watermelon = res.watermelon.spritesheet.animations['watermelon.webp'];
-      this.animations.cabbage = res.cabbage.spritesheet.animations['cabbage.webp'];
-      this.animations.beamsprout = res.beamsprout.spritesheet.animations['beamsprout'];
-      this.animations.stars = res.stars.spritesheet.animations['stars'];
-      this.animations.weirdBlobs = res.weirdBlobs.spritesheet.animations['WEIRDBLOBS'];
-      this.animations.metalPineapple = res.metalPineapple.spritesheet.animations['metal_pineapple.png'];
-      this.animations.realLemoner = res.realLemoner.spritesheet.animations["real_lemoner_3d"];
-      this.animations.pineapple = res.pineapple.spritesheet.animations['pineapple_anim.png'];
-      this.animations.limer = res.limer.spritesheet.animations['limer.png']; // TODO
-      this.animations.dragionFruit = res.dragionFruit.spritesheet.animations['dragon_fruit.png'];
-      this.animations.blueberrinies = res.blueberrinies.spritesheet.animations['blueberrinies.png'];
+      this.animations.strawberry =
+        res.strawberry.spritesheet.animations["strawberry2_wiggle.png"];
+      this.animations.orange = res.orange.spritesheet.animations["orange.png"];
+      this.animations.lemon = res.lemon.spritesheet.animations["lemon.webp"];
+      this.animations.banana = res.banana.spritesheet.animations["banana.webp"];
+      this.animations.watermelon =
+        res.watermelon.spritesheet.animations["watermelon.webp"];
+      this.animations.cabbage =
+        res.cabbage.spritesheet.animations["cabbage.webp"];
+      this.animations.beamsprout =
+        res.beamsprout.spritesheet.animations["beamsprout"];
+      this.animations.stars = res.stars.spritesheet.animations["stars"];
+      this.animations.weirdBlobs =
+        res.weirdBlobs.spritesheet.animations["WEIRDBLOBS"];
+      this.animations.metalPineapple =
+        res.metalPineapple.spritesheet.animations["metal_pineapple.png"];
+      this.animations.realLemoner =
+        res.realLemoner.spritesheet.animations["real_lemoner_3d"];
+      this.animations.pineapple =
+        res.pineapple.spritesheet.animations["pineapple_anim.png"];
+      this.animations.limer = res.limer.spritesheet.animations["limer.png"]; // TODO
+      this.animations.dragionFruit =
+        res.dragionFruit.spritesheet.animations["dragon_fruit.png"];
+      this.animations.blueberrinies =
+        res.blueberrinies.spritesheet.animations["blueberrinies.png"];
 
       //background.filters = [this.filter];
 
@@ -468,16 +526,22 @@ megaBeamsprout() {
       let count = 0;
       // Animate the filter
       this.app.ticker.add((delta) => {
-        for (let particle of particles) {
-          if (particle.y > 0) particle.x += particle.vx;
-          particle.y += particle.vy;
+        if (particles && this.weather.currentWeather === "snowy") {
+          for (let particle of particles) {
+            if (particle.y > 0) particle.x += particle.vx;
+            particle.y += particle.vy;
 
-          if (Math.random() > 0.9) particle.vx = update(particle.vx);
-          // if (Math.random() > 0.9) particle.vy = Math.min(particle.vy + 1, UPPER_LIMIT_Y)
-          if (particle.x > this.app.renderer.width || particle.x < 0 || particle.y > this.app.renderer.height)
-            reset(particle);
+            if (Math.random() > 0.9) particle.vx = update(particle.vx);
+            // if (Math.random() > 0.9) particle.vy = Math.min(particle.vy + 1, UPPER_LIMIT_Y)
+            if (
+              particle.x > this.app.renderer.width ||
+              particle.x < 0 ||
+              particle.y > this.app.renderer.height
+            )
+              reset(particle);
+          }
+          this.app.renderer.render(drops);
         }
-        this.app.renderer.render(drops);
 
         this.filter.uniforms.customUniform += delta;
 
@@ -497,7 +561,7 @@ megaBeamsprout() {
           this.alphaFilter.alpha = this.alphaFilterValue;
         }
         if (this.alphaFilterValue <= 0) {
-          console.log('alpha fadeout end');
+          console.log("alpha fadeout end");
           this.paidFruitTipSprites.forEach((sprite) => {
             this.app.stage.removeChild(sprite);
           });
