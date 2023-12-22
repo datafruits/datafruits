@@ -26,11 +26,21 @@ export default class EmojiSelectorEmojiComponent extends Component {
     console.log(event);
     this.width = event.target.value;
     localStorage.setItem('emojiWidth', this.width);
-    // store in cookie
   }
+
   @action
   sendEmoji(shortname) {
     this.args.sendEmoji(shortname);
+    const element = document.getElementsByClassName(shortname)[0];
+    element.classList.remove('bounce');
+    // https://css-tricks.com/restart-css-animation/
+    void element.offsetWidth;
+    element.classList.add('bounce');
+  }
+
+  @action
+  didInsert() {
+    this.width = parseInt(localStorage.getItem('emojiWidth'));
   }
 
   @action
