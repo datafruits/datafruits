@@ -13,5 +13,9 @@ export default class WeatherSelector extends Component {
       text: "🌨",
       value: "snowy",
     },
+    {
+      text: "🐈🐕",
+      value: "cats-dogs",
+    },
   ];
 }

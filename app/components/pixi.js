@@ -339,7 +339,7 @@ export default class PixiComponent extends Component {
     });
   }
 
-  initSnow() {
+  initSnow(textures) {
     const UPPER_LIMIT_Y = 10;
     const UPPER_LIMIT_X = 2;
     const LOWER_LIMIT_X = -2;
@@ -361,10 +361,14 @@ export default class PixiComponent extends Component {
         : Math.min(p + 1, UPPER_LIMIT_X);
 
     const floored = (v) => Math.floor(Math.random() * v);
-    // Generate a particle set based on a given texture
-    const genParticles = (t) =>
+    // Generate a particle set based on a list of textures
+    const genParticles = (ts) =>
       new Array(AMOUNT).fill().map((p) => {
         const SIZE = floored(MAX_SIZE) + MIN_SIZE;
+
+        // select a random element
+        const idx = Math.floor(Math.random() * ts.length)
+        const t = ts[idx]
         p = new PIXI.Sprite(t);
         p.size = SIZE;
         p.vx = floored(UPPER_LIMIT_X) - UPPER_LIMIT_X;
@@ -387,17 +391,8 @@ export default class PixiComponent extends Component {
       alpha: true,
     });
     this.app.stage.addChild(drops);
+    let particles = genParticles(textures);
 
-    // Create a base graphic for our sprites
-    const p = new PIXI.Graphics();
-    p.beginFill(0xffffff);
-    p.drawCircle(0, 0, 100);
-    p.endFill();
-    // Generate a base texture from the base graphic
-    p.beginFill(0xffffff);
-    // Generate a base texture from the base graphic
-    const baseTexture = this.app.renderer.generateTexture(p);
-    let particles = genParticles(baseTexture);
     return [particles, reset, update, drops];
   }
 
@@ -423,7 +418,34 @@ export default class PixiComponent extends Component {
     if (this.firstInit || thisWeather !== this.lastWeather) {
       switch (thisWeather) {
         case "snowy": {
-          [particles, reset, update, drops] = this.initSnow();
+
+          // create snow graphic
+          const p = new PIXI.Graphics();
+          p.beginFill(0xffffff);
+          p.drawCircle(0, 0, 100);
+          p.endFill();
+          // Generate snow texture
+          const texture = this.app.renderer.generateTexture(p);
+
+          [particles, reset, update, drops] = this.initSnow([texture]);
+          break;
+        }
+        case "cats-dogs": {
+          // TODO: pass in the texture?
+       
+          const c = new PIXI.Graphics();
+          c.beginFill(0x000000);
+          c.drawCircle(0, 0, 100);
+          c.endFill();
+          const cat = this.app.renderer.generateTexture(c);
+
+          const d = new PIXI.Graphics();
+          d.beginFill(0xff0000);
+          d.drawCircle(0, 0, 100);
+          d.endFill();
+          const dog = this.app.renderer.generateTexture(d);
+
+          [particles, reset, update, drops] = this.initSnow([dog, cat, cat, cat]);
           break;
         }
         default:
@@ -526,7 +548,7 @@ export default class PixiComponent extends Component {
       let count = 0;
       // Animate the filter
       this.app.ticker.add((delta) => {
-        if (particles && this.weather.currentWeather === "snowy") {
+        if (particles && ["snowy", "cats-dogs"].includes(this.weather.currentWeather)) {
           for (let particle of particles) {
             if (particle.y > 0) particle.x += particle.vx;
             particle.y += particle.vy;
