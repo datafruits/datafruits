@@ -410,10 +410,8 @@ export default class PixiComponent extends Component {
       const maybeFlip = () => floored(2) ? -1 : 1;
       const UPPER_LIMIT_Y = 10;
       const UPPER_LIMIT_X = 2;
-      const LOWER_LIMIT_X = -2;
       const MAX_SIZE = 2;
       const MIN_SIZE = 0.25;
-      const AMOUNT = 1000;
       const SIZE = floored(MAX_SIZE) + MIN_SIZE;
 
       switch (thisWeather) {
