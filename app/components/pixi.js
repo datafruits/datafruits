@@ -487,7 +487,7 @@ export default class PixiComponent extends Component {
             c.alpha = Math.random();
             c.x = c.startX = floored(this.app.renderer.width);
             c.y = c.startY = -(SIZE + floored(this.app.renderer.height));
-            c.scale.x = 0.5;
+            c.scale.x = -0.5;
             c.scale.y = 0.5;
             return c;
           }
