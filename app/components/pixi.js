@@ -339,15 +339,10 @@ export default class PixiComponent extends Component {
     });
   }
 
-
-
-  initSnow(sprites) {
+  initWeather(sprites, amount) {
     const UPPER_LIMIT_Y = 10;
     const UPPER_LIMIT_X = 2;
     const LOWER_LIMIT_X = -2;
-    const MAX_SIZE = 2;
-    const MIN_SIZE = 0.25;
-    const AMOUNT = 1000;
 
     // Reset particle start points based on screen
     const reset = (p) => {
@@ -364,31 +359,28 @@ export default class PixiComponent extends Component {
 
     const floored = (v) => Math.floor(Math.random() * v);
 
+    // Create particle container container
     let particleContainers = [];
-    let particles = []
-    // Create particle container
+    let particles = [];
     for (let sprite of sprites) {
-    // Generate a particle set based on a list of textures
-      const genParticles = (fn) =>
-        Array.from({length: AMOUNT}, () => {
-          let SIZE = floored(MAX_SIZE) + MIN_SIZE;
-          // select a random element
-          let sprite = fn();
-
-          drops.addChild(sprite);
-          return sprite;
-        })
-
-      let drops = new PIXI.ParticleContainer(500, {
+      let drops = new PIXI.ParticleContainer(amount, {
         scale: true,
         position: true,
         rotation: true,
         alpha: true,
       });
+
+      const genParticles = (fn) =>
+        Array.from({length: amount}, () => {
+          // select a random element
+          let sprite = fn();
+          drops.addChild(sprite);
+          return sprite;
+        })
+
       this.app.stage.addChild(drops);
       particles = particles.concat(genParticles(sprite));
-      console.log(particles);
-      particleContainers.push(drops)
+      particleContainers.push(drops);
     }
 
     return [particles, reset, update, particleContainers];
@@ -415,6 +407,7 @@ export default class PixiComponent extends Component {
 
     if (this.firstInit || thisWeather !== this.lastWeather) {
       const floored = (v) => Math.floor(Math.random() * v);
+      const maybeFlip = () => floored(2) ? -1 : 1;
       const UPPER_LIMIT_Y = 10;
       const UPPER_LIMIT_X = 2;
       const LOWER_LIMIT_X = -2;
@@ -422,31 +415,16 @@ export default class PixiComponent extends Component {
       const MIN_SIZE = 0.25;
       const AMOUNT = 1000;
       const SIZE = floored(MAX_SIZE) + MIN_SIZE;
+
       switch (thisWeather) {
-
         case "snowy": {
-          // create snow graphic
-          const g = new PIXI.Graphics();
-          g.beginFill(0xffffff);
-          g.drawCircle(0, 0, 100);
-          g.endFill();
-          // Generate snow texture
-          const texture = this.app.renderer.generateTexture(g);
-
-          // const snowSprite = new PIXI.Sprite(texture);
-          // snowSprite.size = SIZE;
-          // snowSprite.vx = floored(UPPER_LIMIT_X) - UPPER_LIMIT_X;
-          // snowSprite.vy = floored(UPPER_LIMIT_Y) + 2;
-          // snowSprite.alpha = Math.random();
-          // snowSprite.x = snowSprite.startX = floored(this.app.renderer.width);
-          // snowSprite.y = snowSprite.startY = -(SIZE + floored(this.app.renderer.height));
-          // snowSprite.scale.x = 0.05;
-          // snowSprite.scale.y = 0.05;
+          // lil' snow factory
           const snowSprite = () => {
             const g = new PIXI.Graphics();
             g.beginFill(0xffffff);
             g.drawCircle(0, 0, 100);
             g.endFill();
+
             // Generate snow texture
             const texture = this.app.renderer.generateTexture(g);
 
@@ -462,7 +440,7 @@ export default class PixiComponent extends Component {
             return s
           }
 
-          [particles, reset, update, drops] = this.initSnow([snowSprite]);
+          [particles, reset, update, drops] = this.initWeather([snowSprite], 1000);
           break;
         }
         case "cats-dogs": {
@@ -474,7 +452,7 @@ export default class PixiComponent extends Component {
             d.alpha = Math.random();
             d.x = d.startX = floored(this.app.renderer.width);
             d.y = d.startY = -(SIZE + floored(this.app.renderer.height));
-            d.scale.x = 0.5;
+            d.scale.x = 0.5 * maybeFlip();
             d.scale.y = 0.5;
             return d;
           }
@@ -487,12 +465,12 @@ export default class PixiComponent extends Component {
             c.alpha = Math.random();
             c.x = c.startX = floored(this.app.renderer.width);
             c.y = c.startY = -(SIZE + floored(this.app.renderer.height));
-            c.scale.x = -0.5;
+            c.scale.x = 0.5 * maybeFlip();
             c.scale.y = 0.5;
             return c;
           }
 
-          [particles, reset, update, drops] = this.initSnow([catSprite, dogSprite]);
+          [particles, reset, update, drops] = this.initWeather([catSprite, dogSprite], 500);
           break;
         }
         default:
