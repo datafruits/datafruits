@@ -392,7 +392,7 @@ export default class PixiComponent extends Component {
   }
 
   reinitPixi() {
-    this.app.destroy(true);
+    this.app.destroy();
     this.initPixi();
   }
 
@@ -629,4 +629,3 @@ declare module '@glint/environment-ember-loose/registry' {
     PixiComponent: typeof PixiComponent;
   }
 }
-
