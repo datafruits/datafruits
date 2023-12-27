@@ -339,13 +339,10 @@ export default class PixiComponent extends Component {
     });
   }
 
-  initSnow() {
+  initWeather(sprites, amount) {
     const UPPER_LIMIT_Y = 10;
     const UPPER_LIMIT_X = 2;
     const LOWER_LIMIT_X = -2;
-    const MAX_SIZE = 2;
-    const MIN_SIZE = 0.25;
-    const AMOUNT = 1000;
 
     // Reset particle start points based on screen
     const reset = (p) => {
@@ -361,44 +358,32 @@ export default class PixiComponent extends Component {
         : Math.min(p + 1, UPPER_LIMIT_X);
 
     const floored = (v) => Math.floor(Math.random() * v);
-    // Generate a particle set based on a given texture
-    const genParticles = (t) =>
-      new Array(AMOUNT).fill().map((p) => {
-        const SIZE = floored(MAX_SIZE) + MIN_SIZE;
-        p = new PIXI.Sprite(t);
-        p.size = SIZE;
-        p.vx = floored(UPPER_LIMIT_X) - UPPER_LIMIT_X;
-        p.vy = floored(UPPER_LIMIT_Y) + 2;
-        p.alpha = Math.random();
-        p.x = p.startX = floored(this.app.renderer.width);
-        p.y = p.startY = -(SIZE + floored(this.app.renderer.height));
-        p.scale.x = 0.05;
-        p.scale.y = 0.05;
-        //p.tint = getRandomColor()
-        drops.addChild(p);
-        return p;
+
+    // Create particle container container
+    let particleContainers = [];
+    let particles = [];
+    for (let sprite of sprites) {
+      let drops = new PIXI.ParticleContainer(amount, {
+        scale: true,
+        position: true,
+        rotation: true,
+        alpha: true,
       });
 
-    // Create particle container
-    const drops = new PIXI.ParticleContainer(1000, {
-      scale: true,
-      position: true,
-      rotation: true,
-      alpha: true,
-    });
-    this.app.stage.addChild(drops);
+      const genParticles = (fn) =>
+        Array.from({length: amount}, () => {
+          // select a random element
+          let sprite = fn();
+          drops.addChild(sprite);
+          return sprite;
+        })
 
-    // Create a base graphic for our sprites
-    const p = new PIXI.Graphics();
-    p.beginFill(0xffffff);
-    p.drawCircle(0, 0, 100);
-    p.endFill();
-    // Generate a base texture from the base graphic
-    p.beginFill(0xffffff);
-    // Generate a base texture from the base graphic
-    const baseTexture = this.app.renderer.generateTexture(p);
-    let particles = genParticles(baseTexture);
-    return [particles, reset, update, drops];
+      this.app.stage.addChild(drops);
+      particles = particles.concat(genParticles(sprite));
+      particleContainers.push(drops);
+    }
+
+    return [particles, reset, update, particleContainers];
   }
 
   @action
@@ -421,9 +406,69 @@ export default class PixiComponent extends Component {
     let particles, reset, update, drops;
 
     if (this.firstInit || thisWeather !== this.lastWeather) {
+      const floored = (v) => Math.floor(Math.random() * v);
+      const maybeFlip = () => floored(2) ? -1 : 1;
+      const UPPER_LIMIT_Y = 10;
+      const UPPER_LIMIT_X = 2;
+      const MAX_SIZE = 2;
+      const MIN_SIZE = 0.25;
+      const SIZE = floored(MAX_SIZE) + MIN_SIZE;
+
       switch (thisWeather) {
         case "snowy": {
-          [particles, reset, update, drops] = this.initSnow();
+          // lil' snow factory
+          const snowSprite = () => {
+            const g = new PIXI.Graphics();
+            g.beginFill(0xffffff);
+            g.drawCircle(0, 0, 100);
+            g.endFill();
+
+            // Generate snow texture
+            const texture = this.app.renderer.generateTexture(g);
+
+            const s = new PIXI.Sprite(texture);
+            s.size = SIZE;
+            s.vx = floored(UPPER_LIMIT_X) - UPPER_LIMIT_X;
+            s.vy = floored(UPPER_LIMIT_Y) + 2;
+            s.alpha = Math.random();
+            s.x = snowSprite.startX = floored(this.app.renderer.width);
+            s.y = snowSprite.startY = -(SIZE + floored(this.app.renderer.height));
+            s.scale.x = 0.05;
+            s.scale.y = 0.05;
+            return s
+          }
+
+          [particles, reset, update, drops] = this.initWeather([snowSprite], 1000);
+          break;
+        }
+        case "cats-dogs": {
+          const dogSprite = () => {
+            const d = PIXI.Sprite.from("/assets/images/sprites/dog_rain.png");
+            d.size = SIZE;
+            d.vx = floored(UPPER_LIMIT_X) - UPPER_LIMIT_X;
+            d.vy = floored(UPPER_LIMIT_Y) + 2;
+            d.alpha = Math.random();
+            d.x = d.startX = floored(this.app.renderer.width);
+            d.y = d.startY = -(SIZE + floored(this.app.renderer.height));
+            d.scale.x = 0.5 * maybeFlip();
+            d.scale.y = 0.5;
+            return d;
+          }
+
+          const catSprite = () => {
+            const c = PIXI.Sprite.from("/assets/images/sprites/cat_rain.png");
+            c.size = SIZE;
+            c.vx = floored(UPPER_LIMIT_X) - UPPER_LIMIT_X;
+            c.vy = floored(UPPER_LIMIT_Y) + 2;
+            c.alpha = Math.random();
+            c.x = c.startX = floored(this.app.renderer.width);
+            c.y = c.startY = -(SIZE + floored(this.app.renderer.height));
+            c.scale.x = 0.5 * maybeFlip();
+            c.scale.y = 0.5;
+            return c;
+          }
+
+          [particles, reset, update, drops] = this.initWeather([catSprite, dogSprite], 500);
           break;
         }
         default:
@@ -526,7 +571,7 @@ export default class PixiComponent extends Component {
       let count = 0;
       // Animate the filter
       this.app.ticker.add((delta) => {
-        if (particles && this.weather.currentWeather === "snowy") {
+        if (particles && ["snowy", "cats-dogs"].includes(this.weather.currentWeather)) {
           for (let particle of particles) {
             if (particle.y > 0) particle.x += particle.vx;
             particle.y += particle.vy;
@@ -540,7 +585,9 @@ export default class PixiComponent extends Component {
             )
               reset(particle);
           }
-          this.app.renderer.render(drops);
+          for (let drop of drops) {
+            this.app.renderer.render(drop);
+          }
         }
 
         this.filter.uniforms.customUniform += delta;
