@@ -41,7 +41,7 @@ export default class PixiComponent extends Component {
   constructor() {
     super(...arguments);
     this.eventBus.subscribe("fruitTipped", this, "addFruitTip");
-    this.eventBus.subscribe("weatherChanged", this, "didInsert");
+    this.eventBus.subscribe("weatherChanged", this, "reinitPixi");
   }
 
   metalPineappleAnimation() {
@@ -388,6 +388,15 @@ export default class PixiComponent extends Component {
 
   @action
   didInsert() {
+    this.initPixi();
+  }
+
+  reinitPixi() {
+    this.app.destroy();
+    this.initPixi();
+  }
+
+  initPixi() {
     let type = "WebGL";
     if (!PIXI.utils.isWebGLSupported()) {
       type = "canvas";
@@ -490,14 +499,6 @@ export default class PixiComponent extends Component {
 
     this.app.stop();
 
-    // const texture = PIXI.Texture.from(
-    //   'https://cdn.glitch.com/a0abb6db-d8c2-490b-8aec-0a2161476024%2Fdxdf.png?v=1621918916353',
-    // );
-    //
-    // const background = new PIXI.TilingSprite(texture, this.app.screen.width, this.app.screen.height);
-    //
-    // this.app.stage.addChild(background);
-
     this.app.loader.add("strawberry", "/assets/images/sprites/strawberry.json");
     this.app.loader.add("orange", "/assets/images/sprites/orange.json");
     this.app.loader.add("lemon", "/assets/images/sprites/lemon.json");
@@ -563,13 +564,11 @@ export default class PixiComponent extends Component {
       this.animations.blueberrinies =
         res.blueberrinies.spritesheet.animations["blueberrinies.png"];
 
-      //background.filters = [this.filter];
 
       // Resume application update
       this.app.start();
 
       let count = 0;
-      // Animate the filter
       this.app.ticker.add((delta) => {
         if (particles && ["snowy", "cats-dogs"].includes(this.weather.currentWeather)) {
           for (let particle of particles) {
@@ -630,4 +629,3 @@ declare module '@glint/environment-ember-loose/registry' {
     PixiComponent: typeof PixiComponent;
   }
 }
-
