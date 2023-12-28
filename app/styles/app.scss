@@ -764,11 +764,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 .pagination-wrapper {
-  @apply px-10 flex flex-wrap justify-between bg-df-green blm:bg-black trans:bg-df-pink;
+  @apply px-10 py-4 flex flex-wrap justify-between bg-df-green blm:bg-black trans:bg-df-pink;
 }
 
 .pagination {
-  @apply px-4 text-xl font-extrabold;
+  @apply px-4 text-2xl font-extrabold;
 }
 
 .pagination.number:hover {
