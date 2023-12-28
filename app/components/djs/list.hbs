@@ -1,0 +1,53 @@
+<Await @promise={{this.fetchDjs}} as |await|>
+  <div
+    {{did-update await.reload @searchParams.page}}
+  >
+    <await.Pending>
+      <p>
+        {{random-loading-message}}
+      </p>
+    </await.Pending>
+    <await.Fulfilled as |result|>
+      <div
+        class="djs flex flex-wrap "
+      >
+        {{#each result as |dj|}}
+          <div class="dj m-5 classic:bg-df-pink blm:bg-black trans:bg-df-blue rounded-md">
+            <h2 class="name font-debussy text-xl m-2 overflow-hidden">
+              <LinkTo @route="home.dj" @model={{dj.username}} title={{dj.username}}>
+                {{dj.username}}
+              </LinkTo>
+            </h2>
+            {{#if (eq dj.avatarUrl null)}}
+              <img
+                width="150"
+                height="150"
+                class="rounded-b-md align-bottom"
+                src="/assets/images/dj_placeholder.png"
+                alt={{dj.username}}
+              >
+            {{else}}
+              <img
+                width="150"
+                height="150"
+                class="rounded-b-md align-bottom"
+                src={{dj.avatarUrl}}
+                alt={{dj.username}}
+              >
+            {{/if}}
+          </div>
+        {{/each}}
+      </div>
+      <!--
+      <FruitsUi::Pagination
+        @totalPages={{result.meta.total_pages}}
+        @page={{@searchParams.page}}
+        @route={{this.router.currentRouteName}}
+      />
+      -->
+    </await.Fulfilled>
+    <await.Rejected>
+      error ... :(
+    </await.Rejected>
+  </div>
+</Await>
