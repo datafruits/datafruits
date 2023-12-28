@@ -467,6 +467,13 @@ export function initialize(/* application */) {
       shortnames: [':thanksbill:'],
       keywords: ['thanksbill'],
     },
+    ':smiling_shrimp:': {
+      custom: true,
+      uc_base: 'smiling_shrimp',
+      uc_output: '',
+      shortnames: [':smiling_shrimp:'],
+      keywords: ['smiling_shrimp'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {

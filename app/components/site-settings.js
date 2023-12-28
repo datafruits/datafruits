@@ -9,6 +9,9 @@ export default class SiteSettingsComponent extends Component {
   @service
   theme;
 
+  @service
+  weather;
+
   @action
   setLocale(locale) {
     this.intl.locale = locale;
@@ -17,6 +20,11 @@ export default class SiteSettingsComponent extends Component {
   @action
   setTheme(theme) {
     this.theme.setTheme(theme);
+  }
+
+  @action
+  setWeather(event) {
+    this.weather.setWeather(event.target.value);
   }
 }
 

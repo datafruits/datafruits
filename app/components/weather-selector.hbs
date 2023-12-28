@@ -1,0 +1,21 @@
+<label id="weather-selector-label" for="weather-selector">
+  {{t "weather.label"}}
+</label>
+<select
+  name="weather-selector"
+  id="weather-selector"
+  class="text-2xl classic:bg-df-pink blm:bg-black trans:bg-df-blue border-solid border-2 border-df-blue"
+  {{on "change" @setWeather}}
+>
+  {{#each this.weathers as |weather|}}
+    {{#if (eq weather.value this.currentWeather)}}
+      <option selected value={{weather.value}}>
+        {{weather.text}}
+      </option>
+    {{else}}
+      <option value={{weather.value}}>
+        {{weather.text}}
+      </option>
+    {{/if}}
+  {{/each}}
+</select>
