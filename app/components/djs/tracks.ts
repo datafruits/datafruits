@@ -18,7 +18,8 @@ export default class DjsTracks extends Component<DjsTracksSignature> {
 
   @action
   async fetchTracks() {
-    return this.store.query('track', { dj: this.args.dj.id, page: this.args.page });
+    // TODO get shows instead
+    return this.store.query('scheduled-show', { dj: this.args.dj.id, page: this.args.page });
   }
 }
 
@@ -28,4 +29,4 @@ declare module '@glint/environment-ember-loose/registry' {
     DjsTracks: typeof DjsTracks;
   }
 }
-  
+
