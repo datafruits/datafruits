@@ -18,7 +18,6 @@ export default class DjsTracks extends Component<DjsTracksSignature> {
 
   @action
   async fetchTracks() {
-    // TODO get shows instead
     return this.store.query('scheduled-show', { dj: this.args.dj.id, page: this.args.page });
   }
 }
