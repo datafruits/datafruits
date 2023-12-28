@@ -18,6 +18,7 @@
                 {{dj.username}}
               </LinkTo>
             </h2>
+            <User::Badges @role={{dj.role}} />
             {{#if (eq dj.avatarUrl null)}}
               <img
                 width="150"
