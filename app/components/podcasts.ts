@@ -1,5 +1,5 @@
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
+//import { tracked } from '@glimmer/tracking';
 import type Store from '@ember-data/store';
 import type RouterService from '@ember/routing/router-service';
 import { inject as service } from '@ember/service';
@@ -16,8 +16,6 @@ export default class PodcastsSearch extends Component<PodcastsArgs> {
   @service declare store: Store;
 
   @service declare router: RouterService;
-
-  @tracked initialData: any;
 
   get labelNames() {
     return this.args.labels.map(function (label) {
@@ -36,22 +34,13 @@ export default class PodcastsSearch extends Component<PodcastsArgs> {
 
   @action
   fetchPodcasts() {
+    console.log('fetchPodcasts');
     const query = this.args.query;
+    console.log(query);
     const podcastsPromise = this.store.query('podcast', query);
 
     return podcastsPromise;
   }
-
-  @action
-  fetchInitial() {
-    const query = this.args.query;
-    const podcastsPromise = this.store.query('podcast', query);
-
-    return podcastsPromise.then((podcasts) => {
-      this.initialData = podcasts;
-    });
-  }
-
 }
 
 declare module '@glint/environment-ember-loose/registry' {

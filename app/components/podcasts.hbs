@@ -1,12 +1,11 @@
-<div
-  {{did-insert this.fetchInitial @page}}
-  {{did-update this.fetchInitial @page}}
->
+<div>
   <Await
     @promise={{this.fetchPodcasts}}
-    @initialData={{this.initialData}}
       as |await|>
-    <div id="podcast-search-controls">
+    <div
+      id="podcast-search-controls"
+      {{did-update await.reload @page}}
+      >
       <div class="flex flex-wrap justify-around">
         <div id="search-controls">
           <h1 class="text-center">{{t "podcasts.search_title"}}</h1>
