@@ -6,6 +6,7 @@ import Store from '@ember-data/store';
 
 interface ShowSeriesEpisodeListArgs {
   showSeries: ShowSeries;
+  page: number;
 }
 
 export default class ShowSeriesEpisodeList extends Component<ShowSeriesEpisodeListArgs> {
@@ -13,6 +14,10 @@ export default class ShowSeriesEpisodeList extends Component<ShowSeriesEpisodeLi
 
   @action
   fetchEpisodes() {
-    return this.store.query('scheduled-show', { showSeries: this.args.showSeries.slug, status: 'archive_published' });
+    return this.store.query('scheduled-show',
+                            { showSeries: this.args.showSeries.slug,
+                              status: 'archive_published',
+                              page: this.args.page
+                            });
   }
 }
