@@ -803,5 +803,9 @@ body::-webkit-scrollbar-thumb {
   @apply border-4 border-dotted border-df-green;
 }
 
+.tier-header {
+  @apply font-debussy text-2xl text-df-yellow uppercase;
+}
+
 @tailwind utilities;
 /* purgecss end ignore */
