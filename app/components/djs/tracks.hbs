@@ -8,11 +8,13 @@
       </p>
     </await.Pending>
     <await.Fulfilled as |result|>
-      {{#each result as |track|}}
-        <PodcastTrack
-          @track={{track}}
-          @selectLabel={{this.browseLabel}}
-        />
+      {{#each result as |show|}}
+        {{#if show.tracks.firstObject}}
+          <PodcastTrack
+            @track={{show.tracks.firstObject}}
+            @show={{show}}
+          />
+        {{/if}}
       {{/each}}
       <FruitsUi::Pagination
         @totalPages={{result.meta.total_pages}}
