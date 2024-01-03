@@ -2,9 +2,9 @@
   class="flex flex-col flex-grow min-h-0 flex-basis-0 overflow-hidden md:px-8 mt-5"
 >
   {{#if @isAuthenticating}}
-    {{t "chat.logging_you_in"}}
+    <h1>{{t "chat.logging_you_in"}}</h1>
   {{else if this.chat.loading}}
-    {{t "chat.loading"}}
+    <h1>{{t "chat.loading"}}</h1>
   {{else}}
     <div id="chat-area"
       class="text-df-yellow font-bold flex flex-row flex-grow min-h-0 relative text-shadow mb-5 flex-basis-0"
