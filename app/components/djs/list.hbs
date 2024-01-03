@@ -3,9 +3,9 @@
     {{did-update await.reload @searchParams.page}}
   >
     <await.Pending>
-      <p>
+      <h1>
         {{random-loading-message}}
-      </p>
+      </h1>
     </await.Pending>
     <await.Fulfilled as |result|>
       <div

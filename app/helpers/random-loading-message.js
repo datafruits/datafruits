@@ -6,7 +6,7 @@ export function randomLoadingMessage() {
     'musta been the onion salad dressing',
     "it's just a website",
     'this is BGS',
-    'loading...',
+    'glorpening fruit buffers...',
     'greasy hotdogs...greasy fries...',
     'if you see viz say viz',
     'you can play anysong',
@@ -16,6 +16,9 @@ export function randomLoadingMessage() {
     'who is the shrimpshake CEO???!',
     'get XP, level up, unlock new fruits!',
     "if you're a DJ, you gotta upload your own archives. shrimpshakeco won't do it for you sorry.",
+    'recalibrating veggie filters...',
+    'check your fruit alignment on your profile',
+    'whats your style? chunky? grumpy? sleepy?',
   ];
   return loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
 }
