@@ -399,10 +399,15 @@ form {
 .ember-power-select-option {
   color: black;
   text-shadow: none;
+  @apply uppercase;
 }
 
 .ember-power-select-placeholder {
   text-shadow: none !important;
+}
+
+li.ember-power-select-multiple-option {
+    @apply text-df-yellow classic:bg-df-pink blm:bg-black hover:text-white p-1 border-solid border-white border-2 mx-2 font-extrabold;
 }
 
 .ember-power-select-selected-item {
@@ -411,7 +416,6 @@ form {
 }
 
 .ember-power-select-trigger {
-  padding: 0.25rem;
 }
 
 .fc-center {
@@ -743,6 +747,7 @@ canvas#pixi {
 
 #tag_search {
   height: 2.3rem;
+  @apply uppercase;
 }
 
 body {
@@ -788,7 +793,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .debussy-header {
-  @apply text-center text-4xl font-debussy tracking-widest pb-2;
+  @apply text-center font-debussy tracking-widest pb-2;
 }
 
 .page-spacing {
