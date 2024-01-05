@@ -32,3 +32,11 @@ export default class NetworkStatus extends Component {
     this.isOffline = !navigator.onLine;
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    NetworkStatus: typeof NetworkStatus;
+  }
+}
+  

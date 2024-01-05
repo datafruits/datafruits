@@ -1,34 +1,42 @@
 import Component from '@glimmer/component';
 import type ForumThread from 'datafruits13/models/forum-thread';
+import type ScheduledShow from 'datafruits13/models/scheduled-show';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { next } from '@ember/runloop';
 
-interface PostFormArgs {
-  thread: ForumThread;
+interface PostFormSignature {
+  Args: {
+    postable: ForumThread | ScheduledShow;
+    postableType: 'ForumThread' | 'ScheduledShow';
+  };
 }
 
-export default class PostForm extends Component<PostFormArgs> {
+export default class PostForm extends Component<PostFormSignature> {
   @tracked body: string = '';
 
   @service declare store: any;
 
+  get cantSave() {
+    return !this.body.length;
+  }
+
   @action
   savePost(event: any) {
     event.preventDefault();
-    const thread = this.args.thread;
+    const postable = this.args.postable;
     const post = this.store.createRecord('post', {
-      postableId: thread.id,
-      postableType: 'ForumThread',
+      postableId: postable.id,
+      postableType: this.args.postableType,
       body: this.body
     });
     try {
       post.save().then(() => {
-        thread.posts.pushObject(post);
+        postable.posts.pushObject(post);
         this.body = '';
         next(this, () => {
-          const forumPosts = document.querySelectorAll("section.forum-post") as NodeListOf<Element>;
+          const forumPosts = document.querySelectorAll("section.post") as NodeListOf<Element>;
           const el = forumPosts[forumPosts.length-1];
           el.classList.add("bounce");
           (el as HTMLElement).focus();
@@ -40,3 +48,11 @@ export default class PostForm extends Component<PostFormArgs> {
     }
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    PostForm: typeof PostForm;
+  }
+}
+

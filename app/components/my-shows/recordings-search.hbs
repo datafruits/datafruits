@@ -1,0 +1,13 @@
+{{#if @changeset.recording}}
+  <span>{{@changeset.recording.processingStatus}}</span>
+{{/if}}
+<PowerSelect
+  {{did-insert this.didInsert}}
+  @searchEnabled={{true}}
+  @search={{this.searchRecordings}}
+  @renderInPlace={{true}}
+  @options={{this.recordings}}
+  @selected={{@changeset.recording}}
+  @onChange={{this.selectRecording}} as |recording|>
+  {{recording.filename}}
+</PowerSelect>

@@ -3,11 +3,13 @@ import type ForumThread from 'datafruits13/models/forum-thread';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-interface ForumFormArgs {
-  thread: ForumThread;
+interface ForumFormSignature {
+  Args: {
+    thread: ForumThread;
+  };
 }
 
-export default class ForumForm extends Component<ForumFormArgs> {
+export default class ForumForm extends Component<ForumFormSignature> {
   @service declare router: any;
 
   @action saveThread(event: any) {
@@ -16,7 +18,7 @@ export default class ForumForm extends Component<ForumFormArgs> {
     try {
       thread.save().then(() => {
         alert('posted !!!!');
-        this.router.transitionTo('home.forum.show', thread);
+        this.router.transitionTo('home.forum.show', thread.slug);
       });
     } catch (error) {
       alert('couldnt save thread');
@@ -24,3 +26,11 @@ export default class ForumForm extends Component<ForumFormArgs> {
     }
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ForumForm: typeof ForumForm;
+  }
+}
+

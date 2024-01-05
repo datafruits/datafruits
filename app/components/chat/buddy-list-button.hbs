@@ -7,19 +7,11 @@
   {{this.buddyListIcon}}
 </button>
 {{#if this.showingDialog}}
-  <ModalDialog
-    @onClose={{this.closeDialog}}
+  <Ui::Modal
+    @toggleModal={{this.toggleDialog}}
     @hasOverlay={{false}}
     @clickOutsideToClose={{true}}
   >
-    <div class="modal-top">
-      <button {{on "click" this.toggleDialog}}
-        type="button"
-        class="cool-button"
-      >
-        X
-      </button>
-    </div>
     <div class="modal-body m-1">
       <div class="flex flex-shrink overflow-y-scroll">
         <ul id="userlist">
@@ -29,5 +21,5 @@
         </ul>
       </div>
     </div>
-  </ModalDialog>
+  </Ui::Modal>
 {{/if}}

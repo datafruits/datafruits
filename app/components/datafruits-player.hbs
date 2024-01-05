@@ -108,7 +108,7 @@
         {{/if}}
       </span>
     </div>
-    <div class="now-playing flex-grow">
+    <div class="now-playing flex-grow overflow-hidden text-base sm:text-3xl sm:whitespace-nowrap">
       {{#if this.error}}
         <span>
           {{this.error}}
@@ -120,7 +120,7 @@
       {{/if}}
     </div>
     {{#if (and this.playingPodcast this.playing)}}
-      <span class="mx-2">
+      <span class="mx-2 text-base leading-4">
         {{this.formattedPlayTime}}
       </span>
     {{/if}}
@@ -132,7 +132,7 @@
     <div class="seek">
       <div class="seek-bar-wrapper">
         <input
-          class="seek-bar"
+          class="seek-bar m-0 sm:mt-4 sm:mb-4"
           type="range"
           step="any"
           {{on "input" this.seek}}

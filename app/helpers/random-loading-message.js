@@ -1,6 +1,7 @@
 import { helper } from '@ember/component/helper';
 
 export function randomLoadingMessage() {
+  // TODO translate these
   let loadingMessages = [
     'musta been the onion salad dressing',
     "it's just a website",
@@ -8,6 +9,7 @@ export function randomLoadingMessage() {
     'loading...',
     'greasy hotdogs...greasy fries...',
     'if you see viz say viz',
+    'you can play anysong',
   ];
   return loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
 }

@@ -18,3 +18,11 @@ export default class BuddyListButton extends Component {
     return formatEmojiHtml(":busts_in_silhouette:");
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    BuddyListButton: typeof BuddyListButton;
+  }
+}
+

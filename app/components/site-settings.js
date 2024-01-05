@@ -9,6 +9,9 @@ export default class SiteSettingsComponent extends Component {
   @service
   theme;
 
+  @service
+  weather;
+
   @action
   setLocale(locale) {
     this.intl.locale = locale;
@@ -18,4 +21,17 @@ export default class SiteSettingsComponent extends Component {
   setTheme(theme) {
     this.theme.setTheme(theme);
   }
+
+  @action
+  setWeather(event) {
+    this.weather.setWeather(event.target.value);
+  }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    SiteSettingsComponent: typeof SiteSettingsComponent;
+  }
+}
+  

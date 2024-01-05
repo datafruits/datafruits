@@ -316,3 +316,11 @@ export default class DatafruitsPlayer extends Component {
     }
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    DatafruitsPlayer: typeof DatafruitsPlayer;
+  }
+}
+

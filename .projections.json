@@ -1,0 +1,14 @@
+{
+  "app/components/*.js": {
+    "alternate": "app/components/{}.hbs",
+    "type": "component"
+  },
+  "app/components/*.ts": {
+    "alternate": "app/components/{}.hbs",
+    "type": "component"
+  },
+  "app/components/*.hbs": {
+    "alternate": ["app/components/{}.js", "app/components/{}.ts"],
+    "type": "template"
+  }
+}

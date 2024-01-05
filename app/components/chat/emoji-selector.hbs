@@ -45,19 +45,9 @@
     </div>
   </div>
   {{#if this.dialogOpen}}
-    <ModalDialog
-      @onClose={{this.closeDialog}}
-      @hasOverlay={{false}}
-      @clickOutsideToClose={{true}}
-    >
-      <div class="modal-top">
-        <button {{on "click" this.closeDialog}}
-          type="button"
-          class="cool-button"
-        >
-          X
-        </button>
-      </div>
+    <Ui::Modal
+        @toggleModal={{this.closeDialog}}
+      >
       <div class="p-2 bg-df-blue overflow-scroll emoji-selector-dialog">
         <div class="flex-row flex justify-between">
           <button
@@ -116,6 +106,6 @@
           />
         {{/if}}
       </div>
-    </ModalDialog>
+    </Ui::Modal>
   {{/if}}
 </span>

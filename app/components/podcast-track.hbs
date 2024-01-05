@@ -1,83 +1,95 @@
-<div class="py-1 flex flex-wrap space-x-1">
-  <div class="mt-1 text-xl">
-    {{#if this.playing}}
-      <a class="text-df-green hover:text-df-yellow text-xxl" {{action "pause"}} href="#">
-        {{t "player.pause"}}
-      </a>
-    {{else}}
-      <a class="text-df-green hover:text-df-yellow text-xxl" {{action "play"}} href="#">
-        {{t "player.play"}}
-      </a>
-    {{/if}}
-    <a href={{@track.cdnUrl}} download="">
-      <FaIcon
-        @icon="download"
-        class="fa fa-download text-df-green hover:text-df-yellow text-xxl"
-      />
-    </a>
-    {{#if @track.youtubeLink}}
-      <a href={{@track.youtubeLink}} target="_blank" rel="noreferrer noopener">
+<div class="bg-df-pink text-2xl rounded-lg sm:py-1 flex justify-between space-x-1 text-xs sm:text-xl mb-2 p-2">
+  <div class="flex flex-wrap items-center gap-0.5 sm:gap-1.5">
+    <div class="mt-1 flex space-x-1">
+      {{#if this.playing}}
+        <a
+          class="text-df-green hover:text-df-yellow text-xl"
+          {{action "pause"}}
+          href="#"
+        >
+          {{t "player.pause"}}
+        </a>
+      {{else}}
+        <a
+          class="text-df-green hover:text-df-yellow text-xl"
+          {{action "play"}}
+          href="#"
+        >
+          {{t "player.play"}}
+        </a>
+      {{/if}}
+      <a href={{@track.cdnUrl}} download="">
         <FaIcon
-          @icon="youtube"
-          @prefix="fab"
-          class="text-df-green hover:text-df-yellow text-xxl"
+          @icon="download"
+          class="fa fa-download text-df-green hover:text-df-yellow text-xl"
         />
       </a>
-    {{/if}}
-  </div>
-  {{#if this.session.isAuthenticated}}
-    {{#if this.isFavorited}}
-      <button
-         class="cool-button favorited"
-         type="button"
-         aria-label="Remove From Favorites"
-         title="Remove From Favorites"
-        {{on "click" this.unfavoriteTrack}}
-        >
-        <FaIcon @icon="heart" />
-      </button>
-    {{else}}
-      <button
-         class="cool-button not-favorited"
-         type="button"
-         aria-label="Add To Favorites"
-         title="Add To Favorites"
-        {{on "click" this.favoriteTrack}}
-        >
-          <FaIcon @icon="heart" />
-      </button>
-    {{/if}}
-  {{/if}}
-  {{#if @track.scheduledShow}}
-    <LinkTo @route="home.show" @model={{@track.scheduledShow}}>
-      {{@track.title}}
-    </LinkTo>
-  {{else}}
-    <div class="mt-1">
-      <span class="text-xl">
-        {{@track.title}}
-      </span>
+      {{#if @show.youtubeLink}}
+        <a href={{@show.youtubeLink}} target="_blank" rel="noreferrer noopener">
+          <FaIcon
+            @icon="youtube"
+            @prefix="fab"
+            class="text-df-green hover:text-df-yellow text-xl"
+          />
+        </a>
+      {{/if}}
+      {{#if this.session.isAuthenticated}}
+        {{#if this.isFavorited}}
+          <button
+            class="cool-button favorited max-h-8"
+            type="button"
+            aria-label="Remove From Favorites"
+            title="Remove From Favorites"
+            {{on "click" this.unfavoriteTrack}}
+          >
+            <FaIcon @icon="heart" />
+          </button>
+        {{else}}
+          <button
+            class="cool-button not-favorited max-h-8"
+            type="button"
+            aria-label="Add To Favorites"
+            title="Add To Favorites"
+            {{on "click" this.favoriteTrack}}
+          >
+            <FaIcon @icon="heart" />
+          </button>
+        {{/if}}
+      {{/if}}
     </div>
-  {{/if}}
-  <div class="flex space-x-2">
-    {{#each @track.labels as |label|}}
-      <a
-        class="track-label
-          text-df-yellow
-          classic:bg-df-pink
-          blm:bg-black
-          hover:text-white
-          p-1
-          uppercase
-          border-solid
-          border-white
-          border-2
-          p-x-2
-          font-extrabold"
-        {{on "click" (fn this.selectLabel label.name)}}
-        href="#">
-        {{label.name}}
-      </a>
-    {{/each}}
+    <div class="mt-1 flex flex-wrap items-center gap-0.5 sm:gap-1.5">
+      <div>
+        <LinkTo
+          @route="home.shows.episode"
+          @models={{array @show.showSeriesSlug @show.slug}}>
+          {{@show.formattedEpisodeTitle}}
+        </LinkTo>
+        <span class="text-sm">
+          {{@show.formattedDate}}
+        </span>
+      </div>
+      {{#each @show.labels as |label|}}
+        <TrackLabel @label={{label}} />
+      {{/each}}
+    </div>
+  </div>
+  <div
+    class="w-1/2 bg-center bg-cover block overflow-hidden rounded-xl"
+    style="{{this.backgroundStyle}}"
+  >
+  </div>
+  <div>
+    <span class="text-sm mr-2 font-cursive">
+      <LinkTo @route="home.dj" @model={{@show.hostedBy}}>
+        {{@show.hostedBy}}
+      </LinkTo>
+    </span>
+    <span>
+      <img
+        style="height: 3rem;"
+        class="inline rounded-lg"
+        src="{{@show.hostAvatarUrl}}"
+        />
+    </span>
   </div>
 </div>

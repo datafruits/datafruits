@@ -9,7 +9,7 @@ export default class ChatSettings extends Component {
   @service declare chat: ChatService;
 
   @tracked declare showingDialog: boolean;
-  
+
   get gearIcon() {
     return formatEmojiHtml(":gear:")
   }
@@ -23,9 +23,17 @@ export default class ChatSettings extends Component {
   closeDialog() {
     this.showingDialog = false;
   }
-  
+
   @action
   toggleGifsEnabled() {
     this.chat.gifsEnabled = !this.chat.gifsEnabled;
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ChatSettings: typeof ChatSettings;
+  }
+}
+

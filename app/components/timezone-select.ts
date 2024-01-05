@@ -1,11 +1,13 @@
 import Component from '@glimmer/component';
 import type User from 'datafruits13/models/user';
 
-interface TimezoneSelectArgs {
-  user: User;
+interface TimezoneSelectSignature {
+  Args: {
+    user: User;
+  };
 }
 
-export default class TimezoneSelect extends Component<TimezoneSelectArgs> {
+export default class TimezoneSelect extends Component<TimezoneSelectSignature> {
 
   // these come from rails to match the data the server expects
   // ActiveSupport::TimeZone.all.map { |m| m.name }.sort
@@ -20,3 +22,11 @@ export default class TimezoneSelect extends Component<TimezoneSelectArgs> {
     return this.timeZones;
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    TimezoneSelect: typeof TimezoneSelect;
+  }
+}
+  

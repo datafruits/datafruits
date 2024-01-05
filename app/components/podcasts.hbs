@@ -1,10 +1,11 @@
-<div
-  {{did-insert this.fetchPodcasts @page}}
-  {{did-update this.fetchPodcasts @page}}
->
+<div>
   <Await
-    @promise={{this.fetchPodcasts}} as |await|>
-    <div id="podcast-search-controls">
+    @promise={{this.fetchPodcasts}}
+      as |await|>
+    <div
+      id="podcast-search-controls"
+      {{did-update await.reload @page}}
+      >
       <div class="flex flex-wrap justify-around">
         <div id="search-controls">
           <h1 class="text-center">{{t "podcasts.search_title"}}</h1>
@@ -19,7 +20,7 @@
           <h1 class="text-center">{{t "podcasts.subscribe_title"}}</h1>
           <div id="podcast-subscribe">
             <div class="md:mx-10 md:my-5 md:py-5">
-              <ul id="subscribe-links" class="pr-2 flex flex-wrap text-xl md:text-m">
+              <ul id="subscribe-links" class="pr-2 flex flex-wrap text-base sm:text-xl">
                 <li>
                   <a href="https://datafruits.streampusher.com/podcasts/datafruits.xml">
                     {{t "podcasts.links.rss"}}
@@ -53,16 +54,23 @@
           </p>
         </await.Pending>
         <await.Fulfilled as |result|>
+          <span
+              {{on "click" await.reload}}
+            >
           <FruitsUi::Pagination
             @totalPages={{result.meta.total_pages}}
             @page={{@page}}
             @route="home.podcasts" />
+          </span>
           <div class="p-2">
-            {{#each result.tracks as |track|}}
-              <PodcastTrack
-                @track={{track}}
-                @selectedLabels={{this.selectedLabels}}
-                @search={{await.reload}} />
+            {{#each result as |show|}}
+              {{#if show.tracks.firstObject}}
+                <PodcastTrack
+                  @track={{show.tracks.firstObject}}
+                  @show={{show}}
+                  @selectedLabels={{this.selectedLabels}}
+                  @search={{await.reload}} />
+              {{/if}}
             {{else}}
               {{t "podcasts.no_result"}}
             {{/each}}

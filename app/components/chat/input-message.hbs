@@ -11,6 +11,7 @@
       placeholder={{t "chat.message_placeholder"}}
       class="sm:w-1/5 md:w-3/5 lg:w-3/4"
       aria-label="{{t "chat.label.input"}}"
+      {{on "paste" this.onPasteInput}}
       data-test-chat-input-message
     />
     {{#if this.hasMessage}}

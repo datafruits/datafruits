@@ -1,4 +1,5 @@
 import Model, { attr, hasMany } from '@ember-data/model';
+import { isEmpty } from '@ember/utils';
 
 export default class UserModel extends Model {
   @attr()
@@ -18,6 +19,14 @@ export default class UserModel extends Model {
 
   @attr()
   avatarUrl;
+
+  get avatarUrlOrDefault() {
+    if (isEmpty(this.avatarUrl)) {
+      return '/assets/images/show_placeholder.jpg';
+    } else {
+      return this.avatarUrl;
+    }
+  }
 
   @attr()
   imageUrl;
@@ -58,6 +67,18 @@ export default class UserModel extends Model {
 
   @attr()
   fruitTicketBalance;
+
+  @attr()
+  level;
+
+  @attr()
+  experiencePoints;
+
+  @attr()
+  xpNeededForNextLevel;
+
+  @attr()
+  hasUnreadNotifications;
 
   @hasMany('track-favorite', { async: false }) trackFavorites; // ugh
 

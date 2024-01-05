@@ -8,11 +8,19 @@
   {{#if this.canShowAvatar}}
     {{#if @message.avatarUrl}}
       <span class="mr-2" data-test-avatar>
-        <img style="height: 20px;" src="{{@message.avatarUrl}}" alt={{@message.user}} / >
+        <img
+          class="inline rounded-md"
+          style="height: 20px;"
+          src="{{@message.avatarUrl}}"
+          alt={{@message.user}} / >
       </span>
     {{else}}
       <span class="mr-2" data-test-avatar>
-        <img style="height: 20px;" src="/assets/images/show_placeholder.jpg" alt={{@message.user}} / >
+        <img
+          class="inline rounded-md"
+          style="height: 20px;"
+          src="/assets/images/show_placeholder.jpg"
+          alt={{@message.user}} / >
       </span>
     {{/if}}
   {{/if}}
@@ -27,8 +35,8 @@
       @avatarUrl={{@message.avatarUrl}}
       />
   </span>
-  
-    {{#if this.fromDiscord}}
+
+  {{#if this.fromDiscord}}
     <a class="mr-2"
       href="https://discord.gg/83mteTQDvu"
       title={{t "chat.discord"}}
@@ -39,12 +47,15 @@
     </a>
   {{/if}}
 
-  <span class={{if @message.hasMention "bg-df-green-dark"}} data-test-message-body>
-    {{format-message-body (if this.fromDiscord this.discordMsg @message.body)}}
-  </span>
+  {{#unless (this.hasImageData)}}
+    <span class={{if @message.hasMention "bg-df-green-dark"}} data-test-message-body>
+      {{format-message-body (if this.fromDiscord this.discordMsg this.messageText)}}
+    </span>
+  {{/unless}}
+
 </li>
 {{#if @gifsEnabled}}
-  {{#if this.hasImage}}
+  {{#if this.hasImageData}}
     <li class="message">
       <span class="">
         <ChatLazyImage

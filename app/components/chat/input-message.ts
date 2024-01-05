@@ -11,7 +11,13 @@ import Gif from 'datafruits13/models/gif';
 import { next } from '@ember/runloop';
 import { isEmpty } from '@ember/utils';
 
-export default class ChatInputMessage extends Component {
+interface ChatInputMessageSignature {
+  Args: {
+    isOffline: unknown;
+  };
+}
+
+export default class ChatInputMessage extends Component<ChatInputMessageSignature> {
   @service declare chat: ChatService;
 
   @service declare currentUser: CurrentUserService;
@@ -20,6 +26,38 @@ export default class ChatInputMessage extends Component {
 
   get hasMessage () {
     return this.inputMessage.length > 0;
+  }
+
+  async getBase64Data(blob: Blob): Promise<any> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        resolve(reader.result);
+      }
+      reader.onerror = (err: ProgressEvent) => {
+        reject(err)
+      }
+      reader.readAsDataURL(blob);
+    });
+  }
+
+  @action
+  async onPasteInput(event: ClipboardEvent) {
+    if (!event.clipboardData?.files.length) return;
+
+    event.preventDefault();
+
+    for (const file of event.clipboardData.files) {
+      if (file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = (onLoadEvent) => {
+          if (onLoadEvent.target?.result) {
+            this.inputMessage = onLoadEvent.target.result as string;
+          }
+        }
+        reader.readAsDataURL(file);
+      }
+    }
   }
 
   @action
@@ -176,3 +214,11 @@ export default class ChatInputMessage extends Component {
     }
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ChatInputMessage: typeof ChatInputMessage;
+  }
+}
+  

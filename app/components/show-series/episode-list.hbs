@@ -1,0 +1,23 @@
+<Await @promise={{this.fetchEpisodes}} as |await|>
+  <div
+    {{did-update await.reload @page}}
+  >
+    <await.Pending>
+      Loading episodes...
+    </await.Pending>
+
+    <await.Fulfilled as |episodes|>
+      {{#each episodes as |episode|}}
+        <ShowEpisodeCard @episode={{episode}} />
+      {{/each}}
+      <FruitsUi::Pagination
+                @totalPages={{episodes.meta.total_pages}}
+                @page={{@page}}
+                @route="home.show" />
+    </await.Fulfilled>
+
+    <await.Rejected>
+      Something went wrong :(
+    </await.Rejected>
+  </div>
+</Await>

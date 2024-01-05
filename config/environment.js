@@ -123,7 +123,6 @@ module.exports = function (environment) {
     },
 
     CHAT_SOCKET_URL: process.env.CHAT_SOCKET_URL,
-    GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
     YOUTUBE_CHANNEL_ID: process.env.YOUTUBE_CHANNEL_ID,
     STREAM_HOST: process.env.STREAM_HOST,
     STREAM_NAME: process.env.STREAM_NAME,

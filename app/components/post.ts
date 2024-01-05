@@ -12,11 +12,13 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(localizedFormat);
 
-interface PostArgs {
-  post: PostModel;
+interface PostSignature {
+  Args: {
+    post: PostModel;
+  };
 }
 
-export default class Post extends Component<PostArgs> {
+export default class Post extends Component<PostSignature> {
   get body(): SafeString {
     return htmlSafe(emojione.shortnameToImage(this.args.post.body));
   }
@@ -26,3 +28,11 @@ export default class Post extends Component<PostArgs> {
     return dayjs(this.args.post.createdAt).tz(timeZone).format('LLL');
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    Post: typeof Post;
+  }
+}
+  

@@ -5,10 +5,6 @@ const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
 module.exports = async function ({ _distDir, visit }) {
-  function isValidUrl(aTag) {
-    return !aTag.hostname && !urls.includes(aTag.href) && /^(\/)+\S+$/.test(aTag.href);
-  }
-
   let urls = [
     '/',
     //    '/timetable',
@@ -20,7 +16,18 @@ module.exports = async function ({ _distDir, visit }) {
     //'/djs',
     '/chat',
     '/sign-up',
+    '/forum',
+    '/wiki',
+    '/shows',
+    '/support'
   ];
+
+  const isValidUrl = (aTag) => {
+    return !aTag.hostname &&
+      !urls.includes(aTag.href.toLowerCase()) &&
+      /^(\/)+\S+$/.test(aTag.href) &&
+      !aTag.href.toLowerCase().includes('?');
+  };
 
   // need to recursively crawl all the links on every page somehow
   for (const url of urls) {
@@ -31,11 +38,11 @@ module.exports = async function ({ _distDir, visit }) {
       for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
         if (aTag.href) {
           if (isValidUrl(aTag)) {
-            urls.push(aTag.href);
+            urls.push(aTag.href.toLowerCase());
           }
         }
       }
-      if (url === '/podcasts') {
+      if (['/podcasts', '/forum', '/wiki', '/shows'].includes(url)) {
         for (let aTag of [...dom.window.document.querySelectorAll('span.pagination a')]) {
           page = await visit(aTag.href);
           if (page.statusCode === 200) {
@@ -44,7 +51,7 @@ module.exports = async function ({ _distDir, visit }) {
             for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
               if (aTag.href) {
                 if (isValidUrl(aTag)) {
-                  urls.push(aTag.href);
+                  urls.push(aTag.href.toLowerCase());
                 }
               }
             }
@@ -54,5 +61,6 @@ module.exports = async function ({ _distDir, visit }) {
     }
   }
 
+  console.log('url count: ', urls.length);
   return urls;
 };

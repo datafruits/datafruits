@@ -8,13 +8,13 @@
     </div>
     {{#if this.session.isAuthenticated}}
       <div class="m-2">
-        <LinkTo @route="home.wiki.edit" class="cool-button" @model={{@page}}>
+        <LinkTo @route="home.wiki.edit" class="cool-button" @model={{@page.slug}}>
           EDIT
         </LinkTo>
       </div>
     {{/if}}
     <div class="m-2">
-      <LinkTo @route="home.wiki.history" class="cool-button" @model={{@page}}>
+      <LinkTo @route="home.wiki.history" class="cool-button" @model={{@page.slug}}>
         HISTORY
       </LinkTo>
     </div>

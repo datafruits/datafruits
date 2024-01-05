@@ -1,26 +1,16 @@
 <a {{on "click" this.toggleDjDonateModal}} ...attributes class="donate-button text-shadow">
   {{t "donate.title"}}
 </a>
-
 {{#if this.showingDjDonateModal}}
-  <ModalDialog
-    translucentOverlay={{true}}
+  <Ui::Modal
+      @toggleModal={{this.toggleDjDonateModal}}
     >
-    <div class="modal-top">
-      <button {{on "click" this.toggleDjDonateModal}}
-        type="button"
-        class="cool-button"
-        >
-        X
-      </button>
-    </div>
-
-    <div class="modal-body m-1">
+    <div class="modal-body m-1 font-bold">
       <p>
         {{t "about_page.listenersupport"}}
       </p>
-      <a href="https://www.ampled.com/artist/datafruits" target="_blank" rel="noopener noreferrer" aria-label="Ampled">
-        <img src="/assets/images/ampled.svg" aria-hidden="true" class="md:w-72">
+      <a href="https://patreon.com/datafruits" target="_blank" rel="noopener noreferrer" aria-label="Patreon">
+        <img src="/assets/images/patreon.png" alt="patreon" class="md:w-72">
       </a>
       {{t "donate.dj_link"}}
       <a href={{this.qualifiedDonationLink}} target="_blank" rel="noopener noreferrer"> {{this.donationLink}} </a>
@@ -32,5 +22,5 @@
         {{t "about_page.donate_linktext"}}
       </a>
     </div>
-  </ModalDialog>
+  </Ui::Modal>
 {{/if}}

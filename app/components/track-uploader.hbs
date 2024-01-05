@@ -1,0 +1,10 @@
+{{#let (file-queue name="track" onFileAdded=this.uploadTrack) as |queue|}}
+  <label>
+    Choose a track
+    <input type="file" {{queue.selectFile}}>
+  </label>
+
+  {{#if queue.files.length}}
+    Uploading {{queue.files.length}} files. ({{queue.progress}}%)
+  {{/if}}
+{{/let}}

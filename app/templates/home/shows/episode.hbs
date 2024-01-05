@@ -1,0 +1,67 @@
+<section class="page-spacing">
+  <section class="flex w-full">
+    <section class="w-1/2">
+      <div style="background-image: url('{{this.model.imageOrDefault}}')" alt={{this.model.title}} class="w-full h-full show-image bg-top bg-cover"></div>
+      <h1 class="text-3xl">
+        {{this.model.title}}
+      </h1>
+      <strong>Air date:</strong> {{format-day this.model.start}} - {{format-time this.model.start}}
+      {{#if (or (eq this.currentUser.user.username this.model.hostedBy) (includes 'admin' this.currentUser.user.roles))}}
+        <div class="my-2">
+          <LinkTo
+            @route="home.user.my-shows.episode"
+            @models={{array this.model.showSeriesSlug this.model.slug}}
+            class="cool-button"
+          >
+            EDIT
+          </LinkTo>
+        </div>
+      {{/if}}
+      <p>
+      </p>
+      <p>
+        <ShowSeries::Description @description={{this.model.description}} />
+      </p>
+      {{#each this.model.tracks as |track|}}
+        <PodcastTrack
+          @track={{track}}
+          @show={{this.model}}
+          />
+      {{/each}}
+      <p class="wiki-article uppercase text-2xl p-2 mb-4">
+        Check out more episodes of
+        <LinkTo
+          @route="home.show"
+          @model={{this.model.showSeriesSlug}}>
+          {{this.model.showSeriesTitle}}
+        </LinkTo>
+      </p>
+      <div class="">
+        {{#each this.model.labels as |label|}}
+          <TrackLabel @label={{label}} />
+        {{/each}}
+      </div>
+      <div>
+        <h1>{{t "show.episode.comments"}}</h1>
+        <section>
+          {{#if this.session.isAuthenticated}}
+            <h1 class="text-2xl font-cursive mb-2">Hey, {{this.currentUser.user.username}}, {{t "show.episode.leave_a_comment"}}</h1>
+            <Post::Form @postable={{this.model}} @postableType={{'ScheduledShow'}} />
+          {{else}}
+            {{t "forum.login_or_register"}}
+          {{/if}}
+        </section>
+        <section class="posts">
+          {{#each this.model.posts as |post|}}
+            <Post @post={{post}} />
+          {{/each}}
+        </section>
+      </div>
+    </section>
+    <section class="w-1/2">
+        {{#if this.model.tracklist}}
+          <h1 class="text-2xl">{{t "show.tracklist"}}</h1>
+        {{/if}}
+    </section>
+  </section>
+</section>

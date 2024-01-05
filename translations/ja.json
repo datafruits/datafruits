@@ -58,7 +58,32 @@
     "bio": "私について",
     "favorites": "お気に入り",
     "joined": "作成した時",
-    "last_login": "ここで最後"
+    "last_login": "ここで最後",
+    "settings": "プロフィール設定",
+    "username": "ユーザー名",
+    "my-shows": {
+      "title": "My Shows",
+      "edit": "編集",
+      "new": "素敵の番組はここから始まる",
+      "episodes": "エピソード",
+      "form": {
+        "title": "タイトル",
+        "description": "詳細",
+        "artwork": "画像",
+        "start": "日付/時間",
+        "end": "End",
+        "repeating": "Repeating or one off",
+        "youtube-link": "YoutubeのURL",
+        "mixcloud-link": "MixcloudのURL",
+        "soundcloud-link": "SoundCloudのURL"
+      }
+    },
+    "notifications": {
+      "title": "通知",
+      "header": "鳩さんが通知を持ってきました!",
+      "pidgeon": "素敵な帽子をかぶってる鳩",
+      "no_notifications_yet": "通知はまだ届きませんでした。"
+    }
   },
   "usermenu": {
     "settings": "プロフィール編集",

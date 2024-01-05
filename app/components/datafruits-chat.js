@@ -77,7 +77,8 @@ export default class DatafruitsChat extends Component {
   }
 
   @tracked
-  virusTimer = 500;
+  virusTimer = 3000;
+
   @tracked
   closedModal = false;
 
@@ -90,3 +91,11 @@ export default class DatafruitsChat extends Component {
     this.closedModal = true;
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    DatafruitsChat: typeof DatafruitsChat;
+  }
+}
+  

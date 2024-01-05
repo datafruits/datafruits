@@ -13,3 +13,11 @@ export default class ArchivesCardComponent extends Component {
     return htmlSafe(`background-image: url('${imageUrl}');`);
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    ArchivesCardComponent: typeof ArchivesCardComponent;
+  }
+}
+  

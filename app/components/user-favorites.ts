@@ -15,3 +15,11 @@ export default class UserFavorites extends Component {
     return this.store.query('track', { id: trackIds });
   }
 }
+
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    UserFavorites: typeof UserFavorites;
+  }
+}
+

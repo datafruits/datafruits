@@ -1,0 +1,68 @@
+<div class="relative show-poster w-full flex space-x-2">
+  <div class="w-1/2">
+    <div style="background-image: url({{@showSeries.imageUrl}})" alt={{@showSeries.title}} class="w-full h-full show-image bg-top bg-cover"></div>
+    <div class="show-info">
+      {{#if (or (includes this.currentUser.user @showSeries.users) (includes 'admin' this.currentUser.user.roles))}}
+        <div class="my-2">
+          <LinkTo
+            @route="home.user.my-shows.edit"
+            @model={{@showSeries.slug}}
+            class="cool-button absolute top-0 right-0"
+          >
+            EDIT
+          </LinkTo>
+        </div>
+      {{/if}}
+      <h1 class="font-cursive text-3xl">
+        {{@showSeries.title}}
+      </h1>
+      {{#if @showSeries.repeating}}
+        <h2 class="text-xl uppercase">
+          {{@showSeries.formattedRecurringInterval}}
+        </h2>
+      {{/if}}
+      {{#if @showSeries.users.length}}
+        <h2>
+          {{t "show.hosted_prefix"}}
+          {{#each @showSeries.users as |host|}}
+            <div>
+              <img
+                class="inline rounded-lg"
+                style="height: 2rem;"
+                src="{{host.avatarUrl}}"
+                align="center"
+                alt={{host.username}} / >
+            </div>
+            <span class="font-cursive text-xl">
+              <LinkTo @route="home.dj" @model={{host.username}}>
+                {{host.username}}
+              </LinkTo>
+            </span>
+          {{/each}}
+        </h2>
+      {{/if}}
+      {{#if @showSeries.repeating}}
+        <h3 class="modal-title uppercase" id="myModalLabel">
+          Every {{@showSeries.formattedCadence}} at {{format-time @showSeries.startTime}}
+        </h3>
+      {{/if}}
+      <p>
+        {{this.description}}
+      </p>
+    </div>
+    <div class="p-2">
+      {{#each @showSeries.labels as |label|}}
+        <TrackLabel @label={{label}} />
+      {{/each}}
+    </div>
+  </div>
+  <div class="w-1/2 p-2">
+    <h1 class="text-2xl">
+      {{t "show.episodes"}}
+    </h1>
+    <ShowSeries::EpisodeList
+      @showSeries={{@showSeries}}
+      @page={{this.router.currentRoute.queryParams.page}}
+    />
+  </div>
+</div>
