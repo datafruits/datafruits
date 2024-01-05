@@ -394,6 +394,7 @@ form {
 
 .ember-power-select-multiple-option {
   text-shadow: none;
+  @apply uppercase;
 }
 
 .ember-power-select-option {
