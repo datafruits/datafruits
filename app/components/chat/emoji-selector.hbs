@@ -78,14 +78,18 @@
             >
             {{this.smileEmoji}}
           </button>
-          <button
-            class="cool-button"
-            type="button"
-            title={{t "chat.titles.camera"}}
-            {{on "click" this.openCameraDialog}}
-            >
-            {{this.cameraEmoji}}
-          </button>
+          {{#if this.session.isAuthenticated}}
+            {{#if (gte this.currentUser.user.level 4)}}
+              <button
+                class="cool-button"
+                type="button"
+                title={{t "chat.titles.camera"}}
+                {{on "click" this.openCameraDialog}}
+                >
+                {{this.cameraEmoji}}
+              </button>
+            {{/if}}
+          {{/if}}
         </div>
         {{#if (eq this.currentTab "gif")}}
           <EmojiSelector::Gif
