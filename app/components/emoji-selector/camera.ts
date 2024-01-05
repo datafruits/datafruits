@@ -1,30 +1,38 @@
-import Component from "@ember/component";
+import Component from "@glimmer/component";
 import { action } from "@ember/object";
 
 export default class CameraMenu extends Component {
   args: any;
 
   @action
-  willRender() {
+  didInsert() {
     navigator.mediaDevices
-      .getUserMedia({  video: { 
-        facingMode: "user", 
-        width: 360, 
-        height: 240 
-      }, 
-      audio: false 
-    }).then(stream => {
-      const cameraView = document.querySelector("#camera--view") as HTMLVideoElement;
-      cameraView.srcObject = stream;
-      cameraView.play();
-    })
+      .getUserMedia({
+        video: {
+          facingMode: "user",
+          width: 360,
+          height: 240,
+        },
+        audio: false,
+      })
+      .then((stream) => {
+        const cameraView = document.querySelector(
+          "#camera--view",
+        ) as HTMLVideoElement;
+        cameraView.srcObject = stream;
+        cameraView.play();
+      });
   }
 
   @action
   reloadCamera() {
-    console.log('retry image');
-    const cameraCanvas = document.querySelector("#camera--canvas") as HTMLCanvasElement;
-    const cameraView = document.querySelector("#camera--view") as HTMLVideoElement;
+    console.log("retry image");
+    const cameraCanvas = document.querySelector(
+      "#camera--canvas",
+    ) as HTMLCanvasElement;
+    const cameraView = document.querySelector(
+      "#camera--view",
+    ) as HTMLVideoElement;
     cameraView.attributes.removeNamedItem("width");
     cameraView.attributes.removeNamedItem("height");
     cameraCanvas.getContext("2d")?.clearRect(0, 0, 0, 0);
@@ -34,20 +42,26 @@ export default class CameraMenu extends Component {
 
   @action
   sendCamera() {
-    const cameraCanvas = document.querySelector("#camera--canvas") as HTMLCanvasElement;
+    const cameraCanvas = document.querySelector(
+      "#camera--canvas",
+    ) as HTMLCanvasElement;
     const image = cameraCanvas.toDataURL("image/webp");
-    this.args.sendPhoto({url: image});
+    this.args.sendPhoto({ url: image });
     this.args.closeDialog();
   }
 
-  @action 
+  @action
   cameraAction() {
-    console.log('camera button clicked');
-    const cameraCanvas = document.querySelector("#camera--canvas") as HTMLCanvasElement;
-    const cameraView = document.querySelector("#camera--view") as HTMLVideoElement;
+    console.log("camera button clicked");
+    const cameraCanvas = document.querySelector(
+      "#camera--canvas",
+    ) as HTMLCanvasElement;
+    const cameraView = document.querySelector(
+      "#camera--view",
+    ) as HTMLVideoElement;
     cameraCanvas.width = cameraView.videoWidth;
-    cameraCanvas.height =  cameraView.videoHeight;
-    cameraCanvas.getContext("2d")?.drawImage(cameraView, 0, 0)
+    cameraCanvas.height = cameraView.videoHeight;
+    cameraCanvas.getContext("2d")?.drawImage(cameraView, 0, 0);
     cameraView.width = 0;
     cameraView.height = 0;
   }
