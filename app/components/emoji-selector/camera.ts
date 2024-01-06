@@ -39,7 +39,6 @@ export default class CameraMenu extends Component<CameraMenuArgs> {
 
   @action
   reloadCamera() {
-    console.log("retry image");
     const cameraCanvas = document.querySelector(
       "#camera--canvas",
     ) as HTMLCanvasElement;
@@ -65,7 +64,6 @@ export default class CameraMenu extends Component<CameraMenuArgs> {
 
   @action
   cameraAction() {
-    console.log("camera button clicked");
     const cameraCanvas = document.querySelector(
       "#camera--canvas",
     ) as HTMLCanvasElement;
