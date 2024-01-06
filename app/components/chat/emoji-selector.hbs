@@ -55,7 +55,7 @@
             type="button"
             title={{t "chat.titles.gif"}}
             {{on "click" this.openGifDialog}}
-            >
+          >
             {{t "chat.gif"}}
           </button>
           <button
@@ -75,9 +75,21 @@
             type="button"
             title={{t "chat.titles.emoji"}}
             {{on "click" this.openEmojiDialog}}
-            >
+          >
             {{this.smileEmoji}}
           </button>
+          {{#if this.session.isAuthenticated}}
+            {{#if (gte this.currentUser.user.level 4)}}
+              <button
+                class="cool-button"
+                type="button"
+                title={{t "chat.titles.camera"}}
+                {{on "click" this.openCameraDialog}}
+              >
+                {{this.cameraEmoji}}
+              </button>
+            {{/if}}
+          {{/if}}
         </div>
         {{#if (eq this.currentTab "gif")}}
           <EmojiSelector::Gif
@@ -90,6 +102,11 @@
           <EmojiSelector::Emoji
             @closeDialog={{this.closeDialog}}
             @sendEmoji={{@sendEmoji}}
+          />
+        {{else if (eq this.currentTab "camera")}}
+          <EmojiSelector::Camera 
+            @closeDialog={{this.closeDialog}}
+            @sendPhoto={{@sendGif}}
           />
         {{/if}}
       </div>

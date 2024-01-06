@@ -1,0 +1,27 @@
+<div {{did-insert this.didInsert}} class="border-solid border-4 border-df-green">
+  <div class="absolute flex justify-end">
+    <button
+      id="camera--trigger"
+      class="cool-button z-10 opacity-40 hover:opacity-100"
+      {{on "click" this.cameraAction}}
+    >
+      {{this.cameraEmoji}}
+    </button>
+    <button
+      id="camera--retry"
+      class="cool-button z-10 opacity-40 hover:opacity-100"
+      {{on "click" this.reloadCamera}}
+    >
+      {{this.checkMarkEmoji}}
+    </button>
+    <button
+      id="camera--send"
+      class="cool-button z-10 opacity-40 hover:opacity-100"
+      {{on "click" this.sendCamera}}
+    >
+      {{this.xMarkEmoji}}
+    </button>
+  </div>
+  <canvas id="camera--canvas" width="0" height="0"></canvas>
+  <video id="camera--view" autoplay playsinline></video>
+</div>

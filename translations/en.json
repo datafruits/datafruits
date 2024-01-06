@@ -66,12 +66,11 @@
       "img_off": "Images in chat will not be displayed",
       "video_on": "Video will be displayed",
       "video_off": "Video will not be displayed",
-      "video_fit": "Video will fit within display",
-      "video_fill": "Video will fill the entire background",
       "gif": "Share GIF with chat",
       "fruits": "View the fruits",
       "emoji": "Post an emoji",
-      "buddy_list_button": "Show users in the chatroom"
+      "buddy_list_button": "Show users in the chatroom",
+      "camera": "Use a camera to share a selfie"
     }
   },
   "wiki": {
