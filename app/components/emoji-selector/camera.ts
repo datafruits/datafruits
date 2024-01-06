@@ -1,8 +1,12 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
 
-export default class CameraMenu extends Component {
-  args: any;
+interface CameraMenuArgs {
+  closeDialog: any;
+  sendPhoto: any;
+}
+
+export default class CameraMenu extends Component<CameraMenuArgs> {
 
   @action
   didInsert() {
