@@ -5,7 +5,7 @@
       type="button"
       title={{t "chat.titles.emoji"}}
       {{on "click" this.openEmojiDialog}}
-      >
+    >
       {{this.pineappleEmoji}}
     </button>
   </div>
@@ -15,7 +15,7 @@
       type="button"
       title={{t "chat.titles.gif"}}
       {{on "click" this.openGifDialog}}
-      >
+    >
       {{t "chat.gif"}}
     </button>
     <button
@@ -55,7 +55,7 @@
             type="button"
             title={{t "chat.titles.gif"}}
             {{on "click" this.openGifDialog}}
-            >
+          >
             {{t "chat.gif"}}
           </button>
           <button
@@ -64,7 +64,7 @@
             style="padding: 0.1em !important;"
             title={{t "chat.titles.fruits"}}
             {{on "click" this.openFruittipDialog}}
-            >
+          >
             <span class="flex">
               <img src="{{this.randomFruitImage}}" style="height: 3ex !important;" width="33px" height="33px" alt="send fruit" >
               <h1>{{this.fruitCountTotal}}</h1>
@@ -75,7 +75,7 @@
             type="button"
             title={{t "chat.titles.emoji"}}
             {{on "click" this.openEmojiDialog}}
-            >
+          >
             {{this.smileEmoji}}
           </button>
           {{#if this.session.isAuthenticated}}
@@ -85,7 +85,7 @@
                 type="button"
                 title={{t "chat.titles.camera"}}
                 {{on "click" this.openCameraDialog}}
-                >
+              >
                 {{this.cameraEmoji}}
               </button>
             {{/if}}
