@@ -194,6 +194,78 @@ export default class PixiComponent extends Component {
     }, 5000);
   }
 
+  gigaShrimpshake() {
+    console.log("GIGA shrimpshake");
+    // gold shrimp, blue shrimp
+    // giant purple shrimp shake
+    let sprite = new PIXI.AnimatedSprite(this.animations["gigaShrimpshake"]);
+    let noise = new PIXI.filters.NoiseFilter(0.2);
+
+    let blobSprite;
+    for (let i = 0; i < 15; i++) {
+      blobSprite = new PIXI.AnimatedSprite(this.animations["weirdBlobs"]);
+      blobSprite.x = Math.random() * this.app.screen.width;
+      blobSprite.y = Math.random() * this.app.screen.height;
+      blobSprite.scale.x = 0.25;
+      blobSprite.scale.y = 0.25;
+      blobSprite.animationSpeed = 0.15;
+      //blobSprite.rotation = Math.floor(Math.random() * 360);
+      let randomFrame = Math.floor(Math.random() * blobSprite.totalFrames);
+      blobSprite.gotoAndPlay(randomFrame);
+      this.app.stage.addChild(blobSprite);
+      //sprite.filters = [this.filter];
+      //this.sprites.pushObject(sprite);
+      this.paidFruitTipSprites.pushObject(blobSprite);
+    }
+
+    let randomGigaShrimpshake;
+    for (let i = 0; i < 25; i++) {
+      randomGigaShrimpshake = new PIXI.AnimatedSprite(
+        this.animations["gigaShrimpshake"],
+      );
+      randomGigaShrimpshake.x = Math.random() * this.app.screen.width;
+      randomGigaShrimpshake.y = Math.random() * this.app.screen.height;
+      randomGigaShrimpshake.scale.x = Math.random() * 1;
+      randomGigaShrimpshake.scale.y = Math.random() * 1;
+      randomGigaShrimpshake.tint = Math.random() * 0xFFFFFF;
+
+      let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
+      randomGigaShrimpshake.gotoAndPlay(randomFrame);
+      this.app.stage.addChild(randomGigaShrimpshake);
+      this.paidFruitTipSprites.pushObject(randomGigaShrimpshake);
+    }
+
+    sprite.scale.x = 1;
+    sprite.scale.y = 1;
+    sprite.x = this.app.screen.width / 4;
+    sprite.y = this.app.screen.height / 4;
+
+    sprite.animationSpeed = 0.25;
+    let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
+    sprite.gotoAndPlay(randomFrame);
+
+    //sprite.filters = [this.filter];
+    this.app.stage.addChild(sprite);
+    this.paidFruitTipSprites.pushObject(sprite);
+
+    later(() => {
+      // kill everything after 5000 ms
+      //this.app.stage.removeChild(text);
+      //text.filters = [this.filter, this.alphaFilter];
+      this.paidFruitTipSprites.forEach((sprite) => {
+        sprite.filters = [noise, this.alphaFilter];
+      });
+      this.alphaFadeout = true;
+    }, 5000);
+
+    // screenshake
+    const element = document.getElementsByTagName('body')[0];
+    element.classList.remove('screen-shake');
+    // https://css-tricks.com/restart-css-animation/
+    void element.offsetWidth;
+    element.classList.add('screen-shake');
+  }
+
   megaBeamsprout() {
     console.log("MEGA beamsprout!");
     let sprite = new PIXI.AnimatedSprite(this.animations["megaBeamsprout"]);
@@ -280,6 +352,8 @@ export default class PixiComponent extends Component {
         return this.realLemonerAnimation();
       } else if (event === "mega-beamsprout") {
         return this.megaBeamsprout();
+      } else if (event === "giga-shrimpshake") {
+        return this.gigaShrimpshake();
       } else if (this.fruits.includes(event)) {
         animation = event.replace(/-./g, (x) => x[1].toUpperCase());
       } else {
@@ -531,6 +605,19 @@ export default class PixiComponent extends Component {
       "realLemoner",
       "/assets/images/sprites/real_lemoner_3d.json",
     );
+    this.app.loader.add(
+      "gigaShrimpshake",
+      "/assets/images/sprites/giga_shrimpshake.json",
+    );
+
+    this.app.loader.onProgress.add((loader, resource) => {
+      console.log(`Loading ${resource.name}: ${loader.progress}%`);
+    });
+
+    this.app.loader.onError.add((error) => {
+      console.error(`PIXI Loader Error: ${error}`);
+    });
+
     this.app.loader.load((loader, res) => {
       this.filter = new PIXI.Filter(null, res.shader.data, {
         customUniform: 0.0,
@@ -556,6 +643,9 @@ export default class PixiComponent extends Component {
         res.metalPineapple.spritesheet.animations["metal_pineapple.png"];
       this.animations.realLemoner =
         res.realLemoner.spritesheet.animations["real_lemoner_3d"];
+      this.animations.gigaShrimpshake =
+        res.gigaShrimpshake.spritesheet.animations["giga_shrimpshake"];
+        //res.gigaShrimpshake.data.animations["giga_shrimpshake"];
       this.animations.pineapple =
         res.pineapple.spritesheet.animations["pineapple_anim.png"];
       this.animations.limer = res.limer.spritesheet.animations["limer.png"]; // TODO
@@ -563,7 +653,6 @@ export default class PixiComponent extends Component {
         res.dragionFruit.spritesheet.animations["dragon_fruit.png"];
       this.animations.blueberrinies =
         res.blueberrinies.spritesheet.animations["blueberrinies.png"];
-
 
       // Resume application update
       this.app.start();
@@ -602,7 +691,7 @@ export default class PixiComponent extends Component {
         });
 
         if (this.alphaFadeout) {
-          console.log(this.alphaFilterValue);
+          //console.log(this.alphaFilterValue);
           this.alphaFilterValue = this.alphaFilterValue - 0.01;
           this.alphaFilter.alpha = this.alphaFilterValue;
         }
