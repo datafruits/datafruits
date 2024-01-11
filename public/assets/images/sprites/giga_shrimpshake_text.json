@@ -1,0 +1,143 @@
+{"frames": {
+
+"giga_shrimp_shake_text0001.png":
+{
+	"frame": {"x":639,"y":247,"w":636,"h":242},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":77,"w":636,"h":242},
+	"sourceSize": {"w":672,"h":378}
+},
+"giga_shrimp_shake_text0002.png":
+{
+	"frame": {"x":1,"y":1,"w":636,"h":245},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":29,"y":75,"w":636,"h":245},
+	"sourceSize": {"w":672,"h":378}
+},
+"giga_shrimp_shake_text0003.png":
+{
+	"frame": {"x":639,"y":491,"w":635,"h":242},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":29,"y":77,"w":635,"h":242},
+	"sourceSize": {"w":672,"h":378}
+},
+"giga_shrimp_shake_text0004.png":
+{
+	"frame": {"x":1,"y":248,"w":636,"h":245},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":75,"w":636,"h":245},
+	"sourceSize": {"w":672,"h":378}
+},
+"giga_shrimp_shake_text0005.png":
+{
+	"frame": {"x":639,"y":1,"w":637,"h":244},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":75,"w":637,"h":244},
+	"sourceSize": {"w":672,"h":378}
+},
+"giga_shrimp_shake_text0006.png":
+{
+	"frame": {"x":1,"y":495,"w":636,"h":243},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":75,"w":636,"h":243},
+	"sourceSize": {"w":672,"h":378}
+},
+"giga_shrimp_shake_text0007.png":
+{
+	"frame": {"x":1227,"y":736,"w":636,"h":240},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":77,"w":636,"h":240},
+	"sourceSize": {"w":672,"h":378}
+},
+"giga_shrimp_shake_text0008.png":
+{
+	"frame": {"x":1278,"y":1,"w":633,"h":244},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":29,"y":76,"w":633,"h":244},
+	"sourceSize": {"w":672,"h":378}
+},
+"giga_shrimp_shake_text0009.png":
+{
+	"frame": {"x":1277,"y":247,"w":634,"h":243},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":30,"y":76,"w":634,"h":243},
+	"sourceSize": {"w":672,"h":378}
+},
+"giga_shrimp_shake_text0010.png":
+{
+	"frame": {"x":1276,"y":492,"w":635,"h":242},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":29,"y":77,"w":635,"h":242},
+	"sourceSize": {"w":672,"h":378}
+},
+"giga_shrimp_shake_text0011.png":
+{
+	"frame": {"x":983,"y":735,"w":634,"h":242},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":29,"y":77,"w":634,"h":242},
+	"sourceSize": {"w":672,"h":378}
+},
+"giga_shrimp_shake_text0012.png":
+{
+	"frame": {"x":1,"y":740,"w":635,"h":244},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":29,"y":75,"w":635,"h":244},
+	"sourceSize": {"w":672,"h":378}
+},
+"giga_shrimp_shake_text0013.png":
+{
+	"frame": {"x":247,"y":740,"w":635,"h":244},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":76,"w":635,"h":244},
+	"sourceSize": {"w":672,"h":378}
+},
+"giga_shrimp_shake_text0014.png":
+{
+	"frame": {"x":493,"y":740,"w":635,"h":243},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":29,"y":77,"w":635,"h":243},
+	"sourceSize": {"w":672,"h":378}
+},
+"giga_shrimp_shake_text0015.png":
+{
+	"frame": {"x":738,"y":735,"w":634,"h":243},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":30,"y":76,"w":634,"h":243},
+	"sourceSize": {"w":672,"h":378}
+},
+"giga_shrimp_shake_text0016.png":
+{
+	"frame": {"x":1227,"y":978,"w":635,"h":241},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":28,"y":77,"w":635,"h":241},
+	"sourceSize": {"w":672,"h":378}
+}},
+"animations": {
+	"giga_shrimp_shake_text": ["giga_shrimp_shake_text0001.png","giga_shrimp_shake_text0002.png","giga_shrimp_shake_text0003.png","giga_shrimp_shake_text0004.png","giga_shrimp_shake_text0005.png","giga_shrimp_shake_text0006.png","giga_shrimp_shake_text0007.png","giga_shrimp_shake_text0008.png","giga_shrimp_shake_text0009.png","giga_shrimp_shake_text0010.png","giga_shrimp_shake_text0011.png","giga_shrimp_shake_text0012.png","giga_shrimp_shake_text0013.png","giga_shrimp_shake_text0014.png","giga_shrimp_shake_text0015.png","giga_shrimp_shake_text0016.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "giga_shrimpshake_text.png",
+	"format": "RGBA8888",
+	"size": {"w":1912,"h":1376},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:1171e2d10fab3798bd9d39de2e54a11b:65e2ac65f65168a22f0145f8bfea0137:6ab9af6ce359f7526a32c1a8c1f043c0$"
+}
+}

@@ -201,6 +201,7 @@ export default class PixiComponent extends Component {
     let sprite = new PIXI.AnimatedSprite(this.animations["gigaShrimpshake"]);
     let noise = new PIXI.filters.NoiseFilter(0.2);
 
+    let textSprite = new PIXI.AnimatedSprite(this.animations["gigaShrimpshakeText"]);
     let blobSprite;
     for (let i = 0; i < 15; i++) {
       blobSprite = new PIXI.AnimatedSprite(this.animations["weirdBlobs"]);
@@ -247,6 +248,13 @@ export default class PixiComponent extends Component {
     //sprite.filters = [this.filter];
     this.app.stage.addChild(sprite);
     this.paidFruitTipSprites.pushObject(sprite);
+
+    textSprite.x = this.app.screen.width / 4;
+    textSprite.y = this.app.screen.height / 4;
+    textSprite.gotoAndPlay(0);
+    this.app.stage.addChild(textSprite);
+    this.paidFruitTipSprites.pushObject(textSprite);
+
 
     later(() => {
       // kill everything after 5000 ms
@@ -609,6 +617,10 @@ export default class PixiComponent extends Component {
       "gigaShrimpshake",
       "/assets/images/sprites/giga_shrimpshake.json",
     );
+    this.app.loader.add(
+      "gigaShrimpshakeText",
+      "/assets/images/sprites/giga_shrimpshake_text.json",
+    );
 
     this.app.loader.onProgress.add((loader, resource) => {
       console.log(`Loading ${resource.name}: ${loader.progress}%`);
@@ -645,7 +657,8 @@ export default class PixiComponent extends Component {
         res.realLemoner.spritesheet.animations["real_lemoner_3d"];
       this.animations.gigaShrimpshake =
         res.gigaShrimpshake.spritesheet.animations["giga_shrimpshake"];
-        //res.gigaShrimpshake.data.animations["giga_shrimpshake"];
+      this.animations.gigaShrimpshakeText =
+        res.gigaShrimpshakeText.spritesheet.animations["giga_shrimp_shake_text"];
       this.animations.pineapple =
         res.pineapple.spritesheet.animations["pineapple_anim.png"];
       this.animations.limer = res.limer.spritesheet.animations["limer.png"]; // TODO
