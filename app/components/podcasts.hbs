@@ -6,6 +6,8 @@
       id="podcast-search-controls"
       {{did-update await.reload @page}}
       >
+
+      {{! search and subscribe }}
       <div class="flex flex-wrap justify-around">
         <div id="search-controls">
           <h2 class="text-center">{{t "podcasts.search_title"}}</h2>
@@ -46,7 +48,11 @@
           </div>
         </div>
       </div>
+
+
       <br>
+
+      {{! podcast results }}
       <div id="podcast-search-results">
         <await.Pending>
           <p id="podcast-search-loading" class="">
@@ -62,7 +68,8 @@
             @page={{@page}}
             @route="home.podcasts" />
           </span>
-          <div class="p-2">
+
+          <div class="grid grid-cols-episodes gap-4 p-4">
             {{#each result as |show|}}
               {{#if show.tracks.firstObject}}
                 <PodcastTrack
@@ -75,6 +82,7 @@
               {{t "podcasts.no_result"}}
             {{/each}}
           </div>
+          
           <FruitsUi::Pagination
             @totalPages={{result.meta.total_pages}}
             @page={{@page}}
