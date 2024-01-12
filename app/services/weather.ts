@@ -6,7 +6,7 @@ export default class Weather extends Service {
     this.currentWeather = weather;
   }
 
-  @tracked currentWeather: string = "snowy";
+  @tracked currentWeather: string = "cloudy";
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your services.
