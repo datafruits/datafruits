@@ -6,7 +6,7 @@ module.exports = {
       debussy: ['debussy', 'sans-serif'],
       topaz: ['topaz'],
       helvetica: ['Helvetica', 'Arial', 'sans-serif'],
-      cursive: ['cursive'],
+      comic: ['Comic Helvetic', 'Arial', 'sans-serif'],
     },
     extend: {
       textShadow: {
