@@ -17,6 +17,7 @@ export default class PixiComponent extends Component {
   app;
   sprites = [];
   animations = {};
+  particles = [];
 
   alphaFilterValue = 1.0;
   alphaFadeout = false;
@@ -389,11 +390,50 @@ export default class PixiComponent extends Component {
   @action
   didInsert() {
     this.initPixi();
+    this.loadSprites();
+    this.startPixi();
   }
 
   reinitPixi() {
     this.app.destroy();
+    //window.removeEventListener("resize");
     this.initPixi();
+    this.startPixi();
+  }
+
+  loadSprites() {
+    this.app.loader.add("strawberry", "/assets/images/sprites/strawberry.json");
+    this.app.loader.add("orange", "/assets/images/sprites/orange.json");
+    this.app.loader.add("lemon", "/assets/images/sprites/lemon.json");
+    this.app.loader.add("banana", "/assets/images/sprites/banana.json");
+    this.app.loader.add("watermelon", "/assets/images/sprites/watermelon.json");
+    this.app.loader.add("cabbage", "/assets/images/sprites/cabbage.json");
+    this.app.loader.add("beamsprout", "/assets/images/sprites/beamsprout.json");
+    this.app.loader.add("pineapple", "/assets/images/sprites/pineapple.json");
+    this.app.loader.add("limer", "/assets/images/sprites/lime.json");
+    this.app.loader.add(
+      "dragionFruit",
+      "/assets/images/sprites/dragon_fruit.json",
+    );
+    this.app.loader.add(
+      "blueberrinies",
+      "/assets/images/sprites/blueberrinies.json",
+    );
+    this.app.loader.add("shader", "/assets/shaders/shader.frag");
+
+    this.app.loader.add("stars", "/assets/images/sprites/stars.json");
+    this.app.loader.add(
+      "weirdBlobs",
+      "/assets/images/sprites/weird_blobs_1.json",
+    );
+    this.app.loader.add(
+      "metalPineapple",
+      "/assets/images/sprites/metal_pineapple.json",
+    );
+    this.app.loader.add(
+      "realLemoner",
+      "/assets/images/sprites/real_lemoner_3d.json",
+    );
   }
 
   initPixi() {
@@ -447,7 +487,7 @@ export default class PixiComponent extends Component {
             return s
           }
 
-          [particles, reset, update, drops] = this.initWeather([snowSprite], 1000);
+          [this.particles, reset, update, drops] = this.initWeather([snowSprite], 1000);
           break;
         }
         case "cats-dogs": {
@@ -477,7 +517,7 @@ export default class PixiComponent extends Component {
             return c;
           }
 
-          [particles, reset, update, drops] = this.initWeather([catSprite, dogSprite], 500);
+          [this.particles, reset, update, drops] = this.initWeather([catSprite, dogSprite], 500);
           break;
         }
         default:
@@ -498,39 +538,9 @@ export default class PixiComponent extends Component {
     this.handleResize();
 
     this.app.stop();
+  }
 
-    this.app.loader.add("strawberry", "/assets/images/sprites/strawberry.json");
-    this.app.loader.add("orange", "/assets/images/sprites/orange.json");
-    this.app.loader.add("lemon", "/assets/images/sprites/lemon.json");
-    this.app.loader.add("banana", "/assets/images/sprites/banana.json");
-    this.app.loader.add("watermelon", "/assets/images/sprites/watermelon.json");
-    this.app.loader.add("cabbage", "/assets/images/sprites/cabbage.json");
-    this.app.loader.add("beamsprout", "/assets/images/sprites/beamsprout.json");
-    this.app.loader.add("pineapple", "/assets/images/sprites/pineapple.json");
-    this.app.loader.add("limer", "/assets/images/sprites/lime.json");
-    this.app.loader.add(
-      "dragionFruit",
-      "/assets/images/sprites/dragon_fruit.json",
-    );
-    this.app.loader.add(
-      "blueberrinies",
-      "/assets/images/sprites/blueberrinies.json",
-    );
-    this.app.loader.add("shader", "/assets/shaders/shader.frag");
-
-    this.app.loader.add("stars", "/assets/images/sprites/stars.json");
-    this.app.loader.add(
-      "weirdBlobs",
-      "/assets/images/sprites/weird_blobs_1.json",
-    );
-    this.app.loader.add(
-      "metalPineapple",
-      "/assets/images/sprites/metal_pineapple.json",
-    );
-    this.app.loader.add(
-      "realLemoner",
-      "/assets/images/sprites/real_lemoner_3d.json",
-    );
+  startPixi() {
     this.app.loader.load((loader, res) => {
       this.filter = new PIXI.Filter(null, res.shader.data, {
         customUniform: 0.0,
@@ -570,8 +580,8 @@ export default class PixiComponent extends Component {
 
       let count = 0;
       this.app.ticker.add((delta) => {
-        if (particles && ["snowy", "cats-dogs"].includes(this.weather.currentWeather)) {
-          for (let particle of particles) {
+        if (this.particles && ["snowy", "cats-dogs"].includes(this.weather.currentWeather)) {
+          for (let particle of this.particles) {
             if (particle.y > 0) particle.x += particle.vx;
             particle.y += particle.vy;
 
