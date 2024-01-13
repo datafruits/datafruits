@@ -3,6 +3,7 @@
   "meow": "meow",
   "new": "New",
   "settings": {
+    "icon": "⚙",
     "title": "Site Settings"
   },
   "404": {

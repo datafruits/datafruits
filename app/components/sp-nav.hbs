@@ -159,6 +159,17 @@
           </span>
         </li>
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+          <span {{on "click" @toggleMenu}}>
+            <LinkTo
+              class="text-white text-shadow-light"
+              aria-label={{t "settings.title"}}
+              @route="home.site-settings"
+            >
+              {{t "settings.icon"}}
+            </LinkTo>
+          </span>
+        </li>
+        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -171,17 +182,6 @@
               src="/assets/images/3D.gif"
             />
           </a>
-        </li>
-        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-          <span {{on "click" @toggleMenu}}>
-            <LinkTo
-              class="text-white text-shadow-light"
-              aria-label={{t "settings.title"}}
-              @route="home.site-settings"
-            >
-              {{t "settings.title"}}
-            </LinkTo>
-          </span>
         </li>
       </ul>
     {{/if}}
