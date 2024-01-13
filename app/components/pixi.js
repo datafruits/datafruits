@@ -226,14 +226,38 @@ export default class PixiComponent extends Component {
       );
       randomGigaShrimpshake.x = Math.random() * this.app.screen.width;
       randomGigaShrimpshake.y = Math.random() * this.app.screen.height;
-      randomGigaShrimpshake.scale.x = Math.random() * 1;
-      randomGigaShrimpshake.scale.y = Math.random() * 1;
+      const randomScale = Math.random() * 1;
+      randomGigaShrimpshake.scale.x = randomScale;
+      randomGigaShrimpshake.scale.y = randomScale;
       randomGigaShrimpshake.tint = Math.random() * 0xFFFFFF;
 
       let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
       randomGigaShrimpshake.gotoAndPlay(randomFrame);
       this.app.stage.addChild(randomGigaShrimpshake);
       this.paidFruitTipSprites.pushObject(randomGigaShrimpshake);
+    }
+
+    let randomBlueShrimp;
+    for (let i = 0; i < 100; i++) {
+      randomBlueShrimp = new PIXI.AnimatedSprite(
+        this.animations["blueShrimp"],
+      );
+      randomBlueShrimp.x = Math.random() * this.app.screen.width;
+      randomBlueShrimp.y = Math.random() * this.app.screen.height;
+      const randomScale = Math.random() * 5;
+      const flippedChance = Math.random() * 100;
+      if(flippedChance >= 50) {
+        randomBlueShrimp.scale.x = -randomScale;
+      } else {
+        randomBlueShrimp.scale.x = randomScale;
+      }
+      randomBlueShrimp.scale.y = randomScale;
+      randomBlueShrimp.tint = Math.random() * 0xFFFFFF;
+
+      let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
+      randomBlueShrimp.gotoAndPlay(randomFrame);
+      this.app.stage.addChild(randomBlueShrimp);
+      this.paidFruitTipSprites.pushObject(randomBlueShrimp);
     }
 
     sprite.scale.x = 1;
@@ -621,6 +645,10 @@ export default class PixiComponent extends Component {
       "gigaShrimpshakeText",
       "/assets/images/sprites/giga_shrimpshake_text.json",
     );
+    this.app.loader.add(
+      "blueShrimp",
+      "/assets/images/sprites/blue_shrimp.json",
+    );
 
     this.app.loader.onProgress.add((loader, resource) => {
       console.log(`Loading ${resource.name}: ${loader.progress}%`);
@@ -657,6 +685,7 @@ export default class PixiComponent extends Component {
         res.realLemoner.spritesheet.animations["real_lemoner_3d"];
       this.animations.gigaShrimpshake =
         res.gigaShrimpshake.spritesheet.animations["giga_shrimpshake"];
+      this.animations.blueShrimp = res.blueShrimp.spritesheet.animations["shrimp_float.png"];
       this.animations.gigaShrimpshakeText =
         res.gigaShrimpshakeText.spritesheet.animations["giga_shrimp_shake_text"];
       this.animations.pineapple =
