@@ -79,6 +79,7 @@ The interface used in podcast/archive browsing.
             @route="home.podcasts" />
           </span>
 
+          {{! DEDUPE: Podcast list }}
           <div class="
                 grid
                 grid-cols-shows-xs
@@ -99,6 +100,14 @@ The interface used in podcast/archive browsing.
             {{else}}
               {{t "podcasts.no_result"}}
             {{/each}}
+            {{! dummy DIVs so the grid remains stable even if there are only a few items. }}
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
           </div>
           
           <FruitsUi::Pagination
