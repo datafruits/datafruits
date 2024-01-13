@@ -13,8 +13,8 @@ The cards that show in /shows.
   <LinkTo
     @route="home.show"
     @model={{@showSeries.slug}}
-    class="h-40 sm:h-60 md:h-80 bg-center bg-cover block overflow-hidden rounded-md"
-    style="{{this.backgroundStyle}}">
+    class="bg-center bg-cover block overflow-hidden rounded-md"
+    style="aspect-ratio: 1/1; {{this.backgroundStyle}}">
   </LinkTo>
 
   {{! Show name }}
