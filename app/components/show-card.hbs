@@ -1,22 +1,35 @@
-<div class="m-3 bg-df-blue-dark rounded-lg border-4 border-white w-full md:w-1/4 p-2 flex flex-col justify-between shadow-md">
+{{!-- 
+
+SHOW CARDS
+
+The cards that show in /shows.
+
+--}}
+
+
+<div class="flex flex-col gap-2 p-2 bg-df-blue-dark rounded-xl shadow-md">
+
+  {{! Show image }}
   <LinkTo
     @route="home.show"
     @model={{@showSeries.slug}}
-    class="text-2xl"
+    class="h-40 sm:h-60 md:h-80 bg-center bg-cover block overflow-hidden rounded-md"
+    style="{{this.backgroundStyle}}">
+  </LinkTo>
+
+  {{! Show name }}
+  <LinkTo
+    @route="home.show"
+    @model={{@showSeries.slug}}
+    class="text-2xl font-bold leading-tight"
   >
     {{@showSeries.title}}
   </LinkTo>
-  <div class="self-center w-full h-full">
-    <LinkTo
-      @route="home.show"
-      @model={{@showSeries.slug}}
-      class="h-80 bg-center bg-cover block overflow-hidden rounded-xl"
-      style="{{this.backgroundStyle}}">
-    </LinkTo>
-  </div>
-  <div class="mt-2">
+
+  {{! Show DJs (can be multiple) }}
+  <div class="flex flex-col gap-1">
     {{#each @showSeries.users as |user|}}
-      <div>
+      <div class="flex flex-row flex-1 items-center gap-2">
         <img
           class="inline rounded-lg"
           style="height: 2rem;"
@@ -29,7 +42,12 @@
       </div>
     {{/each}}
   </div>
-  <div class="p-2">
+
+  {{! spacer to make the layout flow nice}}
+  <div class="flex-1"></div>
+
+  {{! Genres/tags/labels }}
+  <div class="flex flex-rows flex-wrap gap-1">
     {{#each @showSeries.labels as |label|}}
       <TrackLabel @label={{label}} />
     {{/each}}

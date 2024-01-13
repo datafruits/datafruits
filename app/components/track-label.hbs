@@ -1,16 +1,29 @@
+{{!-- 
+
+(TAGS/GENRES)
+
+A view of a single tag/genre for shows.
+
+--}}
+
+
 <LinkTo
   class="track-label
+    
+    text-sm
+    font-bold
+    uppercase
+
     text-df-yellow
     classic:bg-df-pink
     blm:bg-black
     hover:text-white
-    p-1
-    uppercase
-    border-solid
-    border-white
-    border-2
-    mx-2
-    font-extrabold"
+
+    py-1
+    px-2
+    
+    rounded-md
+    whitespace-nowrap"
   @route="home.podcasts"
   @query={{hash tags=@label.name}}
   >

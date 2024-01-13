@@ -29,7 +29,8 @@ module.exports = {
         'df-green-dark': '#289244',
       },
       gridTemplateColumns: {
-        episodes: 'repeat(auto-fit,minmax(240px,1fr))'
+        episodes: 'repeat(auto-fit,minmax(240px,1fr))',
+        fruits: 'repeat(auto-fit,minmax(80px,1fr))'
       }
     },
     themeVariants: ['classic', 'blm', 'trans'],

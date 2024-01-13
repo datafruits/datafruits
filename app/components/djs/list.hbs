@@ -1,3 +1,11 @@
+{{!--
+
+
+USER LIST
+
+
+--}}
+
 <Await @promise={{this.fetchDjs}} as |await|>
   <div
     {{did-update await.reload @searchParams.page}}
@@ -8,30 +16,41 @@
       </h1>
     </await.Pending>
     <await.Fulfilled as |result|>
-      <div
-        class="djs flex flex-wrap "
-      >
+
+
+      <div class="grid grid-cols-fruits gap-6">
         {{#each result as |dj|}}
-          <div class="dj m-5 classic:bg-df-pink blm:bg-black trans:bg-df-blue rounded-md">
-            <h2 class="name font-debussy text-xl m-2 overflow-hidden">
+
+          {{! User }}
+          <div class="flex flex-col gap-2 pt-2 classic:bg-df-blue-dark blm:bg-black trans:bg-df-blue rounded-md overflow-hidden">
+            
+            {{! Username }}
+            <h2 class="px-2 font-debussy text-lg overflow-hidden break-words">
               <LinkTo @route="home.dj" @model={{dj.username}} title={{dj.username}}>
                 {{dj.username}}
               </LinkTo>
             </h2>
-            <User::Badges @role={{dj.role}} />
+            
+            {{! Badges (like if they're a DJ) }}
+            <div class="px-2">
+              <User::Badges @role={{dj.role}} />
+            </div>
+
+            {{! Flexible spacer to keep layouts looking clean :) }}
+            <div class="flex-1"></div>
+
+
             {{#if (eq dj.avatarUrl null)}}
               <img
-                width="150"
-                height="150"
-                class="rounded-b-md align-bottom"
+                style="aspect-ratio:1/1;"
+                class="width-full"
                 src="/assets/images/dj_placeholder.png"
                 alt={{dj.username}}
               >
             {{else}}
               <img
-                width="150"
-                height="150"
-                class="rounded-b-md align-bottom"
+                style="aspect-ratio:1/1;"
+                class="width-full"
                 src={{dj.avatarUrl}}
                 alt={{dj.username}}
               >

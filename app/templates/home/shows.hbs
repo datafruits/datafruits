@@ -1,3 +1,13 @@
+{{!-- 
+
+SHOWS
+(/shows)
+
+A list of active shows.
+
+--}}
+
+
 <section class="page-spacing">
   <h2 class="text-4xl text-shadow mb-2 uppercase">
     {{t "shows.title"}}
@@ -12,7 +22,7 @@
       </LinkTo>
     {{/if}}
   </div>
-  <div class="flex flex-wrap flex-shrink-0">
+  <div class="grid grid-cols-episodes gap-4">
     <ShowsList @shows={{this.model}} />
   </div>
 </section>
