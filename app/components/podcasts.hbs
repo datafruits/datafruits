@@ -18,7 +18,7 @@ The interface used in podcast/archive browsing.
       >
 
       {{! search and subscribe }}
-      <div class="flex flex-wrap justify-around">
+      <div class="flex flex-wrap justify-start bg-df-blue-dark">
         <div id="search-controls">
           <h2 class="text-center">{{t "podcasts.search_title"}}</h2>
           <Podcasts::Search
@@ -79,7 +79,15 @@ The interface used in podcast/archive browsing.
             @route="home.podcasts" />
           </span>
 
-          <div class="grid grid-cols-episodes gap-4 p-4">
+          <div class="
+                grid
+                grid-cols-shows-xs
+                sm:grid-cols-shows-sm
+                md:grid-cols-shows-md
+                
+                gap-4
+                my-4
+                ">
             {{#each result as |show|}}
               {{#if show.tracks.firstObject}}
                 <PodcastTrack

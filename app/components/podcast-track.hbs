@@ -8,12 +8,12 @@ An entry for an archive show, like those that show in /podcasts.
 --}}
 
 
-<div class="flex flex-col gap-2 p-2 bg-df-pink text-2xl rounded-lg text-xs sm:text-xl">
+<div class="flex flex-col gap-2 p-3 bg-df-blue-dark text-2xl rounded-lg text-xs sm:text-xl">
 
   {{! show pic }}
   <div
-    class="w-full h-32 bg-center bg-cover overflow-hidden rounded-md"
-    style="{{this.backgroundStyle}}"
+    class="bg-center bg-cover overflow-hidden rounded-md"
+    style="aspect-ratio:1/1; {{this.backgroundStyle}}"
   >
   </div>
   
@@ -42,10 +42,19 @@ An entry for an archive show, like those that show in /podcasts.
   <div class="flex-1"></div>
 
   {{! DJ + buttons }}
-  <div class="flex flex-cols sm:flex-rows justify-between items-center  gap-2">
+  <div class="
+        flex
+        flex-col
+        md:flex-row
+        
+        md:justify-between
+        items-stretch
+        md:items-center 
+        
+        gap-2">
   
     {{! DJ avatar + name }}
-    <div class="flex-auto flex flex-cols items-center gap-2">
+    <div class="flex-auto flex flex-row items-center gap-2">
 
       {{! avatar }}
       <span class="flex-none">
@@ -65,7 +74,7 @@ An entry for an archive show, like those that show in /podcasts.
     </div>
 
     {{! buttons }}
-    <div class="flex-none flex flex-cols gap-2 space-x-1">
+    <div class="flex-none flex flex-cols justify-start gap-2 ">
         {{#if this.playing}}
           <a
             class="text-df-green hover:text-df-yellow text-xl"
