@@ -7,46 +7,84 @@ The cards that show in /shows.
 --}}
 
 
-<div class="flex flex-col gap-2 p-2 bg-df-blue-dark rounded-xl shadow-md">
+<div class="
+  flex
+  flex-col
 
-  {{! Show image }}
+  gap-1.5
+  sm:gap-2
+  p-3
+  
+  bg-df-blue-dark
+  rounded-xl
+  shadow-md"
+  >
+
+
+
+  {{! IMAGE SECTION }}
   <LinkTo
     @route="home.show"
     @model={{@showSeries.slug}}
-    class="bg-center bg-cover block overflow-hidden rounded-md"
+    class="
+        flex-none
+        
+        sm:mb-1
+        
+        bg-center
+        bg-cover
+        overflow-hidden
+        rounded-md"
     style="aspect-ratio: 1/1; {{this.backgroundStyle}}">
   </LinkTo>
 
-  {{! Show name }}
-  <LinkTo
-    @route="home.show"
-    @model={{@showSeries.slug}}
-    class="text-2xl font-bold leading-tight"
-  >
-    {{@showSeries.title}}
-  </LinkTo>
+  {{! TEXT METADATA SECTION }}
+  <div class="flex flex-col gap-2">
 
-  {{! Show DJs (can be multiple) }}
-  <div class="flex flex-col gap-1">
-    {{#each @showSeries.users as |user|}}
-      <div class="flex flex-row flex-1 items-center gap-2">
-        <img
-          class="inline rounded-lg"
-          style="height: 2rem;"
-          src="{{user.avatarUrlOrDefault}}"
-          align="center"
-          alt={{user.username}} / >
-        <LinkTo @route="home.dj" @model={{user.username}}>
-          {{user.username}}
-        </LinkTo>
-      </div>
-    {{/each}}
+    {{!-- Show name
+
+      The custom line-height style is here becauase the 2xl text height class has its own line height and was conflicting.
+    --}}
+    <LinkTo
+      @route="home.show"
+      @model={{@showSeries.slug}}
+      class="text-xl/tight sm:text-2xl font-bold whitespace-normal break-words"
+      style="line-height: 1.125 !important;"
+    >
+      {{@showSeries.title}}
+    </LinkTo>
+
+    {{! Show DJs (can be multiple) }}
+    <div class="
+        flex 
+        flex-col
+        gap-1
+        ">
+
+      {{#each @showSeries.users as |user|}}
+        <div class="flex flex-row flex-1 items-center gap-1.5">
+          <img
+            class="inline rounded-md h-6"
+            src="{{user.avatarUrlOrDefault}}"
+            align="center"
+            alt={{user.username}} / >
+          <LinkTo @route="home.dj" @model={{user.username}}>
+            {{user.username}}
+          </LinkTo>
+        </div>
+      {{/each}}
+    </div>
   </div>
+  
+
 
   {{! spacer to make the layout flow nice}}
   <div class="flex-1"></div>
 
-  {{! Genres/tags/labels }}
+
+  {{! LABELS }}
   <TrackLabelList @labels={{@showSeries.labels}} />
+
+
 
 </div>

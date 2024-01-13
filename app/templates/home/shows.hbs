@@ -9,20 +9,54 @@ A list of active shows.
 
 
 <section class="page-spacing">
-  <h2 class="text-4xl text-shadow mb-2 uppercase">
-    {{t "shows.title"}}
-  </h2>
-  <div>
-    {{#if this.session.isAuthenticated}}
-      <LinkTo
-        @route="home.user.my-shows"
-        class="cool-button"
-        >
-        {{t "profile.my-shows.title"}}
-      </LinkTo>
-    {{/if}}
+
+  {{! Title (and 'My Shows' button if DJ) }}
+  <div class="
+      flex
+      flex-row
+      gap-4
+
+      mb-2
+      sm:mb-4
+      md:mb-6
+    "
+    >
+
+    {{! Page Title }}
+    <h2 class="
+      text-5xl
+      sm:text-6xl
+      md:text-7xl
+      text-shadow
+      font-debussy
+      ">
+
+      {{t "shows.title"}}
+    </h2>
+
+    {{! My Shows button }}
+    <div>
+      {{#if this.session.isAuthenticated}}
+        <LinkTo
+          @route="home.user.my-shows"
+          class="cool-button"
+          >
+          {{t "profile.my-shows.title"}}
+        </LinkTo>
+      {{/if}}
+    </div>
+
   </div>
-  <div class="grid grid-cols-episodes gap-4">
+
+
+  {{! Shows list }}
+  <div class="
+        grid
+        grid-cols-shows-xs
+        sm:grid-cols-shows-sm
+        lg:grid-cols-shows-md
+        gap-4
+        ">
     <ShowsList @shows={{this.model}} />
   </div>
 </section>

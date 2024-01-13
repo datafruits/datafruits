@@ -22,39 +22,54 @@ USER LIST
         {{#each result as |dj|}}
 
           {{! User }}
-          <div class="flex flex-col gap-2 pt-2 classic:bg-df-blue-dark blm:bg-black trans:bg-df-blue rounded-md overflow-hidden">
+          <div class="flex
+                  flex-col
+                  gap-2
+                  mb-2
+                  p-2
+                  
+                  classic:bg-df-blue-dark
+                  blm:bg-black
+                  trans:bg-df-blue
+                  
+                  rounded-xl
+                  overflow-hidden"
+                  >
             
-            {{! Username }}
-            <h2 class="px-2 font-debussy text-lg overflow-hidden break-words">
-              <LinkTo @route="home.dj" @model={{dj.username}} title={{dj.username}}>
-                {{dj.username}}
-              </LinkTo>
-            </h2>
-            
-            {{! Badges (like if they're a DJ) }}
-            <div class="px-2">
-              <User::Badges @role={{dj.role}} />
-            </div>
-
-            {{! Flexible spacer to keep layouts looking clean :) }}
-            <div class="flex-1"></div>
-
-
+            {{! User profile picture }}
             {{#if (eq dj.avatarUrl null)}}
               <img
                 style="aspect-ratio:1/1;"
-                class="width-full"
+                class="width-full rounded-md"
                 src="/assets/images/dj_placeholder.png"
                 alt={{dj.username}}
               >
             {{else}}
               <img
                 style="aspect-ratio:1/1;"
-                class="width-full"
+                class="width-full rounded-md"
                 src={{dj.avatarUrl}}
                 alt={{dj.username}}
               >
             {{/if}}
+
+            {{! Username }}
+            <h2
+              class="font-bold text-base overflow-hidden break-words"
+              style="line-height: 1.25 !important;">
+              <LinkTo @route="home.dj" @model={{dj.username}} title={{dj.username}}>
+                {{dj.username}}
+              </LinkTo>
+            </h2>
+            
+            {{! Flexible spacer to keep layouts looking clean :) }}
+            <div class="flex-1"></div>
+
+            {{! Badges (like if they're a DJ) }}
+            <div>
+              <User::Badges @role={{dj.role}} />
+            </div>
+
           </div>
         {{/each}}
       </div>

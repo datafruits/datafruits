@@ -13,8 +13,8 @@ Common view for the tag lists and each individual tag.
           
           text-sm
           font-bold
-          uppercase
-
+          lowercase
+          
           text-df-yellow
           classic:bg-df-pink
           blm:bg-black
@@ -24,7 +24,7 @@ Common view for the tag lists and each individual tag.
           px-2
           
           rounded-md
-          whitespace-nowrap"
+          whitespace-normal"
         @route="home.podcasts"
         @query={{hash tags=label.name}}
         >
