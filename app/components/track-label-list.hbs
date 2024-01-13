@@ -1,0 +1,35 @@
+{{!-- 
+
+(TAGS/GENRES)
+
+Common view for the tag lists and each individual tag.
+
+--}}
+
+<div class="flex flex-rows flex-wrap gap-1">
+    {{#each @labels as |label|}}
+      <LinkTo
+        class="track-label
+          
+          text-sm
+          font-bold
+          uppercase
+
+          text-df-yellow
+          classic:bg-df-pink
+          blm:bg-black
+          hover:text-white
+
+          py-1
+          px-2
+          
+          rounded-md
+          whitespace-nowrap"
+        @route="home.podcasts"
+        @query={{hash tags=label.name}}
+        >
+        {{label.name}}
+      </LinkTo>
+    {{/each}}
+  </div>
+

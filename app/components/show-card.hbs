@@ -47,9 +47,6 @@ The cards that show in /shows.
   <div class="flex-1"></div>
 
   {{! Genres/tags/labels }}
-  <div class="flex flex-rows flex-wrap gap-1">
-    {{#each @showSeries.labels as |label|}}
-      <TrackLabel @label={{label}} />
-    {{/each}}
-  </div>
+  <TrackLabelList @labels={{@showSeries.labels}} />
+
 </div>

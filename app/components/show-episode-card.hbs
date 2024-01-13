@@ -26,10 +26,7 @@ A card for a specific episode of a show.
     {{@episode.formattedEpisodeTitle}}
   </LinkTo>
 
-  {{! tags/labels }}
-  <div class="flex flex-rows flex-wrap gap-1">
-    {{#each @episode.labels as |label|}}
-      <TrackLabel @label={{label}} />
-    {{/each}}
-  </div>
+  {{! Genres/tags/labels }}
+  <TrackLabelList @labels={{@episode.labels}} />
+
 </div>

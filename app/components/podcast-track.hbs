@@ -30,9 +30,10 @@ An entry for an archive show, like those that show in /podcasts.
           {{@show.formattedDate}}
         </span>
       </div>
-      {{#each @show.labels as |label|}}
-        <TrackLabel @label={{label}} />
-      {{/each}}
+      
+      {{! Genres/tags/labels }}
+      <TrackLabelList @labels={{@show.labels}} />
+
     </div>
   </div>
 
