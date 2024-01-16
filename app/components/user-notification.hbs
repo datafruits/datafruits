@@ -1,4 +1,10 @@
 <li class="bg-df-pink text-2xl rounded-lg p-2 mb-2 block hover:bg-df-green flex justify-between">
-  <h2 class="mr-4">{{@notification.message}}</h2>
+  {{#if @notification.url}}
+    <a href="{{@notification.url}}">
+      <h2 class="mr-4">{{@notification.message}}</h2>
+    </a>
+  {{else}}
+    <h2 class="mr-4">{{@notification.message}}</h2>
+  {{/if}}
   <span class="text-base">{{this.formattedDate}}</span>
 </li>
