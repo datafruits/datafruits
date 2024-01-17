@@ -18,15 +18,17 @@
       {{/if}}
       <p>
       </p>
+      <div class="mb-2">
+        {{#each this.model.tracks as |track|}}
+          <PodcastTrack
+            @track={{track}}
+            @show={{this.model}}
+            />
+        {{/each}}
+      </div>
       <p>
         <ShowSeries::Description @description={{this.model.description}} />
       </p>
-      {{#each this.model.tracks as |track|}}
-        <PodcastTrack
-          @track={{track}}
-          @show={{this.model}}
-          />
-      {{/each}}
       <p class="wiki-article uppercase text-2xl p-2 mb-4">
         Check out more episodes of
         <LinkTo
