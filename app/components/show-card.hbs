@@ -1,37 +1,90 @@
-<div class="m-3 bg-df-blue-dark rounded-lg border-4 border-white w-full md:w-1/4 p-2 flex flex-col justify-between shadow-md">
+{{!-- 
+
+SHOW CARDS
+
+The cards that show in /shows.
+
+--}}
+
+
+<div class="
+  flex
+  flex-col
+
+  gap-2
+  sm:gap-2
+  p-2
+  
+  bg-df-blue-dark
+  rounded-xl
+  shadow-md"
+  >
+
+
+
+  {{! IMAGE SECTION }}
   <LinkTo
     @route="home.show"
     @model={{@showSeries.slug}}
-    class="text-2xl"
-  >
-    {{@showSeries.title}}
+    class="
+        flex-none
+        
+        sm:mb-1
+        
+        bg-center
+        bg-cover
+        overflow-hidden
+        rounded-md"
+    style="aspect-ratio: 1/1; {{this.backgroundStyle}}">
   </LinkTo>
-  <div class="self-center w-full h-full">
+
+  {{! TEXT METADATA SECTION }}
+  <div class="flex flex-col gap-2">
+
+    {{!-- Show name
+
+      The custom line-height style is here becauase the 2xl text height class has its own line height and was conflicting.
+    --}}
     <LinkTo
       @route="home.show"
       @model={{@showSeries.slug}}
-      class="h-80 bg-center bg-cover block overflow-hidden rounded-xl"
-      style="{{this.backgroundStyle}}">
+      class="text-xl/tight sm:text-2xl font-bold whitespace-normal break-words"
+      style="line-height: 1.125 !important;"
+    >
+      {{@showSeries.title}}
     </LinkTo>
+
+    {{! Show DJs (can be multiple) }}
+    <div class="
+        flex 
+        flex-col
+        gap-1
+        ">
+
+      {{#each @showSeries.users as |user|}}
+        <div class="flex flex-row flex-1 items-center gap-1.5">
+          <img
+            class="inline rounded-md h-6"
+            src="{{user.avatarUrlOrDefault}}"
+            align="center"
+            alt={{user.username}} / >
+          <LinkTo @route="home.dj" @model={{user.username}}>
+            {{user.username}}
+          </LinkTo>
+        </div>
+      {{/each}}
+    </div>
   </div>
-  <div class="mt-2">
-    {{#each @showSeries.users as |user|}}
-      <div>
-        <img
-          class="inline rounded-lg"
-          style="height: 2rem;"
-          src="{{user.avatarUrlOrDefault}}"
-          align="center"
-          alt={{user.username}} / >
-        <LinkTo @route="home.dj" @model={{user.username}}>
-          {{user.username}}
-        </LinkTo>
-      </div>
-    {{/each}}
-  </div>
-  <div class="p-2">
-    {{#each @showSeries.labels as |label|}}
-      <TrackLabel @label={{label}} />
-    {{/each}}
-  </div>
+  
+
+
+  {{! spacer to make the layout flow nice}}
+  <div class="flex-1"></div>
+
+
+  {{! LABELS }}
+  <TrackLabelList @labels={{@showSeries.labels}} />
+
+
+
 </div>

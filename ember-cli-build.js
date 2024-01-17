@@ -97,6 +97,10 @@ module.exports = function (defaults) {
 
   app.import('/vendor/hinted-Debussy.woff2');
   app.import('/vendor/hinted-Debussy.woff');
+  app.import('/vendor/Comic_Helvetic_Heavy.woff2');
+  app.import('/vendor/Comic_Helvetic_Heavy.woff');
+  app.import('/vendor/Comic_Helvetic_Medium.woff2');
+  app.import('/vendor/Comic_Helvetic_Medium.woff');
   app.import('/vendor/TopazPlus_a1200.woff2');
   app.import('node_modules/video.js/dist/video-js.min.css');
 

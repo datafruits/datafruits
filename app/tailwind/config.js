@@ -6,7 +6,7 @@ module.exports = {
       debussy: ['debussy', 'sans-serif'],
       topaz: ['topaz'],
       helvetica: ['Helvetica', 'Arial', 'sans-serif'],
-      cursive: ['cursive'],
+      comic: ['Comic Helvetic', 'Arial', 'sans-serif'],
     },
     extend: {
       textShadow: {
@@ -29,7 +29,10 @@ module.exports = {
         'df-green-dark': '#289244',
       },
       gridTemplateColumns: {
-        episodes: 'repeat(auto-fit,minmax(240px,1fr))'
+        'shows-md': 'repeat(auto-fit,minmax(240px,1fr))',
+        'shows-sm': 'repeat(auto-fit,minmax(200px,1fr))',
+        'shows-xs': 'repeat(auto-fit,minmax(140px,1fr))',
+        fruits: 'repeat(auto-fit,minmax(120px,1fr))'
       }
     },
     themeVariants: ['classic', 'blm', 'trans'],
