@@ -159,15 +159,13 @@
           </span>
         </li>
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-          <span {{on "click" @toggleMenu}}>
-            <LinkTo
-              class="text-white text-shadow-light"
-              aria-label={{t "settings.title"}}
-              @route="home.site-settings"
-            >
-              {{t "settings.icon"}}
-            </LinkTo>
-          </span>
+          <button
+            class="text-white text-shadow-light"
+            aria-label={{t "settings.title"}}
+            {{on "click" this.settingsDialogToggle}}
+          >
+            {{t "settings.icon"}}
+          </button>
         </li>
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
           <a
@@ -220,3 +218,8 @@
     </div>
   {{/unless}}
 </nav>
+{{#if this.showingSettings}}
+  <WebsiteSettings
+    @closeDialog={{this.closeDialog}}
+  />
+{{/if}}

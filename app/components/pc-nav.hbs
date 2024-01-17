@@ -70,13 +70,13 @@
       </LinkTo>
     </li>
     <li class="its-just-a-website-menu-item">
-      <LinkTo
+      <button
         class="text-white text-shadow-light hover:text-gray-400"
         aria-label={{t "settings.title"}}
-        @route="home.site-settings"
+        {{on "click" this.settingsDialogToggle}}
       >
         {{t "settings.icon"}}
-      </LinkTo>
+      </button>
     </li>
     <li class="its-just-a-website-menu-item">
       <a
@@ -225,4 +225,9 @@
       {{t "site_title_fm"}}
     </h1>
   </LinkTo>
+{{/if}}
+{{#if this.showingSettings}}
+  <WebsiteSettings
+    @closeDialog={{this.closeDialog}}
+  />
 {{/if}}
