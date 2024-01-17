@@ -1,4 +1,4 @@
-{{!-- 
+{{!--
 
 (TAGS/GENRES)
 
@@ -10,11 +10,11 @@ Common view for the tag lists and each individual tag.
     {{#each @labels as |label|}}
       <LinkTo
         class="track-label
-          
+
           text-sm
           font-bold
-          lowercase
-          
+          uppercase
+
           text-df-yellow
           classic:bg-df-pink
           blm:bg-black
@@ -22,7 +22,7 @@ Common view for the tag lists and each individual tag.
 
           py-1
           px-2
-          
+
           rounded-md
           whitespace-normal"
         @route="home.podcasts"
@@ -32,4 +32,3 @@ Common view for the tag lists and each individual tag.
       </LinkTo>
     {{/each}}
   </div>
-
