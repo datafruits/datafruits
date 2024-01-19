@@ -18,6 +18,10 @@ export default class PostForm extends Component<PostFormSignature> {
 
   @service declare store: any;
 
+  get cantSave() {
+    return !this.body.length;
+  }
+
   @action
   savePost(event: any) {
     event.preventDefault();

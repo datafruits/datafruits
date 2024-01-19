@@ -24,9 +24,17 @@ export default class HomeController extends Controller {
   @service
   currentUser;
 
-  @service fastboot;
+  @service
+  fastboot;
 
-  @service chat;
+  @service
+  chat;
+
+  @service
+  eventBus;
+
+  @service
+  weather;
 
   get locale() {
     return this.intl.locale;
@@ -38,7 +46,7 @@ export default class HomeController extends Controller {
   @tracked showingLoginModal = false;
 
   get showingPixi() {
-    return ENV.environment === 'test' ? false : true;
+    return ENV.environment === "test" ? false : true;
   }
 
   @action
@@ -52,13 +60,19 @@ export default class HomeController extends Controller {
   }
 
   @action
+  setWeather(event) {
+    this.weather.currentWeather = event.target.value;
+    this.eventBus.publish("weatherChanged", event.target.value);
+  }
+
+  @action
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
 
   @action
   toggleSubMenu() {
-    debounce(this, 'toggleSubMenuOnce', 500, true);
+    debounce(this, "toggleSubMenuOnce", 500, true);
   }
 
   toggleSubMenuOnce() {
@@ -80,7 +94,7 @@ export default class HomeController extends Controller {
     this.isAuthenticating = true;
     this.session.store.cookieExpirationTime = 60 * 60 * 24 * 14;
     return this.session
-      .authenticate('authenticator:devise', nick, pass)
+      .authenticate("authenticator:devise", nick, pass)
       .then(() => {
         const token = this.session.data.authenticated.token;
         this.currentUser.load().then(() => {
@@ -88,7 +102,7 @@ export default class HomeController extends Controller {
           const role = this.currentUser.user.role;
           const style = this.currentUser.user.style;
           const pronouns = this.currentUser.user.pronouns;
-          this.chat.push('authorize_token', {
+          this.chat.push("authorize_token", {
             user: nick,
             timestamp: Date.now(),
             token,
@@ -102,7 +116,7 @@ export default class HomeController extends Controller {
         });
       })
       .catch((/*reason*/) => {
-        alert('Wrong password');
+        alert("Wrong password");
         this.isAuthenticating = false;
         return false;
       });

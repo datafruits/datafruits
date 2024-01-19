@@ -4,7 +4,13 @@ import { inject as service } from '@ember/service';
 export default class DjsRoute extends Route {
   @service store;
 
-  model() {
-    return this.store.loadRecords('dj');
+  async model(params) {
+    // params.page = params.page || 1;
+    // return this.store.query('dj', {
+    //   page: params.page,
+    //   search: {
+    //     keyword: params.query,
+    //   },
+    // });
   }
 }

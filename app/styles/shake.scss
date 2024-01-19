@@ -20,3 +20,8 @@
   transform: translate3d(0, 0, 0);
   animation: shake 0.5s infinite;
 }
+
+@mixin shake-animation-once {
+  transform: translate3d(0, 0, 0);
+  animation: shake linear 500ms;
+}

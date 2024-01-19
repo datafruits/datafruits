@@ -11,8 +11,12 @@ export default class ScheduledShow extends ApplicationAdapter {
   }
 
   urlForQuery(query) {
+    let djId = query.dj;
+    let page = query.page || 1;
     if(query.start) {
       return `${this.urlPrefix()}/scheduled_shows`;
+    } else if(djId) {
+      return `${this.urlPrefix()}/djs/${djId}/episodes?page=${page}`;
     } else {
       return `${this.urlPrefix()}/show_series/${query.showSeries}/episodes`;
     }

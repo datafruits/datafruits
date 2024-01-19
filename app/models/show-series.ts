@@ -2,7 +2,6 @@ import Model, { attr, hasMany } from '@ember-data/model';
 import type ScheduledShowModel from 'datafruits13/models/scheduled-show';
 import type Label from 'datafruits13/models/label';
 import type User from 'datafruits13/models/user';
-import dayjs from 'dayjs';
 
 export default class ShowSeries extends Model {
   @hasMany('scheduled-show', { async: false }) declare episodes: ScheduledShowModel;
@@ -12,7 +11,7 @@ export default class ShowSeries extends Model {
   @attr('string') declare title: string;
   @attr('string') declare description: string;
 
-  @attr('string') declare recurringInterval: 'not_recurring' | 'week' | 'biweek' | 'month';
+  @attr('string') declare recurringInterval: 'not_recurring' | 'week' | 'biweek' | 'month' | 'year';
   @attr('string') declare recurringWeekday: 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday';
   @attr('string') declare recurringCadence: 'First' | 'Second' | 'Third' | 'Fourth' | 'Last';
 
@@ -42,12 +41,12 @@ export default class ShowSeries extends Model {
     return this.recurringInterval === 'month';
   }
 
-  get repeating() {
-    return this.recurringInterval != 'not_recurring';
+  get isYearly() {
+    return this.recurringInterval === 'year';
   }
 
-  get formattedStartDate() {
-    return dayjs(this.startDate).format('YYYY-MM-DD');
+  get repeating() {
+    return this.recurringInterval != 'not_recurring';
   }
 
   get formattedRecurringInterval() {
@@ -60,8 +59,12 @@ export default class ShowSeries extends Model {
     }else if(this.isBiweekly) {
       // TODO i18n
       return `other ${this.recurringWeekday}`;
-    }else if(this.isMonthly) {
+    } else if(this.isMonthly) {
+      // TODO i18n
       return `${this.recurringCadence} ${this.recurringWeekday}`;
+    } else if(this.isYearly) {
+      // TODO i18n
+      return "year";
     } else {
       return undefined;
     }

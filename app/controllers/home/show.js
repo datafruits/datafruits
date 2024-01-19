@@ -7,6 +7,8 @@ import Controller from '@ember/controller';
 export default class ShowController extends Controller {
   @service session;
   @service currentUser;
+  @service router;
+  queryParams = ['page'];
 
   @action
   browseLabel(label) {

@@ -52,22 +52,7 @@
     </div>
     <div class="p-2">
       {{#each @showSeries.labels as |label|}}
-        <a
-          class="track-label
-            text-df-yellow
-            classic:bg-df-pink
-            blm:bg-black
-            hover:text-white
-            p-1
-            uppercase
-            border-solid
-            border-white
-            border-2
-            mx-2
-            font-extrabold"
-          href="#">
-          {{label.name}}
-        </a>
+        <TrackLabel @label={{label}} />
       {{/each}}
     </div>
   </div>
@@ -75,6 +60,9 @@
     <h1 class="text-2xl">
       {{t "show.episodes"}}
     </h1>
-    <ShowSeries::EpisodeList @showSeries={{@showSeries}} />
+    <ShowSeries::EpisodeList
+      @showSeries={{@showSeries}}
+      @page={{this.router.currentRoute.queryParams.page}}
+    />
   </div>
 </div>

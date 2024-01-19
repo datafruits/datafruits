@@ -1,9 +1,10 @@
 <nav
   id="desktop-navbar"
   class="classic:bg-df-pink blm:bg-black trans:bg-df-blue mb-2 hidden md:block overflow-hidden w-full text-3xl relative"
-  role="navigation">
+  role="navigation"
+>
   <ul class="flex flex-wrap mt-2 ml-2">
-    <li class="py-2 pr-3 text-white text-shadow-light w-full md:w-auto border-dashed border-white border-4 md:border-none">
+    <li class="its-just-a-website-menu-item">
       <a
         {{on "mouseenter" @toggleSubMenu}}
         aria-label={{t "radio.aria"}}
@@ -12,53 +13,70 @@
       >
         {{t "radio.title"}}
         <FaIcon
-          class="transition-all duration-100 ease-in-out {{if @submenuOpen "rotated"}}"
+          class="transition-all duration-100 ease-in-out
+            {{if @submenuOpen 'rotated'}}"
           aria-hidden="true"
-          @icon="chevron-right" />
+          @icon="chevron-right"
+        />
       </a>
     </li>
-    <li class="py-2 pr-3 text-white text-shadow-light w-full md:w-auto border-dashed border-white border-4 md:border-none">
+    <li class="its-just-a-website-menu-item">
       <LinkTo
         class="text-white text-shadow-light hover:text-gray-400"
         aria-label={{t "chat.aria"}}
-        @route="home.chat">
+        @route="home.chat"
+      >
         {{t "chat.title"}}
       </LinkTo>
     </li>
-    <li class="py-2 pr-3 text-white text-shadow-light w-full md:w-auto border-dashed border-white border-4 md:border-none">
+    <li class="its-just-a-website-menu-item">
       <a
         class="text-white text-shadow-light hover:text-gray-400"
         aria-label={{t "releases.aria"}}
-        href="http://releases.datafruits.fm/" target="_blank" rel="noopener noreferrer">
+        href="http://releases.datafruits.fm/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {{t "label"}}
       </a>
     </li>
-    <li class="py-2 pr-3 text-white text-shadow-light w-full md:w-auto border-dashed border-white border-4 md:border-none">
+    <li class="its-just-a-website-menu-item">
       <a
         class="text-white text-shadow-light hover:text-gray-400"
         aria-label={{t "shop.aria"}}
-        href="https://datafruits.bandcamp.com/merch" target="_blank" rel="noopener noreferrer">
+        href="https://datafruits.bandcamp.com/merch"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {{t "shop.title"}}
       </a>
     </li>
-    <li class="py-2 pr-3 text-white text-shadow-light w-full md:w-auto border-dashed border-white border-4 md:border-none">
+    <li class="its-just-a-website-menu-item">
       <LinkTo
         class="text-white text-shadow-light hover:text-gray-400"
         aria-label={{t "about.aria"}}
-        @route="home.about">
+        @route="home.about"
+      >
         {{t "about.title"}}
       </LinkTo>
     </li>
-    <li class="py-2 pr-3 text-white text-shadow-light w-full md:w-auto border-dashed border-white border-4 md:border-none">
+    <li class="its-just-a-website-menu-item">
+      <LinkTo
+        class="text-white text-shadow-light hover:text-gray-400"
+        aria-label={{t "about.aria"}}
+        @route="home.support"
+      >
+        {{t "support.title"}}
+      </LinkTo>
+    </li>
+    <li class="its-just-a-website-menu-item">
       <a
         class="text-white text-shadow-light hover:text-gray-400"
         target="_blank"
         rel="noopener noreferrer"
-        href="https://hubs.mozilla.com/MsvfAkH/terrific-satisfied-area">
-        <img
-          width="75"
-          alt="{{t "3D.title"}}"
-          src="/assets/images/3D.gif">
+        href="https://hubs.mozilla.com/MsvfAkH/terrific-satisfied-area"
+      >
+        <img width="75" alt="{{t '3D.title'}}" src="/assets/images/3D.gif" />
       </a>
     </li>
   </ul>
@@ -66,55 +84,62 @@
     <ul class="flex flex-wrap items-center ml-2">
       <li>
         <LinkTo
-          class="text-2xl ml-3 text-white text-shadow-light hover:text-gray-400 w-full md:w-auto border-dashed border-white border-4 md:border-none"
+          class="its-just-a-website-sub-menu-item"
           aria-label={{t "shows.aria"}}
-          @route="home.shows">
+          @route="home.shows"
+        >
           {{t "shows.title"}}
         </LinkTo>
       </li>
       <li>
         <LinkTo
-          class="text-2xl ml-3 text-white text-shadow-light hover:text-gray-400 w-full md:w-auto border-dashed border-white border-4 md:border-none"
+          class="its-just-a-website-sub-menu-item"
           aria-label={{t "djs.aria"}}
-          @route="home.djs">
+          @route="home.djs"
+        >
           {{t "djs.title"}}
         </LinkTo>
       </li>
       <li>
         <LinkTo
-          class="text-2xl ml-3 text-white text-shadow-light hover:text-gray-400 w-full md:w-auto border-dashed border-white border-4 md:border-none"
+          class="its-just-a-website-sub-menu-item"
           aria-label={{t "podcasts.aria"}}
-          @route="home.podcasts">
+          @route="home.podcasts"
+        >
           {{t "podcasts.title"}}
         </LinkTo>
       </li>
       <li>
         <LinkTo
-          class="text-2xl ml-3 text-white text-shadow-light hover:text-gray-400 w-full md:w-auto border-dashed border-white border-4 md:border-none"
+          class="its-just-a-website-sub-menu-item"
           aria-label={{t "timetable.aria"}}
-          @route="home.timetable">
+          @route="home.timetable"
+        >
           {{t "timetable.title"}}
         </LinkTo>
       </li>
       <li>
         <LinkTo
-          class="text-2xl ml-3 text-white text-shadow-light hover:text-gray-400 w-full md:w-auto border-dashed border-white border-4 md:border-none"
+          class="its-just-a-website-sub-menu-item"
           aria-label={{t "djinquiry.aria"}}
-          @route="home.dj-inquiry">
+          @route="home.dj-inquiry"
+        >
           {{t "djinquiry.title"}}
         </LinkTo>
       </li>
       <li>
         <div class="relative">
           <img
-              class="absolute"
-              style="top: -15px; left: -30px;"
-              src="/assets/images/new.gif"
-              alt="{{ t "new" }}" />
+            class="absolute"
+            style="top: -15px; left: -30px;"
+            src="/assets/images/new.gif"
+            alt="{{t 'new'}}"
+          />
           <LinkTo
-            class="text-2xl ml-3 text-white text-shadow-light hover:text-gray-400 w-full md:w-auto border-dashed border-white border-4 md:border-none"
+            class="its-just-a-website-sub-menu-item"
             aria-label={{t "forum.aria"}}
-            @route="home.forum">
+            @route="home.forum"
+          >
             {{t "forum.title"}}
           </LinkTo>
         </div>
@@ -122,14 +147,16 @@
       <li>
         <div class="relative">
           <img
-              class="absolute"
-              style="top: -15px; left: -30px;"
-              src="/assets/images/new.gif"
-              alt="{{ t "new" }}" />
+            class="absolute"
+            style="top: -15px; left: -30px;"
+            src="/assets/images/new.gif"
+            alt="{{t 'new'}}"
+          />
           <LinkTo
-            class="text-2xl ml-3 text-white text-shadow-light hover:text-gray-400 w-full md:w-auto border-dashed border-white border-4 md:border-none"
+            class="its-just-a-website-sub-menu-item"
             aria-label={{t "wiki.aria"}}
-            @route="home.wiki">
+            @route="home.wiki"
+          >
             {{t "wiki.title"}}
           </LinkTo>
         </div>
@@ -139,25 +166,28 @@
 </nav>
 {{#if this.session.isAuthenticated}}
   <ul class="hidden md:block px-4 py-4 font-semibold text-3xl">
-    <li
-      class="flex justify-right">
-      <a href="#"
+    <li class="flex justify-right">
+      <a
+        href="#"
         class=""
         role="button"
-        aria-label="{{t "usermenu.dropdown-aria"}}"
-        {{on "click" @toggleUserMenu}}>
+        aria-label="{{t 'usermenu.dropdown-aria'}}"
+        {{on "click" @toggleUserMenu}}
+      >
         <img
           class="inline rounded-lg"
           style="height: 3rem;"
           align="center"
           src="{{this.currentUser.user.avatarUrl}}"
-          alt={{this.currentUser.user.username}} />
+          alt={{this.currentUser.user.username}}
+        />
       </a>
     </li>
     <li class="flex space-x-2 whitespace-nowrap">
       <span>Lv. {{this.currentUser.user.level}}</span>
       <div>
-        <span class="text-xs">Ƒ</span><span>{{this.currentUser.user.fruitTicketBalance}}</span>
+        <span class="text-xs">Ƒ</span><span
+        >{{this.currentUser.user.fruitTicketBalance}}</span>
       </div>
       <User::NotificationsWindow />
     </li>
@@ -167,19 +197,21 @@
     <LinkTo @route="home.sign-up" class="cool-button mr-2">
       {{t "chat.sign_up"}}
     </LinkTo>
-    <button {{on "click" @toggleLoginModal}}
-         type="button"
-         class="cool-button"
-         title={{t "chat.titles.login"}}
-         data-test-login-button
-         >
-         {{t "chat.login"}}
+    <button
+      {{on "click" @toggleLoginModal}}
+      type="button"
+      class="cool-button"
+      title={{t "chat.titles.login"}}
+      data-test-login-button
+    >
+      {{t "chat.login"}}
     </button>
   </nav>
   <LinkTo
     aria-label={{t "home.aria"}}
     class="hidden md:block"
-    @route="home.index">
+    @route="home.index"
+  >
     <h1 class="logo font-debussy text-5xl text-white">
       {{t "site_title_fm"}}
     </h1>

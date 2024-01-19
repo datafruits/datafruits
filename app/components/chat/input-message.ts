@@ -73,7 +73,7 @@ export default class ChatInputMessage extends Component<ChatInputMessageSignatur
   @action
   sendGif(gif: Gif) {
     this.inputMessage = gif.url;
-    this.setFocus()
+    this.setFocus();
   }
 
   setFocus(){
