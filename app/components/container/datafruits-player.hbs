@@ -13,15 +13,15 @@
   </audio>
   <div class="radio-container">
     <div class="player-controls">
-      {{#if loading}}
+      {{#if this.loading}}
         <a class="jp-loading" href="javascript:;" tabindex="1">
           {{t "player.loading"}}
         </a>
-      {{else if playing}}
+      {{else if this.playing}}
         <a class="jp-pause" tabindex="1" {{on "click" this.pause}}>
           {{t (if this.playingPodcast "player.pause" "player.stop")}}
         </a>
-      {{else if paused}}
+      {{else if this.paused}}
         <a {{on "click" this.play}}
           {{on "mouseenter" this.playButtonMouseEnter}}
           {{on "mouseleave" this.playButtonMouseOut}}
@@ -42,7 +42,7 @@
         {{on "mouseEnter" this.showVolumeControl}}
         {{on "mouseLeave" this.hideVolumeControl}}
       >
-        {{#if muted}}
+        {{#if this.muted}}
           {{!-- template-lint-disable no-nested-interactive --}}
           <a class="jp-unmute" tabindex="1"
             {{on 'click' this.unmute}} >
@@ -54,7 +54,7 @@
             <FaIcon @icon="volume-up" />
           </a>
         {{/if}}
-        {{#if showingVolumeControl}}
+        {{#if this.showingVolumeControl}}
           <input
             class="volume-control"
             type="range"
@@ -62,24 +62,24 @@
             max="1"
             step="0.1"
             {{on "input" this.volumeChanged}}
-            value={{volume}}
+            value={{this.volume}}
           >
         {{/if}}
       </span>
     </div>
     <div class="now-playing">
-      {{#if error}}
+      {{#if this.error}}
         <span>
-          {{error}}
+          {{this.error}}
         </span>
       {{else}}
         <span class="jp-title">
-          {{title}}
+          {{this.title}}
         </span>
       {{/if}}
     </div>
   </div>
-  {{#if playingPodcast}}
+  {{#if this.playingPodcast}}
     <div class="seek">
       <div class="seek-bar-wrapper">
         <input
@@ -87,7 +87,7 @@
           type="range"
           step="any"
           {{on "input" this.seek}}
-          value={{playTime}}
+          value={{this.playTime}}
         >
       </div>
     </div>
