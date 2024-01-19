@@ -18,6 +18,6 @@ module('Integration | Component | djs/tracks', function (hooks) {
 
     await render(hbs`<Djs::Tracks @dj={{this.dj}} @page={{this.page}} `);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.dom(this.element).hasText('');
   });
 });

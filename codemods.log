@@ -149,3 +149,17 @@ Validation errors:
 2022-02-17T01:15:28.610Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/about.hbs
 2022-02-17T01:15:28.695Z [warn] WARNING: {{fn}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/chat.hbs
 2022-02-17T01:15:28.745Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/coc.hbs
+2022-06-25T08:43:49.777Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/show.hbs
+2022-06-25T08:43:49.832Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/about.hbs
+2022-06-25T08:43:49.784Z [warn] WARNING: {{html-safe-string}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/show.hbs
+2022-06-25T08:43:49.794Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/site-settings.hbs
+2022-06-25T08:43:49.826Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/subscribe.hbs
+2022-06-25T08:43:49.844Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/sign-up.hbs
+2022-06-25T08:43:49.844Z [warn] WARNING: {{changeset}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/sign-up.hbs
+2022-06-25T08:43:49.941Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/application.hbs
+2022-06-25T08:43:50.013Z [warn] WARNING: {{fn}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/chat.hbs
+2022-06-25T08:43:50.048Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/timetable.hbs
+2022-06-25T08:43:50.072Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/podcasts.hbs
+2022-06-25T08:43:50.076Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/coc.hbs
+2022-06-25T08:43:50.099Z [warn] WARNING: {{eq}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/user/settings.hbs
+2022-06-25T08:43:50.340Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/home/dj-inquiry.hbs
