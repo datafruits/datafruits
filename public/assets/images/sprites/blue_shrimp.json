@@ -1,0 +1,111 @@
+{"frames": {
+
+"shrimp_float.png0001.png":
+{
+	"frame": {"x":43,"y":1,"w":39,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":0,"w":39,"h":48},
+	"sourceSize": {"w":50,"h":50}
+},
+"shrimp_float.png0002.png":
+{
+	"frame": {"x":43,"y":51,"w":39,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":0,"w":39,"h":48},
+	"sourceSize": {"w":50,"h":50}
+},
+"shrimp_float.png0003.png":
+{
+	"frame": {"x":84,"y":1,"w":41,"h":46},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":2,"w":41,"h":46},
+	"sourceSize": {"w":50,"h":50}
+},
+"shrimp_float.png0004.png":
+{
+	"frame": {"x":1,"y":152,"w":42,"h":45},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":3,"w":42,"h":45},
+	"sourceSize": {"w":50,"h":50}
+},
+"shrimp_float.png0005.png":
+{
+	"frame": {"x":45,"y":148,"w":43,"h":43},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":5,"w":43,"h":43},
+	"sourceSize": {"w":50,"h":50}
+},
+"shrimp_float.png0006.png":
+{
+	"frame": {"x":47,"y":193,"w":43,"h":43},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":6,"w":43,"h":43},
+	"sourceSize": {"w":50,"h":50}
+},
+"shrimp_float.png0007.png":
+{
+	"frame": {"x":1,"y":199,"w":43,"h":44},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":5,"w":43,"h":44},
+	"sourceSize": {"w":50,"h":50}
+},
+"shrimp_float.png0008.png":
+{
+	"frame": {"x":42,"y":102,"w":43,"h":44},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":4,"w":43,"h":44},
+	"sourceSize": {"w":50,"h":50}
+},
+"shrimp_float.png0009.png":
+{
+	"frame": {"x":84,"y":49,"w":41,"h":46},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":3,"w":41,"h":46},
+	"sourceSize": {"w":50,"h":50}
+},
+"shrimp_float.png0010.png":
+{
+	"frame": {"x":1,"y":52,"w":40,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":1,"w":40,"h":48},
+	"sourceSize": {"w":50,"h":50}
+},
+"shrimp_float.png0011.png":
+{
+	"frame": {"x":1,"y":102,"w":39,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":0,"w":39,"h":48},
+	"sourceSize": {"w":50,"h":50}
+},
+"shrimp_float.png0012.png":
+{
+	"frame": {"x":1,"y":1,"w":40,"h":49},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":4,"y":0,"w":40,"h":49},
+	"sourceSize": {"w":50,"h":50}
+}},
+"animations": {
+	"shrimp_float.png": ["shrimp_float.png0001.png","shrimp_float.png0002.png","shrimp_float.png0003.png","shrimp_float.png0004.png","shrimp_float.png0005.png","shrimp_float.png0006.png","shrimp_float.png0007.png","shrimp_float.png0008.png","shrimp_float.png0009.png","shrimp_float.png0010.png","shrimp_float.png0011.png","shrimp_float.png0012.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "blue_shrimp.png",
+	"format": "RGBA8888",
+	"size": {"w":126,"h":243},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:06c9bacb2986786d172477f886f66d6e:4bfa3e42e732918862ec3944f9a5741e:cf7eaa2a4a6a8479223894a311810f2d$"
+}
+}

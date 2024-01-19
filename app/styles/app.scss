@@ -256,6 +256,10 @@ pre {
   @include shake-animation;
 }
 
+.screen-shake {
+  @include shake-animation-once;
+}
+
 .cool-button {
   cursor: pointer;
   white-space: nowrap;
