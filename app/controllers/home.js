@@ -10,9 +10,6 @@ export default class HomeController extends Controller {
   intl;
 
   @service
-  theme;
-
-  @service
   router;
 
   @service
@@ -30,12 +27,6 @@ export default class HomeController extends Controller {
   @service
   chat;
 
-  @service
-  eventBus;
-
-  @service
-  weather;
-
   get locale() {
     return this.intl.locale;
   }
@@ -47,22 +38,6 @@ export default class HomeController extends Controller {
 
   get showingPixi() {
     return ENV.environment === "test" ? false : true;
-  }
-
-  @action
-  setLocale(event) {
-    this.intl.locale = event.target.value;
-  }
-
-  @action
-  setTheme(theme) {
-    this.theme.setTheme(theme);
-  }
-
-  @action
-  setWeather(event) {
-    this.weather.currentWeather = event.target.value;
-    this.eventBus.publish("weatherChanged", event.target.value);
   }
 
   @action
