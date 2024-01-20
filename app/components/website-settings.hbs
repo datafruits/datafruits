@@ -2,11 +2,25 @@
   @toggleModal={{@closeDialog}}
 >
   <div class="modal-body m-1">
-    <Chat::EnableGifsButton
-      @toggleGifs={{this.toggleGifsEnabled}}
-      @enabled={{this.chat.gifsEnabled}}
-    />
-    <Chat::TvModeButton />
-    <Chat::BuddyListButton />
+    <div>
+      <Chat::EnableGifsButton
+        @toggleGifs={{this.toggleGifsEnabled}}
+        @enabled={{this.chat.gifsEnabled}}
+      />
+      <Chat::TvModeButton />
+      <Chat::BuddyListButton />
+    </div>
+    <div class="grid grid-cols-1 text-white">
+      <ThemeSelector 
+        @setTheme={{this.setTheme}}
+      />
+      <LocaleSelector
+        @selectedLocale={{this.intl.locale.value}}
+        @setLocale={{this.setLocale}}
+      />
+      <WeatherSelector
+        @setWeather={{this.setWeather}}
+      />
+    </div>
   </div>
 </Ui::Modal>
