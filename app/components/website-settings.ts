@@ -2,9 +2,9 @@ import Component from "@glimmer/component";
 import { inject as service } from "@ember/service";
 import { action } from "@ember/object";
 
-import ChatService from "datafruits13/services/chat";
-import ThemeService from "datafruits13/services/theme";
-import Weather from "datafruits13/services/weather";
+import type ChatService from "datafruits13/services/chat";
+import type ThemeService from "datafruits13/services/theme";
+import type Weather from "datafruits13/services/weather";
 
 export default class WebsiteSettings extends Component {
   @service declare intl: any;
@@ -16,9 +16,13 @@ export default class WebsiteSettings extends Component {
   toggleGifsEnabled() {
     this.chat.gifsEnabled = !this.chat.gifsEnabled;
   }
+
   @action
-  setLocale(locale: any) {
-    this.intl.locale = locale;
+  setLocale(event: Event) {
+    if (event.target) {
+      const target = event.target as HTMLOptionElement;
+      this.intl.locale = target.value;
+    }
   }
 
   @action
@@ -27,7 +31,11 @@ export default class WebsiteSettings extends Component {
   }
 
   @action
-  setWeather(event: any) {
-    this.weather.setWeather(event.target.value);
+  setWeather(event: Event) {
+    debugger;
+    if (event.target) {
+      const target = event.target as HTMLOptionElement;
+      this.weather.setWeather(target.value);
+    }
   }
 }
