@@ -32,7 +32,6 @@ export default class WebsiteSettings extends Component {
 
   @action
   setWeather(event: Event) {
-    debugger;
     if (event.target) {
       const target = event.target as HTMLOptionElement;
       this.weather.setWeather(target.value);
