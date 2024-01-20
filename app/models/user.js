@@ -81,6 +81,7 @@ export default class UserModel extends Model {
   hasUnreadNotifications;
 
   @hasMany('track-favorite', { async: false }) trackFavorites; // ugh
+  @hasMany('scheduled-show-favorite', { async: false }) scheduledShowFavorites; // ugh
 
   @hasMany('fruit-summon') fruitSummons;
 
@@ -93,6 +94,17 @@ export default class UserModel extends Model {
     console.log(`trackId: ${trackId}`);
     console.log(trackIds.includes(parseInt(trackId)));
     return trackIds.includes(trackId);
+  }
+
+  async favoritedScheduledShow(scheduledShowId) {
+    let scheduledShowFavorites = await this.scheduledShowFavorites;
+    let scheduledShowIds = scheduledShowFavorites.map((scheduledShowFavorite) => {
+      return scheduledShowFavorite.scheduledShowId;
+    });
+    console.log(scheduledShowIds);
+    console.log(`scheduledShowId: ${scheduledShowId}`);
+    console.log(scheduledShowIds.includes(parseInt(scheduledShowId)));
+    return scheduledShowIds.includes(scheduledShowId);
   }
 
   get roles() {
