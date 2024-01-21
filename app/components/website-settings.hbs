@@ -1,16 +1,14 @@
 <Ui::Modal
   @toggleModal={{@closeDialog}}
 >
-  <div class="modal-body m-1">
-    <div>
+  <div class="modal-body m-1 text-white">
+    <div class="grid grid-cols-1">
       <Chat::EnableGifsButton
         @toggleGifs={{this.toggleGifsEnabled}}
         @enabled={{this.chat.gifsEnabled}}
       />
       <Chat::TvModeButton />
       <Chat::BuddyListButton />
-    </div>
-    <div class="grid grid-cols-1 text-white">
       <ThemeSelector 
         @setTheme={{this.setTheme}}
       />

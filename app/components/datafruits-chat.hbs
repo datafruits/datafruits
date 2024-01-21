@@ -58,12 +58,6 @@
               title={{t "chat.titles.enter"}}
               value={{t "chat.join_anonymously"}}
             />
-            <Chat::EnableGifsButton
-              @toggleGifs={{this.toggleGifsEnabled}}
-              @enabled={{this.chat.gifsEnabled}}
-            />
-            <Chat::TvModeButton />
-            <Chat::BuddyListButton />
           </div>
           <div>
             <label class="text-xs" for="agree-to-coc">
