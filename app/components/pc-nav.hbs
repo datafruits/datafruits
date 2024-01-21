@@ -14,7 +14,7 @@
         {{t "radio.title"}}
         <FaIcon
           class="transition-all duration-100 ease-in-out
-            {{if @submenuOpen 'rotated'}}"
+          {{if @submenuOpen 'rotated'}}"
           aria-hidden="true"
           @icon="chevron-right"
         />
@@ -69,15 +69,17 @@
         {{t "support.title"}}
       </LinkTo>
     </li>
-    <li class="its-just-a-website-menu-item">
-      <button
-        class="text-white text-shadow-light hover:text-gray-400"
-        aria-label={{t "settings.title"}}
-        {{on "click" this.settingsDialogToggle}}
-      >
-        {{t "settings.icon"}}
-      </button>
-    </li>
+    {{#unless this.session.isAuthenticated}}
+      <li class="its-just-a-website-menu-item">
+        <button
+          class="text-white text-shadow-light hover:text-gray-400"
+          aria-label={{t "settings.title"}}
+          {{on "click" this.settingsDialogToggle}}
+        >
+          {{t "settings.icon"}}
+        </button>
+      </li>
+    {{/unless}}
     <li class="its-just-a-website-menu-item">
       <a
         class="text-white text-shadow-light hover:text-gray-400"
@@ -175,7 +177,7 @@
 </nav>
 {{#if this.session.isAuthenticated}}
   <ul class="hidden md:block px-4 py-4 font-semibold text-3xl">
-    <li class="flex justify-right">
+    <li class="flex justify-end">
       <a
         href="#"
         class=""
@@ -191,6 +193,13 @@
           alt={{this.currentUser.user.username}}
         />
       </a>
+      <button
+        class="text-white text-shadow-light hover:text-gray-400"
+        aria-label={{t "settings.title"}}
+        {{on "click" this.settingsDialogToggle}}
+      >
+        {{t "settings.icon"}}
+      </button>
     </li>
     <li class="flex space-x-2 whitespace-nowrap">
       <span>Lv. {{this.currentUser.user.level}}</span>
