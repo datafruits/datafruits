@@ -1,8 +1,20 @@
 {{#if this.videoStream.active}}
-  <button
-    class="cool-button"
+  <div
+    class="grid grid-cols-2"
     title={{if this.showingViz (t "chat.titles.video_on") (t "chat.titles.video_off") }} type="button" {{on "click" this.toggleDisplay}}
   >
-    {{this.tvModeIcon}}
-  </button>
+    <label
+      id="tv-mode-input-label"
+      for="tv-mode-input"
+    >
+      Show Video
+    </label>
+    <input 
+      type="checkbox"
+      name="tv-mode-input"
+      id="tv-mode-input"
+      {{on "change" this.toggleDisplay}}
+      checked={{this.videoStream.displaying}}
+    />
+  </div>
 {{/if}}
