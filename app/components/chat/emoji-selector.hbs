@@ -39,6 +39,9 @@
       {{this.smileEmoji}}
     </button>
   </div>
+  <div class="inline-block">
+    <Chat::BuddyListButton />
+  </div>
   {{#if this.dialogOpen}}
     <Ui::Modal
         @toggleModal={{this.closeDialog}}

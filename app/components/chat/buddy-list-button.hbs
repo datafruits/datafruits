@@ -1,21 +1,11 @@
-<div
-  class="grid grid-cols-2"
-  title={{t "chat.titles.buddy_list_button"}}
+<button
+  {{on "click" this.toggleDialog}}
+  type="button"
+  class="cool-button md:hidden"
+  title="Show the buddy list"
 >
-  <label 
-    id="buddy-list-input-label"
-    for="buddy-list-input"
-  >
-    Show Users
-  </label>
-  <input 
-    type="checkbox" 
-    name="buddy-list-input" 
-    id="buddy-list-input"
-    {{on "change" this.toggleDialog}}
-    checked={{this.showingDialog}}
-  />
-</div>
+  {{this.buddyListIcon}}
+</button>
 {{#if this.showingDialog}}
   <Ui::Modal
     @toggleModal={{this.toggleDialog}}
