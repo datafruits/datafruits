@@ -3,11 +3,16 @@
 >
   <div class="modal-body m-1 text-white">
     <div class="grid grid-cols-1">
+      {{#if this.videoStream.active}}
+        <Chat::TvModeButton
+          @toggleVideo={{this.toggleVideo}}
+          @enabled={{this.videoStream.displaying}}
+        />
+      {{/if}}
       <Chat::EnableGifsButton
         @toggleGifs={{this.toggleGifsEnabled}}
         @enabled={{this.chat.gifsEnabled}}
       />
-      <Chat::TvModeButton />
       <Chat::BuddyListButton />
       <ThemeSelector 
         @setTheme={{this.setTheme}}

@@ -5,19 +5,25 @@ import { action } from "@ember/object";
 import type ChatService from "datafruits13/services/chat";
 import type ThemeService from "datafruits13/services/theme";
 import type Weather from "datafruits13/services/weather";
-import EventBusService from "datafruits13/services/event-bus";
+import type EventBusService from "datafruits13/services/event-bus";
+import type VideoStreamService from "datafruits13/services/video-stream";
 
 export default class WebsiteSettings extends Component {
   @service declare intl: any;
   @service declare theme: ThemeService;
   @service declare weather: Weather;
   @service declare chat: ChatService;
-
+  @service declare videoStream: VideoStreamService;
   @service declare eventBus: EventBusService;
 
   @action
   toggleGifsEnabled() {
     this.chat.gifsEnabled = !this.chat.gifsEnabled;
+  }
+
+  @action
+  toggleVideo() {
+    this.videoStream.toggleDisplay();
   }
 
   @action
