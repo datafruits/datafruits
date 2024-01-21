@@ -16,7 +16,7 @@ module('Integration | Component | chat/enable-gifs-button', function (hooks) {
 
     assert.dom(this.element).exists("GIF enabler should exist");
     assert
-      .dom(this.element)
+      .dom(this.element.querySelector("#gif-enabler"))
       .isChecked("GIF enabler should be checked by default");
   
   });
