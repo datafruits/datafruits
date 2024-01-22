@@ -8,10 +8,16 @@ module('Integration | Component | chat/enable-gifs-button', function (hooks) {
 
   test('it renders', async function (assert) {
     this.toggleGifs = function () {};
+    this.gifsEnabled = true;
 
-    await render(hbs`<Chat::EnableGifsButton @toggleGifs={{this.toggleGifs}} />`);
+    await render(
+      hbs`<Chat::EnableGifsButton @toggleGifs={{this.toggleGifs}} @enabled={{this.gifsEnabled}} />`,
+    );
 
-    const emoji = this.element.querySelector('img.emojione');
-    assert.dom(emoji).hasNoAttribute('title')
+    assert.dom(this.element).exists("GIF enabler should exist");
+    assert
+      .dom(this.element.querySelector("#gif-enabler"))
+      .isChecked("GIF enabler should be checked by default");
+  
   });
 });
