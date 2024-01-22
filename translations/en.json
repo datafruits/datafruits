@@ -52,6 +52,10 @@
     "nickname": "nickname",
     "password": "password",
     "search": "\"dancing\", \"music\", ...",
+    "settings": {
+      "show_images": "Show Images",
+      "show_video": "Show Video"
+    },
     "label": {
       "nick": "nickname",
       "input": "message",
