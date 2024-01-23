@@ -112,6 +112,7 @@
             <option value="week" selected={{eq changeset.recurringInterval 'week'}}>Weekly</option>
             <option value="biweek" selected={{eq changeset.recurringInterval 'biweek'}}>Bi-weekly (every other week)</option>
             <option value="month" selected={{eq changeset.recurringInterval 'month'}}>Monthly</option>
+            <option value="year" selected={{eq changeset.recurringInterval 'year'}}>Anuually</option>
           </select>
           {{#if (eq changeset.recurringInterval "week")}}
             <span>On</span>

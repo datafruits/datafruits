@@ -9,12 +9,12 @@
       </div>
     </div>
   </div>
-  {{else}}
-    <NetworkStatus as |status|>
-      <DatafruitsChat
-        @networkStatus={{status}}
-        @authenticate={{this.authenticate}}
-        @isAuthenticating={{this.isAuthenticating}}
-      />
-    </NetworkStatus>
+{{else}}
+  <NetworkStatus as |status|>
+    <DatafruitsChat
+      @networkStatus={{status}}
+      @authenticate={{this.authenticate}}
+      @isAuthenticating={{this.isAuthenticating}}
+    />
+  </NetworkStatus>
 {{/if}}

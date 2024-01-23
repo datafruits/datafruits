@@ -124,11 +124,11 @@ export default class ChatService extends Service {
     });
 
     this.chan.on('new:fruit_tip', (msg) => {
-      console.log(`got new fruit tip: ${msg}`); // eslint-disable-line no-console
+      // log fruit tip data { count: ..., }
       console.log(msg);
-      this.setFruitCount('total', msg.total_count);
+      this.setFruitCount("total", msg.total_count);
       this.setFruitCount(msg.fruit, msg.count);
-      this.eventBus.publish('fruitTipped', msg.fruit);
+      this.eventBus.publish("fruitTipped", msg.fruit);
     });
 
     this.chan.on('authorized', (msg) => {

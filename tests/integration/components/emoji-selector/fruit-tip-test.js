@@ -12,6 +12,6 @@ module('Integration | Component | emoji-selector/fruit-tip', function (hooks) {
 
     await render(hbs`<EmojiSelector::FruitTip />`);
 
-    assert.dom(this.element).hasText('Lv. 3 ??? Lv. 4 ??? Lv. 5 ??? Lv. 6 ??? Ƒ200 Ƒ400');
+    assert.dom(this.element).hasText('Lv. 3 Lv. 4 Lv. 5 Lv. 6 Ƒ200 Ƒ400 Ƒ1000');
   });
 });

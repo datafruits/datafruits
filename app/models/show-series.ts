@@ -11,7 +11,7 @@ export default class ShowSeries extends Model {
   @attr('string') declare title: string;
   @attr('string') declare description: string;
 
-  @attr('string') declare recurringInterval: 'not_recurring' | 'week' | 'biweek' | 'month';
+  @attr('string') declare recurringInterval: 'not_recurring' | 'week' | 'biweek' | 'month' | 'year';
   @attr('string') declare recurringWeekday: 'Sunday' | 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday';
   @attr('string') declare recurringCadence: 'First' | 'Second' | 'Third' | 'Fourth' | 'Last';
 
@@ -41,6 +41,10 @@ export default class ShowSeries extends Model {
     return this.recurringInterval === 'month';
   }
 
+  get isYearly() {
+    return this.recurringInterval === 'year';
+  }
+
   get repeating() {
     return this.recurringInterval != 'not_recurring';
   }
@@ -55,8 +59,12 @@ export default class ShowSeries extends Model {
     }else if(this.isBiweekly) {
       // TODO i18n
       return `other ${this.recurringWeekday}`;
-    }else if(this.isMonthly) {
+    } else if(this.isMonthly) {
+      // TODO i18n
       return `${this.recurringCadence} ${this.recurringWeekday}`;
+    } else if(this.isYearly) {
+      // TODO i18n
+      return "year";
     } else {
       return undefined;
     }

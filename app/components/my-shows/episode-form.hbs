@@ -44,6 +44,7 @@
               id="use-prerecord"
               @fieldName="usePrerecordedFileForArchive"
               />
+            <TrackUploader @changeset={{changeset}} />
             {{#if @episode.prerecordTrackFilename}}
               <span>{{@episode.prerecordTrackFilename}}</span>
             {{/if}}
@@ -57,6 +58,16 @@
             <Form.Input
               @label={{t "profile.my-shows.form.youtube-link"}}
               @fieldName="youtubeLink"
+              @containerClass='mb-2'
+            />
+            <Form.Input
+              @label={{t "profile.my-shows.form.mixcloud-link"}}
+              @fieldName="mixcloudLink"
+              @containerClass='mb-2'
+            />
+            <Form.Input
+              @label={{t "profile.my-shows.form.soundcloud-link"}}
+              @fieldName="soundcloudLink"
               @containerClass='mb-2'
             />
             <label for="archive-status">Archive Status</label>
