@@ -8,6 +8,10 @@ export default class ColorPicker extends Component {
     return this.chatText.color;
   }
 
+  get hexValue() {
+    return `#${this.style.split("#")[1]}`;
+  }
+
   @service chatText;
 
   @action
