@@ -6,11 +6,13 @@ import { inject as service } from "@ember/service";
 export default class ColorPicker extends Component {
   @oneWay("chatText.color") style;
 
-  @service
-  chatText;
+  @service chatText;
 
   @action
   selectedColor(event) {
-    this.chatText.setColor(event.target.value);
+    if (event.target.value) {
+      this.chatText.setColor(event.target.value);
+      localStorage.setItem("datafruits-chat-color", event.target.value);
+    }
   }
 }

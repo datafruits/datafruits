@@ -7,4 +7,14 @@ export default class ChatTextService extends Service {
   setColor(hexCode) {
     this.set("color", "color: " + hexCode);
   }
+
+  constructor() {
+    super(...arguments);
+
+    const storedColor = localStorage.getItem("datafruits-chat-color");
+
+    if (storedColor) {
+      this.color = `color: ${storedColor}`;
+    }
+  }
 }
