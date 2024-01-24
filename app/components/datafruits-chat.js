@@ -3,7 +3,6 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import Component from '@glimmer/component';
 import { formatEmojiHtml } from 'datafruits13/helpers/format-emoji-html';
-import { oneWay } from '@ember/object/computed';
 
 export default class DatafruitsChat extends Component {
   @service chat;
