@@ -8,7 +8,9 @@ import { oneWay } from '@ember/object/computed';
 export default class DatafruitsChat extends Component {
   @service chat;
 
-  @oneWay('chatText.color') color;
+get color() {
+  return this.chatText.color;
+}
 
   @service chatText;
 
