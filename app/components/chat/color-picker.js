@@ -4,7 +4,9 @@ import { oneWay } from "@ember/object/computed";
 import { inject as service } from "@ember/service";
 
 export default class ColorPicker extends Component {
-  @oneWay("chatText.color") style;
+  get style() {
+    return this.chatText.color;
+  }
 
   @service chatText;
 
