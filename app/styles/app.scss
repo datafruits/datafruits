@@ -317,6 +317,11 @@ pre {
   }
 }
 
+// make links in chat change the same color if it's changed
+#chat-area a {
+  color: inherit;
+}
+
 .modal-body form div {
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
