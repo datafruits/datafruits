@@ -5,7 +5,7 @@ export default class ChatTextService extends Service {
   @tracked color = "color: #fff940";
 
   setColor(hexCode) {
-    this.set("color", "color: " + hexCode);
+    this.color = "color: " + hexCode;
   }
 
   constructor() {
