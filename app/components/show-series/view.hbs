@@ -13,7 +13,7 @@
           </LinkTo>
         </div>
       {{/if}}
-      <h1 class="font-cursive text-3xl">
+      <h1 class="font-comic text-3xl">
         {{@showSeries.title}}
       </h1>
       {{#if @showSeries.repeating}}
@@ -33,7 +33,7 @@
                 align="center"
                 alt={{host.username}} / >
             </div>
-            <span class="font-cursive text-xl">
+            <span class="font-comic text-xl">
               <LinkTo @route="home.dj" @model={{host.username}}>
                 {{host.username}}
               </LinkTo>
@@ -50,11 +50,10 @@
         {{this.description}}
       </p>
     </div>
-    <div class="p-2">
-      {{#each @showSeries.labels as |label|}}
-        <TrackLabel @label={{label}} />
-      {{/each}}
-    </div>
+    
+    {{! Genres/tags/labels }}
+    <TrackLabelList @labels={{@showSeries.labels}} />
+
   </div>
   <div class="w-1/2 p-2">
     <h1 class="text-2xl">

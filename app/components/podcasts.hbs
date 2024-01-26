@@ -1,3 +1,13 @@
+
+{{!-- 
+
+PODCAST BROWSING
+
+The interface used in podcast/archive browsing.
+
+--}}
+
+
 <div>
   <Await
     @promise={{this.fetchPodcasts}}
@@ -6,7 +16,9 @@
       id="podcast-search-controls"
       {{did-update await.reload @page}}
       >
-      <div class="flex flex-wrap justify-around">
+
+      {{! search and subscribe }}
+      <div class="flex flex-wrap justify-start bg-df-blue-dark">
         <div id="search-controls">
           <h2 class="text-center">{{t "podcasts.search_title"}}</h2>
           <Podcasts::Search
@@ -46,7 +58,11 @@
           </div>
         </div>
       </div>
+
+
       <br>
+
+      {{! podcast results }}
       <div id="podcast-search-results">
         <await.Pending>
           <p id="podcast-search-loading" class="">
@@ -62,7 +78,17 @@
             @page={{@page}}
             @route="home.podcasts" />
           </span>
-          <div class="p-2">
+
+          {{! DEDUPE: Podcast list }}
+          <div class="
+                grid
+                grid-cols-shows-xs
+                sm:grid-cols-shows-sm
+                md:grid-cols-shows-md
+                
+                gap-4
+                my-4
+                ">
             {{#each result as |show|}}
               {{#if show.tracks.firstObject}}
                 <PodcastTrack
@@ -74,7 +100,16 @@
             {{else}}
               {{t "podcasts.no_result"}}
             {{/each}}
+            {{! dummy DIVs so the grid remains stable even if there are only a few items. }}
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
+            <div class=""></div>
           </div>
+          
           <FruitsUi::Pagination
             @totalPages={{result.meta.total_pages}}
             @page={{@page}}

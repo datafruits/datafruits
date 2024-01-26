@@ -1,7 +1,6 @@
 <section class="page-spacing">
   <section class="flex w-full">
     <section class="w-1/2">
-      <div style="background-image: url('{{this.model.imageOrDefault}}')" alt={{this.model.title}} class="w-full h-full show-image bg-top bg-cover"></div>
       <h1 class="text-3xl">
         {{this.model.title}}
       </h1>
@@ -19,15 +18,17 @@
       {{/if}}
       <p>
       </p>
+      <div class="mb-2">
+        {{#each this.model.tracks as |track|}}
+          <PodcastTrack
+            @track={{track}}
+            @show={{this.model}}
+            />
+        {{/each}}
+      </div>
       <p>
         <ShowSeries::Description @description={{this.model.description}} />
       </p>
-      {{#each this.model.tracks as |track|}}
-        <PodcastTrack
-          @track={{track}}
-          @show={{this.model}}
-          />
-      {{/each}}
       <p class="wiki-article uppercase text-2xl p-2 mb-4">
         Check out more episodes of
         <LinkTo
@@ -36,16 +37,12 @@
           {{this.model.showSeriesTitle}}
         </LinkTo>
       </p>
-      <div class="">
-        {{#each this.model.labels as |label|}}
-          <TrackLabel @label={{label}} />
-        {{/each}}
-      </div>
+      <TrackLabelList @labels={{this.model.labels}} />
       <div>
         <h1>{{t "show.episode.comments"}}</h1>
         <section>
           {{#if this.session.isAuthenticated}}
-            <h1 class="text-2xl font-cursive mb-2">Hey, {{this.currentUser.user.username}}, {{t "show.episode.leave_a_comment"}}</h1>
+            <h1 class="text-2xl font-comic mb-2">Hey, {{this.currentUser.user.username}}, {{t "show.episode.leave_a_comment"}}</h1>
             <Post::Form @postable={{this.model}} @postableType={{'ScheduledShow'}} />
           {{else}}
             {{t "forum.login_or_register"}}

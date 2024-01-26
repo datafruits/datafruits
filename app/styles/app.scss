@@ -41,6 +41,25 @@ pre {
 }
 
 @font-face {
+  font-family: 'Comic Helvetic';
+  src: url('/vendor/Comic_Helvetic_Heavy.woff2') format('woff2'),
+       url('/vendor/Comic_Helvetic_Heavy.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Comic Helvetic';
+  src: url('/vendor/Comic_Helvetic_Medium.woff2') format('woff2'),
+       url('/vendor/Comic_Helvetic_Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Debussy";
   src:
     url("/vendor/hinted-Debussy.woff2") format("woff2"),
@@ -62,6 +81,7 @@ pre {
   -moz-osx-font-smoothing: none !important;
   font-smoothing: none !important;
 }
+
 
 /* animations seem annoying to do in tailwind without some kind of plugin... */
 .logo {
@@ -743,7 +763,7 @@ canvas#pixi {
 }
 
 #podcast-search-controls > h1 {
-  @apply font-cursive;
+  @apply font-comic;
 }
 
 .playing-podcast {
