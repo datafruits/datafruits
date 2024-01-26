@@ -1,21 +1,48 @@
 <Await @promise={{this.fetchTracks}} as |await|>
+
   <section
       {{did-update await.reload @page}}
     >
+
     <await.Pending>
       <p id="podcast-search-loading" class="">
         {{t "loading"}}
       </p>
     </await.Pending>
+
+    
     <await.Fulfilled as |result|>
-      {{#each result as |show|}}
-        {{#if show.tracks.firstObject}}
-          <PodcastTrack
-            @track={{show.tracks.firstObject}}
-            @show={{show}}
-          />
-        {{/if}}
-      {{/each}}
+
+      {{! DEDUPE: Podcast list }}
+      <div class="
+                grid
+                grid-cols-shows-xs
+                sm:grid-cols-shows-sm
+                md:grid-cols-shows-md
+                
+                gap-4
+                my-4
+                ">
+        {{#each result as |show|}}
+          {{#if show.tracks.firstObject}}
+            <PodcastTrack
+              @track={{show.tracks.firstObject}}
+              @show={{show}}
+            />
+          {{/if}}
+        {{/each}}
+
+        {{! dummy DIVs so the grid remains stable even if there are only a few items. }}
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+        <div class=""></div>
+      </div>
+
+
       <FruitsUi::Pagination
         @totalPages={{result.meta.total_pages}}
         @page={{@page}}
