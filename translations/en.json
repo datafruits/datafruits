@@ -155,7 +155,8 @@
       "title": "title",
       "rulepack": "Enter the rules for this shrimpo here!",
       "length": "duration of shrimpo",
-      "submit": "SHRIMP IT"
+      "submit": "SHRIMP IT",
+      "voting_emoji": "Voting Symbol"
     }
   },
   "upcoming": {

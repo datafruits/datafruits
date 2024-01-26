@@ -1,11 +1,13 @@
 <section class="page-spacing">
   <h1 class="text-4xl">{{this.model.title}}</h1>
-
-  {{#if (eq this.model.status 'completed')}}
-    <h3>Listen Entries</h3>
+  <div>
     {{#each this.model.shrimpoEntries as |shrimpoEntry|}}
       <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
     {{/each}}
+  </div>
+
+  {{#if (eq this.model.status 'completed')}}
+    <h3>Listen Entries</h3>
   {{else if (eq this.model.status 'running')}}
     <Shrimpo::Countdown @endAt={{this.model.endAt}} />
 
