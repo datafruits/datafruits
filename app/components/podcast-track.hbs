@@ -1,63 +1,15 @@
-<div class="bg-df-pink text-2xl rounded-lg sm:py-1 flex justify-between space-x-1 text-xs sm:text-xl mb-2 p-2">
-  <div class="flex flex-wrap items-center gap-0.5 sm:gap-1.5">
-    <div class="mt-1 flex space-x-1">
-      {{#if this.playing}}
-        <a
-          class="text-df-green hover:text-df-yellow text-xl"
-          {{action "pause"}}
-          href="#"
-        >
-          {{t "player.pause"}}
-        </a>
-      {{else}}
-        <a
-          class="text-df-green hover:text-df-yellow text-xl"
-          {{action "play"}}
-          href="#"
-        >
-          {{t "player.play"}}
-        </a>
-      {{/if}}
-      <a href={{@track.cdnUrl}} download="">
-        <FaIcon
-          @icon="download"
-          class="fa fa-download text-df-green hover:text-df-yellow text-xl"
-        />
-      </a>
-      {{#if @show.youtubeLink}}
-        <a href={{@show.youtubeLink}} target="_blank" rel="noreferrer noopener">
-          <FaIcon
-            @icon="youtube"
-            @prefix="fab"
-            class="text-df-green hover:text-df-yellow text-xl"
-          />
-        </a>
-      {{/if}}
-      {{#if this.session.isAuthenticated}}
-        {{#if this.isFavorited}}
-          <button
-            class="cool-button favorited max-h-8"
-            type="button"
-            aria-label="Remove From Favorites"
-            title="Remove From Favorites"
-            {{on "click" this.unfavoriteTrack}}
-          >
-            <FaIcon @icon="heart" />
-          </button>
-        {{else}}
-          <button
-            class="cool-button not-favorited max-h-8"
-            type="button"
-            aria-label="Add To Favorites"
-            title="Add To Favorites"
-            {{on "click" this.favoriteTrack}}
-          >
-            <FaIcon @icon="heart" />
-          </button>
-        {{/if}}
-      {{/if}}
-    </div>
-    <div class="mt-1 flex flex-wrap items-center gap-0.5 sm:gap-1.5">
+<div class="flex flex-col gap-2 p-2 bg-df-pink text-2xl rounded-lg text-xs sm:text-xl">
+
+  {{! show pic }}
+  <div
+    class="w-full h-32 bg-center bg-cover overflow-hidden rounded-md"
+    style="{{this.backgroundStyle}}"
+  >
+  </div>
+  
+  {{! show name }}
+  <div class="flex flex-col gap-0.5 sm:gap-1.5">
+    <div class="flex flex-wrap gap-0.5 sm:gap-1.5">
       <div>
         <LinkTo
           @route="home.shows.episode"
@@ -73,23 +25,93 @@
       {{/each}}
     </div>
   </div>
-  <div
-    class="w-1/2 bg-center bg-cover block overflow-hidden rounded-xl"
-    style="{{this.backgroundStyle}}"
-  >
-  </div>
-  <div>
-    <span class="text-sm mr-2 font-cursive">
-      <LinkTo @route="home.dj" @model={{@show.hostedBy}}>
-        {{@show.hostedBy}}
-      </LinkTo>
-    </span>
-    <span>
-      <img
-        style="height: 3rem;"
-        class="inline rounded-lg"
-        src="{{@show.hostAvatarUrl}}"
-        />
-    </span>
-  </div>
+
+
+  {{! spacer to make the layout flow nice}}
+  <div class="flex-1"></div>
+
+  {{! DJ + buttons }}
+  <div class="flex flex-cols sm:flex-rows justify-between items-center  gap-2">
+  
+    {{! DJ avatar + name }}
+    <div class="flex-auto flex flex-cols items-center gap-2">
+
+      {{! avatar }}
+      <span class="flex-none">
+        <img
+          style="height: 2rem;"
+          class="inline rounded-lg"
+          src="{{@show.hostAvatarUrl}}"
+          />
+      </span>
+
+      {{! name }}
+      <span class="flex-auto text-sm font-cursive leading-tight">
+        <LinkTo @route="home.dj" @model={{@show.hostedBy}}>
+          {{@show.hostedBy}}
+        </LinkTo>
+      </span>
+    </div>
+
+    {{! buttons }}
+    <div class="flex-none flex flex-cols gap-2 space-x-1">
+        {{#if this.playing}}
+          <a
+            class="text-df-green hover:text-df-yellow text-xl"
+            {{action "pause"}}
+            href="#"
+          >
+            {{t "player.pause"}}
+          </a>
+        {{else}}
+          <a
+            class="text-df-green hover:text-df-yellow text-xl"
+            {{action "play"}}
+            href="#"
+          >
+            {{t "player.play"}}
+          </a>
+        {{/if}}
+        <a href={{@track.cdnUrl}} download="">
+          <FaIcon
+            @icon="download"
+            class="fa fa-download text-df-green hover:text-df-yellow text-xl"
+          />
+        </a>
+        {{#if @show.youtubeLink}}
+          <a href={{@show.youtubeLink}} target="_blank" rel="noreferrer noopener">
+            <FaIcon
+              @icon="youtube"
+              @prefix="fab"
+              class="text-df-green hover:text-df-yellow text-xl"
+            />
+          </a>
+        {{/if}}
+        {{#if this.session.isAuthenticated}}
+          {{#if this.isFavorited}}
+            <button
+              class="cool-button favorited max-h-8"
+              type="button"
+              aria-label="Remove From Favorites"
+              title="Remove From Favorites"
+              {{on "click" this.unfavoriteTrack}}
+            >
+              <FaIcon @icon="heart" />
+            </button>
+          {{else}}
+            <button
+              class="cool-button not-favorited max-h-8"
+              type="button"
+              aria-label="Add To Favorites"
+              title="Add To Favorites"
+              {{on "click" this.favoriteTrack}}
+            >
+              <FaIcon @icon="heart" />
+            </button>
+          {{/if}}
+        {{/if}}
+      </div>
+
+
+    </div>
 </div>

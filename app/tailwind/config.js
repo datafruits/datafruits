@@ -28,6 +28,9 @@ module.exports = {
         'df-green': '#41d069',
         'df-green-dark': '#289244',
       },
+      gridTemplateColumns: {
+        episodes: 'repeat(auto-fit,minmax(240px,1fr))'
+      }
     },
     themeVariants: ['classic', 'blm', 'trans'],
   },
