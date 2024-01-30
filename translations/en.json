@@ -54,7 +54,8 @@
     "search": "\"dancing\", \"music\", ...",
     "settings": {
       "show_images": "Show Images",
-      "show_video": "Show Video"
+      "show_video": "Show Video",
+      "chat_color": "Chat Color"
     },
     "label": {
       "nick": "nickname",
