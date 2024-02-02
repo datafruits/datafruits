@@ -474,6 +474,13 @@ export function initialize(/* application */) {
       shortnames: [':smiling_shrimp:'],
       keywords: ['smiling_shrimp'],
     },
+    ':alligottadoisfindthemustard:': {
+      custom: true,
+      uc_base: 'alligottadoisfindthemustard',
+      uc_output: '',
+      shortnames: [':alligottadoisfindthemustard:'],
+      keywords: ['alligottadoisfindthemustard'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
