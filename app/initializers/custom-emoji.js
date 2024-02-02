@@ -478,6 +478,7 @@ export function initialize(/* application */) {
       custom: true,
       uc_base: 'alligottadoisfindthemustard',
       uc_output: '',
+      animated: true,
       shortnames: [':alligottadoisfindthemustard:'],
       keywords: ['alligottadoisfindthemustard'],
     },
