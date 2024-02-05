@@ -19,6 +19,12 @@ export default class Shrimpo extends Model {
   @attr('string') declare slug: string;
 
   @attr('string') declare duration: string;
+
+  get savedShrimpoEntries() {
+    return this.shrimpoEntries.filter(entry => {
+      return !entry.isNew;
+    });
+  }
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

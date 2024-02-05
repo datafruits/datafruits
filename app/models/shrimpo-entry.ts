@@ -7,6 +7,7 @@ export default class ShrimpoEntry extends Model {
   @belongsTo('shrimpo') declare shrimpo: Shrimpo;
 
   @attr('string') declare username: string;
+  @attr('string') declare userAvatar: string;
   @attr('string') declare title: string;
   @attr('string') declare description: string;
 

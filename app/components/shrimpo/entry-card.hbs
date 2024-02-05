@@ -1,10 +1,23 @@
 <div class="bg-df-pink text-2xl rounded-lg sm:py-1 flex justify-between space-x-1 text-xs sm:text-xl mb-2 p-2">
-  <LinkTo
-    @route='home.shrimpos.entries.show'
-    @model={{@shrimpoEntry}}
-  >
-    <h2>{{@shrimpoEntry.title}}</h2>
-  </LinkTo>
+  <div class="flex items-start">
+    <span>
+      <img src="{{@shrimpoEntry.userAvatar}}" alt="" />
+    </span>
+    <div class="flex flex-col">
+      <LinkTo
+        @route='home.shrimpos.entries.show'
+        @model={{array @shrimpoEntry.shrimpo @shrimpoEntry}}
+      >
+        <h2>{{@shrimpoEntry.title}}</h2>
+      </LinkTo>
+      <LinkTo
+        @route='home.dj'
+        @model={{@shrimpoEntry.username}}
+      >
+        <h3>{{@shrimpoEntry.username}}</h3>
+      </LinkTo>
+    </div>
+  </div>
   <div class="mt-1 flex space-x-1">
     {{#if this.playing}}
       <a
