@@ -6,7 +6,7 @@
     <div class="flex flex-col">
       <LinkTo
         @route='home.shrimpos.entries.show'
-        @model={{array @shrimpoEntry.shrimpo @shrimpoEntry}}
+        @models={{array @shrimpoEntry.shrimpo.slug @shrimpoEntry.slug}}
       >
         <h2>{{@shrimpoEntry.title}}</h2>
       </LinkTo>

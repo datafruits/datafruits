@@ -1,3 +1,7 @@
 <div>
   <h2>{{this.model.title}}</h2>
+
+  {{#if (eq this.model.status 'voting')}}
+    <Shrimpo::VotingTable />
+  {{/if}}
 </div>

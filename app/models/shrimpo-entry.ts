@@ -10,6 +10,7 @@ export default class ShrimpoEntry extends Model {
   @attr('string') declare userAvatar: string;
   @attr('string') declare title: string;
   @attr('string') declare description: string;
+  @attr('string') declare slug: string;
 
   @attr('string') declare audioFile: string;
 }

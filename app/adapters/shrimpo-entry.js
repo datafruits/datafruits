@@ -5,6 +5,11 @@ import ApplicationAdapter from './application';
 export default class Shrimpo extends ApplicationAdapter {
   namespace = 'api';
 
+  urlForFindRecord(id, modelName, snapshot) {
+    // TODO is this nested route pointless??
+    return `${this.urlPrefix()}/shrimpos/${snapshot.adapterOptions.shrimpo_id}/shrimpo_entries/${id}`;
+  }
+
   urlForCreateRecord(modelName, snapshot) {
     let shrimpoId = snapshot.belongsTo('shrimpo').attributes().slug;
     return `${this.urlPrefix()}/shrimpos/${shrimpoId}/shrimpo_entries`;
