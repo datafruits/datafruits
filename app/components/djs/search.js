@@ -23,10 +23,12 @@ export default class DjsSearch extends Component {
   get selectedBadges() {
     const queryParams = this.router.currentRoute.queryParams;
     if (queryParams.tags) {
-      return queryParams.tags.split(',');
+      return queryParams.tags.split(",").map((q) => {
+        return this.badges.find((b) => { return b.name === q });
+      });
     } else {
       return [];
-    } 
+    }
   }
 
   @action

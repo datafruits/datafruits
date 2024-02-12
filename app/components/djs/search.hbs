@@ -6,7 +6,5 @@
   @placeholder="Select some badges..."
   @onChange={{this.changeBadges}} as |badge|
 >
-  <Djs::SelectedBadge
-    @img={{badge.img}}  
-  />
+  <img class="w-8" src={{badge.img}}/>
 </PowerSelectMultiple>
