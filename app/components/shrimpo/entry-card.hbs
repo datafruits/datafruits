@@ -18,29 +18,5 @@
       </LinkTo>
     </div>
   </div>
-  <div class="mt-1 flex space-x-1">
-    {{#if this.playing}}
-      <a
-        class="text-df-green hover:text-df-yellow text-xl"
-        {{action "pause"}}
-        href="#"
-      >
-        {{t "player.pause"}}
-      </a>
-    {{else}}
-      <a
-        class="text-df-green hover:text-df-yellow text-xl"
-        {{action "play"}}
-        href="#"
-      >
-        {{t "player.play"}}
-      </a>
-    {{/if}}
-    <a href={{@shrimpoEntry.cdnUrl}} download="">
-      <FaIcon
-        @icon="download"
-        class="fa fa-download text-df-green hover:text-df-yellow text-xl"
-      />
-    </a>
-  </div>
+  <Shrimpo::Player @shrimpoEntry={{@shrimpoEntry}} />
 </div>

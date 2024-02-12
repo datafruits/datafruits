@@ -1,7 +1,37 @@
-<div>
-  <h2>{{this.model.title}}</h2>
+<section class="page-spacing">
+  <section class="flex w-full">
+    <section class="w-1/4">
+      <span
+        class="p-4 shrink-0"
+        style="height: 10rem; width: 10rem; flex-shrink: 0;"
+        >
+        <img
+        class="rounded-lg inline self-center object-none"
+        style="height: 10rem; width: 100%;"
+        align="center"
+        alt="{{this.model.username}}"
+        src="{{this.model.userAvatar}}" />
+      </span>
+      <section class="flex flex-col grow">
+        <span class="user-info mb-2">
+          <LinkTo
+            @route="home.dj"
+            @model={{this.model.username}}
+            class="text-3xl df-text-yellow"
+            >
+            {{this.model.username}}
+          </LinkTo>
+          <User::Badges @role={{this.model.userRole}} />
+        </span>
+      </section>
+    </section>
 
-  {{#if (eq this.model.status 'voting')}}
-    <Shrimpo::VotingTable />
-  {{/if}}
-</div>
+    <section class="w-3/4">
+      <h2>{{this.model.title}}</h2>
+      <Shrimpo::Player @shrimpoEntry={{this.model}} />
+      {{#if (eq this.model.status 'voting')}}
+        <Shrimpo::VotingTable />
+      {{/if}}
+    </section>
+  </section>
+</section>

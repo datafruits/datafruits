@@ -11,7 +11,7 @@ export default class ShrimpoCountdown extends Component<ShrimpoCountdownArgs> {
 
   get currentTimeLeft() {
     const timeLeftMs = (new Date(this.args.endAt).getTime()) - this.elapsedTimeSeconds;
-    console.log(timeLeftMs);
+    //console.log(timeLeftMs);
     const now = new Date()
     const days = Math.floor((timeLeftMs - now.getTime()) / (1000 * 3600 * 24));
     const hours = Math.floor((timeLeftMs - now.getTime()) / (1000 * 3600) % 24);
@@ -22,7 +22,7 @@ export default class ShrimpoCountdown extends Component<ShrimpoCountdownArgs> {
   }
 
   incTime() {
-    console.log('in incTime');
+    //console.log('in incTime');
     this.elapsedTimeSeconds += 1000;
     later(() => {
       this.incTime();

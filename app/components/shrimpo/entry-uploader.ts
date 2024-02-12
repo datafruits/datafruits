@@ -74,7 +74,7 @@ export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploader
         .then((blob: any) => {
           const signedId = blob.signedId;
 
-          changeset.set('audioFile', signedId);
+          changeset.set('audio', signedId);
         });
       }
     }
