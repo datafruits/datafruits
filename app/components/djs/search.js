@@ -6,6 +6,8 @@ import { tracked } from "@glimmer/tracking";
 
 
 export default class DjsSearch extends Component {
+  @service
+  router;
 
   badges = [
     { id: 1, name: "dj", img: "/assets/images/badges/dj.webp" },
@@ -18,28 +20,20 @@ export default class DjsSearch extends Component {
     { id: 8, name: "emerald_supporter", img: "/assets/images/badges/emerald_supporter.webp" }
   ];
 
-  @tracked
-  selectedBadges;
-
-
-  @service
-  router;
-
-  updateQuery() {
-
-    this.tagNames = this.selectedBadges.map(b => b.name);
-    const queryParams = { tags: this.tagNames };
-    this.router.transitionTo({ queryParams: queryParams });
-
+  get selectedBadges() {
+    const queryParams = this.router.currentRoute.queryParams;
+    if (queryParams.tags) {
+      return queryParams.tags.split(',');
+    } else {
+      return [];
+    } 
   }
 
   @action
   changeBadges(badges) {
-    console.log(badges);
-    this.selectedBadges = badges
-    this.updateQuery();
+    const tags = badges.map(b => b.name);
+    console.log(tags);
+    const queryParams = { tags: tags, query: this.router.currentRoute.queryParams.query };
+    this.router.transitionTo({ queryParams: queryParams });
   }
-
-
-
 }
