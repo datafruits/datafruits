@@ -1,9 +1,9 @@
 <PowerSelectMultiple
-  @options={{this.groupedFilters}}
-  @selected={{this.filter}}
-  @placeholder="Select some filters..."
-  @onChange={{fn (mut this.filter)}} as |filter|>
+  @options={{this.badges}}
+  @selected={{this.selectedBadges}}
+  @allowClear={{true}}
+  @placeholder="Select some badges..."
+  @onChange={{this.changeBadges}} as |badge|
 >
-  <img class="w-8" src={{filter.img}}/>
-  {{filter.name}}
+  <img class="w-8" src={{badge.img}}/>
 </PowerSelectMultiple>
