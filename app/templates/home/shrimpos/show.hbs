@@ -1,6 +1,6 @@
 <section class="page-spacing">
   <h1>{{this.model.title}}</h1>
-  <h4>{{this.model.shrimpoEntries.length}} entries</h4>
+  <h4>{{this.model.savedShrimpoEntries.length}} entries</h4>
   <div>
     {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
       <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />

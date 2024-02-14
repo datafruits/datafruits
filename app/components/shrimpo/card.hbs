@@ -3,7 +3,9 @@
     <LinkTo @route="home.shrimpos.show" @model={{@shrimpo.slug}}>
       {{@shrimpo.title}}
     </LinkTo>
-    {{@shrimpo.status}}
-    <TimeLeft @endAt={{@shrimpo.endAt}} />
+    <div>
+      {{@shrimpo.status}}
+    </div>
+    <Shrimpo::Countdown @endAt={{@shrimpo.endAt}} />
   </h2>
 </div>
