@@ -6,6 +6,8 @@
     <div>
       {{@shrimpo.status}}
     </div>
-    <Shrimpo::Countdown @endAt={{@shrimpo.endAt}} />
+    {{#if (eq @shrimpo.status 'running')}}
+      <Shrimpo::Countdown @endAt={{@shrimpo.endAt}} />
+    {{/if}}
   </h2>
 </div>

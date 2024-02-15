@@ -1,6 +1,6 @@
 <section class="page-spacing">
-  <section class="flex w-full">
-    <section class="w-1/4">
+  <section class="flex space-x-2 w-full">
+    <section class="w-1/4 bg-df-pink rounded-lg border-4 border-white ">
       <span
         class="p-4 shrink-0"
         style="height: 10rem; width: 10rem; flex-shrink: 0;"
@@ -26,11 +26,14 @@
       </section>
     </section>
 
-    <section class="w-3/4">
+    <section class="w-3/4 bg-df-pink rounded-lg border-4 border-white ">
       <h2>{{this.model.title}}</h2>
+      <p>
+        {{this.model.description}}
+      </p>
       <Shrimpo::Player @shrimpoEntry={{this.model}} />
-      {{#if (eq this.model.status 'voting')}}
-        <Shrimpo::VotingTable />
+      {{#if (eq this.model.shrimpo.status 'voting')}}
+        <Shrimpo::VotingTable @entry={{this.model}} />
       {{/if}}
     </section>
   </section>

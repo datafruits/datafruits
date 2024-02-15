@@ -913,5 +913,13 @@ body::-webkit-scrollbar-thumb {
   @apply py-2 pr-3 w-full border-dashed border-white border-t-4;
 }
 
+.shrimpo-score-picker-score {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  writing-mode: vertical-lr;
+  width: 200px;
+}
+
 @tailwind utilities;
 /* purgecss end ignore */
