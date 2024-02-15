@@ -16,6 +16,17 @@
           </div>
             <label class="align-top" for="show-artwork"> {{t "profile.my-shows.form.artwork"}}</label>
             <br/>
+            {{#if @episode.isNew}}
+              {{#if changeset.image}}
+                <img alt="artwork" width="300" height="300"
+                  src="{{changeset.image}}">
+              {{/if}}
+            {{else}}
+              {{#if changeset.thumbImageUrl}}
+                <img alt="artwork" width="300" height="300"
+                  src="{{changeset.thumbImageUrl}}">
+              {{/if}}
+            {{/if}}
             <input
               class="py-4 px-4 my-2 text-df-yellow w-full semibold border-dashed"
               id="showArtwork"
