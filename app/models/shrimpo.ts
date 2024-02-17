@@ -18,7 +18,7 @@ export default class Shrimpo extends Model {
   @attr('string') declare status: 'running' | 'voting' | 'completed';
   @attr('string') declare slug: string;
 
-  @attr('string') declare duration: string;
+  @attr('string') declare emoji: string;
 
   get savedShrimpoEntries() {
     return this.shrimpoEntries.filter(entry => {

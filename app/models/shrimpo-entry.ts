@@ -15,6 +15,9 @@ export default class ShrimpoEntry extends Model {
 
   @attr('string') declare audio: string;
   @attr('string') declare cdnUrl: string;
+
+  @attr('string') declare shrimpoEmoji: string;
+  @attr('string') declare shrimpoSlug: string;
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

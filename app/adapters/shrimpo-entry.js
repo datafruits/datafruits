@@ -2,7 +2,7 @@ import classic from 'ember-classic-decorator';
 import ApplicationAdapter from './application';
 
 @classic
-export default class Shrimpo extends ApplicationAdapter {
+export default class ShrimpoEntry extends ApplicationAdapter {
   namespace = 'api';
 
   urlForFindRecord(id, modelName, snapshot) {
