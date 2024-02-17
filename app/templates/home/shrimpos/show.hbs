@@ -18,7 +18,5 @@
     {{else}}
       <span><LinkTo @route="home.sign-up">Create an account</LinkTo> to join the shrimpo.</span>
     {{/if}}
-  {{else if (eq this.model.status 'voting')}}
-    <Shrimpo::VotingTable  @shrimpo={{this.model}}/>
   {{/if}}
 </section>

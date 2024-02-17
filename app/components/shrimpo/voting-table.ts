@@ -20,7 +20,7 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
 
   @action
   async saveVote() {
-    const vote = this.store.createRecord('shrimpo-vote', {
+    let vote = this.store.createRecord('shrimpo-vote', {
       shrimpoEntry: this.args.entry,
       score: this.score
     });
