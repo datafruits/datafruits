@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import type ShrimpoEntry from 'datafruits13/models/shrimpo-entry';
-import type ShrimpoVote from 'datafruits13/models/shrimpo-vote';
+//import type ShrimpoVote from 'datafruits13/models/shrimpo-vote';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { formatEmojiHtml } from 'datafruits13/helpers/format-emoji-html';
@@ -22,32 +22,34 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
 
   @tracked score: number = 1;
 
-  vote: ShrimpoVote;
+  //vote: ShrimpoVote;
 
   constructor(owner: unknown, args: any) {
     super(owner, args);
-    const existingVote = this.args.entry.shrimpoVotes.find((vote: ShrimpoVote) => {
-      return vote.user == this.currentUser.user;
+    const existingVote = this.args.entry.shrimpoVotes.find((vote: any) => {
+      return vote.get('user.id') == this.currentUser.user.id;
     });
+    console.log(existingVote);
     if(existingVote) {
-      this.vote = existingVote;
-    } else {
-      this.vote = this.store.createRecord('shrimpo-vote', {
-        shrimpoEntry: this.args.entry,
-        score: this.score
-      });
+      console.log(existingVote.score);
+      //this.vote = existingVote;
+      this.score = existingVote.score;
     }
   }
 
   @action
   async saveVote() {
-    console.log(this.vote.get('shrimpoEntry'));
+    //console.log(this.vote.get('shrimpoEntry'));
+    const vote = this.store.createRecord('shrimpo-vote', {
+      shrimpoEntry: this.args.entry,
+      score: this.score
+    });
     try {
-      await this.vote.save();
-      console.log(this.vote);
+      await vote.save();
+      console.log(vote);
       alert('saved shrimpo vote!');
     } catch (error) {
-      console.log(this.vote);
+      console.log(vote);
       console.log(error);
       console.trace();
       alert('couldnt save vote!');
