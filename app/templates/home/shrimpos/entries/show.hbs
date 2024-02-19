@@ -34,6 +34,9 @@
         </p>
         <Shrimpo::Player @shrimpoEntry={{this.model}} />
       </section>
+      <section class="bg-df-pink rounded-lg border-4 border-white mb-2 p-2">
+        <Shrimpo::Pagination @entry={{this.model}} />
+      </section>
       {{#if (eq this.model.shrimpo.status 'voting')}}
         <section class="bg-df-pink rounded-lg border-4 border-white p-2">
           <Shrimpo::VotingTable @entry={{this.model}} />

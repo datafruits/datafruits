@@ -1,10 +1,12 @@
-import Model, { attr, belongsTo } from '@ember-data/model';
+import Model, { attr, belongsTo, hasMany, type SyncHasMany } from '@ember-data/model';
 import type Shrimpo from './shrimpo';
+import type ShrimpoVote from './shrimpo-vote';
 import type User from './user';
 
 export default class ShrimpoEntry extends Model {
   @belongsTo('user') declare user: User;
   @belongsTo('shrimpo') declare shrimpo: Shrimpo;
+  @hasMany('shrimpo-vote', { async: false }) declare shrimpoVotes: SyncHasMany<ShrimpoVote>;
 
   @attr('string') declare username: string;
   @attr('string') declare userAvatar: string;
@@ -18,6 +20,11 @@ export default class ShrimpoEntry extends Model {
 
   @attr('string') declare shrimpoEmoji: string;
   @attr('string') declare shrimpoSlug: string;
+
+  @attr('date') declare createdAt: string;
+
+  @attr('string') declare nextShrimpoEntrySlug: string;
+  @attr('string') declare previousShrimpoEntrySlug: string;
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.
