@@ -2,14 +2,20 @@
   <h1>{{this.model.title}}</h1>
   <h4>{{this.model.savedShrimpoEntries.length}} entries</h4>
   <div>
+    Started at: {{format-date this.model.startAt}}
+  </div>
+  {{#if (eq this.model.status 'completed')}}
+    <div>
+      Ended at: {{format-date this.model.endedAt}}
+    </div>
+  {{/if}}
+  <div>
     {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
       <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
     {{/each}}
   </div>
 
-  {{#if (eq this.model.status 'completed')}}
-    <h3>Listen Entries</h3>
-  {{else if (eq this.model.status 'running')}}
+  {{#if (eq this.model.status 'running')}}
     <Shrimpo::Countdown @endAt={{this.model.endAt}} />
 
     {{#if this.session.isAuthenticated}}

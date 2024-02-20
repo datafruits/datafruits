@@ -20,6 +20,9 @@ export default class Shrimpo extends Model {
 
   @attr('string') declare emoji: string;
 
+  @attr('date') declare startedAt: string;
+  @attr('date') declare endedAt: string;
+
   get savedShrimpoEntries() {
     return this.shrimpoEntries.filter(entry => {
       return !entry.isNew;

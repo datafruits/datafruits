@@ -18,5 +18,15 @@
       </LinkTo>
     </div>
   </div>
+  {{#if (eq @shrimpoEntry.shrimpo.status 'completed')}}
+    <div class="">
+      <span class="font-extrabold">{{formatted-shrimpo-ranking @shrimpoEntry.ranking @shrimpoEntry.shrimpo.savedShrimpoEntries.length}}</span>
+
+      <div>
+        <span>Total {{this.scoreEmoji}}'s:</span>
+        <span class="font-extrabold">{{@shrimpoEntry.totalScore}}</span>
+      </div>
+    </div>
+  {{/if}}
   <Shrimpo::Player @shrimpoEntry={{@shrimpoEntry}} />
 </div>

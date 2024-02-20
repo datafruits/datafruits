@@ -25,6 +25,9 @@ export default class ShrimpoEntry extends Model {
 
   @attr('string') declare nextShrimpoEntrySlug: string;
   @attr('string') declare previousShrimpoEntrySlug: string;
+
+  @attr('string') declare ranking: string;
+  @attr('string') declare totalScore: string;
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

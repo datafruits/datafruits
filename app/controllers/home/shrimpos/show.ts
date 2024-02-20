@@ -1,12 +1,12 @@
 import Controller from '@ember/controller';
+import type Shrimpo from 'datafruits13/models/shrimpo';
 import { inject as service } from '@ember/service';
 
-export default class HomeShrimposShow extends Controller.extend({
-  // anything which *must* be merged to prototype here
-}) {
-  // normal class body definition here
+export default class HomeShrimposShow extends Controller {
   @service declare currentUser: any;
   @service declare session: any;
+
+  declare model: Shrimpo;
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your controllers.
