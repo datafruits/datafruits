@@ -1,7 +1,8 @@
 <h1 class="text-2xl">
   <img class="inline" src="/assets/images/emojis/sshrimp.png" />
-  THIS IS THE BEGINNING OF A NEW SHRIMPO
+    {{t "shrimpo.form.beginning"}}
   <img class="inline" src="/assets/images/emojis/sshrimp_clear.png" />
+  many fruits will shrimp...only one will win! will you challenge the fruit-iverse of shrimp?!
 </h1>
 {{#let (changeset @model this.ShrimpoValidations) as |changeset|}}
   <Ui::ChangesetForm
@@ -15,6 +16,7 @@
       />
     <Form.Textarea
       @label={{t "shrimpo.form.rulepack"}}
+      @placeholder={{t "shrimpo.form.rulepack_placeholder"}}
       @fieldName="rulePack"
       @containerClass='mb-2'
       @size='lg'
@@ -53,7 +55,7 @@
 
     <div>
       <label>
-        Upload zip sample pack
+        {{t "shrimpo.form.zip_file"}}
         <input type="file" {{on "change" (fn this.uploadZip changeset)}}>
       </label>
       {{this.uploadProgress}}
@@ -68,7 +70,7 @@
       {{t "shrimpo.form.submit"}}
     </Button>
     {{#if Form.state.hasSubmitted}}
-      <marquee>SAVING....DON'T TURN OFF THE POWER.........</marquee>
+      <marquee>{{t "forms.saving"}}</marquee>
     {{/if}}
   </Ui::ChangesetForm>
 {{/let}}
