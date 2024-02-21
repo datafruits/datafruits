@@ -28,8 +28,11 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
 
   @tracked uploadProgress = 0;
 
+  @tracked coverArtUploadProgress = 0;
+
   @action
   setLength(changeset: BufferedChangeset, event: any){
+    console.log('setting duration: ', event.target.value);
     changeset.set('duration', event.target.value);
   }
 
@@ -44,6 +47,29 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
   onError() {
     alert("Couldn't save shrimpo...check the form for errors.");
   }
+
+  @action updateCoverArt(changeset: BufferedChangeset, event: Event){
+    const inputElement = event.target as HTMLInputElement;
+    const files = inputElement.files;
+    if (files) {
+      const directUploadURL = `${ENV.API_HOST}/rails/active_storage/direct_uploads`;
+
+      for (let i = 0; i < files.length; i++) {
+        this.activeStorage
+        .upload(files.item(i), directUploadURL, {
+          onProgress: (progress: any) => {
+            this.coverArtUploadProgress= progress;
+          },
+        })
+        .then((blob: any) => {
+          const signedId = blob.signedId;
+
+          changeset.set('coverArt', signedId);
+        });
+      }
+    }
+  }
+
 
   @action
   uploadZip(changeset: BufferedChangeset, event: Event) {

@@ -922,5 +922,16 @@ body::-webkit-scrollbar-thumb {
   width: 200px;
 }
 
+.shrimpo-marquee {
+  animation: scroll-text 3s infinite linear;
+  background: black;
+  color: yellow;
+  text-overflow: ellipsis;
+  display: inline-block;
+  height: 4rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 @tailwind utilities;
 /* purgecss end ignore */

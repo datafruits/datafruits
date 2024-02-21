@@ -15,6 +15,9 @@ export default class Shrimpo extends Model {
 
   @attr('string') declare zipFile: string;
 
+  @attr('string') declare coverArt: string;
+  @attr('string') declare coverArtUrl: string;
+
   @attr('string') declare status: 'running' | 'voting' | 'completed';
   @attr('string') declare slug: string;
 
@@ -22,6 +25,8 @@ export default class Shrimpo extends Model {
 
   @attr('date') declare startedAt: string;
   @attr('date') declare endedAt: string;
+
+  @attr('string') declare duration: string;
 
   get savedShrimpoEntries() {
     return this.shrimpoEntries.filter(entry => {

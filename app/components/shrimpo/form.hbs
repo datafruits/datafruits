@@ -2,8 +2,12 @@
   <img class="inline" src="/assets/images/emojis/sshrimp.png" />
     {{t "shrimpo.form.beginning"}}
   <img class="inline" src="/assets/images/emojis/sshrimp_clear.png" />
-  many fruits will shrimp...only one will win! will you challenge the fruit-iverse of shrimp?!
 </h1>
+<h2>
+  <span class="shrimpo-marquee">
+    many fruits will shrimp...only one will win! will you challenge the fruit-iverse of shrimp?! Dive into the fruit-iverse of SHRIMPO, where a symphony of flavors awaits your creative palate! Many fruits will shrimp, but only one will reign supreme in this electrifying musical showdown. Are you ready to peel back the layers of sound and embrace the challenge? Let the rhythm of the fruit-iverse guide your composition as you embark on this thrilling musical journey! Yo, 안녕하세요, mi bredren! SHRIMPO의 과일 세계로 들어가보세요. 여기서는 많은 과일이 새하얗게 살짝 삶을 겁니다. 그러나 이곳에선 오직 하나만이 최고로 빛날 것입니다. こんにちは、友よ！ この刺激的な音楽の対決に挑戦する準備はできていますか? Let the rhythm of the fruit-iverse guide yuh composition as yuh embark pon dis thrillin' musical journey, seen?音のレイヤーを一つずつ剥がし、挑戦を受け入れてください.果物の世界のリズムがあなたの作品を導いてくれるでしょう.
+  </span>
+</h2>
 {{#let (changeset @model this.ShrimpoValidations) as |changeset|}}
   <Ui::ChangesetForm
     @changeset={{changeset}}
@@ -14,6 +18,16 @@
       @fieldName="title"
       @containerClass='mb-2'
       />
+    <label class="align-top" for="shrimpo-cover-art"> {{t "shrimpo.form.cover_art"}}</label>
+    <br/>
+    <input
+      class="py-4 px-4 my-2 text-df-yellow w-full semibold border-dashed"
+      id="shrimpo-cover-art"
+      name="shrimpo-cover-art"
+      type="file"
+      {{on "change" (fn this.updateCoverArt changeset)}}
+    />
+    {{this.coverArtUploadProgress}}
     <Form.Textarea
       @label={{t "shrimpo.form.rulepack"}}
       @placeholder={{t "shrimpo.form.rulepack_placeholder"}}

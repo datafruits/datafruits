@@ -159,7 +159,8 @@
       "length": "duration of shrimpo",
       "submit": "SHRIMP IT",
       "voting_emoji": "Voting Symbol",
-      "zip_file": "Upload zip sample pack"
+      "zip_file": "Upload zip sample pack",
+      "cover_art": "Cover Artwork"
     }
   },
   "upcoming": {
