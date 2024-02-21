@@ -9,6 +9,8 @@ export default class Shrimpo extends Model {
   @attr('string', { defaultValue: (new Date()).toISOString()}) declare startAt: string;
   @attr('string') declare endAt: string;
 
+  @attr('string', { defaultValue: '2 hours' }) declare duration: string;
+
   @attr('string') declare rulePack: string;
 
   @attr('string') declare zipFileUrl: string;
@@ -23,10 +25,7 @@ export default class Shrimpo extends Model {
 
   @attr('string') declare emoji: string;
 
-  @attr('date') declare startedAt: string;
   @attr('date') declare endedAt: string;
-
-  @attr('string') declare duration: string;
 
   get savedShrimpoEntries() {
     return this.shrimpoEntries.filter(entry => {
