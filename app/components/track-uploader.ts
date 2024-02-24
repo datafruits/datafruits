@@ -9,8 +9,8 @@ import type { UploadFile } from 'ember-file-upload/upload-file';
 
 interface TrackUploaderArgs {
   changeset: BufferedChangeset;
-  onStartUpload: any;
-  onFinishUpload: any;
+  onStartUpload: () => void | null;
+  onFinishUpload: () => void | null;
 }
 
 export default class TrackUploader extends Component<TrackUploaderArgs> {
