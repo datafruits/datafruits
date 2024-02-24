@@ -100,7 +100,11 @@
               class="text-x">
               PRERECORDED SET
             </h2>
-            <TrackUploader @changeset={{changeset}} />
+            <TrackUploader
+              @changeset={{changeset}}
+              @onStartUpload={{this.onStartUpload}}
+              @onFinishUpload={{this.onFinishUpload}}
+            />
             {{#if changeset.prerecordTrackId}}
               {{changeset.prerecordTrackFilename}}
             {{/if}}
@@ -115,7 +119,9 @@
         <Button
           @type='submit'
           @intent='primary'
-          disabled={{(or Form.state.hasSubmitted changeset.isInvalid)}}
+          disabled={{
+            (or (eq this.isUploading true) (or Form.state.hasSubmitted changeset.isInvalid))
+          }}
           class='cool-button mb-2'
           >
           UPDATE EPISODE
