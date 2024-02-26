@@ -21,7 +21,9 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
     '4 hours',
     '1 day',
     '2 days',
-    '1 week'
+    '1 week',
+    '1 month',
+    '3 months',
   ];
   @service declare router: RouterService;
   @service declare activeStorage: any;
@@ -30,10 +32,36 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
 
   @tracked coverArtUploadProgress = 0;
 
+  @tracked duration = '1 hour';
+
+  get depositAmount() {
+    switch(this.duration) {
+      case '1 hour':
+        return 500;
+      case '2 hours':
+        return 750;
+      case '4 hours':
+        return 1000;
+      case '1 day':
+        return 1500;
+      case '2 days':
+        return 1750;
+      case '1 week':
+        return 2000;
+      case '1 month':
+        return 5000;
+      case '3 months':
+        return 7500;
+      default:
+        return 100;
+    }
+  }
+
   @action
   setLength(changeset: BufferedChangeset, event: any){
     console.log('setting duration: ', event.target.value);
     changeset.set('duration', event.target.value);
+    this.duration = event.target.value;
   }
 
   @action
