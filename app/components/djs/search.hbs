@@ -3,7 +3,7 @@
   @selected={{this.selectedBadges}}
   @selectedItemComponent={{component 'djs/selected-badge'}}
   @allowClear={{true}}
-  @placeholder="Select some badges..."
+  @placeholder={{t "djs.filter"}}
   @onChange={{this.changeBadges}} as |badge|
 >
   <img class="w-8" src={{badge.img}}/>

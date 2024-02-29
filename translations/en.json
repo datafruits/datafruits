@@ -134,7 +134,8 @@
   },
   "djs": {
     "title": "Fruits",
-    "aria": "Browse DJs who perform on datafruits.fm"
+    "aria": "Browse DJs who perform on datafruits.fm",
+    "filter": "Filter by badges"
   },
   "shows": {
     "title": "Shows",
