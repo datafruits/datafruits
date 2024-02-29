@@ -15,9 +15,9 @@ export default class DjsSearch extends Component {
     { id: 3, name: "strawberry", img: "/assets/images/badges/strawberry.webp" },
     { id: 4, name: "orange", img: "/assets/images/badges/orange.webp" },
     { id: 5, name: "lemon", img: "/assets/images/badges/lemon.webp" },
-    { id: 6, name: "supporter", img: "/assets/images/badges/supporter.webp" },
-    { id: 7, name: "gold_supporter", img: "/assets/images/badges/gold_supporter.webp" },
-    { id: 8, name: "emerald_supporter", img: "/assets/images/badges/emerald_supporter.webp" }
+    { id: 6, name: "banana", img: "/assets/images/badges/banana.webp" },
+    { id: 7, name: "watermelon", img: "/assets/images/badges/watermelon.webp" },
+    { id: 8, name: "cabbage", img: "/assets/images/badges/cabbage.webp" },
   ];
 
   get selectedBadges() {
