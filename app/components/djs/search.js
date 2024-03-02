@@ -12,12 +12,13 @@ export default class DjsSearch extends Component {
   badges = [
     { id: 1, name: "dj", img: "/assets/images/badges/dj.webp" },
     { id: 2, name: "vj", img: "/assets/images/badges/vj.webp" },
-    { id: 3, name: "strawberry", img: "/assets/images/badges/strawberry.webp" },
-    { id: 4, name: "orange", img: "/assets/images/badges/orange.webp" },
-    { id: 5, name: "lemon", img: "/assets/images/badges/lemon.webp" },
-    { id: 6, name: "banana", img: "/assets/images/badges/banana.webp" },
-    { id: 7, name: "watermelon", img: "/assets/images/badges/watermelon.webp" },
-    { id: 8, name: "cabbage", img: "/assets/images/badges/cabbage.webp" },
+    { id: 3, name: "pineapple", img: "/assets/images/badges/pineapple.webp"},
+    { id: 4, name: "strawberry", img: "/assets/images/badges/strawberry.webp" },
+    { id: 5, name: "orange", img: "/assets/images/badges/orange.webp" },
+    { id: 6, name: "lemon", img: "/assets/images/badges/lemon.webp" },
+    { id: 7, name: "banana", img: "/assets/images/badges/banana.webp" },
+    { id: 8, name: "watermelon", img: "/assets/images/badges/watermelon.webp" },
+    { id: 9, name: "cabbage", img: "/assets/images/badges/cabbage.webp" },
   ];
 
   get selectedBadges() {
