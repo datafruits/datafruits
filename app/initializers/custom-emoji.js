@@ -187,6 +187,14 @@ export function initialize(/* application */) {
       shortnames: [':dragion-fruit:'],
       keywords: ['dragion-fruit'],
     },
+    ':blueberrinies:': {
+      custom: true,
+      animated: true,
+      uc_base: 'blueberrinies',
+      uc_output: '',
+      shortnames: [':blueberrinies:'],
+      keywords: ['blueberrinies'],
+    },
     ':miniburger:': {
       custom: true,
       uc_base: 'miniburger',
@@ -473,6 +481,14 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':smiling_shrimp:'],
       keywords: ['smiling_shrimp'],
+    },
+    ':alligottadoisfindthemustard:': {
+      custom: true,
+      uc_base: 'alligottadoisfindthemustard',
+      uc_output: '',
+      animated: true,
+      shortnames: [':alligottadoisfindthemustard:'],
+      keywords: ['alligottadoisfindthemustard'],
     },
   };
 

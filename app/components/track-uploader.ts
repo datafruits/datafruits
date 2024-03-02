@@ -9,6 +9,8 @@ import type { UploadFile } from 'ember-file-upload/upload-file';
 
 interface TrackUploaderArgs {
   changeset: BufferedChangeset;
+  onStartUpload: () => void | null;
+  onFinishUpload: () => void | null;
 }
 
 export default class TrackUploader extends Component<TrackUploaderArgs> {
@@ -27,6 +29,9 @@ export default class TrackUploader extends Component<TrackUploaderArgs> {
       e.returnValue = dialogText;
       return dialogText;
     };
+    if(typeof this.args.onStartUpload == 'function') {
+      this.args.onStartUpload();
+    }
 
     if(!this.validMimeTypes.includes(file.type)) {
       alert('Only mp3 is supported! sorry...');
@@ -64,6 +69,9 @@ export default class TrackUploader extends Component<TrackUploaderArgs> {
       .then((response) => {
         console.log(`uploaded: ${response}`);
         track.set('isUploading', false);
+        if(typeof this.args.onFinishUpload == 'function') {
+          this.args.onFinishUpload();
+        }
         track
           .save()
           .then(() => {

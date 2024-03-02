@@ -33,6 +33,24 @@
           />
         </a>
       {{/if}}
+      {{#if @show.mixcloudLink}}
+        <a href={{@show.mixcloudLink}} target="_blank" rel="noreferrer noopener">
+          <FaIcon
+            @icon="mixcloud"
+            @prefix="fab"
+            class="text-df-green hover:text-df-yellow text-xl"
+          />
+        </a>
+      {{/if}}
+      {{#if @show.soundcloudLink}}
+        <a href={{@show.soundcloudLink}} target="_blank" rel="noreferrer noopener">
+          <FaIcon
+            @icon="soundcloud"
+            @prefix="fab"
+            class="text-df-green hover:text-df-yellow text-xl"
+          />
+        </a>
+      {{/if}}
       {{#if this.session.isAuthenticated}}
         {{#if this.isFavorited}}
           <button

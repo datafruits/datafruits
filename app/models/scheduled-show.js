@@ -84,6 +84,12 @@ export default class ScheduledShow extends Model {
   @attr
   youtubeLink;
 
+  @attr
+  mixcloudLink;
+
+  @attr
+  soundcloudLink;
+
   get imageOrDefault() {
     if(this.imageUrl) {
       return this.imageUrl;
