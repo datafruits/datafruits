@@ -17,6 +17,7 @@ export default class DjsList extends Component<DjsListArgs> {
     const query = {
       page: this.args.searchParams.page,
       search: { keyword: this.args.searchParams.query },
+      tags: this.args.searchParams.tags,
     };
     const djsPromise = this.store.query('user', query);
     return djsPromise;
