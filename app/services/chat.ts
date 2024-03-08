@@ -80,7 +80,7 @@ export default class ChatService extends Service {
 
   onTrackPlayed(event: any) {
     console.log(event);
-    this.chan.push("track_playback", { track_id: event.id })
+    this.chan.push("track_playback", { track_id: event.track_id })
   }
 
   constructor() {
