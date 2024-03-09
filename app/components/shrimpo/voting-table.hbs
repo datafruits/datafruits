@@ -5,7 +5,7 @@
       Rate tune by number of {{this.scoreEmoji}}.
     </p>
 
-    <div class="shrimpo-score-picker">
+    <div class="shrimpo-score-picker mb-2">
       <input
         type="range"
         min=1
@@ -16,32 +16,32 @@
       <div class="flex">
         <img
           width='48'
-          src="/assets/images/emojis/acid.gif"
+          src="{{this.scoreEmojiPath}}"
         >
         <img
           class={{if (gte this.score 2) "opacity-100" "opacity-50"}}
           width='48'
-          src="/assets/images/emojis/acid.gif"
+          src="{{this.scoreEmojiPath}}"
         >
         <img
           class={{if (gte this.score 3) "opacity-100" "opacity-50"}}
           width='48'
-          src="/assets/images/emojis/acid.gif"
+          src="{{this.scoreEmojiPath}}"
         >
         <img
           class={{if (gte this.score 4) "opacity-100" "opacity-50"}}
           width='48'
-          src="/assets/images/emojis/acid.gif"
+          src="{{this.scoreEmojiPath}}"
         >
         <img
           class={{if (gte this.score 5) "opacity-100" "opacity-50"}}
           width='48'
-          src="/assets/images/emojis/acid.gif"
+          src="{{this.scoreEmojiPath}}"
         >
         <img
           class={{if (gte this.score 6) "opacity-100" "opacity-50"}}
           width='48'
-          src="/assets/images/emojis/acid.gif"
+          src="{{this.scoreEmojiPath}}"
         >
       </div>
     </div>
