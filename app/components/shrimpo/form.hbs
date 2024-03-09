@@ -10,6 +10,7 @@
 </h2>
 {{#let (changeset @model this.ShrimpoValidations) as |changeset|}}
   <Ui::ChangesetForm
+    class="mb-2"
     @changeset={{changeset}}
     @onError={{this.onError}}
     @onSubmit={{this.onSubmit}} as |Form|>

@@ -9,13 +9,13 @@ export default class Shrimpo extends Model {
   @attr('string', { defaultValue: (new Date()).toISOString()}) declare startAt: string;
   @attr('string') declare endAt: string;
 
-  @attr('string', { defaultValue: '2 hours' }) declare duration: string;
+  @attr('string', { defaultValue: '1 hour' }) declare duration: string;
 
   @attr('string') declare rulePack: string;
 
   @attr('string') declare zipFileUrl: string;
 
-  @attr('string') declare zipFile: string;
+  @attr('string') declare zip: string;
 
   @attr('string') declare coverArt: string;
   @attr('string') declare coverArtUrl: string;
@@ -31,6 +31,18 @@ export default class Shrimpo extends Model {
     return this.shrimpoEntries.filter(entry => {
       return !entry.isNew;
     });
+  }
+
+  get shrimpoType() {
+    const majorTypes = [
+      '1 month',
+      '3 month',
+    ];
+    if(majorTypes.includes(this.duration)) {
+      return 'major';
+    } else {
+      return 'minor';
+    }
   }
 }
 

@@ -116,7 +116,7 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
         .then((blob: any) => {
           const signedId = blob.signedId;
 
-          changeset.set('zipFile', signedId);
+          changeset.set('zip', signedId);
         });
       }
     }

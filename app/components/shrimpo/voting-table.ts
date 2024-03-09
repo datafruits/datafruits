@@ -4,6 +4,7 @@ import type ShrimpoEntry from 'datafruits13/models/shrimpo-entry';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { formatEmojiHtml } from 'datafruits13/helpers/format-emoji-html';
+import { emojiPath } from 'datafruits13/helpers/emoji-path';
 import { inject as service } from '@ember/service';
 
 interface ShrimpoVotingTableArgs {
@@ -63,5 +64,9 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
 
   get scoreEmoji() {
     return formatEmojiHtml(this.args.entry.shrimpoEmoji);
+  }
+
+  get scoreEmojiPath() {
+    return emojiPath(this.args.entry.shrimpoEmoji);
   }
 }

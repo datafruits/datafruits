@@ -1,6 +1,12 @@
 <section class="page-spacing">
   <h1>{{this.model.title}}</h1>
   <img src={{this.model.coverArtUrl}} />
+  <p>
+    <span class="font-bold">Rules: </span>{{this.model.rulePack}}
+  </p>
+  <p>
+    {{this.model.zipFileUrl}}
+  </p>
   <h4>{{this.model.savedShrimpoEntries.length}} entries</h4>
   <div>
     Started at: {{format-date this.model.startAt}}
@@ -11,9 +17,16 @@
     </div>
   {{/if}}
   <div>
-    {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
-      <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
-    {{/each}}
+    {{#if (or
+            (or
+              (eq this.model.status 'voting')
+              (eq this.model.status 'completed') )
+            (eq this.model.shrimpoType 'major'))
+    }}
+      {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
+        <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
+      {{/each}}
+    {{/if}}
   </div>
 
   {{#if (eq this.model.status 'running')}}
