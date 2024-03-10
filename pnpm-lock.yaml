@@ -406,7 +406,7 @@ devDependencies:
     version: 4.0.0
   emojione:
     specifier: github:mcfiredrill/emojione#animated-emoji
-    version: github.com/mcfiredrill/emojione/a67c80945bd4fcb885e953d13f9b030019a06afb
+    version: github.com/mcfiredrill/emojione/3c1494919b9c7f67beb3ac4ee61184983fb6e9eb
   eslint:
     specifier: ^7.32.0
     version: 7.32.0
@@ -1541,15 +1541,6 @@ packages:
       '@babel/helper-plugin-utils': 7.22.5
     dev: true
 
-  /@babel/plugin-syntax-typescript@7.21.4(@babel/core@7.18.5):
-    resolution: {integrity: sha512-xz0D39NvhQn4t4RNsHmDnnsaQizIlUkdtYvLs8La1BlfjQ6JEwxkJGeqJMW2tAXx+q6H+WFuUTXNdYVpEya0YA==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-    dependencies:
-      '@babel/core': 7.18.5
-      '@babel/helper-plugin-utils': 7.22.5
-
   /@babel/plugin-syntax-typescript@7.22.5(@babel/core@7.18.5):
     resolution: {integrity: sha512-1mS2o03i7t1c6VzH6fdQ3OA8tcEIxwG18zIPRp+UY1Ihv6W+XZzBCVxExF9upussPXJ0xE9XRHwMoNs1ep/nRQ==}
     engines: {node: '>=6.9.0'}
@@ -2419,7 +2410,7 @@ packages:
       '@babel/core': 7.18.5
       '@babel/helper-create-class-features-plugin': 7.22.11(@babel/core@7.18.5)
       '@babel/helper-plugin-utils': 7.22.5
-      '@babel/plugin-syntax-typescript': 7.21.4(@babel/core@7.18.5)
+      '@babel/plugin-syntax-typescript': 7.22.5(@babel/core@7.18.5)
 
   /@babel/plugin-transform-typescript@7.4.5(@babel/core@7.18.5):
     resolution: {integrity: sha512-RPB/YeGr4ZrFKNwfuQRlMf2lxoCUaU01MTw39/OFE/RiL8HDjtn68BwEPft1P7JN4akyEmjGWAMNldOV7o9V2g==}
@@ -11302,6 +11293,7 @@ packages:
 
   /figgy-pudding@3.5.2:
     resolution: {integrity: sha512-0btnI/H8f2pavGMN8w40mlSKOfTK2SVJmBfBeVIj3kNw0swwgzyRq0d5TJVOwodFmtvpPeWPN/MCcfuWF0Ezbw==}
+    deprecated: This module is no longer supported.
     dev: true
 
   /figures@2.0.0:
@@ -12671,6 +12663,7 @@ packages:
   /is-accessor-descriptor@0.1.6:
     resolution: {integrity: sha512-e1BM1qnDbMRG3ll2U9dSK0UMHuWOs3pY3AtcFsmvwPtKL3MML/Q86i+GilLfvqEs4GW+ExB91tQ3Ig9noDIZ+A==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v0.1.7
     dependencies:
       kind-of: 3.2.2
     dev: true
@@ -12678,6 +12671,7 @@ packages:
   /is-accessor-descriptor@1.0.0:
     resolution: {integrity: sha512-m5hnHTkcVsPfqx3AKlyttIPb7J+XykHvJP2B9bZDjlhLIoEq4XoK64Vg7boZlVWYK6LUY94dYPEE7Lh0ZkZKcQ==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v1.0.1
     dependencies:
       kind-of: 6.0.3
     dev: true
@@ -12776,6 +12770,7 @@ packages:
   /is-data-descriptor@0.1.4:
     resolution: {integrity: sha512-+w9D5ulSoBNlmw9OHn3U2v51SyoCd0he+bB3xMl62oijhrspxowjU+AIcDY0N3iEJbUEkB15IlMASQsxYigvXg==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v0.1.5
     dependencies:
       kind-of: 3.2.2
     dev: true
@@ -12783,6 +12778,7 @@ packages:
   /is-data-descriptor@1.0.0:
     resolution: {integrity: sha512-jbRXy1FmtAoCjQkVmIVYwuuqDFUbaOeDjmed1tOGPrsMhtJA4rD9tkgA0F1qJ3gRFRXcHYVkdeaP50Q5rE/jLQ==}
     engines: {node: '>=0.10.0'}
+    deprecated: Please upgrade to v1.0.1
     dependencies:
       kind-of: 6.0.3
     dev: true
@@ -19179,8 +19175,8 @@ packages:
       - supports-color
     dev: false
 
-  github.com/mcfiredrill/emojione/a67c80945bd4fcb885e953d13f9b030019a06afb:
-    resolution: {tarball: https://codeload.github.com/mcfiredrill/emojione/tar.gz/a67c80945bd4fcb885e953d13f9b030019a06afb}
+  github.com/mcfiredrill/emojione/3c1494919b9c7f67beb3ac4ee61184983fb6e9eb:
+    resolution: {tarball: https://codeload.github.com/mcfiredrill/emojione/tar.gz/3c1494919b9c7f67beb3ac4ee61184983fb6e9eb}
     name: emojione
     version: 3.1.2
     dev: true
