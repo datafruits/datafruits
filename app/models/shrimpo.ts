@@ -5,7 +5,10 @@ import type User from './user';
 export default class Shrimpo extends Model {
   @belongsTo('user') declare user: User;
   @hasMany('shrimpo-entry', { async: false }) declare shrimpoEntries: SyncHasMany<ShrimpoEntry>;
+
   @attr('string') declare title: string;
+  @attr('string') declare username: string;
+  @attr('string') declare userAvatar: string;
   @attr('string', { defaultValue: (new Date()).toISOString()}) declare startAt: string;
   @attr('string') declare endAt: string;
 
