@@ -10,25 +10,20 @@
         />
       </section>
       <section class="bg-df-pink rounded-lg border-4 border-white p-2">
-        <h4>Hosted By:
-          <span
-            class="p-4 shrink-0 inline"
-            style="height: 3rem; width: 3rem; flex-shrink: 0;"
-            >
-            <img
-            class="rounded-lg inline self-center object-none"
-            style="height: 3rem; width: 100%;"
-            align="center"
-            alt="{{this.username}}"
-            src="{{this.userAvatar}}" />
-          </span>
-          <LinkTo
-          @route='home.dj'
-          @model={{this.model.username}}
-          >
-            {{this.model.username}}
-          </LinkTo>
-        </h4>
+        <h4>Hosted By:</h4>
+        <LinkTo
+        class="text-xl font-bold"
+        @route='home.dj'
+        @model={{this.model.username}}
+        >
+          <img
+          class="inline rounded-lg"
+          style="height: 3rem;"
+          align="center"
+          alt="{{this.model.username}}"
+          src="{{this.model.userAvatar}}" />
+          {{this.model.username}}
+        </LinkTo>
       </section>
     </section>
     <section class="w-3/4">
@@ -61,28 +56,23 @@
         </p>
       </section>
       <div>
-        {{#if (or
-                (or
-                  (eq this.model.status 'voting')
-                  (eq this.model.status 'completed') )
-                (eq this.model.shrimpoType 'major'))
-        }}
+        {{#if this.canShowEntries}}
           {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
             <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
           {{/each}}
         {{/if}}
       </div>
 
-      <section class="bg-df-pink rounded-lg border-4 border-white p-2">
-        {{#if (eq this.model.status 'running')}}
-          {{#if this.session.isAuthenticated}}
-            <h2>SUBMIT ENTRY</h2>
-            <Shrimpo::EntryUploader @shrimpo={{this.model}} />
-          {{else}}
-            <span><LinkTo @route="home.sign-up">Create an account</LinkTo> to join the shrimpo.</span>
-          {{/if}}
-        {{/if}}
-      </section>
+      {{#if (eq this.model.status 'running')}}
+        <section class="bg-df-pink rounded-lg border-4 border-white p-2">
+            {{#if this.session.isAuthenticated}}
+              <h2>SUBMIT ENTRY</h2>
+              <Shrimpo::EntryUploader @shrimpo={{this.model}} />
+            {{else}}
+              <span><LinkTo @route="home.sign-up">Create an account</LinkTo> to join the shrimpo.</span>
+            {{/if}}
+        </section>
+      {{/if}}
     </section>
   </section>
 </section>

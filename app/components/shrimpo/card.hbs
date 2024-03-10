@@ -1,4 +1,4 @@
-<div class="m-3 classic:bg-df-pink blm:bg-black rounded-lg border-4 border-white flex flex-col items-center justify-between w-full md:w-1/4 p-2 shadow-md">
+<div class="m-4 classic:bg-df-pink blm:bg-black rounded-lg border-4 border-white flex flex-col items-center justify-between w-full md:w-1/4 p-2 shadow-md">
   <div>
     {{#if @shrimpo.coverArtUrl}}
       <img src={{@shrimpo.coverArtUrl}} />
@@ -11,6 +11,9 @@
       {{@shrimpo.title}}
     </LinkTo>
   </h2>
+  <div>
+    {{@shrimpo.entriesCount}} entries
+  </div>
   <div>
     {{@shrimpo.status}}
   </div>

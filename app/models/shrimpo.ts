@@ -30,6 +30,8 @@ export default class Shrimpo extends Model {
 
   @attr('date') declare endedAt: string;
 
+  @attr('string') declare entriesCount: string;
+
   get savedShrimpoEntries() {
     return this.shrimpoEntries.filter(entry => {
       return !entry.isNew;
