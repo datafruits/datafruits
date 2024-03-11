@@ -64,10 +64,11 @@ export default class TrackUploader extends Component<TrackUploaderArgs> {
       .then((response) => response.json())
       .then((data) => {
         track.set('audioFileName', data.endpoint.split('?')[0]);
-        return file.upload(data.endpoint, { method: 'PUT', headers: headers });
+        return file.uploadBinary(data.endpoint, { method: 'PUT', headers: headers });
       })
       .then((response) => {
         console.log(`uploaded: ${response}`);
+        console.log(response);
         track.set('isUploading', false);
         if(typeof this.args.onFinishUpload == 'function') {
           this.args.onFinishUpload();
