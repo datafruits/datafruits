@@ -12,6 +12,18 @@ export default class HomeShrimpos extends Controller {
       return !shrimpo.isNew;
     });
   }
+
+  get currentShrimpos() {
+    return this.model.filter((shrimpo: any) => {
+      return !shrimpo.isNew && (shrimpo.status === 'running' || shrimpo.status === 'voting');
+    });
+  }
+
+  get completedShrimpos() {
+    return this.model.filter((shrimpo: any) => {
+      return !shrimpo.isNew && shrimpo.status === 'completed';
+    });
+  }
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your controllers.

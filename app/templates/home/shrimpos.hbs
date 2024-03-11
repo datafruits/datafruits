@@ -1,9 +1,9 @@
 <section class="page-spacing">
-  <h1 class="text-2xl">
-    THE POWER OF SHRIMPO<span class="ml-2 text-xs italic">beta</span> COMPELS YOU
+  <h1>
+    THE POWER OF SHRIMPO<span class="ml-2 text-lg italic">beta</span> COMPELS YOU
   </h1>
-  <p>
-  Improve your skills. Create new music.
+  <p class="italic">
+    Improve your skills. Create new music.
   </p>
 
   {{#if this.session.isAuthenticated}}
@@ -14,7 +14,13 @@
     </div>
   {{/if}}
 
-  {{#each this.savedShrimpos as |shrimpo|}}
+  <h3>Shrimpos in Progress</h3>
+  {{#each this.currentShrimpos as |shrimpo|}}
+    <Shrimpo::Card @shrimpo={{shrimpo}} />
+  {{/each}}
+
+  <h3>Completed Shrimpos</h3>
+  {{#each this.completedShrimpos as |shrimpo|}}
     <Shrimpo::Card @shrimpo={{shrimpo}} />
   {{/each}}
 </section>
