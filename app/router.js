@@ -19,7 +19,7 @@ Router.map(function () {
     this.route('shows.episode', { path: '/shows/:showSeriesSlug/episodes/:slug' });
     this.route('dj-inquiry');
     this.route('coc');
-    this.route('djs', { path: '/djs?tags=dj'});
+    this.route('djs', { path: '/djs'});
     this.route('dj', { path: '/djs/:name' });
     this.route('chat');
     this.route('cat');
