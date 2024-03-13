@@ -42,13 +42,11 @@
           </div>
         {{/each}}
       </div>
-      <!--
       <FruitsUi::Pagination
         @totalPages={{result.meta.total_pages}}
         @page={{@searchParams.page}}
         @route={{this.router.currentRouteName}}
       />
-      -->
     </await.Fulfilled>
     <await.Rejected>
       error ... :(
