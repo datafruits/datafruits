@@ -490,6 +490,14 @@ export function initialize(/* application */) {
       shortnames: [':alligottadoisfindthemustard:'],
       keywords: ['alligottadoisfindthemustard'],
     },
+    ':tune:': {
+      custom: true,
+      animated: true,
+      uc_base: 'tune',
+      uc_output: '',
+      shortnames: [':tune:'],
+      keywords: ['tune'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
