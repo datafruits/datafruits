@@ -5,7 +5,7 @@ module('Unit | Route | home/shrimpos/new', function(hooks) {
   setupTest(hooks);
 
   test('it exists', function(assert) {
-    let route = this.owner.lookup('route:home/shrimpos/new');
+    const route = this.owner.lookup('route:home/shrimpos/new');
     assert.ok(route);
   });
 });
