@@ -63,6 +63,14 @@
     <li class="its-just-a-website-menu-item">
       <LinkTo
         class="text-white text-shadow-light hover:text-gray-400"
+        aria-label={{t "shrimpo.aria"}}
+        @route="home.shrimpos">
+        {{t "shrimpo.title"}}
+      </LinkTo>
+    </li>
+    <li>
+      <LinkTo
+        class="text-white text-shadow-light hover:text-gray-400"
         aria-label={{t "about.aria"}}
         @route="home.support"
       >

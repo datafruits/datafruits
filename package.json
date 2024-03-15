@@ -26,6 +26,7 @@
     "audit-translate": "node find-missing-translations.js"
   },
   "devDependencies": {
+    "@algonauti/ember-active-storage": "^2.3.0",
     "@babel/eslint-parser": "^7.18.9",
     "@csstools/postcss-sass": "github:sinankeskin/postcss-sass",
     "@ember/optional-features": "^2.0.0",

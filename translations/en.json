@@ -150,6 +150,21 @@
     "title": "About",
     "aria": "See what datafruits.fm is about"
   },
+  "shrimpo": {
+    "title": "SHRIMPO",
+    "aria": "listen to or join a shrimpo musical battle",
+    "form": {
+      "beginning": "THIS IS THE BEGINNING OF A NEW SHRIMPO",
+      "title": "title",
+      "rulepack": "Description",
+      "rulepack_placeholder": "Enter the rules/description for this shrimpo here!",
+      "length": "duration of shrimpo",
+      "submit": "SHRIMP IT",
+      "voting_emoji": "Voting Symbol",
+      "zip_file": "Upload zip sample pack",
+      "cover_art": "Cover Artwork"
+    }
+  },
   "upcoming": {
     "title": "Upcoming",
     "aria": "View the latest datafruits.fm shows"
@@ -465,5 +480,8 @@
   "fruit-tickets": {
     "amount": "How much fruit tix to give?",
     "submit": "Say goodbye to your precious fruit tix"
+  },
+  "forms": {
+    "saving": "SAVING....DON'T TURN OFF THE POWER........."
   }
 }
