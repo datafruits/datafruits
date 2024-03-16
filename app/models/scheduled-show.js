@@ -52,9 +52,6 @@ export default class ScheduledShow extends Model {
   }
 
   @attr()
-  tweetContent;
-
-  @attr()
   isGuest;
 
   @attr()
