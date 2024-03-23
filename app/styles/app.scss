@@ -938,5 +938,14 @@ body::-webkit-scrollbar-thumb {
   white-space: nowrap;
 }
 
+.form-field-feedback {
+  &.form-field-feedback--error {
+    background: white;
+    color: red;
+    text-shadow: none;
+    padding: 2rem;
+  }
+}
+
 @tailwind utilities;
 /* purgecss end ignore */
