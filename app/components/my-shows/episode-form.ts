@@ -13,6 +13,8 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
 
   file: Blob | null = null;
 
+  errors: any;
+
   statusOptions = {
     "Published": "archive_published",
     "Unpublished": "archive_unpublished"
@@ -52,7 +54,9 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   }
 
   @action
-  onError() {
-    console.log('couldnt ssave show');
+  onError(errors: any) {
+    console.log('couldnt ssave show: ');
+    console.log(errors);
+    this.errors = errors;
   }
 }
