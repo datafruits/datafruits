@@ -58,6 +58,19 @@
           <h1>can't vote on one's OWN shrimpo that just wouldn't be ok would it</h1>
         {{/if}}
       {{/if}}
+      <section>
+        {{#if this.session.isAuthenticated}}
+          <h1 class="text-2xl font-cursive mb-2">Hey, {{this.currentUser.user.username}}, {{t "show.episode.leave_a_comment"}}</h1>
+          <Post::Form @postable={{this.model}} @postableType={{'ShrimpoEntry'}} />
+        {{else}}
+          {{t "forum.login_or_register"}}
+        {{/if}}
+      </section>
+      <section class="posts">
+        {{#each this.model.posts as |post|}}
+          <Post @post={{post}} />
+        {{/each}}
+      </section>
     </section>
   </section>
 </section>
