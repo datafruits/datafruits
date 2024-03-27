@@ -3,12 +3,14 @@ import type Shrimpo from './shrimpo';
 import type ShrimpoVote from './shrimpo-vote';
 import type Post from './post';
 import type User from './user';
+import type TrophyAward from './trophy-award';
 
 export default class ShrimpoEntry extends Model {
   @belongsTo('user') declare user: User;
   @belongsTo('shrimpo') declare shrimpo: Shrimpo;
   @hasMany('shrimpo-vote', { async: false }) declare shrimpoVotes: SyncHasMany<ShrimpoVote>;
   @hasMany('posts', { async: false }) declare posts: SyncHasMany<Post>;
+  @hasMany('trophy-award', { async: false }) declare trophyAwards: SyncHasMany<TrophyAward>;
 
   @attr('string') declare username: string;
   @attr('string') declare userAvatar: string;
