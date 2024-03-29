@@ -36,6 +36,13 @@
         </p>
         {{#if (eq this.model.shrimpo.status 'completed')}}
           <div class="">
+            <div>
+              {{#each this.model.trophyAwards as |trophyAward|}}
+                <span>
+                  <img src="{{trophyAward.imageUrl}}" alt="{{trophyAward.name}}" />
+                </span>
+              {{/each}}
+            </div>
             <span class="font-extrabold">{{formatted-shrimpo-ranking this.model.ranking this.model.shrimpo.savedShrimpoEntries.length}}</span>
 
             <div>
