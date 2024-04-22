@@ -12,18 +12,27 @@
       <section class="bg-df-pink rounded-lg border-4 border-white p-2">
         <h4>Hosted By:</h4>
         <LinkTo
-        class="text-xl font-bold"
-        @route='home.dj'
-        @model={{this.model.username}}
+          class="text-xl font-bold"
+          @route='home.dj'
+          @model={{this.model.username}}
         >
           <img
-          class="inline rounded-lg"
-          style="height: 3rem;"
-          align="center"
-          alt="{{this.model.username}}"
-          src="{{this.model.userAvatar}}" />
+            class="inline rounded-lg"
+            style="height: 3rem;"
+            align="center"
+            alt="{{this.model.username}}"
+            src="{{this.model.userAvatar}}" />
           {{this.model.username}}
         </LinkTo>
+      </section>
+      <section>
+        <!-- admin stuff -->
+        {{#if this.hostLoggedIn}}
+          <button
+            class="cool-button">
+            END SHRIMPO
+          </button>
+        {{/if}}
       </section>
     </section>
     <section class="w-3/4">

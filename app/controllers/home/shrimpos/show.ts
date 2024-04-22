@@ -17,6 +17,10 @@ export default class HomeShrimposShow extends Controller {
       return `${votingCategory.name}`;
     }).join(" •︎ ");
   }
+
+  get hostLoggedIn() {
+    return this.currentUser.user === this.model.user;
+  }
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your controllers.
