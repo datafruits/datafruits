@@ -35,9 +35,13 @@ export default class Shrimpo extends Model {
   @attr('string') declare entriesCount: string;
 
   get savedShrimpoEntries() {
-    return this.shrimpoEntries.filter(entry => {
-      return !entry.isNew;
-    });
+    if(this.status === 'completed') {
+      return this.shrimpoEntries.sortBy('ranking');
+    } else {
+      return this.shrimpoEntries.filter(entry => {
+        return !entry.isNew;
+      });
+    }
   }
 
   get shrimpoType() {

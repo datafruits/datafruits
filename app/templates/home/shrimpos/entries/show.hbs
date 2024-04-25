@@ -39,7 +39,10 @@
             <div>
               {{#each this.model.trophyAwards as |trophyAward|}}
                 <span>
-                  <img src="{{trophyAward.imageUrl}}" alt="{{trophyAward.name}}" />
+                  <img
+                    style="height: 3rem;"
+                    src="{{trophyAward.imageUrl}}"
+                    alt="{{trophyAward.name}}" />
                 </span>
               {{/each}}
             </div>
