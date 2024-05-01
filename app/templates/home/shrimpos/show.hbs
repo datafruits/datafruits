@@ -57,6 +57,10 @@
       </section>
       <div>
         {{#if this.canShowEntries}}
+          <h1>Entries</h1>
+          {{#if this.model.entriesZipFileUrl}}
+            <a class="cool-button" href={{@this.model.entriesZipFileUrl}}>DOWNLOAD ALL</a>
+          {{/if}}
           {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
             <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
           {{/each}}
