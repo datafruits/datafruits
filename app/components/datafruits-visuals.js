@@ -14,6 +14,8 @@ export default class DatafruitsVisuals extends Component {
   }
 
   get styleProperties() {
+    console.log(this.videoStream.mode);
+
     if (!this.videoStream.displaying) {
       return 'display: none';
     }
@@ -24,6 +26,14 @@ export default class DatafruitsVisuals extends Component {
         width: 100vw !important; \
         height: 100vh !important; \
         z-index: -999`;
+    }
+
+    if (this.videoStream.mode === 'tv') {
+      return `top: 100px !important; \
+        left: 250px !important; \
+        width: 300px !important; \
+        height: 300px !important; \
+        z-index: 1`;
     }
     return "";
   }
