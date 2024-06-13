@@ -22,7 +22,7 @@ export default class ShrimpoPlayer extends Component<ShrimpoPlayerArgs> {
   play() {
     this.playing = true;
     this.paused = false;
-    this.eventBus.publish('trackPlayed', { title: this.args.shrimpoEntry.title, cdnUrl: this.args.shrimpoEntry.cdnUrl, id: this.args.shrimpoEntry.id });
+    this.eventBus.publish('trackPlayed', { title: this.args.shrimpoEntry.title, cdnUrl: this.args.shrimpoEntry.cdnUrl, id: this.args.shrimpoEntry.id, track_id: this.args.shrimpoEntry.id });
     //
   }
 
