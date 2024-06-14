@@ -25,6 +25,11 @@
   {{#if (eq @shrimpoEntry.shrimpo.status 'completed')}}
     <div class="">
       <span class="font-extrabold">{{formatted-shrimpo-ranking @shrimpoEntry.ranking @shrimpoEntry.shrimpo.savedShrimpoEntries.length}}</span>
+      <div>
+        {{#each @shrimpoEntry.trophyAwards as |trophyAward|}}
+          <User::BadgeViewerContainer @badge={{trophyAward}} />
+        {{/each}}
+      </div>
 
       <div>
         <span>Total {{this.scoreEmoji}}'s:</span>
