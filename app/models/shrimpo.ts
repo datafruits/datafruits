@@ -35,6 +35,8 @@ export default class Shrimpo extends Model {
 
   @attr('string') declare entriesCount: string;
 
+  @attr('string') declare shrimpoType: 'normal' | 'mega';
+
   get savedShrimpoEntries() {
     if(this.status === 'completed') {
       return this.shrimpoEntries.sortBy('ranking');
@@ -42,18 +44,6 @@ export default class Shrimpo extends Model {
       return this.shrimpoEntries.filter(entry => {
         return !entry.isNew;
       });
-    }
-  }
-
-  get shrimpoType() {
-    const majorTypes = [
-      '1 month',
-      '3 month',
-    ];
-    if(majorTypes.includes(this.duration)) {
-      return 'major';
-    } else {
-      return 'minor';
     }
   }
 }

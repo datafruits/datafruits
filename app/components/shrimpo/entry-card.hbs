@@ -12,7 +12,7 @@
       >
         <h2>{{@shrimpoEntry.title}}</h2>
       </LinkTo>
-      {{#if (or (eq @shrimpoEntry.shrimpo.status 'completed') (eq @shrimpoEntry.shrimpo.shrimpoType 'major'))}}
+      {{#if (or (eq @shrimpoEntry.shrimpo.status 'completed') (eq @shrimpoEntry.shrimpo.shrimpoType 'mega'))}}
         <LinkTo
           @route='home.dj'
           @model={{@shrimpoEntry.username}}
