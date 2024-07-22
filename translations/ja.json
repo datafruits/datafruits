@@ -192,5 +192,28 @@
   "donate": {
     "title": "寄付する",
     "dj_link": "現状のDJに寄付するリンクはこちらです。"
+  },
+  "shrimpo": {
+    "tagline": "SHRIMPO(β)のパワーがあなたを駆り立てます"
+    "title": "SHRIMPO",
+    "aria": "listen to or join a shrimpo musical battle",
+    "running_shrimpos": "Shrimpos In Progress",
+    "completed_shrimpos": "Completed Shrimpos",
+    "form": {
+      "beginning": "THIS IS THE BEGINNING OF A NEW SHRIMPO",
+      "title": "タイトル",
+      "rulepack": "詳細",
+      "rulepack_placeholder": "Enter the rules/description for this shrimpo here!",
+      "length": "応募期間",
+      "submit": "SHRIMPOする",
+      "voting_emoji": "Voting Symbol",
+      "zip_file": "Upload zip sample pack",
+      "cover_art": "Cover Artwork"
+    },
+    "status": {
+      "running": "エントリー期間中",
+      "voting": "投票期間",
+      "completed": "完了"
+    }
   }
 }

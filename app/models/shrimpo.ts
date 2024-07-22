@@ -1,9 +1,12 @@
 import Model, { attr, hasMany, belongsTo, type SyncHasMany } from '@ember-data/model';
+import { inject as service } from '@ember/service';
 import type ShrimpoEntry from './shrimpo-entry';
 import type Post from './post';
 import type User from './user';
 
 export default class Shrimpo extends Model {
+  @service declare intl: any;
+
   @belongsTo('user') declare user: User;
   @hasMany('shrimpo-entry', { async: false }) declare shrimpoEntries: SyncHasMany<ShrimpoEntry>;
   @hasMany('posts', { async: false }) declare posts: SyncHasMany<Post>;
@@ -34,6 +37,10 @@ export default class Shrimpo extends Model {
   @attr('date') declare endedAt: string;
 
   @attr('string') declare entriesCount: string;
+
+  get translatedStatus() {
+    return this.intl.t(`shrimpo.status.${this.status}`);
+  }
 
   get savedShrimpoEntries() {
     if(this.status === 'completed') {

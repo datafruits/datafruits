@@ -24,7 +24,7 @@
   </div>
   <div>
     <div class="text-white font-bold">
-      {{@shrimpo.status}}
+      {{@shrimpo.translatedStatus}}
     </div>
     {{#if (eq @shrimpo.status 'running')}}
       <Shrimpo::Countdown @endAt={{@shrimpo.endAt}} />
