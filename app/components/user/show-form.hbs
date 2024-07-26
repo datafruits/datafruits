@@ -142,6 +142,20 @@
         class="mb-2"
         @changeset={{changeset}}
         />
+      {{#if (includes 'admin' this.currentUser.user.roles)}}
+        <select
+          {{on "change" (pick "target.value" (set changeset "recurringCadence"))}}
+          >
+          {{#each this.statusOptions as |status|}}
+            <option
+              value={{status}}
+              selected={{eq changeset.status status}}
+              >
+              {{status}}
+            </option>
+          {{/each}}
+        </select>
+      {{/if}}
       <div class="mb-2">
         <Button
           @type='submit'
