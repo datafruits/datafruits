@@ -115,6 +115,16 @@
         class="mb-2"
         @changeset={{changeset}}
         />
+      {{#if (includes 'admin' this.currentUser.user.roles)}}
+        <TimePicker
+          @property="startAt"
+          @changeset={{changeset}}
+          />
+        <TimePicker
+          @property="endAt"
+          @changeset={{changeset}}
+          />
+      {{/if}}
       <div>
         <Button
           @type='submit'
