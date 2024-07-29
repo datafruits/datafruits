@@ -1,0 +1,41 @@
+<div class="bg-df-pink text-2xl rounded-lg border-4 border-white sm:py-1 flex justify-between space-x-1 text-xs sm:text-xl mb-2 p-2">
+  <div class="flex items-start">
+    {{#if (or (eq @shrimpoEntry.shrimpo.status 'completed') (eq @shrimpoEntry.shrimpo.shrimpoType 'major'))}}
+      <span>
+        <img src="{{@shrimpoEntry.userAvatar}}" alt="" />
+      </span>
+    {{/if}}
+    <div class="flex flex-col">
+      <LinkTo
+        @route='home.shrimpos.entries.show'
+        @models={{array @shrimpoEntry.shrimpo.slug @shrimpoEntry.slug}}
+      >
+        <h2>{{@shrimpoEntry.title}}</h2>
+      </LinkTo>
+      {{#if (or (eq @shrimpoEntry.shrimpo.status 'completed') (eq @shrimpoEntry.shrimpo.shrimpoType 'major'))}}
+        <LinkTo
+          @route='home.dj'
+          @model={{@shrimpoEntry.username}}
+        >
+          <h3>{{@shrimpoEntry.username}}</h3>
+        </LinkTo>
+      {{/if}}
+    </div>
+  </div>
+  {{#if (eq @shrimpoEntry.shrimpo.status 'completed')}}
+    <div class="">
+      <span class="font-extrabold">{{formatted-shrimpo-ranking @shrimpoEntry.ranking @shrimpoEntry.shrimpo.savedShrimpoEntries.length}}</span>
+      <div>
+        {{#each @shrimpoEntry.trophyAwards as |trophyAward|}}
+          <User::BadgeViewerContainer @badge={{trophyAward}} />
+        {{/each}}
+      </div>
+
+      <div>
+        <span>Total {{this.scoreEmoji}}'s:</span>
+        <span class="font-extrabold">{{@shrimpoEntry.totalScore}}</span>
+      </div>
+    </div>
+  {{/if}}
+  <Shrimpo::Player @shrimpoEntry={{@shrimpoEntry}} />
+</div>

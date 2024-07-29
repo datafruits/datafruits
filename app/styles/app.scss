@@ -317,6 +317,11 @@ pre {
   }
 }
 
+// make links in chat change the same color if it's changed
+#chat-area a {
+  color: inherit;
+}
+
 .modal-body form div {
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
@@ -324,6 +329,7 @@ pre {
 
 img.emojione {
   height: 4.5ex !important;
+  display: inline;
 }
 
 //chat autofill emoji and username picker
@@ -911,6 +917,34 @@ body::-webkit-scrollbar-thumb {
 
 .its-just-a-mobile-site-menu-item {
   @apply py-2 pr-3 w-full border-dashed border-white border-t-4;
+}
+
+.shrimpo-score-picker-score {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  writing-mode: vertical-lr;
+  width: 200px;
+}
+
+.shrimpo-marquee {
+  animation: scroll-text 3s infinite linear;
+  background: black;
+  color: yellow;
+  text-overflow: ellipsis;
+  display: inline-block;
+  height: 4rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.form-field-feedback {
+  &.form-field-feedback--error {
+    background: white;
+    color: red;
+    text-shadow: none;
+    padding: 2rem;
+  }
 }
 
 @tailwind utilities;

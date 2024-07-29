@@ -14,7 +14,7 @@
         {{t "radio.title"}}
         <FaIcon
           class="transition-all duration-100 ease-in-out
-            {{if @submenuOpen 'rotated'}}"
+          {{if @submenuOpen 'rotated'}}"
           aria-hidden="true"
           @icon="chevron-right"
         />
@@ -63,12 +63,31 @@
     <li class="its-just-a-website-menu-item">
       <LinkTo
         class="text-white text-shadow-light hover:text-gray-400"
+        aria-label={{t "shrimpo.aria"}}
+        @route="home.shrimpos">
+        {{t "shrimpo.title"}}
+      </LinkTo>
+    </li>
+    <li>
+      <LinkTo
+        class="text-white text-shadow-light hover:text-gray-400"
         aria-label={{t "about.aria"}}
         @route="home.support"
       >
         {{t "support.title"}}
       </LinkTo>
     </li>
+    {{#unless this.session.isAuthenticated}}
+      <li class="its-just-a-website-menu-item">
+        <button
+          class="text-white text-shadow-light hover:text-gray-400"
+          aria-label={{t "settings.title"}}
+          {{on "click" this.settingsDialogToggle}}
+        >
+          {{t "settings.icon"}}
+        </button>
+      </li>
+    {{/unless}}
     <li class="its-just-a-website-menu-item">
       <a
         class="text-white text-shadow-light hover:text-gray-400"
@@ -96,6 +115,7 @@
           class="its-just-a-website-sub-menu-item"
           aria-label={{t "djs.aria"}}
           @route="home.djs"
+          @query={{hash tags="dj"}}
         >
           {{t "djs.title"}}
         </LinkTo>
@@ -166,7 +186,7 @@
 </nav>
 {{#if this.session.isAuthenticated}}
   <ul class="hidden md:block px-4 py-4 font-semibold text-3xl">
-    <li class="flex justify-right">
+    <li class="flex justify-end">
       <a
         href="#"
         class=""
@@ -182,6 +202,13 @@
           alt={{this.currentUser.user.username}}
         />
       </a>
+      <button
+        class="text-white text-shadow-light hover:text-gray-400"
+        aria-label={{t "settings.title"}}
+        {{on "click" this.settingsDialogToggle}}
+      >
+        {{t "settings.icon"}}
+      </button>
     </li>
     <li class="flex space-x-2 whitespace-nowrap">
       <span>Lv. {{this.currentUser.user.level}}</span>
@@ -216,4 +243,9 @@
       {{t "site_title_fm"}}
     </h1>
   </LinkTo>
+{{/if}}
+{{#if this.showingSettings}}
+  <WebsiteSettings
+    @closeDialog={{this.closeDialog}}
+  />
 {{/if}}

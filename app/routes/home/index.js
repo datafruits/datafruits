@@ -15,13 +15,9 @@ export default class IndexRoute extends Route {
 
   async model() {
     let query = {
-      start: dayjs().format('YYYY-MM-DD'),
+      start: dayjs().format('YYYY-MM-DD HH:MM Z'),
       end: dayjs().endOf('month').add(1, 'month').format('YYYY-MM-DD'),
     };
-    const shows = await this.store.query('podcast', {
-      name: 'datafruits',
-      page: 1,
-    });
     return hash({
       upcomingShows: this.store.loadRecords('scheduled-show', query).then((shows) => {
         return shows.slice(0, 6);

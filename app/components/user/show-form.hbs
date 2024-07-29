@@ -78,15 +78,6 @@
             @changeset={{changeset}}
             @startTime={{changeset.startTime}}
             />
-          {{#if this.shouldShowEndDate}}
-            <input
-              class="mr-2"
-              type="date"
-              id="end-date"
-              min={{this.currentDate}}
-              value={{changeset.endDate}}
-            />
-          {{/if}}
         </div>
       </div>
       <div class="mb-2">
@@ -161,7 +152,7 @@
           SAVE SHOW
         </Button>
         {{#if Form.state.hasSubmitted}}
-          <marquee>SAVING....DON'T TURN OFF THE POWER.........</marquee>
+          <marquee>{{t "forms.saving"}}</marquee>
         {{/if}}
       </div>
   </Ui::ChangesetForm>

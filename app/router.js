@@ -50,6 +50,10 @@ Router.map(function () {
     });
     this.route('forum.new', { path: '/forum/new' });
     this.route('forum.show', { path: '/forum/:title' });
+    this.route('shrimpos');
+    this.route('shrimpos.new', { path: '/shrimpos/new' });
+    this.route('shrimpos.show', { path: '/shrimpos/:title' });
+    this.route('shrimpos.entries.show', { path: '/shrimpos/:shrimpo_slug/entry/:slug' });
     this.route('support');
   });
   this.route('container', function () {

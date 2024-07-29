@@ -63,7 +63,8 @@ export default class UserBadgeViewer extends Component {
     light2.position.set(120, 130, -130);
     this.scene.add(light2);
 
-    let modelUrl = `/assets/models/${this.args.badge.name}.glb`;
+    let modelUrl = `/assets/models/${this.args.badge.name.replaceAll(" ", "_")}.glb`;
+    //let modelUrl = this.args.glbUrl;
     const loader = new GLTFLoader();
     console.log(loader);
     loader.load(
@@ -83,4 +84,4 @@ declare module '@glint/environment-ember-loose/registry' {
     UserBadgeViewer: typeof UserBadgeViewer;
   }
 }
-  
+

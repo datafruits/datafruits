@@ -11,7 +11,6 @@ export default class HomeUserMyShowsNew extends Route {
 
     const newShow = this.store.createRecord('show-series', {
       startDate: date,
-      endDate: date,
       startTime: time,
       endTime: time.add(2, 'hour'),
       recurringInterval: 'not_recurring'

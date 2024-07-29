@@ -52,9 +52,6 @@ export default class ScheduledShow extends Model {
   }
 
   @attr()
-  tweetContent;
-
-  @attr()
   isGuest;
 
   @attr()
@@ -83,6 +80,12 @@ export default class ScheduledShow extends Model {
 
   @attr
   youtubeLink;
+
+  @attr
+  mixcloudLink;
+
+  @attr
+  soundcloudLink;
 
   get imageOrDefault() {
     if(this.imageUrl) {

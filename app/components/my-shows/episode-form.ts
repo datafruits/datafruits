@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 import type ScheduledShow from 'datafruits13/models/scheduled-show';
 
 interface MyShowsEpisodeFormArgs {
@@ -16,6 +17,18 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
     "Published": "archive_published",
     "Unpublished": "archive_unpublished"
   };
+
+  @tracked isUploading: boolean = false;
+
+  @action
+  onStartUpload() {
+    this.isUploading = true;
+  }
+
+  @action
+  onFinishUpload() {
+    this.isUploading = false;
+  }
 
   @action updateFile(e: any){
     this.file = e.target.files[0];

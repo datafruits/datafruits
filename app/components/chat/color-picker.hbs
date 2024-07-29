@@ -1,0 +1,13 @@
+<label
+  id="chat-text-color-picker-label"
+  for="chat-text-color-picker"
+>
+  {{t "chat.settings.chat_color"}}
+</label>
+<input 
+  id="chat-text-color-picker"
+  name="chat-text-color-picker"
+  type="color"
+  value={{this.hexValue}}
+  {{on "input" this.selectedColor}}
+>

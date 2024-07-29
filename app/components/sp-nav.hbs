@@ -41,6 +41,7 @@
                   class="text-white text-shadow-light"
                   aria-label={{t "djs.aria"}}
                   @route="home.djs"
+                  @query={{hash tags="dj"}}
                 >
                   {{t "djs.title"}}
                 </LinkTo>
@@ -151,12 +152,32 @@
           <span {{on "click" @toggleMenu}}>
             <LinkTo
               class="text-white text-shadow-light"
+              aria-label={{t "shrimpos.aria"}}
+              @route="home.shrimpos"
+            >
+              {{t "shrimpo.title"}}
+            </LinkTo>
+          </span>
+        </li>
+        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+          <span {{on "click" @toggleMenu}}>
+            <LinkTo
+              class="text-white text-shadow-light"
               aria-label={{t "about.aria"}}
               @route="home.support"
             >
               {{t "support.title"}}
             </LinkTo>
           </span>
+        </li>
+        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+          <button
+            class="text-white text-shadow-light"
+            aria-label={{t "settings.title"}}
+            {{on "click" this.settingsDialogToggle}}
+          >
+            {{t "settings.icon"}}
+          </button>
         </li>
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
           <a
@@ -171,17 +192,6 @@
               src="/assets/images/3D.gif"
             />
           </a>
-        </li>
-        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-          <span {{on "click" @toggleMenu}}>
-            <LinkTo
-              class="text-white text-shadow-light"
-              aria-label={{t "settings.title"}}
-              @route="home.site-settings"
-            >
-              {{t "settings.title"}}
-            </LinkTo>
-          </span>
         </li>
       </ul>
     {{/if}}
@@ -220,3 +230,8 @@
     </div>
   {{/unless}}
 </nav>
+{{#if this.showingSettings}}
+  <WebsiteSettings
+    @closeDialog={{this.closeDialog}}
+  />
+{{/if}}

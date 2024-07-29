@@ -1,6 +1,6 @@
 <Await @promise={{this.fetchDjs}} as |await|>
   <div
-    {{did-update await.reload @searchParams.page}}
+    {{did-update await.reload @searchParams.tags}}
   >
     <await.Pending>
       <h1>
@@ -8,6 +8,9 @@
       </h1>
     </await.Pending>
     <await.Fulfilled as |result|>
+      <div>
+        <Djs::Search/>
+      </div>
       <div
         class="djs flex flex-wrap "
       >
@@ -39,13 +42,11 @@
           </div>
         {{/each}}
       </div>
-      <!--
       <FruitsUi::Pagination
         @totalPages={{result.meta.total_pages}}
         @page={{@searchParams.page}}
         @route={{this.router.currentRouteName}}
       />
-      -->
     </await.Fulfilled>
     <await.Rejected>
       error ... :(

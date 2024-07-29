@@ -24,8 +24,6 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   @tracked users: User[] = [];
   @tracked errors: { [key: string]: string[] } = {};
 
-  @tracked shouldShowEndDate = false;
-
   weekdayCadences = [
     'First',
     'Second',

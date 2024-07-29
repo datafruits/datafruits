@@ -3,6 +3,7 @@
   "meow": "meow",
   "new": "New",
   "settings": {
+    "icon": "⚙",
     "title": "Site Settings"
   },
   "404": {
@@ -51,6 +52,11 @@
     "nickname": "nickname",
     "password": "password",
     "search": "\"dancing\", \"music\", ...",
+    "settings": {
+      "show_images": "Show Images",
+      "show_video": "Show Video",
+      "chat_color": "Chat Color"
+    },
     "label": {
       "nick": "nickname",
       "input": "message",
@@ -128,7 +134,8 @@
   },
   "djs": {
     "title": "Fruits",
-    "aria": "Browse DJs who perform on datafruits.fm"
+    "aria": "Browse DJs who perform on datafruits.fm",
+    "filter": "Filter by badges"
   },
   "shows": {
     "title": "Shows",
@@ -142,6 +149,21 @@
   "about": {
     "title": "About",
     "aria": "See what datafruits.fm is about"
+  },
+  "shrimpo": {
+    "title": "SHRIMPO",
+    "aria": "listen to or join a shrimpo musical battle",
+    "form": {
+      "beginning": "THIS IS THE BEGINNING OF A NEW SHRIMPO",
+      "title": "title",
+      "rulepack": "Description",
+      "rulepack_placeholder": "Enter the rules/description for this shrimpo here!",
+      "length": "duration of shrimpo",
+      "submit": "SHRIMP IT",
+      "voting_emoji": "Voting Symbol",
+      "zip_file": "Upload zip sample pack",
+      "cover_art": "Cover Artwork"
+    }
   },
   "upcoming": {
     "title": "Upcoming",
@@ -458,5 +480,8 @@
   "fruit-tickets": {
     "amount": "How much fruit tix to give?",
     "submit": "Say goodbye to your precious fruit tix"
+  },
+  "forms": {
+    "saving": "SAVING....DON'T TURN OFF THE POWER........."
   }
 }

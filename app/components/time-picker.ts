@@ -57,7 +57,7 @@ export default class TimePickerComponent extends Component<TimePickerArgs> {
     const changeset = this.args.changeset;
     let time;
     // sometimes changeset.get returns a proxy
-    if(changeset.get(property).content) {
+    if(changeset.get(property) && changeset.get(property).content) {
       time = dayjs(changeset.get(property).content);
     } else {
       time = dayjs(changeset.get(property));
@@ -71,7 +71,7 @@ export default class TimePickerComponent extends Component<TimePickerArgs> {
     const changeset = this.args.changeset;
     let time;
     // sometimes changeset.get returns a proxy
-    if(changeset.get(property).content) {
+    if(changeset.get(property) && changeset.get(property).content) {
       time = dayjs(changeset.get(property).content);
     } else {
       time = dayjs(changeset.get(property));

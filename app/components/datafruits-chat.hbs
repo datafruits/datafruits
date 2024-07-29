@@ -7,9 +7,10 @@
     <h1>{{t "chat.loading"}}</h1>
   {{else}}
     <div id="chat-area"
-      class="text-df-yellow font-bold flex flex-row flex-grow min-h-0 relative text-shadow mb-5 flex-basis-0"
+      class="font-bold flex flex-row flex-grow min-h-0 relative text-shadow mb-5 flex-basis-0"
+      style={{this.color}}
       {{did-insert this.didInsert}}
-      >
+    >
       <ChatMessages
         @messages={{this.chat.messages}}
         @gifsEnabled={{this.chat.gifsEnabled}}
@@ -38,16 +39,16 @@
           <Chat::InputMessage  @isOffline={{@networkStatus.isOffline}} />
         </div>
       {{else}}
-      <form align="center" class="mb-3" {{on "submit" this.enterChatAnonymously}}>
-        <div>
-          <div>
+        <form align="center" class="mb-3" {{on "submit" this.enterChatAnonymously}}>
+          {{!-- Nickname input + Join chat button --}}
+          <div class="flex justify-center">
             <label for="nick">{{t "chat.label.nick"}}</label>
             <Input
               @type="text"
               @value={{this.nick}}
               autocorrect="off"
               autocapitalize="none"
-              class="max-h-full"
+              class="max-h-full mx-2"
               placeholder={{t "chat.nickname"}}
             />
             <input
@@ -58,31 +59,27 @@
               title={{t "chat.titles.enter"}}
               value={{t "chat.join_anonymously"}}
             />
-            <Chat::EnableGifsButton
-              @toggleGifs={{this.toggleGifsEnabled}}
-              @enabled={{this.chat.gifsEnabled}}
-            />
-            <Chat::TvModeButton />
-            <Chat::BuddyListButton />
+            <ChatSettings />
           </div>
+          {{!-- CoC --}}
           <div>
             <label class="text-xs" for="agree-to-coc">
               {{t "chat.coc_label"}}
             </label>
             <a class="text-sm" href="/coc"><abbr title={{t "code_of_conduct"}}>{{t "chat.label.coc"}}</abbr></a>
           </div>
+          {{!-- Login Button --}}
           <div class="flex justify-center">
-          <button {{action "toggleLoginModal"}}
-            type="button"
-            class="cool-button"
-            title={{t "chat.titles.login"}}
-            data-test-login-button
-          >
-            {{t "chat.login"}}
-          </button>
+            <button {{action "toggleLoginModal"}}
+              type="button"
+              class="cool-button"
+              title={{t "chat.titles.login"}}
+              data-test-login-button
+            >
+              {{t "chat.login"}}
+            </button>
           </div>
-        </div>
-      </form>
+        </form>
       {{/if}}
     </div>
     {{#if this.showingLoginModal}}

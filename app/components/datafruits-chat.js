@@ -5,8 +5,13 @@ import Component from '@glimmer/component';
 import { formatEmojiHtml } from 'datafruits13/helpers/format-emoji-html';
 
 export default class DatafruitsChat extends Component {
-  @service
-  chat;
+  @service chat;
+
+  get color() {
+    return this.chatText.color;
+  }
+
+  @service chatText;
 
   @tracked nick = '';
   @tracked newMessagesBelow = false; // TODO move this to chat service
