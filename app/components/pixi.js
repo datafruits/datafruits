@@ -44,6 +44,9 @@ export default class PixiComponent extends Component {
     this.eventBus.subscribe("weatherChanged", this, "reinitPixi");
   }
 
+  theRavers() {
+  }
+
   metalPineappleAnimation() {
     console.log("metal pineapple!");
     let sprite = new PIXI.AnimatedSprite(this.animations["metalPineapple"]);
@@ -661,6 +664,10 @@ export default class PixiComponent extends Component {
       "blueShrimp",
       "/assets/images/sprites/blue_shrimp.json",
     );
+    this.app.loader.add(
+      "raver1",
+      "/assets/images/sprites/raver1.json"
+    );
 
     this.app.loader.onProgress.add((loader, resource) => {
       console.log(`Loading ${resource.name}: ${loader.progress}%`);
@@ -734,7 +741,7 @@ export default class PixiComponent extends Component {
 
         this.filter.uniforms.customUniform += delta;
 
-        count += 0.02;
+        count += 0.02 * delta;
 
         this.sprites.forEach((sprite) => {
           sprite.x += Math.sin(count);
