@@ -4,6 +4,7 @@ import { metaToHeadTags } from 'ember-cli-meta-tags';
 import { inject as service } from '@ember/service';
 
 export default class ShowRoute extends Route {
+  @service store;
   @service headData;
 
   model(params) {
