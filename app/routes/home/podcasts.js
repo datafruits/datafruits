@@ -1,7 +1,9 @@
+import { service } from "@ember/service";
 import Route from '@ember/routing/route';
 import { hash } from 'rsvp';
 
 export default class PodcastsRoute extends Route {
+  @service store;
   async model(params) {
     console.log(params);
     return hash({
