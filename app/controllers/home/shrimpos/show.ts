@@ -11,6 +11,12 @@ export default class HomeShrimposShow extends Controller {
   get canShowEntries() {
     return this.model.status === 'voting' || this.model.status === 'completed' || this.model.shrimpoType === 'mega';
   }
+
+  get formattedVotingCategories() {
+    return this.model.shrimpoVotingCategories.map((votingCategory) => {
+      return `${votingCategory.name}`;
+    }).join(" •︎ ");
+  }
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your controllers.

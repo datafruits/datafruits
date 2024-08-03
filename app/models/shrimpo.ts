@@ -1,11 +1,13 @@
 import Model, { attr, hasMany, belongsTo, type SyncHasMany } from '@ember-data/model';
 import type ShrimpoEntry from './shrimpo-entry';
+import type ShrimpoVotingCategory from './shrimpo-voting-category';
 import type Post from './post';
 import type User from './user';
 
 export default class Shrimpo extends Model {
   @belongsTo('user') declare user: User;
   @hasMany('shrimpo-entry', { async: false }) declare shrimpoEntries: SyncHasMany<ShrimpoEntry>;
+  @hasMany('shrimpo-voting-category', { async: false }) declare shrimpoVotingCategories: SyncHasMany<ShrimpoVotingCategory>;
   @hasMany('posts', { async: false }) declare posts: SyncHasMany<Post>;
 
   @attr('string') declare title: string;

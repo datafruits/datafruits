@@ -41,6 +41,12 @@
         <div>
           <h3>Shrimpo type: <span class="uppercase">{{this.model.shrimpoType}}</span></h3>
         </div>
+        {{#if (eq this.model.shrimpoType 'mega')}}
+        <div>
+          <h4>Voting Categories:</h4>
+          {{this.formattedVotingCategories}}
+        </div>
+        {{/if}}
         <h4>{{this.model.savedShrimpoEntries.length}} entries</h4>
         <div>
           Started at: {{format-date this.model.startAt}}
