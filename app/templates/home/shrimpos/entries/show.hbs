@@ -54,7 +54,7 @@
       <section class="bg-df-pink rounded-lg border-4 border-white mb-2 p-2">
         <Shrimpo::Pagination @entry={{this.model}} />
       </section>
-      {{#if (and this.session.isAuthenticated (eq this.model.shrimpo.status 'voting'))}}
+      {{#if (and this.session.isAuthenticated (or (eq this.model.shrimpo.status 'voting') (eq this.model.shrimpo.shrimpoType 'mega')))}}
         {{#if (not-eq this.currentUser.user.username this.model.username)}}
           <section class="bg-df-pink rounded-lg border-4 border-white p-2">
             <Shrimpo::VotingTable @entry={{this.model}} />

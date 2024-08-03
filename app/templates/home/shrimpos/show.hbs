@@ -38,6 +38,9 @@
             <Shrimpo::Countdown @endAt={{this.model.endAt}} />
           {{/if}}
         </div>
+        <div>
+          <h3>Shrimpo type: <span class="uppercase">{{this.model.shrimpoType}}</span></h3>
+        </div>
         <h4>{{this.model.savedShrimpoEntries.length}} entries</h4>
         <div>
           Started at: {{format-date this.model.startAt}}
