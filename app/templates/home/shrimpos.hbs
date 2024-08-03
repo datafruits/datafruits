@@ -6,7 +6,7 @@
     Improve your skills. Create new music.
   </p>
 
-  {{#if this.session.isAuthenticated}}
+  {{#if this.canCreateNewShrimpo}}
     <div class="my-2">
       <LinkTo @route="home.shrimpos.new" class="cool-button">
         BEGIN A NEW SHRIMPO
