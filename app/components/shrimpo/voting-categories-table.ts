@@ -36,5 +36,6 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
 
   @action
   async saveVote() {
+    // save all votes one by one ? or new API ? or new model ???
   }
 }
