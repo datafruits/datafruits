@@ -60,7 +60,7 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
 
   @action
   setEndAfterStart(startTime: Dayjs, changeset: BufferedChangeset) {
-    if(startTime.hour() > dayjs(changeset.get('endTime')).hour()) {
+    if(startTime.hour() > dayjs(changeset.get('endAt')).hour()) {
       console.log('setting end time to: ', startTime.add(1, 'hour').hour());
       changeset.set('endTime', startTime.add(1, 'hour'));
     }
