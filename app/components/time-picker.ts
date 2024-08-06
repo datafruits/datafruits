@@ -76,7 +76,6 @@ export default class TimePickerComponent extends Component<TimePickerArgs> {
     } else {
       time = dayjs(changeset.get(property));
     }
-    console.log('time');
     changeset.set(property, time);
     changeset.validate(property);
   }
