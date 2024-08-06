@@ -44,6 +44,16 @@
             rows='20'
             cols='50'
             />
+          <TimePicker
+            @property="start"
+            @changeset={{changeset}}
+            @onChange={{this.setEndAfterStart}}
+            />
+          <TimePicker
+            @property="end"
+            @changeset={{changeset}}
+            @startTime={{changeset.start}}
+            />
           {{#if @episode.airDatePassed}}
             <h2
               class="text-x">
