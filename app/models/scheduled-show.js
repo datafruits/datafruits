@@ -44,8 +44,8 @@ export default class ScheduledShow extends Model {
   @hasMany('track')
   tracks;
 
-  @hasMany('user') // TODO merge the user and dj models together
-  djs;
+  // TODO merge user/dj model
+  @hasMany('user', { async: false }) djs;
 
   get host() {
     return this.djs.get('firstObject');
