@@ -24,7 +24,7 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
 
   @tracked votes: any = {};
 
-  shrimpVoteUrl = `${ENV.API_HOST}/api/shrimpos/${this.args.entry.shrimpoSlug}/shrimpo_entries/${this.args.entry.slug}/shrimpo_votes.json`;
+  shrimpVoteUrl = `${ENV.API_HOST}/api/shrimpos/${this.args.entry.shrimpoSlug}/shrimpo_entries/${this.args.entry.slug}/voting_categories.json`;
 
   constructor(owner: unknown, args: any) {
     super(owner, args);
@@ -53,7 +53,8 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
     });
     // save all votes one by one ? or new API ? or new model ???
     const data = {
-      data: shrimpVotesData
+      data: shrimpVotesData,
+      shrimpo_entry_id: this.args.entry.slug
     };
 
     fetch(this.shrimpVoteUrl, {
