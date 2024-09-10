@@ -30,6 +30,7 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
     super(owner, args);
     this.args.votingCategories.forEach((votingCategory: ShrimpoVotingCategory) => {
       // TODO how to populate existing votes????
+      console.log(votingCategory);
       this.votes[votingCategory.name] = {score: 0, emoji: votingCategory.emoji};
     });
   }
@@ -62,6 +63,7 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${this.session.data.authenticated.token}`
       },
       body: JSON.stringify(data),
     })
