@@ -49,6 +49,14 @@
     {{on "click" this.saveVote}}
     class="cool-button">
     SAVE VOTE
+    {{#if this.voted}}
+      <h1>I VOTED</h1>
+      <img
+        class="inline"
+        width='48'
+        src="/assets/images/i_voted.png"
+      >
+    {{/if}}
   </button>
 {{else}}
   <div>

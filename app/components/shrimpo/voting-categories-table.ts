@@ -24,13 +24,22 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
 
   @tracked votes: any = {};
 
+  @tracked voted: boolean = false;
+
   shrimpVoteUrl = `${ENV.API_HOST}/api/shrimpos/${this.args.entry.shrimpoSlug}/shrimpo_entries/${this.args.entry.slug}/voting_categories.json`;
 
   constructor(owner: unknown, args: any) {
     super(owner, args);
+
+    const existingVotes = this.args.entry.shrimpoVotes.filter((vote: any) => {
+      return vote.get('user.id') == this.currentUser.user.id;
+    });
+    if(existingVotes.length === 5) {
+      this.voted = true;
+    }
+    console.log(existingVotes);
     this.args.votingCategories.forEach((votingCategory: ShrimpoVotingCategory) => {
       // TODO how to populate existing votes????
-      console.log(votingCategory);
       this.votes[votingCategory.name] = {score: 0, emoji: votingCategory.emoji};
     });
   }
@@ -70,6 +79,7 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
       .then((data) => {
         if (data.status == 200) {
           alert('Voteded!');
+          this.voted = true;
         } else {
           alert('Something went wrong!');
         }
