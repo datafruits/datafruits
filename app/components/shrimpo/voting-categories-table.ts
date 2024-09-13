@@ -67,7 +67,6 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
         type: "shrimpo_votes"
       };
     });
-    // save all votes one by one ? or new API ? or new model ???
     const data = {
       data: shrimpVotesData,
       shrimpo_entry_id: this.args.entry.slug
