@@ -2,7 +2,8 @@
   <div>
     <h3>Shrimps command voting happens now!</h3>
   </div>
-  {{#each-in this.votes as |name vote|}}
+  {{#each-in this.votes key="score" as |name vote|}}
+    {{log "hey"}}
     <div class="shrimpo-score-picker mb-2">
       <h3 class='text-lg'>{{name}}</h3>
       <input
@@ -49,15 +50,13 @@
     {{on "click" this.saveVote}}
     class="cool-button">
     SAVE VOTE
-    {{#if this.voted}}
-      <h1>I VOTED</h1>
-      <img
-        class="inline"
-        width='48'
-        src="/assets/images/i_voted.png"
-      >
-    {{/if}}
   </button>
+  {{#if this.voted}}
+    <img
+      class="bounce"
+      src="/assets/images/i_voted.png"
+    >
+  {{/if}}
 {{else}}
   <div>
     <p>Login or register to vote on this shrimpo!</p>

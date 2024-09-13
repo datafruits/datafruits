@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import type ShrimpoEntry from 'datafruits13/models/shrimpo-entry';
+//import type ShrimpoVote from 'datafruits13/models/shrimpo-vote';
 import type ShrimpoVotingCategory from 'datafruits13/models/shrimpo-voting-category';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
@@ -36,17 +37,22 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
     });
     if(existingVotes.length === 5) {
       this.voted = true;
+      // populate existing votes
+      this.args.entry.shrimpoVotes.forEach((vote: any)  => {
+        this.votes[vote.votingCategoryName] = {score: vote.score, emoji: vote.votingCategoryEmoji};
+      });
+    } else {
+      // initialize votes if no existing votes
+      this.args.votingCategories.forEach((votingCategory: ShrimpoVotingCategory) => {
+        this.votes[votingCategory.name] = {score: 0, emoji: votingCategory.emoji};
+      });
     }
-    console.log(existingVotes);
-    this.args.votingCategories.forEach((votingCategory: ShrimpoVotingCategory) => {
-      // TODO how to populate existing votes????
-      this.votes[votingCategory.name] = {score: 0, emoji: votingCategory.emoji};
-    });
   }
 
   @action
   setScore(name: string, event: any) {
     this.votes[name].score = event.target.value;
+    this.votes = { ...this.votes };
   }
 
   @action
