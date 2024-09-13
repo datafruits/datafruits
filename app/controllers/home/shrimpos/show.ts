@@ -9,7 +9,13 @@ export default class HomeShrimposShow extends Controller {
   declare model: Shrimpo;
 
   get canShowEntries() {
-    return this.model.status === 'voting' || this.model.status === 'completed';
+    return this.model.status === 'voting' || this.model.status === 'completed' || this.model.shrimpoType === 'mega';
+  }
+
+  get formattedVotingCategories() {
+    return this.model.shrimpoVotingCategories.map((votingCategory) => {
+      return `${votingCategory.name}`;
+    }).join(" •︎ ");
   }
 }
 
