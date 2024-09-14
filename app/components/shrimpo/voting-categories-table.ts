@@ -44,7 +44,7 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
     } else {
       // initialize votes if no existing votes
       this.args.votingCategories.forEach((votingCategory: ShrimpoVotingCategory) => {
-        this.votes[votingCategory.name] = {score: 0, emoji: votingCategory.emoji};
+        this.votes[votingCategory.name] = {score: 1, emoji: votingCategory.emoji};
       });
     }
   }
