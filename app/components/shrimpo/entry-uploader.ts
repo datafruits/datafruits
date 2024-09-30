@@ -21,6 +21,8 @@ export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploader
 
   @tracked uploadProgress = 0;
 
+  @tracked isUploading = false;
+
   @tracked entry: ShrimpoEntry;
 
   constructor(owner: unknown, args: any) {
@@ -59,6 +61,7 @@ export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploader
       const directUploadURL = `${ENV.API_HOST}/rails/active_storage/direct_uploads`;
 
       for (let i = 0; i < files.length; i++) {
+        this.isUploading = true;
         const validMimeTypes = ['audio/mp3', 'audio/mpeg'];
         if(!validMimeTypes.includes(files.item(i)?.type as string)) {
           alert('Only mp3 is supported! sorry...');
@@ -75,6 +78,7 @@ export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploader
           const signedId = blob.signedId;
 
           changeset.set('audio', signedId);
+          this.isUploading = false;
         });
       }
     }
