@@ -174,7 +174,14 @@
     "upcoming_shows": "次の生放送予定"
   },
   "show": {
+    "hosted_prefix": "ホスト:",
     "archive": "アーカイブを聞く"
+    "episodes": "前のエピソード",
+    "tracklist": "トラックリスト",
+    "episode": {
+      "comments": "コメント",
+      "leave_a_comment": "コメントしませんか....???"
+    }
   },
   "player": {
     "aria": {
@@ -197,8 +204,8 @@
     "tagline": "SHRIMPO(β)のパワーがあなたを駆り立てます"
     "title": "SHRIMPO",
     "aria": "listen to or join a shrimpo musical battle",
-    "running_shrimpos": "Shrimpos In Progress",
-    "completed_shrimpos": "Completed Shrimpos",
+    "running_shrimpos": "進行中",
+    "completed_shrimpos": "完成",
     "form": {
       "beginning": "THIS IS THE BEGINNING OF A NEW SHRIMPO",
       "title": "タイトル",
