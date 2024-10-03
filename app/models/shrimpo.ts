@@ -40,6 +40,8 @@ export default class Shrimpo extends Model {
 
   @attr('string') declare entriesCount: string;
 
+  @attr('string') declare shrimpoType: 'normal' | 'mega';
+
   get translatedStatus() {
     return this.intl.t(`shrimpo.status.${this.status}`);
   }
