@@ -203,19 +203,19 @@
   "shrimpo": {
     "tagline": "SHRIMPO(β)のパワーがあなたを駆り立てます"
     "title": "SHRIMPO",
-    "aria": "listen to or join a shrimpo musical battle",
+    "aria": "SHRIMPOの音楽バトルを聴いたり参加したりする",
     "running_shrimpos": "進行中",
     "completed_shrimpos": "完成",
     "form": {
-      "beginning": "THIS IS THE BEGINNING OF A NEW SHRIMPO",
+      "beginning": "これは新しいSHRIMPOの始まりです!!!",
       "title": "タイトル",
       "rulepack": "詳細",
-      "rulepack_placeholder": "Enter the rules/description for this shrimpo here!",
+      "rulepack_placeholder": "このSHRIMPOのルール/説明をここに入力してください!",
       "length": "応募期間",
       "submit": "SHRIMPOする",
-      "voting_emoji": "Voting Symbol",
-      "zip_file": "Upload zip sample pack",
-      "cover_art": "Cover Artwork"
+      "voting_emoji": "投票絵文字",
+      "zip_file": "zipファイルのサンプルパックをアップロード",
+      "cover_art": "ジャケット"
     },
     "status": {
       "running": "エントリー期間中",
