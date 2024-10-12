@@ -151,8 +151,11 @@
     "aria": "See what datafruits.fm is about"
   },
   "shrimpo": {
+    "tagline": "THE POWER OF SHRIMPO<span class='ml-2 text-lg italic'>beta</span> COMPELS YOU",
     "title": "SHRIMPO",
     "aria": "listen to or join a shrimpo musical battle",
+    "running_shrimpos": "Shrimpos In Progress",
+    "completed_shrimpos": "Completed Shrimpos",
     "form": {
       "beginning": "THIS IS THE BEGINNING OF A NEW SHRIMPO",
       "title": "title",
@@ -163,6 +166,11 @@
       "voting_emoji": "Voting Symbol",
       "zip_file": "Upload zip sample pack",
       "cover_art": "Cover Artwork"
+    },
+    "status": {
+      "running": "entry period",
+      "voting": "voting",
+      "completed": "completed"
     }
   },
   "upcoming": {
