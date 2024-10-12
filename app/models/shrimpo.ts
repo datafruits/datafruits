@@ -39,6 +39,8 @@ export default class Shrimpo extends Model {
 
   @attr('string') declare shrimpoType: 'normal' | 'mega';
 
+  @attr('string') declare votingCompletionPercentage: string;
+
   get savedShrimpoEntries() {
     if(this.status === 'completed') {
       return this.shrimpoEntries.sortBy('ranking');
