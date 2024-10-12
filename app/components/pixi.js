@@ -665,8 +665,12 @@ export default class PixiComponent extends Component {
       "/assets/images/sprites/blue_shrimp.json",
     );
     this.app.loader.add(
-      "raver1",
-      "/assets/images/sprites/raver1.json"
+      "sportsjin",
+      "/assets/images/sportsjin.png"
+    );
+    this.app.loader.add(
+      "alandmoosleech",
+      "/assets/images/alandmoosleech.png"
     );
 
     this.app.loader.onProgress.add((loader, resource) => {
