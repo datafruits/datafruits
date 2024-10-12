@@ -42,7 +42,9 @@ export default class Shrimpo extends Model {
 
   @attr('string') declare shrimpoType: 'normal' | 'mega';
 
-  get translatedStatus() {
+  @attr('string') declare votingCompletionPercentage: string;
+
+get translatedStatus() {
     return this.intl.t(`shrimpo.status.${this.status}`);
   }
 
