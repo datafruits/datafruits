@@ -97,17 +97,19 @@
   >
   </div>
   <div>
-    <span class="text-sm mr-2 font-cursive">
-      <LinkTo @route="home.dj" @model={{@show.hostedBy}}>
-        {{@show.hostedBy}}
-      </LinkTo>
-    </span>
-    <span>
-      <img
-        style="height: 3rem;"
-        class="inline rounded-lg"
-        src="{{@show.hostAvatarUrl}}"
-        />
-    </span>
+    {{#each @show.djs as |host|}}
+      <span class="text-sm mr-2 font-cursive">
+        <LinkTo @route="home.dj" @model={{host.username}}>
+          {{host.username}}
+        </LinkTo>
+      </span>
+      <span>
+        <img
+          style="height: 3rem;"
+          class="inline rounded-lg"
+          src="{{host.avatarUrl}}"
+          />
+      </span>
+    {{/each}}
   </div>
 </div>
