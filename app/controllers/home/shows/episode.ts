@@ -10,7 +10,7 @@ export default class HomeUserShowsEpisode extends Controller {
   @service declare currentUser: any;
 
   get canEditShow() {
-    return this.session.isAuthenticated && (this.currentUser.user.roles.includes('admin') || this.currentUser.user.username === this.model.hostedBy);
+    return this.session.isAuthenticated && (this.currentUser.user.roles.includes('admin') || this.model.hosts.includes(this.currentUser.user.username));
   }
 }
 
