@@ -75,7 +75,8 @@
         "repeating": "Repeating or one off",
         "youtube-link": "YoutubeのURL",
         "mixcloud-link": "MixcloudのURL",
-        "soundcloud-link": "SoundCloudのURL"
+        "soundcloud-link": "SoundCloudのURL",
+        "prerecorded-archive": "事前に記録されたファイルをアーカイブとして使用する"
       }
     },
     "notifications": {

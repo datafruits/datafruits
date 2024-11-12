@@ -61,7 +61,7 @@
             </h2>
             <Form.Checkbox
               @type="checkbox"
-              @label="Use prerecorded file for archive"
+              @label={{t "profile.my-shows.form.prerecorded-archive"}}
               id="use-prerecord"
               @fieldName="usePrerecordedFileForArchive"
               />
@@ -69,13 +69,15 @@
             {{#if @episode.prerecordTrackFilename}}
               <span>{{@episode.prerecordTrackFilename}}</span>
             {{/if}}
-            <h3
-              class="text-l">
-              Select recording
-            </h3>
-            <MyShows::RecordingsSearch
-              @changeset={{changeset}}
-              />
+            <div class="mb-2">
+              <h3
+                class="text-l">
+                Select recording
+              </h3>
+              <MyShows::RecordingsSearch
+                @changeset={{changeset}}
+                />
+            </div>
             <Form.Input
               @label={{t "profile.my-shows.form.youtube-link"}}
               @fieldName="youtubeLink"

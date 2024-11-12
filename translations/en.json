@@ -227,7 +227,8 @@
         "repeating": "Repeating or one off",
         "youtube-link": "Youtube URL",
         "mixcloud-link": "Mixcloud URL",
-        "soundcloud-link": "SoundCloud URL"
+        "soundcloud-link": "SoundCloud URL",
+        "prerecorded-archive": "Use pre-recorded file for archive"
       }
     },
     "chat": "Chat Preview",

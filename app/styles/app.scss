@@ -947,5 +947,9 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+.form-checkbox__input-container {
+  display: inline;
+}
+
 @tailwind utilities;
 /* purgecss end ignore */
