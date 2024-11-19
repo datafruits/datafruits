@@ -76,7 +76,8 @@
         "youtube-link": "YoutubeのURL",
         "mixcloud-link": "MixcloudのURL",
         "soundcloud-link": "SoundCloudのURL",
-        "prerecorded-archive": "事前に記録されたファイルをアーカイブとして使用する"
+        "prerecorded-archive": "事前に記録されたファイルをアーカイブとして使用する",
+        "update": "保存"
       }
     },
     "notifications": {
@@ -200,6 +201,24 @@
   "donate": {
     "title": "寄付する",
     "dj_link": "現状のDJに寄付するリンクはこちらです。"
+  },
+  "forum": {
+    "title": "da fruit standz",
+    "new_topic": "NEW TOPIC",
+    "aria": "a forum to communicate with your fellow fruits",
+    "login_or_register": "Login or register to post!",
+    "form": {
+      "title": "post title",
+      "body": "what's up",
+      "save": "POSTTT"
+    }
+  },
+  "fruit-tickets": {
+    "amount": "How much fruit tix to give?",
+    "submit": "Say goodbye to your precious fruit tix"
+  },
+  "forms": {
+    "saving": "SAVING....DON'T TURN OFF THE POWER........."
   },
   "shrimpo": {
     "tagline": "SHRIMPO(β)のパワーがあなたを駆り立てます",
