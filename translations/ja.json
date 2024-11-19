@@ -204,21 +204,21 @@
   },
   "forum": {
     "title": "da fruit standz",
-    "new_topic": "NEW TOPIC",
+    "new_topic": "新投稿",
     "aria": "a forum to communicate with your fellow fruits",
-    "login_or_register": "Login or register to post!",
+    "login_or_register": "ログインまたはアカウント登録",
     "form": {
-      "title": "post title",
-      "body": "what's up",
-      "save": "POSTTT"
+      "title": "タイトル",
+      "body": "何してます?",
+      "save": "送信"
     }
   },
   "fruit-tickets": {
-    "amount": "How much fruit tix to give?",
-    "submit": "Say goodbye to your precious fruit tix"
+    "amount": "いくら送りますか?",
+    "submit": "さよなら"
   },
   "forms": {
-    "saving": "SAVING....DON'T TURN OFF THE POWER........."
+    "saving": "保存中....電源を切り替えしないでください　........."
   },
   "shrimpo": {
     "tagline": "SHRIMPO(β)のパワーがあなたを駆り立てます",
