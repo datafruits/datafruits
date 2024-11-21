@@ -228,7 +228,8 @@
         "youtube-link": "Youtube URL",
         "mixcloud-link": "Mixcloud URL",
         "soundcloud-link": "SoundCloud URL",
-        "prerecorded-archive": "Use pre-recorded file for archive"
+        "prerecorded-archive": "Use pre-recorded file for archive",
+        "update": "SAVE"
       }
     },
     "chat": "Chat Preview",
@@ -483,7 +484,8 @@
     "login_or_register": "Login or register to post!",
     "form": {
       "title": "post title",
-      "body": "what's up"
+      "body": "what's up",
+      "save": "POSTTT"
     }
   },
   "fruit-tickets": {
