@@ -1,9 +1,13 @@
-import classic from 'ember-classic-decorator';
 import Route from '@ember/routing/route';
 
-@classic
 export default class DjsRoute extends Route {
-  model() {
-    return this.store.loadRecords('dj');
+  async model(params) {
+    // params.page = params.page || 1;
+    // return this.store.query('dj', {
+    //   page: params.page,
+    //   search: {
+    //     keyword: params.query,
+    //   },
+    // });
   }
 }

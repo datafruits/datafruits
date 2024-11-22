@@ -30,6 +30,16 @@ export default function () {
     return schema.microtexts.all();
   });
 
+  this.get('/api/shrimpos.json', (schema) => {
+    return schema.shrimpos.all();
+  });
+
+  this.get('/api/shrimpos/:id', (schema, request) => {
+    let id = request.params.id;
+
+    return schema.shrimpos.find(id);
+  });
+
   this.get('/api/blog_posts.json', (/* schema */) => {
     return { blog_posts: [] };
   });

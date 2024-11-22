@@ -1,8 +1,10 @@
 import classic from 'ember-classic-decorator';
 import ApplicationAdapter from './application';
+import { inject as service } from '@ember/service';
 
 @classic
 export default class ScheduledShow extends ApplicationAdapter {
+  @service router;
   namespace = 'api';
 
   urlForFindRecord(id, modelName, snapshot) {
@@ -11,8 +13,12 @@ export default class ScheduledShow extends ApplicationAdapter {
   }
 
   urlForQuery(query) {
+    let djId = query.dj;
+    let page = query.page || 1;
     if(query.start) {
       return `${this.urlPrefix()}/scheduled_shows`;
+    } else if(djId) {
+      return `${this.urlPrefix()}/djs/${djId}/episodes?page=${page}`;
     } else {
       return `${this.urlPrefix()}/show_series/${query.showSeries}/episodes`;
     }
@@ -25,6 +31,9 @@ export default class ScheduledShow extends ApplicationAdapter {
   }
 
   urlForUpdateRecord(id, modelName, snapshot) {
-    return `${this.urlPrefix()}/my_shows/${snapshot.belongsTo('showSeries').attr('slug')}/episodes/${snapshot.attr('slug')}`;
+    // this looks ugly but is only done because for some reason I can't get the belongsTo('showSeries').get('slug') to work
+    // the showSeries isn't loaded when the page is refreshed
+    const showSeriesSlug = this.router.currentURL.split("/user/my-shows/")[1].split("/episode/")[0];
+    return `${this.urlPrefix()}/my_shows/${showSeriesSlug}/episodes/${snapshot.attr('slug')}`;
   }
 }

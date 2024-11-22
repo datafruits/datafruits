@@ -1,0 +1,25 @@
+<div class="flex space-x-2">
+  <LinkTo
+    @route="home.shrimpos.show"
+    @model={{this.args.entry.shrimpoSlug}}>
+    {{this.args.entry.shrimpo.title}}
+  </LinkTo>
+  {{#if this.args.entry.previousShrimpoEntrySlug}}
+    <LinkTo
+      @route="home.shrimpos.entries.show"
+      @models={{array this.args.entry.shrimpoSlug this.args.entry.previousShrimpoEntrySlug}}
+      class="cool-button uppercase"
+    >
+      Previous Shrimp
+    </LinkTo>
+  {{/if}}
+  {{#if this.args.entry.nextShrimpoEntrySlug}}
+    <LinkTo
+      @route="home.shrimpos.entries.show"
+      @models={{array this.args.entry.shrimpoSlug this.args.entry.nextShrimpoEntrySlug}}
+      class="cool-button uppercase"
+    >
+      Next Shrimp
+    </LinkTo>
+  {{/if}}
+</div>

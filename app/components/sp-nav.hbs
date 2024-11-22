@@ -1,107 +1,103 @@
 <nav
   id="mobile-navbar"
   class="relative flex justify-between w-full md:hidden items-center m-0 ml-3 p-0 sm:pb-3 sm:mt-3 sm:mr-3 sm:ml-3 max-h-screen"
-  role="navigation">
+  role="navigation"
+>
   <div class="flex flex-col justify-center h-full">
     <button
       type="button"
       class="collapsed text-xl w-4"
       aria-label={{t "nav_toggle"}}
-      {{on "click" @toggleMenu}}>
+      {{on "click" @toggleMenu}}
+    >
       <span class="sr-only">
         {{t "nav_toggle"}}
       </span>
-      <FaIcon
-        @icon="bars"
-        aria-hidden="true" />
+      <FaIcon @icon="bars" aria-hidden="true" />
     </button>
     {{#if @menuOpen}}
       <ul class="flex flex-wrap overflow-y-scroll">
-        <li class="py-2 pr-3 text-white text-shadow-light w-full border-dashed border-white border-t-4">
+        <li
+          class="py-2 pr-3 text-white text-shadow-light w-full border-dashed border-white border-t-4"
+        >
           <span class="" href="#" aria-label={{t "radio.aria"}}>
             {{t "radio.title"}}
           </span>
           <ul class="">
-            <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-              <span
-                  {{on "click" @toggleMenu}}
-                >
+            <li class="z">
+              <span {{on "click" @toggleMenu}}>
                 <LinkTo
                   class="text-white text-shadow-light"
                   aria-label={{t "shows.aria"}}
-                  @route="home.shows">
+                  @route="home.shows"
+                >
                   {{t "shows.title"}}
                 </LinkTo>
               </span>
             </li>
             <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-              <span
-                  {{on "click" @toggleMenu}}
-                >
+              <span {{on "click" @toggleMenu}}>
                 <LinkTo
                   class="text-white text-shadow-light"
                   aria-label={{t "djs.aria"}}
-                  @route="home.djs">
+                  @route="home.djs"
+                  @query={{hash tags="dj"}}
+                >
                   {{t "djs.title"}}
                 </LinkTo>
               </span>
             </li>
             <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-              <span
-                  {{on "click" @toggleMenu}}
-                >
+              <span {{on "click" @toggleMenu}}>
                 <LinkTo
                   class="text-white text-shadow-light"
                   aria-label={{t "podcasts.aria"}}
-                  @route="home.podcasts">
+                  @route="home.podcasts"
+                >
                   {{t "podcasts.title"}}
                 </LinkTo>
               </span>
             </li>
             <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-              <span
-                  {{on "click" @toggleMenu}}
-                >
+              <span {{on "click" @toggleMenu}}>
                 <LinkTo
                   class="text-white text-shadow-light"
                   aria-label={{t "timetable.aria"}}
-                  @route="home.timetable">
+                  @route="home.timetable"
+                >
                   {{t "timetable.title"}}
                 </LinkTo>
               </span>
             </li>
             <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-              <span
-                  {{on "click" @toggleMenu}}
-                >
+              <span {{on "click" @toggleMenu}}>
                 <LinkTo
                   class="text-white text-shadow-light"
                   aria-label={{t "djinquiry.aria"}}
-                  @route="home.dj-inquiry">
+                  @route="home.dj-inquiry"
+                >
                   {{t "djinquiry.title"}}
                 </LinkTo>
               </span>
             </li>
             <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-              <span
-                  {{on "click" @toggleMenu}}
-                >
+              <span {{on "click" @toggleMenu}}>
                 <LinkTo
                   class="text-white text-shadow-light"
                   aria-label={{t "forum.aria"}}
-                  @route="home.forum">
+                  @route="home.forum"
+                >
                   {{t "forum.title"}}
                 </LinkTo>
               </span>
             </li>
             <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-              <span
-                  {{on "click" @toggleMenu}}
-                >
+              <span {{on "click" @toggleMenu}}>
                 <LinkTo
                   class="text-white text-shadow-light"
                   aria-label={{t "wiki.aria"}}
-                  @route="home.wiki">
+                  @route="home.wiki"
+                >
                   {{t "wiki.title"}}
                 </LinkTo>
               </span>
@@ -109,13 +105,12 @@
           </ul>
         </li>
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-          <span
-              {{on "click" @toggleMenu}}
-            >
+          <span {{on "click" @toggleMenu}}>
             <LinkTo
               class="text-white text-shadow-light"
               aria-label={{t "chat.label.aria"}}
-              @route="home.chat">
+              @route="home.chat"
+            >
               {{t "chat.title"}}
             </LinkTo>
           </span>
@@ -124,7 +119,10 @@
           <a
             class="text-white text-shadow-light"
             aria-label={{t "releases.aria"}}
-            href="http://releases.datafruits.fm/" target="_blank" rel="noreferrer noopener">
+            href="http://releases.datafruits.fm/"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
             {{t "label"}}
           </a>
         </li>
@@ -132,61 +130,72 @@
           <a
             class="text-white text-shadow-light"
             aria-label={{t "shop.title"}}
-            href="https://datafruits.bandcamp.com/merch" target="_blank" rel="noopener noreferrer">
+            href="https://datafruits.bandcamp.com/merch"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {{t "shop.title"}}
           </a>
         </li>
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-          <span
-              {{on "click" @toggleMenu}}
-            >
+          <span {{on "click" @toggleMenu}}>
             <LinkTo
               class="text-white text-shadow-light"
               aria-label={{t "about.aria"}}
-              @route="home.about">
+              @route="home.about"
+            >
               {{t "about.title"}}
             </LinkTo>
           </span>
         </li>
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-          <span
-              {{on "click" @toggleMenu}}
+          <span {{on "click" @toggleMenu}}>
+            <LinkTo
+              class="text-white text-shadow-light"
+              aria-label={{t "shrimpos.aria"}}
+              @route="home.shrimpos"
             >
+              {{t "shrimpo.title"}}
+            </LinkTo>
+          </span>
+        </li>
+        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+          <span {{on "click" @toggleMenu}}>
             <LinkTo
               class="text-white text-shadow-light"
               aria-label={{t "about.aria"}}
-              @route="home.support">
+              @route="home.support"
+            >
               {{t "support.title"}}
             </LinkTo>
           </span>
+        </li>
+        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
+          <button
+            class="text-white text-shadow-light"
+            aria-label={{t "settings.title"}}
+            {{on "click" this.settingsDialogToggle}}
+          >
+            {{t "settings.icon"}}
+          </button>
         </li>
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
           <a
             target="_blank"
             rel="noopener noreferrer"
             href="https://hubs.mozilla.com/MsvfAkH/terrific-satisfied-area"
-            class="text-white text-shadow-light">
+            class="text-white text-shadow-light"
+          >
             <img
               width="75"
-              alt="{{t "3D.title"}}"
-              src="/assets/images/3D.gif">
+              alt="{{t '3D.title'}}"
+              src="/assets/images/3D.gif"
+            />
           </a>
-        </li>
-        <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
-          <span
-              {{on "click" @toggleMenu}}
-            >
-            <LinkTo
-              class="text-white text-shadow-light"
-              aria-label={{t "settings.title"}}
-              @route="home.site-settings">
-              {{t "settings.title"}}
-            </LinkTo>
-          </span>
         </li>
       </ul>
     {{/if}}
-    </div>
+  </div>
   {{#unless @menuOpen}}
 
     <DjDonateModal class="block md ml-5" />
@@ -197,25 +206,32 @@
           href="#"
           class=""
           role="button"
-          aria-label="{{t "usermenu.dropdown-aria"}}"
-          {{on "click" this.args.toggleUserMenu}}>
+          aria-label="{{t 'usermenu.dropdown-aria'}}"
+          {{on "click" this.args.toggleUserMenu}}
+        >
           <img
             class="inline rounded-lg"
             style="height: 3rem;"
             src="{{this.currentUser.user.avatarUrl}}"
             align="center"
-            alt={{this.currentUser.user.username}} / >
+            alt={{this.currentUser.user.username}}
+          />
         </a>
       {{else}}
-        <LinkTo @route="home"
-          aria-label={{t "blog"}}>
+        <LinkTo @route="home" aria-label={{t "blog"}}>
           <img
             class=""
             id="circle-logo"
             src="/assets/images/logo.png"
-            alt={{t "site_title"}}>
+            alt={{t "site_title"}}
+          />
         </LinkTo>
       {{/if}}
     </div>
   {{/unless}}
 </nav>
+{{#if this.showingSettings}}
+  <WebsiteSettings
+    @closeDialog={{this.closeDialog}}
+  />
+{{/if}}

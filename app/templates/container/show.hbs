@@ -1,5 +1,5 @@
-{{#if model.tracks}}
-  <Container::DatafruitsPlayer @track={{get model.tracks "0"}} />
+{{#if this.model.tracks}}
+  <Container::DatafruitsPlayer @track={{get this.model.tracks "0"}} />
 {{else}}
   <Container::DatafruitsPlayer />
 {{/if}}

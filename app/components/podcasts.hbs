@@ -1,15 +1,14 @@
-<div
-  {{did-insert this.fetchInitial @page}}
-  {{did-update this.fetchInitial @page}}
->
+<div>
   <Await
     @promise={{this.fetchPodcasts}}
-    @initialData={{this.initialData}}
       as |await|>
-    <div id="podcast-search-controls">
+    <div
+      id="podcast-search-controls"
+      {{did-update await.reload @page}}
+      >
       <div class="flex flex-wrap justify-around">
         <div id="search-controls">
-          <h1 class="text-center">{{t "podcasts.search_title"}}</h1>
+          <h2 class="text-center">{{t "podcasts.search_title"}}</h2>
           <Podcasts::Search
             @labels={{@labels}}
             @selectedLabels={{this.selectedLabels}}
@@ -18,7 +17,7 @@
           />
         </div>
         <div id="subscribe-controls">
-          <h1 class="text-center">{{t "podcasts.subscribe_title"}}</h1>
+          <h2 class="text-center">{{t "podcasts.subscribe_title"}}</h2>
           <div id="podcast-subscribe">
             <div class="md:mx-10 md:my-5 md:py-5">
               <ul id="subscribe-links" class="pr-2 flex flex-wrap text-base sm:text-xl">

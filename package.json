@@ -26,6 +26,7 @@
     "audit-translate": "node find-missing-translations.js"
   },
   "devDependencies": {
+    "@algonauti/ember-active-storage": "^2.3.0",
     "@babel/eslint-parser": "^7.18.9",
     "@csstools/postcss-sass": "github:sinankeskin/postcss-sass",
     "@ember/optional-features": "^2.0.0",
@@ -187,6 +188,7 @@
     "@typescript-eslint/parser": "^5.33.1",
     "autoprefixer": "^10.4.7",
     "babel-plugin-ember-modules-api-polyfill": "2.13.0",
+    "ember-deep-tracked": "^2.0.0",
     "ember-destroyable-polyfill": "^2.0.3",
     "ember-power-select-with-create": "github:mcfiredrill/ember-power-select-with-create",
     "fastboot-app-server": "^3.3.2",

@@ -5,7 +5,7 @@ import { htmlSafe } from '@ember/template';
 import { SafeString } from 'handlebars';
 import emojione from 'emojione';
 import type ShowSeries from 'datafruits13/models/show-series'
-//import type RouterService from '@ember/routing/router-service';
+import type RouterService from '@ember/routing/router-service';
 
 interface ShowSeriesViewArgs {
   showSeries: ShowSeries;
@@ -14,7 +14,7 @@ interface ShowSeriesViewArgs {
 export default class ShowSeriesView extends Component<ShowSeriesViewArgs> {
   @service declare session: any;
   @service declare currentUser: any;
-  //@service declare router: RouterService;
+  @service declare router: RouterService;
 
   // @action
   // browseLabel(label) {

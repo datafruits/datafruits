@@ -33,6 +33,24 @@
           />
         </a>
       {{/if}}
+      {{#if @show.mixcloudLink}}
+        <a href={{@show.mixcloudLink}} target="_blank" rel="noreferrer noopener">
+          <FaIcon
+            @icon="mixcloud"
+            @prefix="fab"
+            class="text-df-green hover:text-df-yellow text-xl"
+          />
+        </a>
+      {{/if}}
+      {{#if @show.soundcloudLink}}
+        <a href={{@show.soundcloudLink}} target="_blank" rel="noreferrer noopener">
+          <FaIcon
+            @icon="soundcloud"
+            @prefix="fab"
+            class="text-df-green hover:text-df-yellow text-xl"
+          />
+        </a>
+      {{/if}}
       {{#if this.session.isAuthenticated}}
         {{#if this.isFavorited}}
           <button
@@ -79,17 +97,19 @@
   >
   </div>
   <div>
-    <span class="text-sm mr-2 font-cursive">
-      <LinkTo @route="home.dj" @model={{@show.hostedBy}}>
-        {{@show.hostedBy}}
-      </LinkTo>
-    </span>
-    <span>
-      <img
-        style="height: 3rem;"
-        class="inline rounded-lg"
-        src="{{@show.hostAvatarUrl}}"
-        />
-    </span>
+    {{#each @show.djs as |host|}}
+      <span class="text-sm mr-2 font-cursive">
+        <LinkTo @route="home.dj" @model={{host.username}}>
+          {{host.username}}
+        </LinkTo>
+      </span>
+      <span>
+        <img
+          style="height: 3rem;"
+          class="inline rounded-lg"
+          src="{{host.avatarUrl}}"
+          />
+      </span>
+    {{/each}}
   </div>
 </div>

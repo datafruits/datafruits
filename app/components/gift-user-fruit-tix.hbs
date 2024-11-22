@@ -8,7 +8,7 @@
       @toggleModal={{this.showFruitTixModal}}
     >
     <div class="m-2">
-      {{#let (changeset this.fruitTicketGift FruitTicketGiftValidations) as |changeset|}}
+      {{#let (changeset this.fruitTicketGift this.FruitTicketGiftValidations) as |changeset|}}
         <Ui::ChangesetForm
             @changeset={{changeset}}
             @onError={{this.onError}}

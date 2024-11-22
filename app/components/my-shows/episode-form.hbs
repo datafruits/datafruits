@@ -11,11 +11,22 @@
             @containerClass='mb-2'
             />
           <div>
-          <div>
-            <span>Air date:</span> {{format-day @episode.start}} - {{format-time @episode.start}}
-          </div>
+            <div>
+              <span>Air date:</span> {{format-day @episode.start}} - {{format-time @episode.start}}
+            </div>
             <label class="align-top" for="show-artwork"> {{t "profile.my-shows.form.artwork"}}</label>
             <br/>
+            {{#if @episode.isNew}}
+              {{#if changeset.image}}
+                <img alt="artwork" width="300" height="300"
+                  src="{{changeset.image}}">
+              {{/if}}
+            {{else}}
+              {{#if changeset.thumbImageUrl}}
+                <img alt="artwork" width="300" height="300"
+                  src="{{changeset.thumbImageUrl}}">
+              {{/if}}
+            {{/if}}
             <input
               class="py-4 px-4 my-2 text-df-yellow w-full semibold border-dashed"
               id="showArtwork"
@@ -33,6 +44,16 @@
             rows='20'
             cols='50'
             />
+          <TimePicker
+            @property="start"
+            @changeset={{changeset}}
+            @onChange={{this.setEndAfterStart}}
+            />
+          <TimePicker
+            @property="end"
+            @changeset={{changeset}}
+            @startTime={{changeset.start}}
+            />
           {{#if @episode.airDatePassed}}
             <h2
               class="text-x">
@@ -40,20 +61,23 @@
             </h2>
             <Form.Checkbox
               @type="checkbox"
-              @label="Use prerecorded file for archive"
+              @label={{t "profile.my-shows.form.prerecorded-archive"}}
               id="use-prerecord"
               @fieldName="usePrerecordedFileForArchive"
               />
+            <TrackUploader @changeset={{changeset}} />
             {{#if @episode.prerecordTrackFilename}}
               <span>{{@episode.prerecordTrackFilename}}</span>
             {{/if}}
-            <h3
-              class="text-l">
-              Select recording
-            </h3>
-            <MyShows::RecordingsSearch
-              @changeset={{changeset}}
-              />
+            <div class="mb-2">
+              <h3
+                class="text-l">
+                Select recording
+              </h3>
+              <MyShows::RecordingsSearch
+                @changeset={{changeset}}
+                />
+            </div>
             <Form.Input
               @label={{t "profile.my-shows.form.youtube-link"}}
               @fieldName="youtubeLink"
@@ -88,7 +112,11 @@
               class="text-x">
               PRERECORDED SET
             </h2>
-            <TrackUploader @changeset={{changeset}} />
+            <TrackUploader
+              @changeset={{changeset}}
+              @onStartUpload={{this.onStartUpload}}
+              @onFinishUpload={{this.onFinishUpload}}
+            />
             {{#if changeset.prerecordTrackId}}
               {{changeset.prerecordTrackFilename}}
             {{/if}}
@@ -115,10 +143,12 @@
         <Button
           @type='submit'
           @intent='primary'
-          disabled={{(or Form.state.hasSubmitted changeset.isInvalid)}}
+          disabled={{
+            (or (eq this.isUploading true) (or Form.state.hasSubmitted changeset.isInvalid))
+          }}
           class='cool-button mb-2'
           >
-          UPDATE EPISODE
+          {{t "profile.my-shows.form.update"}}
         </Button>
       </div>
   </Ui::ChangesetForm>
