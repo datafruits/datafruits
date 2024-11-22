@@ -127,6 +127,18 @@
         class="mb-2"
         @changeset={{changeset}}
         />
+      {{#if (or (eq this.currentUser.user.username @episode.hostedBy) (includes 'admin' this.currentUser.user.roles))}}
+        <div>
+          <Button
+            @type='submit'
+            @intent='danger'
+            class='cool-button mb-2 danger'
+            {{on "click" this.deleteEpisode}}
+            >
+            {{t "profile.my-shows.form.delete"}}
+          </Button>
+        </div>
+      {{/if}}
       <div>
         <Button
           @type='submit'

@@ -279,6 +279,9 @@ pre {
       @apply bg-df-yellow-dark;
     }
   }
+  &.danger {
+    @apply bg-red text-white;
+  }
 }
 
 .cool-button {
