@@ -32,6 +32,12 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
     'Last'
   ];
 
+  statusOptions = [
+    'active',
+    'archived',
+    'disabled'
+  ];
+
   @action
   updateFile(e: any){
     this.file = e.target.files[0];
