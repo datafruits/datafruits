@@ -229,7 +229,8 @@
         "mixcloud-link": "Mixcloud URL",
         "soundcloud-link": "SoundCloud URL",
         "prerecorded-archive": "Use pre-recorded file for archive",
-        "update": "SAVE"
+        "update": "SAVE",
+        "delete": "DELETE EPISODE"
       }
     },
     "chat": "Chat Preview",

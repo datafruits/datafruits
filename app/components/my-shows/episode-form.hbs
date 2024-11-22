@@ -132,10 +132,10 @@
           <Button
             @type='submit'
             @intent='danger'
-            class='cool-button mb-2'
+            class='cool-button mb-2 danger'
             {{on "click" this.deleteEpisode}}
             >
-            DELETE EPISODE
+            {{t "profile.my-shows.form.delete"}}
           </Button>
         </div>
       {{/if}}
