@@ -36,4 +36,9 @@ export default class ScheduledShow extends ApplicationAdapter {
     const showSeriesSlug = this.router.currentURL.split("/user/my-shows/")[1].split("/episode/")[0];
     return `${this.urlPrefix()}/my_shows/${showSeriesSlug}/episodes/${snapshot.attr('slug')}`;
   }
+
+  urlForDeleteRecord(id, modelName, snapshot) {
+    const showSeriesSlug = this.router.currentURL.split("/user/my-shows/")[1].split("/episode/")[0];
+    return `${this.urlPrefix()}/my_shows/${showSeriesSlug}/episodes/${id}`;
+  }
 }
