@@ -9,10 +9,11 @@ export default class UserFavorites extends Component {
 
   @action
   fetchTracks() {
-    const trackIds = this.currentUser.user.trackFavorites.map((trackFavorite: any) => {
-      return trackFavorite.trackId;
+    const scheduledShowIds = this.currentUser.user.scheduledShowFavorites.map((scheduledShowFavorite: any) => {
+      return scheduledShowFavorite.scheduledShowId;
     });
-    return this.store.query('track', { id: trackIds });
+    console.log('track ids:' ,scheduledShowIds);
+    return this.store.query('scheduledShow', { id: scheduledShowIds });
   }
 }
 

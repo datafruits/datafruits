@@ -95,12 +95,12 @@ export default class PodcastTrack extends Component {
   get isFavorited() {
     let id;
     if (typeof this.args.track.get === 'function') {
-      id = this.args.track.get('id');
+      id = this.args.track.get('scheduledShowId');
     } else {
-      id = this.args.track.id;
+      id = this.args.track.scheduledShowId;
     }
 
-    return this.currentUser.user.trackFavorites.map((favorite) => favorite.trackId).includes(parseInt(id));
+    return this.currentUser.user.scheduledShowFavorites.map((favorite) => favorite.trackId).includes(parseInt(id));
   }
 
   get backgroundStyle() {
