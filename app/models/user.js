@@ -81,6 +81,7 @@ export default class UserModel extends Model {
   hasUnreadNotifications;
 
   @hasMany('track-favorite', { async: false }) trackFavorites; // ugh
+  @hasMany('scheduled-show-favorite', { async: false }) scheduledShowFavorites; // ugh
 
   @hasMany('fruit-summon') fruitSummons;
 
