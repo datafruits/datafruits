@@ -2,7 +2,16 @@
   <div>
     <h3>Shrimps command voting happens now!</h3>
   </div>
-  <h2 class="text-lg">You are... {{@votingCompletionPercentage}}% done voting for this shrimpo!</h2>
+  <h2 class="text-lg">You are... {{@votingCompletionPercentage}}% {{t "shrimpo.voting_completion"}}!</h2>
+  {{#if this.voted}}
+    <p>
+      {{t "shrimpo.already_voted"}}
+    </p>
+    <img
+      class="bounce"
+      src="/assets/images/i_voted.png"
+    >
+  {{/if}}
   {{#each-in this.votes key="score" as |name vote|}}
     <div class="shrimpo-score-picker mb-2">
       <h3 class='text-lg'>{{name}}</h3>
