@@ -2,7 +2,7 @@
   <div class="flex items-start">
     {{#if (or (eq @shrimpoEntry.shrimpo.status 'completed') (eq @shrimpoEntry.shrimpo.shrimpoType 'major'))}}
       <span>
-        <img src="{{@shrimpoEntry.userAvatar}}" alt="" />
+        <img class="rounded-lg" style="height: 3rem;" src="{{@shrimpoEntry.userAvatar}}" alt="" />
       </span>
     {{/if}}
     <div class="flex flex-col">

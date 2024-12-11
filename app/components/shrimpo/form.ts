@@ -25,6 +25,12 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
     '1 month',
     '3 months',
   ];
+
+  shrimpoTypes = [
+    'normal',
+    'mega'
+  ];
+
   @service declare router: RouterService;
   @service declare activeStorage: any;
 
@@ -62,6 +68,13 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
     console.log('setting duration: ', event.target.value);
     changeset.set('duration', event.target.value);
     this.duration = event.target.value;
+  }
+
+  @action
+  setShrimpoType(changeset: BufferedChangeset, event: any){
+    console.log('setting duration: ', event.target.value);
+    changeset.set('shrimpoType', event.target.value);
+    //this.duration = event.target.value;
   }
 
   @action
