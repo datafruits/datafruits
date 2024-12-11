@@ -8,6 +8,7 @@ interface ShrimpoEntryCardArgs {
 
 export default class ShrimpoEntryCard extends Component<ShrimpoEntryCardArgs> {
   get scoreEmoji() {
-    return formatEmojiHtml(this.args.shrimpoEntry.shrimpoEmoji);
+    // need to use get here
+    return formatEmojiHtml(this.args.shrimpoEntry.get('shrimpoEmoji'));
   }
 }
