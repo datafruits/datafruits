@@ -34,6 +34,7 @@ export default class PixiComponent extends Component {
     "limer",
     "dragion-fruit",
     "blueberrinies",
+    "peachy",
   ];
 
   paidFruitTipSprites = [];
@@ -633,9 +634,15 @@ export default class PixiComponent extends Component {
       "dragionFruit",
       "/assets/images/sprites/dragon_fruit.json",
     );
+
     this.app.loader.add(
       "blueberrinies",
       "/assets/images/sprites/blueberrinies.json",
+    );
+
+    this.app.loader.add(
+      "peachy",
+      "/assets/images/sprites/peachy.json",
     );
     this.app.loader.add("shader", "/assets/shaders/shader.frag");
 
@@ -714,6 +721,9 @@ export default class PixiComponent extends Component {
         res.dragionFruit.spritesheet.animations["dragon_fruit.png"];
       this.animations.blueberrinies =
         res.blueberrinies.spritesheet.animations["blueberrinies.png"];
+
+      this.animations.peachy =
+        res.peachy.spritesheet.animations["peachy"];
 
       // Resume application update
       this.app.start();
