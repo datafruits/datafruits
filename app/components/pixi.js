@@ -672,8 +672,40 @@ export default class PixiComponent extends Component {
       "/assets/images/sprites/blue_shrimp.json",
     );
     this.app.loader.add(
-      "raver1",
-      "/assets/images/sprites/raver1.json"
+      "alandmoosleech",
+      "/assets/images/alandmoosleech.png"
+    );
+    this.app.loader.add(
+      "burgergirl",
+      "/assets/images/burgergirl.png"
+    );
+    this.app.loader.add(
+      "chill_ghost_shirt_guy",
+      "/assets/images/chill_ghost_shirt_guy.png"
+    );
+    this.app.loader.add(
+      "maskedburgerweirdo",
+      "/assets/images/maskedburgerweirdo.png"
+    );
+    this.app.loader.add(
+      "maybe_kamaida",
+      "/assets/images/maybe_kamaida.png"
+    );
+    this.app.loader.add(
+      "petscop",
+      "/assets/images/petscop.png"
+    );
+    this.app.loader.add(
+      "rainbowglorpy",
+      "/assets/images/rainbowglorpy.png"
+    );
+    this.app.loader.add(
+      "sportsjin",
+      "/assets/images/sportsjin.png"
+    );
+    this.app.loader.add(
+      "wormy",
+      "/assets/images/wormy.png"
     );
 
     this.app.loader.onProgress.add((loader, resource) => {
