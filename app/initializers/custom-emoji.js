@@ -195,6 +195,14 @@ export function initialize(/* application */) {
       shortnames: [':blueberrinies:'],
       keywords: ['blueberrinies'],
     },
+    ':peachy:': {
+      custom: true,
+      animated: true,
+      uc_base: 'peachy',
+      uc_output: '',
+      shortnames: [':peachy:'],
+      keywords: ['peachy'],
+    },
     ':miniburger:': {
       custom: true,
       uc_base: 'miniburger',
@@ -545,6 +553,13 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':ksd_spin:'],
       keywords: ['ksd_spin'],
+    },
+    ':datafruits_bag:': {
+      custom: true,
+      uc_base: 'datafruits_bag',
+      uc_output: '',
+      shortnames: [':datafruits_bag:'],
+      keywords: ['datafruits_bag'],
     },
   };
 
