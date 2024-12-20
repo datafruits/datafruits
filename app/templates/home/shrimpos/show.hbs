@@ -75,10 +75,18 @@
             {{#if (eq this.model.status 'completed')}}
               <!-- two cols of results -->
               <h1>best overall</h1>
+              {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
+                <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
+              {{/each}}
+              <hr />
               {{#each this.model.shrimpoVotingCategories as |category|}}
                 <h1>{{category.name}}</h1>
-                {{#each category.shrimpoVotingCategoryScores as |score|}}
-                  <Shrimpo::EntryCard @shrimpoEntry={{score.shrimpoEntry}} />
+                {{#each category.sortedScores as |score|}}
+                  <Shrimpo::EntryCard
+                    @shrimpoEntry={{score.shrimpoEntry}}
+                    @categoryScore={{score}}
+                  />
+                  <hr />
                 {{/each}}
               {{/each}}
             {{/if}}
@@ -86,7 +94,7 @@
             <h1>Entries</h1>
             {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
               <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
-          {{/each}}
+            {{/each}}
           {{/if}}
         {{/if}}
       </div>
