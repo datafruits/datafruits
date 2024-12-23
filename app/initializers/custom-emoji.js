@@ -561,12 +561,12 @@ export function initialize(/* application */) {
       shortnames: [':lol_grandpa:'],
       keywords: ['lol_grandpa'],
     },
-    ':hacker:': {
+    ':typing:': {
       custom: true,
-      uc_base: 'hacker',
+      uc_base: 'typing',
       uc_output: '',
-      shortnames: [':hacker:'],
-      keywords: ['hacker'],
+      shortnames: [':typing:'],
+      keywords: ['typing'],
     },
     ':hacker:': {
       custom: true,
@@ -574,6 +574,7 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':hacker:'],
       keywords: ['hacker'],
+    },
     ':datafruits_bag:': {
       custom: true,
       uc_base: 'datafruits_bag',
