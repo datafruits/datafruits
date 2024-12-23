@@ -158,6 +158,8 @@
     "completed_shrimpos": "Completed Shrimpos",
     "voting_completion": "done voting for this shrimpo!",
     "already_voted": "You already voted on this entry.",
+    "download_pack": "DOWNLOAD SHRIMPO PACK (.zip)",
+    "download_all": "DOWNLOAD ALL",
     "form": {
       "beginning": "THIS IS THE BEGINNING OF A NEW SHRIMPO",
       "title": "title",
