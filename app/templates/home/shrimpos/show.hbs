@@ -67,14 +67,35 @@
       <div>
         {{#if this.canShowEntries}}
           <div class="mb-4">
-            <h1>Entries</h1>
             {{#if this.model.entriesZipFileUrl}}
               <a class="cool-button" href={{@this.model.entriesZipFileUrl}}>DOWNLOAD ALL</a>
             {{/if}}
           </div>
-          {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
-            <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
-          {{/each}}
+          {{#if (eq this.model.shrimpoType 'mega')}}
+            {{#if (eq this.model.status 'completed')}}
+              <!-- two cols of results -->
+              <h1>best overall</h1>
+              {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
+                <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
+              {{/each}}
+              <hr />
+              {{#each this.model.shrimpoVotingCategories as |category|}}
+                <h1>{{category.name}}</h1>
+                {{#each category.sortedScores as |score|}}
+                  <Shrimpo::EntryCard
+                    @shrimpoEntry={{score.shrimpoEntry}}
+                    @categoryScore={{score}}
+                  />
+                  <hr />
+                {{/each}}
+              {{/each}}
+            {{/if}}
+          {{else}}
+            <h1>Entries</h1>
+            {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
+              <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
+            {{/each}}
+          {{/if}}
         {{/if}}
       </div>
 
