@@ -546,6 +546,27 @@ export function initialize(/* application */) {
       shortnames: [':ksd_spin:'],
       keywords: ['ksd_spin'],
     },
+    ':lol_grandpa:': {
+      custom: true,
+      uc_base: 'lol_grandpa',
+      uc_output: '',
+      shortnames: [':lol_grandpa:'],
+      keywords: ['lol_grandpa'],
+    },
+    ':hacker:': {
+      custom: true,
+      uc_base: 'hacker',
+      uc_output: '',
+      shortnames: [':hacker:'],
+      keywords: ['hacker'],
+    },
+    ':hacker:': {
+      custom: true,
+      uc_base: 'hacker',
+      uc_output: '',
+      shortnames: [':hacker:'],
+      keywords: ['hacker'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
