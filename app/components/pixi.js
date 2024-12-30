@@ -48,6 +48,23 @@ export default class PixiComponent extends Component {
   }
 
   theRavers() {
+    let blobSprite;
+    for (let i = 0; i < 10; i++) {
+      blobSprite = new PIXI.AnimatedSprite(this.animations["weirdBlobs"]);
+      blobSprite.x = Math.random() * this.app.screen.width;
+      blobSprite.y = Math.random() * this.app.screen.height;
+      blobSprite.scale.x = 0.25;
+      blobSprite.scale.y = 0.25;
+      blobSprite.animationSpeed = 0.15;
+      //blobSprite.rotation = Math.floor(Math.random() * 360);
+      let randomFrame = Math.floor(Math.random() * blobSprite.totalFrames);
+      blobSprite.gotoAndPlay(randomFrame);
+      this.app.stage.addChild(blobSprite);
+      //sprite.filters = [this.filter];
+      //this.sprites.pushObject(sprite);
+      this.paidFruitTipSprites.pushObject(blobSprite);
+    }
+
     const ravers = [
       "alandmoosleech",
       "burger_girl",
@@ -71,7 +88,9 @@ export default class PixiComponent extends Component {
       this.paidFruitTipSprites.pushObject(sprite);
 
     });
+
     let noise = new PIXI.filters.NoiseFilter(0.2);
+
     later(() => {
       // kill everything after 5000 ms
       //this.app.stage.removeChild(text);
