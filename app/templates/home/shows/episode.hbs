@@ -26,14 +26,14 @@
         {{/each}}
       </div>
       <strong>Air date:</strong> {{format-day this.model.start}} - {{format-time this.model.start}}
-      {{#if (or (eq this.currentUser.user.username this.model.hostedBy) (includes 'admin' this.currentUser.user.roles))}}
+      {{#if this.canEditShow}}
         <div class="my-2">
           <LinkTo
             @route="home.user.my-shows.episode"
             @models={{array this.model.showSeriesSlug this.model.slug}}
             class="cool-button"
           >
-            EDIT
+            {{t "profile.my-shows.edit"}}
           </LinkTo>
         </div>
       {{/if}}

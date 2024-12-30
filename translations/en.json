@@ -151,8 +151,15 @@
     "aria": "See what datafruits.fm is about"
   },
   "shrimpo": {
+    "tagline": "THE POWER OF SHRIMPO<span class='ml-2 text-lg italic'>beta</span> COMPELS YOU",
     "title": "SHRIMPO",
     "aria": "listen to or join a shrimpo musical battle",
+    "running_shrimpos": "Shrimpos In Progress",
+    "completed_shrimpos": "Completed Shrimpos",
+    "voting_completion": "done voting for this shrimpo!",
+    "already_voted": "You already voted on this entry.",
+    "download_pack": "DOWNLOAD SHRIMPO PACK (.zip)",
+    "download_all": "DOWNLOAD ALL",
     "form": {
       "beginning": "THIS IS THE BEGINNING OF A NEW SHRIMPO",
       "title": "title",
@@ -163,6 +170,11 @@
       "voting_emoji": "Voting Symbol",
       "zip_file": "Upload zip sample pack",
       "cover_art": "Cover Artwork"
+    },
+    "status": {
+      "running": "entry period",
+      "voting": "voting",
+      "completed": "completed"
     }
   },
   "upcoming": {
@@ -219,7 +231,10 @@
         "repeating": "Repeating or one off",
         "youtube-link": "Youtube URL",
         "mixcloud-link": "Mixcloud URL",
-        "soundcloud-link": "SoundCloud URL"
+        "soundcloud-link": "SoundCloud URL",
+        "prerecorded-archive": "Use pre-recorded file for archive",
+        "update": "SAVE",
+        "delete": "DELETE EPISODE"
       }
     },
     "chat": "Chat Preview",
@@ -474,7 +489,8 @@
     "login_or_register": "Login or register to post!",
     "form": {
       "title": "post title",
-      "body": "what's up"
+      "body": "what's up",
+      "save": "POSTTT"
     }
   },
   "fruit-tickets": {

@@ -100,19 +100,19 @@ jobs:
         run: pnpm coverage
 
       # Store coverage info as artifact
-      - name: Persist coverage info
-        uses: actions/upload-artifact@v2
-        with:
-          name: coverage-report
-          path: coverage
+      # - name: Persist coverage info
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: coverage-report
+      #     path: coverage
 
       # Upload coverage info to codecov
-      - name: Upload coverage info
-        if: github.event_name == 'push'
-        uses: codecov/codecov-action@v1
-        with:
-          fail_ci_if_error: true
-
+      # - name: Upload coverage info
+      #   if: github.event_name == 'push'
+      #   uses: codecov/codecov-action@v1
+      #   with:
+      #     fail_ci_if_error: true
+      #
   lighthouse:
     name: Lighthouse Score
     runs-on: ubuntu-latest
@@ -158,8 +158,8 @@ jobs:
           pnpm lighthouse
         continue-on-error: true
 
-      - name: Store generated report
-        uses: actions/upload-artifact@v2
-        with:
-          name: lighthouse-report
-          path: lhci
+      # - name: Store generated report
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: lighthouse-report
+      #     path: lhci

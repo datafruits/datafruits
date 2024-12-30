@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import type ShrimpoEntry from 'datafruits13/models/shrimpo-entry';
-//import type ShrimpoVote from 'datafruits13/models/shrimpo-vote';
 import type ShrimpoVotingCategory from 'datafruits13/models/shrimpo-voting-category';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
@@ -11,6 +10,7 @@ import fetch from 'fetch';
 interface ShrimpoVotingCategoriesTableArgs {
   entry: ShrimpoEntry;
   votingCategories: [ShrimpoVotingCategory];
+  votingCompletionPercentage: number;
 }
 
 export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotingCategoriesTableArgs> {
@@ -44,9 +44,10 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
     } else {
       // initialize votes if no existing votes
       this.args.votingCategories.forEach((votingCategory: ShrimpoVotingCategory) => {
-        this.votes[votingCategory.name] = {score: 0, emoji: votingCategory.emoji};
+        this.votes[votingCategory.name] = {score: 1, emoji: votingCategory.emoji};
       });
     }
+
   }
 
   @action
@@ -85,12 +86,14 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
         if (data.status == 200) {
           alert('Voteded!');
           this.voted = true;
+          this.store.loadRecord('shrimpo', this.args.entry.shrimpoSlug);
         } else {
           alert('Something went wrong!');
         }
       })
-      .catch(() => {
+      .catch((error) => {
         alert('Something went wrong!');
+        console.log(error);
       });
   }
 }

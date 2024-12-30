@@ -22,7 +22,7 @@
         @type="submit"
         @intent="primary"
         class="cool-button"
-        disabled={{or Form.state.hasSubmitted changeset.isInvalid}}
+        disabled={{or (or Form.state.hasSubmitted changeset.isInvalid) this.isUploading}}
         >
         {{t "shrimpo.form.submit"}}
       </Button>

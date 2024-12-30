@@ -6,9 +6,10 @@
   </await.Pending>
 
   <await.Fulfilled as |result|>
-    {{#each result as |track|}}
+    {{#each result as |show|}}
       <PodcastTrack
-        @track={{track}}
+        @track={{show.tracks.firstObject}}
+        @show={{show}}
         @selectedLabels={{this.selectedLabels}}
       />
     {{/each}}

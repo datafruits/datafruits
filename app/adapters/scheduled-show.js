@@ -13,12 +13,16 @@ export default class ScheduledShow extends ApplicationAdapter {
   }
 
   urlForQuery(query) {
+    console.log('urlForQuery: ', query);
     let djId = query.dj;
+    let id = query.id;
     let page = query.page || 1;
     if(query.start) {
       return `${this.urlPrefix()}/scheduled_shows`;
     } else if(djId) {
       return `${this.urlPrefix()}/djs/${djId}/episodes?page=${page}`;
+    } else if(id) {
+      return `${this.urlPrefix()}/scheduled_shows`;
     } else {
       return `${this.urlPrefix()}/show_series/${query.showSeries}/episodes`;
     }
@@ -35,5 +39,10 @@ export default class ScheduledShow extends ApplicationAdapter {
     // the showSeries isn't loaded when the page is refreshed
     const showSeriesSlug = this.router.currentURL.split("/user/my-shows/")[1].split("/episode/")[0];
     return `${this.urlPrefix()}/my_shows/${showSeriesSlug}/episodes/${snapshot.attr('slug')}`;
+  }
+
+  urlForDeleteRecord(id, modelName, snapshot) {
+    const showSeriesSlug = this.router.currentURL.split("/user/my-shows/")[1].split("/episode/")[0];
+    return `${this.urlPrefix()}/my_shows/${showSeriesSlug}/episodes/${id}`;
   }
 }
