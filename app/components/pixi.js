@@ -39,6 +39,8 @@ export default class PixiComponent extends Component {
 
   paidFruitTipSprites = [];
 
+  raverSprites = [];
+
   constructor() {
     super(...arguments);
     this.eventBus.subscribe("fruitTipped", this, "addFruitTip");
@@ -62,8 +64,9 @@ export default class PixiComponent extends Component {
 
       sprite.scale.x = 0.25;
       sprite.scale.y = 0.25;
-      sprite.x = this.app.screen.width / 4;
-      sprite.y = this.app.screen.height / 4;
+      sprite.x = Math.random() * this.app.screen.width;
+      sprite.y = Math.random() * this.app.screen.height;
+      this.raverSprites.push(sprite);
       this.app.stage.addChild(sprite);
       this.paidFruitTipSprites.pushObject(sprite);
 
@@ -834,6 +837,11 @@ export default class PixiComponent extends Component {
           sprite.scale.x += Math.sin(count) * 0.01;
           sprite.scale.y += Math.sin(count) * 0.01;
           sprite.rotation += Math.sin(count) * 0.01;
+        });
+
+        this.raverSprites.forEach((sprite) => {
+          sprite.x += Math.sin(count);
+          sprite.y += Math.cos(count);
         });
 
         if (this.alphaFadeout) {
