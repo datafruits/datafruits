@@ -582,6 +582,13 @@ export function initialize(/* application */) {
       shortnames: [':datafruits_bag:'],
       keywords: ['datafruits_bag'],
     },
+    ':the_ravers:': {
+      custom: true,
+      uc_base: 'the_ravers',
+      uc_output: '',
+      shortnames: [':the_ravers:'],
+      keywords: ['the_ravers'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
