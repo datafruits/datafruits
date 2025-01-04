@@ -77,7 +77,11 @@ export default class PixiComponent extends Component {
       "sportsjin",
       "wormy"
     ];
-    ravers.forEach((raver) => {
+    const raverCount = Math.floor(Math.random() * (30 - 20 + 1)) + 20;
+    //
+    for(let i = 0; i < raverCount; i++) {
+    //ravers.forEach((raver) => {
+      const raver = ravers[Math.floor(Math.random() * ravers.length)];
       let sprite = new PIXI.Sprite(this.textures[raver]);
 
       sprite.scale.x = 0.25;
@@ -88,7 +92,7 @@ export default class PixiComponent extends Component {
       this.app.stage.addChild(sprite);
       this.paidFruitTipSprites.pushObject(sprite);
 
-    });
+    }
 
     let noise = new PIXI.filters.NoiseFilter(0.2);
 
@@ -818,7 +822,7 @@ export default class PixiComponent extends Component {
         res.dragionFruit.spritesheet.animations["dragon_fruit.png"];
       this.animations.blueberrinies =
         res.blueberrinies.spritesheet.animations["blueberrinies.png"];
-      
+
       this.animations.peachy =
         res.peachy.spritesheet.animations["peachy"];
 
