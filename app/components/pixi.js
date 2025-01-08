@@ -17,6 +17,7 @@ export default class PixiComponent extends Component {
   app;
   sprites = [];
   animations = {};
+  textures = {};
 
   alphaFilterValue = 1.0;
   alphaFadeout = false;
@@ -34,14 +35,82 @@ export default class PixiComponent extends Component {
     "limer",
     "dragion-fruit",
     "blueberrinies",
+    "peachy",
   ];
 
   paidFruitTipSprites = [];
+
+  raverSprites = [];
 
   constructor() {
     super(...arguments);
     this.eventBus.subscribe("fruitTipped", this, "addFruitTip");
     this.eventBus.subscribe("weatherChanged", this, "reinitPixi");
+  }
+
+  theRavers() {
+    let blobSprite;
+    for (let i = 0; i < 10; i++) {
+      blobSprite = new PIXI.AnimatedSprite(this.animations["weirdBlobs"]);
+      blobSprite.x = Math.random() * this.app.screen.width;
+      blobSprite.y = Math.random() * this.app.screen.height;
+      blobSprite.scale.x = 0.25;
+      blobSprite.scale.y = 0.25;
+      blobSprite.animationSpeed = 0.15;
+      //blobSprite.rotation = Math.floor(Math.random() * 360);
+      let randomFrame = Math.floor(Math.random() * blobSprite.totalFrames);
+      blobSprite.gotoAndPlay(randomFrame);
+      this.app.stage.addChild(blobSprite);
+      //sprite.filters = [this.filter];
+      //this.sprites.pushObject(sprite);
+      this.paidFruitTipSprites.pushObject(blobSprite);
+    }
+
+    const ravers = [
+      "alandmoosleech",
+      "burger_girl",
+      "chill_ghost_shirt_guy",
+      "maskedburgerweirdo",
+      "maybe_kamaida",
+      "petscop",
+      "rainbowglorpy",
+      "sportsjin",
+      "wormy"
+    ];
+    const raverCount = Math.floor(Math.random() * (30 - 20 + 1)) + 20;
+    //
+    for(let i = 0; i < raverCount; i++) {
+    //ravers.forEach((raver) => {
+      const raver = ravers[Math.floor(Math.random() * ravers.length)];
+      let sprite = new PIXI.Sprite(this.textures[raver]);
+
+      sprite.scale.x = 0.25;
+      sprite.scale.y = 0.25;
+      sprite.x = Math.random() * this.app.screen.width;
+      sprite.y = Math.random() * this.app.screen.height;
+      this.raverSprites.push(sprite);
+      this.app.stage.addChild(sprite);
+      this.paidFruitTipSprites.pushObject(sprite);
+
+    }
+
+    let noise = new PIXI.filters.NoiseFilter(0.2);
+
+    later(() => {
+      // kill everything after 5000 ms
+      //this.app.stage.removeChild(text);
+      //text.filters = [this.filter, this.alphaFilter];
+      this.paidFruitTipSprites.forEach((sprite) => {
+        sprite.filters = [noise, this.alphaFilter];
+      });
+      this.alphaFadeout = true;
+    }, 5000);
+
+    const element = document.getElementsByTagName('body')[0];
+    element.classList.remove('screen-shake');
+    // https://css-tricks.com/restart-css-animation/
+    void element.offsetWidth;
+    element.classList.add('screen-shake');
   }
 
   metalPineappleAnimation() {
@@ -398,6 +467,8 @@ export default class PixiComponent extends Component {
         return this.megaBeamsprout();
       } else if (event === "giga-shrimpshake") {
         return this.gigaShrimpshake();
+      } else if (event === "the-ravers") {
+        return this.theRavers();
       } else if (this.fruits.includes(event)) {
         animation = event.replace(/-./g, (x) => x[1].toUpperCase());
       } else {
@@ -630,9 +701,15 @@ export default class PixiComponent extends Component {
       "dragionFruit",
       "/assets/images/sprites/dragon_fruit.json",
     );
+
     this.app.loader.add(
       "blueberrinies",
       "/assets/images/sprites/blueberrinies.json",
+    );
+
+    this.app.loader.add(
+      "peachy",
+      "/assets/images/sprites/peachy.json",
     );
     this.app.loader.add("shader", "/assets/shaders/shader.frag");
 
@@ -662,6 +739,43 @@ export default class PixiComponent extends Component {
       "/assets/images/sprites/blue_shrimp.json",
     );
 
+    this.app.loader.add(
+      "alandmoosleech",
+      "/assets/images/alandmoosleech.png"
+    );
+    this.app.loader.add(
+      "burger_girl",
+      "/assets/images/burger_girl.png"
+    );
+    this.app.loader.add(
+      "chill_ghost_shirt_guy",
+      "/assets/images/chill_ghost_shirt_guy.png"
+    );
+    this.app.loader.add(
+      "maskedburgerweirdo",
+      "/assets/images/maskedburgerweirdo.png"
+    );
+    this.app.loader.add(
+      "maybe_kamaida",
+      "/assets/images/maybe_kamaida.png"
+    );
+    this.app.loader.add(
+      "petscop",
+      "/assets/images/petscop.png"
+    );
+    this.app.loader.add(
+      "rainbowglorpy",
+      "/assets/images/rainbowglorpy.png"
+    );
+    this.app.loader.add(
+      "sportsjin",
+      "/assets/images/sportsjin.png"
+    );
+    this.app.loader.add(
+      "wormy",
+      "/assets/images/wormy.png"
+    );
+
     this.app.loader.onProgress.add((loader, resource) => {
       console.log(`Loading ${resource.name}: ${loader.progress}%`);
     });
@@ -671,6 +785,7 @@ export default class PixiComponent extends Component {
     });
 
     this.app.loader.load((loader, res) => {
+      console.log(res);
       this.filter = new PIXI.Filter(null, res.shader.data, {
         customUniform: 0.0,
       });
@@ -708,6 +823,19 @@ export default class PixiComponent extends Component {
       this.animations.blueberrinies =
         res.blueberrinies.spritesheet.animations["blueberrinies.png"];
 
+      this.animations.peachy =
+        res.peachy.spritesheet.animations["peachy"];
+
+      this.textures.alandmoosleech = PIXI.Texture.from(res.alandmoosleech.url);
+      this.textures.burger_girl = PIXI.Texture.from(res.burger_girl.url);
+      this.textures.chill_ghost_shirt_guy = PIXI.Texture.from(res.chill_ghost_shirt_guy.url);
+      this.textures.maskedburgerweirdo = PIXI.Texture.from(res.maskedburgerweirdo.url);
+      this.textures.maybe_kamaida = PIXI.Texture.from(res.maybe_kamaida.url);
+      this.textures.petscop = PIXI.Texture.from(res.petscop.url);
+      this.textures.rainbowglorpy = PIXI.Texture.from(res.rainbowglorpy.url);
+      this.textures.sportsjin = PIXI.Texture.from(res.sportsjin.url);
+      this.textures.wormy = PIXI.Texture.from(res.wormy.url);
+
       // Resume application update
       this.app.start();
 
@@ -734,7 +862,7 @@ export default class PixiComponent extends Component {
 
         this.filter.uniforms.customUniform += delta;
 
-        count += 0.02;
+        count += 0.02 * delta;
 
         this.sprites.forEach((sprite) => {
           sprite.x += Math.sin(count);
@@ -742,6 +870,11 @@ export default class PixiComponent extends Component {
           sprite.scale.x += Math.sin(count) * 0.01;
           sprite.scale.y += Math.sin(count) * 0.01;
           sprite.rotation += Math.sin(count) * 0.01;
+        });
+
+        this.raverSprites.forEach((sprite) => {
+          sprite.x += Math.sin(count);
+          sprite.y += Math.cos(count);
         });
 
         if (this.alphaFadeout) {

@@ -19,6 +19,7 @@ export default class DjController extends Controller {
   }
 
   get modelBio() {
+    if (!this.model.bio) return undefined;
     return htmlSafe(emojione.shortnameToImage(this.model.bio));
   }
 

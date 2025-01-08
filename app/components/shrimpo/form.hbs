@@ -38,11 +38,22 @@
       rows='10'
       cols='50'
       />
-    <Form.Input
-      @label={{t "shrimpo.form.voting_emoji"}}
-      @fieldName="emoji"
-      @containerClass='mb-2'
-      />
+    <select
+        id="shrimpo-type"
+        {{on "change" (fn this.setShrimpoType changeset)}}
+        >
+        {{#each this.shrimpoTypes as |shrimpoType|}}
+          <option value="{{shrimpoType}}" selected={{(eq changeset.shrimpoType shrimpoType)}}>{{shrimpoType}}</option>
+        {{/each}}
+    </select>
+    {{#if (eq changeset.shrimpoType 'normal')}}
+      <Form.Input
+        @label={{t "shrimpo.form.voting_emoji"}}
+        @fieldName="emoji"
+        @containerClass='mb-2'
+        />
+    {{else}}
+    {{/if}}
     <div>
       <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.start"}}</label>
       <input

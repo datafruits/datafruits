@@ -44,6 +44,16 @@
             rows='20'
             cols='50'
             />
+          <TimePicker
+            @property="start"
+            @changeset={{changeset}}
+            @onChange={{this.setEndAfterStart}}
+            />
+          <TimePicker
+            @property="end"
+            @changeset={{changeset}}
+            @startTime={{changeset.start}}
+            />
           {{#if @episode.airDatePassed}}
             <h2
               class="text-x">
@@ -51,7 +61,7 @@
             </h2>
             <Form.Checkbox
               @type="checkbox"
-              @label="Use prerecorded file for archive"
+              @label={{t "profile.my-shows.form.prerecorded-archive"}}
               id="use-prerecord"
               @fieldName="usePrerecordedFileForArchive"
               />
@@ -59,13 +69,15 @@
             {{#if @episode.prerecordTrackFilename}}
               <span>{{@episode.prerecordTrackFilename}}</span>
             {{/if}}
-            <h3
-              class="text-l">
-              Select recording
-            </h3>
-            <MyShows::RecordingsSearch
-              @changeset={{changeset}}
-              />
+            <div class="mb-2">
+              <h3
+                class="text-l">
+                Select recording
+              </h3>
+              <MyShows::RecordingsSearch
+                @changeset={{changeset}}
+                />
+            </div>
             <Form.Input
               @label={{t "profile.my-shows.form.youtube-link"}}
               @fieldName="youtubeLink"
@@ -115,17 +127,7 @@
         class="mb-2"
         @changeset={{changeset}}
         />
-      {{#if (includes 'admin' this.currentUser.user.roles)}}
-        <TimePicker
-          @property="startAt"
-          @changeset={{changeset}}
-          />
-        <TimePicker
-          @property="endAt"
-          @changeset={{changeset}}
-          />
-      {{/if}}
-      <div>
+      <div class="mb-4">
         <Button
           @type='submit'
           @intent='primary'
@@ -134,8 +136,20 @@
           }}
           class='cool-button mb-2'
           >
-          UPDATE EPISODE
+          {{t "profile.my-shows.form.update"}}
         </Button>
       </div>
+      {{#if (or (eq this.currentUser.user.username @episode.hostedBy) (includes 'admin' this.currentUser.user.roles))}}
+        <div>
+          <Button
+            @type='submit'
+            @intent='danger'
+            class='cool-button mb-2 danger'
+            {{on "click" this.deleteEpisode}}
+            >
+            {{t "profile.my-shows.form.delete"}}
+          </Button>
+        </div>
+      {{/if}}
   </Ui::ChangesetForm>
 {{/let}}

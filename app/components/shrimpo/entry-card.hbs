@@ -2,7 +2,7 @@
   <div class="flex items-start">
     {{#if (or (eq @shrimpoEntry.shrimpo.status 'completed') (eq @shrimpoEntry.shrimpo.shrimpoType 'major'))}}
       <span>
-        <img src="{{@shrimpoEntry.userAvatar}}" alt="" />
+        <img class="rounded-lg" style="height: 3rem;" src="{{@shrimpoEntry.userAvatar}}" alt="" />
       </span>
     {{/if}}
     <div class="flex flex-col">
@@ -12,7 +12,7 @@
       >
         <h2>{{@shrimpoEntry.title}}</h2>
       </LinkTo>
-      {{#if (or (eq @shrimpoEntry.shrimpo.status 'completed') (eq @shrimpoEntry.shrimpo.shrimpoType 'major'))}}
+      {{#if (or (eq @shrimpoEntry.shrimpo.status 'completed') (eq @shrimpoEntry.shrimpo.shrimpoType 'mega'))}}
         <LinkTo
           @route='home.dj'
           @model={{@shrimpoEntry.username}}
@@ -24,7 +24,15 @@
   </div>
   {{#if (eq @shrimpoEntry.shrimpo.status 'completed')}}
     <div class="">
-      <span class="font-extrabold">{{formatted-shrimpo-ranking @shrimpoEntry.ranking @shrimpoEntry.shrimpo.savedShrimpoEntries.length}}</span>
+      {{#if @categoryScore}}
+        <span class="font-extrabold">
+          {{formatted-shrimpo-ranking @categoryScore.ranking @shrimpoEntry.shrimpo.savedShrimpoEntries.length}}
+        </span>
+      {{else}}
+        <span class="font-extrabold">
+          {{formatted-shrimpo-ranking @shrimpoEntry.ranking @shrimpoEntry.shrimpo.savedShrimpoEntries.length}}
+        </span>
+      {{/if}}
       <div>
         {{#each @shrimpoEntry.trophyAwards as |trophyAward|}}
           <User::BadgeViewerContainer @badge={{trophyAward}} />
@@ -32,8 +40,13 @@
       </div>
 
       <div>
-        <span>Total {{this.scoreEmoji}}'s:</span>
-        <span class="font-extrabold">{{@shrimpoEntry.totalScore}}</span>
+        {{#if @categoryScore}}
+          <span>Total {{this.categoryScoreEmoji}}'s:</span>
+          <span class="font-extrabold">{{@categoryScore.score}}</span>
+        {{else}}
+          <span>Total {{this.scoreEmoji}}'s:</span>
+          <span class="font-extrabold">{{@shrimpoEntry.totalScore}}</span>
+        {{/if}}
       </div>
     </div>
   {{/if}}

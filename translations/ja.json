@@ -75,7 +75,9 @@
         "repeating": "Repeating or one off",
         "youtube-link": "YoutubeのURL",
         "mixcloud-link": "MixcloudのURL",
-        "soundcloud-link": "SoundCloudのURL"
+        "soundcloud-link": "SoundCloudのURL",
+        "prerecorded-archive": "事前に記録されたファイルをアーカイブとして使用する",
+        "update": "保存"
       }
     },
     "notifications": {
@@ -174,7 +176,14 @@
     "upcoming_shows": "次の生放送予定"
   },
   "show": {
-    "archive": "アーカイブを聞く"
+    "hosted_prefix": "ホスト:",
+    "archive": "アーカイブを聞く",
+    "episodes": "前のエピソード",
+    "tracklist": "トラックリスト",
+    "episode": {
+      "comments": "コメント",
+      "leave_a_comment": "コメントしませんか....???"
+    }
   },
   "player": {
     "aria": {
@@ -192,5 +201,46 @@
   "donate": {
     "title": "寄付する",
     "dj_link": "現状のDJに寄付するリンクはこちらです。"
+  },
+  "forum": {
+    "title": "da fruit standz",
+    "new_topic": "新投稿",
+    "aria": "a forum to communicate with your fellow fruits",
+    "login_or_register": "ログインまたはアカウント登録",
+    "form": {
+      "title": "タイトル",
+      "body": "何してます?",
+      "save": "送信"
+    }
+  },
+  "fruit-tickets": {
+    "amount": "いくら送りますか?",
+    "submit": "さよなら"
+  },
+  "forms": {
+    "saving": "保存中....電源を切り替えしないでください　........."
+  },
+  "shrimpo": {
+    "tagline": "SHRIMPO(β)のパワーがあなたを駆り立てます",
+    "title": "SHRIMPO",
+    "aria": "SHRIMPOの音楽バトルを聴いたり参加したりする",
+    "running_shrimpos": "進行中",
+    "completed_shrimpos": "完成",
+    "form": {
+      "beginning": "これは新しいSHRIMPOの始まりです!!!",
+      "title": "タイトル",
+      "rulepack": "詳細",
+      "rulepack_placeholder": "このSHRIMPOのルール/説明をここに入力してください!",
+      "length": "応募期間",
+      "submit": "SHRIMPOする",
+      "voting_emoji": "投票絵文字",
+      "zip_file": "zipファイルのサンプルパックをアップロード",
+      "cover_art": "ジャケット"
+    },
+    "status": {
+      "running": "エントリー期間中",
+      "voting": "投票期間",
+      "completed": "完了"
+    }
   }
 }

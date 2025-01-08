@@ -6,6 +6,11 @@ export default class HomeShrimpos extends Controller {
   declare model: [Shrimpo];
 
   @service declare session: any;
+  @service declare currentUser: any;
+
+  get canCreateNewShrimpo(): boolean {
+    return this.session.isAuthenticated && (this.currentUser.user.level > 2);
+  }
 
   get savedShrimpos() {
     return this.model.filter((shrimpo: any) => {

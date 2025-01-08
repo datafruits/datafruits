@@ -3,6 +3,8 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import type ScheduledShow from 'datafruits13/models/scheduled-show';
+import dayjs, { Dayjs } from "dayjs";
+import { BufferedChangeset } from 'ember-changeset/types';
 
 interface MyShowsEpisodeFormArgs {
   episode: ScheduledShow;
@@ -10,6 +12,7 @@ interface MyShowsEpisodeFormArgs {
 
 export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs> {
   @service declare router: any;
+  @service declare currentUser: any;
 
   file: Blob | null = null;
 
@@ -54,5 +57,23 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   @action
   onError() {
     console.log('couldnt ssave show');
+  }
+
+  @action
+  deleteEpisode() {
+    confirm("Are you sure?!!!");
+    this.args.episode.destroyRecord().then(() => {
+      alert("Goodbye episode. :(");
+      //redirect to /my-shows
+      this.router.transitionTo('home.user.my-shows');
+    });
+  }
+
+  @action
+  setEndAfterStart(startTime: Dayjs, changeset: BufferedChangeset) {
+    if(startTime.hour() > dayjs(changeset.get('endAt')).hour()) {
+      console.log('setting end time to: ', startTime.add(1, 'hour').hour());
+      changeset.set('endTime', startTime.add(1, 'hour'));
+    }
   }
 }
