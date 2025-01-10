@@ -144,7 +144,8 @@
         />
       {{#if (includes 'admin' this.currentUser.user.roles)}}
         <select
-          {{on "change" (pick "target.value" (set changeset "recurringCadence"))}}
+          class="mb-4"
+          {{on "change" (pick "target.value" (set changeset "status"))}}
           >
           {{#each this.statusOptions as |status|}}
             <option

@@ -18,6 +18,7 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
 
   @service declare router: any;
   @service declare store: any;
+  @service declare currentUser: any;
 
   file: Blob | null = null;
 
