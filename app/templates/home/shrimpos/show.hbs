@@ -42,10 +42,10 @@
           <h3>Shrimpo type: <span class="uppercase">{{this.model.shrimpoType}}</span></h3>
         </div>
         {{#if (eq this.model.shrimpoType 'mega')}}
-        <div>
-          <h4>Voting Categories:</h4>
-          {{this.formattedVotingCategories}}
-        </div>
+          <div>
+            <h4>Voting Categories:</h4>
+            {{this.formattedVotingCategories}}
+          </div>
         {{/if}}
         <h4>{{this.model.savedShrimpoEntries.length}} entries</h4>
         <div>
@@ -88,6 +88,11 @@
                   />
                   <hr />
                 {{/each}}
+              {{/each}}
+            {{else}}
+              <h1>Entries</h1>
+              {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
+                <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
               {{/each}}
             {{/if}}
           {{else}}
