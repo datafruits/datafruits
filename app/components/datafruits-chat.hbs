@@ -6,6 +6,7 @@
   {{else if this.chat.loading}}
     <h1>{{t "chat.loading"}}</h1>
   {{else}}
+    <HypeMeter />
     <div id="chat-area"
       class="font-bold flex flex-row flex-grow min-h-0 relative text-shadow mb-5 flex-basis-0"
       style={{this.color}}
