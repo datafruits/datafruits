@@ -39,6 +39,7 @@ export default class ChatService extends Service {
 
   @tracked _fruitCounts: FruitCount = {};
 
+  @tracked limitBreakActivated: boolean = true; // TODO
   @tracked limitBreakProgress: number = 0;
 
   @tracked loading: boolean = true;
@@ -277,6 +278,12 @@ export default class ChatService extends Service {
       console.log('limit break reached: ', msg);
       // this.eventBus.publish("limitBreakReached", msg.limitBreakCombo);
     });
+
+    // this.chan.on('limit_break_activate', (msg) => {
+    // });
+    //
+    // this.chan.on('limit_break_cooldown', (msg) => {
+    // });
 
     this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
 
