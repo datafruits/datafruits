@@ -39,6 +39,8 @@ export default class ChatService extends Service {
 
   @tracked _fruitCounts: FruitCount = {};
 
+  @tracked limitBreakProgress: number = 0;
+
   @tracked loading: boolean = true;
 
   username: string = '';
@@ -264,6 +266,16 @@ export default class ChatService extends Service {
       for (const [key, value] of Object.entries(counts)) {
         this.setFruitCount(key, value);
       }
+    });
+
+    this.chan.on('limit_break_increase', (msg) => {
+      console.log('limit break increased!: ', msg);
+      this.limitBreakProgress = msg.percentage;
+    });
+
+    this.chan.on('limit_break_reached', (msg) => {
+      console.log('limit break reached: ', msg);
+      // this.eventBus.publish("limitBreakReached", msg.limitBreakCombo);
     });
 
     this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');

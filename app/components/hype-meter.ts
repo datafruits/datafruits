@@ -1,8 +1,12 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
+import type ChatService from 'datafruits13/services/chat';
 
 interface HypeMeterArgs {}
 
 export default class HypeMeter extends Component<HypeMeterArgs> {
-  @tracked progress = 65;
+  @service declare chat: ChatService;
+  get progress() {
+    return this.chat.limitBreakProgress;
+  }
 }
