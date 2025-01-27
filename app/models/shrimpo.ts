@@ -44,7 +44,9 @@ export default class Shrimpo extends Model {
 
   @attr('string') declare votingCompletionPercentage: string;
 
-get translatedStatus() {
+  @attr('boolean') declare multiSubmitAllowed: boolean;
+
+  get translatedStatus() {
     return this.intl.t(`shrimpo.status.${this.status}`);
   }
 

@@ -40,6 +40,10 @@ export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploader
     }
   }
 
+  get canSubmitEntry() {
+    return this.args.shrimpo.multiSubmitAllowed || this.entry.isNew;
+  }
+
   @action
   onSubmit(data: any, event: Event) {
     console.log(data);
