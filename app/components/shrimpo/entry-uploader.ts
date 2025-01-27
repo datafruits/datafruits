@@ -30,8 +30,7 @@ export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploader
     const myEntry = this.args.shrimpo.get('shrimpoEntries').filter((e: ShrimpoEntry) => {
       return e.username === this.currentUser.user.username;
     });
-    console.log(myEntry);
-    if(myEntry.length) {
+    if(myEntry.length && !this.args.shrimpo.multiSubmitAllowed) {
       this.entry = myEntry[0];
     } else {
       this.entry = this.store.createRecord('shrimpo-entry', {
