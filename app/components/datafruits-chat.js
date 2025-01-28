@@ -11,6 +11,10 @@ export default class DatafruitsChat extends Component {
     return this.chatText.color;
   }
 
+  get showHypeMeter() {
+    return this.chat.limitBreakActivated;
+  }
+
   @service chatText;
 
   @tracked nick = '';
@@ -103,4 +107,4 @@ declare module '@glint/environment-ember-loose/registry' {
     DatafruitsChat: typeof DatafruitsChat;
   }
 }
-  
+
