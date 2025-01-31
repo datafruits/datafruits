@@ -142,7 +142,7 @@
         class="mb-2"
         @changeset={{changeset}}
         />
-      {{#if (includes 'admin' this.currentUser.user.roles)}}
+      {{#if (and (not-eq changeset.recurringInterval 'not_recurring') (includes 'admin' this.currentUser.user.roles))}}
         <select
           class="mb-4"
           {{on "change" (pick "target.value" (set changeset "status"))}}
