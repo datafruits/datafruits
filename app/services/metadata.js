@@ -30,6 +30,7 @@ export default class MetadataService extends Service {
       });
 
     metadataChannel.on('metadata', (metadata) => {
+      // get the link to the episode here???
       console.log(`metadata channel donation_link: ${metadata.donation_link}`); // eslint-disable-line no-console
       console.log(`metadata channel message: ${metadata.message}`); // eslint-disable-line no-console
       if (!isEmpty(metadata.message)) {

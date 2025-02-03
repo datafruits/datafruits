@@ -1,9 +1,29 @@
 import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { later } from '@ember/runloop';
 import { action } from '@ember/object';
 import ENV from 'datafruits13/config/environment';
 export default class DatafruitsVisuals extends Component {
+  @service
+  fastboot;
+
+  @service
+  videoStream;
+
+  // @tracked dialogOpen = true;
+  //
+  get isTvMode() {
+    console.log('this.videoStream.mode: ', this.videoStream.mode);
+    console.log('this.videoStream.mode: ', this.videoStream.mode === 'tv');
+    return this.videoStream.mode === 'tv';
+  }
+
+  @action
+  closeDialog() {
+    //this.dialogOpen = false;
+    this.videoStream.toggleMode();
+  }
 
   get draggable() {
     if (this.videoStream.mode === 'tv') {
@@ -14,25 +34,17 @@ export default class DatafruitsVisuals extends Component {
   }
 
   get styleProperties() {
-    if (!this.videoStream.displaying) {
+    if (this.videoStream.mode === 'tv') {
       return 'display: none';
-    }
-
-    if (this.videoStream.mode === 'bg') {
+    } else {
+//(this.videoStream.mode === 'bg') {
       return `top: 0 !important; \
         left: 0 !important; \
         width: 100vw !important; \
         height: 100vh !important; \
         z-index: -999`;
     }
-    return "";
   }
-
-  @service
-  fastboot;
-
-  @service
-  videoStream;
 
   @action
   initIfActive() {
@@ -59,8 +71,7 @@ export default class DatafruitsVisuals extends Component {
 
   dragStart(event) {
     console.log('dragStart');
-    console.log(event);
-  }
+    console.log(event); }
 
   drag(event) {
     console.log('drag');
@@ -84,4 +95,4 @@ declare module '@glint/environment-ember-loose/registry' {
     DatafruitsVisuals: typeof DatafruitsVisuals;
   }
 }
-  
+
