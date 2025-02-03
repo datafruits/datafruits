@@ -2,10 +2,21 @@
   {{did-insert this.didInsert}}
   {{did-update this.initIfActive this.videoStream.active}}
   class="visuals">
-  {{#if this.videoStream.active}}
-    <Visuals::Video 
-      @styleProperties={{this.styleProperties}}
-      @draggable={{this.draggable}}
-    />
+  {{#if this.isTvMode}}
+    <Ui::Modal
+        @toggleModal={{this.closeDialog}}
+      >
+      {{#if this.videoStream.active}}
+        <Visuals::VideoWindow />
+      {{/if}}
+    </Ui::Modal>
+  {{else}}
+    {{#if this.videoStream.active}}
+      {{log 'rendering bg vid'}}
+      <Visuals::Video
+        @styleProperties={{this.styleProperties}}
+        @draggable={{this.draggable}}
+      />
+    {{/if}}
   {{/if}}
 </div>
