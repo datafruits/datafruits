@@ -6,7 +6,7 @@
   <div class="page-bg">
     <div class="about-section">
       <div id="about-us-details">
-        <h1>About us</h1>
+        <h1>{{t "about_datafruits_header"}}</h1>
         <div class="about-section-text">
           <p>
             {{t "about_datafruits_1"}}
@@ -20,24 +20,29 @@
         </div>
       </div>
       <div id="community-details">
-        <h1>Community</h1>
+        <h1>{{t "about_community_header"}}</h1>
         <div class="about-section-text">
           <p>
-            Our collective of artists and contributors are expected to positively engage and to follow our guidelines. Our volunteer moderators are responsible for enforcing the rules listed in the
+            {{t "about_community_1"}}
             <span>
               <LinkTo @route="home.coc" aria-label={{t "code_of_conduct_aria"}}>
                 {{t "code_of_conduct"}}.
               </LinkTo>
             </span>
-            Datafruits is a self-governing community that democratically decides on the direction of our shared space.
+            {{t "about_community_2"}}
           </p>
         </div>
       </div>
       <div id="support-details">
-        <h1>Support</h1>
+        <h1>{{t "about_page.listenersupport_header"}}</h1>
         <div class="about-section-text">
           <p>
             {{t "about_page.listenersupport"}}
+          </p>
+        </div>
+        <div class="about-section-text">
+          <p>
+            <LinkTo @route="home.support" />{{t "about_page.premium_learn_more"}}</LinkTo>
           </p>
         </div>
         <div class="about-section-text">
@@ -47,17 +52,6 @@
           <a href="https://paypal.me/datafruitsfm" target="_blank" rel="noopener noreferrer" aria-label={{t "about_page.donate_aria"}}>
             {{t "about_page.donate_linktext"}}
           </a>
-        </div>
-      </div>
-      <div id="subscribe-details">
-        <h1>Subscribe</h1>
-        <div class="about-section-text">
-        <p>
-          {{t "subscribe.description"}}
-        </p>
-        <LinkTo @route="home.subscribe" aria-label={{t "subscribe.aria"}}>
-          {{t "subscribe.aria"}}
-        </LinkTo>
         </div>
       </div>
       <hr class="border-df-green my-4 blm:border-white"/>
@@ -124,7 +118,7 @@
             </a>
           </li>
           <li>
-            <a 
+            <a
               href="https://datafruits.bandcamp.com/"
               title={{t "bandcamp.title"}}
               aria-label={{t "bandcamp.aria"}}
@@ -134,7 +128,7 @@
             </a>
           </li>
           <li>
-            <a 
+            <a
               href="https://www.patreon.com/datafruits"
               title={{t "patreon.title"}}
               aria-label={{t "patreon.aria"}}
@@ -154,7 +148,7 @@
             </a>
           </li>
           <li>
-            <a href="https://paypal.me/datafruitsfm" 
+            <a href="https://paypal.me/datafruitsfm"
               title={{t "paypal.title"}}
               target="_blank" rel="noopener noreferrer" aria-label={{t "about_page.donate_aria"}}
             >

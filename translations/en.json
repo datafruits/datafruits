@@ -314,9 +314,13 @@
     "6": "It's ok buddy, just let us know your email so we can help you reset it"
   },
   "just_a_website": "its just a website",
+  "about_datafruits_header": "About us",
   "about_datafruits_1": "Datafruits is a cooperatively owned and operated free-form net radio station. This website was created by and for fans of internet radio and netlabels. Our station has little to no curation, and we believe that any song can be played.",
   "about_datafruits_2": "With artists around the globe, we are located throughout the US, Tokyo, and Seoul.  Our goal is to provide an accessible space for the international music community; Particularly for underserved and marginalized communities.",
   "about_datafruits_3": "The site has had no sponsorships or advertisements since 2012, and all of our support comes from the listeners, artists, and the generosity of strangers on the internet. We may live in a \"Platform capitalist\" world now, but that doesn't mean we're alone. We can help make the world a better place with a bit of cooperation and understanding. And remember, it's just a website.",
+  "about_community_header": "Community",
+  "about_community_1": "Our collective of artists and contributors are expected to positively engage and to follow our guidelines. Our volunteer moderators are responsible for enforcing the rules listed in the",
+  "about_community_2": "Datafruits is a self-governing community that democratically decides on the direction of our shared space.",
   "twitter": {
     "title": "Twitter",
     "aria": "Visit the @datafruits Twitter page"
@@ -417,9 +421,11 @@
   },
   "about_page": {
     "listenersupport": "Datafruits.fm is possible thanks to the generous support of the listeners. The best way to support us is with a monthly pledge of your choosing on Patreon. You'll get exclusive posts along with a monthly update video. You will also get a stipend of fruit tickets per month, along with a cool supporter badge in your profile. Donate at least $7/mo or higher and receive a pack of stickers to your mail every other month. Neato!",
+    "listenersupport_header": "Support",
     "donate_request": "If you'd like to make an one-time donation.",
     "donate_linktext": "https://paypal.me/datafruitsfm",
     "donate_aria": "Make a donation to datafruits.fm through PayPal",
+    "premium_learn_more": "Learn more about Datafruits Premium Membership",
     "datafruits_premium": "Become a datafruits premium member"
   },
   "support": {
