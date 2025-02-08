@@ -186,6 +186,9 @@
   "loading": "ロード中。。。",
   "next_broadcast": "次の生放送: ",
   "now_playing": "Now playing",
+  "support": {
+    "title": "サポート"
+  },
   "dj": {
     "podcasts": "ポッドキャスト",
     "upcoming_shows": "次の生放送予定"
