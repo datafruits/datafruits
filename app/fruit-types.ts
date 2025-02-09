@@ -18,6 +18,7 @@ const fruitTypes: Array<Fruit> = [
   //new Fruit('mega-beamsprout', '/assets/images/emojis/beamsprout_3d.png', 500),
   new Fruit('giga-shrimpshake', '/assets/images/emojis/shrimpshake.png', 1000),
   new Fruit('the-ravers', '/assets/images/emojis/the_ravers.png', 1200),
+  new Fruit('fruit-smoothie', '/assets/images/emojis/acid.gif')
 ];
 
 export default fruitTypes;
