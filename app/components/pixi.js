@@ -43,53 +43,6 @@ export default class PixiComponent extends Component {
 
   raverSprites = [];
 
-  trailVertexShader= `
-    attribute vec2 aVertexPosition;
-    attribute vec2 aTextureCoord;
-    uniform mat3 projectionMatrix;
-    varying vec2 v_texCoord;
-
-    void main(void) {
-      gl_Position = vec4((projectionMatrix * vec3(aVertexPosition, 1.0)).xy, 0.0, 1.0);
-      v_texCoord = aTextureCoord; // Pass correct texture coordinates to the fragment shader
-    }
-  `;
-
-  trailFragmentShader = `
-    precision mediump float;
-
-    uniform float u_time;
-    uniform vec3 u_hueOffset;
-    uniform float u_opacity;
-    uniform sampler2D u_texture;
-    uniform vec4 u_frame; // Frame position in the spritesheet
-    uniform vec2 u_scale; // scale uniform
-    varying vec2 v_texCoord;
-
-    void main() {
-      // Adjust texture coordinates to properly sample only the current frame
-      vec2 frameUV = v_texCoord * u_frame.zw + u_frame.xy;
-
-      // Apply scale adjustment so texture coordinates respect sprite scaling
-      vec2 scaledUV = (frameUV - 0.5) / u_scale + 0.5;
-
-      // Sample the texture at the corrected coordinates
-      vec4 color = texture2D(u_texture, scaledUV);
-
-      // Apply a fade effect over time
-      float fade = exp(-u_time * 0.1);
-      color.a *= fade;
-
-      // Adjust hue
-      vec3 hsv = vec3(mod(color.r + u_hueOffset.x, 1.0), color.g, color.b);
-      color.rgb = hsv;
-      color.a *= u_opacity;
-
-      gl_FragColor = color;
-    }
-  `;
-
-
   constructor() {
     super(...arguments);
     this.eventBus.subscribe("fruitTipped", this, "addFruitTip");
@@ -505,109 +458,71 @@ export default class PixiComponent extends Component {
   }
 
   fruitSmoothie() {
-    // const centerX = this.app.screen.width / 2;
-    // const centerY = this.app.screen.height / 2;
     const centerX = 0;
     const centerY = 0;
-    // const spiralDistance = 25; // Controls how tight the spiral is
     let angle = 0; // Starting angle
     let radius = 10; // Initial spacing between fruits
     let spiralSpacing = 15; // Distance increase per step
     let angleIncrement = Math.PI / 6; // Spiral step angle
+    let noise = new PIXI.filters.NoiseFilter(0.2);
 
-    // Clear previous sprites
-    // this.spiralSprites.forEach((sprite) => {
-    //   this.app.stage.removeChild(sprite);
-    // });
-    // this.spiralSprites = [];
-    //
-    this.fruits.forEach((fruit) => {
-      console.log(fruit);
-      //   // add five of each fruit
-      //   for(let i = 0; i < 2; i++) {
-        //let fruit = 'orange';
-        //
+    for(let i = 0; i < 20; i++) {
+      this.fruits.forEach((fruit) => {
         const fruitName = fruit.replace(/-./g, (x) => x[1].toUpperCase());
         let sprite = new PIXI.AnimatedSprite(this.animations[fruitName]);
         sprite.scale.x = 0.25;
         sprite.scale.y = 0.25;
 
-        // sprite.x = centerX + radius * Math.cos(angle); // X position
-        // sprite.y = centerY + radius * Math.sin(angle); // Y position
         sprite.x = centerX;
         sprite.y = centerY;
 
-
         // Store initial radius and angle
-        // sprite.initialRadius = radius;
         sprite.angle = angle;
         sprite.radius = radius;
 
-        // Increment angle for the next fruit
-        // angle += Math.PI / 8; // This controls the rate of the spiral (larger value = tighter spiral)
-
         sprite.animationSpeed = Math.random() * 2;
-        //sprite.rotation = Math.floor(Math.random() * 360);
         let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
         sprite.gotoAndPlay(randomFrame);
 
-        // Create a filter instance for each sprite
-        // let filter = new PIXI.Filter(this.trailVertexShader, this.trailFragmentShader);
-        //
-        // filter.uniforms.u_time = 0;
-        // filter.uniforms.u_hueOffset = [Math.random(), 0, 0];
-        // filter.uniforms.u_opacity = 0.5;
-        //
-        // function updateShaderUniforms(sprite, filter) {
-        //   // Get frame dimensions (assuming texture atlas)
-        //   let textureFrame = sprite.texture.frame;
-        //
-        //   // Convert PIXI frame data to normalized coordinates
-        //   filter.uniforms.u_frame = [
-        //     textureFrame.x / sprite.texture.baseTexture.width,   // X position (normalized)
-        //     textureFrame.y / sprite.texture.baseTexture.height,  // Y position (normalized)
-        //     textureFrame.width / sprite.texture.baseTexture.width,  // Frame width (normalized)
-        //     textureFrame.height / sprite.texture.baseTexture.height // Frame height (normalized)
-        //   ];
-        //
-        //   // Pass sprite scale to shader
-        //   filter.uniforms.u_scale = [sprite.scale.x, sprite.scale.y];
-        // }
-        //
-        //
-        // sprite.filters = [filter];
-        //
-        // sprite.onFrameChange = () => updateShaderUniforms(sprite, filter);
-        // updateShaderUniforms(sprite, filter);
-        // this.spiralSprites.push({ sprite, filter });
-        this.spiralSprites.push(sprite);
+        const filter = new PIXI.filters.ColorMatrixFilter();
+        sprite.filters = [filter];
+
+        this.spiralSprites.push({ sprite, filter });
 
         this.app.stage.addChild(sprite);
 
         // Update for next fruit
         angle += angleIncrement;
         radius -= spiralSpacing;
-        //   }
-    });
+      });
+      angle = i * 10;
+      radius = 10 * (-i);
+    }
 
+    // const pixiCanvas = document.getElementsByTagName("canvas")[0];
+    // const oldZIndex  = pixiCanvas.style.zIndex;
+    // pixiCanvas.style.zIndex = 99;
+    //
     later(() => {
       // kill everything after 5000 ms
-      // this.spiralSprites.forEach((sprite) => {
-      //   //const { sprite, filter } = s;
-      //   //sprite.filters = [noise, this.alphaFilter];
-      //   sprite.destroy();
-      //   // filter.destroy();
-      //   let spriteIndex = this.spiralSprites.indexOf(sprite);
-      //   this.spiralSprites.splice(spriteIndex, 1);
-      // });
-      //this.alphaFadeout = true;
+      this.spiralSprites.forEach(({sprite, filter}) => {
+        sprite.filters = sprite.filters.concat([noise, this.alphaFilter]);
+      });
+      this.alphaFadeout = true;
+      //pixiCanvas.style.zIndex = oldZIndex;
     }, 5000);
 
-    const element = document.getElementsByTagName('body')[0];
+    let element = document.getElementsByTagName('body')[0];
     element.classList.remove('screen-shake');
     // https://css-tricks.com/restart-css-animation/
       void element.offsetWidth;
     element.classList.add('screen-shake');
+
+    element.classList.remove('rotate-screen');
+    // https://css-tricks.com/restart-css-animation/
+      void element.offsetWidth;
+    element.classList.add('rotate-screen');
+
   }
 
   addFruitTip(event) {
@@ -1033,51 +948,41 @@ export default class PixiComponent extends Component {
           sprite.y += Math.cos(count);
         });
 
-        this.spiralSprites.forEach((sprite) => {
-          // Gradually decrease the radius to move the fruit inward
-          //if (sprite.radius > 0) {
-            sprite.radius -= 0.1; // Speed of movement towards the center
-            sprite.angle += 0.03; // Increment the angle to move along the spiral path
-          //}
+        this.spiralSprites.forEach(({ sprite, filter }, index) => {
+          sprite.radius -= 1; // Speed of movement towards the center
+          sprite.angle += 0.09; // Increment the angle to move along the spiral path
 
-          // Update the time uniform to animate the trail
-          // this.trailShader.uniforms.u_time += delta * 0.05; // Adjust the speed of the trail's fade effect
-          // filter.uniforms.u_time += delta * 0.05;
+          const hueRotation = index * 90;
+          filter.hue(hueRotation, false);
+          if(index % 3 === 0) {
+            filter.lsd(true);
+          } else if (index % 4 === 0) {
+            filter.blackAndWhite(true);
+          }
 
-          // // Update frame data in case the sprite animation changes
-          // let frame = sprite.texture.frame;
-          // let baseTexture = sprite.texture.baseTexture;
-          // filter.uniforms.u_frame = [
-          //   frame.x / baseTexture.width,
-          //   frame.y / baseTexture.height,
-          //   frame.width / baseTexture.width,
-          //   frame.height / baseTexture.height
-          // ];
-          // filter.uniforms.u_scale = [sprite.scale.x, sprite.scale.y];
+          const centerX = this.app.screen.width / 2;
+          const centerY = this.app.screen.height / 2;
 
-          const centerX = this.app.screen.width / 4;
-          const centerY = this.app.screen.height / 4;
-          // const centerX = 0;
-          // const centerY = 0;
-          // Update position based on new radius and angle
           sprite.x = centerX + sprite.radius * Math.cos(sprite.angle);
           sprite.y = centerY + sprite.radius * Math.sin(sprite.angle);
-
-          // Scale the sprite down as it gets closer to the center
-          //let scaleFactor = Math.max(0.1, sprite.radius / sprite.initialRadius); // Prevent it from scaling down too much
-          //sprite.scale.set(scaleFactor); // Update the scale of the sprite
         });
 
         if (this.alphaFadeout) {
-          //console.log(this.alphaFilterValue);
           this.alphaFilterValue = this.alphaFilterValue - 0.01;
           this.alphaFilter.alpha = this.alphaFilterValue;
         }
         if (this.alphaFilterValue <= 0) {
           console.log("alpha fadeout end");
           this.paidFruitTipSprites.forEach((sprite) => {
+            sprite.destroy();
             this.app.stage.removeChild(sprite);
           });
+          // TODO should paidFruitTipSprites be cleared?
+          this.spiralSprites.forEach(({ sprite, filter }) => {
+            sprite.destroy();
+            this.app.stage.removeChild(sprite);
+          });
+          this.spiralSprites = [];
           this.alphaFadeout = false;
           this.alphaFilterValue = 1.0;
           this.alphaFilter.alpha = this.alphaFilterValue;
