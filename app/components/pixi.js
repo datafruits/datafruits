@@ -507,8 +507,8 @@ export default class PixiComponent extends Component {
   fruitSmoothie() {
     // const centerX = this.app.screen.width / 2;
     // const centerY = this.app.screen.height / 2;
-    const centerX = 50;
-    const centerY = 50;
+    const centerX = 0;
+    const centerY = 0;
     // const spiralDistance = 25; // Controls how tight the spiral is
     let angle = 0; // Starting angle
     let radius = 10; // Initial spacing between fruits
@@ -532,9 +532,11 @@ export default class PixiComponent extends Component {
         sprite.scale.x = 0.25;
         sprite.scale.y = 0.25;
 
-        sprite.x = centerX + radius * Math.cos(angle); // X position
-        sprite.y = centerY + radius * Math.sin(angle); // Y position
-        console.log("x: ", sprite.x, "y: ", sprite.y);
+        // sprite.x = centerX + radius * Math.cos(angle); // X position
+        // sprite.y = centerY + radius * Math.sin(angle); // Y position
+        sprite.x = centerX;
+        sprite.y = centerY;
+
 
         // Store initial radius and angle
         // sprite.initialRadius = radius;
@@ -545,7 +547,7 @@ export default class PixiComponent extends Component {
         // angle += Math.PI / 8; // This controls the rate of the spiral (larger value = tighter spiral)
 
         sprite.animationSpeed = Math.random() * 2;
-        sprite.rotation = Math.floor(Math.random() * 360);
+        //sprite.rotation = Math.floor(Math.random() * 360);
         let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
         sprite.gotoAndPlay(randomFrame);
 
@@ -590,14 +592,14 @@ export default class PixiComponent extends Component {
 
     later(() => {
       // kill everything after 5000 ms
-      this.spiralSprites.forEach((sprite) => {
-        //const { sprite, filter } = s;
-        //sprite.filters = [noise, this.alphaFilter];
-        sprite.destroy();
-        // filter.destroy();
-        let spriteIndex = this.spiralSprites.indexOf(sprite);
-        this.spiralSprites.splice(spriteIndex, 1);
-      });
+      // this.spiralSprites.forEach((sprite) => {
+      //   //const { sprite, filter } = s;
+      //   //sprite.filters = [noise, this.alphaFilter];
+      //   sprite.destroy();
+      //   // filter.destroy();
+      //   let spriteIndex = this.spiralSprites.indexOf(sprite);
+      //   this.spiralSprites.splice(spriteIndex, 1);
+      // });
       //this.alphaFadeout = true;
     }, 5000);
 
@@ -1033,10 +1035,10 @@ export default class PixiComponent extends Component {
 
         this.spiralSprites.forEach((sprite) => {
           // Gradually decrease the radius to move the fruit inward
-          if (sprite.radius > 0) {
+          //if (sprite.radius > 0) {
             sprite.radius -= 0.1; // Speed of movement towards the center
             sprite.angle += 0.03; // Increment the angle to move along the spiral path
-          }
+          //}
 
           // Update the time uniform to animate the trail
           // this.trailShader.uniforms.u_time += delta * 0.05; // Adjust the speed of the trail's fade effect
@@ -1053,8 +1055,10 @@ export default class PixiComponent extends Component {
           // ];
           // filter.uniforms.u_scale = [sprite.scale.x, sprite.scale.y];
 
-          const centerX = this.app.screen.width / 2;
-          const centerY = this.app.screen.height / 2;
+          const centerX = this.app.screen.width / 4;
+          const centerY = this.app.screen.height / 4;
+          // const centerX = 0;
+          // const centerY = 0;
           // Update position based on new radius and angle
           sprite.x = centerX + sprite.radius * Math.cos(sprite.angle);
           sprite.y = centerY + sprite.radius * Math.sin(sprite.angle);
