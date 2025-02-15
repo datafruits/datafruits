@@ -234,7 +234,9 @@
         "soundcloud-link": "SoundCloud URL",
         "prerecorded-archive": "Use pre-recorded file for archive",
         "update": "SAVE",
-        "delete": "DELETE EPISODE"
+        "delete": "DELETE EPISODE",
+        "prerecorded-set": "PRERECORDED SET",
+        "choose-file": "Choose a file"
       }
     },
     "chat": "Chat Preview",
