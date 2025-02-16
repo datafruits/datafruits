@@ -20,11 +20,14 @@ export default class MegaBeamsprout {
     text.height = app.screen.height;
     // text.x = app.screen.width / 2;
     // text.y = app.screen.height / 2;
-    let noise = new PIXI.filters.NoiseFilter(0.2);
 
-    text.filters = [filters.customFilter, noise];
+    this.alphaFilter = new PIXI.filters.AlphaFilter(1.0);
+    this.alphaFilterValue = 1.0;
+    this.alphaFadeout = false;
+
+    text.filters = [filters.customFilter, filters.noiseFilter];
     app.stage.addChild(text);
-    this.paidFruitTipSprites.pushObject(text);
+    this.sprites.pushObject(text);
 
     // TODO refactor blobs to use a particle system
     let blobSprite;
@@ -41,13 +44,13 @@ export default class MegaBeamsprout {
       app.stage.addChild(blobSprite);
       //sprite.filters = [this.filter];
       //this.sprites.pushObject(sprite);
-      this.paidFruitTipSprites.pushObject(blobSprite);
+      this.sprites.pushObject(blobSprite);
     }
 
     let randomMegaBeamsprout;
     for (let i = 0; i < 5; i++) {
       randomMegaBeamsprout = new PIXI.AnimatedSprite(
-        animations["metalPineapple"],
+        animations["megaBeamsprout"],
       );
       randomMegaBeamsprout.x = Math.random() * app.screen.width;
       randomMegaBeamsprout.y = Math.random() * app.screen.height;
@@ -56,7 +59,7 @@ export default class MegaBeamsprout {
       let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
       randomMegaBeamsprout.gotoAndPlay(randomFrame);
       app.stage.addChild(randomMegaBeamsprout);
-      this.paidFruitTipSprites.pushObject(randomMegaBeamsprout);
+      this.sprites.pushObject(randomMegaBeamsprout);
     }
 
     sprite.scale.x = 1;
@@ -71,13 +74,10 @@ export default class MegaBeamsprout {
 
     //sprite.filters = [this.filter];
     app.stage.addChild(sprite);
-    this.paidFruitTipSprites.pushObject(sprite);
+    this.sprites.pushObject(sprite);
 
     later(() => {
-      // kill everything after 5000 ms
-      //app.stage.removeChild(text);
-      //text.filters = [this.filter, this.alphaFilter];
-      this.paidFruitTipSprites.forEach((sprite) => {
+      this.sprites.forEach((sprite) => {
         sprite.filters = [filters.noiseFilter, this.alphaFilter];
       });
       this.alphaFadeout = true;

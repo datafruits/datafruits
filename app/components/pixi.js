@@ -323,6 +323,11 @@ export default class PixiComponent extends Component {
       "peachy",
       "/assets/images/sprites/peachy.json",
     );
+
+    this.app.loader.add(
+      "megaBeamsprout",
+      "/assets/images/sprites/beamsprout.json",
+    );
     this.app.loader.add("shader", "/assets/shaders/shader.frag");
 
     this.app.loader.add("stars", "/assets/images/sprites/stars.json");
@@ -438,6 +443,8 @@ export default class PixiComponent extends Component {
 
       this.animations.peachy =
         res.peachy.spritesheet.animations["peachy"];
+
+      this.animations.megaBeamsprout = res.beamsprout.spritesheet.animations["beamsprout_spin"];
 
       this.textures.alandmoosleech = PIXI.Texture.from(res.alandmoosleech.url);
       this.textures.burger_girl = PIXI.Texture.from(res.burger_girl.url);
