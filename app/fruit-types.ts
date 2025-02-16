@@ -18,8 +18,8 @@ const fruitTypes: Array<Fruit> = [
   new Fruit('mega-beamsprout', '/assets/images/emojis/beamsprout_3d.png', 500),
   new Fruit('giga-shrimpshake', '/assets/images/emojis/shrimpshake.png', 1000),
   new Fruit('the-ravers', '/assets/images/emojis/the_ravers.png', 1200),
+  // TODO
   //new Fruit('nightmare-grandpa', '/assets/images/emojis/lol_grandpa.png', 1500),
-  new Fruit('fruit-smoothie', '/assets/images/emojis/acid.gif')
 ];
 
 export default fruitTypes;
