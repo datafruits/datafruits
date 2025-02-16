@@ -8,6 +8,7 @@
 @import "container.scss";
 @import "stripe-animation.scss";
 @import "shake.scss";
+@import "rotate.scss";
 
 @import "player.scss";
 
@@ -258,6 +259,10 @@ pre {
 
 .screen-shake {
   @include shake-animation-once;
+}
+
+.rotate-screen {
+  @include rotate-animation;
 }
 
 .cool-button {

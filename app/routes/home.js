@@ -28,6 +28,7 @@ export default class HomeRoute extends Route {
     if (!this.fastboot.isFastBoot) {
       let locales = this.intl.locales;
       let language;
+      console.log(navigator.languages);
       if (navigator.languages) {
         language = navigator.languages[0];
       } else {
