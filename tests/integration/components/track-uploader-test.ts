@@ -12,6 +12,6 @@ module('Integration | Component | track-uploader', function(hooks) {
 
     await render(hbs`{{track-uploader}}`);
 
-    assert.equal(this.element.textContent?.trim(), 'Choose a track');
+    assert.equal(this.element.textContent?.trim(), 'Choose a file');
   });
 });
