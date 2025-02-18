@@ -589,6 +589,14 @@ export function initialize(/* application */) {
       shortnames: [':the_ravers:'],
       keywords: ['the_ravers'],
     },
+    ':mega_beamsprout:': {
+      custom: true,
+      animated: true,
+      uc_base: 'mega_beamsprout',
+      uc_output: '',
+      shortnames: [':mega_beamsprout:'],
+      keywords: ['mega_beamsprout'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
