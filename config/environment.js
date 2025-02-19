@@ -127,6 +127,7 @@ module.exports = function (environment) {
     STREAM_HOST: process.env.STREAM_HOST,
     STREAM_NAME: process.env.STREAM_NAME,
     API_HOST: process.env.API_HOST,
+    ICECAST_HOST: process.env.ICECAST_HOST
   };
 
   ENV['ember-simple-auth'] = {
