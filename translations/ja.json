@@ -127,6 +127,9 @@
   "blog": { "title": "ブログ" },
   "shop": { "title": "買い物" },
   "subscribe": { "title": "メールマガ登録" },
+  "shows": {
+    "title": "番組"
+  },
   "djinquiry": {
     "title": "DJ案件",
     "heading": "Datafruitsで番組をやっていませんか？",

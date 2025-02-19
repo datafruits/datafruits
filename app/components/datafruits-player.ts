@@ -6,6 +6,7 @@ import { isEmpty } from '@ember/utils';
 import { tracked } from '@glimmer/tracking';
 import VideoStreamService from 'datafruits13/services/video-stream';
 import type Track from 'datafruits13/models/track';
+import ENV from 'datafruits13/config/environment';
 
 enum PlayerState {
   Playing = 'playing',
@@ -143,7 +144,7 @@ export default class DatafruitsPlayer extends Component {
     audioTag.pause();
     this.playingPodcast = false;
     this.setRadioTitle();
-    audioTag.src = "https://streampusher-relay.club/datafruits.mp3";
+    audioTag.src = `${ENV.ICECAST_HOST}/datafruits.mp3`;
     audioTag.play();
   }
 
@@ -154,7 +155,7 @@ export default class DatafruitsPlayer extends Component {
     ) as HTMLAudioElement;
     if (this.playingPodcast === false) {
       // reload stream
-      audioTag.src = "https://streampusher-relay.club/datafruits.mp3";
+      audioTag.src = `${ENV.ICECAST_HOST}/datafruits.mp3`;
     }
     if (audioTag.readyState === 0) {
       this.playerState = PlayerState.Loading;
