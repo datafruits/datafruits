@@ -161,8 +161,8 @@ export default class ChatService extends Service {
     });
 
     this.chan.on('treasure:opened', (msg) => {
-      if(msg.user !== this.username) return;
       this.lockTreasure(msg.uuid);
+      if(msg.user !== this.username) return;
       const treasureChest = this.store.createRecord('treasureChest', {
         username: msg.user,
         treasureName: msg.treasure,
