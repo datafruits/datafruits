@@ -10,14 +10,26 @@ interface FruitCount {
   [key: string]: number;
 }
 
+interface Message {
+  user: string;
+  avatarUrl: string;
+  role: string;
+  uuid: string | null;
+  treasure: string | null;
+  treasureAmount: number | null;
+  treasureLocked: boolean;
+  treasureOpened: boolean;
+}
+
 export default class ChatService extends Service {
   @service declare socket: SocketService;
   @service declare session: any;
   @service declare eventBus: EventBusService;
   @service declare currentUser: CurrentUserService;
+  @service declare store: any;
 
   @tracked presences = {};
-  @tracked messages: Array<string> = [];
+  @tracked messages: Array<Message> = [];
   @tracked joinedChat: boolean = false;
   @tracked gifsEnabled: boolean = true;
   @tracked token: string = '';
@@ -83,6 +95,34 @@ export default class ChatService extends Service {
     this.chan.push("track_playback", { track_id: event.track_id })
   }
 
+  lockTreasure(uuid: string) {
+    console.log('locking treasure with uuid: ', uuid);
+    const treasureMessage = this.messages.find((message) => {
+      return message.uuid === uuid;
+    });
+    if(treasureMessage) {
+      console.log('found message with the uuid: ', treasureMessage);
+      // reassign messages so ember updates it
+      this.messages = [...this.messages.map((message) =>
+        message.uuid === uuid ? { ...message, treasureLocked: true } : message
+      )];
+    }
+  }
+
+  openTreasure(uuid: string) {
+    console.log('open treasure with uuid: ', uuid);
+    const treasureMessage = this.messages.find((message) => {
+      return message.uuid === uuid;
+    });
+    if(treasureMessage) {
+      console.log('found message with the uuid: ', treasureMessage);
+      // reassign messages so ember updates it
+      this.messages = [...this.messages.map((message) =>
+        message.uuid === uuid ? { ...message, treasureLocked: true } : message
+      )];
+    }
+  }
+
   constructor() {
     super(...arguments);
 
@@ -113,12 +153,50 @@ export default class ChatService extends Service {
       //return console.log("channel closed", e);
     });
 
+    this.chan.on('treasure:received', (msg) => {
+      console.log('treasure_received: ', msg);
+      this.openTreasure(msg.uuid);
+      // TODO ???
+      // update user's UI to show more points
+    });
+
+    this.chan.on('treasure:opened', (msg) => {
+      this.lockTreasure(msg.uuid);
+      if(msg.user !== this.username) return;
+      const treasureChest = this.store.createRecord('treasureChest', {
+        username: msg.user,
+        treasureName: msg.treasure,
+        amount: msg.amount,
+        treasureUid: msg.uuid,
+      });
+      treasureChest.save().then(() => {
+        console.log('sending treasure:received');
+        this.chan.push("treasure:received", {
+          user: msg.user,
+          token: this.token,
+          uuid: msg.uuid,
+          treasure: msg.treasure,
+          amount: msg.amount
+        });
+      })
+      .catch((error: any) => {
+        console.log('couldnt open (save) treasure chest');
+        console.log(error);
+        //  TODO unlock treasure in fail case
+      });
+    });
+
     this.chan.on('new:msg', (msg) => {
+      console.log("new:msg", msg);
       if (msg['role']) {
         msg['role'] = msg.role.split(' ');
       }
       if (this.currentUser.user) {
         msg.hasMention = msg.body.indexOf(`@${this.currentUser.user.username}`) > -1;
+      }
+      if(msg.uuid) {
+        const uuids = this.messages.map(m => { return m.uuid });
+        if(uuids.includes(msg.uuid)) return;
       }
       this.messages = [...this.messages, msg];
     });
