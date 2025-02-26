@@ -161,15 +161,16 @@ export default class ChatService extends Service {
     });
 
     this.chan.on('treasure:opened', (msg) => {
-      console.log('treasure_opened: ', msg);
+      if(msg.user !== this.username) return;
       this.lockTreasure(msg.uuid);
       const treasureChest = this.store.createRecord('treasureChest', {
-        username: this.username,
+        username: msg.user,
         treasureName: msg.treasure,
         amount: msg.amount,
         treasureUid: msg.uuid,
       });
       treasureChest.save().then(() => {
+        console.log('sending treasure:received');
         this.chan.push("treasure:received", {
           user: msg.user,
           token: this.token,
