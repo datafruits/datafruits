@@ -47,6 +47,16 @@
     </a>
   {{/if}}
 
+  {{#if @message.treasure}}
+    <button
+      class="cool-button futsu-treasure-chest"
+      {{on "click" this.grabTreasure}}
+      disabled={{this.cantOpenTreasure}}
+    >
+      <img src="/assets/images/emojis/futsu.png" />
+    </button>
+  {{/if}}
+
   {{#unless (this.hasImageData)}}
     <span class={{if @message.hasMention "bg-df-green-dark"}} data-test-message-body>
       {{format-message-body (if this.fromDiscord this.discordMsg this.messageText)}}
