@@ -193,6 +193,10 @@ export default class ChatService extends Service {
       if (this.currentUser.user) {
         msg.hasMention = msg.body.indexOf(`@${this.currentUser.user.username}`) > -1;
       }
+      if(msg.uuid) {
+        const uuids = this.messages.map(m => { return m.uuid });
+        if(uuids.includes(msg.uuid)) return;
+      }
       this.messages = [...this.messages, msg];
     });
 
