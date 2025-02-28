@@ -48,13 +48,16 @@
   {{/if}}
 
   {{#if @message.treasure}}
-    <button
-      class="cool-button futsu-treasure-chest"
-      {{on "click" this.grabTreasure}}
-      disabled={{this.cantOpenTreasure}}
-    >
-      <img src="/assets/images/treasure_chest.gif" style="height: 3rem;" />
-    </button>
+    <span class="futsu-treasure-chest">
+      <img src="/assets/images/cominghand.gif" class="grab" />
+      <button
+        class="cool-button"
+        {{on "click" this.grabTreasure}}
+        disabled={{this.cantOpenTreasure}}
+      >
+        <img src="/assets/images/treasure_chest.gif" style="height: 3rem;" />
+      </button>
+    </span>
   {{/if}}
 
   {{#unless (this.hasImageData)}}

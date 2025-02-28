@@ -38,7 +38,7 @@ pre {
 }
 
 * {
-  cursor: url("/assets/images/mousepointer.png"), auto !important;
+  cursor: url("/assets/images/mousepointer.png"), auto;
 }
 
 @font-face {
@@ -957,6 +957,22 @@ body::-webkit-scrollbar-thumb {
 
 .form-checkbox__input-container {
   display: inline;
+}
+
+.futsu-treasure-chest {
+  position: relative;
+  .grab {
+    display: none;
+    position: absolute;
+    top: -30px;
+    left: 0;
+  }
+}
+
+.futsu-treasure-chest:hover {
+  .grab {
+    display: inline;
+  }
 }
 
 @tailwind utilities;
