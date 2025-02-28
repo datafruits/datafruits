@@ -48,7 +48,9 @@
   {{/if}}
 
   {{#if @message.treasure}}
-    <span class="futsu-treasure-chest">
+    <span class="futsu-treasure-chest"
+      {{on "click" this.grabTreasure}}
+      >
       <img src="/assets/images/cominghand.gif" class="grab" />
       <button
         class="cool-button"
