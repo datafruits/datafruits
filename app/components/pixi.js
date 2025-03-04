@@ -52,6 +52,17 @@ export default class PixiComponent extends Component {
     super(...arguments);
     this.eventBus.subscribe("fruitTipped", this, "addFruitTip");
     this.eventBus.subscribe("weatherChanged", this, "reinitPixi");
+    this.eventBus.subscribe("treasureOpened", this, "treasureOpened");
+  }
+
+  treasureOpened(treasureName) {
+    console.log('got treasureOpened event: ', treasureName);
+    switch (treasureName) {
+      case 'glorp': {
+      }
+      default:
+        break;
+    }
   }
 
   addFruitTip(event) {
@@ -328,6 +339,12 @@ export default class PixiComponent extends Component {
       "megaBeamsprout",
       "/assets/images/sprites/beamsprout.json",
     );
+
+    this.app.loader.add(
+      "treasureChestGlorpOpen",
+      "/assets/images/sprites/treasure_chest_glorp_open.json"
+    );
+
     this.app.loader.add("shader", "/assets/shaders/shader.frag");
 
     this.app.loader.add("stars", "/assets/images/sprites/stars.json");

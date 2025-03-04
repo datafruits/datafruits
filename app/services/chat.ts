@@ -179,6 +179,7 @@ export default class ChatService extends Service {
           treasure: msg.treasure,
           amount: msg.amount
         });
+        this.eventBus.publish("treasureOpened", msg.treasureName);
       })
       .catch((error: any) => {
         console.log('couldnt open (save) treasure chest');
