@@ -2,226 +2,226 @@
 
 "treasure_chest_open_glorp0003.png":
 {
-	"frame": {"x":0,"y":0,"w":480,"h":270},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"frame": {"x":1156,"y":708,"w":236,"h":204},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":62,"w":236,"h":204},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0004.png":
 {
-	"frame": {"x":480,"y":0,"w":480,"h":270},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"frame": {"x":1368,"y":0,"w":236,"h":205},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":61,"w":236,"h":205},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0005.png":
 {
-	"frame": {"x":960,"y":0,"w":480,"h":270},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"frame": {"x":1367,"y":236,"w":236,"h":206},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":60,"w":236,"h":206},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0006.png":
 {
-	"frame": {"x":1440,"y":0,"w":480,"h":270},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"frame": {"x":1160,"y":0,"w":236,"h":208},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":58,"w":236,"h":208},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0007.png":
 {
-	"frame": {"x":0,"y":270,"w":480,"h":270},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"frame": {"x":1157,"y":236,"w":236,"h":210},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":56,"w":236,"h":210},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0008.png":
 {
-	"frame": {"x":480,"y":270,"w":480,"h":270},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"frame": {"x":1155,"y":472,"w":236,"h":213},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":53,"w":236,"h":213},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0009.png":
 {
-	"frame": {"x":960,"y":270,"w":480,"h":270},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"frame": {"x":940,"y":472,"w":236,"h":215},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":51,"w":236,"h":215},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0010.png":
 {
-	"frame": {"x":1440,"y":270,"w":480,"h":270},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"frame": {"x":940,"y":236,"w":236,"h":217},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":49,"w":236,"h":217},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0011.png":
 {
-	"frame": {"x":0,"y":540,"w":480,"h":270},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"frame": {"x":940,"y":0,"w":236,"h":220},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":46,"w":236,"h":220},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0012.png":
 {
-	"frame": {"x":480,"y":540,"w":480,"h":270},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"frame": {"x":932,"y":723,"w":236,"h":224},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":42,"w":236,"h":224},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0013.png":
 {
-	"frame": {"x":960,"y":540,"w":480,"h":270},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"frame": {"x":705,"y":723,"w":236,"h":227},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":39,"w":236,"h":227},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0014.png":
 {
-	"frame": {"x":1440,"y":540,"w":480,"h":270},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"frame": {"x":1368,"y":472,"w":235,"h":230},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":36,"w":235,"h":230},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0015.png":
 {
-	"frame": {"x":0,"y":810,"w":480,"h":270},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"frame": {"x":1360,"y":708,"w":235,"h":232},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":34,"w":235,"h":232},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0016.png":
 {
-	"frame": {"x":480,"y":810,"w":480,"h":270},
+	"frame": {"x":705,"y":487,"w":235,"h":236},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":30,"w":235,"h":236},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0017.png":
 {
-	"frame": {"x":960,"y":810,"w":480,"h":270},
+	"frame": {"x":0,"y":783,"w":235,"h":239},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":27,"w":235,"h":239},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0018.png":
 {
-	"frame": {"x":1440,"y":810,"w":480,"h":270},
+	"frame": {"x":705,"y":245,"w":235,"h":242},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":24,"w":235,"h":242},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0019.png":
 {
-	"frame": {"x":0,"y":1080,"w":480,"h":270},
+	"frame": {"x":705,"y":0,"w":235,"h":245},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":21,"w":235,"h":245},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0020.png":
 {
-	"frame": {"x":480,"y":1080,"w":480,"h":270},
+	"frame": {"x":235,"y":776,"w":235,"h":247},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":19,"w":235,"h":247},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0021.png":
 {
-	"frame": {"x":960,"y":1080,"w":480,"h":270},
+	"frame": {"x":470,"y":762,"w":235,"h":250},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":16,"w":235,"h":250},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0022.png":
 {
-	"frame": {"x":1440,"y":1080,"w":480,"h":270},
+	"frame": {"x":470,"y":510,"w":235,"h":252},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":14,"w":235,"h":252},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0023.png":
 {
-	"frame": {"x":0,"y":1350,"w":480,"h":270},
+	"frame": {"x":470,"y":256,"w":235,"h":254},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":12,"w":235,"h":254},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0024.png":
 {
-	"frame": {"x":480,"y":1350,"w":480,"h":270},
+	"frame": {"x":470,"y":0,"w":235,"h":256},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":10,"w":235,"h":256},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0025.png":
 {
-	"frame": {"x":960,"y":1350,"w":480,"h":270},
+	"frame": {"x":235,"y":518,"w":235,"h":258},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":8,"w":235,"h":258},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0026.png":
 {
-	"frame": {"x":1440,"y":1350,"w":480,"h":270},
+	"frame": {"x":235,"y":0,"w":235,"h":259},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":7,"w":235,"h":259},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0027.png":
 {
-	"frame": {"x":0,"y":1620,"w":480,"h":270},
+	"frame": {"x":235,"y":259,"w":235,"h":259},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":7,"w":235,"h":259},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0028.png":
 {
-	"frame": {"x":480,"y":1620,"w":480,"h":270},
+	"frame": {"x":0,"y":0,"w":235,"h":261},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":5,"w":235,"h":261},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0029.png":
 {
-	"frame": {"x":960,"y":1620,"w":480,"h":270},
+	"frame": {"x":0,"y":261,"w":235,"h":261},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":5,"w":235,"h":261},
 	"sourceSize": {"w":480,"h":270}
 },
 "treasure_chest_open_glorp0030.png":
 {
-	"frame": {"x":1440,"y":1620,"w":480,"h":270},
+	"frame": {"x":0,"y":522,"w":235,"h":261},
 	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":480,"h":270},
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":5,"w":235,"h":261},
 	"sourceSize": {"w":480,"h":270}
 }},
 "animations": {
@@ -232,8 +232,8 @@
 	"version": "1.1",
 	"image": "treasure_chest_glorp_open.png",
 	"format": "RGBA8888",
-	"size": {"w":1920,"h":1890},
+	"size": {"w":1598,"h":1023},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:fe434b5d881836d4e9bb6925fdd740b6:dcd255cc9b91244c788878636bd84f7a:21ee38ee35d9802e353c5da0451a4f11$"
+	"smartupdate": "$TexturePacker:SmartUpdate:3514ca3067819ab841793624bda60d37:dcd255cc9b91244c788878636bd84f7a:21ee38ee35d9802e353c5da0451a4f11$"
 }
 }
