@@ -1,0 +1,255 @@
+{"frames": {
+
+"treasure_chest_open_fruit_tickets0001.png":
+{
+	"frame": {"x":0,"y":0,"w":236,"h":203},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":63,"w":236,"h":203},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0002.png":
+{
+	"frame": {"x":236,"y":0,"w":236,"h":203},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":63,"w":236,"h":203},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0003.png":
+{
+	"frame": {"x":472,"y":0,"w":236,"h":204},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":62,"w":236,"h":204},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0004.png":
+{
+	"frame": {"x":708,"y":0,"w":236,"h":205},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":61,"w":236,"h":205},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0005.png":
+{
+	"frame": {"x":944,"y":0,"w":236,"h":206},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":60,"w":236,"h":206},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0006.png":
+{
+	"frame": {"x":1180,"y":0,"w":236,"h":208},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":58,"w":236,"h":208},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0007.png":
+{
+	"frame": {"x":1416,"y":0,"w":236,"h":210},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":56,"w":236,"h":210},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0008.png":
+{
+	"frame": {"x":1652,"y":0,"w":236,"h":213},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":53,"w":236,"h":213},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0009.png":
+{
+	"frame": {"x":0,"y":203,"w":236,"h":215},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":51,"w":236,"h":215},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0010.png":
+{
+	"frame": {"x":236,"y":203,"w":236,"h":217},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":49,"w":236,"h":217},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0011.png":
+{
+	"frame": {"x":472,"y":204,"w":236,"h":220},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":46,"w":236,"h":220},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0012.png":
+{
+	"frame": {"x":708,"y":205,"w":236,"h":224},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":42,"w":236,"h":224},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0013.png":
+{
+	"frame": {"x":944,"y":206,"w":236,"h":227},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":39,"w":236,"h":227},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0014.png":
+{
+	"frame": {"x":1180,"y":208,"w":235,"h":230},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":36,"w":235,"h":230},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0015.png":
+{
+	"frame": {"x":1415,"y":210,"w":235,"h":232},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":34,"w":235,"h":232},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0016.png":
+{
+	"frame": {"x":1650,"y":213,"w":235,"h":236},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":30,"w":235,"h":236},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0017.png":
+{
+	"frame": {"x":0,"y":420,"w":235,"h":239},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":27,"w":235,"h":239},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0018.png":
+{
+	"frame": {"x":239,"y":424,"w":235,"h":242},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":24,"w":235,"h":242},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0019.png":
+{
+	"frame": {"x":481,"y":429,"w":235,"h":245},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":21,"w":235,"h":245},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0020.png":
+{
+	"frame": {"x":726,"y":433,"w":235,"h":247},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":19,"w":235,"h":247},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0021.png":
+{
+	"frame": {"x":973,"y":438,"w":235,"h":250},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":16,"w":235,"h":250},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0022.png":
+{
+	"frame": {"x":1223,"y":442,"w":235,"h":252},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":14,"w":235,"h":252},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0023.png":
+{
+	"frame": {"x":1475,"y":448,"w":235,"h":254},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":12,"w":235,"h":254},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0024.png":
+{
+	"frame": {"x":0,"y":659,"w":235,"h":256},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":10,"w":235,"h":256},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0025.png":
+{
+	"frame": {"x":256,"y":664,"w":235,"h":258},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":8,"w":235,"h":258},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0026.png":
+{
+	"frame": {"x":514,"y":668,"w":235,"h":259},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":7,"w":235,"h":259},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0027.png":
+{
+	"frame": {"x":773,"y":673,"w":235,"h":259},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":7,"w":235,"h":259},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0028.png":
+{
+	"frame": {"x":1032,"y":677,"w":235,"h":261},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":5,"w":235,"h":261},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0029.png":
+{
+	"frame": {"x":1293,"y":683,"w":235,"h":261},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":5,"w":235,"h":261},
+	"sourceSize": {"w":480,"h":270}
+},
+"treasure_chest_open_fruit_tickets0030.png":
+{
+	"frame": {"x":1554,"y":683,"w":235,"h":261},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":125,"y":5,"w":235,"h":261},
+	"sourceSize": {"w":480,"h":270}
+}},
+"animations": {
+	"treasure_chest_open_fruit_tickets": ["treasure_chest_open_fruit_tickets0001.png","treasure_chest_open_fruit_tickets0002.png","treasure_chest_open_fruit_tickets0003.png","treasure_chest_open_fruit_tickets0004.png","treasure_chest_open_fruit_tickets0005.png","treasure_chest_open_fruit_tickets0006.png","treasure_chest_open_fruit_tickets0007.png","treasure_chest_open_fruit_tickets0008.png","treasure_chest_open_fruit_tickets0009.png","treasure_chest_open_fruit_tickets0010.png","treasure_chest_open_fruit_tickets0011.png","treasure_chest_open_fruit_tickets0012.png","treasure_chest_open_fruit_tickets0013.png","treasure_chest_open_fruit_tickets0014.png","treasure_chest_open_fruit_tickets0015.png","treasure_chest_open_fruit_tickets0016.png","treasure_chest_open_fruit_tickets0017.png","treasure_chest_open_fruit_tickets0018.png","treasure_chest_open_fruit_tickets0019.png","treasure_chest_open_fruit_tickets0020.png","treasure_chest_open_fruit_tickets0021.png","treasure_chest_open_fruit_tickets0022.png","treasure_chest_open_fruit_tickets0023.png","treasure_chest_open_fruit_tickets0024.png","treasure_chest_open_fruit_tickets0025.png","treasure_chest_open_fruit_tickets0026.png","treasure_chest_open_fruit_tickets0027.png","treasure_chest_open_fruit_tickets0028.png","treasure_chest_open_fruit_tickets0029.png","treasure_chest_open_fruit_tickets0030.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.1",
+	"image": "treasure_chest_fruit_tickets_open.png",
+	"format": "RGBA8888",
+	"size": {"w":1888,"h":918},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:ff2bca11f6c43db268f1fcce80d8c8af:8a4c3131abd39adff93c63cba80d159f:c9b5570ae9082d7d8048d0563d86daaf$"
+}
+}

@@ -12,6 +12,7 @@ import GigaShrimpshake from './pixi/animations/giga-shrimpshake';
 import TheRavers from './pixi/animations/the-ravers';
 import MegaBeamsprout from './pixi/animations/mega-beamsprout';
 import FruitSmoothie from './pixi/animations/fruit-smoothie';
+import TreasureOpen from './pixi/animations/treasure-open';
 
 export default class PixiComponent extends Component {
   @service eventBus;
@@ -52,6 +53,13 @@ export default class PixiComponent extends Component {
     super(...arguments);
     this.eventBus.subscribe("fruitTipped", this, "addFruitTip");
     this.eventBus.subscribe("weatherChanged", this, "reinitPixi");
+    this.eventBus.subscribe("treasureOpened", this, "treasureOpened");
+  }
+
+  treasureOpened(treasureName) {
+    console.log('got treasureOpened event: ', treasureName);
+    let treasureOpen = new TreasureOpen(this.app, this.animations, { customFilter: this.filter, noiseFilter: this.noiseFilter }, treasureName);
+    this.fruitSummons.push(treasureOpen);
   }
 
   addFruitTip(event) {
@@ -328,6 +336,22 @@ export default class PixiComponent extends Component {
       "megaBeamsprout",
       "/assets/images/sprites/beamsprout.json",
     );
+
+    this.app.loader.add(
+      "treasureChestGlorpOpen",
+      "/assets/images/sprites/treasure_chest_glorp_open.json"
+    );
+
+    this.app.loader.add(
+      "treasureChestBonezoOpen",
+      "/assets/images/sprites/treasure_chest_bonezo_open.json"
+    );
+
+    this.app.loader.add(
+      "treasureChestFruitTicketsOpen",
+      "/assets/images/sprites/treasure_chest_fruit_tickets_open.json"
+    );
+
     this.app.loader.add("shader", "/assets/shaders/shader.frag");
 
     this.app.loader.add("stars", "/assets/images/sprites/stars.json");
@@ -445,6 +469,9 @@ export default class PixiComponent extends Component {
         res.peachy.spritesheet.animations["peachy"];
 
       this.animations.megaBeamsprout = res.beamsprout.spritesheet.animations["beamsprout_spin"];
+      this.animations.treasureChestGlorpOpen = res.treasureChestGlorpOpen.spritesheet.animations["treasure_chest_open_glorp"];
+      this.animations.treasureChestBonezoOpen = res.treasureChestBonezoOpen.spritesheet.animations["treasure_chest_open_bonezo"];
+      this.animations.treasureChestFruitTicketsOpen = res.treasureChestFruitTicketsOpen.spritesheet.animations["treasure_chest_open_fruit_tickets"];
 
       this.textures.alandmoosleech = PIXI.Texture.from(res.alandmoosleech.url);
       this.textures.burger_girl = PIXI.Texture.from(res.burger_girl.url);
