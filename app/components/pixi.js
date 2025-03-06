@@ -315,6 +315,7 @@ export default class PixiComponent extends Component {
     this.app.loader.add("watermelon", "/assets/images/sprites/watermelon.json");
     this.app.loader.add("cabbage", "/assets/images/sprites/cabbage.json");
     this.app.loader.add("beamsprout", "/assets/images/sprites/beamsprout.json");
+    this.app.loader.add("megaBeamsprout", "/assets/images/sprites/mega_beamsprout.json");
     this.app.loader.add("pineapple", "/assets/images/sprites/pineapple.json");
     this.app.loader.add("limer", "/assets/images/sprites/lime.json");
     this.app.loader.add(
@@ -330,11 +331,6 @@ export default class PixiComponent extends Component {
     this.app.loader.add(
       "peachy",
       "/assets/images/sprites/peachy.json",
-    );
-
-    this.app.loader.add(
-      "megaBeamsprout",
-      "/assets/images/sprites/beamsprout.json",
     );
 
     this.app.loader.add(
@@ -468,7 +464,7 @@ export default class PixiComponent extends Component {
       this.animations.peachy =
         res.peachy.spritesheet.animations["peachy"];
 
-      this.animations.megaBeamsprout = res.beamsprout.spritesheet.animations["beamsprout_spin"];
+      this.animations.megaBeamsprout = res.megaBeamsprout.spritesheet.animations["beamsprout_spin"];
       this.animations.treasureChestGlorpOpen = res.treasureChestGlorpOpen.spritesheet.animations["treasure_chest_open_glorp"];
       this.animations.treasureChestBonezoOpen = res.treasureChestBonezoOpen.spritesheet.animations["treasure_chest_open_bonezo"];
       this.animations.treasureChestFruitTicketsOpen = res.treasureChestFruitTicketsOpen.spritesheet.animations["treasure_chest_open_fruit_tickets"];
