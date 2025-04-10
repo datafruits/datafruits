@@ -32,9 +32,6 @@
     "@ember/optional-features": "^2.0.0",
     "@ember/render-modifiers": "^2.1.0",
     "@ember/test-helpers": "^2.8.1",
-    "@fortawesome/ember-fontawesome": "^0.2.3",
-    "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@frontile/buttons": "^0.14.0",
     "@frontile/changeset-form": "^0.14.0",
     "@frontile/core": "^0.14.0",
@@ -176,14 +173,13 @@
     "crypto"
   ],
   "engines": {
-    "node": "12.* || 14.* || >= 16"
+    "node": "12.* || 14.* || >= 16 || 18.* || >= 20"
   },
   "ember": {
     "edition": "octane"
   },
   "dependencies": {
     "@babel/core": "^7.18.5",
-    "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
     "autoprefixer": "^10.4.7",

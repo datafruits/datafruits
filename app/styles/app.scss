@@ -975,5 +975,12 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+.svg-icon {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  vertical-align: -.125em;
+}
+
 @tailwind utilities;
 /* purgecss end ignore */

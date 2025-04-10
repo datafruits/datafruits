@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 overrides:
   babel-plugin-ember-modules-api-polyfill: 2.13.0
   '@embroider/macros': 1.8.3
@@ -8,9 +12,6 @@ dependencies:
   '@babel/core':
     specifier: ^7.18.5
     version: 7.18.5
-  '@fortawesome/fontawesome-svg-core':
-    specifier: ^6.1.1
-    version: 6.1.1
   '@typescript-eslint/eslint-plugin':
     specifier: ^5.33.1
     version: 5.33.1(@typescript-eslint/parser@5.33.1)(eslint@7.32.0)(typescript@4.8.3)
@@ -76,15 +77,6 @@ devDependencies:
   '@ember/test-helpers':
     specifier: ^2.8.1
     version: 2.9.3(@babel/core@7.18.5)(@glint/environment-ember-loose@1.0.2)(@glint/template@1.0.2)(ember-source@3.28.9)
-  '@fortawesome/ember-fontawesome':
-    specifier: ^0.2.3
-    version: 0.2.3(rollup@2.75.7)
-  '@fortawesome/free-brands-svg-icons':
-    specifier: ^5.15.4
-    version: 5.15.4
-  '@fortawesome/free-solid-svg-icons':
-    specifier: ^5.15.4
-    version: 5.15.4
   '@frontile/buttons':
     specifier: ^0.14.0
     version: 0.14.0
@@ -4133,73 +4125,6 @@ packages:
       tslib: 2.4.0
     dev: true
 
-  /@fortawesome/ember-fontawesome@0.2.3(rollup@2.75.7):
-    resolution: {integrity: sha512-wRiP0k1D7J3ecQhrsGpg+j7PbrFOQtDsMuAUYpvbrh+hSmfO0TCbL/BkPRMtgUIvtJiIigomvQKsiGvPJsfSeQ==}
-    engines: {node: 10.* || >= 12}
-    dependencies:
-      '@fortawesome/fontawesome-svg-core': 1.2.36
-      broccoli-file-creator: 2.1.1
-      broccoli-merge-trees: 4.2.0
-      broccoli-plugin: 4.0.7
-      broccoli-rollup: 4.1.1
-      broccoli-source: 3.0.1
-      camel-case: 4.1.2
-      ember-ast-helpers: 0.3.5
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 5.7.2
-      ember-get-config: 0.3.0
-      find-yarn-workspace-root: 2.0.0
-      glob: 7.2.3
-      rollup-plugin-node-resolve: 5.2.0(rollup@2.75.7)
-    transitivePeerDependencies:
-      - rollup
-      - supports-color
-    dev: true
-
-  /@fortawesome/fontawesome-common-types@0.2.36:
-    resolution: {integrity: sha512-a/7BiSgobHAgBWeN7N0w+lAhInrGxksn13uK7231n2m8EDPE3BMCl9NZLTGrj9ZXfCmC6LM0QLqXidIizVQ6yg==}
-    engines: {node: '>=6'}
-    requiresBuild: true
-    dev: true
-
-  /@fortawesome/fontawesome-common-types@6.1.1:
-    resolution: {integrity: sha512-wVn5WJPirFTnzN6tR95abCx+ocH+3IFLXAgyavnf9hUmN0CfWoDjPT/BAWsUVwSlYYVBeCLJxaqi7ZGe4uSjBA==}
-    engines: {node: '>=6'}
-    requiresBuild: true
-    dev: false
-
-  /@fortawesome/fontawesome-svg-core@1.2.36:
-    resolution: {integrity: sha512-YUcsLQKYb6DmaJjIHdDWpBIGCcyE/W+p/LMGvjQem55Mm2XWVAP5kWTMKWLv9lwpCVjpLxPyOMOyUocP1GxrtA==}
-    engines: {node: '>=6'}
-    requiresBuild: true
-    dependencies:
-      '@fortawesome/fontawesome-common-types': 0.2.36
-    dev: true
-
-  /@fortawesome/fontawesome-svg-core@6.1.1:
-    resolution: {integrity: sha512-NCg0w2YIp81f4V6cMGD9iomfsIj7GWrqmsa0ZsPh59G7PKiGN1KymZNxmF00ssuAlo/VZmpK6xazsGOwzKYUMg==}
-    engines: {node: '>=6'}
-    requiresBuild: true
-    dependencies:
-      '@fortawesome/fontawesome-common-types': 6.1.1
-    dev: false
-
-  /@fortawesome/free-brands-svg-icons@5.15.4:
-    resolution: {integrity: sha512-f1witbwycL9cTENJegcmcZRYyawAFbm8+c6IirLmwbbpqz46wyjbQYLuxOc7weXFXfB7QR8/Vd2u5R3q6JYD9g==}
-    engines: {node: '>=6'}
-    requiresBuild: true
-    dependencies:
-      '@fortawesome/fontawesome-common-types': 0.2.36
-    dev: true
-
-  /@fortawesome/free-solid-svg-icons@5.15.4:
-    resolution: {integrity: sha512-JLmQfz6tdtwxoihXLg6lT78BorrFyCf59SAwBM6qV/0zXyVeDygJVb3fk+j5Qat+Yvcxp1buLTY5iDh1ZSAQ8w==}
-    engines: {node: '>=6'}
-    requiresBuild: true
-    dependencies:
-      '@fortawesome/fontawesome-common-types': 0.2.36
-    dev: true
-
   /@frontile/buttons@0.14.0:
     resolution: {integrity: sha512-LO1M2LR1pOidwzst5VHIppVbL4qaGlik12OZf9h3zpk/djCxSD68N/gaU8B2lyDcCQJuw0QI4WykGDH87h6E+A==}
     engines: {node: 10.* || >= 12}
@@ -4290,16 +4215,6 @@ packages:
       purgecss: 4.1.3
     dev: true
 
-  /@glimmer/compiler@0.27.0:
-    resolution: {integrity: sha512-SJUUEpkFCL+GTpEK6c2EhZQJant67ahGLF6M1xRmIsq6E+AtbHgu+y8mWvFbtpb7lx4gqNKpXSEwlHUTTuxVGw==}
-    dependencies:
-      '@glimmer/interfaces': 0.27.0
-      '@glimmer/syntax': 0.27.0
-      '@glimmer/util': 0.27.0
-      '@glimmer/wire-format': 0.27.0
-      simple-html-tokenizer: 0.3.0
-    dev: true
-
   /@glimmer/component@1.1.2(@babel/core@7.18.5):
     resolution: {integrity: sha512-XyAsEEa4kWOPy+gIdMjJ8XlzA3qrGH55ZDv6nA16ibalCR17k74BI0CztxuRds+Rm6CtbUVgheCVlcCULuqD7A==}
     engines: {node: 6.* || 8.* || >= 10.*}
@@ -4334,12 +4249,6 @@ packages:
       '@glimmer/env': 0.1.7
     dev: true
 
-  /@glimmer/interfaces@0.27.0:
-    resolution: {integrity: sha512-Uz9txXB0Agnac6vUOAk6uZIB7SeS/fFrdjyNsNJnge5XeojvOQs1YyIFqOhky3G7NHO/mcx3Tdt8PXggFakVtQ==}
-    dependencies:
-      '@glimmer/wire-format': 0.27.0
-    dev: true
-
   /@glimmer/interfaces@0.84.3:
     resolution: {integrity: sha512-dk32ykoNojt0mvEaIW6Vli5MGTbQo58uy3Epj7ahCgTHmWOKuw/0G83f2UmFprRwFx689YTXG38I/vbpltEjzg==}
     dependencies:
@@ -4355,15 +4264,6 @@ packages:
       '@glimmer/validator': 0.84.3
     dev: true
 
-  /@glimmer/syntax@0.27.0:
-    resolution: {integrity: sha512-IC+JaGkfF+J3e5jUXrW4SkVAAgI6WyN4kzfJKqWEnjMAa6pB8XGEDkaaMhoMrxjfK+R0Us2PO45CWhGB3FqsKg==}
-    dependencies:
-      '@glimmer/interfaces': 0.27.0
-      '@glimmer/util': 0.27.0
-      handlebars: 4.7.7
-      simple-html-tokenizer: 0.3.0
-    dev: true
-
   /@glimmer/syntax@0.84.3:
     resolution: {integrity: sha512-ioVbTic6ZisLxqTgRBL2PCjYZTFIwobifCustrozRU2xGDiYvVIL0vt25h2c1ioDsX59UgVlDkIK4YTAQQSd2A==}
     dependencies:
@@ -4377,10 +4277,6 @@ packages:
     dependencies:
       '@glimmer/env': 0.1.7
       '@glimmer/validator': 0.44.0
-
-  /@glimmer/util@0.27.0:
-    resolution: {integrity: sha512-GxER83ZuyEyZ5Phn86VkHcjjN/3MagK0MMr91S5t62IVSW/zyFevpaVV26YKmisDqOe4918nvwGqn543O5gGXw==}
-    dev: true
 
   /@glimmer/util@0.44.0:
     resolution: {integrity: sha512-duAsm30uVK9jSysElCbLyU6QQYO2X9iLDLBIBUcCqck9qN1o3tK2qWiHbGK5d6g8E2AJ4H88UrfElkyaJlGrwg==}
@@ -4408,12 +4304,6 @@ packages:
       babel-plugin-debug-macros: 0.3.4(@babel/core@7.18.5)
     transitivePeerDependencies:
       - '@babel/core'
-
-  /@glimmer/wire-format@0.27.0:
-    resolution: {integrity: sha512-gNhityUr9HODYH9GydHVk7C6NZ57MqSbdGzC5TM8VdPibtd72N3+3Zggrm12Faw4E4zTvTM1692Sz/bNwMxLNw==}
-    dependencies:
-      '@glimmer/util': 0.27.0
-    dev: true
 
   /@glint/core@1.0.2(typescript@4.8.3):
     resolution: {integrity: sha512-0bVt/lT/NurpD8nBG9RTPKYlcpg51UDGCKgLoBEFOiTXv3aCSxAVKPud1IYaitGBKE0C+s5pl2PHkgptotVS+w==}
@@ -5154,10 +5044,6 @@ packages:
       '@types/node': 18.0.0
     dev: true
 
-  /@types/broccoli-plugin@1.3.0:
-    resolution: {integrity: sha512-SLk4/hFc2kGvgwNFrpn2O1juxFOllcHAywvlo7VwxfExLzoz1GGJ0oIZCwj5fwSpvHw4AWpZjJ1fUvb62PDayQ==}
-    dev: true
-
   /@types/broccoli-plugin@3.0.0:
     resolution: {integrity: sha512-f+TcsARR2PovfFRKFdCX0kfH/QoM3ZVD2h1rl2mNvrKO0fq2uBNCBsTU3JanfU4COCt5cXpTfARyUsERlC8vIw==}
     deprecated: This is a stub types definition. broccoli-plugin provides its own type definitions, so you do not need this installed.
@@ -5755,12 +5641,6 @@ packages:
 
   /@types/range-parser@1.2.4:
     resolution: {integrity: sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==}
-    dev: true
-
-  /@types/resolve@0.0.8:
-    resolution: {integrity: sha512-auApPaJf3NPfe18hSoJkp8EbZzer2ISk7o8mCC3M9he/a04+gbMF97NkpD2S8riMGvm4BMRI59/SZQSaLTKpsQ==}
-    dependencies:
-      '@types/node': 18.0.0
     dev: true
 
   /@types/responselike@1.0.0:
@@ -7858,23 +7738,6 @@ packages:
       - supports-color
     dev: true
 
-  /broccoli-rollup@4.1.1:
-    resolution: {integrity: sha512-hkp0dB5chiemi32t6hLe5bJvxuTOm1TU+SryFlZIs95KT9+94uj0C8w6k6CsZ2HuIdIZg6D252t4gwOlcTXrpA==}
-    engines: {node: '>=8.0'}
-    dependencies:
-      '@types/broccoli-plugin': 1.3.0
-      broccoli-plugin: 2.1.0
-      fs-tree-diff: 2.0.1
-      heimdalljs: 0.2.6
-      node-modules-path: 1.0.2
-      rollup: 1.32.1
-      rollup-pluginutils: 2.8.2
-      symlink-or-copy: 1.3.1
-      walk-sync: 1.1.4
-    transitivePeerDependencies:
-      - supports-color
-    dev: true
-
   /broccoli-rollup@5.0.0:
     resolution: {integrity: sha512-QdMuXHwsdz/LOS8zu4HP91Sfi4ofimrOXoYP/lrPdRh7lJYD87Lfq4WzzUhGHsxMfzANIEvl/7qVHKD3cFJ4tA==}
     engines: {node: '>=12.0'}
@@ -8169,11 +8032,6 @@ packages:
       ieee754: 1.2.1
     dev: true
 
-  /builtin-modules@3.3.0:
-    resolution: {integrity: sha512-zhaCDicdLuWN5UbN5IMnFqNMhNfo919sH85y2/ea+5Yg9TsTkeZxpL+JLbp6cgYFS4sRLp3YV4S6yDuqVWHYOw==}
-    engines: {node: '>=6'}
-    dev: true
-
   /builtin-status-codes@3.0.0:
     resolution: {integrity: sha512-HpGFw18DgFWlncDfjTa2rcQ4W88O1mC8e8yZ2AvQY5KDaktSTwo+KRf6nHK6FRI5FyRyb/5T6+TSxfP7QyGsmQ==}
     dev: true
@@ -8265,13 +8123,6 @@ packages:
   /callsites@3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
     engines: {node: '>=6'}
-
-  /camel-case@4.1.2:
-    resolution: {integrity: sha512-gxGWBrTT1JuMx6R+o5PTXMmUnhnVzLQ9SNutD4YqKtI6ap897t3tKECYla6gCWEkplXnlNybEkZg9GEGxKFCgw==}
-    dependencies:
-      pascal-case: 3.1.2
-      tslib: 2.4.0
-    dev: true
 
   /camelcase-css@2.0.1:
     resolution: {integrity: sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==}
@@ -8392,7 +8243,6 @@ packages:
 
   /chokidar@2.1.8:
     resolution: {integrity: sha512-ZmZUazfOzf0Nve7duiCKD23PFSCs4JPoYyccjUFF3aQkQadqBhfzhjkwBH2mNOG9cTBwhamM37EIsIkZw3nRgg==}
-    deprecated: Chokidar 2 does not receive security updates since 2019. Upgrade to chokidar 3 with 15x fewer dependencies
     requiresBuild: true
     dependencies:
       anymatch: 2.0.0
@@ -9710,14 +9560,6 @@ packages:
       ember-cli-htmlbars: 6.3.0
     transitivePeerDependencies:
       - supports-color
-
-  /ember-ast-helpers@0.3.5:
-    resolution: {integrity: sha512-ZtaGAUDvRX13G9D4t4WbTMhcUzqsw6KqhcHreIiZi3ZhRFlSZ3BumgyJ6buDZj+tCBLiQsxRv7l5AY6imqNR6Q==}
-    engines: {node: '>= 6'}
-    dependencies:
-      '@glimmer/compiler': 0.27.0
-      '@glimmer/syntax': 0.27.0
-    dev: true
 
   /ember-auto-import@1.12.2:
     resolution: {integrity: sha512-gLqML2k77AuUiXxWNon1FSzuG1DV7PEPpCLCU5aJvf6fdL6rmFfElsZRh+8ELEB/qP9dT+LHjNEunVzd2dYc8A==}
@@ -12762,7 +12604,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
+    deprecated: Upgrade to fsevents v2 to mitigate potential security issues
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -13909,10 +13751,6 @@ packages:
 
   /is-map@2.0.2:
     resolution: {integrity: sha512-cOZFQQozTha1f4MxLFzlgKYPTyj26picdZTx82hbc/Xf4K/tZOOXSCkMvU4pKioRXGDLJRn0GM7Upe7kR721yg==}
-    dev: true
-
-  /is-module@1.0.0:
-    resolution: {integrity: sha512-51ypPSPCoTEIN9dy5Oy+h4pShgJmPCygKfyRCISBI+JoWT/2oJvK8QPxmwv7b/p239jXrm9M1mlQbyKJ5A152g==}
     dev: true
 
   /is-negative-zero@2.0.2:
@@ -16264,13 +16102,6 @@ packages:
     resolution: {integrity: sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==}
     engines: {node: '>= 0.8'}
 
-  /pascal-case@3.1.2:
-    resolution: {integrity: sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g==}
-    dependencies:
-      no-case: 3.0.4
-      tslib: 2.4.0
-    dev: true
-
   /pascalcase@0.1.1:
     resolution: {integrity: sha512-XHXfu/yOQRy9vYOtUDVMN60OEJjW013GoObG1o+xwQTpB9eYJX/BjXMsdW13ZDPruFhYYn0AG22w0xgQMwl3Nw==}
     engines: {node: '>=0.10.0'}
@@ -17326,6 +17157,7 @@ packages:
 
   /rimraf@2.6.3:
     resolution: {integrity: sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
     dependencies:
       glob: 7.2.3
@@ -17340,6 +17172,7 @@ packages:
 
   /rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
     dependencies:
       glob: 7.2.3
@@ -17372,20 +17205,6 @@ packages:
       - supports-color
     dev: true
 
-  /rollup-plugin-node-resolve@5.2.0(rollup@2.75.7):
-    resolution: {integrity: sha512-jUlyaDXts7TW2CqQ4GaO5VJ4PwwaV8VUGA7+km3n6k6xtOEacf61u0VXwN80phY/evMcaS+9eIeJ9MOyDxt5Zw==}
-    deprecated: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-node-resolve.
-    peerDependencies:
-      rollup: '>=1.11.0'
-    dependencies:
-      '@types/resolve': 0.0.8
-      builtin-modules: 3.3.0
-      is-module: 1.0.0
-      resolve: 1.22.2
-      rollup: 2.75.7
-      rollup-pluginutils: 2.8.2
-    dev: true
-
   /rollup-pluginutils@2.8.2:
     resolution: {integrity: sha512-EEp9NhnUkwY8aif6bxgovPHMoMoNr2FulJziTndpt5H9RdwC47GSGuII9XxpSdzVGM0GWrNPHV6ie1LTNJPaLQ==}
     dependencies:
@@ -17407,15 +17226,6 @@ packages:
       rollup-pluginutils: 2.8.2
       signal-exit: 3.0.7
       sourcemap-codec: 1.4.8
-    dev: true
-
-  /rollup@1.32.1:
-    resolution: {integrity: sha512-/2HA0Ec70TvQnXdzynFffkjA6XN+1e2pEv/uKS5Ulca40g2L7KuOE3riasHoNVHOsFD5KKZgDsMk1CP3Tw9s+A==}
-    hasBin: true
-    dependencies:
-      '@types/estree': 0.0.52
-      '@types/node': 18.0.0
-      acorn: 7.4.1
     dev: true
 
   /rollup@2.75.7:
@@ -17804,10 +17614,6 @@ packages:
       '@simple-dom/parser': 1.4.0
       '@simple-dom/serializer': 1.4.0
       '@simple-dom/void-map': 1.4.0
-
-  /simple-html-tokenizer@0.3.0:
-    resolution: {integrity: sha512-cuUWLyKJbCExtBmxJWhmIk/KIbMF1yOuNaansJiPEdxqitM7r7So3a1M4Sw2uqfNYWjBTiVVdJjb7vtYIaEjhw==}
-    dev: true
 
   /simple-html-tokenizer@0.5.11:
     resolution: {integrity: sha512-C2WEK/Z3HoSFbYq8tI7ni3eOo/NneSPRoPpcM7WdLjFOArFuyXEjAoCdOC3DgMfRyziZQ1hCNR4mrNdWEvD0og==}
@@ -20281,7 +20087,3 @@ packages:
       sass: 1.53.0
       source-map: 0.7.4
     dev: true
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
