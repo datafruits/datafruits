@@ -42,7 +42,7 @@ module.exports = function (environment) {
         'datafruits.tumblr.com',
         'datafruits.fm',
         'www.datafruits.fm',
-        /^localhost:\d+$/,
+        // /^localhost:\d+$/,
         ///^(.*)\.herokuapp\.com/,
       ],
     },
