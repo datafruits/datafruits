@@ -1,9 +1,9 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
+import { service } from "@ember/service";
 import dayjs from 'dayjs';
 
 export default class HomeUserMyShowsNew extends Route {
-  @service declare currentUser: any;
+  @service currentUser;
 
   model() {
     const date = (new Date()).toISOString().split("T")[0];

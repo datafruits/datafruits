@@ -1,7 +1,9 @@
 import Route from '@ember/routing/route';
+import { service } from "@ember/service";
 
-export default class HomeWikiHistory extends Route {
-  // normal class body definition here
+export default class HomeWikiShow extends Route {
+  @service store;
+
   model(params: any) {
     return this.store.findRecord('wikiPage', params.title);
   }

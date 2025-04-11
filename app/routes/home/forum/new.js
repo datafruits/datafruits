@@ -1,11 +1,11 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
-import Session from 'ember-simple-auth/services/session';
+import { service } from "@ember/service";
 
 export default class HomeForumNew extends Route {
-  @service declare session: Session;
+  @service session;
+  @service store;
 
-  beforeModel(transition: any) {
+  beforeModel(transition) {
     this.session.requireAuthentication(transition, 'home.chat');
   }
 

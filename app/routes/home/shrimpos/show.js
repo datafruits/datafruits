@@ -1,8 +1,10 @@
 import Route from '@ember/routing/route';
-import type Shrimpo from 'datafruits13/models/shrimpo';
+import { service } from "@ember/service";
 
 export default class HomeShrimpoShow extends Route {
-  async model(params: any): Promise<Shrimpo> {
+  @service store;
+
+  async model(params) {
     return this.store.findRecord('shrimpo', params.title);
   }
 }
