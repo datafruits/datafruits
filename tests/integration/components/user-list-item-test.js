@@ -11,7 +11,7 @@ module('Integration | Component | user list item', function (hooks) {
     // Handle any actions with this.on('myAction', function(val) { ... });
     this.set('user', { metas: [{ avatarUrl: 'garfield.gif', username: 'garfield' }] });
 
-    await render(hbs`<UserListItem @user={{user}} />`);
+    await render(hbs`<UserListItem @user={{this.user}} />`);
 
     assert.dom(this.element).hasText('garfield');
   });
