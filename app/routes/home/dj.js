@@ -1,8 +1,6 @@
-import classic from 'ember-classic-decorator';
 import Route from '@ember/routing/route';
 import ENV from 'datafruits13/config/environment';
 
-@classic
 export default class DjRoute extends Route {
   model(params) {
     return this.store.queryRecord('dj', { name: params.name });

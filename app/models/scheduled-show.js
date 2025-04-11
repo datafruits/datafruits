@@ -1,11 +1,9 @@
-import classic from 'ember-classic-decorator';
 import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
 
-@classic
 export default class ScheduledShow extends Model {
-  @belongsTo('show-series', { async: true }) showSeries;
-  @belongsTo('recording', { async: false }) recording;
-  @hasMany('posts', { async: false }) posts;
+  @belongsTo('show-series', { async: true, inverse: null }) showSeries;
+  @belongsTo('recording', { async: false, inverse: null }) recording;
+  @hasMany('post', { async: false }) posts;
   @hasMany('label', { async: false }) labels;
 
   @attr()

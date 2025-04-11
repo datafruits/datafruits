@@ -57,6 +57,7 @@ export default class AddDatafruit extends Component {
 
   @action
   setDatafruits(data) {
+    console.log('setting datafruits: ', data);
     this.datafruits = data;
     this.currentDatafruit = this.datafruits.objectAt(this.currentDatafruitIndex);
     // increment the currentDatafruit index in 5 sec
@@ -91,11 +92,3 @@ export default class AddDatafruit extends Component {
       });
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    AddDatafruit: typeof AddDatafruit;
-  }
-}
-  

@@ -1,7 +1,5 @@
 import Model, { attr, hasMany } from '@ember-data/model';
-import classic from 'ember-classic-decorator';
 
-@classic // why ??
 export default class WikiPage extends Model {
   @attr('string') declare title: string;
   @attr('string') declare body: string;

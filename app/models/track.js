@@ -1,7 +1,5 @@
-import classic from 'ember-classic-decorator';
 import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
 
-@classic
 export default class Track extends Model {
   @attr()
   audioFileName;

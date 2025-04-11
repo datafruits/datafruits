@@ -42,9 +42,13 @@ module.exports = function (defaults) {
       plugins: [require('ember-auto-import/babel-plugin')],
     },
 
-    emberCliFontAwesome: {
-      useScss: true,
+    'ember-simple-auth': {
+      useSessionSetupMethod: true,
     },
+
+    // emberCliFontAwesome: {
+    //   useScss: true,
+    // },
 
     // 'ember-service-worker': {
     //   versionStrategy: 'every-build',
