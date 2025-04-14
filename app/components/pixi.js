@@ -108,7 +108,7 @@ export default class PixiComponent extends Component {
 
       //sprite.filters = [this.filter];
 
-      this.sprites.pushObject(sprite);
+      this.sprites.push(sprite);
       this.app.stage.addChild(sprite);
       // add callback to remove sprite after 5s
       later(() => {

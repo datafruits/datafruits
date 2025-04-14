@@ -24,7 +24,7 @@ export default class RealLemoner {
 
     text.filters = [filters.customFilter, filters.noiseFilter];
     app.stage.addChild(text);
-    this.sprites.pushObject(text);
+    this.sprites.push(text);
 
     // TODO refactor blobs to use a particle system
     let blobSprite;
@@ -38,7 +38,7 @@ export default class RealLemoner {
       let randomFrame = Math.floor(Math.random() * blobSprite.totalFrames);
       blobSprite.gotoAndPlay(randomFrame);
       app.stage.addChild(blobSprite);
-      this.sprites.pushObject(blobSprite);
+      this.sprites.push(blobSprite);
     }
 
     let randomRealLemoner;
@@ -53,7 +53,7 @@ export default class RealLemoner {
       let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
       randomRealLemoner.gotoAndPlay(randomFrame);
       app.stage.addChild(randomRealLemoner);
-      this.sprites.pushObject(randomRealLemoner);
+      this.sprites.push(randomRealLemoner);
     }
 
     sprite.scale.x = 1;
@@ -67,7 +67,7 @@ export default class RealLemoner {
 
     //sprite.filters = [this.filter];
     app.stage.addChild(sprite);
-    this.sprites.pushObject(sprite);
+    this.sprites.push(sprite);
 
     later(() => {
       this.sprites.forEach((sprite) => {

@@ -22,7 +22,7 @@ export default class TimetableCalendarComponent extends Component {
       //remove time
       date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
       accumulator[date] = accumulator[date] || [];
-      accumulator[date].pushObject(show);
+      accumulator[date].push(show);
       return accumulator;
     }, Object.create(null));
   }

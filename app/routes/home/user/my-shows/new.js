@@ -15,7 +15,7 @@ export default class HomeUserMyShowsNew extends Route {
       endTime: time.add(2, 'hour'),
       recurringInterval: 'not_recurring'
     });
-    newShow.users.pushObject(this.currentUser.user);
+    newShow.users.push(this.currentUser.user);
     return newShow;
   }
 }

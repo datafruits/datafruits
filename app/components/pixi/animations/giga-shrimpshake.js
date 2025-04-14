@@ -30,7 +30,7 @@ export default class GigaShrimpshake {
       app.stage.addChild(blobSprite);
       //sprite.filters = [this.filter];
       //this.sprites.pushObject(sprite);
-      this.sprites.pushObject(blobSprite);
+      this.sprites.push(blobSprite);
     }
 
     let randomGigaShrimpshake;
@@ -48,7 +48,7 @@ export default class GigaShrimpshake {
       let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
       randomGigaShrimpshake.gotoAndPlay(randomFrame);
       app.stage.addChild(randomGigaShrimpshake);
-      this.sprites.pushObject(randomGigaShrimpshake);
+      this.sprites.push(randomGigaShrimpshake);
     }
 
     let randomBlueShrimp;
@@ -71,7 +71,7 @@ export default class GigaShrimpshake {
       let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
       randomBlueShrimp.gotoAndPlay(randomFrame);
       app.stage.addChild(randomBlueShrimp);
-      this.sprites.pushObject(randomBlueShrimp);
+      this.sprites.push(randomBlueShrimp);
     }
 
     sprite.scale.x = 1;
@@ -85,13 +85,13 @@ export default class GigaShrimpshake {
 
     //sprite.filters = [this.filter];
     app.stage.addChild(sprite);
-    this.sprites.pushObject(sprite);
+    this.sprites.push(sprite);
 
     textSprite.x = app.screen.width / 4;
     textSprite.y = app.screen.height / 4;
     textSprite.gotoAndPlay(0);
     app.stage.addChild(textSprite);
-    this.sprites.pushObject(textSprite);
+    this.sprites.push(textSprite);
 
 
     later(() => {
