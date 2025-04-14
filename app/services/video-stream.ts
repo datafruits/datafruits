@@ -189,6 +189,11 @@ export default class VideoStreamService extends Service {
     } else {
       this.mode = Mode.BG;
     }
+    console.log(this.mode);
+  }
+
+  isTvMode() {
+    return this.mode === Mode.TV;
   }
 
   fetchStream() {

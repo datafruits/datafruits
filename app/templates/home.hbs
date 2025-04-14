@@ -26,6 +26,7 @@
   <DatafruitsPlayer
     class="flex-col flex justify-center classic:bg-df-pink blm:bg-black trans:bg-df-blue text-xl py-2 text-white leading-none"
   >
+    <TvModeButton class="hidden md:block mr-2"  />
     <DjDonateModal class="hidden md:block mr-2" />
     <HackButton class="hidden md:block mr-2" />
   </DatafruitsPlayer>
@@ -33,6 +34,8 @@
     <AddDatafruit />
   </div>
 </section>
+<div id="modals-container">
+</div>
 <DatafruitsVisuals
   class="block absolute top-0 w-screen h-screen h-handle-resize"
 />
@@ -57,6 +60,3 @@
     @toggleModal={{this.toggleLoginModal}}
   />
 {{/if}}
-
-<div id="modals-container">
-</div>
