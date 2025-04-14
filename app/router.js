@@ -38,6 +38,7 @@ Router.map(function () {
       this.route('my-shows.episodes', { path: 'my-shows/:slug/episodes' });
       this.route('my-shows.episode', { path: 'my-shows/:show_slug/episode/:slug' });
       this.route('notifications');
+      this.route('studio');
     });
     this.route('site-settings');
     this.route('wiki', function() {
