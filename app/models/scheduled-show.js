@@ -3,8 +3,25 @@ import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
 export default class ScheduledShow extends Model {
   @belongsTo('show-series', { async: true, inverse: null }) showSeries;
   @belongsTo('recording', { async: false, inverse: null }) recording;
-  @hasMany('post', { async: false }) posts;
-  @hasMany('label', { async: false }) labels;
+  @hasMany('post', {
+    async: false,
+    inverse: null
+  }) posts;
+  @hasMany('label', {
+    async: false,
+    inverse: null
+  }) labels;
+  @hasMany('track', {
+    async: true,
+    inverse: null
+  }) tracks;
+
+  // TODO merge user/dj model
+  @hasMany('user', {
+    async: false,
+    inverse: null
+  }) djs;
+
 
   @attr()
   start;
@@ -41,12 +58,6 @@ export default class ScheduledShow extends Model {
 
   @attr()
   hostAvatarUrl;
-
-  @hasMany('track')
-  tracks;
-
-  // TODO merge user/dj model
-  @hasMany('user', { async: false }) djs;
 
   get host() {
     return this.djs.get('firstObject');

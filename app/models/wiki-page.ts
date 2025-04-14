@@ -6,7 +6,10 @@ export default class WikiPage extends Model {
   @attr('string') declare summary: string;
   @attr('string') declare slug: string;
 
-  @hasMany('wiki-page-edit', { async: false }) wikiPageEdits: any;
+  @hasMany('wiki-page-edit', {
+    async: false,
+    inverse: null
+  }) wikiPageEdits: any;
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

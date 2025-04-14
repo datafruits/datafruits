@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import emojione from 'emojione';
 import { helper } from '@ember/component/helper';
-import { htmlSafe } from '@ember/string';
+import { htmlSafe } from '@ember/template';
 import 'autolink-js';
 
 export function formatMessageBody(params /*, hash*/) {

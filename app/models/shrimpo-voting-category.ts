@@ -3,8 +3,14 @@ import type Shrimpo from './shrimpo';
 import type ShrimpoVotingCategoryScore from './shrimpo-voting-category-score';
 
 export default class ShrimpoVotingCategory extends Model {
-  @belongsTo('shrimpo') declare shrimpo: Shrimpo;
-  @hasMany('shrimpo-voting-category-score') declare shrimpoVotingCategoryScores: SyncHasMany<ShrimpoVotingCategoryScore>;
+  @belongsTo('shrimpo', {
+    async: false,
+    inverse: null
+  }) declare shrimpo: Shrimpo;
+  @hasMany('shrimpo-voting-category-score', {
+    async: false,
+    inverse: null
+  }) declare shrimpoVotingCategoryScores: SyncHasMany<ShrimpoVotingCategoryScore>;
 
   @attr('string') declare name: string;
   @attr('string') declare emoji: string;

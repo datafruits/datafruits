@@ -3,8 +3,14 @@ import type ShrimpoVotingCategory from './shrimpo-voting-category';
 import type ShrimpoEntry from './shrimpo-entry';
 
 export default class ShrimpoVotingCategoryScore extends Model {
-  @belongsTo('shrimpo-voting-category') declare shrimpoVotingCategory: ShrimpoVotingCategory;
-  @belongsTo('shrimpo-entry') declare shrimpoEntry: ShrimpoEntry;
+  @belongsTo('shrimpo-voting-category', {
+    async: false,
+    inverse: null
+  }) declare shrimpoVotingCategory: ShrimpoVotingCategory;
+  @belongsTo('shrimpo-entry', {
+    async: false,
+    inverse: null
+  }) declare shrimpoEntry: ShrimpoEntry;
 
   @attr('number') declare score: number;
   @attr('number') declare ranking: number;

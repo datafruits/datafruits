@@ -7,12 +7,30 @@ import type User from './user';
 import type TrophyAward from './trophy-award';
 
 export default class ShrimpoEntry extends Model {
-  @belongsTo('user') declare user: User;
-  @belongsTo('shrimpo') declare shrimpo: Shrimpo;
-  @hasMany('shrimpo-vote', { async: false }) declare shrimpoVotes: SyncHasMany<ShrimpoVote>;
-  @hasMany('shrimpo-voting-category-score', { async: false }) declare shrimpoVotingCategoryScores: SyncHasMany<ShrimpoVotingCategoryScore>;
-  @hasMany('posts', { async: false }) declare posts: SyncHasMany<Post>;
-  @hasMany('trophy-award', { async: false }) declare trophyAwards: SyncHasMany<TrophyAward>;
+  @belongsTo('user', {
+    async: false,
+    inverse: null
+  }) declare user: User;
+  @belongsTo('shrimpo', {
+    async: false,
+    inverse: null
+  }) declare shrimpo: Shrimpo;
+  @hasMany('shrimpo-vote', {
+    async: false,
+    inverse: null
+  }) declare shrimpoVotes: SyncHasMany<ShrimpoVote>;
+  @hasMany('shrimpo-voting-category-score', {
+    async: false,
+    inverse: null
+  }) declare shrimpoVotingCategoryScores: SyncHasMany<ShrimpoVotingCategoryScore>;
+  @hasMany('posts', {
+    async: false,
+    inverse: null
+  }) declare posts: SyncHasMany<Post>;
+  @hasMany('trophy-award', {
+    async: false,
+    inverse: null
+  }) declare trophyAwards: SyncHasMany<TrophyAward>;
 
   @attr('string') declare username: string;
   @attr('string') declare userAvatar: string;

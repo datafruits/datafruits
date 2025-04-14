@@ -1,7 +1,10 @@
 import Model, { belongsTo, attr } from '@ember-data/model';
 
 export default class BlogPostImage extends Model {
-  @belongsTo('blog-post-body')
+  @belongsTo('blog-post-body', {
+    async: false,
+    inverse: null
+  })
   blogPostBody;
 
   @attr()

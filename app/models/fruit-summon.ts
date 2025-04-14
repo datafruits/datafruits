@@ -3,7 +3,10 @@ import type User from './user';
 
 export default class FruitSummon extends Model {
   @attr('string') declare name: string;
-  @belongsTo('user', { async: true }) declare user: User;
+  @belongsTo('user', {
+    async: true,
+    inverse: null
+  }) declare user: User;
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

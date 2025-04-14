@@ -1,7 +1,10 @@
 import Model, { attr, belongsTo } from '@ember-data/model';
 
 export default class FruitTicketGift extends Model {
-  @belongsTo('user') toUser: any;
+  @belongsTo('user', {
+    async: false,
+    inverse: null
+  }) toUser: any;
 
   @attr('number') declare amount: string;
   @attr('string') declare toUserId: string;

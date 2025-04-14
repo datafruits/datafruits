@@ -6,7 +6,10 @@ export default class ForumThread extends Model {
   @attr('string') declare title: string;
   @attr('string') declare body: string;
   //@belongsTo('user', { async: true }) declare user: User;
-  @hasMany('posts', { async: false }) declare posts: any;
+  @hasMany('posts', {
+    async: false,
+    inverse: null
+  }) declare posts: any;
 
   @attr('string') declare posterUsername: string;
   @attr('string') declare posterAvatar: string;

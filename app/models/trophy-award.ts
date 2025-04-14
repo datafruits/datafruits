@@ -2,7 +2,10 @@ import Model, { attr, belongsTo } from '@ember-data/model';
 import type ShrimpoEntry from './shrimpo-entry';
 
 export default class TrophyAward extends Model {
-  @belongsTo('shrimpo-entry') declare shrimpoEntry: ShrimpoEntry;
+  @belongsTo('shrimpo-entry', {
+    async: false,
+    inverse: null
+  }) declare shrimpoEntry: ShrimpoEntry;
 
   @attr('string') declare name: string;
   @attr('string') declare imageUrl: string;
