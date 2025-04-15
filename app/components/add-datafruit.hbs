@@ -1,12 +1,11 @@
 <Await
   @promise={{this.loadDatafruits}}
-  @onResolve={{this.setDatafruits}}
-  as |await|>
-  <await.Pending>
+  >
+  <:pending>
     {{t "microtext.loading"}}
-  </await.Pending>
+  </:pending>
 
-  <await.Fulfilled as |datafruits|>
+  <:success as |datafruits|>
     {{#if this.showingDatafruits}}
       <marquee id="add-datafruit-bar" class="text-sm sm:text-xl">
         [<img style="height: 20px; display: inline;" src="{{this.currentDatafruit.avatarUrlOrDefault}}" alt={{this.currentDatafruit.username}} / >
@@ -35,9 +34,9 @@
           value="{{t "microtext.submit"}}" class="cool-button" disabled={{this.isSubmittable}}>
       </form>
     {{/if}}
-  </await.Fulfilled>
+  </:success>
 
-  <await.Rejected>
+  <:error>
     Something went wrong :(
-  </await.Rejected>
+  </:error>
 </Await>
