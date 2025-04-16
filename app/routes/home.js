@@ -14,7 +14,9 @@ export default class HomeRoute extends Route {
   @service
   fastboot;
 
-  beforeModel() {
+  async beforeModel() {
+    await this.session.setup();
+
     if (!this.fastboot.isFastBoot) {
       let element = document.getElementsByTagName('html')[0];
       let theme = localStorage.getItem('datafruits-theme') || 'classic';
