@@ -6,7 +6,7 @@ export default class LocaleSelector extends Component {
     { text: '日本語', value: 'ja' },
     { text: '한국어', value: 'ko' },
     { text: 'Español', value: 'es' },
-    { text: '中文', value: 'cn' },
+    { text: '中文', value: 'zh-cn' },
   ];
 }
 
@@ -16,4 +16,4 @@ declare module '@glint/environment-ember-loose/registry' {
     LocaleSelector: typeof LocaleSelector;
   }
 }
-  
+
