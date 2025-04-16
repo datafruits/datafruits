@@ -12,7 +12,7 @@ export default class ScheduledShow extends Model {
     inverse: null
   }) labels;
   @hasMany('track', {
-    async: true,
+    async: false,
     inverse: null
   }) tracks;
 
@@ -98,6 +98,10 @@ export default class ScheduledShow extends Model {
 
   @attr
   soundcloudLink;
+
+  get firstTrack() {
+    return this.tracks[0];
+  }
 
   get imageOrDefault() {
     if(this.imageUrl) {

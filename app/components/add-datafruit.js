@@ -59,7 +59,6 @@ export default class AddDatafruit extends Component {
   }
 
   setDatafruits(data) {
-    console.log('setting datafruits: ', data);
     this.datafruits = data;
     this.currentDatafruit = this.datafruits[this.currentDatafruitIndex];
     // increment the currentDatafruit index in 5 sec

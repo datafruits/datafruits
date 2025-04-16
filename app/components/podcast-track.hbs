@@ -4,7 +4,7 @@
       {{#if this.playing}}
         <a
           class="text-df-green hover:text-df-yellow text-xl"
-          {{action "pause"}}
+          {{on "click" this.pause}}
           href="#"
         >
           {{t "player.pause"}}

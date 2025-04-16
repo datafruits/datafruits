@@ -14,7 +14,6 @@ declare module '@glint/environment-ember-loose/registry' {
     //EmberFileUploadRegistry
     {
     WelcomePage: ComponentLike;
-    Await: ComponentLike;
     'page-title': HelperLike<{
       Args: { Positional: [title: string] };
       Return: void;

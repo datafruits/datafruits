@@ -21,7 +21,7 @@
         </span>
       </marquee>
       {{#if this.session.isAuthenticated}}
-        <button {{action "addDatafruit"}} type="button" class="cool-button">{{t "microtext.add"}}</button>
+        <button {{on "click" this.addDatafruit}} type="button" class="cool-button">{{t "microtext.add"}}</button>
       {{/if}}
     {{else}}
       <div>
