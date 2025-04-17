@@ -16,7 +16,7 @@ export default class ShrimpoVotingCategory extends Model {
   @attr('string') declare emoji: string;
 
   get sortedScores() {
-    const rankedScores = this.shrimpoVotingCategoryScores.sortBy('ranking')
+    const rankedScores = this.shrimpoVotingCategoryScores.slice().sort((a: ShrimpoVotingCategoryScore, b: ShrimpoVotingCategoryScore) => a.ranking - b.ranking);
     const uniqueScores = rankedScores.reduce<ShrimpoVotingCategoryScore[]>((acc: ShrimpoVotingCategoryScore[], curr: ShrimpoVotingCategoryScore) => {
       const existingEntry = acc.find(item => item.shrimpoEntry.get('id') === curr.shrimpoEntry.get('id'));
       if (!existingEntry) {

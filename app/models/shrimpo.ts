@@ -14,7 +14,7 @@ export default class Shrimpo extends Model {
   }) declare user: User;
   @hasMany('shrimpo-entry', {
     async: false,
-    inverse: null
+    inverse: 'shrimpo'
   }) declare shrimpoEntries: SyncHasMany<ShrimpoEntry>;
   @hasMany('shrimpo-voting-category', {
     async: false,
@@ -64,7 +64,7 @@ export default class Shrimpo extends Model {
 
   get savedShrimpoEntries() {
     if(this.status === 'completed') {
-      return this.shrimpoEntries.sortBy('ranking');
+      return this.shrimpoEntries.slice().sort((a: ShrimpoEntry, b: ShrimpoEntry) => parseInt(a.ranking) - parseInt(b.ranking));
     } else {
       return this.shrimpoEntries.filter(entry => {
         return !entry.isNew;

@@ -13,7 +13,7 @@ export default class ShrimpoEntry extends Model {
   }) declare user: User;
   @belongsTo('shrimpo', {
     async: false,
-    inverse: null
+    inverse: 'shrimpoEntries'
   }) declare shrimpo: Shrimpo;
   @hasMany('shrimpo-vote', {
     async: false,
