@@ -8,10 +8,22 @@ import type User from './user';
 export default class Shrimpo extends Model {
   @service declare intl: any;
 
-  @belongsTo('user') declare user: User;
-  @hasMany('shrimpo-entry', { async: false }) declare shrimpoEntries: SyncHasMany<ShrimpoEntry>;
-  @hasMany('shrimpo-voting-category', { async: false }) declare shrimpoVotingCategories: SyncHasMany<ShrimpoVotingCategory>;
-  @hasMany('posts', { async: false }) declare posts: SyncHasMany<Post>;
+  @belongsTo('user', {
+    async: false,
+    inverse: null
+  }) declare user: User;
+  @hasMany('shrimpo-entry', {
+    async: false,
+    inverse: 'shrimpo'
+  }) declare shrimpoEntries: SyncHasMany<ShrimpoEntry>;
+  @hasMany('shrimpo-voting-category', {
+    async: false,
+    inverse: null
+  }) declare shrimpoVotingCategories: SyncHasMany<ShrimpoVotingCategory>;
+  @hasMany('posts', {
+    async: false,
+    inverse: null
+  }) declare posts: SyncHasMany<Post>;
 
   @attr('string') declare title: string;
   @attr('string') declare username: string;
@@ -52,7 +64,7 @@ export default class Shrimpo extends Model {
 
   get savedShrimpoEntries() {
     if(this.status === 'completed') {
-      return this.shrimpoEntries.sortBy('ranking');
+      return this.shrimpoEntries.slice().sort((a: ShrimpoEntry, b: ShrimpoEntry) => parseInt(a.ranking) - parseInt(b.ranking));
     } else {
       return this.shrimpoEntries.filter(entry => {
         return !entry.isNew;

@@ -17,9 +17,9 @@ module('Integration | Component | podcasts search', function (hooks) {
     this.set('labels', []);
 
     await render(hbs`<PodcastsSearch
-      @tracks={{tracks}}
-      @labels={{labels}}
-      @searchParams={{searchParams}}
+      @tracks={{this.tracks}}
+      @labels={{this.labels}}
+      @searchParams={{this.searchParams}}
       />`);
 
     assert.dom('*').hasText('');

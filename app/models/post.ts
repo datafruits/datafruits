@@ -5,7 +5,10 @@ import type User from './user';
 export default class Post extends Model {
   @attr('string') declare body: string;
   //@belongsTo('forum-thread') declare forumThread: ForumThread;
-  @belongsTo('user') declare user: User;
+  @belongsTo('user', {
+    async: false,
+    inverse: null
+  }) declare user: User;
 
   @attr('string') declare posterUsername: string;
   @attr('string') declare posterAvatar: string;

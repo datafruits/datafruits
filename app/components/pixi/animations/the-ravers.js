@@ -26,7 +26,7 @@ export default class TheRavers {
       app.stage.addChild(blobSprite);
       //sprite.filters = [this.filter];
       //this.sprites.pushObject(sprite);
-      this.sprites.pushObject(blobSprite);
+      this.sprites.push(blobSprite);
     }
 
     const ravers = [
@@ -53,7 +53,7 @@ export default class TheRavers {
       sprite.y = Math.random() * app.screen.height;
       this.sprites.push(sprite);
       app.stage.addChild(sprite);
-      this.sprites.pushObject(sprite);
+      this.sprites.push(sprite);
 
     }
 

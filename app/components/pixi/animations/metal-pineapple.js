@@ -25,7 +25,7 @@ export default class MetalPineapple {
 
     text.filters = [filters.customFilter, filters.noiseFilter];
     app.stage.addChild(text);
-    this.sprites.pushObject(text);
+    this.sprites.push(text);
 
     // TODO refactor blobs to use a particle system
     let blobSprite;
@@ -39,7 +39,7 @@ export default class MetalPineapple {
       let randomFrame = Math.floor(Math.random() * blobSprite.totalFrames);
       blobSprite.gotoAndPlay(randomFrame);
       app.stage.addChild(blobSprite);
-      this.sprites.pushObject(blobSprite);
+      this.sprites.push(blobSprite);
     }
 
     let randomMetalPineapple;
@@ -54,7 +54,7 @@ export default class MetalPineapple {
       let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
       randomMetalPineapple.gotoAndPlay(randomFrame);
       app.stage.addChild(randomMetalPineapple);
-      this.sprites.pushObject(randomMetalPineapple);
+      this.sprites.push(randomMetalPineapple);
     }
 
     sprite.scale.x = 1;
@@ -68,7 +68,7 @@ export default class MetalPineapple {
     sprite.gotoAndPlay(randomFrame);
 
     app.stage.addChild(sprite);
-    this.sprites.pushObject(sprite);
+    this.sprites.push(sprite);
 
     later(() => {
       this.sprites.forEach((sprite) => {

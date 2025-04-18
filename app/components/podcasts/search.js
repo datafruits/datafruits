@@ -10,7 +10,7 @@ export default class PodcastsSearchComponent extends Component {
   clearSearch() {
     const query = { query: '', tags: this.args.selectedLabels };
     this.router.transitionTo({ queryParams: query });
-    debounce(this, this.args.search, 400);
+    //debounce(this, this.args.search, 400);
   }
 
   @action
@@ -18,7 +18,7 @@ export default class PodcastsSearchComponent extends Component {
     console.log(event.target.value);
     const query = { query: event.target.value, tags: this.args.selectedLabels };
     this.router.transitionTo({ queryParams: query });
-    debounce(this, this.args.search, 400);
+    //debounce(this, this.args.search, 400);
   }
 
   @action
@@ -30,7 +30,7 @@ export default class PodcastsSearchComponent extends Component {
   selectLabel(labels) {
     const queryParams = { tags: labels, query: this.router.currentRoute.queryParams.query };
     this.router.transitionTo({ queryParams: queryParams });
-    debounce(this, this.args.search, 400);
+    //debounce(this, this.args.search, 400);
   }
 
   get labelNames() {
@@ -46,4 +46,4 @@ declare module '@glint/environment-ember-loose/registry' {
     PodcastsSearchComponent: typeof PodcastsSearchComponent;
   }
 }
-  
+

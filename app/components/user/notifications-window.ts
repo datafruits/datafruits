@@ -16,8 +16,7 @@ export default class UserNotificationsWindow extends Component {
     this.showingNotificationsModal = !this.showingNotificationsModal;
   }
 
-  @action
-  fetchNotifications() {
+  get fetchNotifications() {
     return this.store.findAll('notification').then((notifications: any) => {
       this.hasUnread = false;
       return notifications;

@@ -1,20 +1,13 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
-
 # compiled output
 /dist/
-/tmp/
+/declarations/
 
 # dependencies
-node_modules/
-/bower_components
-/bower_components/
 /node_modules/
 
 # misc
 /.pnp*
-/.sass-cache
 /.eslintcache
-/connect.lock
 /coverage/
 /libpeerconnection.log
 /lhci
@@ -30,8 +23,13 @@ yarn-error.log
 
 # ember-try
 /.node_modules.ember-try/
-/bower.json.ember-try
+/npm-shrinkwrap.json.ember-try
 /package.json.ember-try
 
 # annoying mac file
 /.DS_Store
+/package-lock.json.ember-try
+/yarn.lock.ember-try
+
+# broccoli-debug
+/DEBUG/
