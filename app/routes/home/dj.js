@@ -1,7 +1,10 @@
 import Route from '@ember/routing/route';
 import ENV from 'datafruits13/config/environment';
+import { service } from '@ember/service';
 
 export default class DjRoute extends Route {
+  @service store;
+
   model(params) {
     return this.store.queryRecord('dj', { name: params.name });
   }
