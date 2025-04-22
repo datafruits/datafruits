@@ -1,4 +1,5 @@
-import Model, { attr, hasMany } from '@ember-data/model';
+import Model, { attr, hasMany, type SyncHasMany } from '@ember-data/model';
+import type Post from './post';
 //import type User from './user';
 //import type Post from './post';
 
@@ -6,7 +7,10 @@ export default class ForumThread extends Model {
   @attr('string') declare title: string;
   @attr('string') declare body: string;
   //@belongsTo('user', { async: true }) declare user: User;
-  @hasMany('posts', { async: false }) declare posts: any;
+  @hasMany('posts', {
+    async: false,
+    inverse: null
+  }) declare posts: SyncHasMany<Post>;
 
   @attr('string') declare posterUsername: string;
   @attr('string') declare posterAvatar: string;
@@ -19,7 +23,7 @@ export default class ForumThread extends Model {
   @attr() declare replyPosterAvatars: any;
 
   get sortedPosts() {
-    return this.posts.sortBy('createdAt');
+    return this.posts.slice().sort((a: Post, b: Post) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime());
   }
 }
 

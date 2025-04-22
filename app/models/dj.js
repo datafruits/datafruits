@@ -33,16 +33,25 @@ export default class Dj extends User {
   @attr()
   lastSignInAt;
 
-  @hasMany('link')
+  @hasMany('link', {
+    async: false,
+    inverse: null
+  })
   links;
 
-  @hasMany('track')
+  @hasMany('track', {
+    async: false,
+    inverse: null
+  })
   tracks;
 
   @attr()
   role;
 
-  @hasMany('scheduled-show')
+  @hasMany('scheduled-show', {
+    async: false,
+    inverse: null
+  })
   scheduledShows;
 
   get nextShow() {

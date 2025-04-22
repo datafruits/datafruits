@@ -26,7 +26,7 @@
           role="button"
           {{on "click" this.playLiveStream}}
         >
-          <FaIcon @icon="chevron-left" alt={{t 'return_to_live'}} />
+          <Ui::Icon @name="chevron-left" alt={{t 'return_to_live'}} />
         </a>
       {{/if}}
       {{#if this.loading}}
@@ -80,7 +80,7 @@
             aria-label={{t "player.aria.unmute"}}
             {{on 'click' this.unmute}}
           >
-            <FaIcon @icon="volume-off" />
+            <Ui::Icon @name="volume-off" />
           </a>
         {{else}}
           <a
@@ -91,7 +91,7 @@
             aria-label={{t "player.aria.mute"}}
             {{on "click" this.mute}}
           >
-            <FaIcon @icon="volume-up" />
+            <Ui::Icon @name="volume-up" />
           </a>
         {{/if}}
         {{#if this.showingVolumeControl}}

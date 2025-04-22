@@ -9,7 +9,7 @@ module('Integration | Component | giphy-search', function (hooks) {
   test('it renders', async function (assert) {
     this.set('sendGif', () => {});
 
-    await render(hbs`<GiphySearch @sendGif={{sendGif}} />`);
+    await render(hbs`<GiphySearch @sendGif={{this.sendGif}} />`);
 
     assert.ok(this.element);
   });
