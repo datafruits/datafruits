@@ -13,7 +13,7 @@ module('Integration | Component | chat-lazy-image', function (hooks) {
     const adjustScrolling = function () {};
     this.set('adjustScrolling', adjustScrolling);
 
-    await render(hbs`<ChatLazyImage @adjustScrolling={{adjustScrolling}} />`);
+    await render(hbs`<ChatLazyImage @adjustScrolling={{this.adjustScrolling}} />`);
 
     assert.dom(this.element).hasText('');
   });
