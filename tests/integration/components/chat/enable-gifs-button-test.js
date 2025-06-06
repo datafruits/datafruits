@@ -7,6 +7,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | chat/enable-gifs-button', function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks, 'en-us');
+  setupIntl(hooks, 'en-us');
 
   test('it renders', async function (assert) {
     this.toggleGifs = function () {};

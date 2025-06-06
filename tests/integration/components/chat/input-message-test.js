@@ -7,6 +7,7 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Component | chat/input-message', function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks, 'en-us');
+  setupIntl(hooks, 'en-us');
 
   test('it renders', async function (assert) {
     assert.expect(2);
