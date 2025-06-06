@@ -8,11 +8,11 @@ import type TrophyAward from './trophy-award';
 
 export default class ShrimpoEntry extends Model {
   @belongsTo('user', {
-    async: false,
+    async: true,
     inverse: null
   }) declare user: User;
   @belongsTo('shrimpo', {
-    async: false,
+    async: true,
     inverse: 'shrimpoEntries'
   }) declare shrimpo: Shrimpo;
   @hasMany('shrimpo-vote', {

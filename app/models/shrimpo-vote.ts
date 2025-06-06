@@ -5,7 +5,7 @@ import type User from './user';
 
 export default class ShrimpoVote extends Model {
   @belongsTo('user', {
-    async: false,
+    async: true,
     inverse: null
   }) declare user: User;
   @belongsTo('shrimpo-entry', {
