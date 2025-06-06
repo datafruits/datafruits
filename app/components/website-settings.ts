@@ -30,7 +30,7 @@ export default class WebsiteSettings extends Component {
   setLocale(event: Event) {
     if (event.target) {
       const target = event.target as HTMLOptionElement;
-      this.intl.locale = target.value;
+      this.intl.setLocale(target.value);
     }
   }
 
