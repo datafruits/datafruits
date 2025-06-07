@@ -33,7 +33,7 @@ export default class PostForm extends Component<PostFormSignature> {
     });
     try {
       post.save().then(() => {
-        postable.posts.pushObject(post);
+        postable.posts.push(post);
         this.body = '';
         next(this, () => {
           const forumPosts = document.querySelectorAll("section.post") as NodeListOf<Element>;

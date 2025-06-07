@@ -1,7 +1,5 @@
-import classic from 'ember-classic-decorator';
 import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
 
-@classic
 export default class Track extends Model {
   @attr()
   audioFileName;
@@ -24,17 +22,16 @@ export default class Track extends Model {
   @attr()
   podcastPublishedDate;
 
-  @hasMany('label')
-  labels;
+  @hasMany('label', {
+    async: false,
+    inverse: null
+  }) labels;
 
-  @belongsTo('podcast')
-  podcast;
+  @belongsTo('podcast', { async: true, inverse: 'track' }) podcast;
 
-  @belongsTo('scheduled-show')
-  scheduledShow;
+  @belongsTo('scheduled-show', { async: true, inverse: 'track' }) scheduledShow;
 
-  @belongsTo('dj')
-  dj;
+  @belongsTo('dj', { async: true, inverse: 'track' }) dj;
 
   get labelNames() {
     return this.labels.map((label) => { return label.name });

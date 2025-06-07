@@ -1,31 +1,26 @@
+import { createServer } from 'miragejs';
+import {
+  discoverEmberDataModels,
+} from 'ember-cli-mirage';
 import ENV from 'datafruits13/config/environment';
 
-export default function () {
-  // These comments are here to help you get started. Feel free to delete them.
+export default function (config) {
+    let finalConfig = {
+    ...config,
+    models: {
+      ...discoverEmberDataModels(config.store),
+      ...config.models
+    },
+    routes,
+  };
 
-  /*
-    Config (with defaults).
+  return createServer(finalConfig);
+}
 
-    Note: these only affect routes defined *after* them!
-  */
-
-  // this.urlPrefix = '';    // make this `http://localhost:8080`, for example, if your API is on a different server
-  this.urlPrefix = ENV.API_HOST; // make this `http://localhost:8080`, for example, if your API is on a different server
+function routes(){
+  this.urlPrefix = ENV.API_HOST;
   this.logging = true;
-  // this.namespace = '';    // make this `/api`, for example, if your API is namespaced
-  // this.timing = 400;      // delay for each request, automatically set to 0 during testing
 
-  /*
-    Shorthand cheatsheet:
-
-    this.get('/posts');
-    this.post('/posts');
-    this.get('/posts/:id');
-    this.put('/posts/:id'); // or this.patch
-    this.del('/posts/:id');
-
-    https://www.ember-cli-mirage.com/docs/route-handlers/shorthands
-  */
   this.get('/api/microtexts.json', (schema) => {
     return schema.microtexts.all();
   });
@@ -36,45 +31,37 @@ export default function () {
 
   this.get('/api/shrimpos/:id', (schema, request) => {
     let id = request.params.id;
-
     return schema.shrimpos.find(id);
   });
 
-  this.get('/api/blog_posts.json', (/* schema */) => {
+  this.get('/api/blog_posts.json', () => {
     return { blog_posts: [] };
   });
 
   this.get('/api/listeners/validate_username', () => {
     return { valid: true };
   });
+
   this.get('/api/listeners/validate_email', () => {
     return { valid: true };
   });
 
-  this.get(
-    '/podcasts/datafruits.json',
-    () => {
-      return {
-        podcast: {
-          id: '1',
-          name: 'datafruits',
-          tracks: [],
-        },
+  this.get('/podcasts/datafruits.json', () => {
+    return {
+      podcast: {
+        id: '1',
+        name: 'datafruits',
         tracks: [],
-        labels: [],
-        meta: {},
-      };
-    },
-    200,
-  );
+      },
+      tracks: [],
+      labels: [],
+      meta: {},
+    };
+  });
 
-  this.get(
-    '/scheduled_shows.json',
-    () => {
-      return { scheduled_shows: [] };
-    },
-    200,
-  );
+  this.get('/scheduled_shows.json', () => {
+    return { scheduled_shows: [] };
+  });
 
   this.post('/api/listeners.json', (schema, request) => {
     const attrs = JSON.parse(request.requestBody).user;
@@ -97,7 +84,10 @@ export default function () {
           pronouns: '',
           track_favorites: [],
         },
-        relationships: { track_favorites: { data: [] }, social_identities: { data: [] } },
+        relationships: {
+          track_favorites: { data: [] },
+          social_identities: { data: [] },
+        },
       },
     };
   });
@@ -105,10 +95,18 @@ export default function () {
   this.post('/users/sign_in', (schema, request) => {
     const attrs = JSON.parse(request.requestBody).user;
     const login = attrs.login;
-    return { login: login, redirect: '/', success: true, token: 'xxxxxxxxx', id: 26, test: 'hey' };
+
+    return {
+      login: login,
+      redirect: '/',
+      success: true,
+      token: 'xxxxxxxxx',
+      id: 26,
+      test: 'hey',
+    };
   });
 
-  this.get('/users/current_user.json', (/* schema, request */) => {
+  this.get('/users/current_user.json', () => {
     return {
       data: {
         id: '937',
@@ -125,7 +123,10 @@ export default function () {
           pronouns: '',
           track_favorites: [],
         },
-        relationships: { track_favorites: { data: [] }, social_identities: { data: [] } },
+        relationships: {
+          track_favorites: { data: [] },
+          social_identities: { data: [] },
+        },
       },
     };
   });

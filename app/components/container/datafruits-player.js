@@ -1,9 +1,7 @@
-import classic from 'ember-classic-decorator';
 import DatafruitsPlayer from '../datafruits-player';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-@classic
 export default class _DatafruitsPlayer extends DatafruitsPlayer {
   @tracked playingPodcast = false;
 

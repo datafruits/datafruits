@@ -80,10 +80,19 @@ export default class UserModel extends Model {
   @attr()
   hasUnreadNotifications;
 
-  @hasMany('track-favorite', { async: false }) trackFavorites; // ugh
-  @hasMany('scheduled-show-favorite', { async: false }) scheduledShowFavorites; // ugh
+  @hasMany('track-favorite', {
+    async: false,
+    inverse: null
+  }) trackFavorites; // ugh
+  @hasMany('scheduled-show-favorite', {
+    async: false,
+    inverse: null
+  }) scheduledShowFavorites; // ugh
 
-  @hasMany('fruit-summon') fruitSummons;
+  @hasMany('fruit-summon', {
+    async: false,
+    inverse: null
+  }) fruitSummons;
 
   async favoritedTrack(trackId) {
     let trackFavorites = await this.trackFavorites;

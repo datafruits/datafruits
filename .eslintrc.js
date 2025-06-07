@@ -4,10 +4,13 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 'latest',
     sourceType: 'module',
-    ecmaFeatures: {
-      legacyDecorators: true,
+    requireConfigFile: false,
+    babelOptions: {
+      plugins: [
+        ['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }],
+      ],
     },
   },
   plugins: ['ember', '@typescript-eslint'],
@@ -34,6 +37,8 @@ module.exports = {
       files: [
         '.eslintrc.js',
         './.eslintrc.js',
+        './.prettierrc.js',
+        './.stylelintrc.js',
         './.template-lintrc.js',
         './ember-cli-build.js',
         './testem.js',
@@ -42,25 +47,60 @@ module.exports = {
         './lib/*/index.js',
         './server/**/*.js',
       ],
-        parserOptions: {
-          sourceType: 'script',
-        },
-        env: {
-          browser: false,
-            node: true,
-        },
-        plugins: ['node'],
-        extends: ['plugin:node/recommended'],
-        rules: {
-          // this can be removed once the following is fixed
-          // https://github.com/mysticatea/eslint-plugin-node/issues/77
-          'node/no-unpublished-require': 'off',
-        },
+      parserOptions: {
+        sourceType: 'script',
+      },
+      env: {
+        browser: false,
+        node: true,
+      },
+      extends: ['plugin:n/recommended'],
     },
     {
-      // Test files:
+      // test files
       files: ['tests/**/*-test.{js,ts}'],
       extends: ['plugin:qunit/recommended'],
+    },
+    {
+      files: ['**/*.{js,ts}'],
+      plugins: ['ember'],
+      parser: '@typescript-eslint/parser',
+      extends: [
+        'eslint:recommended',
+        'plugin:ember/recommended', // or other configuration
+      ],
+      rules: {
+        // override / enable optional rules
+        'ember/no-replace-test-comments': 'error'
+      }
+    },
+    {
+      files: ['**/*.gts'],
+      parser: 'ember-eslint-parser',
+      plugins: ['ember'],
+      extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:ember/recommended',
+        'plugin:ember/recommended-gts',
+      ],
+    },
+    {
+      files: ['**/*.gjs'],
+      parser: 'ember-eslint-parser',
+      plugins: ['ember'],
+      extends: [
+        'eslint:recommended',
+        'plugin:ember/recommended',
+        'plugin:ember/recommended-gjs',
+      ],
+    },
+    {
+      files: ['tests/**/*.{js,ts,gjs,gts}'],
+      rules: {
+        // override / enable optional rules
+        'ember/no-replace-test-comments': 'error'
+      }
     },
   ],
 };
