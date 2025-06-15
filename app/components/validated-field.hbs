@@ -13,7 +13,7 @@
     class="form-input focus:outline-none focus:shadow-outline"
     cols="80" rows="6"
     oninput={{action (mut (get @changeset @property)) value="target.value"}}
-    onblur={{action "validateProperty" @changeset @property}}
+    {{on "blur" (fn this.validateProperty @changeset @property)}}
   >{{get @changeset @property}}</Textarea>
 {{else}}
   <Input

@@ -4,8 +4,11 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import { setupMirage } from 'ember-cli-mirage/test-support';
 
+import { setupIntl } from 'ember-intl/test-support';
+
 module('Integration | Component | podcasts search', function (hooks) {
   setupRenderingTest(hooks);
+  setupIntl(hooks, 'en-us');
   setupMirage(hooks);
 
   // Called live endpoints, should be a mirage test or better mocked
@@ -17,9 +20,9 @@ module('Integration | Component | podcasts search', function (hooks) {
     this.set('labels', []);
 
     await render(hbs`<PodcastsSearch
-      @tracks={{tracks}}
-      @labels={{labels}}
-      @searchParams={{searchParams}}
+      @tracks={{this.tracks}}
+      @labels={{this.labels}}
+      @searchParams={{this.searchParams}}
       />`);
 
     assert.dom('*').hasText('');

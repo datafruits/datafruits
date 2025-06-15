@@ -14,12 +14,12 @@ export default class SiteSettingsComponent extends Component {
 
   @action
   setLocale(locale) {
-    this.intl.locale = locale;
+    this.intl.setLocale(locale);
   }
 
   @action
-  setTheme(theme) {
-    this.theme.setTheme(theme);
+  setTheme(event) {
+    this.theme.setTheme(event.target.value);
   }
 
   @action
@@ -34,4 +34,4 @@ declare module '@glint/environment-ember-loose/registry' {
     SiteSettingsComponent: typeof SiteSettingsComponent;
   }
 }
-  
+

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { htmlSafe } from '@ember/string';
+import { htmlSafe } from '@ember/template';
 import { helper } from '@ember/component/helper';
 import emojione from 'emojione';
 

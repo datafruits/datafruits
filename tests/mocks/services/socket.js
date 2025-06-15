@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import Service from '@ember/service';
 import ENV from 'datafruits13/config/environment';
 
@@ -77,9 +76,8 @@ class MockSocket extends MockBase {
   }
 }
 
-@classic
 export default class MockSocketService extends Service {
-  constructor(...args: any[]) {
+  constructor(args) {
     super(args);
     this.socket =
       new MockSocket(ENV.CHAT_SOCKET_URL, {

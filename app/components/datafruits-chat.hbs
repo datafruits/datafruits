@@ -70,7 +70,8 @@
           </div>
           {{!-- Login Button --}}
           <div class="flex justify-center">
-            <button {{action "toggleLoginModal"}}
+            <button
+              {{on "click" this.toggleLoginModal}}
               type="button"
               class="cool-button"
               title={{t "chat.titles.login"}}

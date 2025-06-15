@@ -27,7 +27,7 @@ export default class MegaBeamsprout {
 
     text.filters = [filters.customFilter, filters.noiseFilter];
     app.stage.addChild(text);
-    this.sprites.pushObject(text);
+    this.sprites.push(text);
 
     // TODO refactor blobs to use a particle system
     let blobSprite;
@@ -44,7 +44,7 @@ export default class MegaBeamsprout {
       app.stage.addChild(blobSprite);
       //sprite.filters = [this.filter];
       //this.sprites.pushObject(sprite);
-      this.sprites.pushObject(blobSprite);
+      this.sprites.push(blobSprite);
     }
 
     let randomMegaBeamsprout;
@@ -59,7 +59,7 @@ export default class MegaBeamsprout {
       let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
       randomMegaBeamsprout.gotoAndPlay(randomFrame);
       app.stage.addChild(randomMegaBeamsprout);
-      this.sprites.pushObject(randomMegaBeamsprout);
+      this.sprites.push(randomMegaBeamsprout);
     }
 
     sprite.scale.x = 1;
@@ -74,7 +74,7 @@ export default class MegaBeamsprout {
 
     //sprite.filters = [this.filter];
     app.stage.addChild(sprite);
-    this.sprites.pushObject(sprite);
+    this.sprites.push(sprite);
 
     later(() => {
       this.sprites.forEach((sprite) => {

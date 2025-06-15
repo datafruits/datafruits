@@ -9,7 +9,7 @@ interface ForumThreadListSignature {
 
 export default class ForumThreadList extends Component<ForumThreadListSignature> {
   get sortedThreads() {
-    return this.args.forumThreads.sortBy('updatedAt').reverse();
+    return this.args.forumThreads.slice().sort((a: ForumThread, b: ForumThread) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime());
   }
 }
 
@@ -19,4 +19,3 @@ declare module '@glint/environment-ember-loose/registry' {
     ForumThreadList: typeof ForumThreadList;
   }
 }
-  

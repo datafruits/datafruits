@@ -235,8 +235,8 @@ export default class HomeUserSettingsController extends Controller {
   }
 
   @action
-  setUserStyle(style) {
-    this.currentUser.user.style = style;
+  setUserStyle(event) {
+    this.currentUser.user.style = event.target.value;
   }
 
   @action
