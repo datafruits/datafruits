@@ -18,8 +18,8 @@ export default class SiteSettingsComponent extends Component {
   }
 
   @action
-  setTheme(theme) {
-    this.theme.setTheme(theme);
+  setTheme(event) {
+    this.theme.setTheme(event.target.value);
   }
 
   @action

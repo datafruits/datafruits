@@ -35,8 +35,8 @@ export default class WebsiteSettings extends Component {
   }
 
   @action
-  setTheme(theme: any) {
-    this.theme.setTheme(theme);
+  setTheme(event: any) {
+    this.theme.setTheme(event.target.value);
   }
 
   @action

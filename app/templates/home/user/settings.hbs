@@ -105,7 +105,7 @@
           name="style-selector"
           class="user-settings-input h-9"
           aria-label="{{ t "style"}}"
-          onchange={{action this.setUserStyle value="target.value"}}>
+          {{on "change" this.setUserStyle}}>
           {{#each this.availableStyles as |style|}}
           <option
             value={{style}}

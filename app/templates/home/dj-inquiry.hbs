@@ -19,7 +19,7 @@
               {{t "djinquiry.error"}}
             </div>
           {{/if}}
-          <form {{action "submitApplication" on="submit"}}>
+          <form {{on "submit" this.submitApplication}}>
             <div>
               <label for="dj-form-email">
                 {{t "djinquiry.email"}}

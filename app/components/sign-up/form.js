@@ -115,7 +115,7 @@ export default class SignUpFormComponent extends Component {
               });
           })
           .catch((error) => {
-            console.log(error); // eslint-disable-line no-console
+            console.log(error.errors); // eslint-disable-line no-console
             alert('couldnt save user!');
           });
       } else {
@@ -132,4 +132,4 @@ declare module '@glint/environment-ember-loose/registry' {
     SignUpFormComponent: typeof SignUpFormComponent;
   }
 }
-  
+
