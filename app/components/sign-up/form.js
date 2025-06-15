@@ -90,7 +90,8 @@ export default class SignUpFormComponent extends Component {
   }
 
   @action
-  submit() {
+  submit(event) {
+    event.preventDefault();
     let changeset = this.args.changeset;
     changeset.validate().then(() => {
       if (changeset.isValid) {
