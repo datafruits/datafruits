@@ -27,7 +27,7 @@ export default class Track extends Model {
     inverse: null
   }) labels;
 
-  @belongsTo('podcast', { async: true, inverse: 'track' }) podcast;
+  @belongsTo('podcast', { async: true, inverse: 'tracks' }) podcast;
 
   @belongsTo('scheduled-show', { async: true, inverse: 'track' }) scheduledShow;
 

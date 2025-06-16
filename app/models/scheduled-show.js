@@ -60,7 +60,7 @@ export default class ScheduledShow extends Model {
   hostAvatarUrl;
 
   get host() {
-    return this.djs.get('firstObject');
+    return this.djs[0];
   }
 
   @attr()

@@ -7,6 +7,6 @@ export default class Podcast extends Model {
 
   @hasMany('track', {
     async: false,
-    inverse: null
+    inverse: 'podcast'
   }) tracks;
 }
