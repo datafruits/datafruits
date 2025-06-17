@@ -93,7 +93,7 @@
     "concurrently": "^8.2.2",
     "cross-env": "7.0.3",
     "dayjs": "^1.11.13",
-    "ember-auto-import": "2.8.1",
+    "ember-auto-import": "2.10.0",
     "ember-basic-dropdown": "^8.6.2",
     "ember-changeset": "^4.2.0",
     "ember-changeset-validations": "4.2.0",
