@@ -281,8 +281,8 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0
       ember-cli-fastboot:
-        specifier: ^4.1.2
-        version: 4.1.2
+        specifier: ^4.1.5
+        version: 4.1.5(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.99.5))
       ember-cli-htmlbars:
         specifier: ^6.3.0
         version: 6.3.0
@@ -4602,9 +4602,11 @@ packages:
     resolution: {integrity: sha512-OQ0PFQvedzeKepYDMuT8fU6dVEpieWSM3/ARlcuyO0ck+nQJ1i0m89kM1ooWAQpvUYQAJKNun1x8s38EvkEWRA==}
     engines: {node: 6.* || 8.* || >= 10.*}
 
-  ember-cli-fastboot@4.1.2:
-    resolution: {integrity: sha512-cC2ET8AbRTssA4sg9qF9KLX9N/Xnwa7kS0PKZADMMOUXtuBF4jmgnXsjzlvIE+lgWcwK4tc6udgwpMeNMkOg7w==}
-    engines: {node: 14.* || 16.* || >=18}
+  ember-cli-fastboot@4.1.5:
+    resolution: {integrity: sha512-XVigHzn+xXMqvovdrPNQHXRCzVOkU78ij6adU8Qt7PAaF3stR9oPh/35f30aJ2vcL6jwR72glnuCyXpm3EL22A==}
+    engines: {node: 14.* || 16.* || >= 18}
+    peerDependencies:
+      ember-source: '>=3.16'
 
   ember-cli-get-component-path-option@1.0.0:
     resolution: {integrity: sha512-k47TDwcJ2zPideBCZE8sCiShSxQSpebY2BHcX2DdipMmBox5gsfyVrbKJWIHeSTTKyEUgmBIvQkqTOozEziCZA==}
@@ -5566,6 +5568,10 @@ packages:
     resolution: {integrity: sha512-hGfm/slu0ZabnNt4oaRZ6uREyfCj6P4fT/n6A1rGV+Z0VdGXjfOhVUpkn6qVQONHGIFwmveGXyDs75+nr6FM8w==}
     engines: {node: '>= 6'}
 
+  form-data@4.0.3:
+    resolution: {integrity: sha512-qsITQPfmvMOSAdeyZ+12I1c+CKSstAFAwu+97zrnWAbIr5u8wfsExUzCesVLC8NgHuRUqNN4Zy6UPWUTRGslcA==}
+    engines: {node: '>= 6'}
+
   forwarded@0.2.0:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
     engines: {node: '>= 0.6'}
@@ -6491,6 +6497,10 @@ packages:
 
   json-stable-stringify@1.2.1:
     resolution: {integrity: sha512-Lp6HbbBgosLmJbjx0pBLbgvx68FaFU1sdkmBuckmhhJ88kL13OA51CDtR2yJB50eCNMH9wRqtQNNiAqQH4YXnA==}
+    engines: {node: '>= 0.4'}
+
+  json-stable-stringify@1.3.0:
+    resolution: {integrity: sha512-qtYiSSFlwot9XHtF9bD9c7rwKjr+RecWT//ZnPvSmEjpV5mmPOCN4j8UjY5hbjNkOwZ/jQv3J6R1/pL7RwgMsg==}
     engines: {node: '>= 0.4'}
 
   json-stringify-safe@5.0.1:
@@ -9170,6 +9180,18 @@ packages:
 
   ws@8.18.1:
     resolution: {integrity: sha512-RKW2aJZMXeMxVpnZ6bck+RswznaxmzdULiBr6KY7XkTnW8uvt0iT9H5DkHUChXrc+uurzwa0rVI16n/Xzjdz1w==}
+    engines: {node: '>=10.0.0'}
+    peerDependencies:
+      bufferutil: ^4.0.1
+      utf-8-validate: '>=5.0.2'
+    peerDependenciesMeta:
+      bufferutil:
+        optional: true
+      utf-8-validate:
+        optional: true
+
+  ws@8.18.2:
+    resolution: {integrity: sha512-DMricUmwGZUVr++AEAe2uiVM7UoO9MAVZMDu05UQOaUII0lp+zOzLLU4Xqh/JvTqklB1T4uELaaPBKyjE1r4fQ==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       bufferutil: ^4.0.1
@@ -13148,7 +13170,7 @@ snapshots:
       broccoli-persistent-filter: 1.4.6
       clean-css-promise: 0.1.1
       inline-source-map-comment: 1.0.5
-      json-stable-stringify: 1.2.1
+      json-stable-stringify: 1.3.0
     transitivePeerDependencies:
       - supports-color
 
@@ -14757,7 +14779,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-cli-fastboot@4.1.2:
+  ember-cli-fastboot@4.1.5(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.99.5)):
     dependencies:
       broccoli-concat: 4.2.5
       broccoli-file-creator: 2.1.1
@@ -14769,11 +14791,12 @@ snapshots:
       ember-cli-lodash-subset: 2.0.1
       ember-cli-preprocess-registry: 3.3.0
       ember-cli-version-checker: 5.1.2
-      fastboot: 4.1.2
+      ember-source: 5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.99.5)
+      fastboot: 4.1.5
       fastboot-express-middleware: 4.1.2
       fastboot-transform: 0.1.3
       fs-extra: 10.1.0
-      json-stable-stringify: 1.2.1
+      json-stable-stringify: 1.3.0
       md5-hex: 3.0.1
       recast: 0.19.1
       silent-error: 1.1.1
@@ -14805,7 +14828,7 @@ snapshots:
       fs-tree-diff: 2.0.1
       hash-for-dep: 1.5.1
       heimdalljs-logger: 0.1.10
-      json-stable-stringify: 1.2.1
+      json-stable-stringify: 1.3.0
       semver: 6.3.1
       strip-bom: 4.0.0
       walk-sync: 2.2.0
@@ -16377,7 +16400,7 @@ snapshots:
     dependencies:
       chalk: 4.1.2
       cookie: 0.4.2
-      debug: 4.4.0
+      debug: 4.4.1
       jsdom: 19.0.0
       resolve: 1.22.10
       simple-dom: 1.4.0
@@ -16608,6 +16631,14 @@ snapshots:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       es-set-tostringtag: 2.1.0
+      mime-types: 2.1.35
+
+  form-data@4.0.3:
+    dependencies:
+      asynckit: 0.4.0
+      combined-stream: 1.0.8
+      es-set-tostringtag: 2.1.0
+      hasown: 2.0.2
       mime-types: 2.1.35
 
   forwarded@0.2.0: {}
@@ -17613,7 +17644,7 @@ snapshots:
   jsdom@19.0.0:
     dependencies:
       abab: 2.0.6
-      acorn: 8.14.1
+      acorn: 8.15.0
       acorn-globals: 6.0.0
       cssom: 0.5.0
       cssstyle: 2.3.0
@@ -17621,7 +17652,7 @@ snapshots:
       decimal.js: 10.5.0
       domexception: 4.0.0
       escodegen: 2.1.0
-      form-data: 4.0.2
+      form-data: 4.0.3
       html-encoding-sniffer: 3.0.0
       http-proxy-agent: 5.0.0
       https-proxy-agent: 5.0.1
@@ -17637,7 +17668,7 @@ snapshots:
       whatwg-encoding: 2.0.0
       whatwg-mimetype: 3.0.0
       whatwg-url: 10.0.0
-      ws: 8.18.1
+      ws: 8.18.2
       xml-name-validator: 4.0.0
     transitivePeerDependencies:
       - bufferutil
@@ -17702,6 +17733,14 @@ snapshots:
   json-stable-stringify-without-jsonify@1.0.1: {}
 
   json-stable-stringify@1.2.1:
+    dependencies:
+      call-bind: 1.0.8
+      call-bound: 1.0.4
+      isarray: 2.0.5
+      jsonify: 0.0.1
+      object-keys: 1.1.1
+
+  json-stable-stringify@1.3.0:
     dependencies:
       call-bind: 1.0.8
       call-bound: 1.0.4
@@ -20852,6 +20891,8 @@ snapshots:
   ws@8.17.1: {}
 
   ws@8.18.1: {}
+
+  ws@8.18.2: {}
 
   xdg-basedir@4.0.0: {}
 
