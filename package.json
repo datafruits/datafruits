@@ -37,6 +37,7 @@
     "@ember/render-modifiers": "^2.1.0",
     "@ember/string": "^4.0.0",
     "@ember/test-helpers": "^3.3.1",
+    "@eslint/eslintrc": "^3.3.1",
     "@frontile/buttons": "^0.16.2",
     "@frontile/changeset-form": "^0.16.2",
     "@frontile/core": "^0.16.2",
