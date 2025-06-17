@@ -5,13 +5,11 @@ import { service } from '@ember/service';
 export default class HomeUserMyShowsEpisodesController extends Controller{
   @service store;
 
-  @action
-  fetchArchives() {
+  get fetchArchives() {
     return this.store.query('scheduled-show', { showSeries: this.model.slug, status: 'archive_published' });
   }
 
-  @action
-  fetchUpcoming() {
+  get fetchUpcoming() {
     return this.store.query('scheduled-show', { showSeries: this.model.slug, status: 'archive_unpublished' });
   } // normal class body definition here
 }
