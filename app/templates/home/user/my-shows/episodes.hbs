@@ -4,37 +4,37 @@
     <section class="w-1/2">
       <h1>ARCHIVES</h1>
       <Await @promise={{this.fetchArchives}} as |await|>
-        <await.Pending>
+        <:pending>
           Loading episodes...
-        </await.Pending>
+        </:pending>
 
-        <await.Fulfilled as |episodes|>
+        <:success as |episodes|>
           {{#each episodes as |episode|}}
             <MyShows::EpisodeCard @episode={{episode}} />
           {{/each}}
-        </await.Fulfilled>
+        </:success>
 
-        <await.Rejected>
+        <:error>
           Something went wrong :(
-        </await.Rejected>
+        </:error>
       </Await>
     </section>
     <section class="w-1/2">
       <h1>UPCOMING</h1>
       <Await @promise={{this.fetchUpcoming}} as |await|>
-        <await.Pending>
+        <:pending>
           Loading episodes...
-        </await.Pending>
+        </:pending>
 
-        <await.Fulfilled as |episodes|>
+        <:success as |episodes|>
           {{#each episodes as |episode|}}
             <MyShows::EpisodeCard @episode={{episode}} />
           {{/each}}
-        </await.Fulfilled>
+        </:success>
 
-        <await.Rejected>
+        <:error>
           Something went wrong :(
-        </await.Rejected>
+        </:error>
       </Await>
     </section>
   </section>
