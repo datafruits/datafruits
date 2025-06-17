@@ -68,8 +68,8 @@ importers:
         specifier: ^7.24.7
         version: 7.25.9(@babel/core@7.26.10)
       '@csstools/postcss-sass':
-        specifier: github:sinankeskin/postcss-sass
-        version: https://codeload.github.com/sinankeskin/postcss-sass/tar.gz/0dead767e003f390ddbba42a84821624c8fc715e(postcss@8.5.3)
+        specifier: ^5.1.1
+        version: 5.1.1(postcss@8.5.3)
       '@ember/optional-features':
         specifier: ^2.2.0
         version: 2.2.0
@@ -1065,12 +1065,11 @@ packages:
       '@csstools/css-parser-algorithms': ^2.7.1
       '@csstools/css-tokenizer': ^2.4.1
 
-  '@csstools/postcss-sass@https://codeload.github.com/sinankeskin/postcss-sass/tar.gz/0dead767e003f390ddbba42a84821624c8fc715e':
-    resolution: {tarball: https://codeload.github.com/sinankeskin/postcss-sass/tar.gz/0dead767e003f390ddbba42a84821624c8fc715e}
-    version: 4.0.0
-    engines: {node: '>=8.0.0'}
+  '@csstools/postcss-sass@5.1.1':
+    resolution: {integrity: sha512-La7bgTcM6YwPBLqlaXg7lMLry82iLv1a+S1RmgvHq2mH2Zd57L2anjZvJC8ACUHWc4M9fXws93dq6gaK0kZyAw==}
+    engines: {node: ^12 || ^14 || >=16}
     peerDependencies:
-      postcss: ^8.2.4
+      postcss: ^8.4.6
 
   '@csstools/sass-import-resolve@1.0.0':
     resolution: {integrity: sha512-pH4KCsbtBLLe7eqUrw8brcuFO8IZlN36JjdKlOublibVdAIPHCzEnpBWOVUXK5sCf+DpBi8ZtuWtjF0srybdeA==}
@@ -10051,7 +10050,7 @@ snapshots:
       '@csstools/css-parser-algorithms': 2.7.1(@csstools/css-tokenizer@2.4.1)
       '@csstools/css-tokenizer': 2.4.1
 
-  '@csstools/postcss-sass@https://codeload.github.com/sinankeskin/postcss-sass/tar.gz/0dead767e003f390ddbba42a84821624c8fc715e(postcss@8.5.3)':
+  '@csstools/postcss-sass@5.1.1(postcss@8.5.3)':
     dependencies:
       '@csstools/sass-import-resolve': 1.0.0
       postcss: 8.5.3

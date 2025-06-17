@@ -32,7 +32,7 @@
     "@babel/core": "^7.26.10",
     "@babel/eslint-parser": "^7.27.0",
     "@babel/plugin-proposal-decorators": "^7.24.7",
-    "@csstools/postcss-sass": "github:sinankeskin/postcss-sass",
+    "@csstools/postcss-sass": "^5.1.1",
     "@ember/optional-features": "^2.2.0",
     "@ember/render-modifiers": "^2.1.0",
     "@ember/string": "^4.0.0",
