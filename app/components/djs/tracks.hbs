@@ -5,13 +5,10 @@
     </p>
   </:pending>
   <:success as |result|>
-    {{log "SUCCESS"}}
-    {{log result}}
     {{#each result as |show|}}
-      {{log show}}
-      {{#if show.tracks.firstObject}}
+      {{#if show.tracks.length}}
         <PodcastTrack
-          @track={{show.tracks.firstObject}}
+          @track={{show.firstTrack}}
           @show={{show}}
         />
       {{/if}}

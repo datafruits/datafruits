@@ -16,8 +16,7 @@ export default class DjsTracks extends Component<DjsTracksSignature> {
   @service declare router: RouterService;
 
   get fetchTracks() {
-    const tracksPromise = this.store.query('scheduled-show', { dj: this.args.dj.id, page: this.args.page });
-    return tracksPromise;
+    return this.store.query('scheduled-show', { dj: this.args.dj.id, page: this.args.page });
   }
 }
 
