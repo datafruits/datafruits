@@ -188,7 +188,7 @@
     "babel-plugin-ember-modules-api-polyfill": "2.13.0",
     "ember-deep-tracked": "^2.0.1",
     "ember-destroyable-polyfill": "^2.0.3",
-    "fastboot-app-server": "^3.3.2",
+    "fastboot-app-server": "^4.1.4",
     "fruits-ui": "github:datafruits/fruits-ui",
     "jsdom": "^20.0.3",
     "json-diff": "^1.0.6",
