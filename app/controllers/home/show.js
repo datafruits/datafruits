@@ -10,6 +10,6 @@ export default class ShowController extends Controller {
 
   @action
   browseLabel(label) {
-    this.transitionToRoute('home.podcasts', { queryParams: { tags: label.name } });
+    this.router.transitionTo('home.podcasts', { queryParams: { tags: label.name } });
   }
 }

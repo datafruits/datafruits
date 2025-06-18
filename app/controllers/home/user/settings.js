@@ -250,11 +250,11 @@ export default class HomeUserSettingsController extends Controller {
     this.currentUser.user
       .save()
       .then(() => {
-        console.log('saved user!'); // eslint-disable-line no-console
+        console.log('saved user!');  
         alert('updated your profile!');
       })
       .catch((error) => {
-        console.log(error); // eslint-disable-line no-console
+        console.log(error);  
         alert('couldnt save user!');
       });
   }

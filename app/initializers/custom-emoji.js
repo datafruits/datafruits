@@ -610,7 +610,7 @@ export function initialize(/* application */) {
       emojione.shortnames +
       ')',
     'gi',
-  ); //eslint-disable-line no-useless-escape
+  );  
 
   //emojione.imagePathPNG = "/assets/images/emojis/";
   emojione.customImagePathPNG = '/assets/images/emojis/';

@@ -18,7 +18,7 @@ export default function uniqueUsername(/* options = {} */) {
           });
         })
         .catch((error) => {
-          console.log(error); // eslint-disable-line no-console
+          console.log(error);  
         });
     });
   };

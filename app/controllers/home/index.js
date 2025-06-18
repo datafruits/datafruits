@@ -1,9 +1,11 @@
+import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import Controller from '@ember/controller';
 
 export default class IndexController extends Controller {
-  @action
+  @service('router') router;
+@action
   browseLabel(label) {
-    this.transitionToRoute('home.podcasts', { queryParams: { tags: label.name } });
+    this.router.transitionTo('home.podcasts', { queryParams: { tags: label.name } });
   }
 }

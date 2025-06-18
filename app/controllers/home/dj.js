@@ -11,7 +11,7 @@ export default class DjController extends Controller {
 
   @action
   browseLabel(label) {
-    this.transitionToRoute("home.podcasts", {
+    this.router.transitionTo("home.podcasts", {
       queryParams: { tags: label.name },
     });
   }

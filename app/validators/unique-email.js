@@ -18,7 +18,7 @@ export default function uniqueEmail(/* options = {} */) {
           });
         })
         .catch((error) => {
-          console.log(error); // eslint-disable-line no-console
+          console.log(error);  
         });
     });
   };

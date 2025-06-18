@@ -62,7 +62,7 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
       const attrs: any = vote[1];
       return {
         attributes: {
-          category_name: vote[0] as string,
+          category_name: vote[0],
           score: attrs.score as number
         },
         type: "shrimpo_votes"

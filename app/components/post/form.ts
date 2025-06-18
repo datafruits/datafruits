@@ -36,7 +36,7 @@ export default class PostForm extends Component<PostFormSignature> {
         postable.posts.push(post);
         this.body = '';
         next(this, () => {
-          const forumPosts = document.querySelectorAll("section.post") as NodeListOf<Element>;
+          const forumPosts = document.querySelectorAll("section.post");
           const el = forumPosts[forumPosts.length-1];
           el.classList.add("bounce");
           (el as HTMLElement).focus();

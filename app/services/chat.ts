@@ -138,7 +138,7 @@ export default class ChatService extends Service {
           this.joinAndAuthorize(this.currentUser.user, this.session.data.authenticated.token);
         } else {
           this.loading = false;
-          return console.log('chat join ok'); // eslint-disable-line no-console
+          return console.log('chat join ok');  
         }
       })
       .receive('timeout', function () {
@@ -220,13 +220,13 @@ export default class ChatService extends Service {
         this.currentUser
           .load()
           .then(() => {
-            console.log('user authorized with token'); // eslint-disable-line no-console
+            console.log('user authorized with token');  
             this.loading = false;
             this.joinedChat = true;
           })
           .catch(() => this.session.invalidate());
       } else {
-        console.log('user authorized'); // eslint-disable-line no-console
+        console.log('user authorized');  
         this.loading = false;
         this.joinedChat = true;
       }
@@ -243,8 +243,8 @@ export default class ChatService extends Service {
     });
 
     this.chan.on('banned', (msg) => {
-      console.log(`user banned:`); // eslint-disable-line no-console
-      console.log(msg); // eslint-disable-line no-console
+      console.log(`user banned:`);  
+      console.log(msg);  
     });
 
     this.chan.on('presence_state', (state) => {
@@ -273,7 +273,7 @@ export default class ChatService extends Service {
       .join()
       .receive('ok', () => {
         if (isDestroyed(this) || isDestroying(this)) return;
-          return console.log('notification chan join ok'); // eslint-disable-line no-console
+          return console.log('notification chan join ok');  
       })
       .receive('timeout', function () {
         //return console.log("Connection interruption");
