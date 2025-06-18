@@ -12,12 +12,6 @@ importers:
 
   .:
     dependencies:
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^5.62.0
-        version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.29.0)(typescript@5.8.3))(eslint@9.29.0)(typescript@5.8.3)
-      '@typescript-eslint/parser':
-        specifier: ^5.62.0
-        version: 5.62.0(eslint@9.29.0)(typescript@5.8.3)
       autoprefixer:
         specifier: ^10.4.21
         version: 10.4.21(postcss@8.5.3)
@@ -85,6 +79,9 @@ importers:
       '@eslint/eslintrc':
         specifier: ^3.3.1
         version: 3.3.1
+      '@eslint/js':
+        specifier: ^9.29.0
+        version: 9.29.0
       '@frontile/buttons':
         specifier: ^0.16.2
         version: 0.16.2(@babel/runtime@7.27.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.5))
@@ -220,6 +217,12 @@ importers:
       '@types/video.js':
         specifier: ^7.3.58
         version: 7.3.58
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^5.62.0
+        version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.29.0)(typescript@5.8.3))(eslint@9.29.0)(typescript@5.8.3)
+      '@typescript-eslint/parser':
+        specifier: ^5.62.0
+        version: 5.62.0(eslint@9.29.0)(typescript@5.8.3)
       '@warp-drive/ember':
         specifier: ^0.0.3
         version: 0.0.3(9acbe2839acab8adad23454d080adc8a)
@@ -406,6 +409,9 @@ importers:
       eslint-plugin-qunit:
         specifier: ^8.1.2
         version: 8.1.2(eslint@9.29.0)
+      eslint-scope:
+        specifier: ^8.4.0
+        version: 8.4.0
       handlebars:
         specifier: ^4.7.8
         version: 4.7.8

@@ -38,6 +38,7 @@
     "@ember/string": "^4.0.1",
     "@ember/test-helpers": "^3.3.1",
     "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.29.0",
     "@frontile/buttons": "^0.16.2",
     "@frontile/changeset-form": "^0.16.2",
     "@frontile/core": "^0.16.2",
@@ -83,6 +84,8 @@
     "@types/qunit": "^2.19.12",
     "@types/rsvp": "^4.0.9",
     "@types/video.js": "^7.3.58",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
     "@warp-drive/ember": "^0.0.3",
     "autolink-js": "^1.0.2",
     "broccoli-asset-rev": "^3.0.0",
@@ -145,6 +148,7 @@
     "eslint-plugin-ember": "12.2.1",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-qunit": "^8.1.2",
+    "eslint-scope": "^8.4.0",
     "fastboot-app-server": "2.0.0",
     "handlebars": "^4.7.8",
     "jsdom": "^20.0.0",
@@ -184,8 +188,6 @@
     "edition": "octane"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
     "autoprefixer": "^10.4.21",
     "babel-plugin-ember-modules-api-polyfill": "2.13.0",
     "ember-deep-tracked": "^2.0.1",
