@@ -246,7 +246,7 @@
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "dragon_fruit.png",
+	"image": "dragion-fruit.png",
 	"format": "RGBA8888",
 	"size": {"w":1236,"h":983},
 	"scale": "1",
