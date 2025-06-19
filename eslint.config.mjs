@@ -87,7 +87,7 @@ export default ts.config(
     },
   },
   {
-    files: ['**/*.{ts,gts}'],
+    files: ['**/*.ts'],
     languageOptions: {
       parser: tsParser,
       parserOptions: parserOptions.esm.ts,
@@ -107,6 +107,13 @@ export default ts.config(
       '@typescript-eslint/no-unsafe-call': 'warn',
       '@typescript-eslint/no-unsafe-member-access': 'warn',
       '@typescript-eslint/no-unsafe-return': 'warn',
+    },
+  },
+  {
+    files: ['**/*.gts'],
+    extends: [ember.configs.gts],
+    languageOptions: {
+      parserOptions: parserOptions.esm.ts,
     },
   },
   {
