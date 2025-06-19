@@ -646,7 +646,7 @@
 "meta": {
 	"app": "https://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "lime.png",
+	"image": "limer.png",
 	"format": "RGBA8888",
 	"size": {"w":1983,"h":1977},
 	"scale": "1",
