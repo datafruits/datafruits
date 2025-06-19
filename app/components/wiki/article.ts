@@ -22,6 +22,6 @@ export default class WikiArticle extends Component<WikiArticleSignature> {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     WikiArticle: typeof WikiArticle;
-  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  }
 }
-  
+

@@ -26,6 +26,6 @@ export default class ShowCardComponent extends Component<ShowCardArgs> {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     ShowCardComponent: typeof ShowCardComponent;
-  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  }
 }
 

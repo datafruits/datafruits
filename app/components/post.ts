@@ -33,6 +33,6 @@ export default class Post extends Component<PostSignature> {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     Post: typeof Post;
-  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  }
 }
-  
+

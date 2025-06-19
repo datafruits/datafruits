@@ -43,5 +43,5 @@ export default class PodcastsSearch extends Component<PodcastsArgs> {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     PodcastsSearch: typeof PodcastsSearch;
-  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  }
 }

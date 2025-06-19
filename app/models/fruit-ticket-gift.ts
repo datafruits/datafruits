@@ -14,5 +14,5 @@ export default class FruitTicketGift extends Model {
 declare module 'ember-data/types/registries/model' {
   export default interface ModelRegistry {
     'fruit-ticket-gift': FruitTicketGift;
-  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  }
 }

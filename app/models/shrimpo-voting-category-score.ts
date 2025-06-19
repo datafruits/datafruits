@@ -21,5 +21,5 @@ export default class ShrimpoVotingCategoryScore extends Model {
 declare module 'ember-data/types/registries/model' {
   export default interface ModelRegistry {
     'shrimpo-voting-category-score': ShrimpoVotingCategoryScore;
-  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  }
 }

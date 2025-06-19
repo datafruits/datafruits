@@ -26,5 +26,5 @@ export default class ShrimpoVote extends Model {
 declare module 'ember-data/types/registries/model' {
   export default interface ModelRegistry {
     'shrimpo-vote': ShrimpoVote;
-  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  }
 }

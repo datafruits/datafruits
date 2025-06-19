@@ -28,6 +28,6 @@ export default class UserNotification extends Component<UserNotificationSignatur
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     UserNotification: typeof UserNotification;
-  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  }
 }
 

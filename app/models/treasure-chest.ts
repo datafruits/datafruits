@@ -11,5 +11,5 @@ export default class TreasureChest extends Model {
 declare module 'ember-data/types/registries/model' {
   export default interface ModelRegistry {
     'treasure-chest': TreasureChest;
-  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  }
 }

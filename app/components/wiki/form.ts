@@ -58,6 +58,6 @@ export default class WikiForm extends Component<WikiFormSignature> {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     WikiForm: typeof WikiForm;
-  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  }
 }
-  
+
