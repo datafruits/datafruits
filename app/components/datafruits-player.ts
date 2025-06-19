@@ -104,7 +104,9 @@ export default class DatafruitsPlayer extends Component {
     if (audioTag.readyState === 0) {
       this.playerState = PlayerState.Loading;
     }
-    audioTag.play();
+    audioTag.play().catch((e) => {
+      console.error('Audio play failed', e);
+    });
   }
 
   useVideoAudio() {
@@ -145,7 +147,9 @@ export default class DatafruitsPlayer extends Component {
     this.playingPodcast = false;
     this.setRadioTitle();
     audioTag.src = `${ENV.ICECAST_HOST}/datafruits.mp3`;
-    audioTag.play();
+    audioTag.play().catch((e) => {
+      console.error('Audio play failed', e);
+    });
   }
 
   @action
@@ -160,7 +164,9 @@ export default class DatafruitsPlayer extends Component {
     if (audioTag.readyState === 0) {
       this.playerState = PlayerState.Loading;
     }
-    audioTag.play();
+    audioTag.play().catch((e) => {
+      console.error('Audio play failed', e);
+    });
     this.playButtonHover = false;
     this.playButtonPressed = true;
 
@@ -221,7 +227,7 @@ export default class DatafruitsPlayer extends Component {
   @action
   hideVolumeControl() {
     if (this.showingVolumeControl) {
-      debounce(this, this._hideVolumeControl, 3000);
+      debounce(this, this._hideVolumeControl.bind(this), 3000);
     }
   }
 
@@ -342,6 +348,6 @@ export default class DatafruitsPlayer extends Component {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     DatafruitsPlayer: typeof DatafruitsPlayer;
-  }
+  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 }
 

@@ -33,17 +33,9 @@ export default class TimetableCalendarComponent extends Component {
     query.start = dayjs(new Date()).startOf('day').format('YYYY-MM-DD');
     query.end = dayjs(query.start).endOf('month').add(1, 'month').format('YYYY-MM-DD');
     let showsPromise = this.store.query('scheduled-show', query).then((result) => {
-      this.shows = result;
+      this.shows = result; // eslint-disable-line
     });
 
     return showsPromise;
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    TimetableCalendarComponent: typeof TimetableCalendarComponent;
-  }
-}
-

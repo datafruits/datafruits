@@ -25,7 +25,7 @@ export default class AddDatafruit extends Component {
     if (this.currentDatafruit) {
       return `(${new Date(this.currentDatafruit.createdAt).toLocaleDateString()})`;
     } else {
-      return "Unable to find timestamp"
+      return "Unable to find timestamp";
     }
   }
 

@@ -34,6 +34,6 @@ export default class Track extends Model {
   @belongsTo('dj', { async: true, inverse: 'track' }) dj;
 
   get labelNames() {
-    return this.labels.map((label) => { return label.name });
+    return this.labels.map((label) => { return label.name; });
   }
 }

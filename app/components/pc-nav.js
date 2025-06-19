@@ -23,11 +23,3 @@ export default class PcNav extends Component {
     this.showingSettings = false;
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    PcNav: typeof PcNav;
-  }
-}
-  

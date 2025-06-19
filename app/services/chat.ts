@@ -5,6 +5,7 @@ import { tracked } from '@glimmer/tracking';
 import SocketService from 'datafruits13/services/socket';
 import EventBusService from 'datafruits13/services/event-bus';
 import CurrentUserService from 'datafruits13/services/current-user';
+import type User from 'datafruits13/models/user';
 
 interface FruitCount {
   [key: string]: number;
@@ -60,7 +61,7 @@ export default class ChatService extends Service {
     this.token = token;
   }
 
-  joinAndAuthorize(user: any, token: string) {
+  joinAndAuthorize(user: User, token: string) {
     this.joinedChat = true;
     this.username = user.username;
     this.token = token;
@@ -92,7 +93,7 @@ export default class ChatService extends Service {
 
   onTrackPlayed(event: any) {
     console.log(event);
-    this.chan.push("track_playback", { track_id: event.track_id })
+    this.chan.push("track_playback", { track_id: event.track_id });
   }
 
   lockTreasure(uuid: string) {
@@ -138,7 +139,7 @@ export default class ChatService extends Service {
           this.joinAndAuthorize(this.currentUser.user, this.session.data.authenticated.token);
         } else {
           this.loading = false;
-          return console.log('chat join ok');  
+          return console.log('chat join ok');
         }
       })
       .receive('timeout', function () {
@@ -197,7 +198,7 @@ export default class ChatService extends Service {
         msg.hasMention = msg.body.indexOf(`@${this.currentUser.user.username}`) > -1;
       }
       if(msg.uuid) {
-        const uuids = this.messages.map(m => { return m.uuid });
+        const uuids = this.messages.map(m => { return m.uuid; });
         if(uuids.includes(msg.uuid)) return;
       }
       this.messages = [...this.messages, msg];
@@ -220,13 +221,13 @@ export default class ChatService extends Service {
         this.currentUser
           .load()
           .then(() => {
-            console.log('user authorized with token');  
+            console.log('user authorized with token');
             this.loading = false;
             this.joinedChat = true;
           })
           .catch(() => this.session.invalidate());
       } else {
-        console.log('user authorized');  
+        console.log('user authorized');
         this.loading = false;
         this.joinedChat = true;
       }
@@ -243,8 +244,8 @@ export default class ChatService extends Service {
     });
 
     this.chan.on('banned', (msg) => {
-      console.log(`user banned:`);  
-      console.log(msg);  
+      console.log(`user banned:`);
+      console.log(msg);
     });
 
     this.chan.on('presence_state', (state) => {
@@ -273,7 +274,7 @@ export default class ChatService extends Service {
       .join()
       .receive('ok', () => {
         if (isDestroyed(this) || isDestroying(this)) return;
-          return console.log('notification chan join ok');  
+          return console.log('notification chan join ok');
       })
       .receive('timeout', function () {
         //return console.log("Connection interruption");

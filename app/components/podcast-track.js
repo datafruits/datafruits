@@ -113,10 +113,3 @@ export default class PodcastTrack extends Component {
     return htmlSafe(`background-image: url('${image}');`);
   }
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    PodcastTrack: typeof PodcastTrack;
-  }
-}
-

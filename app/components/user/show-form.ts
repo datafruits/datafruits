@@ -133,6 +133,7 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   @action
   searchDjs(term: string) {
     return new Promise((resolve, reject) => {
+      // eslint-disable-next-line @typescript-eslint/unbound-method
       debounce(this, this._performDjsSearch, term, resolve, reject, 600);
     });
   }
@@ -151,6 +152,6 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   }
 
   get currentDate() {
-    return (new Date()).toISOString().split("T")[0]
+    return (new Date()).toISOString().split("T")[0];
   }
 }

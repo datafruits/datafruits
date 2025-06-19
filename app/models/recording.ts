@@ -33,5 +33,5 @@ export default class Recording extends Model {
 declare module 'ember-data/types/registries/model' {
   export default interface ModelRegistry {
     'recording': Recording;
-  }
+  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 }

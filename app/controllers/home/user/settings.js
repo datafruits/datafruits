@@ -181,7 +181,7 @@ export default class HomeUserSettingsController extends Controller {
     // zulu
     "sawubona",
     "مرحبًا",
-  ]
+  ];
 
   get randomGreeting() {
     return this.greetings[Math.floor(Math.random() * this.greetings.length)];

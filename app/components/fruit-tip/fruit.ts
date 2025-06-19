@@ -34,6 +34,6 @@ export default class FruitTipFruitComponent extends Component<FruitTipFruitSigna
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     'FruitTip::Fruit': typeof FruitTipFruitComponent;
-  }
+  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 }
 

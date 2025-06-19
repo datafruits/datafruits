@@ -57,7 +57,7 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
   }
 
   @action
-  async saveVote() {
+  saveVote() {
     const shrimpVotesData = Object.entries(this.votes).map((vote) => {
       const attrs: any = vote[1];
       return {

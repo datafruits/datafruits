@@ -27,11 +27,3 @@ export default class SiteSettingsComponent extends Component {
     this.weather.setWeather(event.target.value);
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    SiteSettingsComponent: typeof SiteSettingsComponent;
-  }
-}
-

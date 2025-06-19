@@ -31,5 +31,5 @@ export default class ForumThread extends Model {
 declare module 'ember-data/types/registries/model' {
   export default interface ModelRegistry {
     'forum-thread': ForumThread;
-  }
+  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 }

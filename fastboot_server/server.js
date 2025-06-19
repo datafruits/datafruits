@@ -1,4 +1,5 @@
-/* global require */
+/*eslint-env node */
+/* global require, process */
 const FastBootAppServer = require('fastboot-app-server');
 const config = require('./config/fastboot')(process.env.NODE_ENV);
 

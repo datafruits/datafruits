@@ -9,7 +9,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(localizedFormat);
-dayjs.extend(relativeTime)
+dayjs.extend(relativeTime);
 
 interface UserNotificationSignature {
   Args: {
@@ -28,6 +28,6 @@ export default class UserNotification extends Component<UserNotificationSignatur
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     UserNotification: typeof UserNotification;
-  }
+  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 }
 

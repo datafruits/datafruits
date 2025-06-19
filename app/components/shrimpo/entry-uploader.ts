@@ -13,7 +13,7 @@ interface ShrimpoEntryUploaderArgs {
 }
 
 export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploaderArgs> {
-  ShrimpoEntryValidations = ShrimpoEntryValidations
+  ShrimpoEntryValidations = ShrimpoEntryValidations;
 
   @service declare activeStorage: any;
   @service declare store: any;

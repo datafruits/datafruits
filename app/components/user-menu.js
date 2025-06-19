@@ -14,11 +14,3 @@ export default class UserMenuComponent extends Component {
     this.args.toggleUserMenu();
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    UserMenuComponent: typeof UserMenuComponent;
-  }
-}
-  

@@ -47,7 +47,9 @@ export default class UiChangesetFormComponent extends Component<UiChangesetFormS
 
     if (this.args.validateOnInit) {
       next(() => {
-        this.args.changeset.validate();
+        this.args.changeset.validate().catch((e) => {
+          console.log("couldn't validate changeset: ", e);
+        });
       });
     }
   }

@@ -24,11 +24,3 @@ export default class SpNav extends Component {
     this.showingSettings = false;
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    SpNav: typeof SpNav;
-  }
-}
-  

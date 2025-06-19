@@ -17,17 +17,17 @@ export default class Notifications extends Component {
       notificationsChannel
         .join()
         .receive('ignore', function () {
-          return console.log('auth error'); // eslint-disable-line no-console
+          return console.log('auth error');
         })
         .receive('ok', function () {
-          return console.log('notification channel join ok'); // eslint-disable-line no-console
+          return console.log('notification channel join ok');
         })
         .receive('timeout', function () {
-          return console.log('Connection interruption'); // eslint-disable-line no-console
+          return console.log('Connection interruption');
         });
 
       notificationsChannel.on('notification', (notification) => {
-        console.log(`notification channel: ${notification.message}`); // eslint-disable-line no-console
+        console.log(`notification channel: ${notification.message}`);
         const icon = '/assets/images/logo.png';
         const body = notification.message;
         new Notification('DATAFRUITS.FM', { body, icon });
@@ -35,11 +35,3 @@ export default class Notifications extends Component {
     }
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Notifications: typeof Notifications;
-  }
-}
-  

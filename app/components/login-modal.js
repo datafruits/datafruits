@@ -12,11 +12,3 @@ export default class LoginModalComponent extends Component {
   }
 
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    LoginModalComponent: typeof LoginModalComponent;
-  }
-}
-  

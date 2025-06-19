@@ -110,27 +110,19 @@ export default class SignUpFormComponent extends Component {
                 });
               })
               .catch((reason) => {
-                console.log(reason); // eslint-disable-line no-console
+                console.log(reason);
                 alert('Wrong password');
                 return false;
               });
           })
           .catch((error) => {
-            console.log(error.errors); // eslint-disable-line no-console
+            console.log(error.errors);
             alert('couldnt save user!');
           });
       } else {
-        console.log('changeset invalid'); // eslint-disable-line no-console
-        console.log(changeset.get('errors')); // eslint-disable-line no-console
+        console.log('changeset invalid');
+        console.log(changeset.get('errors'));
       }
     });
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    SignUpFormComponent: typeof SignUpFormComponent;
-  }
-}
-

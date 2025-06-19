@@ -63,6 +63,6 @@ export default class UserBadges extends Component<UserBadgesSignature> {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     UserBadges: typeof UserBadges;
-  }
+  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 }
 

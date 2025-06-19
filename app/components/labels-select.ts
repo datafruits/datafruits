@@ -51,7 +51,7 @@ export default class LabelsSelect extends Component<LabelsSelectArgs> {
   @action
   searchLabels(term: string) {
     return new Promise((resolve, reject) => {
-      debounce(this, this._performLabelsSearch, term, resolve, reject, 600);
+      debounce(this, this._performLabelsSearch.bind(this), term, resolve, reject, 600);
     });
   }
 

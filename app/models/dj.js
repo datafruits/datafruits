@@ -63,6 +63,6 @@ export default class Dj extends User {
   }
 
   get roles() {
-    return this.roles.split(" ")
+    return this.roles.split(" ");
   }
 }

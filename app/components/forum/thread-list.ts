@@ -17,5 +17,5 @@ export default class ForumThreadList extends Component<ForumThreadListSignature>
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     ForumThreadList: typeof ForumThreadList;
-  }
+  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 }

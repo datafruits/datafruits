@@ -35,11 +35,3 @@ export default class DjDonateModalComponent extends Component {
     this.showingDjDonateModal = !this.showingDjDonateModal;
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    DjDonateModalComponent: typeof DjDonateModalComponent;
-  }
-}
-  

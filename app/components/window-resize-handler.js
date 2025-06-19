@@ -24,11 +24,3 @@ export default class WindowResizeHandler extends Component {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    WindowResizeHandler: typeof WindowResizeHandler;
-  }
-}
-  

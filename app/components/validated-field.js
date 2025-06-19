@@ -43,11 +43,3 @@ export default class ValidatedField extends Component {
     this.args.updateProperty(property, newValue);
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    ValidatedField: typeof ValidatedField;
-  }
-}
-  

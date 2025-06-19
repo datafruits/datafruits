@@ -106,6 +106,6 @@ export default class UserModel extends Model {
   }
 
   get roles() {
-    return this.role.split(" ")
+    return this.role.split(" ");
   }
 }

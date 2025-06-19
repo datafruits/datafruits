@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import type ShowSeries from 'datafruits13/models/show-series'
+import type ShowSeries from 'datafruits13/models/show-series';
 import Store from '@ember-data/store';
 
 interface ShowSeriesEpisodeListArgs {

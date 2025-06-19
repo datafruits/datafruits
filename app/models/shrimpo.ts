@@ -77,5 +77,5 @@ export default class Shrimpo extends Model {
 declare module 'ember-data/types/registries/model' {
   export default interface ModelRegistry {
     'shrimpo': Shrimpo;
-  }
+  };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 }
