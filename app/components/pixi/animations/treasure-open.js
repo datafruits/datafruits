@@ -42,7 +42,7 @@ export default class TreasureOpen {
       let randomFrame = Math.floor(Math.random() * blobSprite.totalFrames);
       blobSprite.gotoAndPlay(randomFrame);
       app.stage.addChild(blobSprite);
-      this.sprites.pushObject(blobSprite);
+      this.sprites.push(blobSprite);
     }
 
     sprite.scale.x = 1;
@@ -55,7 +55,7 @@ export default class TreasureOpen {
     sprite.play();
 
     app.stage.addChild(sprite);
-    this.sprites.pushObject(sprite);
+    this.sprites.push(sprite);
 
     later(() => {
       this.sprites.forEach((sprite) => {

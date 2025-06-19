@@ -4,9 +4,18 @@ import type Label from 'datafruits13/models/label';
 import type User from 'datafruits13/models/user';
 
 export default class ShowSeries extends Model {
-  @hasMany('scheduled-show', { async: false }) declare episodes: ScheduledShowModel;
-  @hasMany('label', { async: false }) declare labels: Label;
-  @hasMany('user', { async: false }) declare users: User;
+  @hasMany('scheduled-show', {
+    async: false,
+    inverse: null
+  }) declare episodes: ScheduledShowModel;
+  @hasMany('label', {
+    async: false,
+    inverse: null
+  }) declare labels: Label;
+  @hasMany('user', {
+    async: false,
+    inverse: null
+  }) declare users: User;
 
   @attr('string') declare title: string;
   @attr('string') declare description: string;

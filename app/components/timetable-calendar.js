@@ -22,28 +22,20 @@ export default class TimetableCalendarComponent extends Component {
       //remove time
       date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
       accumulator[date] = accumulator[date] || [];
-      accumulator[date].pushObject(show);
+      accumulator[date].push(show);
       return accumulator;
     }, Object.create(null));
   }
 
-  @action
-  async fetchShows(query) {
+  get fetchShows() {
+    const query = {};
     query.timezone = dayjs.tz.guess();
     query.start = dayjs(new Date()).startOf('day').format('YYYY-MM-DD');
     query.end = dayjs(query.start).endOf('month').add(1, 'month').format('YYYY-MM-DD');
     let showsPromise = this.store.query('scheduled-show', query).then((result) => {
-      this.shows = result;
+      this.shows = result; // eslint-disable-line
     });
 
     return showsPromise;
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    TimetableCalendarComponent: typeof TimetableCalendarComponent;
-  }
-}
-

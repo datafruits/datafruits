@@ -43,11 +43,3 @@ export default class EmojiSelectorEmojiComponent extends Component {
     this.width = parseInt(localStorage.getItem('emojiWidth'));
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    EmojiSelectorEmojiComponent: typeof EmojiSelectorEmojiComponent;
-  }
-}
-

@@ -1,12 +1,27 @@
-import classic from 'ember-classic-decorator';
 import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
 
-@classic
 export default class ScheduledShow extends Model {
-  @belongsTo('show-series', { async: true }) showSeries;
-  @belongsTo('recording', { async: false }) recording;
-  @hasMany('posts', { async: false }) posts;
-  @hasMany('label', { async: false }) labels;
+  @belongsTo('show-series', { async: true, inverse: null }) showSeries;
+  @belongsTo('recording', { async: false, inverse: null }) recording;
+  @hasMany('post', {
+    async: false,
+    inverse: null
+  }) posts;
+  @hasMany('label', {
+    async: false,
+    inverse: null
+  }) labels;
+  @hasMany('track', {
+    async: false,
+    inverse: null
+  }) tracks;
+
+  // TODO merge user/dj model
+  @hasMany('user', {
+    async: false,
+    inverse: null
+  }) djs;
+
 
   @attr()
   start;
@@ -44,14 +59,8 @@ export default class ScheduledShow extends Model {
   @attr()
   hostAvatarUrl;
 
-  @hasMany('track')
-  tracks;
-
-  // TODO merge user/dj model
-  @hasMany('user', { async: false }) djs;
-
   get host() {
-    return this.djs.get('firstObject');
+    return this.djs[0];
   }
 
   @attr()
@@ -89,6 +98,10 @@ export default class ScheduledShow extends Model {
 
   @attr
   soundcloudLink;
+
+  get firstTrack() {
+    return this.tracks[0];
+  }
 
   get imageOrDefault() {
     if(this.imageUrl) {

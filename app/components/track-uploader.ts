@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import fetch from 'fetch';
 import type { BufferedChangeset } from 'ember-changeset/types';
-import type { UploadFile } from 'ember-file-upload/upload-file';
+//import type { UploadFile } from 'ember-file-upload/upload-file';
 
 
 interface TrackUploaderArgs {
@@ -22,7 +22,7 @@ export default class TrackUploader extends Component<TrackUploaderArgs> {
   validMimeTypes = ['audio/mp3', 'audio/mpeg'];
 
   @action
-  uploadTrack(file: UploadFile) {
+  uploadTrack(file: any) {
     window.onbeforeunload = function (e) {
       const dialogText =
         'You are currently uploading files. Closing this tab will cancel the upload operation! Are you usure you want to close this tab?';

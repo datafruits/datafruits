@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import { action } from '@ember/object';
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
@@ -6,14 +5,13 @@ import { htmlSafe } from "@ember/template";
 import { SafeString } from "handlebars";
 import emojione from "emojione";
 
-@classic
 export default class DjController extends Controller {
   @service router;
   queryParams = ["page"];
 
   @action
   browseLabel(label) {
-    this.transitionToRoute("home.podcasts", {
+    this.router.transitionTo("home.podcasts", {
       queryParams: { tags: label.name },
     });
   }

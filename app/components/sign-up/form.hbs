@@ -3,7 +3,7 @@
     {{t "signup.error"}}
   </div>
 {{/if}}
-<form {{action "submit" on="submit"}}>
+<form {{on "submit" this.submit}}>
   <div>
     <label class="block text-sm font-bold mb-2" for="user-email">{{t "signup.email"}}</label>
     <Input

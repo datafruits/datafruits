@@ -1,4 +1,5 @@
 /*eslint-env node */
+/* global require, module */
 'use strict';
 
 const jsdom = require('jsdom');

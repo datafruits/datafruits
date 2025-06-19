@@ -92,7 +92,7 @@ export default class PixiComponent extends Component {
       } else if (this.fruits.includes(event)) {
         animation = event.replace(/-./g, (x) => x[1].toUpperCase());
       } else {
-        console.log(`invalid fruit: ${event}`); // eslint-disable-line no-console
+        console.log(`invalid fruit: ${event}`);
         return;
       }
       let sprite = new PIXI.AnimatedSprite(this.animations[animation]);
@@ -108,7 +108,7 @@ export default class PixiComponent extends Component {
 
       //sprite.filters = [this.filter];
 
-      this.sprites.pushObject(sprite);
+      this.sprites.push(sprite);
       this.app.stage.addChild(sprite);
       // add callback to remove sprite after 5s
       later(() => {
@@ -136,7 +136,7 @@ export default class PixiComponent extends Component {
         }, 300);
       }, 5000);
     } else {
-      console.log("pixi.js wasn't initialized..."); // eslint-disable-line no-console
+      console.log("pixi.js wasn't initialized...");
     }
   }
 
@@ -540,11 +540,5 @@ export default class PixiComponent extends Component {
 
   handleResize() {
     this.app.renderer.resize(window.innerWidth, window.innerHeight);
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    PixiComponent: typeof PixiComponent;
   }
 }

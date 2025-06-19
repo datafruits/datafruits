@@ -33,16 +33,16 @@ export default class ChatInputMessage extends Component<ChatInputMessageSignatur
       const reader = new FileReader();
       reader.onloadend = () => {
         resolve(reader.result);
-      }
+      };
       reader.onerror = (err: ProgressEvent) => {
-        reject(err)
-      }
+        reject(err); // eslint-disable-line
+      };
       reader.readAsDataURL(blob);
     });
   }
 
   @action
-  async onPasteInput(event: ClipboardEvent) {
+  onPasteInput(event: ClipboardEvent) {
     if (!event.clipboardData?.files.length) return;
 
     event.preventDefault();
@@ -54,7 +54,7 @@ export default class ChatInputMessage extends Component<ChatInputMessageSignatur
           if (onLoadEvent.target?.result) {
             this.inputMessage = onLoadEvent.target.result as string;
           }
-        }
+        };
         reader.readAsDataURL(file);
       }
     }
@@ -67,7 +67,7 @@ export default class ChatInputMessage extends Component<ChatInputMessageSignatur
     } else {
       this.inputMessage = `${this.inputMessage} ${shortcode}`;
     }
-    this.setFocus()
+    this.setFocus();
   }
 
   @action
@@ -123,7 +123,7 @@ export default class ChatInputMessage extends Component<ChatInputMessageSignatur
         return true;
       },
 
-      search: async (term: string, callback: (results: any) => void) => {
+      search: (term: string, callback: (results: any) => void) => {
         console.log(term);
         const results: string[] = [];
         const results2: string[] = [];
@@ -221,4 +221,4 @@ declare module '@glint/environment-ember-loose/registry' {
     ChatInputMessage: typeof ChatInputMessage;
   }
 }
-  
+

@@ -57,12 +57,12 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
   }
 
   @action
-  async saveVote() {
+  saveVote() {
     const shrimpVotesData = Object.entries(this.votes).map((vote) => {
       const attrs: any = vote[1];
       return {
         attributes: {
-          category_name: vote[0] as string,
+          category_name: vote[0],
           score: attrs.score as number
         },
         type: "shrimpo_votes"
@@ -86,7 +86,7 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
         if (data.status == 200) {
           alert('Voteded!');
           this.voted = true;
-          this.store.loadRecord('shrimpo', this.args.entry.shrimpoSlug);
+          this.store.findRecord('shrimpo', this.args.entry.shrimpoSlug);
         } else {
           alert('Something went wrong!');
         }

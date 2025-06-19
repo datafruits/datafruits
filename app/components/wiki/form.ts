@@ -60,4 +60,4 @@ declare module '@glint/environment-ember-loose/registry' {
     WikiForm: typeof WikiForm;
   }
 }
-  
+

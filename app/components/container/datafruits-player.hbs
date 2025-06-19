@@ -46,12 +46,12 @@
           {{!-- template-lint-disable no-nested-interactive --}}
           <a class="jp-unmute" tabindex="1"
             {{on 'click' this.unmute}} >
-            <FaIcon @icon="volume-off" />
+            <Ui::Icon @name="volume-off" />
           </a>
         {{else}}
           <a class="jp-mute" tabindex="1"
             {{on "click" this.mute}} >
-            <FaIcon @icon="volume-up" />
+            <Ui::Icon @name="volume-up" />
           </a>
         {{/if}}
         {{#if this.showingVolumeControl}}

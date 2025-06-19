@@ -7,11 +7,11 @@ export function formattedShrimpoRanking(params: any) {
   if(rank > 3) {
     suffix = "th";
   } else if(rank == 1) {
-    suffix = "st"
+    suffix = "st";
   } else if(rank == 2) {
-    suffix = "nd"
+    suffix = "nd";
   } else if(rank == 3) {
-    suffix = "rd"
+    suffix = "rd";
   }
   return `${rank}${suffix} / ${totalEntries}`;
 }

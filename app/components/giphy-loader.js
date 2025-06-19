@@ -29,11 +29,3 @@ export default class GiphyLoader extends Component {
   }).restartable())
   fetchData;
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    GiphyLoader: typeof GiphyLoader;
-  }
-}
-  

@@ -35,7 +35,7 @@ export default class FruitsAffinity extends Component<FruitsAffinitySignature> {
         options: {
           scales: {
             r: {
-              
+
               pointLabels: {
                 backdropColor: 'rgba(240, 199, 208, 0.9)',
                 color: 'rgba(33, 27, 28, 0.9)',
@@ -87,4 +87,4 @@ declare module '@glint/environment-ember-loose/registry' {
     FruitsAffinity: typeof FruitsAffinity;
   }
 }
-  
+

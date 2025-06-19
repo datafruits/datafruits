@@ -37,8 +37,8 @@ export default class LabelsSelect extends Component<LabelsSelectArgs> {
     const label = store.createRecord('label', { name: name });
     const onSuccess = (label: Label) => {
       console.log('label saved!');
-      this.args.changeset.get('labels').pushObject(label);
-      this.args.changeset.get('labelIds').pushObject(label.get('id'));
+      this.args.changeset.get('labels').push(label);
+      this.args.changeset.get('labelIds').push(label.get('id'));
     };
     const onFail = (response: any) => {
       this.error = 'Failed to save tag: ' + response.errors[0].detail;
@@ -51,7 +51,7 @@ export default class LabelsSelect extends Component<LabelsSelectArgs> {
   @action
   searchLabels(term: string) {
     return new Promise((resolve, reject) => {
-      debounce(this, this._performLabelsSearch, term, resolve, reject, 600);
+      debounce(this, this._performLabelsSearch.bind(this), term, resolve, reject, 600);
     });
   }
 

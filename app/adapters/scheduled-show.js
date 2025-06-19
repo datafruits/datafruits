@@ -1,8 +1,6 @@
-import classic from 'ember-classic-decorator';
 import ApplicationAdapter from './application';
 import { inject as service } from '@ember/service';
 
-@classic
 export default class ScheduledShow extends ApplicationAdapter {
   @service router;
   namespace = 'api';

@@ -77,7 +77,9 @@ export default class TimePickerComponent extends Component<TimePickerArgs> {
       time = dayjs(changeset.get(property));
     }
     changeset.set(property, time);
-    changeset.validate(property);
+    changeset.validate(property).catch((e) => {
+      console.log("couldn't validate changeset: ", e);
+    });
   }
 
   @action
@@ -97,7 +99,9 @@ export default class TimePickerComponent extends Component<TimePickerArgs> {
 
     newDate = newDate.hour(parseInt(hours)).minute(parseInt(minutes));
     changeset.set(property, newDate.toISOString());
-    changeset.validate(property);
+    changeset.validate(property).catch((e) => {
+      console.log("couldn't validate changeset: ", e);
+    });
     if(this.args.onChange) {
       this.args.onChange(newDate, this.args.changeset);
     }

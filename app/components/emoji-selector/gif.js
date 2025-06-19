@@ -8,11 +8,3 @@ export default class EmojiSelectorGifComponent extends Component {
     this.args.closeDialog();
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    EmojiSelectorGifComponent: typeof EmojiSelectorGifComponent;
-  }
-}
-  

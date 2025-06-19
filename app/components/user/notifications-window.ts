@@ -16,10 +16,9 @@ export default class UserNotificationsWindow extends Component {
     this.showingNotificationsModal = !this.showingNotificationsModal;
   }
 
-  @action
-  fetchNotifications() {
+  get fetchNotifications() {
     return this.store.findAll('notification').then((notifications: any) => {
-      this.hasUnread = false;
+      this.hasUnread = false; // eslint-disable-line ember/no-side-effects
       return notifications;
     });
   }
@@ -43,4 +42,3 @@ declare module '@glint/environment-ember-loose/registry' {
     UserNotificationsWindow: typeof UserNotificationsWindow;
   }
 }
-

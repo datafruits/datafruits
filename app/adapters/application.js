@@ -1,14 +1,13 @@
-/* eslint-disable ember/no-mixins */
+ 
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
-import FastbootAdapter from 'ember-data-storefront/mixins/fastboot-adapter';
+//import FastbootAdapter from 'ember-data-storefront/mixins/fastboot-adapter';
 import ENV from 'datafruits13/config/environment';
 import { inject as service } from '@ember/service';
-import classic from 'ember-classic-decorator';
 import { underscore } from '@ember/string';
 import { pluralize } from 'ember-inflector';
 
-@classic
-export default class Application extends JSONAPIAdapter.extend(FastbootAdapter) {
+//export default class Application extends JSONAPIAdapter.extend(FastbootAdapter) {
+export default class Application extends JSONAPIAdapter {
   @service session;
 
   host = ENV.API_HOST;
@@ -24,7 +23,7 @@ export default class Application extends JSONAPIAdapter.extend(FastbootAdapter) 
 
   buildURL() {
     var base;
-    base = super.buildURL.apply(this, arguments); //eslint-disable-line ember/no-ember-super-in-es-classes
+    base = super.buildURL.apply(this, arguments);  
     return '' + base + '.json';
   }
 

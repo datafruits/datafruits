@@ -27,7 +27,7 @@ export default class MyShowsRecordingsSearch extends Component<MyShowsRecordings
   @action
   searchRecordings(term: string) {
     return new Promise((resolve, reject) => {
-      debounce(this, this._performSearch, term, resolve, reject, 600);
+      debounce(this, this._performSearch.bind(this), term, resolve, reject, 600);
     });
   }
 

@@ -181,7 +181,7 @@ export default class HomeUserSettingsController extends Controller {
     // zulu
     "sawubona",
     "مرحبًا",
-  ]
+  ];
 
   get randomGreeting() {
     return this.greetings[Math.floor(Math.random() * this.greetings.length)];
@@ -235,8 +235,8 @@ export default class HomeUserSettingsController extends Controller {
   }
 
   @action
-  setUserStyle(style) {
-    this.currentUser.user.style = style;
+  setUserStyle(event) {
+    this.currentUser.user.style = event.target.value;
   }
 
   @action
@@ -250,11 +250,11 @@ export default class HomeUserSettingsController extends Controller {
     this.currentUser.user
       .save()
       .then(() => {
-        console.log('saved user!'); // eslint-disable-line no-console
+        console.log('saved user!');  
         alert('updated your profile!');
       })
       .catch((error) => {
-        console.log(error); // eslint-disable-line no-console
+        console.log(error);  
         alert('couldnt save user!');
       });
   }

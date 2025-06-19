@@ -13,7 +13,7 @@ interface ShrimpoFormArgs {
 }
 
 export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
-  ShrimpoValidations = ShrimpoValidations
+  ShrimpoValidations = ShrimpoValidations;
 
   lengths = [
     '1 hour',

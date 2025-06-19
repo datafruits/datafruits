@@ -17,11 +17,3 @@ export default class BlogPost extends Component {
     return body;
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    BlogPost: typeof BlogPost;
-  }
-}
-  

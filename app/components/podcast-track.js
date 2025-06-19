@@ -47,7 +47,7 @@ export default class PodcastTrack extends Component {
   @action
   selectLabel(label) {
     let tags = this.args.selectedLabels;
-    tags.pushObject(label);
+    tags.push(label);
     const queryParams = { tags: tags, query: this.router.currentRoute.queryParams.query };
     this.router.transitionTo({ queryParams: queryParams });
     debounce(this, this.args.search, 400);
@@ -69,7 +69,7 @@ export default class PodcastTrack extends Component {
     trackFavorite
       .save()
       .then(() => {
-        this.currentUser.user.trackFavorites.pushObject(trackFavorite);
+        this.currentUser.user.trackFavorites.push(trackFavorite);
         console.log('faved ya ');
       })
       .catch((error) => {
@@ -113,10 +113,3 @@ export default class PodcastTrack extends Component {
     return htmlSafe(`background-image: url('${image}');`);
   }
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    PodcastTrack: typeof PodcastTrack;
-  }
-}
-

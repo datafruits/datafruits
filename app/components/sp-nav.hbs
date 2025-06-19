@@ -13,7 +13,7 @@
       <span class="sr-only">
         {{t "nav_toggle"}}
       </span>
-      <FaIcon @icon="bars" aria-hidden="true" />
+      <Ui::Icon @name="bars" aria-hidden="true" />
     </button>
     {{#if @menuOpen}}
       <ul class="flex flex-wrap overflow-y-scroll">
@@ -216,8 +216,10 @@
     </div>
   {{/unless}}
 </nav>
-{{#if this.showingSettings}}
-  <WebsiteSettings
-    @closeDialog={{this.closeDialog}}
-  />
-{{/if}}
+{{#unless this.fastboot.isFastBoot}}
+  {{#if this.showingSettings}}
+    <WebsiteSettings
+      @closeDialog={{this.closeDialog}}
+    />
+  {{/if}}
+{{/unless}}

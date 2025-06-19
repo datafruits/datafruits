@@ -5,8 +5,12 @@ import { hbs } from 'ember-cli-htmlbars';
 import { Changeset } from 'ember-changeset';
 import UserValidations from 'datafruits13/validations/user';
 
+import { setupIntl } from 'ember-intl/test-support';
+
 module('Integration | Component | sign-up/form', function (hooks) {
   setupRenderingTest(hooks);
+
+  setupIntl(hooks, 'en-us');
 
   test('it renders', async function (assert) {
     this.user = Changeset({}, UserValidations);

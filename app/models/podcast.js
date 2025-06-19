@@ -5,5 +5,8 @@ export default class Podcast extends Model {
 
   @attr meta;
 
-  @hasMany('track') tracks;
+  @hasMany('track', {
+    async: false,
+    inverse: 'podcast'
+  }) tracks;
 }

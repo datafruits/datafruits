@@ -33,11 +33,3 @@ export default class UserListItem extends Component {
     return this.message.role.includes('dj') || this.message.role.includes('admin');
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    UserListItem: typeof UserListItem;
-  }
-}
-  

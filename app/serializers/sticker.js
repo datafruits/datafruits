@@ -1,7 +1,5 @@
-import classic from 'ember-classic-decorator';
 import JSONAPISerializer from '@ember-data/serializer/json-api';
 
-@classic
 export default class Sticker extends JSONAPISerializer {
   normalizeQueryResponse(store, primaryModelClass, payload /*, id, requestType*/) {
     payload.data.map((gif) => {
