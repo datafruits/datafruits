@@ -112,7 +112,7 @@
     "ember-cli-meta-tags": "^7.0.0",
     "ember-cli-mirage": "3.0.4",
     "ember-cli-netlify": "^0.4.1",
-    "ember-cli-new-version": "^4.1.0",
+    "ember-cli-new-version": "^5.0.0",
     "ember-cli-postcss": "^7.2.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",

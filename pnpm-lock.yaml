@@ -302,8 +302,8 @@ importers:
         specifier: ^0.4.1
         version: 0.4.1
       ember-cli-new-version:
-        specifier: ^4.1.0
-        version: 4.1.0(@babel/core@7.26.10)
+        specifier: ^5.0.0
+        version: 5.0.0(@babel/core@7.26.10)(@glint/template@1.5.2)(webpack@5.99.5)
       ember-cli-postcss:
         specifier: ^7.2.0
         version: 7.2.0
@@ -4688,9 +4688,9 @@ packages:
     resolution: {integrity: sha512-EDxrjRl1WoytehV7c/7hdFDyubSi++Yxcr3DbZ4wZKVKB2bdfP+A+PEcFIF+s7JG96vPnBIeOGkDNTye9K231A==}
     engines: {node: 10.* || >= 12}
 
-  ember-cli-new-version@4.1.0:
-    resolution: {integrity: sha512-nhIFfrLs+JqyordanQ1KnSGm168LIc4gCAW93OHArhfmQppD5xb2aWVOmVDvU2AZkbagkr5IXBskUCBAm8pYEg==}
-    engines: {node: 12.* || 14.* || >= 16}
+  ember-cli-new-version@5.0.0:
+    resolution: {integrity: sha512-j6oUAQavzEreMZ2L0GbiUhVKhMA/xC6A3h+qG+rMPADm3DFuGAmTLfDNuMenubgUaDRkLsroVyiTXanQiPrp2g==}
+    engines: {node: '>= 20'}
 
   ember-cli-normalize-entity-name@1.0.0:
     resolution: {integrity: sha512-rF4P1rW2P1gVX1ynZYPmuIf7TnAFDiJmIUFI1Xz16VYykUAyiOCme0Y22LeZq8rTzwBMiwBwoE3RO4GYWehXZA==}
@@ -15093,19 +15093,22 @@ snapshots:
 
   ember-cli-netlify@0.4.1: {}
 
-  ember-cli-new-version@4.1.0(@babel/core@7.26.10):
+  ember-cli-new-version@5.0.0(@babel/core@7.26.10)(@glint/template@1.5.2)(webpack@5.99.5):
     dependencies:
       '@glimmer/component': 1.1.2(@babel/core@7.26.10)
       '@glimmer/tracking': 1.1.2
       broccoli-file-creator: 2.1.1
+      ember-auto-import: 2.10.0(@glint/template@1.5.2)(webpack@5.99.5)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 5.7.2
       ember-concurrency: 2.3.7(@babel/core@7.26.10)
       ember-fetch: 8.1.2
     transitivePeerDependencies:
       - '@babel/core'
+      - '@glint/template'
       - encoding
       - supports-color
+      - webpack
 
   ember-cli-normalize-entity-name@1.0.0:
     dependencies:
