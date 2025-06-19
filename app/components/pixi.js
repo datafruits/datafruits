@@ -52,6 +52,7 @@ export default class PixiComponent extends Component {
   constructor() {
     super(...arguments);
     this.eventBus.subscribe("fruitTipped", this, "addFruitTip");
+    this.eventBus.subscribe("limitBreakReached", this, "addFruitTip");
     this.eventBus.subscribe("weatherChanged", this, "reinitPixi");
     this.eventBus.subscribe("treasureOpened", this, "treasureOpened");
   }
