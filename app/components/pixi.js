@@ -47,6 +47,7 @@ export default class PixiComponent extends Component {
     "dragion-fruit",
     "blueberrinies",
     "peachy",
+    "canteloper",
   ];
 
   constructor() {
@@ -308,6 +309,7 @@ export default class PixiComponent extends Component {
 
     this.app.stop();
 
+    // TODO loop over fruits to do this
     this.app.loader.add("strawberry", "/assets/images/sprites/strawberry.json");
     this.app.loader.add("orange", "/assets/images/sprites/orange.json");
     this.app.loader.add("lemon", "/assets/images/sprites/lemon.json");
@@ -331,6 +333,11 @@ export default class PixiComponent extends Component {
     this.app.loader.add(
       "peachy",
       "/assets/images/sprites/peachy.json",
+    );
+
+    this.app.loader.add(
+      "canteloper",
+      "/assets/images/sprites/canteloper.json",
     );
 
     this.app.loader.add(
@@ -463,6 +470,8 @@ export default class PixiComponent extends Component {
 
       this.animations.peachy =
         res.peachy.spritesheet.animations["peachy"];
+
+      this.animations.canteloper = res.canteloper.spritesheet.animations["canteloper"];
 
       this.animations.megaBeamsprout = res.megaBeamsprout.spritesheet.animations["beamsprout_spin"];
       this.animations.treasureChestGlorpOpen = res.treasureChestGlorpOpen.spritesheet.animations["treasure_chest_open_glorp"];

@@ -203,6 +203,14 @@ export function initialize(/* application */) {
       shortnames: [':peachy:'],
       keywords: ['peachy'],
     },
+    ':canteloper:': {
+      custom: true,
+      animated: true,
+      uc_base: 'canteloper',
+      uc_output: '',
+      shortnames: [':canteloper:'],
+      keywords: ['canteloper'],
+    },
     ':miniburger:': {
       custom: true,
       uc_base: 'miniburger',
@@ -610,7 +618,7 @@ export function initialize(/* application */) {
       emojione.shortnames +
       ')',
     'gi',
-  );  
+  );
 
   //emojione.imagePathPNG = "/assets/images/emojis/";
   emojione.customImagePathPNG = '/assets/images/emojis/';
