@@ -25,6 +25,8 @@ import n from 'eslint-plugin-n';
 
 import babelParser from '@babel/eslint-parser';
 
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+
 const parserOptions = {
   esm: {
     js: {
@@ -58,17 +60,6 @@ export default ts.config(
    * https://eslint.org/docs/latest/use/configure/ignore
    */
   {
-    rules: {
-      // your custom rules
-      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-      '@typescript-eslint/no-inferrable-types': 'off',
-      '@typescript-eslint/no-var-requires': 0,
-      '@typescript-eslint/no-empty-function': 0,
-      'prefer-rest-params': 0,
-      'ember/no-empty-glimmer-component-classes': 'off',
-    },
-  },
-  {
     ignores: ['dist/', 'node_modules/', 'coverage/', '!**/.*'],
   },
   /**
@@ -101,6 +92,9 @@ export default ts.config(
       parserOptions: parserOptions.esm.ts,
     },
     extends: [...ts.configs.recommendedTypeChecked, ember.configs.gts],
+    plugins: {
+      '@typescript-eslint': tsPlugin,
+    },
   },
   {
     files: ['tests/**/*-test.{js,gjs,ts,gts}'],
@@ -152,6 +146,21 @@ export default ts.config(
       globals: {
         ...globals.node,
       },
+    },
+  },
+  {
+    plugins: {
+      '@typescript-eslint': tsPlugin,
+    },
+    rules: {
+      // your custom rules
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-inferrable-types': 'off',
+      '@typescript-eslint/no-var-requires': 0,
+      '@typescript-eslint/no-empty-function': 0,
+      '@typescript-eslint/no-explicit-any': 'off',
+      'prefer-rest-params': 0,
+      'ember/no-empty-glimmer-component-classes': 'off',
     },
   },
 );
