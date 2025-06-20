@@ -5,6 +5,8 @@ export default class HomeShrimposNew extends Route {
   @service store;
 
   model() {
-    return this.store.createRecord('shrimpo');
+    let newShrimpo = this.store.createRecord('shrimpo');
+    newShrimpo.shrimpoType = 'normal';
+    return newShrimpo;
   }
 }

@@ -9,6 +9,9 @@
   </span>
 </h2>
 {{#let (changeset @model this.ShrimpoValidations) as |changeset|}}
+  {{#each this.errors as |error|}}
+    <div class="error">{{error}}</div>
+  {{/each}}
   <Ui::ChangesetForm
     class="mb-2"
     @changeset={{changeset}}
@@ -38,6 +41,7 @@
       rows='10'
       cols='50'
       />
+    <label for="shrimpo-type">{{t "shrimpo.form.shrimpo_type"}}</label>
     <select
         id="shrimpo-type"
         {{on "change" (fn this.setShrimpoType changeset)}}
@@ -46,16 +50,15 @@
           <option value="{{shrimpoType}}" selected={{(eq changeset.shrimpoType shrimpoType)}}>{{shrimpoType}}</option>
         {{/each}}
     </select>
+    <br />
     {{#if (eq changeset.shrimpoType 'normal')}}
-      <Form.Input
-        @label={{t "shrimpo.form.voting_emoji"}}
-        @fieldName="emoji"
-        @containerClass='mb-2'
+      <EmojiSelect
+        @changeset={{changeset}}
         />
     {{else}}
     {{/if}}
     <div>
-      <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.start"}}</label>
+      <label class="block text-sm font-bold mb-2" for="body">{{t "shrimpo.form.start_at"}}</label>
       <input
         class="mr-2"
         type="date"

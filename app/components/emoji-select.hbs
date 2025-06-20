@@ -1,0 +1,17 @@
+<label>{{t "shrimpo.form.voting_emoji"}}</label>
+<PowerSelect
+  @searchEnabled={{true}}
+  @options={{this.emojiOptions}}
+  @renderInPlace={{true}}
+  @selected={{@changeset.emoji}}
+  @searchField="shortname"
+  @onChange={{this.selectEmoji}}
+  as |emoji|
+>
+  <img
+    class="inline"
+    width=48
+    alt={{emoji.shortname}}
+    src={{emoji-url emoji}} />
+  {{emoji.shortname}}
+</PowerSelect>
