@@ -168,6 +168,8 @@
       "length": "duration of shrimpo",
       "submit": "SHRIMP IT",
       "voting_emoji": "Voting Symbol",
+      "shrimpo_type": "Shrimpo Type",
+      "start_at": "When the shrimpo starts",
       "zip_file": "Upload zip sample pack",
       "cover_art": "Cover Artwork"
     },
