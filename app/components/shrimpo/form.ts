@@ -26,6 +26,8 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
 
   @tracked errors: string[] = [];
 
+  @service currentUser: any;
+
   lengths = [
     '1 hour',
     '2 hours',
@@ -51,7 +53,7 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
 
   @tracked duration = '1 hour';
 
-  get depositAmount() {
+  _depostAmount() {
     switch(this.duration) {
       case '1 hour':
         return 500;
@@ -72,6 +74,14 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
       default:
         return 100;
     }
+  }
+
+  get depositAmount() {
+    return this._depostAmount();
+  }
+
+  get notEnoughBalance() {
+    return this.currentUser.user.fruitTicketBalance < this._depostAmount();
   }
 
   @action
