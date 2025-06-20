@@ -171,7 +171,8 @@
       "shrimpo_type": "Shrimpo Type",
       "start_at": "When the shrimpo starts",
       "zip_file": "Upload zip sample pack",
-      "cover_art": "Cover Artwork"
+      "cover_art": "Cover Artwork",
+      "not_enough_balance": "Not enough fruit tix :("
     },
     "status": {
       "running": "entry period",
