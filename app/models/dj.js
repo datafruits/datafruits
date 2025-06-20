@@ -41,7 +41,7 @@ export default class Dj extends User {
 
   @hasMany('track', {
     async: false,
-    inverse: null
+    inverse: 'dj'
   })
   tracks;
 

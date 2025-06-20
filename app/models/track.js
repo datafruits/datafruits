@@ -31,7 +31,7 @@ export default class Track extends Model {
 
   @belongsTo('scheduled-show', { async: true, inverse: 'track' }) scheduledShow;
 
-  @belongsTo('dj', { async: true, inverse: 'track' }) dj;
+  @belongsTo('dj', { async: true, inverse: 'tracks' }) dj;
 
   get labelNames() {
     return this.labels.map((label) => { return label.name; });
