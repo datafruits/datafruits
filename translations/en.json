@@ -251,6 +251,9 @@
     "homepage": "Home page",
     "joined": "Joined",
     "last_login": "Last here",
+    "treasure": {
+      "need_login": "you need to login to open treasure chests!"
+    },
     "badges": {
       "dj": "plays the music on the website",
       "vj": "does the VIZ on the website",

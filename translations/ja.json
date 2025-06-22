@@ -59,6 +59,9 @@
     "favorites": "お気に入り",
     "joined": "作成した時",
     "last_login": "ここで最後",
+    "treasure": {
+      "need_login": "宝箱を開けるにはログインする必要があります!"
+    },
     "settings": "プロフィール設定",
     "username": "ユーザー名",
     "my-shows": {
