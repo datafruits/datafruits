@@ -271,6 +271,7 @@
   "usermenu": {
     "settings": "Edit Profile",
     "dropdown-aria": "Show user menu",
+    "studio": "Studio",
     "logout": "Logout"
   },
   "label": "Label",
