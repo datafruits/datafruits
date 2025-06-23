@@ -59,6 +59,13 @@
           <LinkTo @route="home.user.my-shows">{{t "profile.my-shows.title"}}</LinkTo>
         </span>
       </li>
+      <li class="hover:bg-df-blue rounded px-2 py-1">
+        <span
+            {{on "click" @toggleUserMenu}}
+          >
+          <LinkTo @route="home.user.studio">{{t "usermenu.studio"}}</LinkTo>
+        </span>
+      </li>
     {{/if}}
     <li class="h-1 bg-df-green"></li>
     <li class="hover:bg-df-blue rounded px-2 py-1">
