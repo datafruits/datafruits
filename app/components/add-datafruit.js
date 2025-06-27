@@ -23,9 +23,11 @@ export default class AddDatafruit extends Component {
 
   get currentTimestamp() {
     if (this.currentDatafruit) {
-      return `(${new Date(this.currentDatafruit.createdAt).toLocaleDateString()})`;
+      return `(${new Date(
+        this.currentDatafruit.createdAt
+      ).toLocaleDateString()})`;
     } else {
-      return "Unable to find timestamp";
+      return 'Unable to find timestamp';
     }
   }
 
@@ -69,10 +71,12 @@ export default class AddDatafruit extends Component {
   }
 
   get loadDatafruits() {
-    return this.store.findAll('microtext').then((data) => {
-      this.setDatafruits(data);
-      return data;
-    });
+    return this.store
+      .findAll('microtext', { backgroundReload: false })
+      .then((data) => {
+        this.setDatafruits(data);
+        return data;
+      });
   }
 
   @action
