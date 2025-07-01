@@ -5,6 +5,6 @@ export default class HomeShrimpoShow extends Route {
   @service store;
 
   async model(params) {
-    return this.store.findRecord('shrimpo', params.title);
+    return this.store.findRecord('shrimpo', params.title, { reload: true });
   }
 }
