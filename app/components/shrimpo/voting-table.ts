@@ -72,6 +72,6 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
   }
 
   get scoreEmojiPath() {
-    return emojiPath(this.args.entry.shrimpoEmoji);
+    return emojiPath([this.args.entry.shrimpoEmoji]);
   }
 }
