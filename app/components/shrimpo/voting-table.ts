@@ -9,6 +9,7 @@ import { inject as service } from '@ember/service';
 
 interface ShrimpoVotingTableArgs {
   entry: ShrimpoEntry;
+  votingCompletionPercentage: number;
 }
 
 export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs> {
@@ -23,6 +24,8 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
 
   @tracked score: number = 1;
 
+  @tracked voted: boolean = false;
+
   //vote: ShrimpoVote;
 
   constructor(owner: unknown, args: any) {
@@ -35,6 +38,7 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
       console.log(existingVote.score);
       //this.vote = existingVote;
       this.score = existingVote.score;
+      this.voted = true;
     }
   }
 
@@ -49,6 +53,7 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
       await vote.save();
       console.log(vote);
       alert('saved shrimpo vote!');
+      this.voted = true;
     } catch (error) {
       console.log(vote);
       console.log(error);
