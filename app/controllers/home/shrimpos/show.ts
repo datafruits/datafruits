@@ -24,8 +24,12 @@ export default class HomeShrimposShow extends Controller {
     }).join(" •︎ ");
   }
 
+  get canEndShrimpo(): boolean {
+    return this.model.status === 'voting';
+  }
+
   get hostLoggedIn() {
-    return this.currentUser.user === this.model.user || this.currentUser.user.role.includes("admin");
+    return this.session.isAuthenticated && (this.currentUser.user === this.model.user || this.currentUser.user.role.includes("admin"));
   }
 
   @action

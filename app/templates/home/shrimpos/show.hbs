@@ -9,7 +9,7 @@
           class="h-40"
         />
       </section>
-      <section class="bg-df-pink rounded-lg border-4 border-white p-2">
+      <section class="bg-df-pink rounded-lg border-4 border-white p-2 mb-2">
         <h4>Hosted By:</h4>
         <LinkTo
           class="text-xl font-bold"
@@ -30,8 +30,9 @@
         {{#if this.hostLoggedIn}}
           <button
             {{on "click" this.endShrimpo}}
+            disabled={{if this.canEndShrimpo false true}}
             class="cool-button">
-            END SHRIMPO
+            {{t "shrimpo.end_shrimpo"}}
           </button>
         {{/if}}
       </section>
