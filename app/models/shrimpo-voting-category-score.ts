@@ -9,7 +9,7 @@ export default class ShrimpoVotingCategoryScore extends Model {
   }) declare shrimpoVotingCategory: ShrimpoVotingCategory;
   @belongsTo('shrimpo-entry', {
     async: false,
-    inverse: null
+    inverse: 'shrimpoVotingCategoryScores'
   }) declare shrimpoEntry: ShrimpoEntry;
 
   @attr('number') declare score: number;
