@@ -5,5 +5,5 @@ interface UserShowCardArgs {
   show: ShowSeriesModel;
 }
 
-// eslint-disable-next-line ember/no-empty-glimmer-component-classes
+ 
 export default class UserShowCard extends Component<UserShowCardArgs> {}

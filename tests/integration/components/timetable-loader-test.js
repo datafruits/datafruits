@@ -3,8 +3,12 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
+import { setupIntl } from 'ember-intl/test-support';
+
 module('Integration | Component | timetable-loader', function (hooks) {
   setupRenderingTest(hooks);
+
+  setupIntl(hooks, 'en-us');
 
   skip('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');

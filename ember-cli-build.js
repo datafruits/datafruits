@@ -38,25 +38,20 @@ module.exports = function (defaults) {
 
     hinting: false,
 
-    'ember-font-awesome': {
-      useScss: true, // for ember-cli-sass
-    },
-
     babel: {
       plugins: [require('ember-auto-import/babel-plugin')],
     },
 
-    emberCliFontAwesome: {
-      useScss: true,
+    'ember-simple-auth': {
+      useSessionSetupMethod: true,
     },
+
+    // emberCliFontAwesome: {
+    //   useScss: true,
+    // },
 
     // 'ember-service-worker': {
     //   versionStrategy: 'every-build',
-    // },
-    //
-    // 'esw-cache-first': {
-    //   patterns: ['fonts/fontawesome(.+)'],
-    //   version: '1',
     // },
     //
     // 'esw-cache-fallback': {
@@ -72,7 +67,7 @@ module.exports = function (defaults) {
           {
             module: require('@csstools/postcss-sass'),
             options: {
-              includePaths: ['node_modules/ember-power-select', 'node_modules/font-awesome/scss'],
+              includePaths: ['node_modules/ember-power-select'],
             },
           },
           require('tailwindcss')('./app/tailwind/config.js'),

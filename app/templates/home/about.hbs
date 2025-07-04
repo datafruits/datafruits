@@ -6,7 +6,7 @@
   <div class="page-bg">
     <div class="about-section">
       <div id="about-us-details">
-        <h1>About us</h1>
+        <h1>{{t "about_datafruits_header"}}</h1>
         <div class="about-section-text">
           <p>
             {{t "about_datafruits_1"}}
@@ -20,24 +20,29 @@
         </div>
       </div>
       <div id="community-details">
-        <h1>Community</h1>
+        <h1>{{t "about_community_header"}}</h1>
         <div class="about-section-text">
           <p>
-            Our collective of artists and contributors are expected to positively engage and to follow our guidelines. Our volunteer moderators are responsible for enforcing the rules listed in the
+            {{t "about_community_1"}}
             <span>
               <LinkTo @route="home.coc" aria-label={{t "code_of_conduct_aria"}}>
                 {{t "code_of_conduct"}}.
               </LinkTo>
             </span>
-            Datafruits is a self-governing community that democratically decides on the direction of our shared space.
+            {{t "about_community_2"}}
           </p>
         </div>
       </div>
       <div id="support-details">
-        <h1>Support</h1>
+        <h1>{{t "about_page.listenersupport_header"}}</h1>
         <div class="about-section-text">
           <p>
             {{t "about_page.listenersupport"}}
+          </p>
+        </div>
+        <div class="about-section-text">
+          <p>
+            <LinkTo @route="home.support">{{t "about_page.premium_learn_more"}}</LinkTo>
           </p>
         </div>
         <div class="about-section-text">
@@ -47,17 +52,6 @@
           <a href="https://paypal.me/datafruitsfm" target="_blank" rel="noopener noreferrer" aria-label={{t "about_page.donate_aria"}}>
             {{t "about_page.donate_linktext"}}
           </a>
-        </div>
-      </div>
-      <div id="subscribe-details">
-        <h1>Subscribe</h1>
-        <div class="about-section-text">
-        <p>
-          {{t "subscribe.description"}}
-        </p>
-        <LinkTo @route="home.subscribe" aria-label={{t "subscribe.aria"}}>
-          {{t "subscribe.aria"}}
-        </LinkTo>
         </div>
       </div>
       <hr class="border-df-green my-4 blm:border-white"/>
@@ -70,7 +64,7 @@
               aria-label={{t "discord.aria"}}
               target="_blank" rel="noopener noreferrer"
             >
-              <FaIcon @icon="discord" @prefix="fab" />
+              <Ui::Icon @name="discord" @prefix="fab" />
             </a>
           </li>
           <li>
@@ -80,7 +74,7 @@
               aria-label={{t "youtube.aria"}}
               target="_blank" rel="noopener noreferrer"
             >
-              <FaIcon @icon="youtube" @prefix="fab" />
+              <Ui::Icon @name="youtube" @prefix="fab" />
             </a>
           </li>
           <li>
@@ -90,7 +84,7 @@
               aria-label={{t "tiktok.aria"}}
               target="_blank" rel="noopener noreferrer"
             >
-              <FaIcon @icon="tiktok" @prefix="fab" />
+              <Ui::Icon @name="tiktok" @prefix="fab" />
             </a>
           </li>
           <li>
@@ -100,7 +94,7 @@
               aria-label={{t "twitter.aria"}}
               target="_blank" rel="noopener noreferrer"
             >
-              <FaIcon @icon="twitter" @prefix="fab" />
+              <Ui::Icon @name="twitter" @prefix="fab" />
             </a>
           </li>
           <li>
@@ -110,7 +104,7 @@
               aria-label={{t "instagram.aria"}}
               target="_blank" rel="noopener noreferrer"
             >
-              <FaIcon @icon="instagram" @prefix="fab" />
+              <Ui::Icon @name="instagram" @prefix="fab" />
             </a>
           </li>
           <li>
@@ -120,27 +114,27 @@
               aria-label={{t "soundcloud.aria"}}
               target="_blank" rel="noopener noreferrer"
             >
-              <FaIcon @icon="soundcloud" @prefix="fab" />
+              <Ui::Icon @name="soundcloud" @prefix="fab" />
             </a>
           </li>
           <li>
-            <a 
+            <a
               href="https://datafruits.bandcamp.com/"
               title={{t "bandcamp.title"}}
               aria-label={{t "bandcamp.aria"}}
               target="_blank" rel="noopener noreferrer"
             >
-              <FaIcon @icon="bandcamp" @prefix="fab" />
+              <Ui::Icon @name="bandcamp" @prefix="fab" />
             </a>
           </li>
           <li>
-            <a 
+            <a
               href="https://www.patreon.com/datafruits"
               title={{t "patreon.title"}}
               aria-label={{t "patreon.aria"}}
               target="_blank" rel="noopener noreferrer"
             >
-              <FaIcon @icon="patreon" @prefix="fab" />
+              <Ui::Icon @name="patreon" @prefix="fab" />
             </a>
           </li>
           <li>
@@ -150,15 +144,15 @@
               aria-label={{t "github.aria"}}
               target="_blank" rel="noopener noreferrer"
             >
-              <FaIcon @icon="github" @prefix="fab" />
+              <Ui::Icon @name="github" @prefix="fab" />
             </a>
           </li>
           <li>
-            <a href="https://paypal.me/datafruitsfm" 
+            <a href="https://paypal.me/datafruitsfm"
               title={{t "paypal.title"}}
               target="_blank" rel="noopener noreferrer" aria-label={{t "about_page.donate_aria"}}
             >
-              <FaIcon @icon="paypal" @prefix="fab" />
+              <Ui::Icon @name="paypal" @prefix="fab" />
             </a>
           </li>
           <li>
@@ -168,7 +162,7 @@
               aria-label={{t "email.aria"}}
               target="_blank" rel="noopener noreferrer"
             >
-              <FaIcon @icon="envelope" @prefix="fas" />
+              <Ui::Icon @name="envelope" @prefix="fas" />
             </a>
           </li>
         </ul>

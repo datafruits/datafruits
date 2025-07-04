@@ -1,10 +1,11 @@
 import Route from '@ember/routing/route';
 import ENV from 'datafruits13/config/environment';
 import { metaToHeadTags } from 'ember-cli-meta-tags';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 
 export default class ShowRoute extends Route {
   @service headData;
+  @service store;
 
   model(params) {
     return this.store.findRecord('show-series', params.slug);

@@ -13,13 +13,15 @@ interface ShrimpoEntryUploaderArgs {
 }
 
 export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploaderArgs> {
-  ShrimpoEntryValidations = ShrimpoEntryValidations
+  ShrimpoEntryValidations = ShrimpoEntryValidations;
 
   @service declare activeStorage: any;
   @service declare store: any;
   @service declare currentUser: any;
 
   @tracked uploadProgress = 0;
+
+  @tracked isUploading = false;
 
   @tracked entry: ShrimpoEntry;
 
@@ -28,14 +30,17 @@ export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploader
     const myEntry = this.args.shrimpo.get('shrimpoEntries').filter((e: ShrimpoEntry) => {
       return e.username === this.currentUser.user.username;
     });
-    console.log(myEntry);
-    if(myEntry.length) {
+    if(myEntry.length && !this.args.shrimpo.multiSubmitAllowed) {
       this.entry = myEntry[0];
     } else {
       this.entry = this.store.createRecord('shrimpo-entry', {
         shrimpo: this.args.shrimpo
       });
     }
+  }
+
+  get canSubmitEntry() {
+    return this.args.shrimpo.multiSubmitAllowed || this.entry.isNew;
   }
 
   @action
@@ -59,6 +64,7 @@ export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploader
       const directUploadURL = `${ENV.API_HOST}/rails/active_storage/direct_uploads`;
 
       for (let i = 0; i < files.length; i++) {
+        this.isUploading = true;
         const validMimeTypes = ['audio/mp3', 'audio/mpeg'];
         if(!validMimeTypes.includes(files.item(i)?.type as string)) {
           alert('Only mp3 is supported! sorry...');
@@ -75,6 +81,7 @@ export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploader
           const signedId = blob.signedId;
 
           changeset.set('audio', signedId);
+          this.isUploading = false;
         });
       }
     }

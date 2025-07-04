@@ -1,10 +1,13 @@
 import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
+import { setupIntl } from 'ember-intl/test-support';
 import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | chat message', function (hooks) {
   setupRenderingTest(hooks);
+  setupIntl(hooks, 'en-us');
+  setupIntl(hooks, 'en-us');
 
   test('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
@@ -15,7 +18,7 @@ module('Integration | Component | chat message', function (hooks) {
     this.set('setupAutoscroll', setupAutoscroll);
     const adjustScrolling = function () {};
     this.set('adjustScrolling', adjustScrolling);
-    await render(hbs`{{chat-message message=message setupAutoscroll=setupAutoscroll adjustScrolling=adjustScrolling}}`);
+    await render(hbs`{{chat-message message=this.message setupAutoscroll=this.setupAutoscroll adjustScrolling=this.adjustScrolling}}`);
 
     assert.dom('[data-test-username]').hasText('tony');
     assert.dom('[data-test-message-body]').hasText('hey');
@@ -52,7 +55,7 @@ module('Integration | Component | chat message', function (hooks) {
     this.set('adjustScrolling', adjustScrolling);
     this.set('gifsEnabled', false);
     await render(
-      hbs`{{chat-message message=message setupAutoscroll=setupAutoscroll adjustScrolling=adjustScrolling gifsEnabled=gifsEnabled}}`,
+      hbs`{{chat-message message=this.message setupAutoscroll=this.setupAutoscroll adjustScrolling=this.adjustScrolling gifsEnabled=this.gifsEnabled}}`,
     );
 
     assert.dom('[data-test-username]').hasText('tony');

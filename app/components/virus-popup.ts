@@ -10,7 +10,9 @@ interface VirusPopupSignature {
 export default class VirusPopup extends Component<VirusPopupSignature> {
   @action
   didInsert(element: HTMLElement) {
-    (element.querySelector("#virus-message") as HTMLAudioElement).play();
+    (element.querySelector("#virus-message") as HTMLAudioElement).play().catch((e) => {
+      console.log("couldn't play message: ", e);
+    });
   }
 }
 
@@ -20,4 +22,4 @@ declare module '@glint/environment-ember-loose/registry' {
     VirusPopup: typeof VirusPopup;
   }
 }
-  
+

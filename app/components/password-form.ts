@@ -65,4 +65,4 @@ declare module '@glint/environment-ember-loose/registry' {
     PasswordForm: typeof PasswordForm;
   }
 }
-  
+

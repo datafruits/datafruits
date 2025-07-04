@@ -80,8 +80,8 @@
     }
   },
   "wiki": {
-    "title": "Fruitopiyeah",
-    "welcome": "Welcome to Fruitopiyeah",
+    "title": "Fruitstopiyeah",
+    "welcome": "Welcome to Fruitstopiyeah",
     "latest": "Latest articles:",
     "form": {
       "title": "Title",
@@ -151,8 +151,16 @@
     "aria": "See what datafruits.fm is about"
   },
   "shrimpo": {
+    "tagline": "THE POWER OF SHRIMPO<span class='ml-2 text-lg italic'>beta</span> COMPELS YOU",
     "title": "SHRIMPO",
     "aria": "listen to or join a shrimpo musical battle",
+    "running_shrimpos": "Shrimpos In Progress",
+    "completed_shrimpos": "Completed Shrimpos",
+    "voting_completion": "done voting for this shrimpo!",
+    "already_voted": "You already voted on this entry.",
+    "download_pack": "DOWNLOAD SHRIMPO PACK (.zip)",
+    "download_all": "DOWNLOAD ALL",
+    "end_shrimpo": "TALLY RESULTS",
     "form": {
       "beginning": "THIS IS THE BEGINNING OF A NEW SHRIMPO",
       "title": "title",
@@ -161,8 +169,16 @@
       "length": "duration of shrimpo",
       "submit": "SHRIMP IT",
       "voting_emoji": "Voting Symbol",
+      "shrimpo_type": "Shrimpo Type",
+      "start_at": "When the shrimpo starts",
       "zip_file": "Upload zip sample pack",
-      "cover_art": "Cover Artwork"
+      "cover_art": "Cover Artwork",
+      "not_enough_balance": "Not enough fruit tix :("
+    },
+    "status": {
+      "running": "entry period",
+      "voting": "voting",
+      "completed": "completed"
     }
   },
   "upcoming": {
@@ -219,7 +235,12 @@
         "repeating": "Repeating or one off",
         "youtube-link": "Youtube URL",
         "mixcloud-link": "Mixcloud URL",
-        "soundcloud-link": "SoundCloud URL"
+        "soundcloud-link": "SoundCloud URL",
+        "prerecorded-archive": "Use pre-recorded file for archive",
+        "update": "SAVE",
+        "delete": "DELETE EPISODE",
+        "prerecorded-set": "PRERECORDED SET",
+        "choose-file": "Choose a file"
       }
     },
     "chat": "Chat Preview",
@@ -231,6 +252,9 @@
     "homepage": "Home page",
     "joined": "Joined",
     "last_login": "Last here",
+    "treasure": {
+      "need_login": "you need to login to open treasure chests!"
+    },
     "badges": {
       "dj": "plays the music on the website",
       "vj": "does the VIZ on the website",
@@ -254,6 +278,7 @@
   "usermenu": {
     "settings": "Edit Profile",
     "dropdown-aria": "Show user menu",
+    "studio": "Studio",
     "logout": "Logout"
   },
   "label": "Label",
@@ -299,9 +324,13 @@
     "6": "It's ok buddy, just let us know your email so we can help you reset it"
   },
   "just_a_website": "its just a website",
+  "about_datafruits_header": "About us",
   "about_datafruits_1": "Datafruits is a cooperatively owned and operated free-form net radio station. This website was created by and for fans of internet radio and netlabels. Our station has little to no curation, and we believe that any song can be played.",
   "about_datafruits_2": "With artists around the globe, we are located throughout the US, Tokyo, and Seoul.  Our goal is to provide an accessible space for the international music community; Particularly for underserved and marginalized communities.",
   "about_datafruits_3": "The site has had no sponsorships or advertisements since 2012, and all of our support comes from the listeners, artists, and the generosity of strangers on the internet. We may live in a \"Platform capitalist\" world now, but that doesn't mean we're alone. We can help make the world a better place with a bit of cooperation and understanding. And remember, it's just a website.",
+  "about_community_header": "Community",
+  "about_community_1": "Our collective of artists and contributors are expected to positively engage and to follow our guidelines. Our volunteer moderators are responsible for enforcing the rules listed in the",
+  "about_community_2": "Datafruits is a self-governing community that democratically decides on the direction of our shared space.",
   "twitter": {
     "title": "Twitter",
     "aria": "Visit the @datafruits Twitter page"
@@ -402,13 +431,15 @@
   },
   "about_page": {
     "listenersupport": "Datafruits.fm is possible thanks to the generous support of the listeners. The best way to support us is with a monthly pledge of your choosing on Patreon. You'll get exclusive posts along with a monthly update video. You will also get a stipend of fruit tickets per month, along with a cool supporter badge in your profile. Donate at least $7/mo or higher and receive a pack of stickers to your mail every other month. Neato!",
+    "listenersupport_header": "Support",
     "donate_request": "If you'd like to make an one-time donation.",
     "donate_linktext": "https://paypal.me/datafruitsfm",
     "donate_aria": "Make a donation to datafruits.fm through PayPal",
+    "premium_learn_more": "Learn more about Datafruits Premium Membership",
     "datafruits_premium": "Become a datafruits premium member"
   },
   "support": {
-    "title": "$"
+    "title": "Support"
   },
   "coc": {
     "pledge": {
@@ -474,7 +505,8 @@
     "login_or_register": "Login or register to post!",
     "form": {
       "title": "post title",
-      "body": "what's up"
+      "body": "what's up",
+      "save": "POSTTT"
     }
   },
   "fruit-tickets": {

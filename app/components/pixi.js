@@ -5,6 +5,18 @@ import * as PIXI from 'pixi.js';
 import { inject as service } from '@ember/service';
 import { later } from '@ember/runloop';
 
+// fruits
+import fruitTypes from '../fruit-types'
+
+// animations
+import MetalPineapple from './pixi/animations/metal-pineapple';
+import RealLemoner from './pixi/animations/real-lemoner';
+import GigaShrimpshake from './pixi/animations/giga-shrimpshake';
+import TheRavers from './pixi/animations/the-ravers';
+import MegaBeamsprout from './pixi/animations/mega-beamsprout';
+import FruitSmoothie from './pixi/animations/fruit-smoothie';
+import TreasureOpen from './pixi/animations/treasure-open';
+
 export default class PixiComponent extends Component {
   @service eventBus;
   @service weather;
@@ -17,391 +29,61 @@ export default class PixiComponent extends Component {
   app;
   sprites = [];
   animations = {};
+  textures = {};
+
+  fruitSummons = [];
 
   alphaFilterValue = 1.0;
   alphaFadeout = false;
 
-  // TODO should these be pulled from fruit-types.ts ???
-  fruits = [
-    "strawberry",
-    "lemon",
-    "orange",
-    "banana",
-    "watermelon",
-    "cabbage",
-    "beamsprout",
-    "pineapple",
-    "limer",
-    "dragion-fruit",
-    "blueberrinies",
-  ];
-
-  paidFruitTipSprites = [];
+  fruits = fruitTypes
+    .filter(fruit => fruit.cost === 0)
+    .map(fruit => fruit.name);
 
   constructor() {
     super(...arguments);
     this.eventBus.subscribe("fruitTipped", this, "addFruitTip");
     this.eventBus.subscribe("weatherChanged", this, "reinitPixi");
+    this.eventBus.subscribe("treasureOpened", this, "treasureOpened");
   }
 
-  metalPineappleAnimation() {
-    console.log("metal pineapple!");
-    let sprite = new PIXI.AnimatedSprite(this.animations["metalPineapple"]);
-    let text = new PIXI.Text("METAL PINEAPPLE", {
-      fontFamily: "Arial",
-      fontSize: 48,
-      fill: ["yellow", "green", "blue", "pink"],
-      align: "center",
-      dropShadow: true,
-    });
-    text.width = this.app.screen.width;
-    text.height = this.app.screen.height;
-    // text.x = this.app.screen.width / 2;
-    // text.y = this.app.screen.height / 2;
-    let noise = new PIXI.filters.NoiseFilter(0.2);
-
-    text.filters = [this.filter, noise];
-    this.app.stage.addChild(text);
-    this.paidFruitTipSprites.pushObject(text);
-
-    let blobSprite;
-    for (let i = 0; i < 10; i++) {
-      blobSprite = new PIXI.AnimatedSprite(this.animations["weirdBlobs"]);
-      blobSprite.x = Math.random() * this.app.screen.width;
-      blobSprite.y = Math.random() * this.app.screen.height;
-      blobSprite.scale.x = 0.25;
-      blobSprite.scale.y = 0.25;
-      blobSprite.animationSpeed = 0.15;
-      //blobSprite.rotation = Math.floor(Math.random() * 360);
-      let randomFrame = Math.floor(Math.random() * blobSprite.totalFrames);
-      blobSprite.gotoAndPlay(randomFrame);
-      this.app.stage.addChild(blobSprite);
-      //sprite.filters = [this.filter];
-      //this.sprites.pushObject(sprite);
-      this.paidFruitTipSprites.pushObject(blobSprite);
-    }
-
-    let randomMetalPineapple;
-    for (let i = 0; i < 5; i++) {
-      randomMetalPineapple = new PIXI.AnimatedSprite(
-        this.animations["metalPineapple"],
-      );
-      randomMetalPineapple.x = Math.random() * this.app.screen.width;
-      randomMetalPineapple.y = Math.random() * this.app.screen.height;
-      randomMetalPineapple.scale.x = Math.random() * 1;
-      randomMetalPineapple.scale.y = Math.random() * 1;
-      let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
-      randomMetalPineapple.gotoAndPlay(randomFrame);
-      this.app.stage.addChild(randomMetalPineapple);
-      this.paidFruitTipSprites.pushObject(randomMetalPineapple);
-    }
-
-    sprite.scale.x = 1;
-    sprite.scale.y = 1;
-    sprite.x = this.app.screen.width / 4;
-    sprite.y = this.app.screen.height / 4;
-
-    // sprite.animationSpeed = Math.random() * 2;
-    // sprite.rotation = Math.floor(Math.random() * 360);
-    let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
-    sprite.gotoAndPlay(randomFrame);
-
-    //sprite.filters = [this.filter];
-    this.app.stage.addChild(sprite);
-    this.paidFruitTipSprites.pushObject(sprite);
-
-    later(() => {
-      // kill everything after 5000 ms
-      //this.app.stage.removeChild(text);
-      //text.filters = [this.filter, this.alphaFilter];
-      this.paidFruitTipSprites.forEach((sprite) => {
-        sprite.filters = [noise, this.alphaFilter];
-      });
-      this.alphaFadeout = true;
-    }, 5000);
-
-    const element = document.getElementsByTagName('body')[0];
-    element.classList.remove('screen-shake');
-    // https://css-tricks.com/restart-css-animation/
-    void element.offsetWidth;
-    element.classList.add('screen-shake');
-  }
-
-  realLemonerAnimation() {
-    let sprite = new PIXI.AnimatedSprite(this.animations["realLemoner"]);
-    let text = new PIXI.Text("LEMONER IS REAL", {
-      fontFamily: "Arial",
-      fontSize: 48,
-      fill: ["yellow", "green", "blue", "pink"],
-      align: "center",
-      dropShadow: true,
-    });
-    text.width = this.app.screen.width;
-    text.height = this.app.screen.height;
-    let noise = new PIXI.filters.NoiseFilter(0.2);
-
-    text.filters = [this.filter, noise];
-    this.app.stage.addChild(text);
-    this.paidFruitTipSprites.pushObject(text);
-
-    let blobSprite;
-    for (let i = 0; i < 15; i++) {
-      blobSprite = new PIXI.AnimatedSprite(this.animations["weirdBlobs"]);
-      blobSprite.x = Math.random() * this.app.screen.width;
-      blobSprite.y = Math.random() * this.app.screen.height;
-      blobSprite.scale.x = 0.25;
-      blobSprite.scale.y = 0.25;
-      blobSprite.animationSpeed = 0.15;
-      //blobSprite.rotation = Math.floor(Math.random() * 360);
-      let randomFrame = Math.floor(Math.random() * blobSprite.totalFrames);
-      blobSprite.gotoAndPlay(randomFrame);
-      this.app.stage.addChild(blobSprite);
-      //sprite.filters = [this.filter];
-      //this.sprites.pushObject(sprite);
-      this.paidFruitTipSprites.pushObject(blobSprite);
-    }
-
-    let randomRealLemoner;
-    for (let i = 0; i < 5; i++) {
-      randomRealLemoner = new PIXI.AnimatedSprite(
-        this.animations["realLemoner"],
-      );
-      randomRealLemoner.x = Math.random() * this.app.screen.width;
-      randomRealLemoner.y = Math.random() * this.app.screen.height;
-      randomRealLemoner.scale.x = Math.random() * 1;
-      randomRealLemoner.scale.y = Math.random() * 1;
-      let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
-      randomRealLemoner.gotoAndPlay(randomFrame);
-      this.app.stage.addChild(randomRealLemoner);
-      this.paidFruitTipSprites.pushObject(randomRealLemoner);
-    }
-
-    sprite.scale.x = 1;
-    sprite.scale.y = 1;
-    sprite.x = this.app.screen.width / 4;
-    sprite.y = this.app.screen.height / 4;
-
-    sprite.animationSpeed = 0.25;
-    let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
-    sprite.gotoAndPlay(randomFrame);
-
-    //sprite.filters = [this.filter];
-    this.app.stage.addChild(sprite);
-    this.paidFruitTipSprites.pushObject(sprite);
-
-    later(() => {
-      // kill everything after 5000 ms
-      //this.app.stage.removeChild(text);
-      //text.filters = [this.filter, this.alphaFilter];
-      this.paidFruitTipSprites.forEach((sprite) => {
-        sprite.filters = [noise, this.alphaFilter];
-      });
-      this.alphaFadeout = true;
-    }, 5000);
-
-    const element = document.getElementsByTagName('body')[0];
-    element.classList.remove('screen-shake');
-    // https://css-tricks.com/restart-css-animation/
-    void element.offsetWidth;
-    element.classList.add('screen-shake');
-  }
-
-  gigaShrimpshake() {
-    console.log("GIGA shrimpshake");
-    // gold shrimp, blue shrimp
-    // giant purple shrimp shake
-    let sprite = new PIXI.AnimatedSprite(this.animations["gigaShrimpshake"]);
-    let noise = new PIXI.filters.NoiseFilter(0.2);
-
-    let textSprite = new PIXI.AnimatedSprite(this.animations["gigaShrimpshakeText"]);
-    let blobSprite;
-    for (let i = 0; i < 15; i++) {
-      blobSprite = new PIXI.AnimatedSprite(this.animations["weirdBlobs"]);
-      blobSprite.x = Math.random() * this.app.screen.width;
-      blobSprite.y = Math.random() * this.app.screen.height;
-      blobSprite.scale.x = 0.25;
-      blobSprite.scale.y = 0.25;
-      blobSprite.animationSpeed = 0.15;
-      //blobSprite.rotation = Math.floor(Math.random() * 360);
-      let randomFrame = Math.floor(Math.random() * blobSprite.totalFrames);
-      blobSprite.gotoAndPlay(randomFrame);
-      this.app.stage.addChild(blobSprite);
-      //sprite.filters = [this.filter];
-      //this.sprites.pushObject(sprite);
-      this.paidFruitTipSprites.pushObject(blobSprite);
-    }
-
-    let randomGigaShrimpshake;
-    for (let i = 0; i < 25; i++) {
-      randomGigaShrimpshake = new PIXI.AnimatedSprite(
-        this.animations["gigaShrimpshake"],
-      );
-      randomGigaShrimpshake.x = Math.random() * this.app.screen.width;
-      randomGigaShrimpshake.y = Math.random() * this.app.screen.height;
-      const randomScale = Math.random() * 1;
-      randomGigaShrimpshake.scale.x = randomScale;
-      randomGigaShrimpshake.scale.y = randomScale;
-      randomGigaShrimpshake.tint = Math.random() * 0xFFFFFF;
-
-      let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
-      randomGigaShrimpshake.gotoAndPlay(randomFrame);
-      this.app.stage.addChild(randomGigaShrimpshake);
-      this.paidFruitTipSprites.pushObject(randomGigaShrimpshake);
-    }
-
-    let randomBlueShrimp;
-    for (let i = 0; i < 100; i++) {
-      randomBlueShrimp = new PIXI.AnimatedSprite(
-        this.animations["blueShrimp"],
-      );
-      randomBlueShrimp.x = Math.random() * this.app.screen.width;
-      randomBlueShrimp.y = Math.random() * this.app.screen.height;
-      const randomScale = Math.random() * 5;
-      const flippedChance = Math.random() * 100;
-      if(flippedChance >= 50) {
-        randomBlueShrimp.scale.x = -randomScale;
-      } else {
-        randomBlueShrimp.scale.x = randomScale;
-      }
-      randomBlueShrimp.scale.y = randomScale;
-      randomBlueShrimp.tint = Math.random() * 0xFFFFFF;
-
-      let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
-      randomBlueShrimp.gotoAndPlay(randomFrame);
-      this.app.stage.addChild(randomBlueShrimp);
-      this.paidFruitTipSprites.pushObject(randomBlueShrimp);
-    }
-
-    sprite.scale.x = 1;
-    sprite.scale.y = 1;
-    sprite.x = this.app.screen.width / 4;
-    sprite.y = this.app.screen.height / 4;
-
-    sprite.animationSpeed = 0.25;
-    let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
-    sprite.gotoAndPlay(randomFrame);
-
-    //sprite.filters = [this.filter];
-    this.app.stage.addChild(sprite);
-    this.paidFruitTipSprites.pushObject(sprite);
-
-    textSprite.x = this.app.screen.width / 4;
-    textSprite.y = this.app.screen.height / 4;
-    textSprite.gotoAndPlay(0);
-    this.app.stage.addChild(textSprite);
-    this.paidFruitTipSprites.pushObject(textSprite);
-
-
-    later(() => {
-      // kill everything after 5000 ms
-      //this.app.stage.removeChild(text);
-      //text.filters = [this.filter, this.alphaFilter];
-      this.paidFruitTipSprites.forEach((sprite) => {
-        sprite.filters = [noise, this.alphaFilter];
-      });
-      this.alphaFadeout = true;
-    }, 5000);
-
-    // screenshake
-    const element = document.getElementsByTagName('body')[0];
-    element.classList.remove('screen-shake');
-    // https://css-tricks.com/restart-css-animation/
-    void element.offsetWidth;
-    element.classList.add('screen-shake');
-  }
-
-  megaBeamsprout() {
-    console.log("MEGA beamsprout!");
-    let sprite = new PIXI.AnimatedSprite(this.animations["megaBeamsprout"]);
-    let text = new PIXI.Text("MEGA BEAMSPROUT", {
-      fontFamily: "Arial",
-      fontSize: 48,
-      fill: ["yellow", "green", "blue", "pink"],
-      align: "center",
-      dropShadow: true,
-    });
-    text.width = this.app.screen.width;
-    text.height = this.app.screen.height;
-    // text.x = this.app.screen.width / 2;
-    // text.y = this.app.screen.height / 2;
-    let noise = new PIXI.filters.NoiseFilter(0.2);
-
-    text.filters = [this.filter, noise];
-    this.app.stage.addChild(text);
-    this.paidFruitTipSprites.pushObject(text);
-
-    let blobSprite;
-    for (let i = 0; i < 10; i++) {
-      blobSprite = new PIXI.AnimatedSprite(this.animations["weirdBlobs"]);
-      blobSprite.x = Math.random() * this.app.screen.width;
-      blobSprite.y = Math.random() * this.app.screen.height;
-      blobSprite.scale.x = 0.25;
-      blobSprite.scale.y = 0.25;
-      blobSprite.animationSpeed = 0.15;
-      //blobSprite.rotation = Math.floor(Math.random() * 360);
-      let randomFrame = Math.floor(Math.random() * blobSprite.totalFrames);
-      blobSprite.gotoAndPlay(randomFrame);
-      this.app.stage.addChild(blobSprite);
-      //sprite.filters = [this.filter];
-      //this.sprites.pushObject(sprite);
-      this.paidFruitTipSprites.pushObject(blobSprite);
-    }
-
-    let randomMegaBeamsprout;
-    for (let i = 0; i < 5; i++) {
-      randomMegaBeamsprout = new PIXI.AnimatedSprite(
-        this.animations["metalPineapple"],
-      );
-      randomMegaBeamsprout.x = Math.random() * this.app.screen.width;
-      randomMegaBeamsprout.y = Math.random() * this.app.screen.height;
-      randomMegaBeamsprout.scale.x = Math.random() * 1;
-      randomMegaBeamsprout.scale.y = Math.random() * 1;
-      let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
-      randomMegaBeamsprout.gotoAndPlay(randomFrame);
-      this.app.stage.addChild(randomMegaBeamsprout);
-      this.paidFruitTipSprites.pushObject(randomMegaBeamsprout);
-    }
-
-    sprite.scale.x = 1;
-    sprite.scale.y = 1;
-    sprite.x = this.app.screen.width / 4;
-    sprite.y = this.app.screen.height / 4;
-
-    // sprite.animationSpeed = Math.random() * 2;
-    // sprite.rotation = Math.floor(Math.random() * 360);
-    let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
-    sprite.gotoAndPlay(randomFrame);
-
-    //sprite.filters = [this.filter];
-    this.app.stage.addChild(sprite);
-    this.paidFruitTipSprites.pushObject(sprite);
-
-    later(() => {
-      // kill everything after 5000 ms
-      //this.app.stage.removeChild(text);
-      //text.filters = [this.filter, this.alphaFilter];
-      this.paidFruitTipSprites.forEach((sprite) => {
-        sprite.filters = [noise, this.alphaFilter];
-      });
-      this.alphaFadeout = true;
-    }, 5000);
+  treasureOpened(treasureName) {
+    console.log('got treasureOpened event: ', treasureName);
+    let treasureOpen = new TreasureOpen(this.app, this.animations, { customFilter: this.filter, noiseFilter: this.noiseFilter }, treasureName);
+    this.fruitSummons.push(treasureOpen);
   }
 
   addFruitTip(event) {
     if (this.app) {
       let animation;
       if (event === "metal-pineapple") {
-        return this.metalPineappleAnimation();
+        let metalPineapple = new MetalPineapple(this.app, this.animations, { customFilter: this.filter, noiseFilter: this.noiseFilter });
+        this.fruitSummons.push(metalPineapple);
+        return metalPineapple;
       } else if (event === "real-lemoner") {
-        return this.realLemonerAnimation();
+        let realLemoner = new RealLemoner(this.app, this.animations, { customFilter: this.filter, noiseFilter: this.noiseFilter });
+        this.fruitSummons.push(realLemoner);
+        return realLemoner;
       } else if (event === "mega-beamsprout") {
-        return this.megaBeamsprout();
+        let megaBeamsprout = new MegaBeamsprout(this.app, this.animations, { customFilter: this.filter, noiseFilter: this.noiseFilter });
+        this.fruitSummons.push(megaBeamsprout);
+        return megaBeamsprout;
       } else if (event === "giga-shrimpshake") {
-        return this.gigaShrimpshake();
+        let gigaShrimpshake = new GigaShrimpshake(this.app, this.animations, { customFilter: this.filter, noiseFilter: this.noiseFilter });
+        this.fruitSummons.push(gigaShrimpshake);
+        return gigaShrimpshake;
+      } else if (event === "the-ravers") {
+        let theRavers = new TheRavers(this.app, this.animations, this.textures, { customFilter: this.filter, noiseFilter: this.noiseFilter });
+        this.fruitSummons.push(theRavers);
+        return theRavers;
+      } else if (event === "fruit-smoothie") {
+        let fruitSmoothie = new FruitSmoothie(this.app, this.animations, this.fruits, { customFilter: this.filter, noiseFilter: this.noiseFilter });
+        this.fruitSummons.push(fruitSmoothie);
+        return fruitSmoothie;
       } else if (this.fruits.includes(event)) {
-        animation = event.replace(/-./g, (x) => x[1].toUpperCase());
+        animation = event;
       } else {
-        console.log(`invalid fruit: ${event}`); // eslint-disable-line no-console
+        console.log(`invalid fruit: ${event}`);
         return;
       }
       let sprite = new PIXI.AnimatedSprite(this.animations[animation]);
@@ -417,7 +99,7 @@ export default class PixiComponent extends Component {
 
       //sprite.filters = [this.filter];
 
-      this.sprites.pushObject(sprite);
+      this.sprites.push(sprite);
       this.app.stage.addChild(sprite);
       // add callback to remove sprite after 5s
       later(() => {
@@ -445,7 +127,7 @@ export default class PixiComponent extends Component {
         }, 300);
       }, 5000);
     } else {
-      console.log("pixi.js wasn't initialized..."); // eslint-disable-line no-console
+      console.log("pixi.js wasn't initialized...");
     }
   }
 
@@ -617,23 +299,35 @@ export default class PixiComponent extends Component {
 
     this.app.stop();
 
-    this.app.loader.add("strawberry", "/assets/images/sprites/strawberry.json");
-    this.app.loader.add("orange", "/assets/images/sprites/orange.json");
-    this.app.loader.add("lemon", "/assets/images/sprites/lemon.json");
-    this.app.loader.add("banana", "/assets/images/sprites/banana.json");
-    this.app.loader.add("watermelon", "/assets/images/sprites/watermelon.json");
-    this.app.loader.add("cabbage", "/assets/images/sprites/cabbage.json");
-    this.app.loader.add("beamsprout", "/assets/images/sprites/beamsprout.json");
-    this.app.loader.add("pineapple", "/assets/images/sprites/pineapple.json");
-    this.app.loader.add("limer", "/assets/images/sprites/lime.json");
+    // TODO loop over fruits to do this
+    this.fruits.forEach(fruit => {
+      console.log('loading fruit: ', fruit);
+      this.app.loader.add(fruit, `/assets/images/sprites/${fruit}.json`);
+    })
+
+    // TODO
+    // this.app.loader.add(
+    //   "dragionFruit",
+    //   "/assets/images/sprites/dragon_fruit.json",
+    // );
+
+    this.app.loader.add("megaBeamsprout", "/assets/images/sprites/mega_beamsprout.json");
+
     this.app.loader.add(
-      "dragionFruit",
-      "/assets/images/sprites/dragon_fruit.json",
+      "treasureChestGlorpOpen",
+      "/assets/images/sprites/treasure_chest_glorp_open.json"
     );
+
     this.app.loader.add(
-      "blueberrinies",
-      "/assets/images/sprites/blueberrinies.json",
+      "treasureChestBonezoOpen",
+      "/assets/images/sprites/treasure_chest_bonezo_open.json"
     );
+
+    this.app.loader.add(
+      "treasureChestFruitTicketsOpen",
+      "/assets/images/sprites/treasure_chest_fruit_tickets_open.json"
+    );
+
     this.app.loader.add("shader", "/assets/shaders/shader.frag");
 
     this.app.loader.add("stars", "/assets/images/sprites/stars.json");
@@ -662,6 +356,43 @@ export default class PixiComponent extends Component {
       "/assets/images/sprites/blue_shrimp.json",
     );
 
+    this.app.loader.add(
+      "alandmoosleech",
+      "/assets/images/alandmoosleech.png"
+    );
+    this.app.loader.add(
+      "burger_girl",
+      "/assets/images/burger_girl.png"
+    );
+    this.app.loader.add(
+      "chill_ghost_shirt_guy",
+      "/assets/images/chill_ghost_shirt_guy.png"
+    );
+    this.app.loader.add(
+      "maskedburgerweirdo",
+      "/assets/images/maskedburgerweirdo.png"
+    );
+    this.app.loader.add(
+      "maybe_kamaida",
+      "/assets/images/maybe_kamaida.png"
+    );
+    this.app.loader.add(
+      "petscop",
+      "/assets/images/petscop.png"
+    );
+    this.app.loader.add(
+      "rainbowglorpy",
+      "/assets/images/rainbowglorpy.png"
+    );
+    this.app.loader.add(
+      "sportsjin",
+      "/assets/images/sportsjin.png"
+    );
+    this.app.loader.add(
+      "wormy",
+      "/assets/images/wormy.png"
+    );
+
     this.app.loader.onProgress.add((loader, resource) => {
       console.log(`Loading ${resource.name}: ${loader.progress}%`);
     });
@@ -671,9 +402,11 @@ export default class PixiComponent extends Component {
     });
 
     this.app.loader.load((loader, res) => {
+      console.log(res);
       this.filter = new PIXI.Filter(null, res.shader.data, {
         customUniform: 0.0,
       });
+      this.noiseFilter = new PIXI.filters.NoiseFilter(0.2);
 
       this.alphaFilter = new PIXI.filters.AlphaFilter(1.0);
 
@@ -703,16 +436,45 @@ export default class PixiComponent extends Component {
       this.animations.pineapple =
         res.pineapple.spritesheet.animations["pineapple_anim.png"];
       this.animations.limer = res.limer.spritesheet.animations["limer.png"]; // TODO
-      this.animations.dragionFruit =
-        res.dragionFruit.spritesheet.animations["dragon_fruit.png"];
+      this.animations["dragion-fruit"] =
+        res["dragion-fruit"].spritesheet.animations["dragon_fruit.png"];
       this.animations.blueberrinies =
         res.blueberrinies.spritesheet.animations["blueberrinies.png"];
+
+      this.animations.peachy =
+        res.peachy.spritesheet.animations["peachy"];
+
+      this.animations.canteloper = res.canteloper.spritesheet.animations["canteloper"];
+
+      this.animations.megaBeamsprout = res.megaBeamsprout.spritesheet.animations["beamsprout_spin"];
+      this.animations.treasureChestGlorpOpen = res.treasureChestGlorpOpen.spritesheet.animations["treasure_chest_open_glorp"];
+      this.animations.treasureChestBonezoOpen = res.treasureChestBonezoOpen.spritesheet.animations["treasure_chest_open_bonezo"];
+      this.animations.treasureChestFruitTicketsOpen = res.treasureChestFruitTicketsOpen.spritesheet.animations["treasure_chest_open_fruit_tickets"];
+
+      this.textures.alandmoosleech = PIXI.Texture.from(res.alandmoosleech.url);
+      this.textures.burger_girl = PIXI.Texture.from(res.burger_girl.url);
+      this.textures.chill_ghost_shirt_guy = PIXI.Texture.from(res.chill_ghost_shirt_guy.url);
+      this.textures.maskedburgerweirdo = PIXI.Texture.from(res.maskedburgerweirdo.url);
+      this.textures.maybe_kamaida = PIXI.Texture.from(res.maybe_kamaida.url);
+      this.textures.petscop = PIXI.Texture.from(res.petscop.url);
+      this.textures.rainbowglorpy = PIXI.Texture.from(res.rainbowglorpy.url);
+      this.textures.sportsjin = PIXI.Texture.from(res.sportsjin.url);
+      this.textures.wormy = PIXI.Texture.from(res.wormy.url);
 
       // Resume application update
       this.app.start();
 
       let count = 0;
       this.app.ticker.add((delta) => {
+        this.fruitSummons.forEach(fruitSummon => {
+          if(fruitSummon.finished) {
+            this.fruitSummons.splice(this.fruitSummons.indexOf(fruitSummon), 1);
+          } else {
+            fruitSummon.update(delta, this.app);
+          }
+        });
+        // TODO remove expired fruitSummon from array
+        //
         if (particles && ["snowy", "cats-dogs"].includes(this.weather.currentWeather)) {
           for (let particle of particles) {
             if (particle.y > 0) particle.x += particle.vx;
@@ -734,7 +496,7 @@ export default class PixiComponent extends Component {
 
         this.filter.uniforms.customUniform += delta;
 
-        count += 0.02;
+        count += 0.02 * delta;
 
         this.sprites.forEach((sprite) => {
           sprite.x += Math.sin(count);
@@ -745,15 +507,11 @@ export default class PixiComponent extends Component {
         });
 
         if (this.alphaFadeout) {
-          //console.log(this.alphaFilterValue);
           this.alphaFilterValue = this.alphaFilterValue - 0.01;
           this.alphaFilter.alpha = this.alphaFilterValue;
         }
         if (this.alphaFilterValue <= 0) {
           console.log("alpha fadeout end");
-          this.paidFruitTipSprites.forEach((sprite) => {
-            this.app.stage.removeChild(sprite);
-          });
           this.alphaFadeout = false;
           this.alphaFilterValue = 1.0;
           this.alphaFilter.alpha = this.alphaFilterValue;
@@ -764,11 +522,5 @@ export default class PixiComponent extends Component {
 
   handleResize() {
     this.app.renderer.resize(window.innerWidth, window.innerHeight);
-  }
-}
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    PixiComponent: typeof PixiComponent;
   }
 }

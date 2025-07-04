@@ -20,18 +20,18 @@ export default class MetadataService extends Service {
     metadataChannel
       .join()
       .receive('ignore', function () {
-        return console.log('auth error'); // eslint-disable-line no-console
+        return console.log('auth error');  
       })
       .receive('ok', function () {
-        return console.log('metadata join ok'); // eslint-disable-line no-console
+        return console.log('metadata join ok');  
       })
       .receive('timeout', function () {
-        return console.log('Connection interruption'); // eslint-disable-line no-console
+        return console.log('Connection interruption');  
       });
 
     metadataChannel.on('metadata', (metadata) => {
-      console.log(`metadata channel donation_link: ${metadata.donation_link}`); // eslint-disable-line no-console
-      console.log(`metadata channel message: ${metadata.message}`); // eslint-disable-line no-console
+      console.log(`metadata channel donation_link: ${metadata.donation_link}`);  
+      console.log(`metadata channel message: ${metadata.message}`);  
       if (!isEmpty(metadata.message)) {
         this.title = metadata.message;
         this.eventBus.publish('metadataUpdate', metadata.message);

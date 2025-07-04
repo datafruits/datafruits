@@ -35,4 +35,4 @@ declare module '@glint/environment-ember-loose/registry' {
     Post: typeof Post;
   }
 }
-  
+

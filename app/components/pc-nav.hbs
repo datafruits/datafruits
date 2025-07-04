@@ -12,11 +12,11 @@
         href="#"
       >
         {{t "radio.title"}}
-        <FaIcon
+        <Ui::Icon
           class="transition-all duration-100 ease-in-out
           {{if @submenuOpen 'rotated'}}"
           aria-hidden="true"
-          @icon="chevron-right"
+          @name="chevron-right"
         />
       </a>
     </li>
@@ -68,7 +68,7 @@
         {{t "shrimpo.title"}}
       </LinkTo>
     </li>
-    <li>
+    <li class="its-just-a-website-menu-item">
       <LinkTo
         class="text-white text-shadow-light hover:text-gray-400"
         aria-label={{t "about.aria"}}
@@ -88,16 +88,6 @@
         </button>
       </li>
     {{/unless}}
-    <li class="its-just-a-website-menu-item">
-      <a
-        class="text-white text-shadow-light hover:text-gray-400"
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://hubs.mozilla.com/MsvfAkH/terrific-satisfied-area"
-      >
-        <img width="75" alt="{{t '3D.title'}}" src="/assets/images/3D.gif" />
-      </a>
-    </li>
   </ul>
   {{#if @submenuOpen}}
     <ul class="flex flex-wrap items-center ml-2">
@@ -244,8 +234,10 @@
     </h1>
   </LinkTo>
 {{/if}}
-{{#if this.showingSettings}}
-  <WebsiteSettings
-    @closeDialog={{this.closeDialog}}
-  />
-{{/if}}
+{{#unless this.fastboot.isFastBoot}}
+  {{#if this.showingSettings}}
+    <WebsiteSettings
+      @closeDialog={{this.closeDialog}}
+    />
+  {{/if}}
+{{/unless}}

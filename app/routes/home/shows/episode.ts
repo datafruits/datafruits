@@ -10,7 +10,6 @@ export default class HomeShowsEpisode extends Route {
       adapterOptions: {
         show_series_id: params.showSeriesSlug, // :shrug:
       },
-      include: ['show-series', 'posts']
     });
   }
 

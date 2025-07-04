@@ -29,4 +29,4 @@ declare module '@glint/environment-ember-loose/registry' {
     TimezoneSelect: typeof TimezoneSelect;
   }
 }
-  
+

@@ -4,7 +4,7 @@
       {{#if this.playing}}
         <a
           class="text-df-green hover:text-df-yellow text-xl"
-          {{action "pause"}}
+          {{on "click" this.pause}}
           href="#"
         >
           {{t "player.pause"}}
@@ -12,41 +12,38 @@
       {{else}}
         <a
           class="text-df-green hover:text-df-yellow text-xl"
-          {{action "play"}}
+          {{on "click" this.play}}
           href="#"
         >
           {{t "player.play"}}
         </a>
       {{/if}}
       <a href={{@track.cdnUrl}} download="">
-        <FaIcon
-          @icon="download"
+        <Ui::Icon
+          @name="download"
           class="fa fa-download text-df-green hover:text-df-yellow text-xl"
         />
       </a>
       {{#if @show.youtubeLink}}
         <a href={{@show.youtubeLink}} target="_blank" rel="noreferrer noopener">
-          <FaIcon
-            @icon="youtube"
-            @prefix="fab"
+          <Ui::Icon
+            @name="youtube"
             class="text-df-green hover:text-df-yellow text-xl"
           />
         </a>
       {{/if}}
       {{#if @show.mixcloudLink}}
         <a href={{@show.mixcloudLink}} target="_blank" rel="noreferrer noopener">
-          <FaIcon
-            @icon="mixcloud"
-            @prefix="fab"
+          <Ui::Icon
+            @name="mixcloud"
             class="text-df-green hover:text-df-yellow text-xl"
           />
         </a>
       {{/if}}
       {{#if @show.soundcloudLink}}
         <a href={{@show.soundcloudLink}} target="_blank" rel="noreferrer noopener">
-          <FaIcon
-            @icon="soundcloud"
-            @prefix="fab"
+          <Ui::Icon
+            @name="soundcloud"
             class="text-df-green hover:text-df-yellow text-xl"
           />
         </a>
@@ -60,7 +57,7 @@
             title="Remove From Favorites"
             {{on "click" this.unfavoriteTrack}}
           >
-            <FaIcon @icon="heart" />
+            <Ui::Icon @name="heart" />
           </button>
         {{else}}
           <button
@@ -70,7 +67,7 @@
             title="Add To Favorites"
             {{on "click" this.favoriteTrack}}
           >
-            <FaIcon @icon="heart" />
+            <Ui::Icon @name="heart" />
           </button>
         {{/if}}
       {{/if}}
@@ -97,17 +94,19 @@
   >
   </div>
   <div>
-    <span class="text-sm mr-2 font-cursive">
-      <LinkTo @route="home.dj" @model={{@show.hostedBy}}>
-        {{@show.hostedBy}}
-      </LinkTo>
-    </span>
-    <span>
-      <img
-        style="height: 3rem;"
-        class="inline rounded-lg"
-        src="{{@show.hostAvatarUrl}}"
-        />
-    </span>
+    {{#each @show.djs as |host|}}
+      <span class="text-sm mr-2 font-cursive">
+        <LinkTo @route="home.dj" @model={{host.username}}>
+          {{host.username}}
+        </LinkTo>
+      </span>
+      <span>
+        <img
+          style="height: 3rem;"
+          class="inline rounded-lg"
+          src="{{host.avatarUrl}}"
+          />
+      </span>
+    {{/each}}
   </div>
 </div>

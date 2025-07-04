@@ -33,7 +33,12 @@ export default class CameraMenu extends Component<CameraMenuArgs> {
           "#camera--view",
         ) as HTMLVideoElement;
         cameraView.srcObject = stream;
-        cameraView.play();
+        cameraView.play().catch((e) => {
+          console.error("couldn't play camera stream", e);
+        });
+      })
+      .catch((e) => {
+        console.log("couldn't getUserMedia: ", e);
       });
   }
 

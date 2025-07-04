@@ -9,25 +9,36 @@
           class="h-40"
         />
       </section>
-      <section class="bg-df-pink rounded-lg border-4 border-white p-2">
+      <section class="bg-df-pink rounded-lg border-4 border-white p-2 mb-2">
         <h4>Hosted By:</h4>
         <LinkTo
-        class="text-xl font-bold"
-        @route='home.dj'
-        @model={{this.model.username}}
+          class="text-xl font-bold"
+          @route='home.dj'
+          @model={{this.model.username}}
         >
           <img
-          class="inline rounded-lg"
-          style="height: 3rem;"
-          align="center"
-          alt="{{this.model.username}}"
-          src="{{this.model.userAvatar}}" />
+            class="inline rounded-lg"
+            style="height: 3rem;"
+            align="center"
+            alt="{{this.model.username}}"
+            src="{{this.model.userAvatar}}" />
           {{this.model.username}}
         </LinkTo>
       </section>
+      <section>
+        <!-- admin stuff -->
+        {{#if this.hostLoggedIn}}
+          <button
+            {{on "click" this.endShrimpo}}
+            disabled={{if this.canEndShrimpo false true}}
+            class="cool-button">
+            {{t "shrimpo.end_shrimpo"}}
+          </button>
+        {{/if}}
+      </section>
     </section>
     <section class="w-3/4">
-      <section class="bg-df-pink rounded-lg border-4 border-white p-2 mb-2">
+      <section class="bg-df-pink rounded-lg border-4 border-white p-2 mb-6">
         <h3>Rules:</h3>
         <p class="m-2">
           {{marked-down this.model.rulePack}}
@@ -38,6 +49,15 @@
             <Shrimpo::Countdown @endAt={{this.model.endAt}} />
           {{/if}}
         </div>
+        <div>
+          <h3>Shrimpo type: <span class="uppercase">{{this.model.shrimpoType}}</span></h3>
+        </div>
+        {{#if (eq this.model.shrimpoType 'mega')}}
+          <div>
+            <h4>Voting Categories:</h4>
+            {{this.formattedVotingCategories}}
+          </div>
+        {{/if}}
         <h4>{{this.model.savedShrimpoEntries.length}} entries</h4>
         <div>
           Started at: {{format-date this.model.startAt}}
@@ -51,21 +71,47 @@
           <a
             class="cool-button"
             href="{{this.model.zipFileUrl}}">
-            DOWNLOAD SHRIMPO PACK (.zip)
+            {{t "shrimpo.download_pack"}}
           </a>
         </p>
       </section>
       <div>
         {{#if this.canShowEntries}}
           <div class="mb-4">
-            <h1>Entries</h1>
             {{#if this.model.entriesZipFileUrl}}
-              <a class="cool-button" href={{@this.model.entriesZipFileUrl}}>DOWNLOAD ALL</a>
+              <a class="cool-button" href={{@this.model.entriesZipFileUrl}}>{{t "shrimpo.download_all"}}</a>
             {{/if}}
           </div>
-          {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
-            <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
-          {{/each}}
+          {{#if (eq this.model.shrimpoType 'mega')}}
+            {{#if (eq this.model.status 'completed')}}
+              <!-- two cols of results -->
+              <h1>best overall</h1>
+              {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
+                <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
+              {{/each}}
+              <hr />
+              {{#each this.model.shrimpoVotingCategories as |category|}}
+                <h1>{{category.name}}</h1>
+                {{#each category.sortedScores as |score|}}
+                  <Shrimpo::EntryCard
+                    @shrimpoEntry={{score.shrimpoEntry}}
+                    @categoryScore={{score}}
+                  />
+                  <hr />
+                {{/each}}
+              {{/each}}
+            {{else}}
+              <h1>Entries</h1>
+              {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
+                <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
+              {{/each}}
+            {{/if}}
+          {{else}}
+            <h1>Entries</h1>
+            {{#each this.model.savedShrimpoEntries as |shrimpoEntry|}}
+              <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
+            {{/each}}
+          {{/if}}
         {{/if}}
       </div>
 

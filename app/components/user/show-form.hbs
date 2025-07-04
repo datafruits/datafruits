@@ -142,6 +142,21 @@
         class="mb-2"
         @changeset={{changeset}}
         />
+      {{#if (and (not-eq changeset.recurringInterval 'not_recurring') (includes 'admin' this.currentUser.user.roles))}}
+        <select
+          class="mb-4"
+          {{on "change" (pick "target.value" (set changeset "status"))}}
+          >
+          {{#each this.statusOptions as |status|}}
+            <option
+              value={{status}}
+              selected={{eq changeset.status status}}
+              >
+              {{status}}
+            </option>
+          {{/each}}
+        </select>
+      {{/if}}
       <div class="mb-2">
         <Button
           @type='submit'

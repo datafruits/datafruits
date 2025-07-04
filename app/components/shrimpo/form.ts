@@ -8,12 +8,25 @@ import type Shrimpo from 'datafruits13/models/shrimpo';
 import { BufferedChangeset } from 'ember-changeset/types';
 import ENV from 'datafruits13/config/environment';
 
+interface JsonApiError {
+  detail: string;
+  status?: string;
+  title?: string;
+  source?: {
+    pointer?: string;
+  };
+}
+
 interface ShrimpoFormArgs {
   model: Shrimpo;
 }
 
 export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
-  ShrimpoValidations = ShrimpoValidations
+  ShrimpoValidations = ShrimpoValidations;
+
+  @tracked errors: string[] = [];
+
+  @service currentUser: any;
 
   lengths = [
     '1 hour',
@@ -25,6 +38,12 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
     '1 month',
     '3 months',
   ];
+
+  shrimpoTypes = [
+    'normal',
+    'mega'
+  ];
+
   @service declare router: RouterService;
   @service declare activeStorage: any;
 
@@ -34,7 +53,7 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
 
   @tracked duration = '1 hour';
 
-  get depositAmount() {
+  _depostAmount() {
     switch(this.duration) {
       case '1 hour':
         return 500;
@@ -57,6 +76,14 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
     }
   }
 
+  get depositAmount() {
+    return this._depostAmount();
+  }
+
+  get notEnoughBalance() {
+    return this.currentUser.user.fruitTicketBalance < this._depostAmount();
+  }
+
   @action
   setLength(changeset: BufferedChangeset, event: any){
     console.log('setting duration: ', event.target.value);
@@ -65,14 +92,24 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
   }
 
   @action
+  setShrimpoType(changeset: BufferedChangeset, event: any){
+    console.log('setting duration: ', event.target.value);
+    changeset.set('shrimpoType', event.target.value);
+    //this.duration = event.target.value;
+  }
+
+  @action
   onSubmit(data: any, event: Event) {
+    console.log('on shrimpo form submit');
     console.log(data);
     console.log(event);
     this.router.transitionTo('home.shrimpos.show', data.slug);
   }
 
   @action
-  onError() {
+  onError(errors: JsonApiError[]) {
+    this.errors = errors.map(error => error.detail);
+    console.log('onError: ', errors);
     alert("Couldn't save shrimpo...check the form for errors.");
   }
 

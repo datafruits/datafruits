@@ -47,7 +47,9 @@ export default class UiChangesetFormComponent extends Component<UiChangesetFormS
 
     if (this.args.validateOnInit) {
       next(() => {
-        this.args.changeset.validate();
+        this.args.changeset.validate().catch((e) => {
+          console.log("couldn't validate changeset: ", e);
+        });
       });
     }
   }
@@ -60,6 +62,7 @@ export default class UiChangesetFormComponent extends Component<UiChangesetFormS
     changeset: BufferedChangeset,
     event: Event
   ): Promise<void> {
+    console.log("form handle submit");
 
     event.preventDefault();
     await changeset.validate();
@@ -67,6 +70,7 @@ export default class UiChangesetFormComponent extends Component<UiChangesetFormS
     this.hasSubmitted = true;
 
     if (changeset.isInvalid) {
+      console.log('changeset invalid: ', changeset.errors);
       return;
     }
 

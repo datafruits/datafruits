@@ -1,4 +1,5 @@
 /* purgecss start ignore */
+@use "sass:color";
 
 @tailwind base;
 
@@ -8,6 +9,7 @@
 @import "container.scss";
 @import "stripe-animation.scss";
 @import "shake.scss";
+@import "rotate.scss";
 
 @import "player.scss";
 
@@ -37,7 +39,7 @@ pre {
 }
 
 * {
-  cursor: url("/assets/images/mousepointer.png"), auto !important;
+  cursor: url("/assets/images/mousepointer.png"), auto;
 }
 
 @font-face {
@@ -260,6 +262,10 @@ pre {
   @include shake-animation-once;
 }
 
+.rotate-screen {
+  @include rotate-animation;
+}
+
 .cool-button {
   cursor: pointer;
   white-space: nowrap;
@@ -278,6 +284,9 @@ pre {
     &:focus {
       @apply bg-df-yellow-dark;
     }
+  }
+  &.danger {
+    @apply bg-red text-white;
   }
 }
 
@@ -487,8 +496,8 @@ li.ember-power-select-multiple-option {
 
   &:hover,
   &:focus {
-    background-color: darken($green, 15%);
-    border: 1px solid darken(white, 15%);
+    background-color: color.adjust($green, $lightness: -15%);
+    border: 1px solid color.adjust(white, $lightness: -15%);
     color: #fff;
   }
 
@@ -945,6 +954,33 @@ body::-webkit-scrollbar-thumb {
     text-shadow: none;
     padding: 2rem;
   }
+}
+
+.form-checkbox__input-container {
+  display: inline;
+}
+
+.futsu-treasure-chest {
+  position: relative;
+  .grab {
+    display: none;
+    position: absolute;
+    top: -30px;
+    left: 0;
+  }
+}
+
+.futsu-treasure-chest:hover {
+  .grab {
+    display: inline;
+  }
+}
+
+.svg-icon {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  vertical-align: -.125em;
 }
 
 @tailwind utilities;

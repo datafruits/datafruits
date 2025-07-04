@@ -3,13 +3,17 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, fillIn } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
+import { setupIntl } from 'ember-intl/test-support';
+
 module('Integration | Component | locale selector', function (hooks) {
   setupRenderingTest(hooks);
+
+  setupIntl(hooks, 'en-us');
 
   test('it renders', async function (assert) {
     this.set('setLocaleAction', () => {});
 
-    await render(hbs`<LocaleSelector @setLocale={{action setLocaleAction}} />`);
+    await render(hbs`<LocaleSelector @setLocale={{this.setLocaleAction}} />`);
 
     assert.true(this.element.textContent.trim().includes('English'));
     assert.true(this.element.textContent.includes('日本語'));

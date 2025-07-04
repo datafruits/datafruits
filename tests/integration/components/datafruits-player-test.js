@@ -4,10 +4,14 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import Service from '@ember/service';
 
+import { setupIntl } from 'ember-intl/test-support';
+
 const metadataStub = class StubMetadata extends Service {};
 
 module('Integration | Component | datafruits player', function (hooks) {
   setupRenderingTest(hooks);
+
+  setupIntl(hooks, 'en-us');
 
   hooks.beforeEach(function () {
     this.owner.register('service:metadata', metadataStub);

@@ -1,9 +1,9 @@
-import classic from 'ember-classic-decorator';
+import { inject as service } from '@ember/service';
 import Route from '@ember/routing/route';
 
-@classic
 export default class ShowRoute extends Route {
-  model(params) {
+  @service('store') store;
+model(params) {
     return this.store.findRecord('scheduled-show', params.id);
   }
 }

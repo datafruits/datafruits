@@ -1,4 +1,6 @@
 import Component from '@glimmer/component';
+import { Await } from '@warp-drive/ember';
+
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
@@ -21,9 +23,11 @@ export default class AddDatafruit extends Component {
 
   get currentTimestamp() {
     if (this.currentDatafruit) {
-      return `(${new Date(this.currentDatafruit.createdAt).toLocaleDateString()})`;
+      return `(${new Date(
+        this.currentDatafruit.createdAt
+      ).toLocaleDateString()})`;
     } else {
-      return "Unable to find timestamp"
+      return 'Unable to find timestamp';
     }
   }
 
@@ -46,19 +50,19 @@ export default class AddDatafruit extends Component {
     this.currentDatafruitIndex += 1;
     if (this.currentDatafruitIndex > this.datafruits.length - 1) {
       this.currentDatafruitIndex = 0;
-      this.actions.loadDatafruits.apply(this);
+      // TODO do we really need to load more ??
+      // this.actions.loadDatafruits.apply(this);
     }
-    this.currentDatafruit = this.datafruits.objectAt(this.currentDatafruitIndex);
+    this.currentDatafruit = this.datafruits[this.currentDatafruitIndex];
     if (ENV.environment === 'test') return;
     later(() => {
       this.incrementDatafruitIndex();
     }, 20000);
   }
 
-  @action
   setDatafruits(data) {
     this.datafruits = data;
-    this.currentDatafruit = this.datafruits.objectAt(this.currentDatafruitIndex);
+    this.currentDatafruit = this.datafruits[this.currentDatafruitIndex];
     // increment the currentDatafruit index in 5 sec
     if (ENV.environment === 'test') return;
     later(() => {
@@ -66,9 +70,13 @@ export default class AddDatafruit extends Component {
     }, 20000);
   }
 
-  @action
-  loadDatafruits() {
-    return this.store.findAll('microtext');
+  get loadDatafruits() {
+    return this.store
+      .findAll('microtext', { backgroundReload: false })
+      .then((data) => {
+        this.setDatafruits(data);
+        return data;
+      });
   }
 
   @action
@@ -91,11 +99,3 @@ export default class AddDatafruit extends Component {
       });
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    AddDatafruit: typeof AddDatafruit;
-  }
-}
-  

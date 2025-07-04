@@ -15,28 +15,26 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       # Install the correct version of node
-      - name: Detect Node version
-        run: echo "##[set-output name=version;]$(cat .nvmrc)"
-        id: nvmrc
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: "${{ steps.nvmrc.outputs.version }}"
+          node-version-file: .nvmrc
 
       - uses: pnpm/action-setup@v2.0.1
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 8
+          version: 10
           run_install: false
 
       - name: Get pnpm store directory
         id: pnpm-cache
         run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+
 
       - uses: actions/cache@v3
         name: Setup pnpm cache
@@ -60,28 +58,25 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       # Install the correct version of node
-      - name: Detect Node version
-        run: echo "##[set-output name=version;]$(cat .nvmrc)"
-        id: nvmrc
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: "${{ steps.nvmrc.outputs.version }}"
+          node-version-file: .nvmrc
 
       - uses: pnpm/action-setup@v2.0.1
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 8
+          version: 10
           run_install: false
 
       - name: Get pnpm store directory
         id: pnpm-cache
         run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v3
         name: Setup pnpm cache
@@ -100,66 +95,16 @@ jobs:
         run: pnpm coverage
 
       # Store coverage info as artifact
-      - name: Persist coverage info
-        uses: actions/upload-artifact@v2
-        with:
-          name: coverage-report
-          path: coverage
+      # - name: Persist coverage info
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: coverage-report
+      #     path: coverage
 
       # Upload coverage info to codecov
-      - name: Upload coverage info
-        if: github.event_name == 'push'
-        uses: codecov/codecov-action@v1
-        with:
-          fail_ci_if_error: true
-
-  lighthouse:
-    name: Lighthouse Score
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      # Install the correct version of node
-      - name: Detect Node version
-        run: echo "##[set-output name=version;]$(cat .nvmrc)"
-        id: nvmrc
-      - name: Setup Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: "${{ steps.nvmrc.outputs.version }}"
-
-      - uses: pnpm/action-setup@v2.0.1
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: 8
-          run_install: false
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      # Install dependencies
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Run Lighthouse
-        run: |
-          mkdir lhci
-          pnpm lighthouse
-        continue-on-error: true
-
-      - name: Store generated report
-        uses: actions/upload-artifact@v2
-        with:
-          name: lighthouse-report
-          path: lhci
+      # - name: Upload coverage info
+      #   if: github.event_name == 'push'
+      #   uses: codecov/codecov-action@v1
+      #   with:
+      #     fail_ci_if_error: true
+      #

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (environment) {
-  let ENV = {
+  const ENV = {
     modulePrefix: 'datafruits13',
     environment: environment,
     contentSecurityPolicy: {
@@ -12,15 +12,12 @@ module.exports = function (environment) {
       'child-src': 'http://www.youtube.com',
     },
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'history',
     EmberENV: {
+      EXTEND_PROTOTYPES: false,
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
-      },
-      EXTEND_PROTOTYPES: {
-        // Prevent Ember Data from overriding Date.parse.
-        Date: false,
       },
     },
 
@@ -127,6 +124,7 @@ module.exports = function (environment) {
     STREAM_HOST: process.env.STREAM_HOST,
     STREAM_NAME: process.env.STREAM_NAME,
     API_HOST: process.env.API_HOST,
+    ICECAST_HOST: process.env.ICECAST_HOST || 'https://streampusher-relay.club'
   };
 
   ENV['ember-simple-auth'] = {

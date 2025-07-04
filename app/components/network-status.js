@@ -28,15 +28,7 @@ export default class NetworkStatus extends Component {
   }
 
   updateStatus() {
-    console.log('setting offline status'); // eslint-disable-line no-console
+    console.log('setting offline status');
     this.isOffline = !navigator.onLine;
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    NetworkStatus: typeof NetworkStatus;
-  }
-}
-  

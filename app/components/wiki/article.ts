@@ -24,4 +24,4 @@ declare module '@glint/environment-ember-loose/registry' {
     WikiArticle: typeof WikiArticle;
   }
 }
-  
+

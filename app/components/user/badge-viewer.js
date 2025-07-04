@@ -20,7 +20,7 @@ export default class UserBadgeViewer extends Component {
   @tracked domId = this.uniqueId();
 
   @action
-  didInsert(element: HTMLElement){
+  didInsert(element){
     const animate = () => {
       this.renderer.render(this.scene, this.camera);
       this.controls.update();
@@ -77,11 +77,3 @@ export default class UserBadgeViewer extends Component {
     );
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    UserBadgeViewer: typeof UserBadgeViewer;
-  }
-}
-

@@ -46,7 +46,7 @@ export default class VideoStreamService extends Service {
     this.streamName = ENV.STREAM_NAME;
   }
 
-  async initializePlayer() {
+  initializePlayer() {
     const name = this.streamName;
     const extension = this.extension;
     const path = this.path;
@@ -59,7 +59,7 @@ export default class VideoStreamService extends Service {
       } else if (extension == 'm3u8') {
         type = 'application/x-mpegURL';
       } else {
-        console.log('Unknown extension: ' + extension); // eslint-disable-line no-console
+        console.log('Unknown extension: ' + extension);
         this.active = false;
         return;
       }
@@ -73,7 +73,7 @@ export default class VideoStreamService extends Service {
 
       this.player = player;
 
-      console.log(streamUrl); // eslint-disable-line no-console
+      console.log(streamUrl);
       player.src({
         src: streamUrl,
         type: type,
@@ -87,7 +87,7 @@ export default class VideoStreamService extends Service {
 
       if (promise !== undefined) {
         promise.then(() => {
-          console.log('video autoplayed'); // eslint-disable-line no-console
+          console.log('video autoplayed');
           if (this.useVideoAudio) {
             this.eventBus.publish('liveVideoAudio');
           }
@@ -96,7 +96,7 @@ export default class VideoStreamService extends Service {
         })
         .catch((error: Error) => {
           // Autoplay was prevented.
-          console.log(`video autoplay failed: ${error}`); // eslint-disable-line no-console
+          console.log(`video autoplay failed: ${error}`);
           player.userActive(false);
           this.rollbar.error(`video autoplay failed: ${error}`);
         });
@@ -131,7 +131,7 @@ export default class VideoStreamService extends Service {
       if (promise !== undefined) {
         promise
           .then(() => {
-            console.log('video played'); // eslint-disable-line no-console
+            console.log('video played');
             if (this.useVideoAudio) {
               this.eventBus.publish('liveVideoAudio');
             }
@@ -139,13 +139,13 @@ export default class VideoStreamService extends Service {
           })
           .catch((error: any) => {
             // Autoplay was prevented.
-            console.log(`video play failed: ${error}`); // eslint-disable-line no-console
+            console.log(`video play failed: ${error}`);
             player.userActive(false);
             this.rollbar.error(`video autoplay failed: ${error}`);
           });
       }
     } else {
-      console.log('video player not initialized yet!'); // eslint-disable-line no-console
+      console.log('video player not initialized yet!');
     }
   }
 
@@ -209,19 +209,19 @@ export default class VideoStreamService extends Service {
                 this.streamIsActive(name, 'm3u8', 'live');
               } else {
                 if (ENV.environment === 'test') return;
-                console.log('No stream found'); // eslint-disable-line no-console
+                console.log('No stream found');
                 later(() => {
                   this.fetchStream();
                 }, 15000);
               }
             })
             .catch(function (err) {
-              console.log('Error: ' + err); // eslint-disable-line no-console
+              console.log('Error: ' + err);
             });
         }
       })
       .catch(function (err) {
-        console.log('Error: ' + err); // eslint-disable-line no-console
+        console.log('Error: ' + err);
       });
   }
 }

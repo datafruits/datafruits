@@ -45,8 +45,7 @@ export default class DatafruitsChat extends Component {
   enterChat(nick, pass) {
     this.isJoiningChat = true;
     nick = nick.trim();
-    // can convert to this.args when its a glimmer component
-    return this.args.authenticate(nick, pass); // eslint-disable-line ember/no-attrs-in-components
+    return this.args.authenticate(nick, pass);
   }
 
   @action
@@ -96,11 +95,3 @@ export default class DatafruitsChat extends Component {
     this.closedModal = true;
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    DatafruitsChat: typeof DatafruitsChat;
-  }
-}
-  

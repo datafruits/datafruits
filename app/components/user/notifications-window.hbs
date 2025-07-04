@@ -16,24 +16,24 @@
           {{t "profile.notifications.title"}}
         </h1>
         <div>
-          <Await @promise={{this.fetchNotifications}} as |await|>
-            <await.Pending>
+          <Await @promise={{this.fetchNotifications}}>
+            <:pending>
               <p id="podcast-search-loading" class="">
                 {{t "loading"}}
               </p>
-            </await.Pending>
+            </:pending>
 
-            <await.Fulfilled as |result|>
+            <:success as |result|>
               <ul>
                 {{#each result as |notification|}}
                   <UserNotification @notification={{notification}} />
                 {{/each}}
               </ul>
-            </await.Fulfilled>
+            </:success>
 
-            <await.Rejected>
+            <:error>
               {{t "error"}}{{format-message-body ":sorrymustabeentheonionsaladdressing:"}}
-            </await.Rejected>
+            </:error>
           </Await>
         </div>
       </div>

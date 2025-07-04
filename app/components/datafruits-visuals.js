@@ -77,11 +77,3 @@ export default class DatafruitsVisuals extends Component {
     //this.element.style = `top: ${this.x}; left: ${this.y}`;
   }
 }
-
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    DatafruitsVisuals: typeof DatafruitsVisuals;
-  }
-}
-  

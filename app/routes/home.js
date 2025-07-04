@@ -14,7 +14,9 @@ export default class HomeRoute extends Route {
   @service
   fastboot;
 
-  beforeModel() {
+  async beforeModel() {
+    await this.session.setup();
+
     if (!this.fastboot.isFastBoot) {
       let element = document.getElementsByTagName('html')[0];
       let theme = localStorage.getItem('datafruits-theme') || 'classic';
@@ -28,6 +30,7 @@ export default class HomeRoute extends Route {
     if (!this.fastboot.isFastBoot) {
       let locales = this.intl.locales;
       let language;
+      console.log(navigator.languages);
       if (navigator.languages) {
         language = navigator.languages[0];
       } else {
@@ -35,7 +38,8 @@ export default class HomeRoute extends Route {
       }
       language = locales.includes(language.toLowerCase()) ? language : 'en';
 
-      this.intl.locale = language;
+      //this.intl.locale = language;
+      this.intl.setLocale(language);
     }
   }
 
@@ -49,7 +53,7 @@ export default class HomeRoute extends Route {
     try {
       await this.currentUser.load();
     } catch (err) {
-      console.log(err); // eslint-disable-line no-console
+      console.log(err);  
       await this.session.invalidate();
     }
   }

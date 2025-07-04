@@ -5,15 +5,35 @@
       <h1 class="text-3xl">
         {{this.model.title}}
       </h1>
+      <h2>
+        {{t "show.hosted_prefix"}}
+      </h2>
+      <div>
+        {{#each this.model.djs as |host|}}
+          <div>
+            <img
+              class="inline rounded-lg"
+              style="height: 2rem;"
+              src="{{host.avatarUrl}}"
+              align="center"
+              alt={{host.username}} / >
+          </div>
+          <span class="font-cursive text-xl">
+            <LinkTo @route="home.dj" @model={{host.username}}>
+              {{host.username}}
+            </LinkTo>
+          </span>
+        {{/each}}
+      </div>
       <strong>Air date:</strong> {{format-day this.model.start}} - {{format-time this.model.start}}
-      {{#if (or (eq this.currentUser.user.username this.model.hostedBy) (includes 'admin' this.currentUser.user.roles))}}
+      {{#if this.canEditShow}}
         <div class="my-2">
           <LinkTo
             @route="home.user.my-shows.episode"
             @models={{array this.model.showSeriesSlug this.model.slug}}
             class="cool-button"
           >
-            EDIT
+            {{t "profile.my-shows.edit"}}
           </LinkTo>
         </div>
       {{/if}}

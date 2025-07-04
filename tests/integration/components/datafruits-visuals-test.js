@@ -4,6 +4,8 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import Service from '@ember/service';
 
+import { setupIntl } from 'ember-intl/test-support';
+
 const videoStreamStub = class VideoStreamStub extends Service {
   active = true;
   initializePlayer() {}
@@ -12,6 +14,8 @@ const videoStreamStub = class VideoStreamStub extends Service {
 
 module('Integration | Component | datafruits visuals', function (hooks) {
   setupRenderingTest(hooks);
+
+  setupIntl(hooks, 'en-us');
 
   hooks.beforeEach(function () {
     this.owner.register('service:video-stream', videoStreamStub);

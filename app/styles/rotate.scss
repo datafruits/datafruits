@@ -1,0 +1,12 @@
+@keyframes rotateScreen {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@mixin rotate-animation {
+    animation: rotateScreen 5s ease;
+}

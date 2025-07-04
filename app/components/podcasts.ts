@@ -1,4 +1,4 @@
-import { action } from '@ember/object';
+//import { action } from '@ember/object';
 //import { tracked } from '@glimmer/tracking';
 import type Store from '@ember-data/store';
 import type RouterService from '@ember/routing/router-service';
@@ -32,13 +32,10 @@ export default class PodcastsSearch extends Component<PodcastsArgs> {
     }
   }
 
-  @action
-  fetchPodcasts() {
-    console.log('fetchPodcasts');
+  get fetchPodcasts() {
     const query = this.args.query;
-    console.log(query);
+    console.log('query: ', query);
     const podcastsPromise = this.store.query('podcast', query);
-
     return podcastsPromise;
   }
 }

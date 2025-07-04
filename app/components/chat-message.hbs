@@ -43,8 +43,23 @@
       aria-label={{t "discord.aria"}}
       target="_blank" rel="noopener noreferrer"
     >
-      <FaIcon @icon="discord" @prefix="fab" />
+      <Ui::Icon @name="discord" @prefix="fab" />
     </a>
+  {{/if}}
+
+  {{#if @message.treasure}}
+    <span class="futsu-treasure-chest"
+      {{on "click" this.grabTreasure}}
+      >
+      <img src="/assets/images/cominghand.gif" class="grab" />
+      <button
+        class="cool-button"
+        {{on "click" this.grabTreasure}}
+        disabled={{this.cantOpenTreasure}}
+      >
+        <img src="/assets/images/treasure_chest.gif" style="height: 3rem;" />
+      </button>
+    </span>
   {{/if}}
 
   {{#unless (this.hasImageData)}}

@@ -8,7 +8,7 @@
   name="theme-selector"
   id="theme-selector"
   class="bg-df-pink"
-  onchange={{action @setTheme value="target.value"}}>
+  {{on "change" @setTheme}}>
 >
 {{#each this.themes as |theme|}}
   {{#if (eq theme.value this.currentTheme)}}

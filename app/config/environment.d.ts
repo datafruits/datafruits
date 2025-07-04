@@ -10,6 +10,8 @@ declare const config: {
   rootURL: string;
   APP: Record<string, unknown>;
   API_HOST: string;
+  CHAT_SOCKET_URL: string;
+  ICECAST_HOST: string;
   headTags: any;
   STREAM_NAME: string;
   STREAM_HOST: string;
