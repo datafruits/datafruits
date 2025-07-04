@@ -25,6 +25,8 @@ export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploader
 
   @tracked entry: ShrimpoEntry;
 
+  @tracked ccLicenseAccepted = false;
+
   constructor(owner: unknown, args: any) {
     super(owner, args);
     const myEntry = this.args.shrimpo.get('shrimpoEntries').filter((e: ShrimpoEntry) => {

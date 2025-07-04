@@ -19,13 +19,13 @@
         {{this.uploadProgress}}
       </div>
       <label for="cc-license-checkbox">
-        This shrimpo entry will be licensed under the ATTRIBUTION-NONCOMMERCIAL-SHAREALIKE Creative Commons License.
-        Read more
+        {{t "shrimpo.cc_license"}}
       </label>
-      <input
-        type="checkbox"
+      <Input
+        @type="checkbox"
+        @checked={{this.ccLicenseAccepted}}
         name="cc-license-checkbox"
-        />
+      />
       <a href="https://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-nc-sa.png" target="_blank">
         <img src="/assets/images/by-nc-sa.png" />
       </a>
@@ -33,7 +33,7 @@
         @type="submit"
         @intent="primary"
         class="cool-button"
-        disabled={{or (or Form.state.hasSubmitted changeset.isInvalid) this.isUploading}}
+        disabled={{or (or (or Form.state.hasSubmitted changeset.isInvalid) this.isUploading) not this.ccLicenseAccepted}}
         >
         {{t "shrimpo.form.submit"}}
       </Button>
