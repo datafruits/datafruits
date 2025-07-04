@@ -44,10 +44,18 @@
             {{#if (eq this.model.shrimpoType 'mega')}}
               <!-- mega category scores -->
               <ul>
-                <li>{{formatted-shrimpo-ranking this.model.ranking this.model.shrimpoTotalEntries}} ({{this.model.totalScore}})</li>
+                <li><span class="font-bold">{{formatted-shrimpo-ranking this.model.ranking this.model.shrimpoTotalEntries}}</span> overall ({{this.model.totalScore}})</li>
                 {{#each this.model.shrimpoVotingCategoryScores  as |votingCategoryScore|}}
-                  {{log votingCategoryScore}}
-                  <li>{{formatted-shrimpo-ranking votingCategoryScore.ranking this.model.shrimpoTotalEntries}} - {{votingCategoryScore.shrimpoVotingCategory.name}} - ({{votingCategoryScore.score}})</li>
+                  {{log votingCategoryScore.shrimpoVotingCategory.emoji}}
+                  <li>
+                    <img
+                      width='48'
+                      class="inline"
+                      src="{{emoji-path votingCategoryScore.shrimpoVotingCategory.emoji}}"
+                    >
+                    <span class="font-bold">{{formatted-shrimpo-ranking votingCategoryScore.ranking this.model.shrimpoTotalEntries}}</span>
+                    - {{votingCategoryScore.shrimpoVotingCategory.name}} - ({{votingCategoryScore.score}})
+                  </li>
                 {{/each}}
               </ul>
             {{else}}
