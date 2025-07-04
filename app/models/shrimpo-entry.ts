@@ -21,7 +21,7 @@ export default class ShrimpoEntry extends Model {
   }) declare shrimpoVotes: SyncHasMany<ShrimpoVote>;
   @hasMany('shrimpo-voting-category-score', {
     async: false,
-    inverse: null
+    inverse: 'shrimpoEntry'
   }) declare shrimpoVotingCategoryScores: SyncHasMany<ShrimpoVotingCategoryScore>;
   @hasMany('posts', {
     async: false,
