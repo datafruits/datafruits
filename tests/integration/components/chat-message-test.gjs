@@ -1,0 +1,67 @@
+import { module, test, skip } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { setupIntl } from 'ember-intl/test-support';
+import { render } from '@ember/test-helpers';
+import chatMessage from "../../../app/components/chat-message.js";
+
+module('Integration | Component | chat message', function (hooks) {
+  setupRenderingTest(hooks);
+  setupIntl(hooks, 'en-us');
+  setupIntl(hooks, 'en-us');
+
+  test('it renders', async function (assert) {const self = this;
+
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
+
+    this.set('message', { body: 'hey', user: 'tony', timestamp: Date.parse('2017-03-27') });
+    const setupAutoscroll = function () {};
+    this.set('setupAutoscroll', setupAutoscroll);
+    const adjustScrolling = function () {};
+    this.set('adjustScrolling', adjustScrolling);
+    await render(<template>{{chatMessage message=self.message setupAutoscroll=self.setupAutoscroll adjustScrolling=self.adjustScrolling}}</template>);
+
+    assert.dom('[data-test-username]').hasText('tony');
+    assert.dom('[data-test-message-body]').hasText('hey');
+  });
+
+  // Deleted image renders by default test due to old observer code, "called set on destroyed object" and a 4+ year old lazy loading library
+  skip('it shows images by default', async function (assert) {
+    this.set('message', {
+      body: 'hey a cat http://cat.com/cat.png',
+      user: 'tony',
+      timestamp: Date.parse('2017-03-27'),
+    });
+    const setupAutoscroll = function () {};
+    this.set('setupAutoscroll', setupAutoscroll);
+    const adjustScrolling = function () {};
+    this.set('adjustScrolling', adjustScrolling);
+    await render(<template>{{chatMessage message=message setupAutoscroll=setupAutoscroll adjustScrolling=adjustScrolling}}</template>);
+
+    assert.dom('[data-test-username]').hasText('tony');
+    assert.dom('[data-test-message-body]').hasText('hey a cat');
+    assert.equal(this.element.querySelector('a').getAttribute('href'), 'http://cat.com/cat.png');
+    assert.equal(this.element.querySelector('img').getAttribute('src'), 'http://cat.com/cat.png');
+  });
+
+  test('hides images if show images is false', async function (assert) {const self = this;
+
+    this.set('message', {
+      body: 'hey a cat http://cat.com/cat.png',
+      user: 'tony',
+      timestamp: Date.parse('2017-03-27'),
+    });
+    const setupAutoscroll = function () {};
+    this.set('setupAutoscroll', setupAutoscroll);
+    const adjustScrolling = function () {};
+    this.set('adjustScrolling', adjustScrolling);
+    this.set('gifsEnabled', false);
+    await render(
+      <template>{{chatMessage message=self.message setupAutoscroll=self.setupAutoscroll adjustScrolling=self.adjustScrolling gifsEnabled=self.gifsEnabled}}</template>,
+    );
+
+    assert.dom('[data-test-username]').hasText('tony');
+    assert.dom('[data-test-message-body]').hasText('hey a cat');
+    assert.notOk(this.element.querySelector('img'));
+  });
+});

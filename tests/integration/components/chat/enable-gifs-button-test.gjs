@@ -1,0 +1,26 @@
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { setupIntl } from 'ember-intl/test-support';
+import { render } from '@ember/test-helpers';
+import EnableGifsButton from "../../../../app/components/chat/enable-gifs-button.gjs";
+
+module('Integration | Component | chat/enable-gifs-button', function (hooks) {
+  setupRenderingTest(hooks);
+  setupIntl(hooks, 'en-us');
+  setupIntl(hooks, 'en-us');
+
+  test('it renders', async function (assert) {const self = this;
+
+    this.toggleGifs = function () {};
+    this.gifsEnabled = true;
+
+    await render(
+      <template><EnableGifsButton @toggleGifs={{self.toggleGifs}} @enabled={{self.gifsEnabled}} /></template>,
+    );
+
+    assert
+      .dom(this.element.querySelector("#gif-enabler"))
+      .isChecked("GIF enabler should be checked by default");
+
+  });
+});
