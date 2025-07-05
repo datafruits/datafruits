@@ -1,0 +1,84 @@
+import DatafruitsPlayer from '../datafruits-player';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import didInsert from "@ember/render-modifiers/modifiers/did-insert";
+import t from "ember-intl/helpers/t";
+import { on } from "@ember/modifier";
+import Icon from "../ui/icon.js";
+
+export default class _DatafruitsPlayer extends DatafruitsPlayer {<template><span {{didInsert this.didInsert}}>
+  <audio preload id="radio-player">
+    <source src="https://streampusher-relay.club/datafruits.mp3" type="audio/mp3">
+    <source src="https://streampusher-relay.club/datafruits.ogg" type="audio/ogg">
+  </audio>
+  <div class="radio-container">
+    <div class="player-controls">
+      {{#if this.loading}}
+        <a class="jp-loading" href="javascript:;" tabindex="1">
+          {{t "player.loading"}}
+        </a>
+      {{else if this.playing}}
+        <a class="jp-pause" tabindex="1" {{on "click" this.pause}}>
+          {{t (if this.playingPodcast "player.pause" "player.stop")}}
+        </a>
+      {{else if this.paused}}
+        <a {{on "click" this.play}} {{on "mouseenter" this.playButtonMouseEnter}} {{on "mouseleave" this.playButtonMouseOut}} title={{t "player.title.play"}} class="jp-play" href="javascript:;" tabindex="1">
+          {{t "player.play"}}
+        </a>
+      {{/if}}
+      <span id="volume-control" name="volume-control" role="button" class="jp-volume-controls" aria-label={{t "player.aria.volume"}} {{on "mouseEnter" this.showVolumeControl}} {{on "mouseLeave" this.hideVolumeControl}}>
+        {{#if this.muted}}
+          {{!-- template-lint-disable no-nested-interactive --}}
+          <a class="jp-unmute" tabindex="1" {{on "click" this.unmute}}>
+            <Icon @name="volume-off" />
+          </a>
+        {{else}}
+          <a class="jp-mute" tabindex="1" {{on "click" this.mute}}>
+            <Icon @name="volume-up" />
+          </a>
+        {{/if}}
+        {{#if this.showingVolumeControl}}
+          <input class="volume-control" type="range" min="0" max="1" step="0.1" {{on "input" this.volumeChanged}} value={{this.volume}}>
+        {{/if}}
+      </span>
+    </div>
+    <div class="now-playing">
+      {{#if this.error}}
+        <span>
+          {{this.error}}
+        </span>
+      {{else}}
+        <span class="jp-title">
+          {{this.title}}
+        </span>
+      {{/if}}
+    </div>
+  </div>
+  {{#if this.playingPodcast}}
+    <div class="seek">
+      <div class="seek-bar-wrapper">
+        <input class="seek-bar" type="range" step="any" {{on "input" this.seek}} value={{this.playTime}}>
+      </div>
+    </div>
+  {{/if}}
+</span></template>
+  @tracked playingPodcast = false;
+
+  @action
+  didInsert() {
+    if (this.args.track) {
+      this.playingPodcast = true;
+      this.playTrack();
+    }
+  }
+
+  playTrack() {
+    const track = this.args.track;
+    this.error = null;
+    this.title = track.title;
+    this.playTime = 0.0;
+
+    let audioTag = document.getElementById('radio-player');
+    audioTag.src = track.cdnUrl;
+  }
+}

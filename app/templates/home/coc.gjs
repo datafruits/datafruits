@@ -1,0 +1,111 @@
+import RouteTemplate from 'ember-route-template'
+import pageTitle from "ember-page-title/helpers/page-title";
+import t from "ember-intl/helpers/t";
+export default RouteTemplate(<template><div class="page-spacing">
+  <div class="page-bg">
+    {{pageTitle "Code Of Conduct"}}
+    <div>
+      <h1 class="text-center mx-10">
+        {{t "coc.pledge.title"}}
+      </h1>
+      <p>
+        {{t "coc.pledge.p1"}}
+      </p>
+      <br />
+      <h1 class="text-center mx-10">
+        {{t "coc.standards.title"}}
+      </h1>
+      <p class="font-black">
+        {{t "coc.standards.p1"}}
+      </p>
+      <ul class="text-left">
+        <li>
+          💬 {{t "coc.standards.p1_bullet1"}}
+        </li>
+        <li>
+          👥 {{t "coc.standards.p1_bullet2"}}
+        </li>
+        <li>
+          🙇 {{t "coc.standards.p1_bullet3"}}
+        </li>
+        <li>
+          🎯 {{t "coc.standards.p1_bullet4"}}
+        </li>
+        <li>
+          💗 {{t "coc.standards.p1_bullet5"}}
+        </li>
+      </ul>
+      <br />
+      <p class="font-black">
+        {{t "coc.standards.p2"}}
+      </p>
+      <ul class="text-left">
+        <li>
+          👅 {{t "coc.standards.p2_bullet1"}}
+        </li>
+        <li>
+          🗯️ {{t "coc.standards.p2_bullet2"}}
+        </li>
+        <li>
+          📌 {{t "coc.standards.p2_bullet3"}}
+        </li>
+        <li>
+          🏠 {{t "coc.standards.p2_bullet4"}}
+        </li>
+        <li>
+          🚫 {{t "coc.standards.p2_bullet5"}}
+        </li>
+      </ul>
+      <br />
+      <h1 class="text-center">
+        {{t "coc.responsibilities.title"}}
+      </h1>
+      <p>
+        {{t "coc.responsibilities.p1"}}
+      </p>
+      <p>
+        {{t "coc.responsibilities.p2"}}
+      </p>
+      <br />
+      <h1 class="text-center">
+        {{t "coc.scope.title"}}
+      </h1>
+      <p>
+        {{t "coc.scope.p1"}}
+      </p>
+      <br />
+      <h1 class="text-center">
+        {{t "coc.enforcement.title"}}
+      </h1>
+      <p>
+        {{t "coc.enforcement.p1_part1"}}
+        <a href="mailto:info@datafruits.fm">
+          {{t "coc.enforcement.p1_linktext"}}
+        </a>
+        {{t "coc.enforcement.p1_part2"}}
+      </p>
+      <p>
+        {{t "coc.enforcement.p2"}}
+      </p>
+      <a target="_blank" rel="noopener noreferrer" href="https://docs.google.com/document/d/1H7j23zdNpZcLUJvMBpzPl7FcIYFrjJ9CLGKEI16an4Y/edit?usp=sharing">
+        {{t "coc.enforcement.policy"}}
+      </a>
+      <br />
+      <br />
+      <br />
+      <hr style="border-top: 1rem dotted/;" />
+      <br>
+      <h1 class="text-center">
+        {{t "coc.attribution.title"}}
+      </h1>
+      <p>
+        {{t "coc.attribution.p1_part1"}}
+        <a href="http://contributor-covenant.org/version/1/4" target="_blank" rel="noopener noreferrer">
+          {{t "coc.attribution.p1_linktext"}}
+        </a>
+        {{t "coc.attribution.p1_part2"}}
+      </p>
+    </div>
+  </div>
+</div>
+</template>)

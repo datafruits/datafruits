@@ -1,0 +1,73 @@
+import Component from '@glimmer/component';
+import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
+import { on } from "@ember/modifier";
+import { LinkTo } from "@ember/routing";
+import t from "ember-intl/helpers/t";
+import includes from "ember-composable-helpers/helpers/includes";
+
+export default class UserMenuComponent extends Component {<template>{{#if @showing}}
+  <ul role="menu" class="absolute right-0 classic:bg-df-pink blm:bg-black trans:bg-df-blue font-semibold z-10" style="top: 115px;">
+    <li class="hover:bg-df-blue rounded px-2 py-1">
+      <span {{on "click" @toggleUserMenu}}>
+        <LinkTo @route="home.dj" @model={{this.currentUser.user.username}}>
+          {{this.currentUser.user.username}}
+        </LinkTo>
+      </span>
+    </li>
+    <li class="hover:bg-df-blue rounded px-2 py-1">
+      <span>XP: </span>{{this.currentUser.user.experiencePoints}}
+    </li>
+    <li class="hover:bg-df-blue rounded px-2 py-1">
+      <span>Next level in: </span>{{this.currentUser.user.xpNeededForNextLevel}}
+    </li>
+    <li class="hover:bg-df-blue rounded px-2 py-1">
+      <span {{on "click" @toggleUserMenu}}>
+        <LinkTo @route="home.user.notifications">
+          {{t "profile.notifications.title"}}
+        </LinkTo>
+      </span>
+    </li>
+    <li class="hover:bg-df-blue rounded px-2 py-1">
+      <span {{on "click" @toggleUserMenu}}>
+        <LinkTo @route="home.user.settings">
+          {{t "usermenu.settings"}}
+        </LinkTo>
+      </span>
+    </li>
+    <li class="hover:bg-df-blue rounded px-2 py-1">
+      <span {{on "click" @toggleUserMenu}}>
+        <LinkTo @route="home.user.favorites">
+          {{t "profile.favorites"}}
+        </LinkTo>
+      </span>
+    </li>
+    {{#if (includes "dj" this.currentUser.user.roles)}}
+      <li class="hover:bg-df-blue rounded px-2 py-1">
+        <span {{on "click" @toggleUserMenu}}>
+          <LinkTo @route="home.user.my-shows">{{t "profile.my-shows.title"}}</LinkTo>
+        </span>
+      </li>
+      <li class="hover:bg-df-blue rounded px-2 py-1">
+        <span {{on "click" @toggleUserMenu}}>
+          <LinkTo @route="home.user.studio">{{t "usermenu.studio"}}</LinkTo>
+        </span>
+      </li>
+    {{/if}}
+    <li class="h-1 bg-df-green"></li>
+    <li class="hover:bg-df-blue rounded px-2 py-1">
+      <a href="#" {{on "click" this.logout}}>{{t "usermenu.logout"}}</a>
+    </li>
+  </ul>
+{{/if}}</template>
+  @service session;
+  @service chat;
+  @service currentUser;
+
+  @action
+  logout() {
+    this.session.invalidate();
+    this.chat.disconnect();
+    this.args.toggleUserMenu();
+  }
+}

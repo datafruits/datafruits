@@ -1,0 +1,9 @@
+import t from "ember-intl/helpers/t";
+import { on } from "@ember/modifier";
+<template><div class="flex justify-between" title={{if @enabled (t "chat.titles.img_on") (t "chat.titles.img_off")}}>
+  <label id="gif-enabler-label" for="gif-enabler">
+    {{t "chat.settings.show_images"}}
+  </label>
+  <input id="gif-enabler" name="gif-enabler" type="checkbox" class="mx-2" checked={{@enabled}} {{on "change" @toggleGifs}} />
+</div>
+</template>
