@@ -61,12 +61,13 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
 
   @action
   deleteEpisode() {
-    confirm("Are you sure?!!!");
-    this.args.episode.destroyRecord().then(() => {
-      alert("Goodbye episode. :(");
-      //redirect to /my-shows
-      this.router.transitionTo('home.user.my-shows');
-    });
+    if(confirm("Are you sure?!!!")) {
+      this.args.episode.destroyRecord().then(() => {
+        alert("Goodbye episode. :(");
+        //redirect to /my-shows
+        this.router.transitionTo('home.user.my-shows');
+      });
+    }
   }
 
   @action
