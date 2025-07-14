@@ -161,6 +161,7 @@
     "download_pack": "DOWNLOAD SHRIMPO PACK (.zip)",
     "download_all": "DOWNLOAD ALL",
     "end_shrimpo": "TALLY RESULTS",
+    "cc_license": "This shrimpo entry will be licensed under the ATTRIBUTION-NONCOMMERCIAL-SHAREALIKE Creative Commons License.",
     "form": {
       "beginning": "THIS IS THE BEGINNING OF A NEW SHRIMPO",
       "title": "title",
