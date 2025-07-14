@@ -35,14 +35,18 @@ export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploader
     if(myEntry.length && !this.args.shrimpo.multiSubmitAllowed) {
       this.entry = myEntry[0];
     } else {
-      this.entry = this.store.createRecord('shrimpo-entry', {
-        shrimpo: this.args.shrimpo
-      });
+      this.entry = this.store.createRecord('shrimpo-entry');
     }
   }
 
+  // is this shrimpo still accepting entries
   get canSubmitEntry() {
-    return this.args.shrimpo.multiSubmitAllowed || this.entry.isNew;
+    return this.args.shrimpo.multiSubmitAllowed || this.entry?.isNew;
+  }
+
+  // are there any validation errors on the form
+  get submitButtonDisabled() {
+    return this.isUploading || !this.ccLicenseAccepted;
   }
 
   @action
