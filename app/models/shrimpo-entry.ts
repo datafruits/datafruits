@@ -9,7 +9,7 @@ import type TrophyAward from './trophy-award';
 export default class ShrimpoEntry extends Model {
   @belongsTo('user', {
     async: false,
-    inverse: 'shrimpo'
+    inverse: 'shrimpoEntries'
   }) declare user: User;
   @belongsTo('shrimpo', {
     async: true,
