@@ -23,22 +23,8 @@ export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploader
 
   @tracked isUploading = false;
 
-  // @tracked entry: ShrimpoEntry;
-
   @tracked ccLicenseAccepted = false;
 
-  // constructor(owner: unknown, args: any) {
-  //   super(owner, args);
-  //   const myEntry = this.args.shrimpo.get('shrimpoEntries').filter((e: ShrimpoEntry) => {
-  //     return e.username === this.currentUser.user.username;
-  //   });
-  //   if(myEntry.length && !this.args.shrimpo.multiSubmitAllowed) {
-  //     this.entry = myEntry[0];
-  //   } else {
-  //     this.entry = this.store.createRecord('shrimpo-entry');
-  //   }
-  // }
-  //
   // is this shrimpo still accepting entries
   get canSubmitEntry() {
     return this.args.shrimpo.multiSubmitAllowed || this.args.shrimpoEntry.isNew;
