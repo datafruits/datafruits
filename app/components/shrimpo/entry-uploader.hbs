@@ -1,5 +1,5 @@
 {{#if this.canSubmitEntry}}
-  {{#let (changeset this.entry this.ShrimpoEntryValidations) as |changeset|}}
+  {{#let (changeset this.args.shrimpoEntry this.ShrimpoEntryValidations) as |changeset|}}
     <Ui::ChangesetForm
       @changeset={{changeset}}
       @onError={{this.onError}}
