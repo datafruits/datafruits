@@ -94,6 +94,11 @@ export default class UserModel extends Model {
     inverse: null
   }) fruitSummons;
 
+  @hasMany('shrimpo-entry', {
+    async: false,
+    inverse: 'user'
+  }) shrimpoEntries;
+
   async favoritedTrack(trackId) {
     let trackFavorites = await this.trackFavorites;
     let trackIds = trackFavorites.map((trackFavorite) => {
