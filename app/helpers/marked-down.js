@@ -7,6 +7,6 @@ export default helper(function markedDown(string) {
   if (isEmpty(string) || isBlank(string)) {
     return '';
   }
-  const converter = new showdown.Converter();
+  const converter = new showdown.Converter({ simplifiedAutoLink: true });
   return htmlSafe(converter.makeHtml(string.toString()));
 });
