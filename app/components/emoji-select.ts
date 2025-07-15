@@ -9,8 +9,8 @@ interface EmojiSelectArgs {
 
 export default class EmojiSelect extends Component<EmojiSelectArgs> {
   @action
-  selectEmoji(emoji: string) {
-    this.args.changeset.set('emoji', emoji);
+  selectEmoji(emoji: { shortname: string }) {
+    this.args.changeset.set('emoji', emoji.shortname);
   }
 
   get emojiOptions() {
