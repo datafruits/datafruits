@@ -1,6 +1,8 @@
 import Component from '@glimmer/component';
 import type ForumThread from 'datafruits13/models/forum-thread';
 import type ScheduledShow from 'datafruits13/models/scheduled-show';
+import type Shrimpo from 'datafruits13/models/shrimpo';
+import type ShrimpoEntry from 'datafruits13/models/shrimpo-entry';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
@@ -8,8 +10,8 @@ import { next } from '@ember/runloop';
 
 interface PostFormSignature {
   Args: {
-    postable: ForumThread | ScheduledShow;
-    postableType: 'ForumThread' | 'ScheduledShow';
+    postable: ForumThread | ScheduledShow | Shrimpo | ShrimpoEntry;
+    postableType: 'ForumThread' | 'ScheduledShow' | 'Shrimpo' | 'ShrimpoEntry';
   };
 }
 

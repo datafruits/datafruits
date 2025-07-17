@@ -16,7 +16,7 @@ export default class Post extends Model {
   @attr('string') declare createdAt: string;
 
   @attr('string') declare postableType: string;
-  @attr('number') declare postableId: number;
+  @attr('string') declare postableId: string;
 }
 
 
