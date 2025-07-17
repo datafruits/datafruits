@@ -128,13 +128,13 @@
       <section>
         {{#if this.session.isAuthenticated}}
           <h1 class="text-2xl font-cursive mb-2">Hey, {{this.currentUser.user.username}}, {{t "show.episode.leave_a_comment"}}</h1>
-          <Post::Form @postable={{this.model}} @postableType={{'Shrimpo'}} />
+          <Post::Form @postable={{this.model.shrimpo}} @postableType={{'Shrimpo'}} />
         {{else}}
           {{t "forum.login_or_register"}}
         {{/if}}
       </section>
       <section class="posts">
-        {{#each this.model.posts as |post|}}
+        {{#each this.model.shrimpo.posts as |post|}}
           <Post @post={{post}} />
         {{/each}}
       </section>
