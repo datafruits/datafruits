@@ -35,7 +35,7 @@ export default class ShowSeriesView extends Component<ShowSeriesViewArgs> {
   }
 
   get canEdit(): boolean {
-    return this.args.showSeries.users.includes(this.currentUser.user) || this.currentUser.user.roles.includes('admin');
+    return this.session.isAuthenticated && (this.args.showSeries.users.includes(this.currentUser.user) || this.currentUser.user.roles.includes('admin'));
   }
 
   <template>
