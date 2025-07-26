@@ -58,7 +58,12 @@ export function initialize(/* application */) {
       custom: true,
       uc_base: 'salad_dressing',
       uc_output: '',
-      shortnames: [':salad_dressing:', ':onion_salad_dressing:', ':saladdressing:', ':onionsaladdressing:'],
+      shortnames: [
+        ':salad_dressing:',
+        ':onion_salad_dressing:',
+        ':saladdressing:',
+        ':onionsaladdressing:',
+      ],
       keywords: ['salad', 'dressing'],
     },
     ':trash:': {
@@ -605,19 +610,28 @@ export function initialize(/* application */) {
       shortnames: [':mega_beamsprout:'],
       keywords: ['mega_beamsprout'],
     },
+    ':pickles:': {
+      custom: true,
+      uc_base: 'pickles',
+      uc_output: '',
+      shortnames: [':pickles:'],
+      keywords: ['pickles'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
     emojione.emojioneList[emoji] = customEmojis[emoji];
   });
 
-  emojione.shortnames = emojione.shortnames.concat(`|${Object.keys(customEmojis).join('|')}`);
+  emojione.shortnames = emojione.shortnames.concat(
+    `|${Object.keys(customEmojis).join('|')}`
+  );
 
   emojione.regShortNames = new RegExp(
     '<object[^>]*>.*?</object>|<span[^>]*>.*?</span>|<(?:object|embed|svg|img|div|span|p|a)[^>]*>|(' +
       emojione.shortnames +
       ')',
-    'gi',
+    'gi'
   );
 
   //emojione.imagePathPNG = "/assets/images/emojis/";
