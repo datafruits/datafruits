@@ -20,7 +20,7 @@ const purgeCSS = {
 module.exports = function (defaults) {
   var fingerprintOptions = {
     enabled: true,
-    exclude: ['assets/images/emojis/*', 'assets/images/sprites/*', 'assets/images/lv*_fruit.gif'],
+    exclude: ['assets/images/emojis/*', 'assets/images/sprites/*', 'assets/images/lv*_fruit.gif', 'assets/images/big_cow.png'],
   };
 
   let app = new EmberApp(defaults, {
