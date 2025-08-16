@@ -1,4 +1,7 @@
 {{#let (changeset @episode this.EpisodeValidations) as |changeset|}}
+  {{#each this.errors as |error|}}
+    <div class="error">{{error}}</div>
+  {{/each}}
   <Ui::ChangesetForm
         @changeset={{changeset}}
         @onError={{this.onError}}
