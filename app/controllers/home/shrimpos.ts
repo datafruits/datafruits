@@ -27,7 +27,8 @@ export default class HomeShrimpos extends Controller {
   get completedShrimpos() {
     return this.model.filter((shrimpo: any) => {
       return !shrimpo.isNew && shrimpo.status === 'completed';
-    });
+    }).sort((a, b) => new Date(b.endedAt ?? 0).getTime() - new Date(a.endedAt ?? 0).getTime());
+;
   }
 }
 
