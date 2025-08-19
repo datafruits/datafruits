@@ -77,7 +77,7 @@
         <LinkTo
           @route="home.shows.episode"
           @models={{array @show.showSeriesSlug @show.slug}}>
-          {{@show.formattedEpisodeTitle}}
+          {{this.trackOrEpisodeTitle}}
         </LinkTo>
         <span class="text-sm">
           {{@show.formattedDate}}
