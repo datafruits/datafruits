@@ -112,4 +112,9 @@ export default class PodcastTrack extends Component {
     }
     return htmlSafe(`background-image: url('${image}');`);
   }
+
+  get trackOrEpisodeTitle() {
+    // use track title if it exists else episode title
+    return this.args.track.title || this.args.show.formattedEpisodeTitle;
+  }
 }
