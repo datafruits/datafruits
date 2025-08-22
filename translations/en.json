@@ -151,8 +151,13 @@
     "aria": "See what datafruits.fm is about"
   },
   "shrimpo": {
-    "tagline": "THE POWER OF SHRIMPO<span class='ml-2 text-lg italic'>beta</span> COMPELS YOU",
+    "tagline_1": "THE POWER OF SHRIMPO",
+    "beta": "beta",
+    "tagline_2": "COMPELS YOU",
     "title": "SHRIMPO",
+    "begin": "BEGIN A NEW SHRIMPO",
+    "no_shrimpos_in_progress": "No shrimpos in progress......why don't you start one?!",
+    "why": "Improve your skills. Create new music.",
     "aria": "listen to or join a shrimpo musical battle",
     "running_shrimpos": "Shrimpos In Progress",
     "completed_shrimpos": "Completed Shrimpos",
