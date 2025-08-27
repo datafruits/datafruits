@@ -34,8 +34,19 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   }
 
   @action updateFile(e: any){
-    this.file = e.target.files[0];
-    this.args.episode.imageFilename = e.target.files[0].name;
+    const file = e.target.files[0];
+    if (!file) return;
+
+    // Validate file type - only allow images
+    const validImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+    if (!validImageTypes.includes(file.type)) {
+      alert('Only image files (JPEG, PNG, GIF, WebP) are allowed for artwork!');
+      e.target.value = ''; // Clear the input
+      return;
+    }
+
+    this.file = file;
+    this.args.episode.imageFilename = file.name;
     const reader = new FileReader();
 
     reader.onload = (e) => {
