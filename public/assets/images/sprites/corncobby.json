@@ -1,0 +1,535 @@
+{"frames": {
+
+"corncobby0064.png":
+{
+	"frame": {"x":262,"y":581,"w":113,"h":287},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":89,"y":13,"w":113,"h":287},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0065.png":
+{
+	"frame": {"x":132,"y":293,"w":118,"h":289},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":84,"y":11,"w":118,"h":289},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0066.png":
+{
+	"frame": {"x":1,"y":585,"w":124,"h":290},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":78,"y":10,"w":124,"h":290},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0067.png":
+{
+	"frame": {"x":1,"y":293,"w":129,"h":290},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":73,"y":10,"w":129,"h":290},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0068.png":
+{
+	"frame": {"x":1,"y":1,"w":131,"h":290},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":71,"y":10,"w":131,"h":290},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0069.png":
+{
+	"frame": {"x":127,"y":585,"w":133,"h":289},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":69,"y":11,"w":133,"h":289},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0070.png":
+{
+	"frame": {"x":269,"y":1,"w":134,"h":287},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":68,"y":13,"w":134,"h":287},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0071.png":
+{
+	"frame": {"x":134,"y":1,"w":133,"h":288},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":69,"y":12,"w":133,"h":288},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0072.png":
+{
+	"frame": {"x":252,"y":291,"w":133,"h":288},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":69,"y":12,"w":133,"h":288},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0073.png":
+{
+	"frame": {"x":377,"y":581,"w":132,"h":286},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":70,"y":14,"w":132,"h":286},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0074.png":
+{
+	"frame": {"x":387,"y":290,"w":131,"h":285},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":71,"y":15,"w":131,"h":285},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0075.png":
+{
+	"frame": {"x":405,"y":1,"w":130,"h":284},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":72,"y":16,"w":130,"h":284},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0076.png":
+{
+	"frame": {"x":511,"y":577,"w":130,"h":283},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":72,"y":17,"w":130,"h":283},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0077.png":
+{
+	"frame": {"x":520,"y":287,"w":130,"h":282},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":72,"y":18,"w":130,"h":282},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0078.png":
+{
+	"frame": {"x":537,"y":1,"w":129,"h":281},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":73,"y":19,"w":129,"h":281},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0079.png":
+{
+	"frame": {"x":652,"y":284,"w":128,"h":279},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":74,"y":21,"w":128,"h":279},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0080.png":
+{
+	"frame": {"x":808,"y":1,"w":128,"h":277},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":74,"y":23,"w":128,"h":277},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0081.png":
+{
+	"frame": {"x":918,"y":280,"w":127,"h":275},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":75,"y":25,"w":127,"h":275},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0082.png":
+{
+	"frame": {"x":1121,"y":834,"w":126,"h":273},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":76,"y":27,"w":126,"h":273},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0083.png":
+{
+	"frame": {"x":1187,"y":1,"w":125,"h":271},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":77,"y":29,"w":125,"h":271},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0084.png":
+{
+	"frame": {"x":1298,"y":547,"w":123,"h":269},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":79,"y":31,"w":123,"h":269},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0085.png":
+{
+	"frame": {"x":794,"y":1003,"w":121,"h":267},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":81,"y":33,"w":121,"h":267},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0086.png":
+{
+	"frame": {"x":1479,"y":811,"w":119,"h":264},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":83,"y":36,"w":119,"h":264},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0087.png":
+{
+	"frame": {"x":1629,"y":534,"w":117,"h":263},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":85,"y":37,"w":117,"h":263},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0088.png":
+{
+	"frame": {"x":1699,"y":879,"w":115,"h":261},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":87,"y":39,"w":115,"h":261},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0089.png":
+{
+	"frame": {"x":1759,"y":221,"w":112,"h":259},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":90,"y":41,"w":112,"h":259},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0090.png":
+{
+	"frame": {"x":1759,"y":335,"w":109,"h":258},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":93,"y":42,"w":109,"h":258},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0091.png":
+{
+	"frame": {"x":1,"y":1019,"w":106,"h":257},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":96,"y":43,"w":106,"h":257},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0092.png":
+{
+	"frame": {"x":1699,"y":996,"w":103,"h":255},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":99,"y":45,"w":103,"h":255},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0093.png":
+{
+	"frame": {"x":1759,"y":446,"w":100,"h":256},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":102,"y":44,"w":100,"h":256},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0094.png":
+{
+	"frame": {"x":1658,"y":1,"w":99,"h":258},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":105,"y":42,"w":99,"h":258},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0095.png":
+{
+	"frame": {"x":1759,"y":121,"w":98,"h":260},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":108,"y":40,"w":98,"h":260},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0096.png":
+{
+	"frame": {"x":1748,"y":779,"w":98,"h":262},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":110,"y":38,"w":98,"h":262},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0097.png":
+{
+	"frame": {"x":1600,"y":810,"w":97,"h":264},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":113,"y":36,"w":97,"h":264},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0098.png":
+{
+	"frame": {"x":1558,"y":1,"w":98,"h":264},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":115,"y":36,"w":98,"h":264},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0099.png":
+{
+	"frame": {"x":1423,"y":544,"w":99,"h":265},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":116,"y":35,"w":99,"h":265},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0100.png":
+{
+	"frame": {"x":1544,"y":268,"w":101,"h":264},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":116,"y":36,"w":101,"h":264},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0101.png":
+{
+	"frame": {"x":1524,"y":544,"w":103,"h":264},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":116,"y":36,"w":103,"h":264},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0102.png":
+{
+	"frame": {"x":260,"y":1019,"w":105,"h":263},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":116,"y":37,"w":105,"h":263},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0103.png":
+{
+	"frame": {"x":1748,"y":670,"w":107,"h":262},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":115,"y":38,"w":107,"h":262},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0104.png":
+{
+	"frame": {"x":1647,"y":267,"w":110,"h":263},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":114,"y":37,"w":110,"h":263},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0105.png":
+{
+	"frame": {"x":1366,"y":818,"w":111,"h":265},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":114,"y":35,"w":111,"h":265},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0106.png":
+{
+	"frame": {"x":525,"y":1012,"w":113,"h":267},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":113,"y":33,"w":113,"h":267},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0107.png":
+{
+	"frame": {"x":1249,"y":830,"w":115,"h":270},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":113,"y":30,"w":115,"h":270},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0108.png":
+{
+	"frame": {"x":1314,"y":1,"w":117,"h":271},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":112,"y":29,"w":117,"h":271},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0109.png":
+{
+	"frame": {"x":1173,"y":277,"w":118,"h":273},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":112,"y":27,"w":118,"h":273},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0110.png":
+{
+	"frame": {"x":1065,"y":1,"w":120,"h":274},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":112,"y":26,"w":120,"h":274},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0111.png":
+{
+	"frame": {"x":938,"y":1,"w":125,"h":275},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":112,"y":25,"w":125,"h":275},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0112.png":
+{
+	"frame": {"x":843,"y":845,"w":130,"h":276},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":112,"y":24,"w":130,"h":276},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0113.png":
+{
+	"frame": {"x":782,"y":281,"w":134,"h":277},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":112,"y":23,"w":134,"h":277},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0114.png":
+{
+	"frame": {"x":668,"y":1,"w":138,"h":278},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":112,"y":22,"w":138,"h":278},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0115.png":
+{
+	"frame": {"x":282,"y":870,"w":140,"h":278},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":112,"y":22,"w":140,"h":278},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0116.png":
+{
+	"frame": {"x":1,"y":877,"w":140,"h":279},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":112,"y":21,"w":140,"h":279},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0117.png":
+{
+	"frame": {"x":562,"y":862,"w":139,"h":279},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":112,"y":21,"w":139,"h":279},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0118.png":
+{
+	"frame": {"x":643,"y":571,"w":136,"h":279},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":112,"y":21,"w":136,"h":279},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0119.png":
+{
+	"frame": {"x":781,"y":565,"w":133,"h":278},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":112,"y":22,"w":133,"h":278},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0120.png":
+{
+	"frame": {"x":916,"y":560,"w":128,"h":277},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":113,"y":23,"w":128,"h":277},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0121.png":
+{
+	"frame": {"x":1046,"y":557,"w":124,"h":275},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":113,"y":25,"w":124,"h":275},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0122.png":
+{
+	"frame": {"x":1047,"y":278,"w":124,"h":275},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":109,"y":25,"w":124,"h":275},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0123.png":
+{
+	"frame": {"x":1172,"y":555,"w":124,"h":273},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":105,"y":27,"w":124,"h":273},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0124.png":
+{
+	"frame": {"x":1293,"y":274,"w":124,"h":271},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":101,"y":29,"w":124,"h":271},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0125.png":
+{
+	"frame": {"x":1419,"y":274,"w":123,"h":268},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":98,"y":32,"w":123,"h":268},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0126.png":
+{
+	"frame": {"x":1433,"y":1,"w":123,"h":265},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":95,"y":35,"w":123,"h":265},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0127.png":
+{
+	"frame": {"x":1748,"y":548,"w":120,"h":262},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":94,"y":38,"w":120,"h":262},
+	"sourceSize": {"w":324,"h":324}
+},
+"corncobby0128.png":
+{
+	"frame": {"x":1759,"y":1,"w":118,"h":260},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":93,"y":40,"w":118,"h":260},
+	"sourceSize": {"w":324,"h":324}
+}},
+"animations": {
+	"corncobby": ["corncobby0064.png","corncobby0065.png","corncobby0066.png","corncobby0067.png","corncobby0068.png","corncobby0069.png","corncobby0070.png","corncobby0071.png","corncobby0072.png","corncobby0073.png","corncobby0074.png","corncobby0075.png","corncobby0076.png","corncobby0077.png","corncobby0078.png","corncobby0079.png","corncobby0080.png","corncobby0081.png","corncobby0082.png","corncobby0083.png","corncobby0084.png","corncobby0085.png","corncobby0086.png","corncobby0087.png","corncobby0088.png","corncobby0089.png","corncobby0090.png","corncobby0091.png","corncobby0092.png","corncobby0093.png","corncobby0094.png","corncobby0095.png","corncobby0096.png","corncobby0097.png","corncobby0098.png","corncobby0099.png","corncobby0100.png","corncobby0101.png","corncobby0102.png","corncobby0103.png","corncobby0104.png","corncobby0105.png","corncobby0106.png","corncobby0107.png","corncobby0108.png","corncobby0109.png","corncobby0110.png","corncobby0111.png","corncobby0112.png","corncobby0113.png","corncobby0114.png","corncobby0115.png","corncobby0116.png","corncobby0117.png","corncobby0118.png","corncobby0119.png","corncobby0120.png","corncobby0121.png","corncobby0122.png","corncobby0123.png","corncobby0124.png","corncobby0125.png","corncobby0126.png","corncobby0127.png","corncobby0128.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "corncobby.png",
+	"format": "RGBA8888",
+	"size": {"w":2020,"h":1126},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:68f53ba65274b40e5a997814c2e58f50:f31f12c33eb675823e881687de8d838a:0d975b95227f8fe4be993414398b4ab9$"
+}
+}

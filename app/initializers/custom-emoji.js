@@ -216,6 +216,14 @@ export function initialize(/* application */) {
       shortnames: [':canteloper:'],
       keywords: ['canteloper'],
     },
+    ':corncobby:': {
+      custom: true,
+      animated: true,
+      uc_base: 'corncobby',
+      uc_output: '',
+      shortnames: [':corncobby:'],
+      keywords: ['corncobby'],
+    },
     ':miniburger:': {
       custom: true,
       uc_base: 'miniburger',
