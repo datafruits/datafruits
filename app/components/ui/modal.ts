@@ -89,11 +89,19 @@ export default class UiModal extends Component<UiModalSignature> {
       }
       
       // Update modal body max constraints to allow content to fit
-      const modalBody = modal.querySelector('.modal-body') as HTMLElement;
-      if (modalBody) {
-        modalBody.style.maxWidth = 'none';
-        modalBody.style.maxHeight = 'none';
+      // But preserve overflow behavior for emoji selector dialogs
+      const emojiSelectorDialog = modal.querySelector('.emoji-selector-dialog') as HTMLElement;
+      
+      if (!emojiSelectorDialog) {
+        // Only remove constraints for non-emoji selector modals
+        const modalBody = modal.querySelector('.modal-body') as HTMLElement;
+        if (modalBody) {
+          modalBody.style.maxWidth = 'none';
+          modalBody.style.maxHeight = 'none';
+        }
       }
+      // For emoji selector dialogs, don't remove any constraints
+      // Let the dialog maintain its fixed size with scrollable content
     } else if (this.dragging) {
       const modal = this._element as HTMLElement;
       modal.style.top = `${event.clientY - (this.clickedOffsetY)}px`;
