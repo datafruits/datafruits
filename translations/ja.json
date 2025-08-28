@@ -252,6 +252,11 @@
     "aria": "SHRIMPOの音楽バトルを聴いたり参加したりする",
     "running_shrimpos": "進行中",
     "completed_shrimpos": "完成",
+    "voting_completion": "このシュリンポの投票が完了しました！",
+    "already_voted": "このエントリーに既に投票済みです。",
+    "download_pack": "シュリンポパックをダウンロード (.zip)",
+    "download_all": "全てダウンロード",
+    "end_shrimpo": "結果を集計",
     "cc_license": "このSHRIMPOのエントリーは、クリエイティブ コモンズ ライセンス (ATTRIBUTION-NONCOMMERCIAL-SHAREALIKE) に基づいてライセンスされます。",
     "form": {
       "beginning": "これは新しいSHRIMPOの始まりです!!!",
@@ -261,8 +266,11 @@
       "length": "応募期間",
       "submit": "SHRIMPOする",
       "voting_emoji": "投票絵文字",
+      "shrimpo_type": "シュリンポタイプ",
+      "start_at": "シュリンポ開始時刻",
       "zip_file": "zipファイルのサンプルパックをアップロード",
-      "cover_art": "ジャケット"
+      "cover_art": "ジャケット",
+      "not_enough_balance": "フルーツチケットが不足しています :("
     },
     "status": {
       "running": "エントリー期間中",
