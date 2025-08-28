@@ -70,6 +70,9 @@
       "header": "비둘기씨가 알림을 가져왔어요!",
       "pidgeon": "멋진 모자를 쓰고 있는 비둘기",
       "no_notifications_yet": "아직 알림이 오지 않습니다."
+    },
+    "treasure": {
+      "need_login": "보물상자를 열려면 로그인해야 합니다!"
     }
   },
   "usermenu": {
