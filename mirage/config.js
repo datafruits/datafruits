@@ -34,6 +34,12 @@ function routes(){
     return schema.shrimpos.find(id);
   });
 
+  this.post('/api/shrimpos', (schema, request) => {
+    const attrs = JSON.parse(request.requestBody).shrimpo;
+    const shrimpo = schema.shrimpos.create(attrs);
+    return shrimpo;
+  });
+
   this.get('/api/blog_posts.json', () => {
     return { blog_posts: [] };
   });
@@ -129,5 +135,36 @@ function routes(){
         },
       },
     };
+  });
+
+  // Add endpoint for current user queryRecord
+  this.get('/api/users', (schema, request) => {
+    if (request.queryParams.me) {
+      return {
+        data: {
+          id: '1',
+          type: 'user',
+          attributes: {
+            username: 'testuser',
+            email: 'test@datafruits.fm',
+            time_zone: 'UTC',
+            role: 'dj',
+            level: 3,
+            fruitTicketBalance: 1000,
+            avatar_url: null,
+            style: 'unknown',
+            avatar: null,
+            avatar_filename: null,
+            pronouns: '',
+            track_favorites: [],
+          },
+          relationships: {
+            track_favorites: { data: [] },
+            social_identities: { data: [] },
+          },
+        },
+      };
+    }
+    return { data: [] };
   });
 }
