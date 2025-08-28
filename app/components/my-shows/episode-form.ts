@@ -13,6 +13,7 @@ interface MyShowsEpisodeFormArgs {
 export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs> {
   @service declare router: any;
   @service declare currentUser: any;
+  @service declare intl: any;
 
   file: Blob | null = null;
 
@@ -40,7 +41,7 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
     // Validate file type - only allow images
     const validImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
     if (!validImageTypes.includes(file.type)) {
-      alert('Only image files (JPEG, PNG, GIF, WebP) are allowed for artwork!');
+      alert(this.intl.t('profile.my-shows.form.invalid-file-type'));
       e.target.value = ''; // Clear the input
       return;
     }
