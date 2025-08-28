@@ -82,7 +82,8 @@
         "prerecorded-archive": "事前に記録されたファイルをアーカイブとして使用する",
         "update": "保存",
         "prerecorded-set": "録音済みセット",
-        "choose-file": "ファイルを選択してください"
+        "choose-file": "ファイルを選択してください",
+        "invalid-file-type": "アートワークには画像ファイル（JPEG、PNG、GIF、WebP）のみが許可されています！"
       }
     },
     "notifications": {

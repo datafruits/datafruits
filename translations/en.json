@@ -246,7 +246,8 @@
         "update": "SAVE",
         "delete": "DELETE EPISODE",
         "prerecorded-set": "PRERECORDED SET",
-        "choose-file": "Choose a file"
+        "choose-file": "Choose a file",
+        "invalid-file-type": "Only image files (JPEG, PNG, GIF, WebP) are allowed for artwork!"
       }
     },
     "chat": "Chat Preview",
