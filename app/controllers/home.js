@@ -27,6 +27,9 @@ export default class HomeController extends Controller {
   @service
   chat;
 
+  @service
+  redirectAfterLogin;
+
   get locale() {
     return this.intl.locale;
   }
@@ -61,6 +64,21 @@ export default class HomeController extends Controller {
 
   @action
   toggleLoginModal() {
+    if (!this.showingLoginModal) {
+      // When opening the modal, store current route as intended destination
+      const currentRoute = this.router.currentRoute;
+      if (currentRoute) {
+        // Create a mock transition object for consistency with route-based storage
+        const mockTransition = {
+          to: {
+            name: currentRoute.name,
+            params: currentRoute.params,
+            queryParams: currentRoute.queryParams
+          }
+        };
+        this.redirectAfterLogin.storeIntendedRoute(mockTransition);
+      }
+    }
     this.showingLoginModal = !this.showingLoginModal;
   }
 
@@ -87,6 +105,13 @@ export default class HomeController extends Controller {
             pronouns,
           });
           this.isAuthenticating = false;
+          
+          // Close login modal
+          this.showingLoginModal = false;
+          
+          // Redirect to intended route or default to chat
+          this.redirectAfterLogin.redirectToIntended('home.chat');
+          
           return true;
         });
       })

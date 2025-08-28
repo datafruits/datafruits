@@ -1,8 +1,9 @@
 import Route from '@ember/routing/route';
 import { service } from "@ember/service";
 import dayjs from 'dayjs';
+import AuthenticatedRouteMixin from 'datafruits13/mixins/authenticated-route';
 
-export default class HomeUserMyShowsNew extends Route {
+export default class HomeUserMyShowsNew extends Route.extend(AuthenticatedRouteMixin) {
   @service('store') store;
 
   @service currentUser;
