@@ -14,6 +14,7 @@ const fruitTypes: Array<Fruit> = [
   new Fruit('blueberrinies', '/assets/images/emojis/blueberrinies.gif', 0, 6),
   new Fruit('peachy', '/assets/images/emojis/peachy.gif', 0, 7),
   new Fruit('canteloper', '/assets/images/emojis/canteloper.gif', 0, 8),
+  new Fruit('corncobby', '/assets/images/emojis/corncobby.gif', 0, 9),
   new Fruit('metal-pineapple', '/assets/images/emojis/metal_pineapple.png', 200),
   new Fruit('real-lemoner', '/assets/images/emojis/lemoner_real.png', 400),
   new Fruit('mega-beamsprout', '/assets/images/emojis/mega_beamsprout.gif', 500),

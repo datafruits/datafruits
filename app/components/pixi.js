@@ -445,6 +445,7 @@ export default class PixiComponent extends Component {
         res.peachy.spritesheet.animations["peachy"];
 
       this.animations.canteloper = res.canteloper.spritesheet.animations["canteloper"];
+      this.animations.corncobby = res.corncobby.spritesheet.animations["corncobby"];
 
       this.animations.megaBeamsprout = res.megaBeamsprout.spritesheet.animations["beamsprout_spin"];
       this.animations.treasureChestGlorpOpen = res.treasureChestGlorpOpen.spritesheet.animations["treasure_chest_open_glorp"];
