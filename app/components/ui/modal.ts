@@ -54,7 +54,8 @@ export default class UiModal extends Component<UiModalSignature> {
       modal.classList.add('resizing');
       event.preventDefault();
       event.stopPropagation();
-    } else if(event.target === modalTop) {
+    } else if(event.target === modalTop || (modalTop.contains(target) && !target.closest('button'))) {
+      // Only allow dragging if not clicking on buttons or resize handles
       this.dragging = true;
       (this._element as HTMLElement).classList.add('dragging');
     }
