@@ -34,6 +34,12 @@ function routes(){
     return schema.shrimpos.find(id);
   });
 
+  this.post('/api/shrimpos', (schema, request) => {
+    const attrs = JSON.parse(request.requestBody).shrimpo;
+    const shrimpo = schema.shrimpos.create(attrs);
+    return shrimpo;
+  });
+
   this.get('/api/blog_posts.json', () => {
     return { blog_posts: [] };
   });
