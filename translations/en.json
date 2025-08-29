@@ -247,7 +247,11 @@
         "delete": "DELETE EPISODE",
         "prerecorded-set": "PRERECORDED SET",
         "choose-file": "Choose a file",
-        "invalid-file-type": "Only image files (JPEG, PNG, GIF, WebP) are allowed for artwork!"
+        "invalid-file-type": "Only image files (JPEG, PNG, GIF, WebP) are allowed for artwork!",
+        "air-date": "Air date:",
+        "archive": "ARCHIVE",
+        "select-recording": "Select recording",
+        "archive-status": "Archive Status"
       }
     },
     "chat": "Chat Preview",
