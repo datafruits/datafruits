@@ -981,6 +981,52 @@ body::-webkit-scrollbar-thumb {
   font-size: inherit;
   height: 1em;
   vertical-align: -.125em;
+
+}
+
+#hype-meter-bar {
+  background: url("/assets/images/seeking.gif");
+  background-size: contain;
+}
+
+.shiny-pink {
+  background: linear-gradient(135deg, #ff66b2, #ff99cc);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(255, 102, 178, 0.4);
+}
+
+.shiny-pink::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0) 70%);
+  transform: rotate(45deg);
+  animation: shine 1s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+@keyframes shake-text {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  20% { transform: translate3d(-3px, -2px, 0); }
+  40% { transform: translate3d(3px, 0px, 0); }
+  60% { transform: translate3d(-2px, 2px, 0); }
+  80% { transform: translate3d(2px, 0, 0); }
+}
+
+.shake-text {
+  animation: shake-text 0.3s infinite;
 }
 
 @tailwind utilities;
