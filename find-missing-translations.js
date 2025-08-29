@@ -6,7 +6,7 @@ var jsonDiff = require('json-diff');
 const prototype = "./translations/en.json";
 const data = require(prototype);
 const langs = ["./translations/en-us.json",
-"./translations/cn.json",
+"./translations/zh-cn.json",
 "./translations/es.json",
 "./translations/ja.json",
 "./translations/ko.json",

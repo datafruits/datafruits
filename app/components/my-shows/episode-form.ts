@@ -68,14 +68,14 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
 
   @action
   onError() {
-    console.log('couldnt ssave show');
+    console.log(this.intl.t('profile.my-shows.form.save-error'));
   }
 
   @action
   deleteEpisode() {
-    if(confirm("Are you sure?!!!")) {
+    if(confirm(this.intl.t('profile.my-shows.form.confirm-delete'))) {
       this.args.episode.destroyRecord().then(() => {
-        alert("Goodbye episode. :(");
+        alert(this.intl.t('profile.my-shows.form.episode-deleted'));
         //redirect to /my-shows
         this.router.transitionTo('home.user.my-shows');
       });
