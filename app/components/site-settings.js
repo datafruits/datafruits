@@ -12,9 +12,16 @@ export default class SiteSettingsComponent extends Component {
   @service
   weather;
 
+  @service
+  fastboot;
+
   @action
   setLocale(locale) {
     this.intl.setLocale(locale);
+    // Save locale preference to localStorage for persistence
+    if (!this.fastboot.isFastBoot) {
+      localStorage.setItem('datafruits-locale', locale);
+    }
   }
 
   @action
