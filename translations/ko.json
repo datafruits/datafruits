@@ -89,7 +89,10 @@
         "air-date": "방송 날짜:",
         "archive": "아카이브",
         "select-recording": "녹음 선택",
-        "archive-status": "아카이브 상태"
+        "archive-status": "아카이브 상태",
+        "confirm-delete": "정말 삭제하시겠습니까?",
+        "episode-deleted": "안녕히 가세요, 에피소드. :(",
+        "save-error": "쇼를 저장할 수 없습니다"
       }
     },
     "notifications": {

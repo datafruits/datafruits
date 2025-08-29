@@ -251,7 +251,10 @@
         "air-date": "Air date:",
         "archive": "ARCHIVE",
         "select-recording": "Select recording",
-        "archive-status": "Archive Status"
+        "archive-status": "Archive Status",
+        "confirm-delete": "Are you sure?!!!",
+        "episode-deleted": "Goodbye episode. :(",
+        "save-error": "Couldn't save show"
       }
     },
     "chat": "Chat Preview",

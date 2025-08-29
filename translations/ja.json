@@ -88,7 +88,10 @@
         "air-date": "放送日:",
         "archive": "アーカイブ",
         "select-recording": "録音を選択",
-        "archive-status": "アーカイブステータス"
+        "archive-status": "アーカイブステータス",
+        "confirm-delete": "本当に削除しますか？",
+        "episode-deleted": "さようなら、エピソード。:(",
+        "save-error": "番組を保存できませんでした"
       }
     },
     "notifications": {
