@@ -5,6 +5,13 @@
   </label>
 
   {{#if queue.files.length}}
-    Uploading {{queue.files.length}} files. ({{queue.progress}}%)
+    <div class="upload-progress-container">
+      <div class="upload-progress-text">
+        Uploading {{queue.files.length}} files. ({{queue.progress}}%)
+      </div>
+      <div class="upload-progress-bar">
+        <div class="upload-progress-fill" style={{html-safe (concat "width: " queue.progress "%")}}></div>
+      </div>
+    </div>
   {{/if}}
 {{/let}}
