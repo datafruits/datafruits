@@ -8,6 +8,7 @@ import VideoStreamService from 'datafruits13/services/video-stream';
 // import type Track from 'datafruits13/models/track';
 import ENV from 'datafruits13/config/environment';
 import type EventBusService from 'datafruits13/services/event-bus';
+import { TrackEventPayload } from '../types/player';
 
 enum PlayerState {
   Playing = 'playing',
@@ -91,12 +92,11 @@ export default class DatafruitsPlayer extends Component {
     this.setPageTitle();
   }
 
-  /* TODO this type is a hybrid of track/scheduled_show */
-  onTrackPlayed(event: any) {
+  onTrackPlayed(event: TrackEventPayload) {
     console.log('datafruits player on track played: ', event);
     //this.error = null;
     this.title = event.title;
-    this.podcastTrackId = event.track_id;
+    this.podcastTrackId = String(event.track_id);
     this.setPageTitle();
     this.playingPodcast = true;
     this.playTime = 0.0;
