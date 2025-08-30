@@ -9,6 +9,7 @@ export default class PodcastTrack extends Component {
   constructor(owner, args) {
     super(owner, args);
     this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
+    this.eventBus.subscribe('trackPaused', this, 'onTrackPaused');
   }
 
   @service
@@ -29,11 +30,15 @@ export default class PodcastTrack extends Component {
   @tracked
   playing;
 
+  _eventPayload() {
+    return { title: this.args.show.formattedEpisodeTitle, cdnUrl: this.args.track.cdnUrl, id: this.args.show.id, track_id: this.args.track.id };
+  }
+
   @action
   play() {
     this.playing = true;
     this.paused = false;
-    this.eventBus.publish('trackPlayed', { title: this.args.show.formattedEpisodeTitle, cdnUrl: this.args.track.cdnUrl, id: this.args.show.id, track_id: this.args.track.id });
+    this.eventBus.publish('trackPlayed', this._eventPayload());
     //
   }
 
@@ -41,7 +46,7 @@ export default class PodcastTrack extends Component {
   pause() {
     this.playing = false;
     this.paused = true;
-    this.eventBus.publish('trackPaused', this);
+    this.eventBus.publish('trackPaused', this._eventPayload());
   }
 
   @action
@@ -54,9 +59,20 @@ export default class PodcastTrack extends Component {
   }
 
   onTrackPlayed(event) {
-    if (this !== event) {
+    console.log('track played: ', event);
+    if (this.args.track.id !== event.track_id) {
       if (!(this.isDestroyed || this.isDestroying)) {
         this.playing = false;
+      }
+    }
+  }
+
+  onTrackPaused(event) {
+    console.log('podcastTrack onTrackPaused: ', event);
+    if (this.args.track.id === event.track_id) {
+      if (!(this.isDestroyed || this.isDestroying)) {
+        this.playing = false;
+        this.paused = true;
       }
     }
   }
