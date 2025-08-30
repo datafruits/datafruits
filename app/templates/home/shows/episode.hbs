@@ -27,7 +27,7 @@
       </div>
       <strong>Air date:</strong> {{format-day this.model.start}} - {{format-time this.model.start}}
       {{#if this.canEditShow}}
-        <div class="my-2">
+        <div class="my-2 mb-4">
           <LinkTo
             @route="home.user.my-shows.episode"
             @models={{array this.model.showSeriesSlug this.model.slug}}
@@ -56,14 +56,14 @@
           {{this.model.showSeriesTitle}}
         </LinkTo>
       </p>
-      <div class="">
+      <div class="mb-4">
         {{#each this.model.labels as |label|}}
           <TrackLabel @label={{label}} />
         {{/each}}
       </div>
       <div>
         <h1>{{t "show.episode.comments"}}</h1>
-        <section>
+        <section class="mb-4">
           {{#if this.session.isAuthenticated}}
             <h1 class="text-2xl font-cursive mb-2">Hey, {{this.currentUser.user.username}}, {{t "show.episode.leave_a_comment"}}</h1>
             <Post::Form @postable={{this.model}} @postableType={{'ScheduledShow'}} />
