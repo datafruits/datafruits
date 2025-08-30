@@ -7,7 +7,7 @@
   {{#if queue.files.length}}
     <div class="upload-progress-container">
       <div class="upload-progress-text">
-        Uploading {{queue.files.length}} files. ({{queue.progress}}%)
+        {{t "profile.uploading-progress" count=queue.files.length progress=queue.progress}}
       </div>
       <div class="upload-progress-bar">
         <div class="upload-progress-fill" style={{html-safe-string (concat "width: " queue.progress "%")}}></div>
