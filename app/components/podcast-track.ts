@@ -28,6 +28,7 @@ export default class PodcastTrack extends Component<PodcastTrackArgs> {
   constructor(owner: unknown, args: PodcastTrackArgs) {
     super(owner, args);
     this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
+    this.eventBus.subscribe('trackPaused', this, 'onTrackPaused');
   }
 
   @service
@@ -52,22 +53,25 @@ export default class PodcastTrack extends Component<PodcastTrackArgs> {
     return this.playerState === PlayerState.Playing;
   }
 
-  @action
-  play(): void {
-    this.playerState = PlayerState.Playing;
-    const payload: TrackEventPayload = {
+  _eventPayload(): TrackEventPayload {
+    return {
       title: this.args.show.formattedEpisodeTitle,
       cdnUrl: this.args.track.cdnUrl || '',
       id: this.args.show.id,
       track_id: this.args.track.id
     };
-    this.eventBus.publish('trackPlayed', payload);
+  }
+
+  @action
+  play(): void {
+    this.playerState = PlayerState.Playing;
+    this.eventBus.publish('trackPlayed', this._eventPayload());
   }
 
   @action
   pause(): void {
     this.playerState = PlayerState.Paused;
-    this.eventBus.publish('trackPaused', this);
+    this.eventBus.publish('trackPaused', this._eventPayload());
   }
 
   @action
@@ -79,8 +83,18 @@ export default class PodcastTrack extends Component<PodcastTrackArgs> {
     debounce(this, this.args.search, 400);
   }
 
-  onTrackPlayed(event: any): void {
-    if (this !== event) {
+  onTrackPlayed(event: TrackEventPayload): void {
+    console.log('track played: ', event);
+    if (this.args.track.id !== event.track_id) {
+      if (!(this.isDestroyed || this.isDestroying)) {
+        this.playerState = PlayerState.Paused;
+      }
+    }
+  }
+
+  onTrackPaused(event: TrackEventPayload): void {
+    console.log('podcastTrack onTrackPaused: ', event);
+    if (this.args.track.id === event.track_id) {
       if (!(this.isDestroyed || this.isDestroying)) {
         this.playerState = PlayerState.Paused;
       }

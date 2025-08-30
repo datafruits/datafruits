@@ -1,4 +1,4 @@
-mport '@glint/environment-ember-loose';
+import '@glint/environment-ember-loose';
 import { ComponentLike, HelperLike } from '@glint/template';
 import { BufferedChangeset } from 'ember-changeset/types';
 
@@ -10,9 +10,9 @@ import type RenderModifiersRegistry from '@ember/render-modifiers/template-regis
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry extends
     RenderModifiersRegistry,
-    EmberTruthRegistry,
+    EmberTruthRegistry
     //EmberFileUploadRegistry
-    {
+  {
     WelcomePage: ComponentLike;
     'page-title': HelperLike<{
       Args: { Positional: [title: string] };

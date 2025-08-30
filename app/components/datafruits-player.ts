@@ -5,8 +5,9 @@ import Component from '@glimmer/component';
 import { isEmpty } from '@ember/utils';
 import { tracked } from '@glimmer/tracking';
 import VideoStreamService from 'datafruits13/services/video-stream';
-import type Track from 'datafruits13/models/track';
+// import type Track from 'datafruits13/models/track';
 import ENV from 'datafruits13/config/environment';
+import type EventBusService from 'datafruits13/services/event-bus';
 
 enum PlayerState {
   Playing = 'playing',
@@ -17,7 +18,7 @@ enum PlayerState {
 
 export default class DatafruitsPlayer extends Component {
   @service
-  declare eventBus: any;
+  declare eventBus: EventBusService;
 
   @service
   declare fastboot: any;
@@ -30,7 +31,7 @@ export default class DatafruitsPlayer extends Component {
 
   @tracked playingPodcast = false;
   @tracked playButtonHover = false;
-  @tracked title = "";
+  @tracked title: string = "";
   @tracked muted = false;
   @tracked showingVolumeControl = false;
   @tracked playerState: PlayerState = PlayerState.Paused; //"playing", "loading"
@@ -41,6 +42,7 @@ export default class DatafruitsPlayer extends Component {
   @tracked duration = 0.0;
   @tracked volume = 1.0;
   @tracked videoAudioOn = false;
+  @tracked podcastTrackId: string = "";
 
   get volumeString(): string {
     return `${Math.floor(Number(this.volume) * 100).toString()}%`;
@@ -89,9 +91,12 @@ export default class DatafruitsPlayer extends Component {
     this.setPageTitle();
   }
 
-  onTrackPlayed(track: Track) {
+  /* TODO this type is a hybrid of track/scheduled_show */
+  onTrackPlayed(event: any) {
+    console.log('datafruits player on track played: ', event);
     //this.error = null;
-    this.title = track.title;
+    this.title = event.title;
+    this.podcastTrackId = event.track_id;
     this.setPageTitle();
     this.playingPodcast = true;
     this.playTime = 0.0;
@@ -100,7 +105,7 @@ export default class DatafruitsPlayer extends Component {
     const audioTag = document.getElementById(
       "radio-player"
     ) as HTMLAudioElement;
-    audioTag.src = track.cdnUrl;
+    audioTag.src = event.cdnUrl;
     if (audioTag.readyState === 0) {
       this.playerState = PlayerState.Loading;
     }
@@ -186,6 +191,7 @@ export default class DatafruitsPlayer extends Component {
     }
     this.playButtonPressed = false;
     this.playerState = PlayerState.Paused;
+    this.eventBus.publish('trackPaused', { track_id: this.podcastTrackId });
   }
 
   @action
