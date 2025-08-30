@@ -198,6 +198,7 @@
     "fruits-ui": "github:datafruits/fruits-ui",
     "jsdom": "^20.0.3",
     "json-diff": "^1.0.6",
+    "miragejs": "^0.1.48",
     "pixi.js": "6.4.2",
     "postcss": "^8.5.3",
     "rollup": "^2.79.2",
