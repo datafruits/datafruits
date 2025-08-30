@@ -10,6 +10,7 @@ import ENV from 'datafruits13/config/environment';
 
 interface ShrimpoEntryUploaderArgs {
   shrimpo: Shrimpo;
+  shrimpoEntry: ShrimpoEntry;
 }
 
 export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploaderArgs> {
@@ -17,30 +18,21 @@ export default class ShrimpoEntryUploader extends Component<ShrimpoEntryUploader
 
   @service declare activeStorage: any;
   @service declare store: any;
-  @service declare currentUser: any;
 
   @tracked uploadProgress = 0;
 
   @tracked isUploading = false;
 
-  @tracked entry: ShrimpoEntry;
+  @tracked ccLicenseAccepted = false;
 
-  constructor(owner: unknown, args: any) {
-    super(owner, args);
-    const myEntry = this.args.shrimpo.get('shrimpoEntries').filter((e: ShrimpoEntry) => {
-      return e.username === this.currentUser.user.username;
-    });
-    if(myEntry.length && !this.args.shrimpo.multiSubmitAllowed) {
-      this.entry = myEntry[0];
-    } else {
-      this.entry = this.store.createRecord('shrimpo-entry', {
-        shrimpo: this.args.shrimpo
-      });
-    }
+  // is this shrimpo still accepting entries
+  get canSubmitEntry() {
+    return this.args.shrimpo.multiSubmitAllowed || this.args.shrimpoEntry.isNew;
   }
 
-  get canSubmitEntry() {
-    return this.args.shrimpo.multiSubmitAllowed || this.entry.isNew;
+  // are there any validation errors on the form
+  get submitButtonDisabled() {
+    return this.isUploading || !this.ccLicenseAccepted;
   }
 
   @action

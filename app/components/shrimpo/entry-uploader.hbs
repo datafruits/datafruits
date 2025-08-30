@@ -1,5 +1,5 @@
 {{#if this.canSubmitEntry}}
-  {{#let (changeset this.entry this.ShrimpoEntryValidations) as |changeset|}}
+  {{#let (changeset this.args.shrimpoEntry this.ShrimpoEntryValidations) as |changeset|}}
     <Ui::ChangesetForm
       @changeset={{changeset}}
       @onError={{this.onError}}
@@ -18,11 +18,22 @@
         </label>
         {{this.uploadProgress}}
       </div>
+      <label for="cc-license-checkbox">
+        {{t "shrimpo.cc_license"}}
+      </label>
+      <Input
+        @type="checkbox"
+        @checked={{this.ccLicenseAccepted}}
+        name="cc-license-checkbox"
+      />
+      <a href="https://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-nc-sa.png" target="_blank">
+        <img src="/assets/images/by-nc-sa.png" />
+      </a>
       <Button
         @type="submit"
         @intent="primary"
         class="cool-button"
-        disabled={{or (or Form.state.hasSubmitted changeset.isInvalid) this.isUploading}}
+        disabled={{or (or Form.state.hasSubmitted changeset.isInvalid) this.submitButtonDisabled}}
         >
         {{t "shrimpo.form.submit"}}
       </Button>

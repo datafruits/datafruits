@@ -13,7 +13,7 @@ export default class ScheduledShow extends Model {
   }) labels;
   @hasMany('track', {
     async: false,
-    inverse: null
+    inverse: 'scheduledShow'
   }) tracks;
 
   // TODO merge user/dj model

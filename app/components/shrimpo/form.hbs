@@ -9,6 +9,9 @@
   </span>
 </h2>
 {{#let (changeset @model this.ShrimpoValidations) as |changeset|}}
+  {{#each this.errors as |error|}}
+    <div class="error">{{error}}</div>
+  {{/each}}
   <Ui::ChangesetForm
     class="mb-2"
     @changeset={{changeset}}
@@ -38,24 +41,25 @@
       rows='10'
       cols='50'
       />
-    <select
-        id="shrimpo-type"
-        {{on "change" (fn this.setShrimpoType changeset)}}
-        >
-        {{#each this.shrimpoTypes as |shrimpoType|}}
-          <option value="{{shrimpoType}}" selected={{(eq changeset.shrimpoType shrimpoType)}}>{{shrimpoType}}</option>
-        {{/each}}
-    </select>
+    <div class="mb-2">
+      <label for="shrimpo-type">{{t "shrimpo.form.shrimpo_type"}}</label>
+      <select
+          id="shrimpo-type"
+          {{on "change" (fn this.setShrimpoType changeset)}}
+          >
+          {{#each this.shrimpoTypes as |shrimpoType|}}
+            <option value="{{shrimpoType}}" selected={{(eq changeset.shrimpoType shrimpoType)}}>{{shrimpoType}}</option>
+          {{/each}}
+      </select>
+    </div>
     {{#if (eq changeset.shrimpoType 'normal')}}
-      <Form.Input
-        @label={{t "shrimpo.form.voting_emoji"}}
-        @fieldName="emoji"
-        @containerClass='mb-2'
+      <EmojiSelect
+        @changeset={{changeset}}
         />
     {{else}}
     {{/if}}
-    <div>
-      <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.start"}}</label>
+    <div class="mb-2">
+      <label class="block text-sm font-bold mb-2" for="body">{{t "shrimpo.form.start_at"}}</label>
       <input
         class="mr-2"
         type="date"
@@ -69,8 +73,11 @@
         />
     </div>
 
-    <div>
+    <div class="mb-2 {{if this.notEnoughBalance "shake"}}">
       <h3>FRUIT TICKET DEPOSIT REQUIRED: Ƒ{{this.depositAmount}}</h3>
+      {{#if this.notEnoughBalance}}
+        <span>{{t "shrimpo.form.not_enough_balance"}}</span>
+      {{/if}}
     </div>
     <div>
       <select
@@ -95,7 +102,7 @@
       @type="submit"
       @intent="primary"
       class="cool-button"
-      disabled={{or Form.state.hasSubmitted changeset.isInvalid}}
+      disabled={{or (Form.state.hasSubmitted changeset.isInvalid) (this.notEnoughBalance)}}
       >
       {{t "shrimpo.form.submit"}}
     </Button>

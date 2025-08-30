@@ -8,6 +8,7 @@ export default class ChatMessage extends Component {
   @service chat;
   @service currentUser;
   @service session;
+  @service intl;
 
   imgRegex = /https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpg|jpeg|gif|png|webp)(\?.*$)*/i;
   dataRegex = /data:image\/.+;base64,.+/;
@@ -78,17 +79,21 @@ export default class ChatMessage extends Component {
 
   @action
   grabTreasure() {
-    console.log('grabbing treasure...');
-    // send treasure:open to chat
-    // we'll need to send a token...
-    this.chat.push("treasure:open", {
-      user: this.currentUser.user.username,
-      token: this.chat.token,
-      treasure: this.args.message.treasure,
-      amount: this.args.message.amount,
-      uuid: this.args.message.uuid,
-      timestamp: Date.now(),
-    });
+    if(this.session.isAuthenticated) {
+      console.log('grabbing treasure...');
+      // send treasure:open to chat
+      // we'll need to send a token...
+      this.chat.push("treasure:open", {
+        user: this.currentUser.user.username,
+        token: this.chat.token,
+        treasure: this.args.message.treasure,
+        amount: this.args.message.amount,
+        uuid: this.args.message.uuid,
+        timestamp: Date.now(),
+      });
+    } else {
+      alert("you need to login to open treasure!");
+    }
   }
 
   get cantOpenTreasure() {

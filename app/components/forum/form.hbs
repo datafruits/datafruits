@@ -1,4 +1,4 @@
-<form {{on "submit" this.saveThread}}>
+<form {{on "submit" this.saveThread}} {{did-insert this.didInsertForm}}>
   <div>
     <label class="block text-sm font-bold mb-2" for="title">{{t "forum.form.title"}}</label>
     <Input
@@ -11,6 +11,7 @@
     <label class="block text-sm font-bold mb-2" for="body">{{t "forum.form.body"}}</label>
     <Textarea
       @value={{@thread.body}}
+      id="forum-form-body"
       rows='5'
       cols='100'
       />

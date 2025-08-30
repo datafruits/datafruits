@@ -2,6 +2,9 @@ import Component from '@glimmer/component';
 import type ForumThread from 'datafruits13/models/forum-thread';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { Textcomplete } from '@textcomplete/core';
+import { TextareaEditor } from '@textcomplete/textarea';
+import { createEmojiAutocomplete } from 'datafruits13/utils/emoji-autocomplete';
 
 interface ForumFormSignature {
   Args: {
@@ -11,6 +14,21 @@ interface ForumFormSignature {
 
 export default class ForumForm extends Component<ForumFormSignature> {
   @service declare router: any;
+
+  @action
+  didInsertForm() {
+    const emojiComplete = createEmojiAutocomplete();
+    const textarea: unknown = document.querySelector('#forum-form-body');
+    if (textarea) {
+      const editor = new TextareaEditor(textarea as HTMLTextAreaElement);
+      new Textcomplete(editor, [emojiComplete], {
+        dropdown: {
+          maxCount: 10,
+          placement: 'top',
+        },
+      });
+    }
+  }
 
   @action saveThread(event: any) {
     event.preventDefault();

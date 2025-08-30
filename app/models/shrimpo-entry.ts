@@ -8,8 +8,8 @@ import type TrophyAward from './trophy-award';
 
 export default class ShrimpoEntry extends Model {
   @belongsTo('user', {
-    async: true,
-    inverse: null
+    async: false,
+    inverse: 'shrimpoEntries'
   }) declare user: User;
   @belongsTo('shrimpo', {
     async: true,
@@ -21,7 +21,7 @@ export default class ShrimpoEntry extends Model {
   }) declare shrimpoVotes: SyncHasMany<ShrimpoVote>;
   @hasMany('shrimpo-voting-category-score', {
     async: false,
-    inverse: null
+    inverse: 'shrimpoEntry'
   }) declare shrimpoVotingCategoryScores: SyncHasMany<ShrimpoVotingCategoryScore>;
   @hasMany('posts', {
     async: false,
@@ -44,6 +44,8 @@ export default class ShrimpoEntry extends Model {
 
   @attr('string') declare shrimpoEmoji: string;
   @attr('string') declare shrimpoSlug: string;
+  @attr('string') declare shrimpoTitle: string;
+  @attr('string') declare shrimpoTotalEntries: string;
 
   @attr('date') declare createdAt: string;
 
@@ -52,6 +54,10 @@ export default class ShrimpoEntry extends Model {
 
   @attr('number') declare ranking: string;
   @attr('string') declare totalScore: string;
+
+  @attr('string') declare shrimpoStatus: string;
+  @attr('string') declare shrimpoType: string;
+  @attr('string') declare shrimpoVotingCompletionPercentage: string;
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

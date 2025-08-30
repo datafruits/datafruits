@@ -1,6 +1,6 @@
 <section class="page-spacing">
   <section class="flex space-x-2 w-full">
-    {{#if (or (eq this.model.shrimpo.status 'completed') (eq this.model.shrimpo.shrimpoType 'mega'))}}
+    {{#if (or (eq this.model.shrimpoStatus 'completed') (eq this.model.shrimpoType 'mega'))}}
       <section class="w-1/4 bg-df-pink rounded-lg border-4 border-white ">
         <span
           class="p-4 shrink-0"
@@ -34,19 +34,38 @@
         <p>
           {{this.model.description}}
         </p>
-        {{#if (eq this.model.shrimpo.status 'completed')}}
+        {{#if (eq this.model.shrimpoStatus 'completed')}}
           <div class="">
             <div>
               {{#each this.model.trophyAwards as |trophyAward|}}
                 <User::BadgeViewerContainer @badge={{trophyAward}} />
               {{/each}}
             </div>
-            <span class="font-extrabold">{{formatted-shrimpo-ranking this.model.ranking this.model.shrimpo.savedShrimpoEntries.length}}</span>
+            {{#if (eq this.model.shrimpoType 'mega')}}
+              <!-- mega category scores -->
+              <ul>
+                <li><span class="font-bold">{{formatted-shrimpo-ranking this.model.ranking this.model.shrimpoTotalEntries}}</span> overall ({{this.model.totalScore}})</li>
+                {{#each this.model.shrimpoVotingCategoryScores  as |votingCategoryScore|}}
+                  {{log votingCategoryScore.shrimpoVotingCategory.emoji}}
+                  <li>
+                    <img
+                      width='48'
+                      class="inline"
+                      src="{{emoji-path votingCategoryScore.shrimpoVotingCategory.emoji}}"
+                    >
+                    <span class="font-bold">{{formatted-shrimpo-ranking votingCategoryScore.ranking this.model.shrimpoTotalEntries}}</span>
+                    - {{votingCategoryScore.shrimpoVotingCategory.name}} - ({{votingCategoryScore.score}})
+                  </li>
+                {{/each}}
+              </ul>
+            {{else}}
+              <span class="font-extrabold">{{formatted-shrimpo-ranking this.model.ranking this.model.shrimpoTotalEntries}}</span>
 
-            <div>
-              <span>Total {{this.scoreEmoji}}'s:</span>
-              <span class="font-extrabold">{{this.model.totalScore}}</span>
-            </div>
+              <div>
+                <span>Total {{this.scoreEmoji}}'s:</span>
+                <span class="font-extrabold">{{this.model.totalScore}}</span>
+              </div>
+            {{/if}}
           </div>
         {{/if}}
         <Shrimpo::Player @shrimpoEntry={{this.model}} />
@@ -54,23 +73,28 @@
       <section class="bg-df-pink rounded-lg border-4 border-white mb-2 p-2">
         <Shrimpo::Pagination @entry={{this.model}} />
       </section>
-      {{#if (and this.session.isAuthenticated (or (eq this.model.shrimpo.status 'voting') (eq this.model.shrimpo.shrimpoType 'mega')))}}
-        {{#if (not-eq this.currentUser.user.username this.model.username)}}
-          {{#if (eq this.model.shrimpo.shrimpoType 'mega')}}
-            <section class="bg-df-pink rounded-lg border-4 border-white p-2">
-              <Shrimpo::VotingCategoriesTable
-                @entry={{this.model}}
-                @votingCategories={{this.model.shrimpo.shrimpoVotingCategories}}
-                @votingCompletionPercentage={{this.model.shrimpo.votingCompletionPercentage}}
-              />
-            </section>
+      {{#if (and this.session.isAuthenticated (or (eq this.model.shrimpoStatus 'voting') (eq this.model.shrimpoType 'mega')))}}
+        {{#if (not-eq this.model.shrimpoStatus 'completed')}}
+          {{#if (not-eq this.currentUser.user.username this.model.username)}}
+            {{#if (eq this.model.shrimpoType 'mega')}}
+              <section class="bg-df-pink rounded-lg border-4 border-white p-2">
+                <Shrimpo::VotingCategoriesTable
+                  @entry={{this.model}}
+                  @votingCategories={{this.model.shrimpo.shrimpoVotingCategories}}
+                  @votingCompletionPercentage={{this.model.shrimpoVotingCompletionPercentage}}
+                />
+              </section>
+            {{else}}
+              <section class="bg-df-pink rounded-lg border-4 border-white p-2">
+                <Shrimpo::VotingTable
+                  @entry={{this.model}}
+                  @votingCompletionPercentage={{this.model.shrimpoVotingCompletionPercentage}}
+                />
+              </section>
+            {{/if}}
           {{else}}
-            <section class="bg-df-pink rounded-lg border-4 border-white p-2">
-              <Shrimpo::VotingTable @entry={{this.model}} />
-            </section>
+            <h1>can't vote on one's OWN shrimpo that just wouldn't be ok would it</h1>
           {{/if}}
-        {{else}}
-          <h1>can't vote on one's OWN shrimpo that just wouldn't be ok would it</h1>
         {{/if}}
       {{/if}}
       <section>

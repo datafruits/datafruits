@@ -17,7 +17,7 @@ module('Integration | Component | podcast track', function (hooks) {
     // Handle any actions with this.on('myAction', function(val) { ... });
     this.set('track', {
       cdnUrl: 'http://cdn.dongles.net/track.mp3',
-      title: 'cool track',
+      title: 'cool track 12122024',
     });
 
     this.set('show', {

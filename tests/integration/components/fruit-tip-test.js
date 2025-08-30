@@ -4,6 +4,23 @@ import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 import { setupIntl } from 'ember-intl/test-support';
+import fruitTypes from 'datafruits13/fruit-types';
+
+function generateExpectedFruitTipText() {
+  const levelTexts = [];
+  const costTexts = [];
+  
+  fruitTypes.forEach(fruit => {
+    if (fruit.levelReq > 0) {
+      levelTexts.push(`Lv. ${fruit.levelReq}`);
+    }
+    if (fruit.cost > 0) {
+      costTexts.push(`Ƒ${fruit.cost}`);
+    }
+  });
+  
+  return [...levelTexts, ...costTexts].join(' ');
+}
 
 module('Integration | Component | fruit-tip', function (hooks) {
   setupRenderingTest(hooks);
@@ -16,7 +33,9 @@ module('Integration | Component | fruit-tip', function (hooks) {
 
     await render(hbs`<FruitTip />`);
 
-    assert.dom(this.element).hasText('Lv. 3 Lv. 4 Lv. 5 Lv. 6 Lv. 7 Ƒ200 Ƒ400 Ƒ500 Ƒ1000 Ƒ1200');
+    // Generate expected text dynamically from fruit types
+    const expectedText = generateExpectedFruitTipText();
+    assert.dom(this.element).hasText(expectedText);
   });
 
   skip('it shows fruit tipping options when clicked', async function (/*assert*/) {

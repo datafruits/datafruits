@@ -58,7 +58,12 @@ export function initialize(/* application */) {
       custom: true,
       uc_base: 'salad_dressing',
       uc_output: '',
-      shortnames: [':salad_dressing:', ':onion_salad_dressing:', ':saladdressing:', ':onionsaladdressing:'],
+      shortnames: [
+        ':salad_dressing:',
+        ':onion_salad_dressing:',
+        ':saladdressing:',
+        ':onionsaladdressing:',
+      ],
       keywords: ['salad', 'dressing'],
     },
     ':trash:': {
@@ -202,6 +207,22 @@ export function initialize(/* application */) {
       uc_output: '',
       shortnames: [':peachy:'],
       keywords: ['peachy'],
+    },
+    ':canteloper:': {
+      custom: true,
+      animated: true,
+      uc_base: 'canteloper',
+      uc_output: '',
+      shortnames: [':canteloper:'],
+      keywords: ['canteloper'],
+    },
+    ':corncobby:': {
+      custom: true,
+      animated: true,
+      uc_base: 'corncobby',
+      uc_output: '',
+      shortnames: [':corncobby:'],
+      keywords: ['corncobby'],
     },
     ':miniburger:': {
       custom: true,
@@ -597,20 +618,36 @@ export function initialize(/* application */) {
       shortnames: [':mega_beamsprout:'],
       keywords: ['mega_beamsprout'],
     },
+    ':pickles:': {
+      custom: true,
+      uc_base: 'pickles',
+      uc_output: '',
+      shortnames: [':pickles:'],
+      keywords: ['pickles'],
+    },
+    ':cow:': {
+      custom: true,
+      uc_base: 'cow',
+      uc_output: '',
+      shortnames: [':cow:'],
+      keywords: ['cow'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
     emojione.emojioneList[emoji] = customEmojis[emoji];
   });
 
-  emojione.shortnames = emojione.shortnames.concat(`|${Object.keys(customEmojis).join('|')}`);
+  emojione.shortnames = emojione.shortnames.concat(
+    `|${Object.keys(customEmojis).join('|')}`
+  );
 
   emojione.regShortNames = new RegExp(
     '<object[^>]*>.*?</object>|<span[^>]*>.*?</span>|<(?:object|embed|svg|img|div|span|p|a)[^>]*>|(' +
       emojione.shortnames +
       ')',
-    'gi',
-  );  
+    'gi'
+  );
 
   //emojione.imagePathPNG = "/assets/images/emojis/";
   emojione.customImagePathPNG = '/assets/images/emojis/';

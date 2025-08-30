@@ -5,6 +5,9 @@ import * as PIXI from 'pixi.js';
 import { inject as service } from '@ember/service';
 import { later } from '@ember/runloop';
 
+// fruits
+import fruitTypes from '../fruit-types'
+
 // animations
 import MetalPineapple from './pixi/animations/metal-pineapple';
 import RealLemoner from './pixi/animations/real-lemoner';
@@ -33,21 +36,9 @@ export default class PixiComponent extends Component {
   alphaFilterValue = 1.0;
   alphaFadeout = false;
 
-  // TODO should these be pulled from fruit-types.ts ???
-  fruits = [
-    "strawberry",
-    "lemon",
-    "orange",
-    "banana",
-    "watermelon",
-    "cabbage",
-    "beamsprout",
-    "pineapple",
-    "limer",
-    "dragion-fruit",
-    "blueberrinies",
-    "peachy",
-  ];
+  fruits = fruitTypes
+    .filter(fruit => fruit.cost === 0)
+    .map(fruit => fruit.name);
 
   constructor() {
     super(...arguments);
@@ -91,7 +82,7 @@ export default class PixiComponent extends Component {
         this.fruitSummons.push(fruitSmoothie);
         return fruitSmoothie;
       } else if (this.fruits.includes(event)) {
-        animation = event.replace(/-./g, (x) => x[1].toUpperCase());
+        animation = event;
       } else {
         console.log(`invalid fruit: ${event}`);
         return;
@@ -309,30 +300,19 @@ export default class PixiComponent extends Component {
 
     this.app.stop();
 
-    this.app.loader.add("strawberry", "/assets/images/sprites/strawberry.json");
-    this.app.loader.add("orange", "/assets/images/sprites/orange.json");
-    this.app.loader.add("lemon", "/assets/images/sprites/lemon.json");
-    this.app.loader.add("banana", "/assets/images/sprites/banana.json");
-    this.app.loader.add("watermelon", "/assets/images/sprites/watermelon.json");
-    this.app.loader.add("cabbage", "/assets/images/sprites/cabbage.json");
-    this.app.loader.add("beamsprout", "/assets/images/sprites/beamsprout.json");
+    // TODO loop over fruits to do this
+    this.fruits.forEach(fruit => {
+      console.log('loading fruit: ', fruit);
+      this.app.loader.add(fruit, `/assets/images/sprites/${fruit}.json`);
+    })
+
+    // TODO
+    // this.app.loader.add(
+    //   "dragionFruit",
+    //   "/assets/images/sprites/dragon_fruit.json",
+    // );
+
     this.app.loader.add("megaBeamsprout", "/assets/images/sprites/mega_beamsprout.json");
-    this.app.loader.add("pineapple", "/assets/images/sprites/pineapple.json");
-    this.app.loader.add("limer", "/assets/images/sprites/lime.json");
-    this.app.loader.add(
-      "dragionFruit",
-      "/assets/images/sprites/dragon_fruit.json",
-    );
-
-    this.app.loader.add(
-      "blueberrinies",
-      "/assets/images/sprites/blueberrinies.json",
-    );
-
-    this.app.loader.add(
-      "peachy",
-      "/assets/images/sprites/peachy.json",
-    );
 
     this.app.loader.add(
       "treasureChestGlorpOpen",
@@ -457,13 +437,16 @@ export default class PixiComponent extends Component {
       this.animations.pineapple =
         res.pineapple.spritesheet.animations["pineapple_anim.png"];
       this.animations.limer = res.limer.spritesheet.animations["limer.png"]; // TODO
-      this.animations.dragionFruit =
-        res.dragionFruit.spritesheet.animations["dragon_fruit.png"];
+      this.animations["dragion-fruit"] =
+        res["dragion-fruit"].spritesheet.animations["dragon_fruit.png"];
       this.animations.blueberrinies =
         res.blueberrinies.spritesheet.animations["blueberrinies.png"];
 
       this.animations.peachy =
         res.peachy.spritesheet.animations["peachy"];
+
+      this.animations.canteloper = res.canteloper.spritesheet.animations["canteloper"];
+      this.animations.corncobby = res.corncobby.spritesheet.animations["corncobby"];
 
       this.animations.megaBeamsprout = res.megaBeamsprout.spritesheet.animations["beamsprout_spin"];
       this.animations.treasureChestGlorpOpen = res.treasureChestGlorpOpen.spritesheet.animations["treasure_chest_open_glorp"];
