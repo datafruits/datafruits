@@ -14,7 +14,7 @@ export default class ShrimpoPlayer extends Component<ShrimpoPlayerArgs> {
   @service declare eventBus: EventBusService;
 
   @tracked
-  playerState: PlayerState = PlayerState.Stopped;
+  playerState: PlayerState = PlayerState.Paused;
 
   get playing(): boolean {
     return this.playerState === PlayerState.Playing;

@@ -9,6 +9,5 @@ export type TrackEventPayload = {
 // Player state enum
 export enum PlayerState {
   Playing = 'playing',
-  Paused = 'paused',
-  Stopped = 'stopped'
+  Paused = 'paused'
 }

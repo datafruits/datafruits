@@ -46,7 +46,7 @@ export default class PodcastTrack extends Component<PodcastTrackArgs> {
   declare store: any;
 
   @tracked
-  playerState: PlayerState = PlayerState.Stopped;
+  playerState: PlayerState = PlayerState.Paused;
 
   get playing(): boolean {
     return this.playerState === PlayerState.Playing;
@@ -82,7 +82,7 @@ export default class PodcastTrack extends Component<PodcastTrackArgs> {
   onTrackPlayed(event: any): void {
     if (this !== event) {
       if (!(this.isDestroyed || this.isDestroying)) {
-        this.playerState = PlayerState.Stopped;
+        this.playerState = PlayerState.Paused;
       }
     }
   }
