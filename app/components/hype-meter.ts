@@ -9,4 +9,8 @@ export default class HypeMeter extends Component<HypeMeterArgs> {
   get progress() {
     return this.chat.limitBreakProgress;
   }
+
+  get almostReached() {
+    return this.chat.limitBreakProgress >= 70;
+  }
 }
