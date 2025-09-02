@@ -394,9 +394,9 @@ export default class PixiComponent extends Component {
       "/assets/images/wormy.png"
     );
 
-    this.app.loader.onProgress.add((loader, resource) => {
-      console.log(`Loading ${resource.name}: ${loader.progress}%`);
-    });
+    // this.app.loader.onProgress.add((loader, resource) => {
+    //   console.log(`Loading ${resource.name}: ${loader.progress}%`);
+    // });
 
     this.app.loader.onError.add((error) => {
       console.error(`PIXI Loader Error: ${error}`);
