@@ -20,7 +20,7 @@ export default class FruitSmoothie {
 
     for(let i = 0; i < 20; i++) {
       fruits.forEach((fruit) => {
-        const fruitName = fruit.replace(/-./g, (x) => x[1].toUpperCase());
+        const fruitName = fruit;
         let sprite = new PIXI.AnimatedSprite(animations[fruitName]);
         sprite.scale.x = 0.25;
         sprite.scale.y = 0.25;
@@ -62,7 +62,7 @@ export default class FruitSmoothie {
       });
       this.alphaFadeout = true;
       //pixiCanvas.style.zIndex = oldZIndex;
-    }, 5000);
+    }, 15000);
 
     screenShake();
 
@@ -76,7 +76,7 @@ export default class FruitSmoothie {
   update(delta, app) {
     this.sprites.forEach(({ sprite, filter }, index) => {
       sprite.radius -= 1; // Speed of movement towards the center
-      sprite.angle += 0.09; // Increment the angle to move along the spiral path
+      sprite.angle += 0.05; // Increment the angle to move along the spiral path
 
       const hueRotation = index * 90;
       filter.hue(hueRotation, false);
