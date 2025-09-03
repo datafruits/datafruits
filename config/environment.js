@@ -147,11 +147,6 @@ module.exports = function (environment) {
     ENV['ember-cli-mirage'] = {
       enabled: false,
     };
-    // Temporarily disable FastBoot in development
-    ENV.fastboot = {
-      ...ENV.fastboot,
-      enabled: false,
-    };
   }
 
   if (environment === 'test') {

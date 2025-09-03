@@ -29,10 +29,8 @@ module.exports = function (defaults) {
       useAppVersion: true,
     },
 
-    prember: isProduction ? {
+    prember: {
       urls: urlFinder,
-    } : {
-      enabled: false,
     },
 
     // Add options here
