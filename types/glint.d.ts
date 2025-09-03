@@ -1,4 +1,4 @@
-mport '@glint/environment-ember-loose';
+import '@glint/environment-ember-loose';
 import { ComponentLike, HelperLike } from '@glint/template';
 import { BufferedChangeset } from 'ember-changeset/types';
 

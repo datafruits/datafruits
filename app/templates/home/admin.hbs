@@ -6,28 +6,28 @@
       <!-- Fruits Count Chart -->
       <div class="bg-gray-800 rounded-lg p-6">
         <h2 class="text-xl font-semibold text-white mb-4">Fruits Count</h2>
-        <div class="chart-placeholder">
-          <p class="text-gray-400 mb-4">Chart data:</p>
-          <ul class="text-white">
-            {{#each @model.fruitsCount.labels as |label index|}}
-              <li>{{label}}: {{get @model.fruitsCount.data index}}</li>
-            {{/each}}
-          </ul>
-          <p class="text-gray-400 mt-4 text-sm">Chart will be rendered here with Chart.js</p>
+        <div class="chart-container" style="height: 300px;">
+          <AdminBarChart 
+            @chartId="fruits-chart"
+            @data={{@model.fruitsCount}}
+            @title="Fruits Count"
+            @backgroundColor="rgba(255, 99, 132, 0.5)"
+            @borderColor="rgb(255, 99, 132)"
+          />
         </div>
       </div>
 
       <!-- User Signups Chart -->
       <div class="bg-gray-800 rounded-lg p-6">
         <h2 class="text-xl font-semibold text-white mb-4">User Signups per Month</h2>
-        <div class="chart-placeholder">
-          <p class="text-gray-400 mb-4">Chart data:</p>
-          <ul class="text-white">
-            {{#each @model.userSignups.labels as |label index|}}
-              <li>{{label}}: {{get @model.userSignups.data index}}</li>
-            {{/each}}
-          </ul>
-          <p class="text-gray-400 mt-4 text-sm">Chart will be rendered here with Chart.js</p>
+        <div class="chart-container" style="height: 300px;">
+          <AdminBarChart 
+            @chartId="signups-chart"
+            @data={{@model.userSignups}}
+            @title="User Signups per Month"
+            @backgroundColor="rgba(54, 162, 235, 0.5)"
+            @borderColor="rgb(54, 162, 235)"
+          />
         </div>
       </div>
     </div>
@@ -35,11 +35,9 @@
 </div>
 
 <style>
-  .chart-placeholder {
-    min-height: 200px;
-    padding: 20px;
-    border: 2px dashed #444;
-    border-radius: 8px;
+  .chart-container {
+    position: relative;
+    width: 100%;
   }
   .admin-page {
     background-color: #1a1a1a;
