@@ -64,6 +64,7 @@ export default class DatafruitsPlayer extends Component {
   constructor(owner: unknown, args: any) {
     super(owner, args);
     this.eventBus.subscribe("trackPlayed", this, "onTrackPlayed");
+    this.eventBus.subscribe("trackPaused", this, "onTrackPaused");
     this.eventBus.subscribe("metadataUpdate", this, "setRadioTitle");
     this.eventBus.subscribe("liveVideoAudio", this, "useVideoAudio");
     this.eventBus.subscribe("liveVideoAudioOff", this, "disableVideoAudio");
@@ -92,23 +93,37 @@ export default class DatafruitsPlayer extends Component {
     this.setPageTitle();
   }
 
-  onTrackPlayed(event: TrackEventPayload) {
-    console.log('datafruits player on track played: ', event);
-    //this.error = null;
-    this.title = event.title;
-    this.podcastTrackId = String(event.track_id);
-    this.setPageTitle();
-    this.playingPodcast = true;
-    this.playTime = 0.0;
-    this.playTimePercentage = 0.0;
-
+  onTrackPaused(event: TrackEventPayload) {
+    console.log('datafruits player on track paused: ', event);
     const audioTag = document.getElementById(
       "radio-player"
     ) as HTMLAudioElement;
-    audioTag.src = event.cdnUrl;
-    if (audioTag.readyState === 0) {
-      this.playerState = PlayerState.Loading;
+    audioTag.pause();
+    this.playButtonPressed = false;
+    this.playerState = PlayerState.Paused;
+  }
+
+  onTrackPlayed(event: TrackEventPayload) {
+    console.log('datafruits player on track played: ', event);
+    console.log('current podcastTrackId: ', this.podcastTrackId);
+    const audioTag = document.getElementById(
+      "radio-player"
+    ) as HTMLAudioElement;
+    if(String(this.podcastTrackId) !== String(event.track_id)) {
+      // load and play podcast from beginning
+      this.title = event.title;
+      this.podcastTrackId = String(event.track_id);
+      this.setPageTitle();
+      this.playingPodcast = true;
+      this.playTime = 0.0;
+      this.playTimePercentage = 0.0;
+
+      audioTag.src = event.cdnUrl;
+      if (audioTag.readyState === 0) {
+        this.playerState = PlayerState.Loading;
+      }
     }
+    // else just resume
     audioTag.play().catch((e) => {
       console.error('Audio play failed', e);
     });
