@@ -12,6 +12,7 @@ interface AdminBarChartSignature {
     title: string;
     backgroundColor?: string;
     borderColor?: string;
+    suggestedMax: number;
   };
 }
 
@@ -27,10 +28,10 @@ export default class AdminBarChart extends Component<AdminBarChartSignature> {
 
     // Register Chart.js components
     Chart.register(BarController, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-    
+
     const canvas = document.getElementById(this.args.chartId) as HTMLCanvasElement;
     if (!canvas) return;
-    
+
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
@@ -74,7 +75,9 @@ export default class AdminBarChart extends Component<AdminBarChartSignature> {
           },
           y: {
             beginAtZero: true,
+            suggestedMax: this.args.suggestedMax,
             ticks: {
+              stepSize: 100000,
               color: '#ffffff'
             },
             grid: {

@@ -1,18 +1,19 @@
-<div class="admin-page">
+<div class="page-spacing">
   <div class="container mx-auto px-4 py-8">
     <h1 class="text-3xl font-bold text-white mb-8">Admin Dashboard</h1>
-    
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+    <div class="flex flex-col">
       <!-- Fruits Count Chart -->
-      <div class="bg-gray-800 rounded-lg p-6">
+      <div class="bg-gray-800 rounded-lg p-6 mb-4">
         <h2 class="text-xl font-semibold text-white mb-4">Fruits Count</h2>
-        <div class="chart-container" style="height: 300px;">
-          <AdminBarChart 
+        <div class="">
+          <AdminBarChart
             @chartId="fruits-chart"
             @data={{@model.fruitsCount}}
             @title="Fruits Count"
             @backgroundColor="rgba(255, 99, 132, 0.5)"
             @borderColor="rgb(255, 99, 132)"
+            @suggestedMax=1000000
           />
         </div>
       </div>
@@ -20,27 +21,17 @@
       <!-- User Signups Chart -->
       <div class="bg-gray-800 rounded-lg p-6">
         <h2 class="text-xl font-semibold text-white mb-4">User Signups per Month</h2>
-        <div class="chart-container" style="height: 300px;">
-          <AdminBarChart 
+        <div class="">
+          <AdminBarChart
             @chartId="signups-chart"
             @data={{@model.userSignups}}
             @title="User Signups per Month"
             @backgroundColor="rgba(54, 162, 235, 0.5)"
             @borderColor="rgb(54, 162, 235)"
+            @suggestedMax=50
           />
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<style>
-  .chart-container {
-    position: relative;
-    width: 100%;
-  }
-  .admin-page {
-    background-color: #1a1a1a;
-    min-height: 100vh;
-  }
-</style>
