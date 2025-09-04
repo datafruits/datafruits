@@ -1,10 +1,12 @@
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
+import fruitTypes from '../../fruit-types';
 
 export default class AdminRoute extends Route {
   @service session;
   @service currentUser;
   @service router;
+  @service chat;
 
   beforeModel(transition) {
     // First check if user is authenticated
@@ -26,12 +28,15 @@ export default class AdminRoute extends Route {
   }
 
   model() {
-    // For now, return fake data
-    // Eventually this will come from /api/admin_stats.json
+    // Get the first 6 fruits for the chart (to keep it readable)
+    const fruitsToShow = fruitTypes.slice(0, 6);
+    const fruitLabels = fruitsToShow.map(fruit => fruit.name);
+    const fruitCounts = fruitsToShow.map(fruit => this.chat.getFruitCount(fruit.name) || 0);
+
     return {
       fruitsCount: {
-        labels: ['Apples', 'Bananas', 'Oranges', 'Grapes', 'Strawberries', 'Mangoes'],
-        data: [45, 32, 28, 19, 38, 24]
+        labels: fruitLabels,
+        data: fruitCounts
       },
       userSignups: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
