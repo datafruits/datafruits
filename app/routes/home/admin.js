@@ -39,6 +39,11 @@ export default class AdminRoute extends Route {
     const endDate = dayjs();
     const startDate = dayjs().subtract(12, 'months');
 
+    console.log('Admin route: Fetching user signups for date range:', {
+      start: startDate.format('YYYY-MM-DD'),
+      end: endDate.format('YYYY-MM-DD')
+    });
+
     // Fetch user signup data from API
     let userSignupsData;
     try {
@@ -46,9 +51,11 @@ export default class AdminRoute extends Route {
         start: startDate.format('YYYY-MM-DD'),
         end: endDate.format('YYYY-MM-DD')
       });
+      console.log('Admin route: Received signup data:', signups.length, 'records');
       userSignupsData = this._transformSignupData(signups);
+      console.log('Admin route: Transformed data:', userSignupsData);
     } catch (error) {
-      console.error('Failed to fetch user signups:', error);
+      console.error('Admin route: Failed to fetch user signups:', error);
       // Fallback to empty data if API fails
       userSignupsData = {
         labels: [],
