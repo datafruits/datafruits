@@ -636,7 +636,7 @@ export function initialize(/* application */) {
       custom: true,
       uc_base: 'cereal',
       uc_output: '',
-      shortnames: [':cereal'],
+      shortnames: [':cereal:'],
       keywords: ['cereal'],
     },
   };
