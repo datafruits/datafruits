@@ -632,6 +632,13 @@ export function initialize(/* application */) {
       shortnames: [':cow:'],
       keywords: ['cow'],
     },
+    ':cereal:': {
+      custom: true,
+      uc_base: 'cereal',
+      uc_output: '',
+      shortnames: [':cereal'],
+      keywords: ['cereal'],
+    },
   };
 
   Object.keys(customEmojis).forEach((emoji) => {
