@@ -216,6 +216,14 @@ export function initialize(/* application */) {
       shortnames: [':canteloper:'],
       keywords: ['canteloper'],
     },
+    ':corncobby:': {
+      custom: true,
+      animated: true,
+      uc_base: 'corncobby',
+      uc_output: '',
+      shortnames: [':corncobby:'],
+      keywords: ['corncobby'],
+    },
     ':miniburger:': {
       custom: true,
       uc_base: 'miniburger',
@@ -617,13 +625,19 @@ export function initialize(/* application */) {
       shortnames: [':pickles:'],
       keywords: ['pickles'],
     },
-    ':cereal:': {
+    ':cow:': {
+      custom: true,
+      uc_base: 'cow',
+      uc_output: '',
+      shortnames: [':cow:'],
+      keywords: ['cow'],
+    },
+    '::': {
       custom: true,
       uc_base: 'cereal',
       uc_output: '',
-      shortnames: [':cereal:'],
+      shortnames: [':cereal'],
       keywords: ['cereal'],
-      animated: true,
     },
   };
 
