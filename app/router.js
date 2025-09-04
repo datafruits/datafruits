@@ -41,6 +41,7 @@ Router.map(function () {
       this.route('studio');
     });
     this.route('site-settings');
+    this.route('admin');
     this.route('wiki', function() {
     });
     this.route('wiki.show', { path: '/wiki/:title' });
