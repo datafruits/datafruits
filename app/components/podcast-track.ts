@@ -18,7 +18,6 @@ interface PodcastTrackArgs {
     id: number | string;
     cdnUrl?: string;
     title?: string;
-    podcastId?: number | string;
     podcast?: any; // Ember Data relationship
     get?: (key: string) => any; // for Ember Data compatibility
   };
@@ -31,6 +30,22 @@ export default class PodcastTrack extends Component<PodcastTrackArgs> {
     super(owner, args);
     this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
     this.eventBus.subscribe('trackPaused', this, 'onTrackPaused');
+    void this.checkPodcastFavoriteStatus();
+  }
+
+  async checkPodcastFavoriteStatus() {
+    try {
+      const podcast = await this.args.track.podcast;
+      if (podcast) {
+        const isCurrentlyFavorited = this.currentUser.user.podcastFavorites
+          .map((favorite: { podcastId: number }) => favorite.podcastId)
+          .includes(parseInt(podcast.id));
+        this.podcastFavoriteState = isCurrentlyFavorited;
+      }
+    } catch (error) {
+      console.log('Error checking podcast favorite status:', error);
+      this.podcastFavoriteState = false;
+    }
   }
 
   @service
@@ -50,6 +65,9 @@ export default class PodcastTrack extends Component<PodcastTrackArgs> {
 
   @tracked
   playerState: PlayerState = PlayerState.Paused;
+
+  @tracked
+  podcastFavoriteState: boolean | null = null;
 
   get playing(): boolean {
     return this.playerState === PlayerState.Playing;
@@ -146,6 +164,7 @@ export default class PodcastTrack extends Component<PodcastTrackArgs> {
         .save()
         .then(() => {
           this.currentUser.user.podcastFavorites.push(podcastFavorite);
+          this.podcastFavoriteState = true;
           console.log('faved podcast');
         })
         .catch((error: Error) => {
@@ -165,6 +184,7 @@ export default class PodcastTrack extends Component<PodcastTrackArgs> {
         podcastFavorite
           .destroyRecord()
           .then(() => {
+            this.podcastFavoriteState = false;
             console.log('unfaved podcast');
           })
           .catch((error: Error) => {
@@ -182,14 +202,7 @@ export default class PodcastTrack extends Component<PodcastTrackArgs> {
   }
 
   get isPodcastFavorited(): boolean {
-    // This is a computed property that needs to handle async podcast relationship
-    // For now, we'll check based on podcast ID if available
-    if (this.args.track.podcastId) {
-      return this.currentUser.user.podcastFavorites
-        .map((favorite: { podcastId: number }) => favorite.podcastId)
-        .includes(parseInt(this.args.track.podcastId));
-    }
-    return false;
+    return this.podcastFavoriteState === true;
   }
 
   get backgroundStyle(): ReturnType<typeof htmlSafe> {
