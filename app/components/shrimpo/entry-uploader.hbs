@@ -16,7 +16,14 @@
             type="file"
             {{on "change" (fn this.uploadEntry changeset)}}>
         </label>
-        {{this.uploadProgress}}
+        {{#if this.isUploading}}
+          <div class="w-full mt-2">
+            <div class="w-full h-6 bg-gray-300 overflow-hidden rounded">
+              <div class="shiny-pink h-full" style={{this.progressBarStyle}}></div>
+            </div>
+            <p class="text-right mt-1 text-sm text-white">{{this.uploadProgress}}% complete</p>
+          </div>
+        {{/if}}
       </div>
       <label for="cc-license-checkbox">
         {{t "shrimpo.cc_license"}}
