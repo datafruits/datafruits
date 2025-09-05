@@ -565,5 +565,13 @@
     "entries": "entries"
   },
   "save_show": "SAVE SHOW",
-  "artwork": "artwork"
+  "artwork": "artwork",
+  "virus_popup": {
+    "congratulation": "CONGRATULATION"
+  },
+  "shrimpo_voting": {
+    "voting_happens_now": "Shrimps command voting happens now!",
+    "rate_tune_by": "Rate tune by number of",
+    "login_to_vote": "Login or register to vote on this shrimpo!"
+  }
 }

@@ -322,5 +322,13 @@
     "entries": "エントリー"
   },
   "save_show": "番組を保存",
-  "artwork": "アートワーク"
+  "artwork": "アートワーク",
+  "virus_popup": {
+    "congratulation": "おめでとう"
+  },
+  "shrimpo_voting": {
+    "voting_happens_now": "シュリンプ投票が始まります！",
+    "rate_tune_by": "曲を評価してください。",
+    "login_to_vote": "シュリンプに投票するにはログインまたは登録してください！"
+  }
 }
