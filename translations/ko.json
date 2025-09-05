@@ -65,6 +65,7 @@
     "bio": "나에 대해",
     "joined": "만들 때",
     "last_login": "여기서 마지막",
+    "uploading-progress": "{{count}}개 파일 업로드 중. ({{progress}}%)",
     "my-shows": {
       "title": "내 쇼",
       "edit": "편집",
