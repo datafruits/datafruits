@@ -529,5 +529,41 @@
   },
   "forms": {
     "saving": "SAVING....DON'T TURN OFF THE POWER........."
-  }
+  },
+  "episode": {
+    "date": "Date:",
+    "status": "Status:"
+  },
+  "user_menu": {
+    "xp": "XP: ",
+    "next_level": "Next level in: "
+  },
+  "show_form": {
+    "host": "Host",
+    "repeating": "Repeating",
+    "one_off": "One-off",
+    "weekly": "Weekly",
+    "biweekly": "Bi-weekly (every other week)",
+    "monthly": "Monthly",
+    "annually": "Annually",
+    "on": "On",
+    "every": "Every"
+  },
+  "wiki_form": {
+    "markdown_help": "You can format this article with <a href=\"https://www.markdownguide.org/basic-syntax\" target=\"_blank\" rel=\"noopener noreferrer\">Markdown</a>."
+  },
+  "studio": {
+    "stream_title": "Stream Title",
+    "donation_link": "Donation Link",
+    "update": "Update"
+  },
+  "labels": {
+    "tags": "Tags"
+  },
+  "shrimpo_card": {
+    "host": "Host:",
+    "entries": "entries"
+  },
+  "save_show": "SAVE SHOW",
+  "artwork": "artwork"
 }
