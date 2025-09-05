@@ -224,6 +224,8 @@
     "time_zone": "Timezone",
     "favorites": "Favorites",
     "my_favorites": "My Favorite",
+    "favorited_shows": "Favorited Shows",
+    "favorited_podcasts": "Favorited Podcasts",
     "my_pic": "Update Avatar",
     "settings": "Profile Settings",
     "username": "Username",

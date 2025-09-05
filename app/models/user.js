@@ -88,6 +88,10 @@ export default class UserModel extends Model {
     async: false,
     inverse: null
   }) scheduledShowFavorites; // ugh
+  @hasMany('podcast-favorite', {
+    async: false,
+    inverse: null
+  }) podcastFavorites;
 
   @hasMany('fruit-summon', {
     async: false,
