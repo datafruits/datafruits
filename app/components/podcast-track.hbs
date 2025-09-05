@@ -70,6 +70,27 @@
             <Ui::Icon @name="heart" />
           </button>
         {{/if}}
+        {{#if this.isPodcastFavorited}}
+          <button
+            class="cool-button favorited max-h-8"
+            type="button"
+            aria-label="Remove Podcast From Favorites"
+            title="Remove Podcast From Favorites"
+            {{on "click" this.unfavoritePodcast}}
+          >
+            📻❤️
+          </button>
+        {{else}}
+          <button
+            class="cool-button not-favorited max-h-8"
+            type="button"
+            aria-label="Add Podcast To Favorites"
+            title="Add Podcast To Favorites"
+            {{on "click" this.favoritePodcast}}
+          >
+            📻🤍
+          </button>
+        {{/if}}
       {{/if}}
     </div>
     <div class="mt-1 flex flex-wrap items-center gap-0.5 sm:gap-1.5">
