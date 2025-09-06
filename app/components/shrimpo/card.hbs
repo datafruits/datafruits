@@ -18,7 +18,7 @@
         {{@shrimpo.title}}
       </h2>
       <div class="text-white">
-        {{@shrimpo.entriesCount}} entries
+        {{@shrimpo.entriesCount}} {{t "shrimpo_card.entries"}}
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@
       <Shrimpo::Countdown @endAt={{@shrimpo.endAt}} />
     {{/if}}
     <div class="text-white">
-      <span class="font-bold">Host:</span>
+      <span class="font-bold">{{t "shrimpo_card.host"}}</span>
       {{@shrimpo.username}}
     </div>
   </div>

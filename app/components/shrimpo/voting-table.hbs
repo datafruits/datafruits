@@ -1,9 +1,9 @@
 {{#if this.session.isAuthenticated}}
   <div>
-    <h3>Shrimps command voting happens now!</h3>
+    <h3>{{t "shrimpo_voting.voting_happens_now"}}</h3>
     <h2 class="text-lg">You are... {{@votingCompletionPercentage}}% {{t "shrimpo.voting_completion"}}!</h2>
     <p>
-      Rate tune by number of {{this.scoreEmoji}}.
+      {{t "shrimpo_voting.rate_tune_by"}} {{this.scoreEmoji}}.
     </p>
     {{#if this.voted}}
       <p>
@@ -63,6 +63,6 @@
   </div>
 {{else}}
   <div>
-    <p>Login or register to vote on this shrimpo!</p>
+    <p>{{t "shrimpo_voting.login_to_vote"}}</p>
   </div>
 {{/if}}

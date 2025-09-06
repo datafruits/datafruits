@@ -1,4 +1,4 @@
-<h3>Stream Title</h3>
+<h3>{{t "studio.stream_title"}}</h3>
 <span>{{this.metadata.title}}</span>
 <form {{on "submit" this.updateMetadata}}>
   <Input
@@ -8,5 +8,5 @@
     />
   <Input
     class="cursor-pointer cool-button"
-    @type="submit" @value="Update" />
+    @type="submit" @value={{t "studio.update"}} />
 </form>

@@ -2,7 +2,7 @@
   {{did-insert this.didInsert}}
   >
   <div class="">
-    <span>You can format this article with <a href="https://www.markdownguide.org/basic-syntax" target="_blank" rel="noopener noreferrer">Markdown</a>.</span>
+    <span>{{{t "wiki_form.markdown_help"}}}</span>
     {{#let (changeset @model this.WikiPageValidations) as |changeset|}}
       <Ui::ChangesetForm
         @changeset={{changeset}}

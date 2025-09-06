@@ -1,4 +1,4 @@
-<h3>Donation Link</h3>
+<h3>{{t "studio.donation_link"}}</h3>
 <span>{{this.metadata.donationLink}}</span>
 <form {{on "submit" this.updateMetadata}}>
   <Input
@@ -7,5 +7,5 @@
     @value={{this.url}} />
   <Input
     class="cursor-pointer cool-button"
-    @type="submit" @value="Update" />
+    @type="submit" @value={{t "studio.update"}} />
 </form>

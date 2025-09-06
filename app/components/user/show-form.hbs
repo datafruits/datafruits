@@ -14,7 +14,7 @@
         @fieldName="title"
         @containerClass='mb-2'
         />
-        <h4 class="block text-sm font-bold mb-2">Host</h4>
+        <h4 class="block text-sm font-bold mb-2">{{t "show_form.host"}}</h4>
         <PowerSelectMultiple
           @renderInPlace={{true}}
           @searchEnabled={{true}}
@@ -29,12 +29,12 @@
         <br/>
         {{#if @show.isNew}}
           {{#if changeset.image}}
-            <img alt="artwork" width="300" height="300"
+            <img alt={{t "artwork"}} width="300" height="300"
               src={{changeset.image}}>
           {{/if}}
         {{else}}
           {{#if changeset.thumbImageUrl}}
-            <img alt="artwork" width="300" height="300"
+            <img alt={{t "artwork"}} width="300" height="300"
               src={{changeset.thumbImageUrl}}>
           {{/if}}
         {{/if}}
@@ -87,10 +87,10 @@
           {{on "change" (fn this.setRepeating changeset)}}
           >
           <option value="true" selected={{not-eq changeset.recurringInterval 'not_recurring' }}>
-            Repeating
+            {{t "show_form.repeating"}}
           </option>
           <option value="false" selected={{eq changeset.recurringInterval 'not_recurring'}}>
-            One-off
+            {{t "show_form.one_off"}}
           </option>
         </select>
       </div>
@@ -100,25 +100,25 @@
             id="repeating-interval"
             {{on "change" (pick "target.value" (set changeset "recurringInterval"))}}
             >
-            <option value="week" selected={{eq changeset.recurringInterval 'week'}}>Weekly</option>
-            <option value="biweek" selected={{eq changeset.recurringInterval 'biweek'}}>Bi-weekly (every other week)</option>
-            <option value="month" selected={{eq changeset.recurringInterval 'month'}}>Monthly</option>
-            <option value="year" selected={{eq changeset.recurringInterval 'year'}}>Anuually</option>
+            <option value="week" selected={{eq changeset.recurringInterval 'week'}}>{{t "show_form.weekly"}}</option>
+            <option value="biweek" selected={{eq changeset.recurringInterval 'biweek'}}>{{t "show_form.biweekly"}}</option>
+            <option value="month" selected={{eq changeset.recurringInterval 'month'}}>{{t "show_form.monthly"}}</option>
+            <option value="year" selected={{eq changeset.recurringInterval 'year'}}>{{t "show_form.annually"}}</option>
           </select>
           {{#if (eq changeset.recurringInterval "week")}}
-            <span>On</span>
+            <span>{{t "show_form.on"}}</span>
             <User::ShowForm::WeekdaySelect
               @changeset={{changeset}}
               />
           {{/if}}
           {{#if (eq changeset.recurringInterval "biweek")}}
-            <span>On</span>
+            <span>{{t "show_form.on"}}</span>
             <User::ShowForm::WeekdaySelect
               @changeset={{changeset}}
               />
           {{/if}}
           {{#if (eq changeset.recurringInterval "month")}}
-            <span>Every</span>
+            <span>{{t "show_form.every"}}</span>
             <select
               id="monthly-interval"
               {{on "change" (pick "target.value" (set changeset "recurringCadence"))}}
@@ -164,7 +164,7 @@
           disabled={{(or Form.state.hasSubmitted changeset.isInvalid)}}
           class='cool-button mb-2'
           >
-          SAVE SHOW
+          {{t "save_show"}}
         </Button>
         {{#if Form.state.hasSubmitted}}
           <marquee>{{t "forms.saving"}}</marquee>
