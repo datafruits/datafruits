@@ -5,23 +5,26 @@ export default class ScheduledShow extends Model {
   @belongsTo('recording', { async: false, inverse: null }) recording;
   @hasMany('post', {
     async: false,
-    inverse: null
-  }) posts;
+    inverse: null,
+  })
+  posts;
   @hasMany('label', {
     async: false,
-    inverse: null
-  }) labels;
+    inverse: null,
+  })
+  labels;
   @hasMany('track', {
     async: false,
-    inverse: 'scheduledShow'
-  }) tracks;
+    inverse: 'scheduledShow',
+  })
+  tracks;
 
   // TODO merge user/dj model
   @hasMany('user', {
     async: false,
-    inverse: null
-  }) djs;
-
+    inverse: null,
+  })
+  djs;
 
   @attr()
   start;
@@ -104,7 +107,7 @@ export default class ScheduledShow extends Model {
   }
 
   get imageOrDefault() {
-    if(this.imageUrl) {
+    if (this.imageUrl) {
       return this.imageUrl;
     } else {
       return this.showSeries.get('imageUrl');
@@ -113,5 +116,9 @@ export default class ScheduledShow extends Model {
 
   get airDatePassed() {
     return new Date(this.end) < new Date();
+  }
+
+  get isUsingPrerecord() {
+    return !this.usePrerecordedFileForArchive;
   }
 }

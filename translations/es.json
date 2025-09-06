@@ -4,7 +4,13 @@
     "return_linktext": "volver a la seguridad"
   },
   "profile": {
-    "favorites": "Favoritas"
+    "favorites": "Favoritas",
+    "my-shows": {
+      "form": {
+        "artwork": "Obra de arte",
+        "upload-new": "Subir un conjunto"
+      }
+    }
   },
   "usermenu": {
     "settings": "Editar perfil",
