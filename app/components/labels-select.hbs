@@ -1,10 +1,8 @@
-<section
-  ...attributes
-  >
-  <h4 class="block text-sm font-bold mb-2">Tags</h4>
+<section ...attributes>
+  <label class="block text-sm font-bold mb-2 text-df-yellow">Tags</label>
   {{#if this.error}}
     <div class="error">
-        {{this.error}}
+      {{this.error}}
     </div>
   {{/if}}
   <PowerSelectMultipleWithCreate
@@ -15,7 +13,9 @@
     @renderInPlace={{true}}
     @onChange={{this.setSelectedLabels}}
     @onCreate={{this.createTag}}
-    @showCreateWhen={{this.hideCreateOptionOnSameName}} as |label|>
+    @showCreateWhen={{this.hideCreateOptionOnSameName}}
+    as |label|
+  >
     {{label.name}}
   </PowerSelectMultipleWithCreate>
 </section>

@@ -8,7 +8,13 @@
     "events": "活動"
   },
   "profile": {
-    "favorites": "收藏夹"
+    "favorites": "收藏夹",
+    "my-shows": {
+      "form": {
+        "artwork": "艺术品",
+        "upload-new": "上传一组"
+      }
+    }
   },
   "chat": {
     "title": "聊天室",

@@ -73,7 +73,7 @@
       "form": {
         "title": "제목",
         "description": "설명",
-        "artwork": "아트워크",
+        "artwork": "예술 작품",
         "start": "날짜/시간",
         "end": "끝",
         "repeating": "반복 또는 일회성",
@@ -84,6 +84,7 @@
         "update": "저장",
         "delete": "에피소드 삭제",
         "prerecorded-set": "사전 녹음 세트",
+        "upload-new": "세트 업로드",
         "choose-file": "파일 선택",
         "invalid-file-type": "아트워크에는 이미지 파일(JPEG, PNG, GIF, WebP)만 허용됩니다!",
         "air-date": "방송 날짜:",
