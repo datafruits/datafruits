@@ -33,6 +33,8 @@ export default class DatafruitsPlayer extends Component {
   @tracked playingPodcast = false;
   @tracked playButtonHover = false;
   @tracked title: string = "";
+  @tracked episodeId: string = "";
+  @tracked showSeriesId: string = "";
   @tracked muted = false;
   @tracked showingVolumeControl = false;
   @tracked playerState: PlayerState = PlayerState.Paused; //"playing", "loading"
@@ -68,6 +70,7 @@ export default class DatafruitsPlayer extends Component {
     this.eventBus.subscribe("metadataUpdate", this, "setRadioTitle");
     this.eventBus.subscribe("liveVideoAudio", this, "useVideoAudio");
     this.eventBus.subscribe("liveVideoAudioOff", this, "disableVideoAudio");
+    this.eventBus.subscribe("canonicalMetadataUpdate", this, "onCanonicalMetadataUpdate");
 
     if (!this.fastboot.isFastBoot) {
       this.volume =
@@ -80,10 +83,19 @@ export default class DatafruitsPlayer extends Component {
     return !isEmpty(title) && title.startsWith("LIVE");
   }
 
+  get currentShowPresent() {
+    return !isEmpty(this.episodeId) && !isEmpty(this.showSeriesId);
+  }
+
   setPageTitle() {
     if (!this.fastboot.isFastBoot) {
       document.title = `DATAFRUITS.FM - ${this.title}`;
     }
+  }
+
+  onCanonicalMetadataUpdate(metadata: any) {
+    this.episodeId = metadata.message.episode_id;
+    this.showSeriesId = metadata.message.show_series_id;
   }
 
   setRadioTitle() {
