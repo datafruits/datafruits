@@ -4,7 +4,8 @@
     "return_linktext": "volver a la seguridad"
   },
   "profile": {
-    "favorites": "Favoritas"
+    "favorites": "Favoritas",
+    "uploading-progress": "Subiendo {count} archivos. ({progress}%)"
   },
   "usermenu": {
     "settings": "Editar perfil",

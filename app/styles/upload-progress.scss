@@ -1,0 +1,40 @@
+@import "colors";
+
+.upload-progress-container {
+  @apply my-2.5;
+  
+  .upload-progress-text {
+    @apply text-df-yellow-dark text-sm mb-2;
+  }
+  
+  .upload-progress-bar {
+    @apply w-full h-5 border-2 border-df-green rounded-xl overflow-hidden;
+    background-color: rgba(255, 255, 255, 0.1);
+    
+    .upload-progress-fill {
+      @apply h-full rounded-lg transition-all duration-300 ease-in-out relative;
+      background: linear-gradient(90deg, $yellow 0%, $green 100%);
+      
+      &::after {
+        @apply absolute inset-0;
+        content: '';
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.3) 50%,
+          transparent 100%
+        );
+        animation: shimmer 1.5s infinite;
+      }
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}

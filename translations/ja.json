@@ -64,6 +64,7 @@
     },
     "settings": "プロフィール設定",
     "username": "ユーザー名",
+    "uploading-progress": "{count}ファイルをアップロード中。 ({progress}%)",
     "my-shows": {
       "title": "My Shows",
       "edit": "編集",

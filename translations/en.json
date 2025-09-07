@@ -227,6 +227,7 @@
     "my_pic": "Update Avatar",
     "settings": "Profile Settings",
     "username": "Username",
+    "uploading-progress": "Uploading {count} files. ({progress}%)",
     "my-shows": {
       "title": "My Shows",
       "edit": "EDIT",
