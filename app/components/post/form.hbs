@@ -1,8 +1,9 @@
-<form {{on "submit" this.savePost}}>
+<form {{on "submit" this.savePost}} {{did-insert this.didInsertForm}}>
   <div>
     <label class="block text-sm font-bold mb-2" for="body">{{t "forum.form.body"}}</label>
     <Textarea
       @value={{this.body}}
+      id="post-form-body"
       rows='5'
       cols='100'
       />

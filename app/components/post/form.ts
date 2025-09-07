@@ -7,6 +7,9 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import { next } from '@ember/runloop';
+import { Textcomplete } from '@textcomplete/core';
+import { TextareaEditor } from '@textcomplete/textarea';
+import { createEmojiAutocomplete } from 'datafruits13/utils/emoji-autocomplete';
 
 interface PostFormSignature {
   Args: {
@@ -22,6 +25,21 @@ export default class PostForm extends Component<PostFormSignature> {
 
   get cantSave() {
     return !this.body.length;
+  }
+
+  @action
+  didInsertForm() {
+    const emojiComplete = createEmojiAutocomplete();
+    const textarea: unknown = document.querySelector('#post-form-body');
+    if (textarea) {
+      const editor = new TextareaEditor(textarea as HTMLTextAreaElement);
+      new Textcomplete(editor, [emojiComplete], {
+        dropdown: {
+          maxCount: 10,
+          placement: 'top',
+        },
+      });
+    }
   }
 
   @action

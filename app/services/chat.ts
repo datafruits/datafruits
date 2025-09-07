@@ -39,6 +39,9 @@ export default class ChatService extends Service {
 
   @tracked _fruitCounts: FruitCount = {};
 
+  @tracked limitBreakActivated: boolean = false; // TODO
+  @tracked limitBreakProgress: number = 0;
+
   @tracked loading: boolean = true;
 
   username: string = '';
@@ -136,6 +139,7 @@ export default class ChatService extends Service {
       .receive('ok', () => {
         if (isDestroyed(this) || isDestroying(this)) return;
         if (this.session.isAuthenticated && this.currentUser.user) {
+          console.log('join and authorized ok');
           this.joinAndAuthorize(this.currentUser.user, this.session.data.authenticated.token);
         } else {
           this.loading = false;
@@ -152,6 +156,14 @@ export default class ChatService extends Service {
 
     this.chan.onClose(function (/*e*/) {
       //return console.log("channel closed", e);
+    });
+
+    this.chan.on('join', (msg) => {
+      console.log('on join: ', msg);
+      if(msg.hype_meter_status === "active") {
+        this.limitBreakActivated = true;
+      }
+      this.limitBreakProgress = msg.limit_break_percentage;
     });
 
     this.chan.on('treasure:received', (msg) => {
@@ -214,6 +226,7 @@ export default class ChatService extends Service {
 
     this.chan.on('authorized', (msg) => {
       this.username = msg.user;
+      console.log('user authorized msg: ', msg);
       const token = msg.token;
       if (token) {
         this.token = msg.token;
@@ -266,6 +279,26 @@ export default class ChatService extends Service {
       }
     });
 
+    this.chan.on('limit_break_increase', (msg) => {
+      console.log('limit break increased!: ', msg);
+      this.limitBreakProgress = msg.percentage;
+    });
+
+    this.chan.on('limit_break_reached', (msg) => {
+      console.log('limit break reached!: ', msg);
+      this.eventBus.publish("limitBreakReached", msg.combo);
+    });
+
+    this.chan.on('limit_break_activate', () => {
+      console.log('limit break activated!');
+      this.limitBreakActivated = true;
+    });
+    //
+    this.chan.on('limit_break_deactivate', () => {
+      console.log('limit break deactivated!');
+      this.limitBreakActivated = false;
+    });
+
     this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
 
     this.notificationChan = socket.channel('user_notifications', {});
@@ -287,5 +320,11 @@ export default class ChatService extends Service {
       this.messages = [...this.messages, msg];
     });
 
+  }
+
+  willDestroy(): void {
+    console.log('chat willDestroy');
+    super.willDestroy();
+    this.eventBus.unsubscribe('trackPlayed', this, 'onTrackPlayed');
   }
 }

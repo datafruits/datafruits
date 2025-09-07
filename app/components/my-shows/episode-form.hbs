@@ -12,7 +12,7 @@
             />
           <div>
             <div>
-              <span>Air date:</span> {{format-day @episode.start}} - {{format-time @episode.start}}
+              <span>{{t "profile.my-shows.form.air-date"}}</span> {{format-day @episode.start}} - {{format-time @episode.start}}
             </div>
             <label class="align-top" for="show-artwork"> {{t "profile.my-shows.form.artwork"}}</label>
             <br/>
@@ -32,6 +32,7 @@
               id="showArtwork"
               name="showArtwork"
               type="file"
+              accept="image/*"
               {{on "change" this.updateFile}}
             />
           </div>
@@ -57,7 +58,7 @@
           {{#if @episode.airDatePassed}}
             <h2
               class="text-x">
-              ARCHIVE
+              {{t "profile.my-shows.form.archive"}}
             </h2>
             <Form.Checkbox
               @type="checkbox"
@@ -72,7 +73,7 @@
             <div class="mb-2">
               <h3
                 class="text-l">
-                Select recording
+                {{t "profile.my-shows.form.select-recording"}}
               </h3>
               <MyShows::RecordingsSearch
                 @changeset={{changeset}}
@@ -93,7 +94,7 @@
               @fieldName="soundcloudLink"
               @containerClass='mb-2'
             />
-            <label for="archive-status">Archive Status</label>
+            <label for="archive-status">{{t "profile.my-shows.form.archive-status"}}</label>
             <select
               id="archive-status"
               {{on "change" (pick "target.value" (set changeset "status"))}}

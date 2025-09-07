@@ -13,6 +13,7 @@ interface FruitTipPayload {
   timestamp: number
   token?: string
   isFruitSummon?: boolean
+  cost?: number
 }
 
 export default class FruitTipComponent extends Component {
@@ -27,7 +28,7 @@ export default class FruitTipComponent extends Component {
     return this.chat.getFruitCount('total');
   }
 
-  _pushFruitTip(fruitName: string, isFruitSummon: boolean = false) {
+  _pushFruitTip(fruitName: string, isFruitSummon: boolean = false, cost?: number) {
     const payload: FruitTipPayload = {
         user: this.chat.username,
         fruit: fruitName,
@@ -38,6 +39,7 @@ export default class FruitTipComponent extends Component {
     }
     if(isFruitSummon) {
       payload.isFruitSummon = true;
+      payload.cost = cost;
     }
     this.chat.push('new:fruit_tip', payload);
   }
@@ -53,7 +55,7 @@ export default class FruitTipComponent extends Component {
           await fruitSummon.save();
           // reload current user to get new balance
           await this.currentUser.load(true);
-          this._pushFruitTip(fruit.name, true);
+          this._pushFruitTip(fruit.name, true, fruit.cost);
         } catch (error) {
           alert('couldnt do fruit summon!');
           console.log(error);

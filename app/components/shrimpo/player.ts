@@ -4,6 +4,7 @@ import EventBusService from 'datafruits13/services/event-bus';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import { TrackEventPayload, PlayerState } from '../../types/player';
 
 interface ShrimpoPlayerArgs {
   shrimpoEntry: ShrimpoEntry;
@@ -13,23 +14,31 @@ export default class ShrimpoPlayer extends Component<ShrimpoPlayerArgs> {
   @service declare eventBus: EventBusService;
 
   @tracked
-  playing: boolean = false;
+  playerState: PlayerState = PlayerState.Paused;
 
-  @tracked
-  paused: boolean = true;
+  get playing(): boolean {
+    return this.playerState === PlayerState.Playing;
+  }
 
-  @action
-  play() {
-    this.playing = true;
-    this.paused = false;
-    this.eventBus.publish('trackPlayed', { title: this.args.shrimpoEntry.title, cdnUrl: this.args.shrimpoEntry.cdnUrl, id: this.args.shrimpoEntry.id, track_id: this.args.shrimpoEntry.id });
-    //
+  get paused(): boolean {
+    return this.playerState === PlayerState.Paused;
   }
 
   @action
-  pause() {
-    this.playing = false;
-    this.paused = true;
+  play(): void {
+    this.playerState = PlayerState.Playing;
+    const payload: TrackEventPayload = {
+      title: this.args.shrimpoEntry.title,
+      cdnUrl: this.args.shrimpoEntry.cdnUrl,
+      id: this.args.shrimpoEntry.id,
+      track_id: this.args.shrimpoEntry.id
+    };
+    this.eventBus.publish('trackPlayed', payload);
+  }
+
+  @action
+  pause(): void {
+    this.playerState = PlayerState.Paused;
     this.eventBus.publish('trackPaused', this);
   }
 }

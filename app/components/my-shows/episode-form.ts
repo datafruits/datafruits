@@ -13,6 +13,7 @@ interface MyShowsEpisodeFormArgs {
 export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs> {
   @service declare router: any;
   @service declare currentUser: any;
+  @service declare intl: any;
 
   file: Blob | null = null;
 
@@ -34,8 +35,19 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   }
 
   @action updateFile(e: any){
-    this.file = e.target.files[0];
-    this.args.episode.imageFilename = e.target.files[0].name;
+    const file = e.target.files[0];
+    if (!file) return;
+
+    // Validate file type - only allow images
+    const validImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+    if (!validImageTypes.includes(file.type)) {
+      alert(this.intl.t('profile.my-shows.form.invalid-file-type'));
+      e.target.value = ''; // Clear the input
+      return;
+    }
+
+    this.file = file;
+    this.args.episode.imageFilename = file.name;
     const reader = new FileReader();
 
     reader.onload = (e) => {
@@ -56,14 +68,14 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
 
   @action
   onError() {
-    console.log('couldnt ssave show');
+    console.log(this.intl.t('profile.my-shows.form.save-error'));
   }
 
   @action
   deleteEpisode() {
-    if(confirm("Are you sure?!!!")) {
+    if(confirm(this.intl.t('profile.my-shows.form.confirm-delete'))) {
       this.args.episode.destroyRecord().then(() => {
-        alert("Goodbye episode. :(");
+        alert(this.intl.t('profile.my-shows.form.episode-deleted'));
         //redirect to /my-shows
         this.router.transitionTo('home.user.my-shows');
       });

@@ -43,6 +43,7 @@ export default class PixiComponent extends Component {
   constructor() {
     super(...arguments);
     this.eventBus.subscribe("fruitTipped", this, "addFruitTip");
+    this.eventBus.subscribe("limitBreakReached", this, "addFruitTip");
     this.eventBus.subscribe("weatherChanged", this, "reinitPixi");
     this.eventBus.subscribe("treasureOpened", this, "treasureOpened");
   }
@@ -393,9 +394,9 @@ export default class PixiComponent extends Component {
       "/assets/images/wormy.png"
     );
 
-    this.app.loader.onProgress.add((loader, resource) => {
-      console.log(`Loading ${resource.name}: ${loader.progress}%`);
-    });
+    // this.app.loader.onProgress.add((loader, resource) => {
+    //   console.log(`Loading ${resource.name}: ${loader.progress}%`);
+    // });
 
     this.app.loader.onError.add((error) => {
       console.error(`PIXI Loader Error: ${error}`);
@@ -445,6 +446,7 @@ export default class PixiComponent extends Component {
         res.peachy.spritesheet.animations["peachy"];
 
       this.animations.canteloper = res.canteloper.spritesheet.animations["canteloper"];
+      this.animations.corncobby = res.corncobby.spritesheet.animations["corncobby"];
 
       this.animations.megaBeamsprout = res.megaBeamsprout.spritesheet.animations["beamsprout_spin"];
       this.animations.treasureChestGlorpOpen = res.treasureChestGlorpOpen.spritesheet.animations["treasure_chest_open_glorp"];
