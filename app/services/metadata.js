@@ -49,6 +49,7 @@ export default class MetadataService extends Service {
 
     registerDestructor(this, () => {
       metadataChannel.off('metadata');
+      metadataChannel.off('canonical_metadata');
     });
   }
 }

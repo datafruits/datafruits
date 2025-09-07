@@ -31,6 +31,14 @@ export default class PodcastTrack extends Component<PodcastTrackArgs> {
     this.eventBus.subscribe('trackPaused', this, 'onTrackPaused');
   }
 
+  @action
+  willDestroy(): void {
+    super.willDestroy();
+    this.eventBus.unsubscribe('trackPlayed', this, 'onTrackPlayed');
+    this.eventBus.unsubscribe('trackPaused', this, 'onTrackPaused');
+  }
+
+
   @service
   declare eventBus: any;
 
