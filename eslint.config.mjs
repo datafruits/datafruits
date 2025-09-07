@@ -92,7 +92,7 @@ export default ts.config(
       parser: tsParser,
       parserOptions: parserOptions.esm.ts,
     },
-    extends: [...ts.configs.recommendedTypeChecked, ember.configs.gts],
+    extends: [...ts.configs.recommendedTypeChecked, ember.configs.base],
     plugins: {
       '@typescript-eslint': tsPlugin,
     },

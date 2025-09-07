@@ -82,9 +82,17 @@
         "soundcloud-link": "SoundCloudのURL",
         "prerecorded-archive": "事前に記録されたファイルをアーカイブとして使用する",
         "update": "保存",
+        "delete": "エピソードを削除",
         "prerecorded-set": "録音済みセット",
         "choose-file": "ファイルを選択してください",
-        "invalid-file-type": "アートワークには画像ファイル（JPEG、PNG、GIF、WebP）のみが許可されています！"
+        "invalid-file-type": "アートワークには画像ファイル（JPEG、PNG、GIF、WebP）のみが許可されています！",
+        "air-date": "放送日:",
+        "archive": "アーカイブ",
+        "select-recording": "録音を選択",
+        "archive-status": "アーカイブステータス",
+        "confirm-delete": "本当に削除しますか？",
+        "episode-deleted": "さようなら、エピソード。:(",
+        "save-error": "番組を保存できませんでした"
       }
     },
     "notifications": {

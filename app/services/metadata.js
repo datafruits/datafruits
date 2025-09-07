@@ -20,18 +20,18 @@ export default class MetadataService extends Service {
     metadataChannel
       .join()
       .receive('ignore', function () {
-        return console.log('auth error');  
+        return console.log('auth error');
       })
       .receive('ok', function () {
-        return console.log('metadata join ok');  
+        return console.log('metadata join ok');
       })
       .receive('timeout', function () {
-        return console.log('Connection interruption');  
+        return console.log('Connection interruption');
       });
 
     metadataChannel.on('metadata', (metadata) => {
-      console.log(`metadata channel donation_link: ${metadata.donation_link}`);  
-      console.log(`metadata channel message: ${metadata.message}`);  
+      console.log(`metadata channel donation_link: ${metadata.donation_link}`);
+      console.log(`metadata channel message: ${metadata.message}`);
       if (!isEmpty(metadata.message)) {
         this.title = metadata.message;
         this.eventBus.publish('metadataUpdate', metadata.message);
@@ -42,8 +42,14 @@ export default class MetadataService extends Service {
       }
     });
 
+    metadataChannel.on('canonical_metadata', (metadata) => {
+      console.log('metadata channel canonical_metadata: ', metadata);
+      this.eventBus.publish('canonicalMetadataUpdate', metadata);
+    });
+
     registerDestructor(this, () => {
       metadataChannel.off('metadata');
+      metadataChannel.off('canonical_metadata');
     });
   }
 }
