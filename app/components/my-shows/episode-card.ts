@@ -26,5 +26,5 @@ export default class MyShowsEpisodeCard extends Component<MyShowsEpisodeCardArgs
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     MyShowsEpisodeCard: typeof MyShowsEpisodeCard;
-  }
+  };;;;;;;;;;
 }

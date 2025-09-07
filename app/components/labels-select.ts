@@ -66,5 +66,5 @@ export default class LabelsSelect extends Component<LabelsSelectArgs> {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     LabelsSelect: typeof LabelsSelect;
-  }
+  };;;;;;;;;;
 }

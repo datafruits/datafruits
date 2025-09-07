@@ -38,5 +38,5 @@ export default class ChatSettings extends Component {
 declare module "@glint/environment-ember-loose/registry" {
   export default interface Registry {
     ChatSettings: typeof ChatSettings;
-  }
+  };;;;;;;;;;
 }

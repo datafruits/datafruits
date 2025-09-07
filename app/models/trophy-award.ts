@@ -20,5 +20,5 @@ export default class TrophyAward extends Model {
 declare module 'ember-data/types/registries/model' {
   export default interface ModelRegistry {
     'trophy-award': TrophyAward;
-  }
+  };;;;;;;;;;
 }

@@ -20,6 +20,6 @@ export default class VirusPopup extends Component<VirusPopupSignature> {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     VirusPopup: typeof VirusPopup;
-  }
+  };;;;;;;;;;
 }
 

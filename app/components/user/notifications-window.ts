@@ -40,5 +40,5 @@ export default class UserNotificationsWindow extends Component {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     UserNotificationsWindow: typeof UserNotificationsWindow;
-  }
+  };;;;;;;;;;
 }

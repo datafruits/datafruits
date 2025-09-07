@@ -85,6 +85,6 @@ export default class FruitsAffinity extends Component<FruitsAffinitySignature> {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     FruitsAffinity: typeof FruitsAffinity;
-  }
+  };;;;;;;;;;
 }
 

@@ -111,5 +111,5 @@ export default class TimePickerComponent extends Component<TimePickerArgs> {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     TimePickerComponent: typeof TimePickerComponent;
-  }
+  };;;;;;;;;;
 }

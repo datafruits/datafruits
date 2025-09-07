@@ -63,6 +63,6 @@ export default class PasswordForm extends Component<PasswordFormSignature> {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     PasswordForm: typeof PasswordForm;
-  }
+  };;;;;;;;;;
 }
 

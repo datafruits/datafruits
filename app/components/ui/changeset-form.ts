@@ -109,5 +109,5 @@ export default class UiChangesetFormComponent extends Component<UiChangesetFormS
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     'Ui::ChangesetForm': typeof UiChangesetFormComponent;
-  }
+  };;;;;;;;;;
 }

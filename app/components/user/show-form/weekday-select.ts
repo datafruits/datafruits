@@ -21,5 +21,5 @@ export default class UserShowFormWeekdaySelect extends Component<UserShowFormWee
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     'User::ShowForm::WeekdaySelect': typeof UserShowFormWeekdaySelect;
-  }
+  };;;;;;;;;;
 }

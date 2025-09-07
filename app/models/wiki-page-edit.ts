@@ -11,5 +11,5 @@ export default class WikiPageEdit extends Model {
 declare module 'ember-data/types/registries/model' {
   export default interface ModelRegistry {
     'wiki-page-edit': WikiPageEdit;
-  }
+  };;;;;;;;;;
 }

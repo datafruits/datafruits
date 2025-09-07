@@ -91,6 +91,7 @@ export default class AdminBarChart extends Component<AdminBarChartSignature> {
 
   @action
   willDestroy() {
+super.willDestroy(...arguments);
     if (this.chart) {
       this.chart.destroy();
     }
@@ -100,5 +101,5 @@ export default class AdminBarChart extends Component<AdminBarChartSignature> {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
     AdminBarChart: typeof AdminBarChart;
-  }
+  };;;;;;;;;;
 }
