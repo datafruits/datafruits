@@ -235,7 +235,7 @@
       "form": {
         "title": "Title",
         "description": "Description",
-        "artwork": "Default Artwork",
+        "artwork": "Artwork",
         "start": "Date/Time",
         "end": "End",
         "repeating": "Repeating or one off",
@@ -251,6 +251,7 @@
         "air-date": "Air date:",
         "archive": "ARCHIVE",
         "select-recording": "Select recording",
+        "upload-new": "Upload a set",
         "archive-status": "Archive Status",
         "confirm-delete": "Are you sure?!!!",
         "episode-deleted": "Goodbye episode. :(",
