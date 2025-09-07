@@ -75,6 +75,15 @@ export default class DatafruitsPlayer extends Component {
     }
   }
 
+  @action
+  willDestroy(): void {
+    super.willDestroy();
+    this.eventBus.unsubscribe("trackPlayed", this, "onTrackPlayed");
+    this.eventBus.unsubscribe("metadataUpdate", this, "setRadioTitle");
+    this.eventBus.unsubscribe("liveVideoAudio", this, "useVideoAudio");
+    this.eventBus.unsubscribe("liveVideoAudioOff", this, "disableVideoAudio");
+  }
+
   get isLive() {
     const title = this.title;
     return !isEmpty(title) && title.startsWith("LIVE");
