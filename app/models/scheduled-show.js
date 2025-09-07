@@ -117,8 +117,4 @@ export default class ScheduledShow extends Model {
   get airDatePassed() {
     return new Date(this.end) < new Date();
   }
-
-  get isUsingPrerecord() {
-    return !this.usePrerecordedFileForArchive;
-  }
 }
