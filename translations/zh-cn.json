@@ -9,7 +9,7 @@
   },
   "profile": {
     "favorites": "收藏夹",
-    "uploading-progress": "正在上传{{count}}个文件。 ({{progress}}%)"
+    "uploading-progress": "正在上传{count}个文件。 ({progress}%)"
   },
   "chat": {
     "title": "聊天室",

@@ -5,7 +5,7 @@
   },
   "profile": {
     "favorites": "Favoritas",
-    "uploading-progress": "Subiendo {{count}} archivos. ({{progress}}%)"
+    "uploading-progress": "Subiendo {count} archivos. ({progress}%)"
   },
   "usermenu": {
     "settings": "Editar perfil",
