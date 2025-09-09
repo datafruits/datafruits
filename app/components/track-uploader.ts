@@ -15,7 +15,6 @@ interface TrackUploaderArgs {
 export default class TrackUploader extends Component<TrackUploaderArgs> {
   @service declare store: any;
   @service declare session: any;
-  declare enabled: boolean;
 
   signingUrl = `${ENV.API_HOST}/uploader_signature`;
 
