@@ -6,77 +6,97 @@
     @onSubmit={{this.onSubmit}}
     as |Form|
   >
-    <h5 class="italic text-xs">(episode update form)</h5>
     <section class="my-2">
+
+      {{! header and time stamp}}
       <div class="flex justify-start italic text-sm my-1">
-        <span>
-          {{t "profile.my-shows.form.air-date"}}
-        </span>
+        <span>{{t "profile.my-shows.form.air-date"}}</span>
         <span>
           {{format-day @episode.start}}
           -
           {{format-time @episode.start}}
         </span>
       </div>
-      <Form.Input
-        @label={{t "profile.my-shows.form.title"}}
-        @fieldName="title"
-        @containerClass="mb-2 flex justify-between"
-      />
-      <Form.Textarea
-        @label={{t "profile.my-shows.form.description"}}
-        @fieldName="description"
-        @containerClass="mb-2 flex justify-between"
-        @size="lg"
-        @value={{changeset.description}}
-        rows="5"
-        cols="35"
-      />
-      <LabelsSelect
-        class="my-2 flex justify-between"
-        @changeset={{changeset}}
-      />
-      {{! episode artwork uploader }}
-      <div class="flex justify-start mb-4">
 
+      {{! title, description, and tag input }}
+      <div>
+        <Form.Input
+          @label={{t "profile.my-shows.form.title"}}
+          @fieldName="title"
+          @containerClass="mb-2 flex justify-start gap-4"
+        />
+        <Form.Textarea
+          @label={{t "profile.my-shows.form.description"}}
+          @fieldName="description"
+          @containerClass="mb-2 flex justify-start gap-4"
+          @size="lg"
+          @value={{changeset.description}}
+          rows="5"
+          cols="35"
+        />
+        <LabelsSelect
+          class="my-2 flex justify-start gap-4"
+          @changeset={{changeset}}
+        />
+      </div>
+
+      {{! episode artwork uploader }}
+      <div class="flex justify-start gap-10 mb-4 relative">
         <label class="align-top" for="show-artwork">
           {{t "profile.my-shows.form.artwork"}}
         </label>
-        <input
-          class="text-df-yellow semibold border-dashed"
-          id="showArtwork"
-          name="showArtwork"
-          type="file"
-          accept="image/*"
-          {{on "change" this.updateFile}}
-        />
-        {{#if @episode.isNew}}
-          {{#if changeset.image}}
-            <img
-              alt="artwork"
-              width="300"
-              height="300"
-              src="{{changeset.image}}"
-            />
-          {{/if}}
-        {{else}}
-          {{#if changeset.thumbImageUrl}}
-            <img
-              alt="artwork"
-              width="300"
-              height="300"
-              src="{{changeset.thumbImageUrl}}"
-            />
-          {{/if}}
-        {{/if}}
 
+        {{#let (episode-image-url changeset) as |imageUrl|}}
+          {{#if imageUrl}}
+            <div class="relative">
+              <img
+                alt="your show's artwork for this episode"
+                width="300"
+                height="300"
+                src={{imageUrl}}
+              />
+              <div
+                class="absolute size-24 bottom-0 left-0 flex items-center gap-2"
+              >
+                <label for="showArtwork">
+                  <input
+                    class="text-df-yellow semibold border-dashed"
+                    id="showArtwork"
+                    name="showArtwork"
+                    type="file"
+                    accept="image/*"
+                    {{on "change" this.updateFile}}
+                  />
+                </label>
+                <button
+                  type="button"
+                  class="cool-button"
+                  name="change"
+                  title="Remove artwork"
+                  {{on "click" (fn this.deleteFile changeset)}}
+                >
+                  X
+                </button>
+              </div>
+            </div>
+          {{else}}
+            {{! No image, show a simple file input }}
+            <input
+              class="text-df-yellow semibold border-dashed"
+              id="showArtwork"
+              name="showArtwork"
+              type="file"
+              accept="image/*"
+              {{on "change" this.updateFile}}
+            />
+          {{/if}}
+        {{/let}}
       </div>
+
+      {{! check if this is an archive  }}
       {{#if @episode.airDatePassed}}
-        <div class="">
-
-          <MyShows::RecordingSelector @changeset={{changeset}} />
-          <div class="my-2 flex justify-between">
-
+        <div>
+          <div class="my-2 flex justify-start gap-4">
             <label for="archive-status">
               {{t "profile.my-shows.form.archive-status"}}
             </label>
@@ -92,6 +112,7 @@
               {{/each-in}}
             </select>
           </div>
+          <MyShows::RecordingSelector @changeset={{changeset}} />
           <div class="my-2 py-2 border-2 border-red-400 border-dashed">
             <Form.Input
               @label={{t "profile.my-shows.form.youtube-link"}}
@@ -113,27 +134,39 @@
       {{else}}
         {{! airdate has *not* passed; its an upcoming show }}
         <div>
-          <TimePicker
-            @label="Start time"
-            @property="start"
-            @changeset={{changeset}}
-            @onChange={{this.setEndAfterStart}}
-          />
-          <TimePicker
-            @label="Duration"
-            @property="end"
-            @changeset={{changeset}}
-            @startTime={{changeset.start}}
-          />
+          <div class="flex justify-start gap-4 my-4">
+            <label>{{t "profile.my-shows.form.time-len"}}</label>
+            <TimePicker
+              @label="Start time"
+              @property="start"
+              @changeset={{changeset}}
+              @onChange={{this.setEndAfterStart}}
+            />
+            <TimePicker
+              @label="Duration"
+              @property="end"
+              @changeset={{changeset}}
+              @startTime={{changeset.start}}
+            />
+          </div>
         </div>
-        <h4>
-          {{t "profile.my-shows.form.prerecorded-set"}}
-        </h4>
-        <TrackUploader
-          @changeset={{changeset}}
-          @onStartUpload={{this.onStartUpload}}
-          @onFinishUpload={{this.onFinishUpload}}
-        />
+        <div class="flex justify-start gap-10 mb-4 relative">
+
+          <label>{{t "profile.my-shows.form.upload-new"}}</label>
+          <div class="flex justify-end gap-2">
+            <label class="italic text-xs text-white align-sub">
+              {{t "profile.my-shows.form.choose-file"}}
+            </label>
+            <input
+              class="text-df-yellow semibold border-dashed"
+              id="showArtwork"
+              name="showArtwork"
+              type="file"
+              accept="image/*"
+              {{on "change" this.updateFile}}
+            />
+          </div>
+        </div>
         {{#if changeset.prerecordTrackId}}
           {{changeset.prerecordTrackFilename}}
         {{/if}}
