@@ -1,6 +1,4 @@
 import Route from '@ember/routing/route';
-import ENV from 'datafruits13/config/environment';
-import { metaToHeadTags } from 'ember-cli-meta-tags';
 import { service } from '@ember/service';
 
 export default class ShowRoute extends Route {
