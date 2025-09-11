@@ -10,6 +10,6 @@ export default helper(function markedDown(string) {
   }
   const converter = new showdown.Converter({ simplifiedAutoLink: true });
   return htmlSafe(
-    emojione.shortnameToImage(converter.makeHtml(string.toString()))
+    converter.makeHtml(emojione.shortnameToImage(string.toString()))
   );
 });
