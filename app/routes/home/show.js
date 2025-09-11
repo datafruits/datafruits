@@ -14,6 +14,8 @@ export default class ShowRoute extends Route {
   afterModel(model) {
     this.headData.title = `datafruits.fm - ${model.title}`;
     this.headData.description = model.description;
-    this.headData.image = model.imageUrl;
+    // Use thumbImageUrl for social media embeds as it's more reliable and appropriately sized
+    // Fall back to imageUrl if thumbImageUrl is not available
+    this.headData.image = model.thumbImageUrl || model.imageUrl;
   }
 }
