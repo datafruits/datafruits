@@ -47,13 +47,7 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
     if (!file) return;
 
     // Validate file type - only allow images
-    const validImageTypes = [
-      'image/jpeg',
-      'image/jpg',
-      'image/png',
-      'image/gif',
-      'image/webp',
-    ];
+    const validImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
     if (!validImageTypes.includes(file.type)) {
       alert(this.intl.t('profile.my-shows.form.invalid-file-type'));
       e.target.value = ''; // Clear the input
