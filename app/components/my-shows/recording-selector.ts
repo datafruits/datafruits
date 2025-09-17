@@ -12,7 +12,6 @@ export default class RecordingSelectorComponent extends Component<RecordingSelec
 
   constructor(owner: unknown, args: RecordingSelectorArgs) {
     super(owner, args);
-    this.initializeSelectedOption();
   }
 
   @action
@@ -25,18 +24,6 @@ export default class RecordingSelectorComponent extends Component<RecordingSelec
     } else if (option === 'prerecorded') {
       this.args.changeset.set('prerecordTrackFile', null);
       this.args.changeset.set('prerecordTrackFilename', null);
-    }
-  }
-
-  private initializeSelectedOption(): void {
-    const { changeset } = this.args;
-    if (
-      changeset.get('prerecordTrackId') ||
-      changeset.get('usePrerecordedFileForArchive')
-    ) {
-      this.selectedOption = 'prerecorded';
-    } else {
-      this.selectedOption = 'upload';
     }
   }
 }
