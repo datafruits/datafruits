@@ -21,10 +21,14 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
     Unpublished: 'archive_unpublished',
   };
 
-  @action deleteFile() {
-    console.log('delete file triggered');
-    this.file = null;
-    // not working yet
+  @action deleteFile(changeset: BufferedChangeset) {
+    if (changeset.get('image')) {
+      changeset.set('image', '');
+    }
+
+    if (changeset.get('thumbImageUrl')) {
+      changeset.set('thumbImageUrl', '');
+    }
   }
   @tracked isUploading: boolean = false;
 
