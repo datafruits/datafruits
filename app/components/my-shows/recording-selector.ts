@@ -10,10 +10,6 @@ interface RecordingSelectorArgs {
 export default class RecordingSelectorComponent extends Component<RecordingSelectorArgs> {
   @tracked selectedOption: 'prerecorded' | 'upload' = 'prerecorded';
 
-  constructor(owner: unknown, args: RecordingSelectorArgs) {
-    super(owner, args);
-  }
-
   @action
   selectOption(option: 'prerecorded' | 'upload'): void {
     this.selectedOption = option;
