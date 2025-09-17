@@ -15,6 +15,7 @@ export default class WebsiteSettings extends Component {
   @service declare chat: ChatService;
   @service declare videoStream: VideoStreamService;
   @service declare eventBus: EventBusService;
+  @service declare fastboot: any;
 
   @action
   toggleGifsEnabled() {
@@ -31,6 +32,10 @@ export default class WebsiteSettings extends Component {
     if (event.target) {
       const target = event.target as HTMLOptionElement;
       this.intl.setLocale(target.value);
+      // Save locale preference to localStorage for persistence
+      if (!this.fastboot.isFastBoot) {
+        localStorage.setItem('datafruits-locale', target.value);
+      }
     }
   }
 

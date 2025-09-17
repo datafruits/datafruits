@@ -10,7 +10,8 @@
         "artwork": "Obra de arte",
         "upload-new": "Subir un conjunto"
       }
-    }
+    },
+    "uploading-progress": "Subiendo {count} archivos. ({progress}%)"
   },
   "usermenu": {
     "settings": "Editar perfil",

@@ -30,13 +30,21 @@ export default class HomeRoute extends Route {
     if (!this.fastboot.isFastBoot) {
       let locales = this.intl.locales;
       let language;
-      console.log(navigator.languages);
-      if (navigator.languages) {
-        language = navigator.languages[0];
+      
+      // First check if user has a saved locale preference
+      let savedLocale = localStorage.getItem('datafruits-locale');
+      if (savedLocale && locales.includes(savedLocale.toLowerCase())) {
+        language = savedLocale;
       } else {
-        language = navigator.language || navigator.userLanguage;
+        // Fall back to browser language detection
+        console.log(navigator.languages);
+        if (navigator.languages) {
+          language = navigator.languages[0];
+        } else {
+          language = navigator.language || navigator.userLanguage;
+        }
+        language = locales.includes(language.toLowerCase()) ? language : 'en';
       }
-      language = locales.includes(language.toLowerCase()) ? language : 'en';
 
       //this.intl.locale = language;
       this.intl.setLocale(language);
