@@ -1,10 +1,19 @@
 {{#let (file-queue name="track" onFileAdded=this.uploadTrack) as |queue|}}
-  <label>
-    {{t "profile.my-shows.form.choose-file"}}
-    <input type="file" {{queue.selectFile}}>
-  </label>
+  <div class="flex justify-end">
+    <label class="italic text-xs text-white align-sub">
+      {{t "profile.my-shows.form.choose-file"}}
+    </label>
+    <input class="mx-1" type="file" {{queue.selectFile}} />
+  </div>
 
   {{#if queue.files.length}}
-    Uploading {{queue.files.length}} files. ({{queue.progress}}%)
+    <div class="upload-progress-container">
+      <div class="upload-progress-text">
+        {{t "profile.uploading-progress" count=queue.files.length progress=queue.progress}}
+      </div>
+      <div class="upload-progress-bar">
+        <div class="upload-progress-fill" style={{html-safe-string (concat "width: " queue.progress "%")}}></div>
+      </div>
+    </div>
   {{/if}}
 {{/let}}

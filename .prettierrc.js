@@ -6,6 +6,7 @@ module.exports = {
       files: '*.{js,ts}',
       options: {
         singleQuote: true,
+        printWidth: 120,
       },
     },
   ],

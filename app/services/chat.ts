@@ -321,4 +321,10 @@ export default class ChatService extends Service {
     });
 
   }
+
+  willDestroy(): void {
+    console.log('chat willDestroy');
+    super.willDestroy();
+    this.eventBus.unsubscribe('trackPlayed', this, 'onTrackPlayed');
+  }
 }

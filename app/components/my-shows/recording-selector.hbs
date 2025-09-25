@@ -1,0 +1,45 @@
+<div class="mb-2">
+  <div class="flex justify-around">
+    <label>
+      <input
+        type="radio"
+        name="recording-option"
+        value="prerecorded"
+        checked={{eq this.selectedOption "prerecorded"}}
+        {{on "change" (fn this.selectOption "prerecorded")}}
+        class="form-radio text-df-yellow"
+      />
+      <span class="my-1 text-sm">
+        {{t "profile.my-shows.form.select-recording"}}
+      </span>
+    </label>
+
+    <label>
+      <input
+        type="radio"
+        name="recording-option"
+        value="upload"
+        checked={{eq this.selectedOption "upload"}}
+        {{on "change" (fn this.selectOption "upload")}}
+        class="form-radio text-df-yellow"
+      />
+      <span class="my-1 text-sm">
+        {{t "profile.my-shows.form.upload-new"}}
+      </span>
+    </label>
+  </div>
+
+  {{! Conditionally render based on the selected option }}
+  {{#if (eq this.selectedOption "prerecorded")}}
+    <MyShows::RecordingsSearch @changeset={{@changeset}} />
+  {{else if (eq this.selectedOption "upload")}}
+    <TrackUploader @changeset={{@changeset}} />
+  {{/if}}
+
+  {{! Display selected file name, if it exists }}
+  {{#if @changeset.prerecordTrackFilename}}
+    <span
+      class="mt-2 text-xs italic"
+    >{{@changeset.prerecordTrackFilename}}</span>
+  {{/if}}
+</div>
