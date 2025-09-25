@@ -6,7 +6,7 @@
     {{@episode.title}}
   </LinkTo>
   <div>
-    <span>Date:</span> {{format-day @episode.start}}
+    <span>{{t "episode.date"}}</span> {{format-day @episode.start}}
   </div>
   <div class="self-center w-full h-full mb-2">
     <LinkTo
@@ -18,7 +18,7 @@
   </div>
   <div class="my-2">
     <div>
-      <span>Status:</span> {{@episode.status}}
+      <span>{{t "episode.status"}}</span> {{@episode.status}}
     </div>
   </div>
   <div class="my-2">
