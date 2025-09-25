@@ -299,8 +299,8 @@
   },
   "show_form": {
     "host": "ホスト",
-    "repeating": "繰り返し",
-    "one_off": "一回限り",
+    "repeating": "定期",
+    "one_off": "単発",
     "weekly": "毎週",
     "biweekly": "隔週（2週間おき）",
     "monthly": "毎月",
@@ -329,8 +329,8 @@
     "congratulation": "おめでとう"
   },
   "shrimpo_voting": {
-    "voting_happens_now": "シュリンプ投票が始まります！",
+    "voting_happens_now": "SHRIMPO投票が始まります！",
     "rate_tune_by": "曲を評価してください。",
-    "login_to_vote": "シュリンプに投票するにはログインまたは登録してください！"
+    "login_to_vote": "SHRIMPOに投票するにはログインまたは登録してください！"
   }
 }
