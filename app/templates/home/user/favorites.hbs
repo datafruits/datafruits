@@ -1,6 +1,17 @@
 <div class="page-spacing">
   <h1 class="debussy-header">{{t "profile.my_favorites"}}</h1>
-  <div class="bg-df-blue-dark blm:bg-black rounded py-2">
-    <UserFavorites />
+  
+  <div class="mb-6">
+    <h2 class="text-xl font-bold mb-3">{{t "profile.favorited_shows"}}</h2>
+    <div class="bg-df-blue-dark blm:bg-black rounded py-2">
+      <UserFavorites />
+    </div>
+  </div>
+
+  <div>
+    <h2 class="text-xl font-bold mb-3">{{t "profile.favorited_podcasts"}}</h2>
+    <div class="bg-df-blue-dark blm:bg-black rounded py-2">
+      <UserPodcastFavorites />
+    </div>
   </div>
 </div>
