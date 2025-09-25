@@ -73,9 +73,10 @@
       "form": {
         "title": "タイトル",
         "description": "詳細",
-        "artwork": "画像",
+        "artwork": "アートワーク",
         "start": "日付/時間",
         "end": "End",
+        "upload-new": "セットをアップロードする",
         "repeating": "Repeating or one off",
         "youtube-link": "YoutubeのURL",
         "mixcloud-link": "MixcloudのURL",

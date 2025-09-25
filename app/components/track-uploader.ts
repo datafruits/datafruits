@@ -6,7 +6,6 @@ import fetch from 'fetch';
 import type { BufferedChangeset } from 'ember-changeset/types';
 //import type { UploadFile } from 'ember-file-upload/upload-file';
 
-
 interface TrackUploaderArgs {
   changeset: BufferedChangeset;
   onStartUpload: () => void | null;
@@ -25,15 +24,15 @@ export default class TrackUploader extends Component<TrackUploaderArgs> {
   uploadTrack(file: any) {
     window.onbeforeunload = function (e) {
       const dialogText =
-        'You are currently uploading files. Closing this tab will cancel the upload operation! Are you usure you want to close this tab?';
+        'You are currently uploading files. Closing this tab will cancel the upload operation! Are you sure you want to close this tab?';
       e.returnValue = dialogText;
       return dialogText;
     };
-    if(typeof this.args.onStartUpload == 'function') {
+    if (typeof this.args.onStartUpload == 'function') {
       this.args.onStartUpload();
     }
 
-    if(!this.validMimeTypes.includes(file.type)) {
+    if (!this.validMimeTypes.includes(file.type)) {
       alert('Only mp3 is supported! sorry...');
       return;
     }
@@ -54,7 +53,11 @@ export default class TrackUploader extends Component<TrackUploaderArgs> {
       'Content-Type': mimeType,
       'x-amz-acl': 'public-read',
     };
-    const params = { 'name': file.name.toString(), 'size': file.size.toString(), 'type': file.type.toString() };
+    const params = {
+      name: file.name.toString(),
+      size: file.size.toString(),
+      type: file.type.toString(),
+    };
     const searchParams = new URLSearchParams(Object.entries(params)).toString();
     fetch(`${this.signingUrl}?${searchParams}`, {
       headers: {
@@ -64,13 +67,16 @@ export default class TrackUploader extends Component<TrackUploaderArgs> {
       .then((response) => response.json())
       .then((data) => {
         track.set('audioFileName', data.endpoint.split('?')[0]);
-        return file.uploadBinary(data.endpoint, { method: 'PUT', headers: headers });
+        return file.uploadBinary(data.endpoint, {
+          method: 'PUT',
+          headers: headers,
+        });
       })
       .then((response) => {
         console.log(`uploaded: ${response}`);
         console.log(response);
         track.set('isUploading', false);
-        if(typeof this.args.onFinishUpload == 'function') {
+        if (typeof this.args.onFinishUpload == 'function') {
           this.args.onFinishUpload();
         }
         track
@@ -80,7 +86,10 @@ export default class TrackUploader extends Component<TrackUploaderArgs> {
             //this.flashMessages.success('Track uploaded!');
             window.onbeforeunload = null;
             this.args.changeset.set('prerecordTrackId', track.id);
-            this.args.changeset.set('prerecordTrackFilename', track.audioFileName);
+            this.args.changeset.set(
+              'prerecordTrackFilename',
+              track.audioFileName
+            );
           })
           .catch((reason: any) => {
             console.log(`track save failed: ${reason}`);
