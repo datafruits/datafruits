@@ -1,4 +1,4 @@
-import { createServer } from 'miragejs';
+import { createServer, Response } from 'miragejs';
 import {
   discoverEmberDataModels,
 } from 'ember-cli-mirage';
@@ -129,5 +129,70 @@ function routes(){
         },
       },
     };
+  });
+
+  // Scheduled show (episode) endpoints for my-shows/episode-form tests
+  this.get('/api/show_series/:show_series_id/episodes/:id.json', (schema, request) => {
+    const { id, show_series_id } = request.params;
+    return {
+      data: {
+        id: id,
+        type: 'scheduled-shows',
+        attributes: {
+          title: 'Test Episode',
+          description: 'A test episode for testing purposes',
+          start: '2024-01-01T12:00:00.000Z',
+          end: '2024-01-01T13:00:00.000Z',
+          'image-url': null,
+          'image-filename': null,
+          image: null,
+          'thumb-image-url': null,
+          status: 'archive_unpublished',
+          slug: 'test-episode',
+          'show-series-title': 'Test Show',
+          'show-series-slug': 'test-show',
+          'youtube-link': '',
+          'mixcloud-link': '',
+          'soundcloud-link': ''
+        },
+        relationships: {
+          'show-series': {
+            data: { id: show_series_id, type: 'show-series' }
+          },
+          recording: { data: null },
+          labels: { data: [] },
+          djs: { data: [{ id: '937', type: 'users' }] }
+        }
+      }
+    };
+  });
+
+  this.patch('/api/my_shows/:show_series_slug/episodes/:episode_slug.json', (schema, request) => {
+    const attrs = JSON.parse(request.requestBody);
+    const { show_series_slug, episode_slug } = request.params;
+    
+    return {
+      data: {
+        id: '1',
+        type: 'scheduled-shows',
+        attributes: {
+          ...attrs.data.attributes,
+          slug: episode_slug,
+          'show-series-slug': show_series_slug
+        },
+        relationships: {
+          'show-series': {
+            data: { id: '1', type: 'show-series' }
+          },
+          recording: { data: null },
+          labels: { data: [] },
+          djs: { data: [{ id: '937', type: 'users' }] }
+        }
+      }
+    };
+  });
+
+  this.delete('/api/my_shows/:show_series_slug/episodes/:id.json', () => {
+    return new Response(204, {}, '');
   });
 }

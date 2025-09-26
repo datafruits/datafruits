@@ -4,6 +4,7 @@
     @changeset={{changeset}}
     @onError={{this.onError}}
     @onSubmit={{this.onSubmit}}
+    data-test-episode-form
     as |Form|
   >
     <section class="my-2">
@@ -182,6 +183,7 @@
           (or Form.state.hasSubmitted changeset.isInvalid)
         )}}
         class="cool-button mb-2"
+        data-test-submit-button
       >
         {{t "profile.my-shows.form.update"}}
       </Button>
@@ -197,6 +199,7 @@
           @type="submit"
           @intent="danger"
           class="cool-button mb-2 danger"
+          data-test-delete-button
           {{on "click" this.deleteEpisode}}
         >
           {{t "profile.my-shows.form.delete"}}
