@@ -151,24 +151,19 @@
           </div>
         </div>
         <div class="flex justify-start gap-10 mb-4 relative">
-
           <label>{{t "profile.my-shows.form.upload-new"}}</label>
           <div class="flex justify-end gap-2">
-            <label class="italic text-xs text-white align-sub">
-              {{t "profile.my-shows.form.choose-file"}}
-            </label>
-            <input
-              class="text-df-yellow semibold border-dashed"
-              id="showArtwork"
-              name="showArtwork"
-              type="file"
-              accept="image/*"
-              {{on "change" this.updateFile}}
+            <TrackUploader
+              @changeset={{changeset}}
+              @onStartUpload={{this.onStartUpload}}
+              @onFinishUpload={{this.onFinishUpload}}
             />
           </div>
         </div>
         {{#if changeset.prerecordTrackId}}
-          {{changeset.prerecordTrackFilename}}
+          <div class="font-bold">
+            {{changeset.prerecordTrackFilename}}
+          </div>
         {{/if}}
       {{/if}}
     </section>
