@@ -16,7 +16,6 @@ export default class MyShowsTrackSelector extends Component<MyShowsTrackSelector
   @tracked tracks: any;
 
   @action didInsert() {
-    // TODO not sure if we need 'my'
     this.tracks = this.store.query('track', { my: true });
   }
 
@@ -34,7 +33,6 @@ export default class MyShowsTrackSelector extends Component<MyShowsTrackSelector
   _performSearch(term: string, resolve: any, reject: any) {
     this.store.query('track', { term: term, my: true }).then((tracks: any) => {
       this.tracks = tracks;
-      // if show has prerecorded file, add a fake option to use the prerecorded file???
       return resolve(tracks);
     }, reject);
   }
