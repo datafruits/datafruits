@@ -36,4 +36,8 @@ export default class Track extends Model {
   get labelNames() {
     return this.labels.map((label) => { return label.name; });
   }
+
+  get fileName() {
+    return this.audioFileName.split("/").pop();
+  }
 }
