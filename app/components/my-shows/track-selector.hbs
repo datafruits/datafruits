@@ -1,0 +1,10 @@
+<PowerSelect
+  {{did-insert this.didInsert}}
+  @searchEnabled={{true}}
+  @search={{this.searchTracks}}
+  @renderInPlace={{true}}
+  @options={{this.tracks}}
+  @selected={{@changeset.prerecordTrackFilename}}
+  @onChange={{this.selectTrack}} as |track|>
+  {{track.fileName}}
+</PowerSelect>
