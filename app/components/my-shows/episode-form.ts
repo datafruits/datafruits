@@ -14,22 +14,13 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   @service declare currentUser: any;
   @service declare intl: any;
 
-  @tracked file: Blob | null = null;
+  @tracked imagePreview: string | null = null;
 
   statusOptions = {
     Published: 'archive_published',
     Unpublished: 'archive_unpublished',
   };
 
-  @action deleteFile(changeset: BufferedChangeset) {
-    if (changeset.get('image')) {
-      changeset.set('image', '');
-    }
-
-    if (changeset.get('thumbImageUrl')) {
-      changeset.set('thumbImageUrl', '');
-    }
-  }
   @tracked isUploading: boolean = false;
 
   @tracked trackOption: string = 'upload';
@@ -56,11 +47,11 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
       return;
     }
 
-    this.file = file;
     this.args.episode.imageFilename = file.name;
     const reader = new FileReader();
 
     reader.onload = (e) => {
+      this.imagePreview = e.target?.result as string;
       this.args.episode.image = e.target?.result as string;
     };
     reader.onerror = (e) => {
@@ -68,7 +59,7 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
       console.log(e);
     };
 
-    reader.readAsDataURL(this.file as Blob);
+    reader.readAsDataURL(file as Blob);
   }
 
   @action
@@ -103,5 +94,15 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   @action
   selectTrackOption(option: 'upload' | 'track'): void {
     this.trackOption = option;
+ }
+
+ get imagePreviewSrc(): string | null {
+   if(this.imagePreview) {
+     return this.imagePreview;
+   } else if(this.args.episode.thumbImageUrl) {
+     return this.args.episode.thumbImageUrl;
+   } else {
+     return null;
+   }
  }
 }
