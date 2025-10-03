@@ -46,47 +46,22 @@
           {{t "profile.my-shows.form.artwork"}}
         </label>
 
-        {{#if @episode.isNew}}
-          <div class="">
-            {{#if changeset.image}}
-              <img alt="artwork" width="300" height="300"
-                src="{{changeset.image}}">
-            {{/if}}
-            <input
-              class="text-df-yellow semibold border-dashed"
-              id="showArtwork"
-              name="showArtwork"
-              type="file"
-              accept="image/*"
-              {{on "change" this.updateFile}}
-            />
-          </div>
-        {{else}}
-          <div class="">
+        <div class="">
+          {{#if this.imagePreviewSrc}}
             <div class="mb-2">
-              <img
-                alt="your show's artwork for this episode"
-                width="300"
-                height="300"
-                src={{changeset.thumbImageUrl}}
-              />
+              <img alt="artwork" width="300" height="300"
+                src="{{this.imagePreviewSrc}}" />
             </div>
-            <div
-              class="size-24 bottom-0 left-0 flex items-center gap-2"
-            >
-              <label for="showArtwork">
-                <input
-                  class="text-df-yellow semibold border-dashed"
-                  id="showArtwork"
-                  name="showArtwork"
-                  type="file"
-                  accept="image/*"
-                  {{on "change" this.updateFile}}
-                />
-              </label>
-            </div>
-          </div>
-        {{/if}}
+          {{/if}}
+          <input
+            class="text-df-yellow semibold border-dashed"
+            id="showArtwork"
+            name="showArtwork"
+            type="file"
+            accept="image/*"
+            {{on "change" this.updateFile}}
+          />
+        </div>
       </div>
 
       {{! check if this is an archive  }}
