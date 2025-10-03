@@ -83,6 +83,7 @@ export default class TrackUploader extends Component<TrackUploaderArgs> {
           .save()
           .then(() => {
             console.log('track saved!');
+            console.log(track);
             //this.flashMessages.success('Track uploaded!');
             window.onbeforeunload = null;
             this.args.changeset.set('prerecordTrackId', track.id);
