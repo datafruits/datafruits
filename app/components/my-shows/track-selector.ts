@@ -28,6 +28,8 @@ export default class MyShowsTrackSelector extends Component<MyShowsTrackSelector
   @action selectTrack(track: any) {
     this.args.changeset.set('prerecordTrackId', track.id);
     this.args.changeset.set('prerecordTrackFilename', track.audioFileName);
+    this.args.changeset.get('tracks').pop();
+    this.args.changeset.get('tracks').push(track);
   }
 
   _performSearch(term: string, resolve: any, reject: any) {
