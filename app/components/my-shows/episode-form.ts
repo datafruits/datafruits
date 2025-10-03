@@ -51,8 +51,7 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
     const reader = new FileReader();
 
     reader.onload = (e) => {
-      console.log('read file: ', e);
-      this.imagePreview = e.target?.result;
+      this.imagePreview = e.target?.result as string;
       this.args.episode.image = e.target?.result as string;
     };
     reader.onerror = (e) => {
