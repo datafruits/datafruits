@@ -32,6 +32,8 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   }
   @tracked isUploading: boolean = false;
 
+  @tracked trackOption: string = 'upload';
+
   @action
   onStartUpload() {
     this.isUploading = true;
@@ -97,4 +99,9 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
       changeset.set('endTime', startTime.add(1, 'hour'));
     }
   }
+
+  @action
+  selectTrackOption(option: 'upload' | 'track'): void {
+    this.trackOption = option;
+ }
 }
