@@ -124,6 +124,7 @@
     "ember-decorators": "^6.1.1",
     "ember-fetch": "^8.1.2",
     "ember-file-upload": "8.2.0",
+    "ember-headless-form": "^1.1.1",
     "ember-intl": "^7.1.6",
     "ember-load-initializers": "^2.1.2",
     "ember-lodash": "4.19.5",
@@ -194,6 +195,7 @@
     "babel-plugin-ember-modules-api-polyfill": "2.13.0",
     "ember-deep-tracked": "^2.0.1",
     "ember-destroyable-polyfill": "^2.0.3",
+    "ember-headless-form-yup": "^1.0.0",
     "fastboot-app-server": "^4.1.4",
     "fruits-ui": "github:datafruits/fruits-ui",
     "jsdom": "^20.0.3",
@@ -201,7 +203,8 @@
     "pixi.js": "6.4.2",
     "postcss": "^8.5.3",
     "rollup": "^2.79.2",
-    "stylelint": "^15.11.0"
+    "stylelint": "^15.11.0",
+    "yup": "^1.7.1"
   },
   "volta": {
     "node": "22.16.0"
