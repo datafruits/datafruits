@@ -91,6 +91,7 @@ export default class AdminBarChart extends Component<AdminBarChartSignature> {
 
   @action
   willDestroy() {
+    super.willDestroy();
     if (this.chart) {
       this.chart.destroy();
     }

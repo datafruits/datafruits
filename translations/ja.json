@@ -64,6 +64,7 @@
     },
     "settings": "プロフィール設定",
     "username": "ユーザー名",
+    "uploading-progress": "{count}ファイルをアップロード中。 ({progress}%)",
     "my-shows": {
       "title": "My Shows",
       "edit": "編集",
@@ -72,9 +73,10 @@
       "form": {
         "title": "タイトル",
         "description": "詳細",
-        "artwork": "画像",
+        "artwork": "アートワーク",
         "start": "日付/時間",
         "end": "End",
+        "upload-new": "セットをアップロードする",
         "repeating": "Repeating or one off",
         "youtube-link": "YoutubeのURL",
         "mixcloud-link": "MixcloudのURL",
@@ -286,5 +288,49 @@
       "voting": "投票期間",
       "completed": "完了"
     }
+  },
+  "episode": {
+    "date": "日付:",
+    "status": "ステータス:"
+  },
+  "user_menu": {
+    "xp": "XP: ",
+    "next_level": "次のレベルまで: "
+  },
+  "show_form": {
+    "host": "ホスト",
+    "repeating": "定期",
+    "one_off": "単発",
+    "weekly": "毎週",
+    "biweekly": "隔週（2週間おき）",
+    "monthly": "毎月",
+    "annually": "毎年",
+    "on": "曜日:",
+    "every": "毎"
+  },
+  "wiki_form": {
+    "markdown_help": "この記事は<a href=\"https://www.markdownguide.org/basic-syntax\" target=\"_blank\" rel=\"noopener noreferrer\">Markdown</a>で書式設定できます。"
+  },
+  "studio": {
+    "stream_title": "ストリームタイトル",
+    "donation_link": "寄付リンク",
+    "update": "更新"
+  },
+  "labels": {
+    "tags": "タグ"
+  },
+  "shrimpo_card": {
+    "host": "ホスト:",
+    "entries": "エントリー数"
+  },
+  "save_show": "番組を保存",
+  "artwork": "アートワーク",
+  "virus_popup": {
+    "congratulation": "おめでとう"
+  },
+  "shrimpo_voting": {
+    "voting_happens_now": "SHRIMPO投票が始まります！",
+    "rate_tune_by": "曲を評価してください。",
+    "login_to_vote": "SHRIMPOに投票するにはログインまたは登録してください！"
   }
 }

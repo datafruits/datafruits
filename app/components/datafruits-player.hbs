@@ -115,9 +115,18 @@
           {{this.error}}
         </span>
       {{else}}
-        <span class="jp-title">
-          {{this.title}}
-        </span>
+        {{#if this.currentShowPresent}}
+          <LinkTo
+            @route="home.shows.episode"
+            @models={{array this.showSeriesId this.episodeId}}
+            title={{this.title}}>
+            {{this.title}}
+          </LinkTo>
+        {{else}}
+          <span class="jp-title">
+            {{this.title}}
+          </span>
+        {{/if}}
       {{/if}}
     </div>
     {{#if (and this.playingPodcast)}}

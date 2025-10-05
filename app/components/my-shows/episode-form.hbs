@@ -1,156 +1,208 @@
 {{#let (changeset @episode this.EpisodeValidations) as |changeset|}}
   <Ui::ChangesetForm
-        @changeset={{changeset}}
-        @onError={{this.onError}}
-        @onSubmit={{this.onSubmit}} as |Form|>
-      <section class="flex">
-        <div>
-          <Form.Input
-            @label={{t "profile.my-shows.form.title"}}
-            @fieldName="title"
-            @containerClass='mb-2'
-            />
-          <div>
-            <div>
-              <span>{{t "profile.my-shows.form.air-date"}}</span> {{format-day @episode.start}} - {{format-time @episode.start}}
-            </div>
-            <label class="align-top" for="show-artwork"> {{t "profile.my-shows.form.artwork"}}</label>
-            <br/>
-            {{#if @episode.isNew}}
-              {{#if changeset.image}}
-                <img alt="artwork" width="300" height="300"
-                  src="{{changeset.image}}">
-              {{/if}}
-            {{else}}
-              {{#if changeset.thumbImageUrl}}
-                <img alt="artwork" width="300" height="300"
-                  src="{{changeset.thumbImageUrl}}">
-              {{/if}}
-            {{/if}}
-            <input
-              class="py-4 px-4 my-2 text-df-yellow w-full semibold border-dashed"
-              id="showArtwork"
-              name="showArtwork"
-              type="file"
-              accept="image/*"
-              {{on "change" this.updateFile}}
-            />
-          </div>
-          <Form.Textarea
-            @label={{t "profile.my-shows.form.description"}}
-            @fieldName="description"
-            @containerClass='mb-2'
-            @size='lg'
-            @value={{changeset.description}}
-            rows='20'
-            cols='50'
-            />
-          <TimePicker
-            @property="start"
-            @changeset={{changeset}}
-            @onChange={{this.setEndAfterStart}}
-            />
-          <TimePicker
-            @property="end"
-            @changeset={{changeset}}
-            @startTime={{changeset.start}}
-            />
-          {{#if @episode.airDatePassed}}
-            <h2
-              class="text-x">
-              {{t "profile.my-shows.form.archive"}}
-            </h2>
-            <Form.Checkbox
-              @type="checkbox"
-              @label={{t "profile.my-shows.form.prerecorded-archive"}}
-              id="use-prerecord"
-              @fieldName="usePrerecordedFileForArchive"
-              />
-            <TrackUploader @changeset={{changeset}} />
-            {{#if @episode.prerecordTrackFilename}}
-              <span>{{@episode.prerecordTrackFilename}}</span>
-            {{/if}}
+    @containerClass="page-spacing"
+    @changeset={{changeset}}
+    @onError={{this.onError}}
+    @onSubmit={{this.onSubmit}}
+    as |Form|
+  >
+    <section class="my-2">
+
+      {{! header and time stamp}}
+      <div class="flex justify-start italic text-sm my-1">
+        <span>{{t "profile.my-shows.form.air-date"}}</span>
+        <span>
+          {{format-day @episode.start}}
+          -
+          {{format-time @episode.start}}
+        </span>
+      </div>
+
+      {{! title, description, and tag input }}
+      <div>
+        <Form.Input
+          @label={{t "profile.my-shows.form.title"}}
+          @fieldName="title"
+          @containerClass="mb-2 flex justify-start gap-4"
+        />
+        <Form.Textarea
+          @label={{t "profile.my-shows.form.description"}}
+          @fieldName="description"
+          @containerClass="mb-2 flex justify-start gap-4"
+          @size="lg"
+          @value={{changeset.description}}
+          rows="5"
+          cols="35"
+        />
+        <LabelsSelect
+          class="my-2 flex justify-start gap-4"
+          @changeset={{changeset}}
+        />
+      </div>
+
+      {{! episode artwork uploader }}
+      <div class="flex justify-start gap-10 mb-4 relative">
+        <label class="align-top" for="show-artwork">
+          {{t "profile.my-shows.form.artwork"}}
+        </label>
+
+        <div class="">
+          {{#if this.imagePreviewSrc}}
             <div class="mb-2">
-              <h3
-                class="text-l">
-                {{t "profile.my-shows.form.select-recording"}}
-              </h3>
-              <MyShows::RecordingsSearch
-                @changeset={{changeset}}
-                />
+              <img alt="artwork" width="300" height="300"
+                src="{{this.imagePreviewSrc}}" />
             </div>
-            <Form.Input
-              @label={{t "profile.my-shows.form.youtube-link"}}
-              @fieldName="youtubeLink"
-              @containerClass='mb-2'
-            />
-            <Form.Input
-              @label={{t "profile.my-shows.form.mixcloud-link"}}
-              @fieldName="mixcloudLink"
-              @containerClass='mb-2'
-            />
-            <Form.Input
-              @label={{t "profile.my-shows.form.soundcloud-link"}}
-              @fieldName="soundcloudLink"
-              @containerClass='mb-2'
-            />
-            <label for="archive-status">{{t "profile.my-shows.form.archive-status"}}</label>
+          {{/if}}
+          <input
+            class="text-df-yellow semibold border-dashed"
+            id="showArtwork"
+            name="showArtwork"
+            type="file"
+            accept="image/*"
+            {{on "change" this.updateFile}}
+          />
+        </div>
+      </div>
+
+      {{! check if this is an archive  }}
+      {{#if @episode.airDatePassed}}
+        <div>
+          <div class="my-2 flex justify-start gap-4">
+            <label for="archive-status">
+              {{t "profile.my-shows.form.archive-status"}}
+            </label>
             <select
               id="archive-status"
+              name="archive-status"
               {{on "change" (pick "target.value" (set changeset "status"))}}
             >
               {{#each-in this.statusOptions as |key val|}}
-                <option
-                  value="{{val}}"
-                  selected={{eq changeset.status val}}
-                  >
+                <option value="{{val}}" selected={{eq changeset.status val}}>
                   {{key}}
                 </option>
               {{/each-in}}
             </select>
-          {{else}}
-            <h2
-              class="text-x">
-              {{t "profile.my-shows.form.prerecorded-set"}}
-            </h2>
-            <TrackUploader
-              @changeset={{changeset}}
-              @onStartUpload={{this.onStartUpload}}
-              @onFinishUpload={{this.onFinishUpload}}
+          </div>
+          <MyShows::RecordingSelector @changeset={{changeset}} />
+          <div class="my-2 py-2">
+            <Form.Input
+              @label={{t "profile.my-shows.form.youtube-link"}}
+              @fieldName="youtubeLink"
+              @containerClass="mb-2"
             />
-            {{#if changeset.prerecordTrackId}}
-              {{changeset.prerecordTrackFilename}}
-            {{/if}}
-          {{/if}}
+            <Form.Input
+              @label={{t "profile.my-shows.form.mixcloud-link"}}
+              @fieldName="mixcloudLink"
+              @containerClass="mb-2"
+            />
+            <Form.Input
+              @label={{t "profile.my-shows.form.soundcloud-link"}}
+              @fieldName="soundcloudLink"
+              @containerClass="mb-2"
+            />
+          </div>
         </div>
-      </section>
-      <LabelsSelect
-        class="mb-2"
-        @changeset={{changeset}}
-        />
-      <div class="mb-4">
+      {{else}}
+        {{! airdate has *not* passed; its an upcoming show }}
+        <div>
+          <div class="flex justify-start gap-4 my-4">
+            <label>{{t "profile.my-shows.form.time-len"}}</label>
+            <TimePicker
+              @label="Start time"
+              @property="start"
+              @changeset={{changeset}}
+              @onChange={{this.setEndAfterStart}}
+            />
+            <TimePicker
+              @label="Duration"
+              @property="end"
+              @changeset={{changeset}}
+              @startTime={{changeset.start}}
+            />
+          </div>
+        </div>
+        {{! track upload or pick playlist, or search previously uploaded tracks }}
+        <fieldset>
+          <legend>Upload track</legend>
+          <label>
+            <input
+              type="radio"
+              name="playlist-option"
+              value="upload"
+              checked={{eq this.trackOption "upload"}}
+              {{on "change" (fn this.selectTrackOption "upload")}}
+              class="form-radio text-df-yellow"
+            />
+            <span class="my-1 text-sm">
+              {{t "profile.my-shows.form.upload-new"}}
+            </span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="playlist-option"
+              value="track"
+              checked={{eq this.trackOption "track"}}
+              {{on "change" (fn this.selectTrackOption "track")}}
+              class="form-radio text-df-yellow"
+            />
+            <span class="my-1 text-sm">
+              {{t "profile.my-shows.form.previous_track"}}
+            </span>
+          </label>
+        </fieldset>
+
+        {{#if (eq this.trackOption 'upload')}}
+          <div class="flex justify-start gap-10 mb-4 relative">
+            <div class="flex justify-end gap-2">
+              <TrackUploader
+                @changeset={{changeset}}
+                @onStartUpload={{this.onStartUpload}}
+                @onFinishUpload={{this.onFinishUpload}}
+              />
+            </div>
+          </div>
+        {{else}}
+          <MyShows::TrackSelector @changeset={{changeset}} />
+        {{/if}}
+
+        {{#if changeset.prerecordTrackId}}
+          <div class="font-bold">
+            {{changeset.prerecordTrackFilename}}
+          </div>
+        {{/if}}
+      {{/if}}
+    </section>
+
+    <div class="mb-4">
+      <Button
+        @type="submit"
+        @intent="primary"
+        disabled={{(or
+          (eq this.isUploading true)
+          (or Form.state.hasSubmitted changeset.isInvalid)
+        )}}
+        class="cool-button mb-2"
+      >
+        {{t "profile.my-shows.form.update"}}
+      </Button>
+    </div>
+    {{#if
+      (or
+        (eq this.currentUser.user.username @episode.hostedBy)
+        (includes "admin" this.currentUser.user.roles)
+      )
+    }}
+      <div>
         <Button
-          @type='submit'
-          @intent='primary'
-          disabled={{
-            (or (eq this.isUploading true) (or Form.state.hasSubmitted changeset.isInvalid))
-          }}
-          class='cool-button mb-2'
-          >
-          {{t "profile.my-shows.form.update"}}
+          @type="submit"
+          @intent="danger"
+          class="cool-button mb-2 danger"
+          {{on "click" this.deleteEpisode}}
+        >
+          {{t "profile.my-shows.form.delete"}}
         </Button>
       </div>
-      {{#if (or (eq this.currentUser.user.username @episode.hostedBy) (includes 'admin' this.currentUser.user.roles))}}
-        <div>
-          <Button
-            @type='submit'
-            @intent='danger'
-            class='cool-button mb-2 danger'
-            {{on "click" this.deleteEpisode}}
-            >
-            {{t "profile.my-shows.form.delete"}}
-          </Button>
-        </div>
-      {{/if}}
+    {{/if}}
   </Ui::ChangesetForm>
 {{/let}}

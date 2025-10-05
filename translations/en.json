@@ -227,6 +227,7 @@
     "my_pic": "Update Avatar",
     "settings": "Profile Settings",
     "username": "Username",
+    "uploading-progress": "Uploading {count} files. ({progress}%)",
     "my-shows": {
       "title": "My Shows",
       "edit": "EDIT",
@@ -235,9 +236,10 @@
       "form": {
         "title": "Title",
         "description": "Description",
-        "artwork": "Default Artwork",
+        "artwork": "Artwork",
         "start": "Date/Time",
         "end": "End",
+        "time-len": "Time/Duration",
         "repeating": "Repeating or one off",
         "youtube-link": "Youtube URL",
         "mixcloud-link": "Mixcloud URL",
@@ -251,6 +253,8 @@
         "air-date": "Air date:",
         "archive": "ARCHIVE",
         "select-recording": "Select recording",
+        "upload-new": "Upload a track",
+        "previous_track": "Use a previously uploaded track",
         "archive-status": "Archive Status",
         "confirm-delete": "Are you sure?!!!",
         "episode-deleted": "Goodbye episode. :(",
@@ -529,5 +533,49 @@
   },
   "forms": {
     "saving": "SAVING....DON'T TURN OFF THE POWER........."
+  },
+  "episode": {
+    "date": "Date:",
+    "status": "Status:"
+  },
+  "user_menu": {
+    "xp": "XP: ",
+    "next_level": "Next level in: "
+  },
+  "show_form": {
+    "host": "Host",
+    "repeating": "Repeating",
+    "one_off": "One-off",
+    "weekly": "Weekly",
+    "biweekly": "Bi-weekly (every other week)",
+    "monthly": "Monthly",
+    "annually": "Annually",
+    "on": "On",
+    "every": "Every"
+  },
+  "wiki_form": {
+    "markdown_help": "You can format this article with <a href=\"https://www.markdownguide.org/basic-syntax\" target=\"_blank\" rel=\"noopener noreferrer\">Markdown</a>."
+  },
+  "studio": {
+    "stream_title": "Stream Title",
+    "donation_link": "Donation Link",
+    "update": "Update"
+  },
+  "labels": {
+    "tags": "Tags"
+  },
+  "shrimpo_card": {
+    "host": "Host:",
+    "entries": "entries"
+  },
+  "save_show": "SAVE SHOW",
+  "artwork": "artwork",
+  "virus_popup": {
+    "congratulation": "CONGRATULATION"
+  },
+  "shrimpo_voting": {
+    "voting_happens_now": "Shrimps command voting happens now!",
+    "rate_tune_by": "Rate tune by number of",
+    "login_to_vote": "Login or register to vote on this shrimpo!"
   }
 }
