@@ -15,11 +15,9 @@ export default class RecordingSelectorComponent extends Component<RecordingSelec
     this.selectedOption = option;
 
     if (option === 'upload') {
-      this.args.changeset.set('prerecordTrackId', null);
-      this.args.changeset.set('usePrerecordedFileForArchive', false);
+      this.args.changeset.set('usePrerecordedFileForArchive', true);
     } else if (option === 'prerecorded') {
-      this.args.changeset.set('prerecordTrackFile', null);
-      this.args.changeset.set('prerecordTrackFilename', null);
+      this.args.changeset.set('usePrerecordedFileForArchive', false);
     }
   }
 }
