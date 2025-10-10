@@ -5,11 +5,19 @@ import { tracked } from '@glimmer/tracking';
 import type ScheduledShow from 'datafruits13/models/scheduled-show';
 import dayjs, { Dayjs } from 'dayjs';
 import { BufferedChangeset } from 'ember-changeset/types';
+
+import { object, string } from 'yup';
+
 interface MyShowsEpisodeFormArgs {
   episode: ScheduledShow;
 }
 
 export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs> {
+  schema = object({
+    title: string().required(),
+    description: string().required(),
+  });
+
   @service declare router: any;
   @service declare currentUser: any;
   @service declare intl: any;
@@ -35,7 +43,7 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
     this.isUploading = false;
   }
 
-  @action updateFile(e: any) {
+  @action updateFile(input: any, e: any) {
     const file = e.target.files[0];
     if (!file) return;
 
