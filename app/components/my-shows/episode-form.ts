@@ -5,6 +5,7 @@ import { tracked } from '@glimmer/tracking';
 import type ScheduledShow from 'datafruits13/models/scheduled-show';
 import dayjs, { Dayjs } from 'dayjs';
 import { BufferedChangeset } from 'ember-changeset/types';
+import EpisodeValidations from '../../validations/episode';
 interface MyShowsEpisodeFormArgs {
   episode: ScheduledShow;
 }
@@ -13,6 +14,8 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   @service declare router: any;
   @service declare currentUser: any;
   @service declare intl: any;
+
+  EpisodeValidations = EpisodeValidations;
 
   @tracked imagePreview: string | null = null;
 
