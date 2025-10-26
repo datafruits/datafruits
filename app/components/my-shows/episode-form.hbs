@@ -47,51 +47,22 @@
           {{t "profile.my-shows.form.artwork"}}
         </label>
 
-        {{#let (episode-image-url changeset) as |imageUrl|}}
-          {{#if imageUrl}}
-            <div class="relative">
-              <img
-                alt="your show's artwork for this episode"
-                width="300"
-                height="300"
-                src={{imageUrl}}
-              />
-              <div
-                class="absolute size-24 bottom-0 left-0 flex items-center gap-2"
-              >
-                <label for="showArtwork">
-                  <input
-                    class="text-df-yellow semibold border-dashed"
-                    id="showArtwork"
-                    name="showArtwork"
-                    type="file"
-                    accept="image/*"
-                    {{on "change" this.updateFile}}
-                  />
-                </label>
-                <button
-                  type="button"
-                  class="cool-button"
-                  name="change"
-                  title="Remove artwork"
-                  {{on "click" (fn this.deleteFile changeset)}}
-                >
-                  X
-                </button>
-              </div>
+        <div class="">
+          {{#if this.imagePreviewSrc}}
+            <div class="mb-2">
+              <img alt="artwork" width="300" height="300"
+                src="{{this.imagePreviewSrc}}" />
             </div>
-          {{else}}
-            {{! No image, show a simple file input }}
-            <input
-              class="text-df-yellow semibold border-dashed"
-              id="showArtwork"
-              name="showArtwork"
-              type="file"
-              accept="image/*"
-              {{on "change" this.updateFile}}
-            />
           {{/if}}
-        {{/let}}
+          <input
+            class="text-df-yellow semibold border-dashed"
+            id="showArtwork"
+            name="showArtwork"
+            type="file"
+            accept="image/*"
+            {{on "change" this.updateFile}}
+          />
+        </div>
       </div>
 
       {{! check if this is an archive  }}
@@ -151,25 +122,55 @@
             />
           </div>
         </div>
-        <div class="flex justify-start gap-10 mb-4 relative">
-
-          <label>{{t "profile.my-shows.form.upload-new"}}</label>
-          <div class="flex justify-end gap-2">
-            <label class="italic text-xs text-white align-sub">
-              {{t "profile.my-shows.form.choose-file"}}
-            </label>
+        {{! track upload or pick playlist, or search previously uploaded tracks }}
+        <fieldset>
+          <legend>Upload track</legend>
+          <label>
             <input
-              class="text-df-yellow semibold border-dashed"
-              id="showArtwork"
-              name="showArtwork"
-              type="file"
-              accept="image/*"
-              {{on "change" this.updateFile}}
+              type="radio"
+              name="playlist-option"
+              value="upload"
+              checked={{eq this.trackOption "upload"}}
+              {{on "change" (fn this.selectTrackOption "upload")}}
+              class="form-radio text-df-yellow"
             />
+            <span class="my-1 text-sm">
+              {{t "profile.my-shows.form.upload-new"}}
+            </span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="playlist-option"
+              value="track"
+              checked={{eq this.trackOption "track"}}
+              {{on "change" (fn this.selectTrackOption "track")}}
+              class="form-radio text-df-yellow"
+            />
+            <span class="my-1 text-sm">
+              {{t "profile.my-shows.form.previous_track"}}
+            </span>
+          </label>
+        </fieldset>
+
+        {{#if (eq this.trackOption 'upload')}}
+          <div class="flex justify-start gap-10 mb-4 relative">
+            <div class="flex justify-end gap-2">
+              <TrackUploader
+                @changeset={{changeset}}
+                @onStartUpload={{this.onStartUpload}}
+                @onFinishUpload={{this.onFinishUpload}}
+              />
+            </div>
           </div>
-        </div>
+        {{else}}
+          <MyShows::TrackSelector @changeset={{changeset}} />
+        {{/if}}
+
         {{#if changeset.prerecordTrackId}}
-          {{changeset.prerecordTrackFilename}}
+          <div class="font-bold">
+            {{changeset.prerecordTrackFilename}}
+          </div>
         {{/if}}
       {{/if}}
     </section>

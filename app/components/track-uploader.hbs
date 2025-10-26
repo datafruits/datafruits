@@ -1,8 +1,5 @@
 {{#let (file-queue name="track" onFileAdded=this.uploadTrack) as |queue|}}
   <div class="flex justify-end">
-    <label class="italic text-xs text-white align-sub">
-      {{t "profile.my-shows.form.choose-file"}}
-    </label>
     <input class="mx-1" type="file" {{queue.selectFile}} />
   </div>
 
