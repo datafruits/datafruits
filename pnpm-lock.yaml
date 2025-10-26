@@ -336,7 +336,7 @@ importers:
         version: 8.1.2
       ember-file-upload:
         specifier: 8.2.0
-        version: 8.2.0(21dd435035ba978527dda91572570a35)
+        version: 8.2.0(c725f55e8dd0bfda33033a8a24e917c7)
       ember-intl:
         specifier: ^7.1.6
         version: 7.1.6(@ember/test-helpers@5.2.2(@babel/core@7.26.10)(@glint/template@1.5.2))(@glint/template@1.5.2)(typescript@5.8.3)(webpack@5.99.5)
@@ -421,6 +421,9 @@ importers:
       loader.js:
         specifier: ^4.7.0
         version: 4.7.0
+      miragejs:
+        specifier: ^0.1.48
+        version: 0.1.48
       phoenix:
         specifier: ^1.7.21
         version: 1.7.21
@@ -463,6 +466,9 @@ importers:
       three:
         specifier: ^0.147.0
         version: 0.147.0
+      tracked-built-ins:
+        specifier: ^4.0.0
+        version: 4.0.0(@babel/core@7.26.10)
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
@@ -8696,8 +8702,8 @@ packages:
     resolution: {integrity: sha512-l7FvfAHlcmulp8kr+flpQZmVwtu7nfRV7NZujtN0OqES8EL4O4e0qqzL0DC5gAvx/ZC/9lk6rhcUwYvkBnBnYA==}
     engines: {node: '>=12'}
 
-  tracked-built-ins@3.4.0:
-    resolution: {integrity: sha512-aRwWQXC3VkY50oYxS7wKZiavkjf3uaN+UYUH30D5gxUqbxDN2LnNsfWyDfckmxHUGw4gJDH5lpRS0jX/tim0vw==}
+  tracked-built-ins@4.0.0:
+    resolution: {integrity: sha512-0Jl43A1SDZd+yYCJvXfgDSn4Wk/zcawkyFTBPqOETU5UJRngnVEnQ8oOjawqPRg6qja3sKjIQ8z6X9xJzcUTUA==}
 
   traverse-chain@0.1.0:
     resolution: {integrity: sha512-up6Yvai4PYKhpNp5PkYtx50m3KbwQrqDwbuZP/ItyL64YEWHAvH6Md83LFLV/GRSk/BoUVwwgUzX6SOQSbsfAg==}
@@ -15604,7 +15610,7 @@ snapshots:
       - encoding
       - supports-color
 
-  ember-file-upload@8.2.0(21dd435035ba978527dda91572570a35):
+  ember-file-upload@8.2.0(c725f55e8dd0bfda33033a8a24e917c7):
     dependencies:
       '@ember/test-helpers': 5.2.2(@babel/core@7.26.10)(@glint/template@1.5.2)
       '@ember/test-waiters': 3.1.0
@@ -15614,7 +15620,7 @@ snapshots:
       '@glimmer/tracking': 1.1.2
       ember-auto-import: 2.10.0(@glint/template@1.5.2)(webpack@5.99.5)
       ember-modifier: 4.2.2(@babel/core@7.26.10)
-      tracked-built-ins: 3.4.0(@babel/core@7.26.10)
+      tracked-built-ins: 4.0.0(@babel/core@7.26.10)
     optionalDependencies:
       ember-cli-mirage: 3.0.4(@ember-data/model@5.3.12(b2ee1e48f26704a6d4a336e76ff465f5))(@ember/test-helpers@5.2.2(@babel/core@7.26.10)(@glint/template@1.5.2))(@glint/template@1.5.2)(ember-data@5.3.12(@ember/string@4.0.1)(@ember/test-helpers@5.2.2(@babel/core@7.26.10)(@glint/template@1.5.2))(@ember/test-waiters@4.1.0(@glint/template@1.5.2))(@glint/template@1.5.2)(ember-inflector@5.0.2(@babel/core@7.26.10))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.5))(qunit@2.24.1))(ember-qunit@8.1.1(@ember/test-helpers@5.2.2(@babel/core@7.26.10)(@glint/template@1.5.2))(@glint/template@1.5.2)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.5))(qunit@2.24.1))(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.5))(miragejs@0.1.48)(webpack@5.99.5)
       miragejs: 0.1.48
@@ -20488,7 +20494,7 @@ snapshots:
     dependencies:
       punycode: 2.3.1
 
-  tracked-built-ins@3.4.0(@babel/core@7.26.10):
+  tracked-built-ins@4.0.0(@babel/core@7.26.10):
     dependencies:
       '@embroider/addon-shim': 1.10.0
       decorator-transforms: 2.3.0(@babel/core@7.26.10)
