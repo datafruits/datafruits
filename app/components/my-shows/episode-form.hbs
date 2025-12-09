@@ -11,7 +11,7 @@
       <section class="my-2">
         {{! episode artwork uploader }}
         <div class="flex flex-col">
-          <label class="align-top" for="show-artwork">
+          <label class="align-top font-bold" for="show-artwork">
             {{t "profile.my-shows.form.artwork"}}
           </label>
 
@@ -27,7 +27,7 @@
               </div>
             {{/if}}
             <input
-              class="text-df-yellow font-semibold border-dashed"
+              class="text-df-yellow font-semibold border-dashed text-shadow"
               id="show-artwork"
               name="showArtwork"
               type="file"
@@ -53,12 +53,12 @@
           <Form.Input
             @label={{t "profile.my-shows.form.title"}}
             @fieldName="title"
-            @containerClass="flex flex-col"
+            @containerClass="flex flex-col font-bold mb-2"
           />
           <Form.Textarea
             @label={{t "profile.my-shows.form.description"}}
             @fieldName="description"
-            @containerClass="flex flex-col"
+            @containerClass="flex flex-col font-bold mb-2"
             @size="lg"
             @value={{changeset.description}}
             rows="5"
@@ -107,26 +107,24 @@
           </div>
         {{else}}
           {{! airdate has *not* passed; its an upcoming show }}
-          <div>
-            <div class="flex justify-start gap-4 my-4">
-              <label>{{t "profile.my-shows.form.time-len"}}</label>
-              <TimePicker
-                @label="Start time"
-                @property="start"
-                @changeset={{changeset}}
-                @onChange={{this.setEndAfterStart}}
-              />
-              <TimePicker
-                @label="Duration"
-                @property="end"
-                @changeset={{changeset}}
-                @startTime={{changeset.start}}
-              />
-            </div>
+          <div class="flex justify-start gap-4 my-4 mb-2">
+            <label class="font-bold">{{t "profile.my-shows.form.time-len"}}</label>
+            <TimePicker
+              @label="Start time"
+              @property="start"
+              @changeset={{changeset}}
+              @onChange={{this.setEndAfterStart}}
+            />
+            <TimePicker
+              @label="Duration"
+              @property="end"
+              @changeset={{changeset}}
+              @startTime={{changeset.start}}
+            />
           </div>
           {{! track upload or pick playlist, or search previously uploaded tracks }}
           <fieldset>
-            <legend>
+            <legend class="text-df-yellow font-bold">
               {{t "profile.my-shows.form.upload-track"}}
             </legend>
             <label>
