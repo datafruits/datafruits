@@ -253,6 +253,7 @@
         "air-date": "Air date:",
         "archive": "ARCHIVE",
         "select-recording": "Select recording",
+        "upload-track": "Upload track (mp3 only)",
         "upload-new": "Upload a track",
         "previous_track": "Use a previously uploaded track",
         "archive-status": "Archive Status",

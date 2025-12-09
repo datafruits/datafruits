@@ -27,8 +27,8 @@
               </div>
             {{/if}}
             <input
-              class="text-df-yellow semibold border-dashed"
-              id="showArtwork"
+              class="text-df-yellow font-semibold border-dashed"
+              id="show-artwork"
               name="showArtwork"
               type="file"
               accept="image/*"
@@ -126,7 +126,9 @@
           </div>
           {{! track upload or pick playlist, or search previously uploaded tracks }}
           <fieldset>
-            <legend>Upload track</legend>
+            <legend>
+              {{t "profile.my-shows.form.upload-track"}}
+            </legend>
             <label>
               <input
                 type="radio"

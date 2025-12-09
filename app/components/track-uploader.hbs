@@ -1,6 +1,6 @@
 {{#let (file-queue name="track" onFileAdded=this.uploadTrack) as |queue|}}
   <div class="flex justify-end">
-    <input class="mx-1" type="file" {{queue.selectFile}} />
+    <input class="mx-1 text-df-yellow font-semibold border-dashed" type="file" {{queue.selectFile}} />
   </div>
 
   {{#if queue.files.length}}
