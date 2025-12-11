@@ -9,22 +9,31 @@
     min="24"
     max="72"
     value={{this.width}}
-  >
+  />
   <datalist id="emoji-width-datalist">
     {{#each-in this.widthValues as |label value|}}
       <option value={{value}} label={{label}}></option>
     {{/each-in}}
   </datalist>
 </div>
-{{#each this.customEmojis as |emoji|}}
-  <button
-    type="button"
-    {{on "click" (fn this.sendEmoji emoji.shortname)}}
-    >
-    <img
-      class={{emoji.shortname}}
-      width={{this.width}}
-      alt={{emoji.shortname}}
-      src={{emoji-url emoji}} />
-  </button>
-{{/each}}
+<div class="emoji-groups-container">
+  {{#each this.groupedEmojiOptions as |group|}}
+    <h3 class="emoji-group-header">{{group.groupName}}</h3>
+    <div class="emoji-group-emojis flex flex-wrap">
+      {{#each group.emojis as |emoji|}}
+        <button
+          type="button"
+          {{on "click" (fn this.sendEmoji emoji.shortname)}}
+          class="emoji-button"
+        >
+          <img
+            class={{emoji.shortname}}
+            width={{this.width}}
+            alt={{emoji.shortname}}
+            src={{emoji-url emoji}}
+          />
+        </button>
+      {{/each}}
+    </div>
+  {{/each}}
+</div>
