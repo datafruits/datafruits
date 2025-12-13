@@ -25,24 +25,24 @@ export default class EmojiSelectorEmojiComponent extends Component {
       ':duckle:',
       ':beamsprout:',
       ':mega_beamsprount:',
+      ':snailzone:',
       ':deeyef_hmm:',
       ':deeyef:',
       ':deeyex_hmm:',
       ':deeyex:',
       ':dxdf:',
-      ':snailzone:',
-      ':grumby:',
-      ':garf:',
       ':happytrash:',
       ':iphone_girl:',
       ':miniburger:',
       ':pizzap:',
       ':the_ravers:',
-      ':trash:',
       ':futsu:',
       ':hacker:',
       ':lol_grandpa:',
       ':typing:',
+      ':grumby:',
+      ':garf:',
+      ':trash:',
     ],
     '3D': [
       /* Spinny three-dimensional things */
@@ -64,7 +64,6 @@ export default class EmojiSelectorEmojiComponent extends Component {
       ':shrimpshake_spicy:',
       ':sshrimp:',
       ':sshrimp_clear:',
-      ':smiling_shrimp:',
     ],
     Bigup: [
       /* Encouraging iconography for users to convey appreciation for the DJ */
@@ -94,15 +93,11 @@ export default class EmojiSelectorEmojiComponent extends Component {
       ':php_ceo:',
       ':pensive_booty:',
       ':pricemaster:',
-    ],
-    Commercial: [
-      /* Animated GIFs of commercials */
       ':alligottadoisfindthemustard:',
       ':greasyhotdogs:',
-      '::sorrymustabeentheonionsaladdressing:',
+      ':sorrymustabeentheonionsaladdressing:',
       ':thisisamazing:',
     ],
-
     Meme: [
       /* Deep lore */
       ':cheese_teen:',
@@ -114,6 +109,7 @@ export default class EmojiSelectorEmojiComponent extends Component {
       ':salad_dressing:',
       ':thanksbill:',
       ':trekkie:',
+      ':smiling_shrimp:',
     ],
   };
   widthValues = {
