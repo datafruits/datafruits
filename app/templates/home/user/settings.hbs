@@ -20,10 +20,12 @@
 
     <div
       id="user-profile-settings-avatar"
-      class="flex flex-wrap justify-evenly">
+      class="flex flex-wrap justify-evenly"
+    >
       <div>
-        <label class="align-top" for="updateProfilePicture"> {{t "profile.my_pic"}}</label>
-        <br/>
+        <label class="align-top" for="updateProfilePicture">
+          {{t "profile.my_pic"}}</label>
+        <br />
         <input
           class="py-4 px-4 my-2 text-df-yellow w-full semibold border-dashed"
           id="updateProfilePicture"
@@ -42,7 +44,10 @@
           id="chatPreview"
           name="chatPreview"
         >
-          <img class="mx-4 w-6 rounded-md" src="{{this.currentUser.user.avatarUrl}}">
+          <img
+            class="mx-4 w-6 rounded-md"
+            src="{{this.currentUser.user.avatarUrl}}"
+          />
           <span class="text-df-yellow align-text-bottom">
             {{this.currentUser.user.username}}
           </span>
@@ -53,8 +58,7 @@
       </div>
     </div>
 
-
-    <hr class="my-8"/>
+    <hr class="my-8" />
 
     <form {{on "submit" this.saveUser}}>
 
@@ -92,48 +96,66 @@
 
       <div class="flex flex-wrap justify-evenly">
         <div>
-        <label class="align-top text-white">{{t "profile.pronouns"}}</label>
-        <Input
-          class="user-settings-input"
-          @value={{this.currentUser.user.pronouns}}
-        />
+          <label class="align-top text-white">{{t "profile.pronouns"}}</label>
+          <Input
+            class="user-settings-input"
+            @value={{this.currentUser.user.pronouns}}
+          />
         </div>
         <div>
-        <label class="text-white">{{t "profile.style"}}</label>
-        <select
-          id="style-selector"
-          name="style-selector"
-          class="user-settings-input h-9"
-          aria-label="{{ t "style"}}"
-          {{on "change" this.setUserStyle}}>
-          {{#each this.availableStyles as |style|}}
-          <option
-            value={{style}}
-            selected={{eq this.currentUser.user.style style}}
+          <label class="text-white">{{t "profile.style"}}</label>
+          <select
+            id="style-selector"
+            name="style-selector"
+            class="user-settings-input h-9"
+            aria-label="{{t 'style'}}"
+            {{on "change" this.setUserStyle}}
           >
-            {{style}}
-          </option>
-          {{/each}}
-        </select>
+            {{#each this.availableStyles as |style|}}
+              <option
+                value={{style}}
+                selected={{eq this.currentUser.user.style style}}
+              >
+                {{style}}
+              </option>
+            {{/each}}
+          </select>
         </div>
         <div>
-        <label class="text-white">
-          {{t "profile.time_zone"}}
-        </label>
-        <TimezoneSelect
-          @selectedTimezone={{this.currentUser.user.timeZone}}
-          @onChange={{this.setTimezone}}
+          <label class="text-white">
+            {{t "profile.time_zone"}}
+          </label>
+          <TimezoneSelect
+            @selectedTimezone={{this.currentUser.user.timeZone}}
+            @onChange={{this.setTimezone}}
           />
         </div>
       </div>
 
+      {{#if (includes "dj" this.currentUser.user.roles)}}
+        <div>
+          <h3>DJ settings</h3>
+          <div>
+            <label class="align-top" for="updateDjBanner">
+              {{t "profile.dj_banner"}}</label>
+            <br />
+            <input
+              class="py-4 px-4 my-2 text-df-yellow w-full semibold border-dashed"
+              id="updateDjBanner"
+              name="updateDjBanner"
+              type="file"
+              {{on "change" this.updateDjBanner}}
+            />
+          </div>
+        </div>
+      {{/if}}
       <br />
 
       <div class="flex justify-around">
 
         <input
           type="submit"
-          value="{{t "profile.submit"}}"
+          value="{{t 'profile.submit'}}"
           class="cool-button"
           data-test-submit
         />
