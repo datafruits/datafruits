@@ -91,6 +91,7 @@ export default class ChatInputMessage extends Component<ChatInputMessageSignatur
     e.preventDefault();
     const message = this.inputMessage;
     if (!isEmpty(message)) {
+      // TODO push emoji count here ??
       if (this.chat.token) {
         const role = this.currentUser.user.role;
         const avatarUrl = this.currentUser.user.avatarUrl;
@@ -105,12 +106,25 @@ export default class ChatInputMessage extends Component<ChatInputMessageSignatur
           style,
           pronouns,
           avatarUrl,
+          emojiCounts: this._parseEmojiCountFromMessage(message),
         });
       } else {
         this.chat.push('new:msg', { user: this.chat.username, body: message, timestamp: Date.now() });
       }
       this.inputMessage = '';
     }
+  }
+
+  _parseEmojiCountFromMessage(message: string): Record<string, number> {
+    const counts: Record<string, number> = {};
+    const regex = /:([^:\s]+):/g;
+
+    for (const match of message.matchAll(regex)) {
+      const emoji = match[1]; // without colons
+      counts[emoji] = (counts[emoji] || 0) + 1;
+    }
+
+    return counts;
   }
 
   @action

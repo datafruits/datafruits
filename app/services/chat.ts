@@ -42,6 +42,8 @@ export default class ChatService extends Service {
   @tracked limitBreakActivated: boolean = false; // TODO
   @tracked limitBreakProgress: number = 0;
 
+  @tracked recentEmojis: Record<string, number> = {};
+
   @tracked loading: boolean = true;
 
   username: string = '';
@@ -244,6 +246,8 @@ export default class ChatService extends Service {
         this.loading = false;
         this.joinedChat = true;
       }
+      this.recentEmojis = msg.recent_emojis;
+      console.log('recentEmojis: ', this.recentEmojis);
       // fetch currentUser here? ???
     });
 
