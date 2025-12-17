@@ -157,14 +157,12 @@
           </fieldset>
 
           {{#if (eq this.trackOption "upload")}}
-            <div class="flex justify-start gap-10 mb-4 relative">
-              <div class="flex justify-end gap-2">
-                <TrackUploader
-                  @changeset={{changeset}}
-                  @onStartUpload={{this.onStartUpload}}
-                  @onFinishUpload={{this.onFinishUpload}}
-                />
-              </div>
+            <div class="flex flex-col justify-start mb-4 relative">
+              <TrackUploader
+                @changeset={{changeset}}
+                @onStartUpload={{this.onStartUpload}}
+                @onFinishUpload={{this.onFinishUpload}}
+              />
             </div>
           {{else}}
             <MyShows::TrackSelector @changeset={{changeset}} />
