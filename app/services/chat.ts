@@ -42,7 +42,7 @@ export default class ChatService extends Service {
   @tracked limitBreakActivated: boolean = false; // TODO
   @tracked limitBreakProgress: number = 0;
 
-  @tracked recentEmojis: Record<string, number> = {};
+  @tracked recentEmojis: string[] = [];
 
   @tracked loading: boolean = true;
 
