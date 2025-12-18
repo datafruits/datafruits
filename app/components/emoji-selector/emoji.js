@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import emojiStrategy from '../../emojiStrategy';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default class EmojiSelectorEmojiComponent extends Component {
   customEmojiOrder = {
@@ -123,9 +124,14 @@ export default class EmojiSelectorEmojiComponent extends Component {
   @tracked emojis = emojiStrategy;
   @tracked width = 24;
 
+  @service chat;
+
   get groupedEmojiOptions() {
     const allEmojis = emojiStrategy;
     const groupedEmojis = [];
+
+    const recentEmojis = this.chat.recentEmojis.map((shortname) => allEmojis[`:${shortname}:`]);
+    groupedEmojis.push({groupName: 'Recent', emojis: recentEmojis});
 
     for (const groupName of Object.keys(this.customEmojiOrder)) {
       const shortnames = this.customEmojiOrder[groupName];
