@@ -56,6 +56,16 @@
             @fieldName="title"
             @containerClass="flex flex-col font-bold mb-2"
           />
+          <h4 class="block text-sm font-bold mb-2">{{t "show_form.host"}}</h4>
+          <PowerSelectMultiple
+            @renderInPlace={{true}}
+            @searchEnabled={{true}}
+            @search={{this.searchDjs}}
+            @options={{this.users}}
+            @selected={{changeset.djs}}
+            @onChange={{fn (mut changeset.djs)}} as |dj|>
+            {{dj.username}}
+          </PowerSelectMultiple>
           <Form.Textarea
             @label={{t "profile.my-shows.form.description"}}
             @fieldName="description"
