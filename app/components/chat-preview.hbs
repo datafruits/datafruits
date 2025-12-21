@@ -1,0 +1,30 @@
+{{#if this.showHypeMeter}}
+  <HypeMeter />
+{{/if}}
+<div id="chat-area"
+  class="font-bold flex flex-row flex-grow min-h-0 relative text-shadow mb-5 flex-basis-0 max-h-40"
+  style={{this.color}}
+  {{did-insert this.didInsert}}
+>
+  <ChatMessages
+    @messages={{this.chat.messages}}
+    @gifsEnabled={{this.chat.gifsEnabled}}
+    @newMessagesAvailable={{this.newMessagesAvailable}}
+    @onScroll={{this.onScroll}}
+  />
+  {{#if this.newMessagesBelow}}
+    <div class="text-white bg-df-green bg-opacity-75 absolute bottom-0 left-0 w-full">
+      <span>{{t "chat.new_messages"}}</span>
+    </div>
+  {{/if}}
+  {{#if @networkStatus.isOffline}}
+    <div id="offline">
+      <span>{{t "chat.offline"}}</span>
+    </div>
+  {{/if}}
+  <ul id="userlist" class="overflow-y-scroll flex-grow hidden md:block md:w-1/5 pl-4">
+    {{#each-in this.chat.presences as |username user|}}
+      <UserListItem @user={{user}} />
+    {{/each-in}}
+  </ul>
+</div>

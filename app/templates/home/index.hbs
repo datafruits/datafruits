@@ -1,16 +1,32 @@
-<h2 class="text-2xl text-shadow my-2 mt-5 pt-2 px-5">
-  {{t "home.upcoming_shows"}}
-</h2>
-<div class="flex flex-wrap flex-shrink-0">
-  {{#each this.model.upcomingShows as |show|}}
-    <ShowEpisodeCard @episode={{show}} />
-  {{/each}}
-</div>
-<h2 class="text-2xl text-shadow my-2 mt-5 pt-2 px-5">
-  {{t "home.latest_podcasts"}}
-</h2>
-<div class="flex flex-wrap flex-shrink-0">
-  {{#each this.model.latestPodcasts as |track|}}
-    <ShowEpisodeCard @episode={{track}} />
-  {{/each}}
+<div class="grid grid-cols-3 gap-4 page-spacing">
+  <div class="col-span-3">
+    <NetworkStatus as |status|>
+      <ChatPreview
+        @networkStatus={{status}}
+      />
+    </NetworkStatus>
+  </div>
+  <div>
+    <img src="/assets/images/ad-open-space.png" />
+  </div>
+  <div>
+    <h2 class="text-2xl text-shadow my-2 mt-5 pt-2 px-5">
+      {{t "home.upcoming_shows"}}
+    </h2>
+    <div class="flex flex-wrap flex-shrink-0">
+      {{#each this.model.upcomingShows as |show|}}
+        <ShowEpisodeCard @episode={{show}} />
+      {{/each}}
+    </div>
+  </div>
+  <div>
+    <h2 class="text-2xl text-shadow my-2 mt-5 pt-2 px-5">
+      {{t "home.latest_podcasts"}}
+    </h2>
+    <div class="flex flex-wrap flex-shrink-0">
+      {{#each this.model.latestPodcasts as |track|}}
+        <ShowEpisodeCard @episode={{track}} />
+      {{/each}}
+    </div>
+  </div>
 </div>
