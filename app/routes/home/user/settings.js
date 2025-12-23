@@ -1,10 +1,8 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
+import AuthenticatedRouteMixin from 'datafruits13/mixins/authenticated-route';
 
-export default class UserSettingsRoute extends Route {
+export default class UserSettingsRoute extends Route.extend(AuthenticatedRouteMixin) {
   @service session;
-
-  beforeModel(transition) {
-    this.session.requireAuthentication(transition, 'home.chat');
-  }
+  @service redirectAfterLogin;
 }

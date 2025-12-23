@@ -1,7 +1,8 @@
 import Route from '@ember/routing/route';
 import { service } from "@ember/service";
+import AuthenticatedRouteMixin from 'datafruits13/mixins/authenticated-route';
 
-export default class HomeUserMyShowsEpisode extends Route {
+export default class HomeUserMyShowsEpisode extends Route.extend(AuthenticatedRouteMixin) {
   @service store;
 
   model(params) {
