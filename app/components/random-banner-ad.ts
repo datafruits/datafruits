@@ -1,12 +1,13 @@
 import Component from '@glimmer/component';
 import { later } from '@ember/runloop';
+import { tracked } from '@glimmer/tracking';
 
-interface RandomBannerAdArgs {}
+//interface RandomBannerAdArgs {}
 
-export default class RandomBannerAd extends Component<RandomBannerAdArgs> {
-  @tracked currentAd: Record<string, string>;
+export default class RandomBannerAd extends Component {
+  @tracked currentAd: Record<string, string> = { img: "/assets/images/ad-open-space.png", link: "" };
 
-  ads = [
+  ads: Record<string, string>[] = [
     { img: "/assets/images/ad-open-space.png", link: "" },
     { img: "/assets/images/ad-burgerzone-thrilling-graphics.png", link: "https://cybertomato.xyz/" },
     { img: "/assets/images/ad-datafruits-archives.png", link: "" },
@@ -16,13 +17,15 @@ export default class RandomBannerAd extends Component<RandomBannerAdArgs> {
     { img: "/assets/images/ad-monday-nite-fruits.png", link: "" },
   ]
 
-  constructor() {
+  constructor(owner: unknown, args: any) {
+    super(owner, args);
     this.randomBanner();
   }
 
   randomBanner() {
-    const random = Math.random * ads.length;
-    this.current = ads[random];
+    const random = Math.floor(Math.random() * this.ads.length);
+    this.currentAd = this.ads[random];
+    console.log('currentAd: ', this.currentAd);
     later(() => {
       this.randomBanner();
     }, 30_000);
