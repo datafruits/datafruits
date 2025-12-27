@@ -2,6 +2,7 @@ import Model, { attr, belongsTo, hasMany, type SyncHasMany } from '@ember-data/m
 import type Shrimpo from './shrimpo';
 import type ShrimpoVote from './shrimpo-vote';
 import type ShrimpoVotingCategoryScore from './shrimpo-voting-category-score';
+import type ShrimpoVotingCategory from './shrimpo-voting-category';
 import type Post from './post';
 import type User from './user';
 import type TrophyAward from './trophy-award';
@@ -23,6 +24,10 @@ export default class ShrimpoEntry extends Model {
     async: false,
     inverse: 'shrimpoEntry'
   }) declare shrimpoVotingCategoryScores: SyncHasMany<ShrimpoVotingCategoryScore>;
+  @hasMany('shrimpo-voting-category', {
+    async: false,
+    inverse: null
+  }) declare shrimpoVotingCategories: SyncHasMany<ShrimpoVotingCategory>;
   @hasMany('posts', {
     async: false,
     inverse: null
