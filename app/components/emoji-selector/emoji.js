@@ -122,7 +122,7 @@ export default class EmojiSelectorEmojiComponent extends Component {
   };
 
   @tracked emojis = emojiStrategy;
-  @tracked width = 24;
+  @tracked width = 36;
 
   @service chat;
 
@@ -166,6 +166,6 @@ export default class EmojiSelectorEmojiComponent extends Component {
 
   @action
   didInsert() {
-    this.width = parseInt(localStorage.getItem('emojiWidth'));
+    this.width = parseInt(localStorage.getItem('emojiWidth')) || 36;
   }
 }
