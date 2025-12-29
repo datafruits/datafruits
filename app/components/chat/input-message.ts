@@ -10,6 +10,7 @@ import Gif from 'datafruits13/models/gif';
 import { next } from '@ember/runloop';
 import { isEmpty } from '@ember/utils';
 import { createEmojiAutocomplete } from 'datafruits13/utils/emoji-autocomplete';
+import emojiStrategy from '../../emojiStrategy';
 
 interface ChatInputMessageSignature {
   Args: {
@@ -121,7 +122,10 @@ export default class ChatInputMessage extends Component<ChatInputMessageSignatur
 
     for (const match of message.matchAll(regex)) {
       const emoji = match[1]; // without colons
-      counts[emoji] = (counts[emoji] || 0) + 1;
+      // check its actually an emoji via emoji strategy
+      if(emojiStrategy.hasOwnProperty(`:${emoji}:`)) {
+        counts[emoji] = (counts[emoji] || 0) + 1;
+      }
     }
 
     return counts;
