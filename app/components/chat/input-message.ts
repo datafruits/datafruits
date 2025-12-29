@@ -123,7 +123,7 @@ export default class ChatInputMessage extends Component<ChatInputMessageSignatur
     for (const match of message.matchAll(regex)) {
       const emoji = match[1]; // without colons
       // check its actually an emoji via emoji strategy
-      if(emojiStrategy.hasOwnProperty(`:${emoji}:`)) {
+      if(Object.prototype.hasOwnProperty.call(emojiStrategy, `:${emoji}:`)) {
         counts[emoji] = (counts[emoji] || 0) + 1;
       }
     }
