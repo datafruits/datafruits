@@ -15,11 +15,20 @@ export default class IndexRoute extends Route {
     };
     return hash({
       upcomingShows: this.store.query('scheduled-show', query).then((shows) => {
-        return shows.slice(0, 6);
+        return shows.slice(0, 3);
       }),
       latestPodcasts: this.store.query('podcast', {
       }).then((podcasts) => {
-        return podcasts.slice(0, 6);
+        return podcasts.slice(0, 3);
+      }),
+      activeShrimpos: this.store.findAll('shrimpo').then((shrimpos) => {
+        return shrimpos.slice(0, 3);
+      }),
+      latestPosts: this.store.findAll('forum-thread').then((posts) => {
+        return posts.slice(0, 3);
+      }),
+      latestWiki: this.store.findAll('wiki-page').then((wiki) => {
+        return wiki.slice(0, 3);
       })
     });
   }

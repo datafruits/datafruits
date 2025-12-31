@@ -1,7 +1,9 @@
-{{#if this.currentAd.link}}
-  <a href="{{this.currentAd.link}}" target="_blank">
+<div class="" ...attributes>
+  {{#if this.currentAd.link}}
+    <a href="{{this.currentAd.link}}" target="_blank">
+      <img src="{{this.currentAd.img}}" />
+    </a>
+  {{else}}
     <img src="{{this.currentAd.img}}" />
-  </a>
-{{else}}
-  <img src="{{this.currentAd.img}}" />
-{{/if}}
+  {{/if}}
+</div>

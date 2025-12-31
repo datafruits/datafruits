@@ -10,9 +10,9 @@ export default class RandomBannerAd extends Component {
   ads: Record<string, string>[] = [
     { img: "/assets/images/ad-open-space.png", link: "" },
     { img: "/assets/images/ad-burgerzone-thrilling-graphics.png", link: "https://cybertomato.xyz/" },
-    { img: "/assets/images/ad-datafruits-archives.png", link: "" },
+    { img: "/assets/images/ad-datafruits-archives.png", link: "https://datafruits.fm/podcasts" },
     { img: "/assets/images/ad-datafruits-radio-gotta-be.png.png", link: "" },
-    { img: "/assets/images/ad-datafruits-radio-support.png", link: "" },
+    { img: "/assets/images/ad-datafruits-radio-support.png", link: "https://datafruits.fm/support" },
     { img: "/assets/images/ad-datafruits-strawbur.png", link: "" },
     { img: "/assets/images/ad-monday-nite-fruits.png", link: "" },
   ]
@@ -28,6 +28,6 @@ export default class RandomBannerAd extends Component {
     console.log('currentAd: ', this.currentAd);
     later(() => {
       this.randomBanner();
-    }, 30_000);
+    }, 5_000);
   }
 }
