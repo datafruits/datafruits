@@ -1,5 +1,5 @@
 <div class="md:grid md:grid-cols-3 md:gap-4 page-spacing">
-  <div>
+  <div id="left">
     <h2 class="text-2xl text-shadow my-2 mt-5 pt-2 px-5">
       {{t "home.upcoming_shows"}}
     </h2>
@@ -8,30 +8,6 @@
         <ShowEpisodeCard @episode={{show}} />
       {{/each}}
     </div>
-  </div>
-  <div>
-    <h2 class="text-2xl text-shadow my-2 mt-5 pt-2 px-5">
-      {{t "home.latest_podcasts"}}
-    </h2>
-    <div class="flex flex-wrap flex-shrink-0">
-      {{#each this.model.latestPodcasts as |track|}}
-        <ShowEpisodeCard @episode={{track}} />
-      {{/each}}
-    </div>
-  </div>
-  <div>
-    <NetworkStatus as |status|>
-      <ChatPreview
-        @networkStatus={{status}}
-      />
-    </NetworkStatus>
-    <div class="border-4 border-white rounded-lg">
-      <a href="https://datafruits.bandcamp.com/merch" target="_blank">
-        <img src="/assets/images/fruits_merch.png" />
-      </a>
-    </div>
-  </div>
-  <div>
     <h2 class="text-2xl text-shadow my-2 mt-5 pt-2 px-5">
       {{t "home.latest_wiki"}}
     </h2>
@@ -44,7 +20,15 @@
       </LinkTo>
     {{/each}}
   </div>
-  <div>
+  <div id="center">
+    <h2 class="text-2xl text-shadow my-2 mt-5 pt-2 px-5">
+      {{t "home.latest_podcasts"}}
+    </h2>
+    <div class="flex flex-wrap flex-shrink-0">
+      {{#each this.model.latestPodcasts as |track|}}
+        <ShowEpisodeCard @episode={{track}} />
+      {{/each}}
+    </div>
     <h2 class="text-2xl text-shadow my-2 mt-5 pt-2 px-5">
       {{t "home.latest_posts"}}
     </h2>
@@ -52,7 +36,23 @@
       <Forum::ThreadCard @thread={{post}} />
     {{/each}}
   </div>
-  <div>
+  <div id="right">
+    <NetworkStatus as |status|>
+      <ChatPreview
+        @networkStatus={{status}}
+      />
+    </NetworkStatus>
+    <div class="border-4 border-white rounded-lg">
+      <a href="https://datafruits.bandcamp.com/merch" target="_blank">
+        <img src="/assets/images/fruits_merch.png" />
+      </a>
+    </div>
+    <div>
+      <h2 class="text-2xl text-shadow my-2 mt-5 pt-2 px-5">
+        LATEST VID
+      </h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/{{this.latestYoutubeVideoId}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
     <h2 class="text-2xl text-shadow my-2 mt-5 pt-2 px-5">
       {{t "home.latest_shrimpo"}}
     </h2>
