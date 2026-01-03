@@ -22,10 +22,14 @@ export default class IndexRoute extends Route {
         return podcasts.slice(0, 3);
       }),
       activeShrimpos: this.store.findAll('shrimpo').then((shrimpos) => {
-        return shrimpos.slice(0, 3);
+        return shrimpos.filter((shrimpo) => {
+          return !shrimpo.isNew && shrimpo.status === 'completed';
+        }).sort((a, b) => new Date(b.endedAt ?? 0).getTime() - new Date(a.endedAt ?? 0).getTime())
+        .slice(0, 3);
       }),
       latestPosts: this.store.findAll('forum-thread').then((posts) => {
-        return posts.slice(0, 3);
+        return posts.slice().sort((a: ForumThread, b: ForumThread) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())
+        .slice(0, 3);
       }),
       latestWiki: this.store.findAll('wiki-page').then((wiki) => {
         return wiki.slice(0, 3);
