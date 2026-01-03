@@ -11,6 +11,14 @@ export default class ChatPreview extends Component<ChatPreviewArgs> {
   @tracked newMessagesBelow = false; // TODO move this to chat service
 
   @action
+  didInsert() {
+    const messages = document.getElementById('messages');
+    if(messages) {
+      messages.scrollTop = this.chat.scrollTop;
+    }
+  }
+
+  @action
   onScroll() {
     if (this.checkScrolledToBottom()) {
       this.chat.isScrolledToBottom = true;
@@ -18,6 +26,10 @@ export default class ChatPreview extends Component<ChatPreviewArgs> {
     } else {
       this.chat.isScrolledToBottom = false;
       this.newMessagesBelow = true;
+    }
+    const messages = document.getElementById('messages');
+    if(messages) {
+      this.chat.scrollTop = messages.scrollTop;
     }
   }
 

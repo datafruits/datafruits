@@ -25,7 +25,6 @@ export default class RandomBannerAd extends Component {
   randomBanner() {
     const random = Math.floor(Math.random() * this.ads.length);
     this.currentAd = this.ads[random];
-    console.log('currentAd: ', this.currentAd);
     later(() => {
       this.randomBanner();
     }, 5_000);
