@@ -60,6 +60,9 @@ Router.map(function () {
   });
   this.route('container', function () {
     this.route('show', { path: '/shows/:id' });
+    this.route('chat');
+
+    this.route('shrimpos.entry', { path: 'shrimpos/:shrimpo_slug/entry/:slug' });
   });
   this.route('not-found', { path: '/*path' });
 });
