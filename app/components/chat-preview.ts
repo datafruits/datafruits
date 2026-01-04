@@ -4,9 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import type ChatService from 'datafruits13/services/chat';
 
-interface ChatPreviewArgs {}
-
-export default class ChatPreview extends Component<ChatPreviewArgs> {
+export default class ChatPreview extends Component {
   @service declare chat: ChatService;
   @tracked newMessagesBelow = false; // TODO move this to chat service
 

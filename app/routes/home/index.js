@@ -28,7 +28,7 @@ export default class IndexRoute extends Route {
         .slice(0, 3);
       }),
       latestPosts: this.store.findAll('forum-thread').then((posts) => {
-        return posts.slice().sort((a: ForumThread, b: ForumThread) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())
+        return posts.slice().sort((a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())
         .slice(0, 3);
       }),
       latestWiki: this.store.findAll('wiki-page').then((wiki) => {
