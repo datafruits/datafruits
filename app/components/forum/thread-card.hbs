@@ -1,0 +1,32 @@
+<LinkTo
+  class="bg-df-pink text-2xl rounded-lg border-4 border-white p-2 mb-2 block hover:bg-white flex justify-between"
+  @route="home.forum.show"
+  @model={{@thread.slug}}>
+  <span>
+    {{@thread.title}}
+  </span>
+  <div class="flex">
+    <span class="text-lg mr-2">
+      {{@thread.repliesCount}}
+    </span>
+    <span class="text-sm mr-2">
+      {{@thread.posterUsername}}
+    </span>
+    <span>
+      <img
+        style="height: 3rem;"
+        class="inline rounded-lg"
+        src="{{@thread.posterAvatar}}"
+        />
+    </span>
+    <span>
+      {{#each @thread.replyPosterAvatars as |avatar|}}
+        <img
+          style="height: 3rem;"
+          class="inline rounded-lg"
+          src="{{avatar}}"
+          />
+      {{/each}}
+    </span>
+  </div>
+</LinkTo>
