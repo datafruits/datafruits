@@ -19,6 +19,9 @@
     "aria": "Navigate to the homepage",
     "upcoming_shows": "UPCOMING SHOWS",
     "latest_podcasts": "LATEST ARCHIVES",
+    "latest_wiki": "WIKI UPDATES",
+    "latest_posts": "FORUM POSTS",
+    "latest_shrimpo": "SHRIMPOS",
     "events": "EVENTS"
   },
   "themes": {

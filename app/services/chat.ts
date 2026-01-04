@@ -46,6 +46,8 @@ export default class ChatService extends Service {
 
   @tracked loading: boolean = true;
 
+  @tracked scrollTop: number = 0;
+
   username: string = '';
 
   chan: Channel;
