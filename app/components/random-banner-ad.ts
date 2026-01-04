@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { later } from '@ember/runloop';
 import { tracked } from '@glimmer/tracking';
+import ENV from 'datafruits13/config/environment';
 
 //interface RandomBannerAdArgs {}
 
@@ -25,6 +26,7 @@ export default class RandomBannerAd extends Component {
   randomBanner() {
     const random = Math.floor(Math.random() * this.ads.length);
     this.currentAd = this.ads[random];
+    if (ENV.environment === 'test') return;
     later(() => {
       this.randomBanner();
     }, 5_000);
