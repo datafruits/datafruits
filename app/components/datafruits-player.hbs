@@ -7,7 +7,9 @@
          "
   {{did-insert this.didInsert}}
   >
-  <audio preload="" id="radio-player" class="hidden">
+  <audio preload="" id="radio-player" class="hidden"
+        crossorigin="anonymous"
+    >
     <source
       src="https://streampusher-relay.club/datafruits.mp3"
       type="audio/mp3"
@@ -129,7 +131,7 @@
         {{/if}}
       {{/if}}
     </div>
-    {{#if (and this.playingPodcast)}}
+    {{#if (and this.playingPodcast this.playing)}}
       <span class="mx-2 text-base leading-4">
         {{this.formattedPlayTime}}
       </span>
