@@ -27,6 +27,9 @@ export default class HomeController extends Controller {
   @service
   chat;
 
+  @service
+  siteSettings;
+
   get locale() {
     return this.intl.locale;
   }
