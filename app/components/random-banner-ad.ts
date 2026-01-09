@@ -9,6 +9,8 @@ export default class RandomBannerAd extends Component {
   @tracked currentAd: Record<string, string> = { img: "/assets/images/ad-open-space.png", link: "" };
 
   ads: Record<string, string>[] = [
+    { img: "/assets/images/ad-vibeit.webp", link: "" },
+    { img: "/assets/images/ad-chewing-water.png", link: "" },
     { img: "/assets/images/ad-open-space.png", link: "" },
     { img: "/assets/images/ad-burgerzone-thrilling-graphics.png", link: "https://cybertomato.xyz/" },
     { img: "/assets/images/ad-datafruits-archives.png", link: "https://datafruits.fm/podcasts" },
