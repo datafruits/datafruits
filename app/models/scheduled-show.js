@@ -102,6 +102,9 @@ export default class ScheduledShow extends Model {
   @attr
   soundcloudLink;
 
+  @attr
+  asImageUrl;
+
   get firstTrack() {
     return this.tracks[0];
   }
