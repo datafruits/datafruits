@@ -81,6 +81,7 @@ export default class ChatMessage extends Component {
   grabTreasure() {
     if(this.session.isAuthenticated) {
       console.log('grabbing treasure...');
+      console.log(this.args.message);
       // send treasure:open to chat
       // we'll need to send a token...
       this.chat.push("treasure:open", {
@@ -89,6 +90,7 @@ export default class ChatMessage extends Component {
         treasure: this.args.message.treasure,
         amount: this.args.message.amount,
         uuid: this.args.message.uuid,
+        double_bonus: this.args.message.double_bonus,
         timestamp: Date.now(),
       });
     } else {
