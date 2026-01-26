@@ -81,7 +81,6 @@ export default class ChatMessage extends Component {
   grabTreasure() {
     if(this.session.isAuthenticated) {
       console.log('grabbing treasure...');
-      console.log(this.args.message);
       // send treasure:open to chat
       // we'll need to send a token...
       this.chat.push("treasure:open", {
