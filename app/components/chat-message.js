@@ -89,6 +89,7 @@ export default class ChatMessage extends Component {
         treasure: this.args.message.treasure,
         amount: this.args.message.amount,
         uuid: this.args.message.uuid,
+        double_bonus: this.args.message.double_bonus,
         timestamp: Date.now(),
       });
     } else {

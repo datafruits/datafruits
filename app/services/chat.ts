@@ -194,7 +194,8 @@ export default class ChatService extends Service {
           token: this.token,
           uuid: msg.uuid,
           treasure: msg.treasure,
-          amount: msg.amount
+          amount: msg.amount,
+          double_bonus: msg.double_bonus
         });
         this.eventBus.publish("treasureOpened", msg.treasure);
       })
