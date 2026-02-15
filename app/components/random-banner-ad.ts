@@ -9,6 +9,7 @@ export default class RandomBannerAd extends Component {
   @tracked currentAd: Record<string, string> = { img: "/assets/images/ad-open-space.png", link: "" };
 
   ads: Record<string, string>[] = [
+    { img: "/assets/images/ad-tpqc.webp", link: "https://www.etsy.com/shop/TrashPandaQC" },
     { img: "/assets/images/ad-vibeit.webp", link: "https://datafruits.fm/shows/vibe-it-out" },
     { img: "/assets/images/ad-chewing-water.png", link: "https://datafruits.fm/shows/chewing-water-7a8e34ca-ee2a-45f1-864a-eeddd24ca7f4" },
     { img: "/assets/images/ad-open-space.png", link: "" },
