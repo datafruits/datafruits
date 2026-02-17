@@ -72,9 +72,14 @@ export default class GiftSubscriptionModal extends Component<GiftSubscriptionMod
       await giftSubscription.save();
       
       this.args.toggleModal();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error purchasing gift subscriptions:', error);
-      this.errorMessage = error?.errors?.[0]?.detail || 'Failed to purchase gift subscriptions. Please try again.';
+      if (error && typeof error === 'object' && 'errors' in error) {
+        const errorObj = error as { errors?: Array<{ detail?: string }> };
+        this.errorMessage = errorObj.errors?.[0]?.detail || 'Failed to purchase gift subscriptions. Please try again.';
+      } else {
+        this.errorMessage = 'Failed to purchase gift subscriptions. Please try again.';
+      }
     } finally {
       this.isSubmitting = false;
     }
