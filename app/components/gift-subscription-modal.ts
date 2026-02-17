@@ -27,6 +27,10 @@ export default class GiftSubscriptionModal extends Component<GiftSubscriptionMod
     return this.selectedQuantity === 1;
   }
 
+  get recipientUsername(): string | null {
+    return this.showUserSearch && this.searchUsername ? this.searchUsername : null;
+  }
+
   get filteredUsers(): string[] {
     if (!this.searchUsername) {
       return [];
@@ -66,7 +70,7 @@ export default class GiftSubscriptionModal extends Component<GiftSubscriptionMod
     try {
       const giftSubscription = this.store.createRecord('gift-subscription', {
         quantity: this.selectedQuantity,
-        recipientUsername: this.selectedQuantity === 1 && this.searchUsername ? this.searchUsername : null,
+        recipientUsername: this.recipientUsername,
       }) as GiftSubscription;
 
       await giftSubscription.save();
