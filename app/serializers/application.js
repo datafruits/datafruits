@@ -1,12 +1,8 @@
-import { underscore } from '@ember/string';
-import JSONAPISerializer from '@ember-data/serializer/json-api';
-
-export default class ApplicationSerializer extends JSONAPISerializer {
-  keyForAttribute(attr) {
-    return underscore(attr);
-  }
-
-  keyForRelationship(rawKey) {
-    return underscore(rawKey);
-  }
-}
+/**
+ * Application normalizer – replaced @ember-data/serializer/json-api.
+ *
+ * The custom framework's Store already handles camelCase/snake_case
+ * attribute key conversion in toCamelCase() (framework/store.ts).
+ * This file is kept as a documentation stub.
+ */
+export { Normalizer as default } from '../../../framework/index.js';

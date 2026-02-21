@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import type RouterService from '@ember/routing/router-service';
-import type Store from '@ember-data/store';
+import type { Store } from '../../../framework/index.js';
 
 interface DjsListArgs {
   searchParams: any;

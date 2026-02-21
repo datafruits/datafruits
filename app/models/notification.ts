@@ -1,4 +1,4 @@
-import Model, { attr } from '@ember-data/model';
+import { Model, attr } from '../../../framework/index.js';
 
 export default class Notification extends Model {
   @attr('string') declare message: string;

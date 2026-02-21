@@ -1,5 +1,5 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../../framework/index.js';
 
-export default class Shrimpo extends ApplicationAdapter {
+export default class ShrimpoAdapter extends Adapter {
   namespace = 'api';
 }

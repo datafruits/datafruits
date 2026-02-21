@@ -1,7 +1,7 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../../framework/index.js';
 
-export default class Label extends ApplicationAdapter {
+export default class LabelAdapter extends Adapter {
   urlForQuery() {
-    return `${this.urlPrefix()}/api/labels`;
+    return `api/labels`;
   }
 }

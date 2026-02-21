@@ -1,5 +1,5 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../../framework/index.js';
 
-export default class BlogPost extends ApplicationAdapter {
+export default class Blog-postAdapter extends Adapter {
   namespace = 'api';
 }

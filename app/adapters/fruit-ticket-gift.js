@@ -1,9 +1,5 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../../framework/index.js';
 
-export default class FruitTicketGift extends ApplicationAdapter {
+export default class Fruit-ticket-giftAdapter extends Adapter {
   namespace = 'api';
-
-  urlForCreateRecord() {
-    return `${this.urlPrefix()}/fruit_ticket_gifts`;
-  }
 }

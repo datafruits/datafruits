@@ -1,4 +1,4 @@
-import Model, { attr, hasMany } from '@ember-data/model';
+import { Model, attr, hasMany } from '../../../framework/index.js';
 import type ScheduledShowModel from 'datafruits13/models/scheduled-show';
 import type Label from 'datafruits13/models/label';
 import type User from 'datafruits13/models/user';
@@ -79,10 +79,4 @@ export default class ShowSeries extends Model {
     }
   }
 }
-
-// DO NOT DELETE: this is how TypeScript knows how to look up your models.
-// declare module 'ember-data/types/registries/model' {
-//   export default interface ModelRegistry {
-//     'show-series': ShowSeries;
-//   }
 // }

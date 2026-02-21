@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import Store from '@ember-data/store';
+import type { Store } from '../../../framework/index.js';
 import { tracked } from '@glimmer/tracking';
 import { debounce } from '@ember/runloop';
 import { BufferedChangeset } from 'ember-changeset/types';

@@ -1,24 +1,24 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../../framework/index.js';
 
-export default class UserAdapter extends ApplicationAdapter {
-  urlForQuery(query) {
-    return `${this.urlPrefix()}/api/djs`;
+export default class UserAdapter extends Adapter {
+  urlForQuery() {
+    return 'api/djs';
   }
 
   urlForQueryRecord(query) {
     if (query.me) {
       delete query.me;
-      return `${this.urlPrefix()}/users/current_user`;
+      return 'users/current_user';
     } else {
-      return `${this.urlPrefix()}/djs/${query.id}`;
+      return `api/djs/${query.id}`;
     }
   }
 
   urlForCreateRecord() {
-    return `${this.urlPrefix()}/api/listeners`;
+    return 'api/listeners';
   }
 
   urlForUpdateRecord() {
-    return `${this.urlPrefix()}/users/current_user`;
+    return 'users/current_user';
   }
 }

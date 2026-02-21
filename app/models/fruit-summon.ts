@@ -1,4 +1,4 @@
-import Model, { attr, belongsTo } from '@ember-data/model';
+import { Model, attr, belongsTo } from '../../../framework/index.js';
 import type User from './user';
 
 export default class FruitSummon extends Model {
@@ -8,10 +8,4 @@ export default class FruitSummon extends Model {
     inverse: null
   }) declare user: User;
 }
-
-// DO NOT DELETE: this is how TypeScript knows how to look up your models.
-// declare module 'ember-data/types/registries/model' {
-//   export default interface ModelRegistry {
-//     'fruit-summon': FruitSummon;
-//   }
 // }

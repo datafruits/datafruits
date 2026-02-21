@@ -1,9 +1,9 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../../framework/index.js';
 
-export default class Dj extends ApplicationAdapter {
+export default class DjAdapter extends Adapter {
   namespace = 'api';
 
   urlForQueryRecord(query) {
-    return `${this.urlPrefix()}/djs/${query.name}`;
+    return `api/djs/${query.name}`;
   }
 }

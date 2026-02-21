@@ -1,5 +1,5 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../../framework/index.js';
 
-export default class Microtext extends ApplicationAdapter {
+export default class MicrotextAdapter extends Adapter {
   namespace = 'api';
 }

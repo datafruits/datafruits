@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import WikiPageValidations from '../../validations/wiki-page';
-import Store from '@ember-data/store';
+import type { Store } from '../../../framework/index.js';
 import RouterService from '@ember/routing/router-service';
 import { tracked } from '@glimmer/tracking';
 import emojione from 'emojione';

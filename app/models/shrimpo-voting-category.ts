@@ -1,4 +1,4 @@
-import Model, { attr, belongsTo, hasMany, type SyncHasMany } from '@ember-data/model';
+import { Model, attr, belongsTo, hasMany, type SyncHasMany } from '../../../framework/index.js';
 import type Shrimpo from './shrimpo';
 import type ShrimpoVotingCategoryScore from './shrimpo-voting-category-score';
 

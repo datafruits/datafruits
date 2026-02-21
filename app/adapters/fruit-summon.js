@@ -1,9 +1,5 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../../framework/index.js';
 
-export default class FruitSummon extends ApplicationAdapter {
+export default class Fruit-summonAdapter extends Adapter {
   namespace = 'api';
-
-  urlForCreateRecord() {
-    return `${this.urlPrefix()}/fruit_summons`;
-  }
 }

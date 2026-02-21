@@ -1,4 +1,4 @@
-import Model, { attr, hasMany } from '@ember-data/model';
+import { Model, attr, hasMany } from '../../../framework/index.js';
 
 export default class WikiPage extends Model {
   @attr('string') declare title: string;
@@ -11,10 +11,4 @@ export default class WikiPage extends Model {
     inverse: null
   }) wikiPageEdits: any;
 }
-
-// DO NOT DELETE: this is how TypeScript knows how to look up your models.
-// declare module 'ember-data/types/registries/model' {
-//   export default interface ModelRegistry {
-//     'wiki-page': WikiPage;
-//   }
 // }

@@ -1,6 +1,6 @@
-import Service from '@ember/service';
+import { BaseService } from '../../../framework/index.js';
 
-export default class ThemeService extends Service {
+export default class ThemeService extends BaseService {
   setTheme(theme) {
     let element = document.getElementsByTagName('html')[0];
     let currentTheme = `theme-${localStorage.getItem('datafruits-theme') || 'classic'}`;

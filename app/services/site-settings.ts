@@ -1,14 +1,5 @@
-import Service from '@ember/service';
-import { tracked } from "@glimmer/tracking";
+import { BaseService, tracked } from '../../../framework/index.js';
 
-export default class SiteSettings extends Service {
+export default class SiteSettings extends BaseService {
   @tracked audioVisualizerOn = false;
-
-}
-
-// DO NOT DELETE: this is how TypeScript knows how to look up your services.
-declare module '@ember/service' {
-  interface Registry {
-    'site-settings': SiteSettings;
-  }
 }

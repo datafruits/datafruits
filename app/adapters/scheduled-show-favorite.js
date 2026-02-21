@@ -1,5 +1,5 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../../framework/index.js';
 
-export default class ScheduledShowFavorite extends ApplicationAdapter {
+export default class Scheduled-show-favoriteAdapter extends Adapter {
   namespace = 'api';
 }

@@ -1,7 +1,7 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../../framework/index.js';
 
-export default class Podcast extends ApplicationAdapter {
+export default class PodcastAdapter extends Adapter {
   urlForQuery() {
-    return `${this.urlPrefix()}/api/archives`;
+    return `api/archives`;
   }
 }

@@ -1,4 +1,4 @@
-import Model, { attr, belongsTo } from '@ember-data/model';
+import { Model, attr, belongsTo } from '../../../framework/index.js';
 import type ShrimpoEntry from './shrimpo-entry';
 
 export default class TrophyAward extends Model {
@@ -16,9 +16,4 @@ export default class TrophyAward extends Model {
   }
 }
 
-// DO NOT DELETE: this is how TypeScript knows how to look up your models.
-declare module 'ember-data/types/registries/model' {
-  export default interface ModelRegistry {
-    'trophy-award': TrophyAward;
-  }
-}
+// DO NOT DELETE: this is how TypeScript knows how to look up your models.}

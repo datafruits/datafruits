@@ -1,9 +1,5 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../../framework/index.js';
 
-export default class Post extends ApplicationAdapter {
+export default class PostAdapter extends Adapter {
   namespace = 'api';
-
-  urlForCreateRecord() {
-    return `${this.urlPrefix()}/posts`;
-  }
 }
