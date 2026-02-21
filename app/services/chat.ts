@@ -173,6 +173,9 @@ export default class ChatService extends Service {
     this.chan.on('treasure:received', (msg) => {
       console.log('treasure_received: ', msg);
       this.openTreasure(msg.uuid);
+      if (msg.user === this.username) {
+        void this.currentUser.load(true);
+      }
     });
 
     this.chan.on('treasure:opened', (msg) => {
