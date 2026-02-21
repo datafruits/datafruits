@@ -1,4 +1,4 @@
-import { BaseService, service } from '../../../framework/index.js';
+import { BaseService, service } from '../../framework/index.js';
 
 export default class PageTitleService extends BaseService {
   @service('metadata')

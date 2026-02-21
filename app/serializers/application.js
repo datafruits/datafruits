@@ -5,4 +5,4 @@
  * attribute key conversion in toCamelCase() (framework/store.ts).
  * This file is kept as a documentation stub.
  */
-export { Normalizer as default } from '../../../framework/index.js';
+export { Normalizer as default } from '../../framework/index.js';

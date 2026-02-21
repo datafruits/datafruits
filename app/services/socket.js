@@ -1,4 +1,4 @@
-import { BaseService } from '../../../framework/index.js';
+import { BaseService } from '../../framework/index.js';
 import { Socket } from 'phoenix';
 
 export default class SocketService extends BaseService {

@@ -1,4 +1,4 @@
-import { attr, hasMany } from '../../../framework/index.js';
+import { attr, hasMany } from '../../framework/index.js';
 import dayjs from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import User from './user.js';

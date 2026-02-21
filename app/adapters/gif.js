@@ -1,4 +1,4 @@
-import { Adapter } from '../../../framework/index.js';
+import { Adapter } from '../../framework/index.js';
 
 export default class GifAdapter extends Adapter {
   urlForQuery(query) {

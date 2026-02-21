@@ -1,4 +1,4 @@
-import { Model, attr, belongsTo } from '../../../framework/index.js';
+import { Model, attr, belongsTo } from '../../framework/index.js';
 
 export default class FruitTicketGift extends Model {
   @belongsTo('user', {

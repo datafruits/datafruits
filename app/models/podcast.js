@@ -1,4 +1,4 @@
-import { Model, attr, hasMany } from '../../../framework/index.js';
+import { Model, attr, hasMany } from '../../framework/index.js';
 
 export default class Podcast extends Model {
   @attr title;

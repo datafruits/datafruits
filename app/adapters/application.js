@@ -5,4 +5,4 @@
  * The default URL convention mirrors the old behaviour:
  *   host + /api/ + snake_case_plural + .json
  */
-export { Adapter as default } from '../../../framework/index.js';
+export { Adapter as default } from '../../framework/index.js';

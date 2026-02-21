@@ -1,4 +1,4 @@
-import { Model, attr, hasMany, type SyncHasMany } from '../../../framework/index.js';
+import { Model, attr, hasMany, type SyncHasMany } from '../../framework/index.js';
 import type Post from './post';
 //import type User from './user';
 //import type Post from './post';

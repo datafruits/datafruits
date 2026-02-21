@@ -1,4 +1,4 @@
-import { BaseService, tracked } from '../../../framework/index.js';
+import { BaseService, tracked } from '../../framework/index.js';
 
 export default class Weather extends BaseService {
   setWeather(weather: string) {

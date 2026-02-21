@@ -1,4 +1,4 @@
-import { Model, attr, belongsTo } from '../../../framework/index.js';
+import { Model, attr, belongsTo } from '../../framework/index.js';
 import type User from './user';
 
 export default class FruitSummon extends Model {

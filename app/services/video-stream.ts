@@ -1,4 +1,4 @@
-import { BaseService, service, tracked } from '../../../framework/index.js';
+import { BaseService, service, tracked } from '../../framework/index.js';
 import videojs from 'video.js';
 
 enum PlayerState {

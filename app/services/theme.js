@@ -1,4 +1,4 @@
-import { BaseService } from '../../../framework/index.js';
+import { BaseService } from '../../framework/index.js';
 
 export default class ThemeService extends BaseService {
   setTheme(theme) {

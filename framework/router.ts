@@ -233,11 +233,9 @@ export class Router {
   };
 
   private _handleLocationChange(): void {
-    const path = window.location.pathname + window.location.search;
     const match = this.match(window.location.pathname);
     this.currentMatch = match;
     this.listeners.forEach((fn) => fn(match));
-    void path; // suppress unused warning
   }
 }
 

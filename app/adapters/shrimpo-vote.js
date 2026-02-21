@@ -1,4 +1,4 @@
-import { Adapter } from '../../../framework/index.js';
+import { Adapter } from '../../framework/index.js';
 
 export default class ShrimpoVoteAdapter extends Adapter {
   namespace = 'api';

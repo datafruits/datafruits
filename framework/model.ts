@@ -4,7 +4,8 @@
  */
 export type SyncHasMany<T> = T[];
 
-
+/**
+ * Base Model class for the datafruits custom framework.
  * Replaces @ember-data/model.
  *
  * Models are plain TypeScript classes decorated with field descriptors.

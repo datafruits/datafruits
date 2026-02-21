@@ -1,4 +1,4 @@
-import { Model, attr, belongsTo } from '../../../framework/index.js';
+import { Model, attr, belongsTo } from '../../framework/index.js';
 import type ShrimpoVotingCategory from './shrimpo-voting-category';
 import type ShrimpoEntry from './shrimpo-entry';
 

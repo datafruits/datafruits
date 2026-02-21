@@ -1,7 +1,7 @@
 /**
  * Sticker normalizer – transforms Giphy sticker responses to JSON:API format.
  */
-import { Normalizer } from '../../../framework/index.js';
+import { Normalizer } from '../../framework/index.js';
 
 export default class StickerNormalizer extends Normalizer {
   normalize(payload) {

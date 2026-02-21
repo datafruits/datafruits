@@ -1,4 +1,4 @@
-import { Model, attr, belongsTo } from '../../../framework/index.js';
+import { Model, attr, belongsTo } from '../../framework/index.js';
 import type ShrimpoEntry from './shrimpo-entry';
 
 export default class TrophyAward extends Model {

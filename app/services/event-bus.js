@@ -1,4 +1,4 @@
-import { BaseService } from '../../../framework/index.js';
+import { BaseService } from '../../framework/index.js';
 
 /**
  * Simple publish/subscribe event bus.

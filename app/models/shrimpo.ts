@@ -1,4 +1,4 @@
-import { Model, attr, hasMany, belongsTo, service, type SyncHasMany } from '../../../framework/index.js';
+import { Model, attr, hasMany, belongsTo, service, type SyncHasMany } from '../../framework/index.js';
 import type ShrimpoEntry from './shrimpo-entry';
 import type ShrimpoVotingCategory from './shrimpo-voting-category';
 import type Post from './post';

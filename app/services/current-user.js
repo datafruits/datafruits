@@ -1,4 +1,4 @@
-import { BaseService, service, tracked } from '../../../framework/index.js';
+import { BaseService, service, tracked } from '../../framework/index.js';
 
 export default class CurrentUserService extends BaseService {
   @service('session')

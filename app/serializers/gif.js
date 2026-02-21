@@ -1,7 +1,7 @@
 /**
  * Gif normalizer – transforms Giphy API responses to JSON:API format.
  */
-import { Normalizer } from '../../../framework/index.js';
+import { Normalizer } from '../../framework/index.js';
 
 export default class GifNormalizer extends Normalizer {
   normalize(payload) {

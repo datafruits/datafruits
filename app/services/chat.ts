@@ -1,4 +1,4 @@
-import { BaseService, service, tracked } from '../../../framework/index.js';
+import { BaseService, service, tracked } from '../../framework/index.js';
 import { Presence, Channel } from 'phoenix';
 
 interface FruitCount {

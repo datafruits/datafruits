@@ -8,7 +8,7 @@
  *   - session.invalidate()
  *   - session.authenticate(credentials)
  */
-import { BaseService, AuthService } from '../../../framework/index.js';
+import { BaseService, AuthService } from '../../framework/index.js';
 
 export default class SessionService extends BaseService {
   constructor() {

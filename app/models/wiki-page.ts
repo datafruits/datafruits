@@ -1,4 +1,4 @@
-import { Model, attr, hasMany } from '../../../framework/index.js';
+import { Model, attr, hasMany } from '../../framework/index.js';
 
 export default class WikiPage extends Model {
   @attr('string') declare title: string;

@@ -1,4 +1,4 @@
-import { Model, attr, hasMany } from '../../../framework/index.js';
+import { Model, attr, hasMany } from '../../framework/index.js';
 import type ScheduledShowModel from 'datafruits13/models/scheduled-show';
 import type Label from 'datafruits13/models/label';
 import type User from 'datafruits13/models/user';

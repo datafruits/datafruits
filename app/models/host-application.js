@@ -1,4 +1,4 @@
-import { Model, attr } from '../../../framework/index.js';
+import { Model, attr } from '../../framework/index.js';
 
 export default class HostApplication extends Model {
   @attr()

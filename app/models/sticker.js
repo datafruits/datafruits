@@ -1,4 +1,4 @@
-import { Model, attr } from '../../../framework/index.js';
+import { Model, attr } from '../../framework/index.js';
 
 export default class Sticker extends Model {
   @attr()

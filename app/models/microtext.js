@@ -1,4 +1,4 @@
-import { Model, attr } from '../../../framework/index.js';
+import { Model, attr } from '../../framework/index.js';
 
 function isEmpty(val) {
   return val === null || val === undefined || val === '';
