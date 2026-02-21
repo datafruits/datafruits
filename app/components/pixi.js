@@ -98,6 +98,27 @@ export default class PixiComponent extends Component {
       let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
       sprite.gotoAndPlay(randomFrame);
 
+      const patterns = ['sinewave', 'spiral', 'bounce', 'float', 'lissajous'];
+      sprite._pattern = patterns[Math.floor(Math.random() * patterns.length)];
+      if (sprite._pattern === 'spiral') {
+        sprite._radius = 0;
+        sprite._angle = Math.random() * Math.PI * 2;
+        sprite._spiralCenterX = sprite.x;
+        sprite._spiralCenterY = sprite.y;
+      } else if (sprite._pattern === 'bounce') {
+        sprite._vx = (Math.random() - 0.5) * 4;
+        sprite._vy = (Math.random() - 0.5) * 4;
+      } else if (sprite._pattern === 'float') {
+        sprite._floatX = sprite.x;
+        sprite._time = Math.random() * Math.PI * 2;
+      } else if (sprite._pattern === 'lissajous') {
+        sprite._lissajousCenterX = sprite.x;
+        sprite._lissajousCenterY = sprite.y;
+        sprite._time = Math.random() * Math.PI * 2;
+        sprite._freqX = Math.floor(Math.random() * 3) + 1;
+        sprite._freqY = Math.floor(Math.random() * 3) + 2;
+      }
+
       //sprite.filters = [this.filter];
 
       this.sprites.push(sprite);
@@ -501,11 +522,50 @@ export default class PixiComponent extends Component {
         count += 0.02 * delta;
 
         this.sprites.forEach((sprite) => {
-          sprite.x += Math.sin(count);
-          sprite.y += Math.cos(count);
-          sprite.scale.x += Math.sin(count) * 0.01;
-          sprite.scale.y += Math.sin(count) * 0.01;
-          sprite.rotation += Math.sin(count) * 0.01;
+          if (sprite._pattern === 'spiral') {
+            sprite._radius += 0.5;
+            sprite._angle += 0.05;
+            sprite.x = sprite._spiralCenterX + sprite._radius * Math.cos(sprite._angle);
+            sprite.y = sprite._spiralCenterY + sprite._radius * Math.sin(sprite._angle);
+            sprite.scale.x = 0.25 + Math.abs(Math.sin(count)) * 0.15;
+            sprite.scale.y = 0.25 + Math.abs(Math.sin(count)) * 0.15;
+            sprite.rotation += 0.05;
+          } else if (sprite._pattern === 'bounce') {
+            sprite.x += sprite._vx;
+            sprite.y += sprite._vy;
+            if (sprite.x < 0 || sprite.x > this.app.screen.width) {
+              sprite._vx *= -1;
+              sprite.x = Math.max(0, Math.min(sprite.x, this.app.screen.width));
+            }
+            if (sprite.y < 0 || sprite.y > this.app.screen.height) {
+              sprite._vy *= -1;
+              sprite.y = Math.max(0, Math.min(sprite.y, this.app.screen.height));
+            }
+            sprite.scale.x = 0.25 + Math.abs(Math.sin(count)) * 0.1;
+            sprite.scale.y = 0.25 + Math.abs(Math.sin(count)) * 0.1;
+            sprite.rotation += sprite._vx * 0.02;
+          } else if (sprite._pattern === 'float') {
+            sprite._time += 0.03;
+            sprite.y -= 1;
+            sprite.x = sprite._floatX + Math.sin(sprite._time) * 40;
+            sprite.scale.x = 0.25 + Math.sin(sprite._time * 0.5) * 0.05;
+            sprite.scale.y = 0.25 + Math.abs(Math.cos(sprite._time * 0.7)) * 0.1;
+            sprite.rotation = Math.sin(sprite._time) * 0.2;
+          } else if (sprite._pattern === 'lissajous') {
+            sprite._time += 0.02;
+            sprite.x = sprite._lissajousCenterX + Math.sin(sprite._freqX * sprite._time) * 100;
+            sprite.y = sprite._lissajousCenterY + Math.sin(sprite._freqY * sprite._time + Math.PI / 2) * 100;
+            sprite.scale.x = 0.2 + Math.abs(Math.cos(sprite._time)) * 0.15;
+            sprite.scale.y = 0.2 + Math.abs(Math.sin(sprite._time * 0.7)) * 0.15;
+            sprite.rotation += 0.02;
+          } else {
+            // sinewave (default)
+            sprite.x += Math.sin(count);
+            sprite.y += Math.cos(count);
+            sprite.scale.x += Math.sin(count) * 0.01;
+            sprite.scale.y += Math.sin(count) * 0.01;
+            sprite.rotation += Math.sin(count) * 0.01;
+          }
         });
 
         if (this.alphaFadeout) {
