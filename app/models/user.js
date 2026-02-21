@@ -1,5 +1,8 @@
-import Model, { attr, hasMany } from '@ember-data/model';
-import { isEmpty } from '@ember/utils';
+import { Model, attr, hasMany } from '../../framework/index.js';
+
+function isEmpty(val) {
+  return val === null || val === undefined || val === '';
+}
 
 export default class UserModel extends Model {
   @attr()

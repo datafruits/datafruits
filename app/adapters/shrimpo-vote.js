@@ -1,11 +1,11 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../framework/index.js';
 
-export default class ShrimpoVote extends ApplicationAdapter {
+export default class ShrimpoVoteAdapter extends Adapter {
   namespace = 'api';
 
-  urlForCreateRecord(modelName, snapshot) {
-    let shrimpoEntryId = snapshot.belongsTo('shrimpoEntry').attributes().slug;
-    let shrimpoId = snapshot.belongsTo('shrimpoEntry').attributes().shrimpoSlug;
-    return `${this.urlPrefix()}/shrimpos/${shrimpoId}/shrimpo_entries/${shrimpoEntryId}/shrimpo_votes`;
+  urlForCreateRecord(_type, record) {
+    const shrimpoEntryId = record?.shrimpoEntry?.slug;
+    const shrimpoId = record?.shrimpoEntry?.shrimpoSlug;
+    return `api/shrimpos/${shrimpoId}/shrimpo_entries/${shrimpoEntryId}/shrimpo_votes`;
   }
 }

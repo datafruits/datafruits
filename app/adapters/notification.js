@@ -1,9 +1,5 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../framework/index.js';
 
-export default class Notification extends ApplicationAdapter {
+export default class NotificationAdapter extends Adapter {
   namespace = 'api';
-
-  urlForCreateRecord() {
-    return `${this.urlPrefix()}/notification`;
-  }
 }

@@ -1,29 +1,29 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../framework/index.js';
 
-export default class ScheduledShow extends ApplicationAdapter {
+export default class ShowSeriesAdapter extends Adapter {
   namespace = 'api';
 
   urlForQuery(query) {
     if (query.my) {
-      return `${this.urlPrefix()}/my_shows`;
+      return 'api/my_shows';
     } else {
-      return `${this.urlPrefix()}/show_series`;
+      return 'api/show_series';
     }
   }
 
   urlForCreateRecord() {
-    return `${this.urlPrefix()}/my_shows`;
+    return 'api/my_shows';
   }
 
-  urlForUpdateRecord(id, modelName, snapshot) {
-    return `${this.urlPrefix()}/my_shows/${id}`;
+  urlForUpdateRecord(id) {
+    return `api/my_shows/${id}`;
   }
 
-  urlForFindRecord(id, modelName, snapshot) {
-    if (snapshot.adapterOptions?.my) {
-      return `${this.urlPrefix()}/my_shows/${id}`;
+  urlForFindRecord(id, _type, options) {
+    if (options?.my) {
+      return `api/my_shows/${id}`;
     } else {
-      return `${this.urlPrefix()}/show_series/${id}`;
+      return `api/show_series/${id}`;
     }
   }
 }

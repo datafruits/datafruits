@@ -1,4 +1,4 @@
-import Model, { attr } from '@ember-data/model';
+import { Model, attr } from '../../framework/index.js';
 
 export default class WikiPageEdit extends Model {
   // normal class body definition here
@@ -7,9 +7,4 @@ export default class WikiPageEdit extends Model {
   @attr('string') declare username: string;
 }
 
-// DO NOT DELETE: this is how TypeScript knows how to look up your models.
-declare module 'ember-data/types/registries/model' {
-  export default interface ModelRegistry {
-    'wiki-page-edit': WikiPageEdit;
-  }
-}
+// DO NOT DELETE: this is how TypeScript knows how to look up your models.}

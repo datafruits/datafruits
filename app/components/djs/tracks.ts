@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import Store from '@ember-data/store';
+import type { Store } from '../../../framework/index.js';
 import RouterService from '@ember/routing/router-service';
 import Dj from 'datafruits13/models/dj';
 

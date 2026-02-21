@@ -1,4 +1,4 @@
-import Model, { attr, belongsTo } from '@ember-data/model';
+import { Model, attr, belongsTo } from '../../framework/index.js';
 import type ShrimpoVotingCategory from './shrimpo-voting-category';
 import type ShrimpoEntry from './shrimpo-entry';
 
@@ -17,9 +17,4 @@ export default class ShrimpoVotingCategoryScore extends Model {
 
 }
 
-// DO NOT DELETE: this is how TypeScript knows how to look up your models.
-declare module 'ember-data/types/registries/model' {
-  export default interface ModelRegistry {
-    'shrimpo-voting-category-score': ShrimpoVotingCategoryScore;
-  }
-}
+// DO NOT DELETE: this is how TypeScript knows how to look up your models.}

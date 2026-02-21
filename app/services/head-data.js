@@ -1,7 +1,6 @@
-import Service from '@ember/service';
-import { tracked } from '@glimmer/tracking';
+import { BaseService, tracked } from '../../framework/index.js';
 
-export default class HeadDataService extends Service {
+export default class HeadDataService extends BaseService {
   @tracked title;
   @tracked image;
   @tracked description;

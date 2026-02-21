@@ -1,15 +1,21 @@
-import JSONAPISerializer from '@ember-data/serializer/json-api';
+/**
+ * Gif normalizer – transforms Giphy API responses to JSON:API format.
+ */
+import { Normalizer } from '../../framework/index.js';
 
-export default class Gif extends JSONAPISerializer {
-  normalizeQueryResponse(store, primaryModelClass, payload /*, id, requestType*/) {
-    payload.data.map((gif) => {
-      gif.attributes = {
-        'preview-url': gif.images.fixed_width.url,
-        url: gif.images.original.url,
-        slug: gif.slug,
-      };
-      return gif;
-    });
-    return super.normalizeQueryResponse(...arguments);
+export default class GifNormalizer extends Normalizer {
+  normalize(payload) {
+    if (!payload || !Array.isArray(payload.data)) return null;
+    return {
+      data: payload.data.map((gif) => ({
+        id: gif.id,
+        type: 'gif',
+        attributes: {
+          'preview-url': gif.images?.fixed_width?.url ?? '',
+          url: gif.images?.original?.url ?? '',
+          slug: gif.slug ?? '',
+        },
+      })),
+    };
   }
 }

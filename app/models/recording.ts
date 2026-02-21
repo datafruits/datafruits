@@ -1,4 +1,4 @@
-import Model, { attr } from '@ember-data/model';
+import { Model, attr } from '../../framework/index.js';
 
 export default class Recording extends Model {
   @attr('string') declare filesize: string;
@@ -29,9 +29,4 @@ export default class Recording extends Model {
   // normal class body definition here
 }
 
-// DO NOT DELETE: this is how TypeScript knows how to look up your models.
-declare module 'ember-data/types/registries/model' {
-  export default interface ModelRegistry {
-    'recording': Recording;
-  }
-}
+// DO NOT DELETE: this is how TypeScript knows how to look up your models.}

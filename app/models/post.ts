@@ -1,4 +1,4 @@
-import Model, { attr, belongsTo } from '@ember-data/model';
+import { Model, attr, belongsTo } from '../../framework/index.js';
 import type User from './user';
 //import type ForumThread from './forum-thread';
 
@@ -19,10 +19,4 @@ export default class Post extends Model {
   @attr('string') declare postableId: string;
 }
 
-
-// DO NOT DELETE: this is how TypeScript knows how to look up your models.
-// declare module 'ember-data/types/registries/model' {
-//   export default interface ModelRegistry {
-//     'post': Post;
-//   }
 // }

@@ -1,11 +1,13 @@
-import Service from '@ember/service';
+import { BaseService } from '../../framework/index.js';
 import { Socket } from 'phoenix';
-import ENV from 'datafruits13/config/environment';
 
-export default class SocketService extends Service {
-  constructor() {
-    super(...arguments);
-    this.socket = new Socket(ENV.CHAT_SOCKET_URL, {
+export default class SocketService extends BaseService {
+  constructor(chatSocketUrl) {
+    super();
+    const url = chatSocketUrl
+      ?? (typeof window !== 'undefined' ? window.__ENV?.CHAT_SOCKET_URL : undefined)
+      ?? '';
+    this.socket = new Socket(url, {
       logger: function logger(/*kind, msg, data*/) {
         //console.log(kind + ": " + msg, data);
       },

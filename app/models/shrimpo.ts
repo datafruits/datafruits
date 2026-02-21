@@ -1,12 +1,11 @@
-import Model, { attr, hasMany, belongsTo, type SyncHasMany } from '@ember-data/model';
-import { inject as service } from '@ember/service';
+import { Model, attr, hasMany, belongsTo, service, type SyncHasMany } from '../../framework/index.js';
 import type ShrimpoEntry from './shrimpo-entry';
 import type ShrimpoVotingCategory from './shrimpo-voting-category';
 import type Post from './post';
 import type User from './user';
 
 export default class Shrimpo extends Model {
-  @service declare intl: any;
+  @service('intl') declare intl: any;
 
   @belongsTo('user', {
     async: false,
@@ -73,9 +72,4 @@ export default class Shrimpo extends Model {
   }
 }
 
-// DO NOT DELETE: this is how TypeScript knows how to look up your models.
-declare module 'ember-data/types/registries/model' {
-  export default interface ModelRegistry {
-    'shrimpo': Shrimpo;
-  }
-}
+// DO NOT DELETE: this is how TypeScript knows how to look up your models.}

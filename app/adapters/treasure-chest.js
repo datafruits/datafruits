@@ -1,7 +1,5 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../framework/index.js';
 
-export default class TreasureChest extends ApplicationAdapter {
-  // normal class body
+export default class TreasureChestAdapter extends Adapter {
   namespace = 'api';
-
 }

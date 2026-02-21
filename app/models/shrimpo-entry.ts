@@ -1,4 +1,4 @@
-import Model, { attr, belongsTo, hasMany, type SyncHasMany } from '@ember-data/model';
+import { Model, attr, belongsTo, hasMany, type SyncHasMany } from '../../framework/index.js';
 import type Shrimpo from './shrimpo';
 import type ShrimpoVote from './shrimpo-vote';
 import type ShrimpoVotingCategoryScore from './shrimpo-voting-category-score';
@@ -65,9 +65,4 @@ export default class ShrimpoEntry extends Model {
   @attr('string') declare shrimpoVotingCompletionPercentage: string;
 }
 
-// DO NOT DELETE: this is how TypeScript knows how to look up your models.
-declare module 'ember-data/types/registries/model' {
-  export default interface ModelRegistry {
-    'shrimpo-entry': ShrimpoEntry;
-  }
-}
+// DO NOT DELETE: this is how TypeScript knows how to look up your models.}

@@ -1,7 +1,7 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../framework/index.js';
 
-export default class HostApplication extends ApplicationAdapter {
+export default class HostApplicationAdapter extends Adapter {
   urlForCreateRecord() {
-    return `${this.urlPrefix()}/host_applications`;
+    return `api/host_applications`;
   }
 }

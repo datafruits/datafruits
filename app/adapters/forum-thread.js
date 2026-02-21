@@ -1,9 +1,9 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../framework/index.js';
 
-export default class ForumThread extends ApplicationAdapter {
+export default class ForumThreadAdapter extends Adapter {
   namespace = 'api';
 
   urlForCreateRecord() {
-    return `${this.urlPrefix()}/forum_threads`;
+    return 'api/forum_threads';
   }
 }

@@ -1,4 +1,4 @@
-import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
+import { Model, attr, hasMany, belongsTo } from '../../framework/index.js';
 
 export default class ScheduledShow extends Model {
   @belongsTo('show-series', { async: true, inverse: null }) showSeries;

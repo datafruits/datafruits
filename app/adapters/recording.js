@@ -1,4 +1,5 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../framework/index.js';
 
-export default class Recording extends ApplicationAdapter {
+export default class RecordingAdapter extends Adapter {
+  namespace = 'api';
 }

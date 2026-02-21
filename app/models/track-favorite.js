@@ -1,4 +1,4 @@
-import Model, { belongsTo, attr } from '@ember-data/model';
+import { Model, belongsTo, attr } from '../../framework/index.js';
 
 export default class TrackFavorite extends Model {
   @belongsTo('user', {

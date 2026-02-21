@@ -1,16 +1,16 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../framework/index.js';
 
-export default class Track extends ApplicationAdapter {
+export default class TrackAdapter extends Adapter {
   namespace = 'api';
 
   urlForQuery(query) {
     console.log(query);
     let djId = query.dj;
     let page = query.page || 1;
-    if(djId) {
-      return `${this.urlPrefix()}/djs/${djId}/episodes?page=${page}`;
+    if (djId) {
+      return `api/djs/${djId}/episodes?page=${page}`;
     } else {
-      return `${this.urlPrefix()}/tracks?page=${page}`;
+      return `api/tracks?page=${page}`;
     }
   }
 }

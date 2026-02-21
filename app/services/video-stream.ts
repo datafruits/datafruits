@@ -1,10 +1,5 @@
-import Service, { inject as service } from '@ember/service';
-import { later, run } from '@ember/runloop';
-import ENV from 'datafruits13/config/environment';
-import fetch from 'fetch';
-import { tracked } from '@glimmer/tracking';
+import { BaseService, service, tracked } from '../../framework/index.js';
 import videojs from 'video.js';
-import type EventBusService from 'datafruits13/services/event-bus';
 
 enum PlayerState {
   Playing = 'playing',
@@ -12,96 +7,80 @@ enum PlayerState {
 }
 
 enum Mode {
-  BG = "bg",
-  TV = "tv"
+  BG = 'bg',
+  TV = 'tv'
 }
 
-export default class VideoStreamService extends Service {
-  @service
-  declare rollbar: any;
-
-  @service
-  declare eventBus: EventBusService;
+export default class VideoStreamService extends BaseService {
+  @service('rollbar') declare rollbar: any;
+  @service('eventBus') declare eventBus: any;
 
   @tracked displaying: boolean = true;
-
   @tracked mode: Mode = Mode.BG;
-
   @tracked active: boolean = false;
-
   @tracked useVideoAudio: boolean = false;
 
-  streamName: string = "";
-  streamHost: string = "";
-  extension: string = "";
-  path: string = "";
+  streamName: string = '';
+  streamHost: string = '';
+  extension: string = '';
+  path: string = '';
 
   player: videojs.Player | null = null;
-
   playerState: PlayerState = PlayerState.Paused;
 
   constructor() {
-    super(...arguments);
-    this.streamHost = ENV.STREAM_HOST;
-    this.streamName = ENV.STREAM_NAME;
+    super();
+    const env = (typeof window !== 'undefined' ? window.__ENV : null) ?? {};
+    this.streamHost = env.STREAM_HOST ?? '';
+    this.streamName = env.STREAM_NAME ?? '';
   }
 
   initializePlayer() {
     const name = this.streamName;
     const extension = this.extension;
     const path = this.path;
-    run(() => {
-      let type;
-      const host = this.streamHost;
-      const streamUrl = `${host}/${path}/${name}.${extension}`;
-      if (extension == 'mp4') {
-        type = 'video/mp4';
-      } else if (extension == 'm3u8') {
-        type = 'application/x-mpegURL';
-      } else {
-        console.log('Unknown extension: ' + extension);
-        this.active = false;
-        return;
-      }
+    let type: string;
+    const host = this.streamHost;
+    const streamUrl = `${host}/${path}/${name}.${extension}`;
+    if (extension === 'mp4') {
+      type = 'video/mp4';
+    } else if (extension === 'm3u8') {
+      type = 'application/x-mpegURL';
+    } else {
+      console.log('Unknown extension: ' + extension);
+      this.active = false;
+      return;
+    }
 
-      const preview = name;
-
-      const player = videojs('video-player', {
-        poster: `previews/${preview}.png`,
-        controls: false,
-      });
-
-      this.player = player;
-
-      console.log(streamUrl);
-      player.src({
-        src: streamUrl,
-        type: type,
-      });
-
-      player.userActive(false);
-
-      player.tech().on('retryplaylist', this.errorHandler.bind(this));
-
-      const promise = player.play();
-
-      if (promise !== undefined) {
-        promise.then(() => {
-          console.log('video autoplayed');
-          if (this.useVideoAudio) {
-            this.eventBus.publish('liveVideoAudio');
-          }
-          player.userActive(false);
-          this.playerState = PlayerState.Playing;
-        })
-        .catch((error: Error) => {
-          // Autoplay was prevented.
-          console.log(`video autoplay failed: ${error}`);
-          player.userActive(false);
-          this.rollbar.error(`video autoplay failed: ${error}`);
-        });
-      }
+    const preview = name;
+    const player = videojs('video-player', {
+      poster: `previews/${preview}.png`,
+      controls: false,
     });
+
+    this.player = player;
+
+    console.log(streamUrl);
+    player.src({ src: streamUrl, type });
+    player.userActive(false);
+    player.tech().on('retryplaylist', this.errorHandler.bind(this));
+
+    const promise = player.play();
+    if (promise !== undefined) {
+      promise.then(() => {
+        console.log('video autoplayed');
+        if (this.useVideoAudio) {
+          this.eventBus.publish('liveVideoAudio');
+        }
+        player.userActive(false);
+        this.playerState = PlayerState.Playing;
+      })
+      .catch((error: Error) => {
+        console.log(`video autoplay failed: ${error}`);
+        player.userActive(false);
+        this.rollbar?.error(`video autoplay failed: ${error}`);
+      });
+    }
   }
 
   errorHandler(event: any) {
@@ -113,7 +92,7 @@ export default class VideoStreamService extends Service {
     this.player = null;
     this.useVideoAudio = false;
     this.eventBus.publish('liveVideoAudioOff');
-    later(() => {
+    setTimeout(() => {
       this.fetchStream();
     }, 1000);
   }
@@ -138,10 +117,9 @@ export default class VideoStreamService extends Service {
             player.userActive(false);
           })
           .catch((error: any) => {
-            // Autoplay was prevented.
             console.log(`video play failed: ${error}`);
             player.userActive(false);
-            this.rollbar.error(`video autoplay failed: ${error}`);
+            this.rollbar?.error(`video autoplay failed: ${error}`);
           });
       }
     } else {
@@ -149,20 +127,9 @@ export default class VideoStreamService extends Service {
     }
   }
 
-  unmute() {
-    const player = this.player as videojs.Player;
-    player.muted(false);
-  }
-
-  mute() {
-    const player = this.player as videojs.Player;
-    player.muted(true);
-  }
-
-  setVolume(vol: number) {
-    const player = this.player as videojs.Player;
-    player.volume(vol);
-  }
+  unmute() { (this.player as videojs.Player).muted(false); }
+  mute() { (this.player as videojs.Player).muted(true); }
+  setVolume(vol: number) { (this.player as videojs.Player).volume(vol); }
 
   streamIsActive(name: string, extension: string, path: string) {
     this.active = true;
@@ -176,7 +143,7 @@ export default class VideoStreamService extends Service {
 
   toggleDisplay() {
     this.displaying = !this.displaying;
-    if(this.playerState === PlayerState.Playing) {
+    if (this.playerState === PlayerState.Playing) {
       this.pause();
     } else {
       this.play();
@@ -184,7 +151,7 @@ export default class VideoStreamService extends Service {
   }
 
   toggleMode() {
-    if (this.mode == Mode.BG) {
+    if (this.mode === Mode.BG) {
       this.mode = Mode.TV;
     } else {
       this.mode = Mode.BG;
@@ -196,21 +163,17 @@ export default class VideoStreamService extends Service {
     const host = this.streamHost;
     fetch(`${host}/hls/${name}.m3u8`, { method: 'HEAD' })
       .then((response) => {
-        if (response.status == 200) {
+        if (response.status === 200) {
           this.streamIsActive(`${name}`, 'm3u8', 'hls');
         } else {
-          //
-          // fetch /live here
           console.log('hls not found, trying to fetch /live');
           fetch(`${host}/live/${name}.m3u8`, { method: 'HEAD' })
             .then((response) => {
-              if (response.status == 200) {
-                //mp4 exists, play it
+              if (response.status === 200) {
                 this.streamIsActive(name, 'm3u8', 'live');
               } else {
-                if (ENV.environment === 'test') return;
                 console.log('No stream found');
-                later(() => {
+                setTimeout(() => {
                   this.fetchStream();
                 }, 15000);
               }

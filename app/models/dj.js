@@ -1,7 +1,7 @@
-import { attr, hasMany } from '@ember-data/model';
+import { attr, hasMany } from '../../framework/index.js';
 import dayjs from 'dayjs';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
-import User from 'datafruits13/models/user';
+import User from './user.js';
 
 dayjs.extend(isSameOrAfter);
 

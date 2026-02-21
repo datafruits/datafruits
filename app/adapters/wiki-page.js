@@ -1,9 +1,9 @@
-import ApplicationAdapter from './application';
+import { Adapter } from '../../framework/index.js';
 
-export default class WikiPage extends ApplicationAdapter {
+export default class WikiPageAdapter extends Adapter {
   namespace = 'api';
 
   urlForCreateRecord() {
-    return `${this.urlPrefix()}/wiki_pages`;
+    return 'api/wiki_pages';
   }
 }

@@ -128,10 +128,6 @@ module.exports = function (environment) {
     ICECAST_HOST: process.env.ICECAST_HOST || 'https://streampusher-relay.club'
   };
 
-  ENV['ember-simple-auth'] = {
-    routeAfterAuthentication: 'home.chat',
-  };
-
   // Heroku Git Hash support
   if (process.env.SOURCE_VERSION) {
     let packageJson = require('../package.json');

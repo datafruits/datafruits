@@ -1,21 +1,23 @@
-import Service, { inject as service } from '@ember/service';
-import { isEmpty } from '@ember/utils';
-import { registerDestructor } from '@ember/destroyable';
+import { BaseService, service } from '../../framework/index.js';
 
-export default class MetadataService extends Service {
-  @service
+function isEmpty(val) {
+  return val === null || val === undefined || val === '';
+}
+
+export default class MetadataService extends BaseService {
+  @service('eventBus')
   eventBus;
 
-  @service
+  @service('socket')
   socket;
 
   title = '';
+  donationLink = '';
 
   constructor() {
-    super(...arguments);
-    let socket = this.socket.socket;
-
-    let metadataChannel = socket.channel('metadata', {});
+    super();
+    const socket = this.socket.socket;
+    const metadataChannel = socket.channel('metadata', {});
 
     metadataChannel
       .join()
@@ -47,9 +49,13 @@ export default class MetadataService extends Service {
       this.eventBus.publish('canonicalMetadataUpdate', metadata);
     });
 
-    registerDestructor(this, () => {
-      metadataChannel.off('metadata');
-      metadataChannel.off('canonical_metadata');
-    });
+    this._metadataChannel = metadataChannel;
+  }
+
+  willDestroy() {
+    if (this._metadataChannel) {
+      this._metadataChannel.off('metadata');
+      this._metadataChannel.off('canonical_metadata');
+    }
   }
 }

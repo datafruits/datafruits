@@ -42,10 +42,6 @@ module.exports = function (defaults) {
       plugins: [require('ember-auto-import/babel-plugin')],
     },
 
-    'ember-simple-auth': {
-      useSessionSetupMethod: true,
-    },
-
     // emberCliFontAwesome: {
     //   useScss: true,
     // },

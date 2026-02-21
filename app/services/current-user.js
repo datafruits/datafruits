@@ -1,11 +1,10 @@
-import Service, { inject as service } from '@ember/service';
-import { tracked } from '@glimmer/tracking';
+import { BaseService, service, tracked } from '../../framework/index.js';
 
-export default class CurrentUserService extends Service {
-  @service
+export default class CurrentUserService extends BaseService {
+  @service('session')
   session;
 
-  @service
+  @service('store')
   store;
 
   @tracked

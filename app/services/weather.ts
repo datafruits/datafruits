@@ -1,17 +1,9 @@
-import Service from "@ember/service";
-import { tracked } from "@glimmer/tracking";
+import { BaseService, tracked } from '../../framework/index.js';
 
-export default class Weather extends Service {
+export default class Weather extends BaseService {
   setWeather(weather: string) {
     this.currentWeather = weather;
   }
 
-  @tracked currentWeather: string = "cloudy";
-}
-
-// DO NOT DELETE: this is how TypeScript knows how to look up your services.
-declare module "@ember/service" {
-  interface Registry {
-    weather: Weather;
-  }
+  @tracked currentWeather: string = 'cloudy';
 }

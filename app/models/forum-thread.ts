@@ -1,4 +1,4 @@
-import Model, { attr, hasMany, type SyncHasMany } from '@ember-data/model';
+import { Model, attr, hasMany, type SyncHasMany } from '../../framework/index.js';
 import type Post from './post';
 //import type User from './user';
 //import type Post from './post';
@@ -27,9 +27,4 @@ export default class ForumThread extends Model {
   }
 }
 
-// DO NOT DELETE: this is how TypeScript knows how to look up your models.
-declare module 'ember-data/types/registries/model' {
-  export default interface ModelRegistry {
-    'forum-thread': ForumThread;
-  }
-}
+// DO NOT DELETE: this is how TypeScript knows how to look up your models.}

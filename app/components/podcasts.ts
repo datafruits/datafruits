@@ -1,6 +1,6 @@
 //import { action } from '@ember/object';
 //import { tracked } from '@glimmer/tracking';
-import type Store from '@ember-data/store';
+import type { Store } from '../../framework/index.js';
 import type RouterService from '@ember/routing/router-service';
 import { inject as service } from '@ember/service';
 //import { hash } from 'rsvp';

@@ -1,4 +1,4 @@
-import Model, { attr, belongsTo } from '@ember-data/model';
+import { Model, attr, belongsTo } from '../../framework/index.js';
 
 export default class FruitTicketGift extends Model {
   @belongsTo('user', {
@@ -10,9 +10,4 @@ export default class FruitTicketGift extends Model {
   @attr('string') declare toUserId: string;
 }
 
-// DO NOT DELETE: this is how TypeScript knows how to look up your models.
-declare module 'ember-data/types/registries/model' {
-  export default interface ModelRegistry {
-    'fruit-ticket-gift': FruitTicketGift;
-  }
-}
+// DO NOT DELETE: this is how TypeScript knows how to look up your models.}
