@@ -36,6 +36,10 @@ class MockChannel extends MockBase {
     return this;
   }
 
+  push() {
+    return this;
+  }
+
   on(event, cb) {
     if (event === 'notauthorized') {
       // testem doesn't like window.alert
