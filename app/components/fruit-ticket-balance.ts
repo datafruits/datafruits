@@ -6,7 +6,7 @@ interface FruitTicketBalanceArgs {
   value: number;
 }
 
-const ANIMATION_DURATION = 2000;
+const ANIMATION_DURATION = 5000;
 const SCALE_ANIMATION_DURATION = 600;
 
 export default class FruitTicketBalanceComponent extends Component<FruitTicketBalanceArgs> {
