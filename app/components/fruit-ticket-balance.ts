@@ -6,12 +6,15 @@ interface FruitTicketBalanceArgs {
   value: number;
 }
 
-const ANIMATION_DURATION = 1000;
+const ANIMATION_DURATION = 2000;
+const SCALE_ANIMATION_DURATION = 600;
 
 export default class FruitTicketBalanceComponent extends Component<FruitTicketBalanceArgs> {
   @tracked displayedValue: number = this.args.value ?? 0;
+  @tracked isAnimating = false;
 
   private animationId: number | null = null;
+  private scaleAnimationTimeoutId: number | null = null;
   private animationStart: number | null = null;
   private animationFrom: number = this.args.value ?? 0;
   private animationTo: number = this.args.value ?? 0;
@@ -35,6 +38,15 @@ export default class FruitTicketBalanceComponent extends Component<FruitTicketBa
     this.animationFrom = from;
     this.animationTo = to;
     this.animationStart = null;
+    this.isAnimating = true;
+
+    if (this.scaleAnimationTimeoutId !== null) {
+      window.clearTimeout(this.scaleAnimationTimeoutId);
+    }
+    this.scaleAnimationTimeoutId = window.setTimeout(() => {
+      this.isAnimating = false;
+      this.scaleAnimationTimeoutId = null;
+    }, SCALE_ANIMATION_DURATION);
 
     const step = (timestamp: number): void => {
       if (this.animationStart === null) {
@@ -42,8 +54,8 @@ export default class FruitTicketBalanceComponent extends Component<FruitTicketBa
       }
       const elapsed = timestamp - this.animationStart;
       const progress = Math.min(elapsed / ANIMATION_DURATION, 1);
-      // ease-out: 1 - (1 - t)^2
-      const eased = 1 - Math.pow(1 - progress, 2);
+      // ease-out cubic: 1 - (1 - t)^3 for a smoother deceleration
+      const eased = 1 - Math.pow(1 - progress, 3);
       this.displayedValue = Math.round(
         this.animationFrom + (this.animationTo - this.animationFrom) * eased
       );
@@ -69,6 +81,9 @@ export default class FruitTicketBalanceComponent extends Component<FruitTicketBa
   willDestroy(): void {
     super.willDestroy();
     this.cancelAnimation();
+    if (this.scaleAnimationTimeoutId !== null) {
+      window.clearTimeout(this.scaleAnimationTimeoutId);
+    }
   }
 }
 
