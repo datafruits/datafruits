@@ -170,6 +170,11 @@ export default class ChatService extends Service {
       this.limitBreakProgress = msg.limit_break_percentage;
     });
 
+    this.chan.on('treasure:received', (msg) => {
+      console.log('treasure_received: ', msg);
+      this.openTreasure(msg.uuid);
+    });
+
     this.chan.on('treasure:opened', (msg) => {
       this.lockTreasure(msg.uuid);
       if(msg.user !== this.username) return;

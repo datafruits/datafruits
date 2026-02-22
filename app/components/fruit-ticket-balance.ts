@@ -6,7 +6,7 @@ interface FruitTicketBalanceArgs {
   value: number;
 }
 
-const ANIMATION_DURATION = 300;
+const ANIMATION_DURATION = 1000;
 
 export default class FruitTicketBalanceComponent extends Component<FruitTicketBalanceArgs> {
   @tracked displayedValue: number = this.args.value ?? 0;
@@ -30,6 +30,7 @@ export default class FruitTicketBalanceComponent extends Component<FruitTicketBa
   }
 
   private startAnimation(from: number, to: number): void {
+    console.log("starting animation");
     this.cancelAnimation();
     this.animationFrom = from;
     this.animationTo = to;
