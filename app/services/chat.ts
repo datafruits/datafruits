@@ -197,7 +197,7 @@ export default class ChatService extends Service {
         });
         this.eventBus.publish("treasureOpened", msg.treasure);
         // update user balance
-        if (msg.user === this.username && msg.treasure === 'fruit_tickets' && msg.amount) {
+        if (msg.treasure === 'fruit_tickets' && msg.amount) {
           if (this.currentUser.user) {
             this.currentUser.user.fruitTicketBalance = (this.currentUser.user.fruitTicketBalance || 0) + msg.amount;
           }
