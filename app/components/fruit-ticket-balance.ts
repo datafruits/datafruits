@@ -30,7 +30,6 @@ export default class FruitTicketBalanceComponent extends Component<FruitTicketBa
   }
 
   private startAnimation(from: number, to: number): void {
-    console.log("starting animation");
     this.cancelAnimation();
     this.animationFrom = from;
     this.animationTo = to;
