@@ -17,6 +17,18 @@ module('Unit | Service | chat', function (hooks) {
     };
     testContext.owner.register('service:current-user', MockCurrentUserService);
 
+    const MockStoreService = class extends Service {
+      createRecord() {
+        return { save: () => Promise.resolve() };
+      }
+    };
+    testContext.owner.register('service:store', MockStoreService);
+
+    const MockEventBusService = class extends Service {
+      publish() {}
+    };
+    testContext.owner.register('service:event-bus', MockEventBusService);
+
     let chatService = testContext.owner.lookup('service:chat');
     let lobbyChannel = chatService.socket.socket.channels['rooms:lobby'];
 
@@ -105,36 +117,40 @@ module('Unit | Service | chat', function (hooks) {
     assert.deepEqual(chatService.presences, {});
   });
 
-  test('treasure:received increments fruitTicketBalance optimistically for current user', function (assert) {
+  test('treasure:opened updates fruitTicketBalance for current user', async function (assert) {
     let { chatService, lobbyChannel, mockUser } = setupWithUsername(this, 'testuser');
 
-    lobbyChannel.dispatch('treasure:received', {
+    lobbyChannel.dispatch('treasure:opened', {
       user: 'testuser',
       uuid: null,
       treasure: 'fruit_tickets',
       amount: 5,
     });
+
+    await Promise.resolve();
 
     assert.equal(mockUser.fruitTicketBalance, 15, 'balance incremented by amount');
   });
 
-  test('treasure:received reloads currentUser after fruit_tickets received', function (assert) {
+  test('treasure:opened reloads currentUser after fruit_tickets received', async function (assert) {
     let { lobbyChannel, loadCallCount } = setupWithUsername(this, 'testuser');
 
-    lobbyChannel.dispatch('treasure:received', {
+    lobbyChannel.dispatch('treasure:opened', {
       user: 'testuser',
       uuid: null,
       treasure: 'fruit_tickets',
       amount: 5,
     });
 
+    await Promise.resolve();
+
     assert.equal(loadCallCount, 1, 'currentUser.load was called once');
   });
 
-  test('treasure:received does not update balance for other users', function (assert) {
+  test('treasure:opened does not update balance for other users', function (assert) {
     let { lobbyChannel, mockUser } = setupWithUsername(this, 'testuser');
 
-    lobbyChannel.dispatch('treasure:received', {
+    lobbyChannel.dispatch('treasure:opened', {
       user: 'otheruser',
       uuid: null,
       treasure: 'fruit_tickets',
@@ -144,28 +160,32 @@ module('Unit | Service | chat', function (hooks) {
     assert.equal(mockUser.fruitTicketBalance, 10, 'balance unchanged for other user');
   });
 
-  test('treasure:received does not update balance for non-fruit_tickets treasure', function (assert) {
+  test('treasure:opened does not update balance for non-fruit_tickets treasure', async function (assert) {
     let { lobbyChannel, mockUser } = setupWithUsername(this, 'testuser');
 
-    lobbyChannel.dispatch('treasure:received', {
+    lobbyChannel.dispatch('treasure:opened', {
       user: 'testuser',
       uuid: null,
       treasure: 'xp_boost',
       amount: 5,
     });
 
+    await Promise.resolve();
+
     assert.equal(mockUser.fruitTicketBalance, 10, 'balance unchanged for non-fruit_tickets treasure');
   });
 
-  test('treasure:received handles missing amount gracefully', function (assert) {
+  test('treasure:opened handles missing amount gracefully', async function (assert) {
     let { lobbyChannel, mockUser } = setupWithUsername(this, 'testuser');
 
-    lobbyChannel.dispatch('treasure:received', {
+    lobbyChannel.dispatch('treasure:opened', {
       user: 'testuser',
       uuid: null,
       treasure: 'fruit_tickets',
       // amount is missing
     });
+
+    await Promise.resolve();
 
     assert.equal(mockUser.fruitTicketBalance, 10, 'balance unchanged when amount is missing');
   });
