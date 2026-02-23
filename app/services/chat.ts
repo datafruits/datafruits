@@ -173,8 +173,6 @@ export default class ChatService extends Service {
     this.chan.on('treasure:received', (msg) => {
       console.log('treasure_received: ', msg);
       this.openTreasure(msg.uuid);
-      // TODO ???
-      // update user's UI to show more points
     });
 
     this.chan.on('treasure:opened', (msg) => {
@@ -198,6 +196,15 @@ export default class ChatService extends Service {
           double_bonus: msg.double_bonus
         });
         this.eventBus.publish("treasureOpened", msg.treasure);
+        // update user balance
+        if (msg.treasure === 'fruit_tickets' && msg.amount) {
+          if (this.currentUser.user) {
+            this.currentUser.user.fruitTicketBalance = (this.currentUser.user.fruitTicketBalance || 0) + msg.amount;
+          }
+          this.currentUser.load(true).catch((error: any) => {
+            console.log('failed to reload current user after treasure received', error);
+          });
+        }
       })
       .catch((error: any) => {
         console.log('couldnt open (save) treasure chest');

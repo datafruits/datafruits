@@ -204,8 +204,7 @@
     <li class="flex space-x-2 whitespace-nowrap">
       <span>Lv. {{this.currentUser.user.level}}</span>
       <div>
-        <span class="text-xs">Ƒ</span><span
-        >{{this.currentUser.user.fruitTicketBalance}}</span>
+        <span class="text-xs">Ƒ</span><FruitTicketBalance @value={{this.currentUser.user.fruitTicketBalance}} />
       </div>
       <User::NotificationsWindow />
     </li>
