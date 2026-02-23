@@ -54,6 +54,10 @@ class MockChannel extends MockBase {
   dispatch(eventName, args) {
     this.eventHandlers[eventName](args);
   }
+
+  push() {
+    // no-op for testing
+  }
 }
 
 class MockSocket extends MockBase {

@@ -1,5 +1,6 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
+import { settled } from '@ember/test-helpers';
 import MockSocketService from '../../mocks/services/socket';
 import Service from '@ember/service';
 
@@ -16,6 +17,13 @@ module('Unit | Service | chat', function (hooks) {
       load() { loadCallCount++; return Promise.resolve(); }
     };
     testContext.owner.register('service:current-user', MockCurrentUserService);
+
+    const MockStoreService = class extends Service {
+      createRecord() {
+        return { save() { return Promise.resolve(); } };
+      }
+    };
+    testContext.owner.register('service:store', MockStoreService);
 
     let chatService = testContext.owner.lookup('service:chat');
     let lobbyChannel = chatService.socket.socket.channels['rooms:lobby'];
@@ -105,67 +113,78 @@ module('Unit | Service | chat', function (hooks) {
     assert.deepEqual(chatService.presences, {});
   });
 
-  test('treasure:received increments fruitTicketBalance optimistically for current user', function (assert) {
-    let { chatService, lobbyChannel, mockUser } = setupWithUsername(this, 'testuser');
+  test('treasure:opened increments fruitTicketBalance optimistically for current user', async function (assert) {
+    let { lobbyChannel, mockUser } = setupWithUsername(this, 'testuser');
 
-    lobbyChannel.dispatch('treasure:received', {
+    lobbyChannel.dispatch('treasure:opened', {
       user: 'testuser',
       uuid: null,
       treasure: 'fruit_tickets',
       amount: 5,
     });
+
+    await settled();
 
     assert.equal(mockUser.fruitTicketBalance, 15, 'balance incremented by amount');
   });
 
-  test('treasure:received reloads currentUser after fruit_tickets received', function (assert) {
-    let { lobbyChannel, loadCallCount } = setupWithUsername(this, 'testuser');
+  test('treasure:opened reloads currentUser after fruit_tickets received', async function (assert) {
+    let result = setupWithUsername(this, 'testuser');
+    let { lobbyChannel } = result;
 
-    lobbyChannel.dispatch('treasure:received', {
+    lobbyChannel.dispatch('treasure:opened', {
       user: 'testuser',
       uuid: null,
       treasure: 'fruit_tickets',
       amount: 5,
     });
 
-    assert.equal(loadCallCount, 1, 'currentUser.load was called once');
+    await settled();
+
+    assert.equal(result.loadCallCount, 1, 'currentUser.load was called once');
   });
 
-  test('treasure:received does not update balance for other users', function (assert) {
+  test('treasure:opened does not update balance for other users', async function (assert) {
     let { lobbyChannel, mockUser } = setupWithUsername(this, 'testuser');
 
-    lobbyChannel.dispatch('treasure:received', {
+    lobbyChannel.dispatch('treasure:opened', {
       user: 'otheruser',
       uuid: null,
       treasure: 'fruit_tickets',
       amount: 5,
     });
 
+    await settled();
+
     assert.equal(mockUser.fruitTicketBalance, 10, 'balance unchanged for other user');
   });
 
-  test('treasure:received does not update balance for non-fruit_tickets treasure', function (assert) {
+  test('treasure:opened does not update balance for non-fruit_tickets treasure', async function (assert) {
     let { lobbyChannel, mockUser } = setupWithUsername(this, 'testuser');
 
-    lobbyChannel.dispatch('treasure:received', {
+    lobbyChannel.dispatch('treasure:opened', {
       user: 'testuser',
       uuid: null,
       treasure: 'xp_boost',
       amount: 5,
     });
 
+    await settled();
+
     assert.equal(mockUser.fruitTicketBalance, 10, 'balance unchanged for non-fruit_tickets treasure');
   });
 
-  test('treasure:received handles missing amount gracefully', function (assert) {
+  test('treasure:opened handles missing amount gracefully', async function (assert) {
     let { lobbyChannel, mockUser } = setupWithUsername(this, 'testuser');
 
-    lobbyChannel.dispatch('treasure:received', {
+    lobbyChannel.dispatch('treasure:opened', {
       user: 'testuser',
       uuid: null,
       treasure: 'fruit_tickets',
       // amount is missing
     });
+
+    await settled();
 
     assert.equal(mockUser.fruitTicketBalance, 10, 'balance unchanged when amount is missing');
   });
