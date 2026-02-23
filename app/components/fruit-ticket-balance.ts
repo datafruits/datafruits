@@ -6,7 +6,7 @@ interface FruitTicketBalanceArgs {
   value: number;
 }
 
-const ANIMATION_DURATION = 1000;
+const ANIMATION_DURATION = 5000;
 
 export default class FruitTicketBalanceComponent extends Component<FruitTicketBalanceArgs> {
   @tracked displayedValue: number = this.args.value ?? 0;
