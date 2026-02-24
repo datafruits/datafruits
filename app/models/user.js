@@ -78,6 +78,9 @@ export default class UserModel extends Model {
   xpNeededForNextLevel;
 
   @attr()
+  xpProgressPercentage;
+
+  @attr()
   hasUnreadNotifications;
 
   @hasMany('track-favorite', {
