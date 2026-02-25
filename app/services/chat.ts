@@ -201,10 +201,9 @@ export default class ChatService extends Service {
           if (this.currentUser.user) {
             this.currentUser.user.fruitTicketBalance = (this.currentUser.user.fruitTicketBalance || 0) + msg.amount;
           }
-          this.currentUser.load(true).catch((error: any) => {
-            console.log('failed to reload current user after treasure received', error);
-          });
         }
+
+        void this.currentUser.load(true);
       })
       .catch((error: any) => {
         console.log('couldnt open (save) treasure chest');

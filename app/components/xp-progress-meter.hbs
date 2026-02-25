@@ -1,0 +1,12 @@
+<div class="w-full mt-1" title="XP: {{this.experiencePoints}} / {{this.xpNeededForNextLevel}}">
+  <div
+    class="w-full h-2 bg-gray-400 overflow-hidden rounded"
+    role="progressbar"
+    aria-valuenow={{this.progress}}
+    aria-valuemin="0"
+    aria-valuemax="100"
+    aria-label="XP progress to next level"
+  >
+    <div class="classic:bg-df-green h-full" style="width: {{this.progress}}%; transition: width 0.8s ease-in-out;"></div>
+  </div>
+</div>
