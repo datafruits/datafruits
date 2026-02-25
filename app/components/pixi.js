@@ -102,6 +102,7 @@ export default class PixiComponent extends Component {
       sprite._pattern = patterns[Math.floor(Math.random() * patterns.length)];
       if (sprite._pattern === 'spiral') {
         sprite._radius = 0;
+        sprite._radiusDir = 1;
         sprite._angle = Math.random() * Math.PI * 2;
         sprite._spiralCenterX = sprite.x;
         sprite._spiralCenterY = sprite.y;
@@ -110,6 +111,7 @@ export default class PixiComponent extends Component {
         sprite._vy = (Math.random() - 0.5) * 4;
       } else if (sprite._pattern === 'float') {
         sprite._floatX = sprite.x;
+        sprite._floatDirY = -1;
         sprite._time = Math.random() * Math.PI * 2;
       } else if (sprite._pattern === 'lissajous') {
         sprite._lissajousCenterX = sprite.x;
@@ -117,6 +119,10 @@ export default class PixiComponent extends Component {
         sprite._time = Math.random() * Math.PI * 2;
         sprite._freqX = Math.floor(Math.random() * 3) + 1;
         sprite._freqY = Math.floor(Math.random() * 3) + 2;
+      } else {
+        // sinewave
+        sprite._sx = 1;
+        sprite._sy = 1;
       }
 
       //sprite.filters = [this.filter];
@@ -522,32 +528,41 @@ export default class PixiComponent extends Component {
         count += 0.02 * delta;
 
         this.sprites.forEach((sprite) => {
+          const W = this.app.screen.width;
+          const H = this.app.screen.height;
           if (sprite._pattern === 'spiral') {
-            sprite._radius += 0.5;
+            sprite._radius += 0.5 * sprite._radiusDir;
             sprite._angle += 0.05;
             sprite.x = sprite._spiralCenterX + sprite._radius * Math.cos(sprite._angle);
             sprite.y = sprite._spiralCenterY + sprite._radius * Math.sin(sprite._angle);
+            if (sprite.x < 0 || sprite.x > W || sprite.y < 0 || sprite.y > H) {
+              sprite._radiusDir *= -1;
+              sprite.x = Math.max(0, Math.min(sprite.x, W));
+              sprite.y = Math.max(0, Math.min(sprite.y, H));
+            }
             sprite.scale.x = 0.25 + Math.abs(Math.sin(count)) * 0.15;
             sprite.scale.y = 0.25 + Math.abs(Math.sin(count)) * 0.15;
             sprite.rotation += 0.05;
           } else if (sprite._pattern === 'bounce') {
             sprite.x += sprite._vx;
             sprite.y += sprite._vy;
-            if (sprite.x < 0 || sprite.x > this.app.screen.width) {
+            if (sprite.x < 0 || sprite.x > W) {
               sprite._vx *= -1;
-              sprite.x = Math.max(0, Math.min(sprite.x, this.app.screen.width));
+              sprite.x = Math.max(0, Math.min(sprite.x, W));
             }
-            if (sprite.y < 0 || sprite.y > this.app.screen.height) {
+            if (sprite.y < 0 || sprite.y > H) {
               sprite._vy *= -1;
-              sprite.y = Math.max(0, Math.min(sprite.y, this.app.screen.height));
+              sprite.y = Math.max(0, Math.min(sprite.y, H));
             }
             sprite.scale.x = 0.25 + Math.abs(Math.sin(count)) * 0.1;
             sprite.scale.y = 0.25 + Math.abs(Math.sin(count)) * 0.1;
             sprite.rotation += sprite._vx * 0.02;
           } else if (sprite._pattern === 'float') {
             sprite._time += 0.03;
-            sprite.y -= 1;
+            sprite.y += sprite._floatDirY;
             sprite.x = sprite._floatX + Math.sin(sprite._time) * 40;
+            if (sprite.y < 0) { sprite._floatDirY = 1; sprite.y = 0; }
+            if (sprite.y > H) { sprite._floatDirY = -1; sprite.y = H; }
             sprite.scale.x = 0.25 + Math.sin(sprite._time * 0.5) * 0.05;
             sprite.scale.y = 0.25 + Math.abs(Math.cos(sprite._time * 0.7)) * 0.1;
             sprite.rotation = Math.sin(sprite._time) * 0.2;
@@ -555,13 +570,21 @@ export default class PixiComponent extends Component {
             sprite._time += 0.02;
             sprite.x = sprite._lissajousCenterX + Math.sin(sprite._freqX * sprite._time) * 100;
             sprite.y = sprite._lissajousCenterY + Math.sin(sprite._freqY * sprite._time + Math.PI / 2) * 100;
+            if (sprite.x < 0) { sprite._lissajousCenterX += -sprite.x; sprite.x = 0; }
+            if (sprite.x > W) { sprite._lissajousCenterX -= sprite.x - W; sprite.x = W; }
+            if (sprite.y < 0) { sprite._lissajousCenterY += -sprite.y; sprite.y = 0; }
+            if (sprite.y > H) { sprite._lissajousCenterY -= sprite.y - H; sprite.y = H; }
             sprite.scale.x = 0.2 + Math.abs(Math.cos(sprite._time)) * 0.15;
             sprite.scale.y = 0.2 + Math.abs(Math.sin(sprite._time * 0.7)) * 0.15;
             sprite.rotation += 0.02;
           } else {
             // sinewave (default)
-            sprite.x += Math.sin(count);
-            sprite.y += Math.cos(count);
+            sprite.x += Math.sin(count) * sprite._sx;
+            sprite.y += Math.cos(count) * sprite._sy;
+            if (sprite.x < 0) { sprite._sx = 1; sprite.x = 0; }
+            if (sprite.x > W) { sprite._sx = -1; sprite.x = W; }
+            if (sprite.y < 0) { sprite._sy = 1; sprite.y = 0; }
+            if (sprite.y > H) { sprite._sy = -1; sprite.y = H; }
             sprite.scale.x += Math.sin(count) * 0.01;
             sprite.scale.y += Math.sin(count) * 0.01;
             sprite.rotation += Math.sin(count) * 0.01;
