@@ -25,9 +25,24 @@
           <Ui::Icon @name="arrow-right" />
       </button>
     {{/if}}
+    {{#if this.session.isAuthenticated}}
+      <button
+        {{on "click" this.toggleGiftSubscriptionModal}}
+        type="button"
+        class="cool-button"
+        title={{t "chat.titles.gift_subscription"}}
+      >
+        🎁
+      </button>
+    {{/if}}
     <Chat::EmojiSelector
       @sendGif={{this.sendGif}}
       @sendEmoji={{this.sendEmoji}}
     />
   </span>
 </form>
+{{#if this.showingGiftSubscriptionModal}}
+  <GiftSubscriptionModal
+    @toggleModal={{this.toggleGiftSubscriptionModal}}
+  />
+{{/if}}

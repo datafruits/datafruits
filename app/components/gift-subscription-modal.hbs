@@ -1,0 +1,93 @@
+<Ui::Modal @toggleModal={{@toggleModal}}>
+  <div class="modal-body m-1 bg-df-blue p-4">
+    <h2 class="text-xl font-bold mb-4">{{t "chat.gift_subscription.title"}}</h2>
+    
+    <form {{on "submit" this.purchaseGiftSubscriptions}}>
+      {{! Quantity selection }}
+      <div class="mb-4">
+        <label class="block mb-2 font-bold">
+          {{t "chat.gift_subscription.quantity_label"}}
+        </label>
+        <div class="flex flex-wrap gap-2">
+          {{#each this.quantityOptions as |quantity|}}
+            <button
+              type="button"
+              class="cool-button {{if (eq this.selectedQuantity quantity) 'bg-df-green' 'bg-gray-500'}}"
+              {{on "click" (fn this.selectQuantity quantity)}}
+            >
+              {{quantity}} {{if (eq quantity 1) (t "chat.gift_subscription.subscription") (t "chat.gift_subscription.subscriptions")}}
+            </button>
+          {{/each}}
+        </div>
+      </div>
+
+      {{! User search for single gift }}
+      {{#if this.showUserSearch}}
+        <div class="mb-4">
+          <label class="block mb-2 font-bold">
+            {{t "chat.gift_subscription.recipient_label"}}
+          </label>
+          <Input
+            @type="text"
+            @value={{this.searchUsername}}
+            {{on "input" this.updateSearchUsername}}
+            placeholder={{t "chat.gift_subscription.search_placeholder"}}
+            class="w-full mb-2"
+            autocomplete="off"
+          />
+          {{#if this.filteredUsers.length}}
+            <div class="bg-gray-700 rounded max-h-40 overflow-y-auto">
+              {{#each this.filteredUsers as |username|}}
+                <button
+                  type="button"
+                  class="block w-full text-left px-3 py-2 hover:bg-gray-600"
+                  {{on "click" (fn this.selectUser username)}}
+                >
+                  {{username}}
+                </button>
+              {{/each}}
+            </div>
+          {{/if}}
+          <p class="text-sm text-gray-300 mt-2">
+            {{t "chat.gift_subscription.optional_note"}}
+          </p>
+        </div>
+      {{else}}
+        <div class="mb-4">
+          <p class="text-sm text-gray-300">
+            {{t "chat.gift_subscription.random_note"}}
+          </p>
+        </div>
+      {{/if}}
+
+      {{! Error message }}
+      {{#if this.errorMessage}}
+        <div class="mb-4 p-3 bg-red-600 text-white rounded">
+          {{this.errorMessage}}
+        </div>
+      {{/if}}
+
+      {{! Submit button }}
+      <div class="flex justify-between items-center">
+        <button
+          type="submit"
+          class="cool-button bg-df-green"
+          disabled={{this.isSubmitting}}
+        >
+          {{#if this.isSubmitting}}
+            {{t "chat.gift_subscription.purchasing"}}
+          {{else}}
+            {{t "chat.gift_subscription.purchase"}}
+          {{/if}}
+        </button>
+        <button
+          type="button"
+          class="cool-button bg-gray-500"
+          {{on "click" @toggleModal}}
+        >
+          {{t "chat.gift_subscription.cancel"}}
+        </button>
+      </div>
+    </form>
+  </div>
+</Ui::Modal>
