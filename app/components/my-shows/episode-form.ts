@@ -2,7 +2,9 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import { debounce } from '@ember/runloop';
 import type ScheduledShow from 'datafruits13/models/scheduled-show';
+import type User from 'datafruits13/models/user';
 import dayjs, { Dayjs } from 'dayjs';
 import { BufferedChangeset } from 'ember-changeset/types';
 import EpisodeValidations from '../../validations/episode';
@@ -14,10 +16,12 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   @service declare router: any;
   @service declare currentUser: any;
   @service declare intl: any;
+  @service declare store: any;
 
   EpisodeValidations = EpisodeValidations;
 
   @tracked imagePreview: string | null = null;
+  @tracked users: User[] = [];
 
   statusOptions = {
     Published: 'archive_published',
@@ -26,7 +30,7 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
 
   @tracked isUploading: boolean = false;
 
-  @tracked trackOption: string = 'upload';
+  @tracked trackOption: 'upload' | 'track' = 'upload';
 
   @action
   onStartUpload() {
@@ -98,6 +102,28 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   selectTrackOption(option: 'upload' | 'track'): void {
     this.trackOption = option;
  }
+
+  @action
+  searchDjs(term: string) {
+    return new Promise((resolve, reject) => {
+      // eslint-disable-next-line @typescript-eslint/unbound-method
+      debounce(this, this._performDjsSearch, term, resolve, reject, 600);
+    });
+  }
+
+  _performDjsSearch(term: string, resolve: any, reject: any) {
+    this.store
+      .query('user', {
+        search: {
+          keyword: term,
+        },
+      })
+      .then((users: any) => {
+        this.users = users;
+        return resolve(users);
+      }, reject);
+  }
+
 
  get imagePreviewSrc(): string | null {
    if(this.imagePreview) {
