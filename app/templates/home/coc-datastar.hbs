@@ -1,0 +1,231 @@
+{{!-- template-lint-disable no-bare-strings --}}
+{{page-title "Code of Conduct – Datastar Demo"}}
+<div class="page-spacing">
+  <div class="page-bg">
+
+    {{!-- Demo banner --}}
+    <div class="mb-6 p-4 border-2 border-df-green rounded">
+      <h2 class="text-center text-xl font-bold mb-2">🌟 Datastar Demo Page</h2>
+      <p class="mb-1">
+        This page is a <strong>spike/demo</strong> showing how the Code of Conduct
+        could be rebuilt with
+        <a href="https://data-star.dev" target="_blank" rel="noopener noreferrer" class="underline">Datastar</a>
+        instead of Ember.js templates.
+      </p>
+      <p class="mb-1">
+        <strong>Ember</strong> renders the original <code>/coc</code> page via server-compiled
+        Handlebars templates and the ember-intl translation helper. <strong>Datastar</strong>
+        handles interactivity directly in the HTML using <code>data-*</code> attributes and
+        reactive signals — no framework-specific build step required for the interactive parts.
+      </p>
+      <p>
+        <em>Features demonstrated:</em> collapsible sections (toggle open/closed) and
+        live keyword filtering of the Standards bullets.
+      </p>
+      <p class="mt-2">
+        <LinkTo @route="home.coc" class="underline">← Back to the original Ember CoC page</LinkTo>
+      </p>
+    </div>
+
+    {{!-- Datastar root: all signals live here --}}
+    <div
+      id="datastar-coc-demo"
+      data-test-datastar-root
+      data-signals="{pledgeOpen: true, standardsOpen: true, responsibilitiesOpen: false, scopeOpen: false, enforcementOpen: false, attributionOpen: false, filter: ''}"
+    >
+
+      {{!-- Filter input --}}
+      <div class="mb-4">
+        <label class="font-bold mr-2" for="coc-filter">Filter Standards bullets:</label>
+        <input
+          id="coc-filter"
+          type="text"
+          data-bind-filter
+          placeholder="e.g. welcoming, harassment…"
+          class="text-black px-2 py-1 rounded"
+        />
+      </div>
+
+      {{!-- Pledge --}}
+      <section class="mb-4">
+        <button
+          type="button"
+          class="w-full text-left font-bold text-lg flex justify-between items-center py-2 border-b"
+          data-on-click="$pledgeOpen = !$pledgeOpen"
+        >
+          <span>Our Pledge</span>
+          <span data-show="$pledgeOpen">▲</span>
+          <span data-show="!$pledgeOpen">▼</span>
+        </button>
+        <div data-show="$pledgeOpen" class="py-2">
+          <p>
+            In the interest of fostering an open and welcoming environment, we as music fans pledge to
+            making participation in our community a harassment-free experience for everyone, regardless
+            of age, body size, disability, ethnicity, gender identity and expression, level of
+            experience, nationality, personal appearance, race, religion, or sexual identity and
+            orientation.
+          </p>
+        </div>
+      </section>
+
+      {{!-- Standards --}}
+      <section class="mb-4">
+        <button
+          type="button"
+          class="w-full text-left font-bold text-lg flex justify-between items-center py-2 border-b"
+          data-on-click="$standardsOpen = !$standardsOpen"
+        >
+          <span>Our Standards</span>
+          <span data-show="$standardsOpen">▲</span>
+          <span data-show="!$standardsOpen">▼</span>
+        </button>
+        <div data-show="$standardsOpen" class="py-2">
+          <p class="font-bold">Examples of behavior that contributes to creating a positive environment include:</p>
+          <ul class="text-left list-disc ml-6 mt-2 mb-4">
+            <li data-show="$filter === '' || 'Using welcoming and inclusive language'.toLowerCase().includes($filter.toLowerCase())">
+              💬 Using welcoming and inclusive language
+            </li>
+            <li data-show="$filter === '' || 'Being respectful of differing viewpoints and experiences'.toLowerCase().includes($filter.toLowerCase())">
+              👥 Being respectful of differing viewpoints and experiences
+            </li>
+            <li data-show="$filter === '' || 'Gracefully accepting constructive criticism'.toLowerCase().includes($filter.toLowerCase())">
+              🙇 Gracefully accepting constructive criticism
+            </li>
+            <li data-show="$filter === '' || 'Focusing on what is best for the community'.toLowerCase().includes($filter.toLowerCase())">
+              🎯 Focusing on what is best for the community
+            </li>
+            <li data-show="$filter === '' || 'Showing empathy towards other community members'.toLowerCase().includes($filter.toLowerCase())">
+              💗 Showing empathy towards other community members
+            </li>
+          </ul>
+          <p class="font-bold">Examples of unacceptable behavior by participants include:</p>
+          <ul class="text-left list-disc ml-6 mt-2">
+            <li data-show="$filter === '' || 'The use of sexualized language or imagery and unwelcome sexual attention or advances'.toLowerCase().includes($filter.toLowerCase())">
+              👅 The use of sexualized language or imagery and unwelcome sexual attention or advances
+            </li>
+            <li data-show="$filter === '' || 'Trolling, insulting/derogatory comments and personal or political attacks'.toLowerCase().includes($filter.toLowerCase())">
+              🗯️ Trolling, insulting/derogatory comments, and personal or political attacks
+            </li>
+            <li data-show="$filter === '' || 'Public or private harassment'.toLowerCase().includes($filter.toLowerCase())">
+              📌 Public or private harassment
+            </li>
+            <li data-show="$filter === '' || 'Publishing others private information without explicit permission'.toLowerCase().includes($filter.toLowerCase())">
+              🏠 Publishing others' private information, such as a physical or electronic address, without explicit permission
+            </li>
+            <li data-show="$filter === '' || 'Other conduct which could reasonably be considered inappropriate'.toLowerCase().includes($filter.toLowerCase())">
+              🚫 Other conduct which could reasonably be considered inappropriate
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {{!-- Responsibilities --}}
+      <section class="mb-4">
+        <button
+          type="button"
+          class="w-full text-left font-bold text-lg flex justify-between items-center py-2 border-b"
+          data-on-click="$responsibilitiesOpen = !$responsibilitiesOpen"
+        >
+          <span>Our Responsibilities</span>
+          <span data-show="$responsibilitiesOpen">▲</span>
+          <span data-show="!$responsibilitiesOpen">▼</span>
+        </button>
+        <div data-show="$responsibilitiesOpen" class="py-2">
+          <p>
+            Datafruits administrators are responsible for clarifying the standards of acceptable
+            behavior and are expected to take appropriate and fair corrective action in response
+            to any instances of unacceptable behavior.
+          </p>
+          <p class="mt-2">
+            Datafruits administrators have the right and responsibility to remove, edit, or reject
+            contributions that are not aligned to this Code of Conduct, or to ban temporarily or
+            permanently any user for other behaviors that they deem inappropriate, threatening,
+            offensive, or harmful.
+          </p>
+        </div>
+      </section>
+
+      {{!-- Scope --}}
+      <section class="mb-4">
+        <button
+          type="button"
+          class="w-full text-left font-bold text-lg flex justify-between items-center py-2 border-b"
+          data-on-click="$scopeOpen = !$scopeOpen"
+        >
+          <span>Scope</span>
+          <span data-show="$scopeOpen">▲</span>
+          <span data-show="!$scopeOpen">▼</span>
+        </button>
+        <div data-show="$scopeOpen" class="py-2">
+          <p>
+            This Code of Conduct applies both within project spaces and in public spaces when an
+            individual is representing the project or its community. Examples of representing a
+            project or community include using an official project e-mail address, posting via an
+            official social media account, or acting as an appointed representative at an online or
+            offline event.
+          </p>
+        </div>
+      </section>
+
+      {{!-- Enforcement --}}
+      <section class="mb-4">
+        <button
+          type="button"
+          class="w-full text-left font-bold text-lg flex justify-between items-center py-2 border-b"
+          data-on-click="$enforcementOpen = !$enforcementOpen"
+        >
+          <span>Enforcement</span>
+          <span data-show="$enforcementOpen">▲</span>
+          <span data-show="!$enforcementOpen">▼</span>
+        </button>
+        <div data-show="$enforcementOpen" class="py-2">
+          <p>
+            Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by
+            contacting the datafruits administrators (email
+            <a href="mailto:info@datafruits.fm">info@datafruits.fm</a>). All complaints will be
+            reviewed and investigated and will result in a response that is deemed necessary and
+            appropriate to the circumstances.
+          </p>
+          <p class="mt-2">
+            Datafruits administrators who do not follow or enforce the Code of Conduct in good faith
+            may face temporary or permanent repercussions as determined by other members of the
+            project's leadership.
+          </p>
+          <p class="mt-2">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://docs.google.com/document/d/1H7j23zdNpZcLUJvMBpzPl7FcIYFrjJ9CLGKEI16an4Y/edit?usp=sharing"
+              class="underline"
+            >CoC Enforcement Policy</a>
+          </p>
+        </div>
+      </section>
+
+      {{!-- Attribution --}}
+      <section class="mb-4">
+        <button
+          type="button"
+          class="w-full text-left font-bold text-lg flex justify-between items-center py-2 border-b"
+          data-on-click="$attributionOpen = !$attributionOpen"
+        >
+          <span>Attribution</span>
+          <span data-show="$attributionOpen">▲</span>
+          <span data-show="!$attributionOpen">▼</span>
+        </button>
+        <div data-show="$attributionOpen" class="py-2">
+          <p>
+            This Code of Conduct is adapted from the Rubygems Contributor Covenant, which was in turn
+            adopted from the Contributor Covenant, version 1.4, available at
+            <a
+              href="http://contributor-covenant.org/version/1/4"
+              target="_blank" rel="noopener noreferrer"
+              class="underline"
+            >http://contributor-covenant.org/version/1/4</a>.
+          </p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
