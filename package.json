@@ -192,6 +192,7 @@
     "edition": "octane"
   },
   "dependencies": {
+    "@starfederation/datastar": "1.0.0-beta.11",
     "autoprefixer": "^10.4.21",
     "babel-plugin-ember-modules-api-polyfill": "2.13.0",
     "ember-deep-tracked": "^2.0.1",
