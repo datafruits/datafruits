@@ -10,8 +10,8 @@ export default class MyShowsEpisodeCard extends Component<MyShowsEpisodeCardArgs
   get backgroundStyle() {
     let image;
     const show = this.args.episode;
-    if (show.imageUrl) {
-      image = show.imageUrl;
+    if (show.asImageUrl) {
+      image = show.asImageUrl;
     // } else if (show.isGuest) {
     //   image = '/assets/images/show_placeholder.jpg';
     // } else if (show.host && show.host.imageUrl) {
