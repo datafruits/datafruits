@@ -1,21 +1,20 @@
-<Await @promise={{this.fetchTracks}} as |await|>
-  <await.Pending>
+<Await @promise={{this.fetchTracks}}>
+  <:pending>
     <p id="podcast-search-loading" class="">
       {{t "loading"}}
     </p>
-  </await.Pending>
+  </:pending>
 
-  <await.Fulfilled as |result|>
+  <:success as |result|>
     {{#each result as |show|}}
       <PodcastTrack
-        @track={{show.tracks.firstObject}}
+        @track={{show.firstTrack}}
         @show={{show}}
-        @selectedLabels={{this.selectedLabels}}
       />
     {{/each}}
-  </await.Fulfilled>
+  </:success>
 
-  <await.Rejected>
+  <:error>
     {{t "error"}}{{format-message-body ":sorrymustabeentheonionsaladdressing:"}}
-  </await.Rejected>
+  </:error>
 </Await>
