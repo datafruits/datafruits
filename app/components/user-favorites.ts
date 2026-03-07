@@ -11,7 +11,7 @@ export default class UserFavorites extends Component {
     const scheduledShowIds = this.currentUser.user.scheduledShowFavorites.map((scheduledShowFavorite: any) => {
       return scheduledShowFavorite.scheduledShowId;
     });
-    return this.store.query('scheduledShow', { id: scheduledShowIds });
+    return this.store.query('podcast', { id: scheduledShowIds });
   }
 }
 
