@@ -33,7 +33,7 @@ export default class DjRoute extends Route {
         type: 'meta',
         attrs: {
           name: 'twitter:image',
-          content: model.imageUrl,
+          content: model.asImageUrl,
         },
       },
       card: {
