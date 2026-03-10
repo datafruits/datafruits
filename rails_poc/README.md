@@ -53,6 +53,7 @@ rails_poc/
 │   │
 │   └── javascript/
 │       └── web_components/
+│           ├── datafruits-player.js        # Site-wide live-stream player custom element
 │           ├── shrimpo-countdown.js        # Countdown timer custom element
 │           ├── shrimpo-player.js           # Entry audio player custom element
 │           └── shrimpo-vote.js             # Voting slider custom element
@@ -102,6 +103,19 @@ The background visuals canvas element is marked the same way:
 ---
 
 ## Web components
+
+### `<datafruits-player stream-url="…">`
+
+The persistent site-wide live-stream player. Renders a play/pause toggle for the
+Icecast/Shoutcast stream. Because the wrapping `<div>` is marked with
+`data-turbo-permanent`, the element and its internal `Audio` object are kept
+alive across page navigations — so the stream never stops when users browse.
+
+```html
+<datafruits-player
+  stream-url="http://relay.datafruits.fm:8000/datafruits"
+></datafruits-player>
+```
 
 ### `<shrimpo-countdown end-at="ISO8601">`
 
