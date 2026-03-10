@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= content_for?(:title) ? yield(:title) + " | DATAFRUITS.FM" : "DATAFRUITS.FM" %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%# TailwindCSS - import the shared stylesheet from the main datafruits app %>
+    <link rel="stylesheet" href="/assets/application.css" />
+
+    <%# Hotwire: Turbo for SPA-like navigation without full page reloads %>
+    <%= javascript_include_tag "https://cdn.jsdelivr.net/npm/@hotwired/turbo@7.3.0/dist/turbo.es2017.esm.js", type: "module" %>
+
+    <%# Web components for interactive shrimpos UI elements %>
+    <%= javascript_include_tag "web_components/shrimpo-countdown", type: "module", defer: true %>
+    <%= javascript_include_tag "web_components/shrimpo-player", type: "module", defer: true %>
+    <%= javascript_include_tag "web_components/shrimpo-vote", type: "module", defer: true %>
+  </head>
+
+  <%#
+    current_theme_class returns a CSS class like "theme-classic" or "theme-blm" based on
+    the user's selected theme (stored in session/user preferences in streampusher-api).
+  %>
+  <body class="<%= defined?(current_theme_class) ? current_theme_class : "" %>">
+    <%#
+      Navigation bar - re-rendered on each page navigation.
+      Turbo Drive replaces <body> contents, so nav is refreshed on each visit.
+      If the nav should also persist, wrap it in a turbo-permanent element and give it a unique id.
+    %>
+    <header class="flex classic:bg-df-pink blm:bg-black trans:bg-df-blue">
+      <nav class="flex items-center justify-between w-full px-4 py-2">
+        <%= link_to "DATAFRUITS.FM", root_path, class: "text-white font-bold text-xl" %>
+        <div class="flex space-x-4 text-white">
+          <%= link_to "Shrimpos", shrimpos_path, class: "hover:text-df-yellow" %>
+          <%= link_to "Shows", shows_path, class: "hover:text-df-yellow" %>
+          <%= link_to "DJs", djs_path, class: "hover:text-df-yellow" %>
+          <% if user_signed_in? %>
+            <%= link_to current_user.username, profile_path, class: "hover:text-df-yellow" %>
+            <%# Use data-turbo-method for DELETE in Rails 7+ with Turbo %>
+            <%= link_to "Sign Out", destroy_user_session_path, class: "hover:text-df-yellow", data: { turbo_method: :delete } %>
+          <% else %>
+            <%= link_to "Sign In", new_user_session_path, class: "hover:text-df-yellow" %>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+
+    <%# Main content area - updated by Turbo Drive on navigation %>
+    <main id="main-content" class="overflow-auto text-white text-shadow flex flex-col flex-grow">
+      <% if notice %>
+        <div class="bg-green-500 text-white px-4 py-2" role="alert">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="bg-red-500 text-white px-4 py-2" role="alert">
+          <%= alert %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </main>
+
+    <%#
+      PERSISTENT AUDIO PLAYER
+      ========================
+      data-turbo-permanent: Turbo Drive preserves this element across page navigations.
+      The element must have a unique id attribute.
+
+      When the user navigates between shrimpos pages (or any other page), Turbo Drive
+      replaces the <body> content but keeps elements marked with data-turbo-permanent
+      in place. This means the audio player keeps playing without interruption.
+
+      The audio player connects to the datafruits streaming server and lets users
+      listen to the live stream or shrimpo entries.
+    %>
+    <div
+      id="datafruits-audio-player"
+      data-turbo-permanent
+      class="flex-col flex justify-center classic:bg-df-pink blm:bg-black trans:bg-df-blue text-xl py-2 text-white leading-none"
+    >
+      <datafruits-player
+        stream-url="<%= ENV.fetch('STREAM_URL', 'http://relay.datafruits.fm:8000/datafruits') %>"
+      ></datafruits-player>
+    </div>
+
+    <%#
+      PERSISTENT BACKGROUND VISUALS
+      ================================
+      data-turbo-permanent: Same as above - background visuals persist across navigations.
+      These are the animated visuals shown behind the main content.
+    %>
+    <div
+      id="datafruits-visuals"
+      data-turbo-permanent
+      class="block absolute top-0 w-screen h-screen pointer-events-none"
+      aria-hidden="true"
+    >
+      <canvas id="datafruits-visuals-canvas" class="w-full h-full"></canvas>
+    </div>
+  </body>
+</html>

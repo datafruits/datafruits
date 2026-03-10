@@ -1,0 +1,156 @@
+<%#
+  Shrimpo entry show page — displays a single entry with playback, voting, and comments.
+  Equivalent to app/templates/home/shrimpos/entries/show.hbs in the Ember frontend.
+%>
+
+<section class="page-spacing">
+  <section class="flex space-x-2 w-full">
+
+    <%# Left sidebar: artist info (only shown for completed or mega shrimpos) %>
+    <% if @entry.shrimpo.status == "completed" || @entry.shrimpo.shrimpo_type == "mega" %>
+      <section class="w-1/4 bg-df-pink rounded-lg border-4 border-white">
+        <span class="p-4 shrink-0" style="height: 10rem; width: 10rem; flex-shrink: 0;">
+          <img
+            class="rounded-lg inline self-center object-none"
+            style="height: 10rem; width: 100%;"
+            src="<%= @entry.user_avatar %>"
+            alt="<%= @entry.username %>"
+          />
+        </span>
+        <section class="flex flex-col grow">
+          <span class="user-info mb-2">
+            <%= link_to @entry.username, dj_path(@entry.username), class: "text-3xl df-text-yellow" %>
+          </span>
+        </section>
+      </section>
+    <% end %>
+
+    <%# Main content: entry title, description, player, rankings, voting, comments %>
+    <section class="w-3/4">
+
+      <%# Entry details and playback %>
+      <section class="bg-df-pink rounded-lg border-4 border-white mb-2 p-2">
+        <h2><%= @entry.title %></h2>
+        <p><%= @entry.description %></p>
+
+        <%# Rankings — only shown after the shrimpo is completed %>
+        <% if @entry.shrimpo.status == "completed" %>
+          <div>
+            <div>
+              <% @entry.trophy_awards.each do |trophy_award| %>
+                <%= render "users/badge", badge: trophy_award %>
+              <% end %>
+            </div>
+
+            <% if @entry.shrimpo.shrimpo_type == "mega" %>
+              <%# Mega shrimpo: show category-level rankings %>
+              <ul>
+                <li>
+                  <span class="font-bold">
+                    <%= formatted_shrimpo_ranking(@entry.ranking, @entry.shrimpo_total_entries) %>
+                  </span>
+                  overall (<%= @entry.total_score %>)
+                </li>
+                <% @entry.shrimpo_voting_category_scores.each do |score| %>
+                  <li>
+                    <img
+                      width="48"
+                      class="inline"
+                      src="<%= emoji_path(score.shrimpo_voting_category.emoji) %>"
+                      alt="<%= score.shrimpo_voting_category.name %>"
+                    />
+                    <span class="font-bold">
+                      <%= formatted_shrimpo_ranking(score.ranking, @entry.shrimpo_total_entries) %>
+                    </span>
+                    - <%= score.shrimpo_voting_category.name %> (<%= score.score %>)
+                  </li>
+                <% end %>
+              </ul>
+            <% else %>
+              <span class="font-extrabold">
+                <%= formatted_shrimpo_ranking(@entry.ranking, @entry.shrimpo_total_entries) %>
+              </span>
+              <div>
+                <span>Total score:</span>
+                <span class="font-extrabold"><%= @entry.total_score %></span>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+        <%# Web component: audio player for this entry %>
+        <shrimpo-player
+          cdn-url="<%= @entry.cdn_url %>"
+          download-url="<%= @entry.cdn_url %>"
+          title="<%= @entry.title %>"
+        ></shrimpo-player>
+      </section>
+
+      <%# Pagination: links to previous/next entries %>
+      <section class="bg-df-pink rounded-lg border-4 border-white mb-2 p-2">
+        <div class="flex space-x-2">
+          <%= link_to @entry.shrimpo.title, shrimpo_path(@entry.shrimpo.slug) %>
+          <% if @entry.previous_shrimpo_entry_slug.present? %>
+            <%= link_to "Previous Shrimp",
+                shrimpo_entry_path(@entry.shrimpo_slug, @entry.previous_shrimpo_entry_slug),
+                class: "cool-button uppercase" %>
+          <% end %>
+          <% if @entry.next_shrimpo_entry_slug.present? %>
+            <%= link_to "Next Shrimp",
+                shrimpo_entry_path(@entry.shrimpo_slug, @entry.next_shrimpo_entry_slug),
+                class: "cool-button uppercase" %>
+          <% end %>
+        </div>
+      </section>
+
+      <%# Voting section — only for authenticated users during voting phase %>
+      <% if user_signed_in? &&
+            (%w[voting].include?(@entry.shrimpo.status) || @entry.shrimpo.shrimpo_type == "mega") &&
+            @entry.shrimpo.status != "completed" &&
+            @entry.username != current_user.username %>
+
+        <section class="bg-df-pink rounded-lg border-4 border-white p-2">
+          <% if @entry.shrimpo.shrimpo_type == "mega" %>
+            <%# Mega shrimpo: vote per category %>
+            <%= render "shrimpo_entries/voting_categories_table",
+                entry: @entry,
+                existing_vote: @existing_vote %>
+          <% else %>
+            <%# Normal shrimpo: single vote with emoji slider %>
+            <shrimpo-vote
+              entry-id="<%= @entry.id %>"
+              shrimpo-slug="<%= @entry.shrimpo_slug %>"
+              entry-slug="<%= @entry.slug %>"
+              emoji="<%= @entry.shrimpo_emoji %>"
+              existing-score="<%= @existing_vote&.score %>"
+              voting-completion-percentage="<%= @entry.shrimpo_voting_completion_percentage %>"
+              vote-url="<%= shrimpo_entry_votes_path(@entry.shrimpo_slug, @entry.slug) %>"
+              csrf-token="<%= form_authenticity_token %>"
+            ></shrimpo-vote>
+          <% end %>
+        </section>
+      <% elsif user_signed_in? && @entry.username == current_user.username %>
+        <h1>can't vote on one's OWN shrimpo that just wouldn't be ok would it</h1>
+      <% end %>
+
+      <%# Comments section %>
+      <section>
+        <% if user_signed_in? %>
+          <h1 class="text-2xl font-cursive mb-2">
+            Hey, <%= current_user.username %>, leave a comment
+          </h1>
+          <%= render "posts/form", postable: @entry, postable_type: "ShrimpoEntry" %>
+        <% else %>
+          <p>Login or register to leave a comment.</p>
+        <% end %>
+      </section>
+
+      <section class="posts">
+        <% @entry.posts.order(created_at: :desc).each do |post| %>
+          <%= render "posts/post", post: post %>
+        <% end %>
+      </section>
+
+    </section>
+  </section>
+</section>

@@ -1,0 +1,74 @@
+<%#
+  Mega shrimpo voting table — one slider per voting category.
+  Equivalent to app/components/shrimpo/voting-categories-table.hbs in the Ember frontend.
+%>
+
+<% if user_signed_in? %>
+  <div>
+    <h3>Shrimps command voting happens now!</h3>
+  </div>
+  <h2 class="text-lg">
+    You are... <%= entry.shrimpo_voting_completion_percentage %>% done voting for this shrimpo!
+  </h2>
+
+  <%# Build a hash of category name → { score, emoji } from existing votes %>
+  <%
+    existing_scores = (existing_vote&.shrimpo_voting_category_scores || []).index_by do |s|
+      s.shrimpo_voting_category_id
+    end
+  %>
+
+  <%= form_with url: shrimpo_entry_votes_path(entry.shrimpo_slug, entry.slug),
+                method: :post,
+                data: { turbo: false } do |f| %>
+    <% entry.shrimpo_voting_categories.each do |category| %>
+      <%
+        existing_score = existing_scores[category.id]&.score || 1
+      %>
+      <div class="shrimpo-score-picker mb-2">
+        <h3 class="text-lg"><%= category.name %></h3>
+        <input
+          type="range"
+          min="1"
+          max="6"
+          value="<%= existing_score %>"
+          name="shrimpo_vote[category_scores][<%= category.id %>]"
+          class="mega-score-slider"
+          data-emoji="<%= category.emoji %>"
+        />
+        <div class="flex" data-pips="<%= category.id %>">
+          <% 6.times do |i| %>
+            <img
+              width="48"
+              src="<%= emoji_path(category.emoji) %>"
+              alt="<%= category.emoji %>"
+              class="<%= i < existing_score ? 'opacity-100' : 'opacity-50' %> pip"
+            />
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= f.submit "SAVE VOTE", class: "cool-button" %>
+  <% end %>
+
+  <%# Progressive enhancement: update pip opacity when slider changes %>
+  <script type="module">
+    document.querySelectorAll(".mega-score-slider").forEach((slider) => {
+      slider.addEventListener("input", () => {
+        const match = slider.name.match(/\[(\d+)\]/);
+        if (!match) return;
+        const categoryId = match[1];
+        const pips = document.querySelectorAll(`[data-pips="${categoryId}"] .pip`);
+        pips.forEach((pip, idx) => {
+          pip.classList.toggle("opacity-100", idx < parseInt(slider.value, 10));
+          pip.classList.toggle("opacity-50", idx >= parseInt(slider.value, 10));
+        });
+      });
+    });
+  </script>
+<% else %>
+  <div>
+    <p>Login or register to vote on this shrimpo!</p>
+  </div>
+<% end %>

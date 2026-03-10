@@ -1,0 +1,145 @@
+<%#
+  Shrimpo show page — displays a single shrimpo with entries, voting, and comments.
+  Equivalent to app/templates/home/shrimpos/show.hbs in the Ember frontend.
+%>
+
+<section class="page-spacing">
+  <h1><%= @shrimpo.title %></h1>
+  <section class="flex space-x-2 w-full">
+
+    <%# Left sidebar: cover art, host info, admin controls %>
+    <section class="w-1/4">
+      <section class="bg-df-pink rounded-lg border-4 border-white p-2 mb-2">
+        <img src="<%= @shrimpo.cover_art_url %>" alt="" class="h-40" />
+      </section>
+      <section class="bg-df-pink rounded-lg border-4 border-white p-2 mb-2">
+        <h4>Hosted By:</h4>
+        <%= link_to dj_path(@shrimpo.username), class: "text-xl font-bold" do %>
+          <img class="inline rounded-lg" style="height: 3rem;" src="<%= @shrimpo.user_avatar %>" alt="<%= @shrimpo.username %>" />
+          <%= @shrimpo.username %>
+        <% end %>
+      </section>
+
+      <%# Admin controls: only visible to the host or admins while voting %>
+      <% if user_signed_in? && (current_user == @shrimpo.user || current_user.admin?) %>
+        <section>
+          <%=
+            button_to(
+              "TALLY RESULTS",
+              end_shrimpo_shrimpo_path(@shrimpo.slug),
+              method: :post,
+              disabled: @shrimpo.status != "voting",
+              class: "cool-button",
+              data: { turbo_confirm: "Are you sure everyone has voted and you want to end the shrimpo?" }
+            )
+          %>
+        </section>
+      <% end %>
+    </section>
+
+    <%# Main content: rules, entries, entry uploader, comments %>
+    <section class="w-3/4">
+      <section class="bg-df-pink rounded-lg border-4 border-white p-2 mb-6">
+        <h3>Rules:</h3>
+        <p class="m-2"><%= markdown(@shrimpo.rule_pack) %></p>
+
+        <div>
+          <h3>Status: <%= @shrimpo.status %></h3>
+          <% if @shrimpo.status == "running" %>
+            <shrimpo-countdown end-at="<%= @shrimpo.end_at.iso8601 %>"></shrimpo-countdown>
+          <% end %>
+        </div>
+
+        <div>
+          <h3>Shrimpo type: <span class="uppercase"><%= @shrimpo.shrimpo_type %></span></h3>
+        </div>
+
+        <% if @shrimpo.shrimpo_type == "mega" && @shrimpo.shrimpo_voting_categories.any? %>
+          <div>
+            <h4>Voting Categories:</h4>
+            <p><%= @shrimpo.shrimpo_voting_categories.map(&:name).join(" •︎ ") %></p>
+          </div>
+        <% end %>
+
+        <h4><%= @shrimpo.shrimpo_entries.count %> entries</h4>
+        <div>Started at: <%= l(@shrimpo.start_at, format: :long) %></div>
+        <% if @shrimpo.status == "completed" %>
+          <div>Ended at: <%= l(@shrimpo.ended_at, format: :long) %></div>
+        <% end %>
+
+        <p class="m-2">
+          <% if @shrimpo.zip_file_url.present? %>
+            <%= link_to "DOWNLOAD SHRIMPO PACK (.zip)", @shrimpo.zip_file_url, class: "cool-button" %>
+          <% end %>
+        </p>
+      </section>
+
+      <%# Entries section: visible during voting and after completion %>
+      <% if %w[voting completed].include?(@shrimpo.status) || @shrimpo.shrimpo_type == "mega" %>
+        <div>
+          <% if @shrimpo.entries_zip_file_url.present? %>
+            <div class="mb-4">
+              <%= link_to "DOWNLOAD ALL", @shrimpo.entries_zip_file_url, class: "cool-button" %>
+            </div>
+          <% end %>
+
+          <% if @shrimpo.shrimpo_type == "mega" && @shrimpo.status == "completed" %>
+            <%# Mega shrimpo completed: show results by category %>
+            <h1>best overall</h1>
+            <% @shrimpo.saved_shrimpo_entries.each do |entry| %>
+              <%= render "shrimpos/entry_card", shrimpo_entry: entry, shrimpo: @shrimpo %>
+            <% end %>
+
+            <hr />
+
+            <% @shrimpo.shrimpo_voting_categories.each do |category| %>
+              <h1><%= category.name %></h1>
+              <% category.sorted_scores.each do |score| %>
+                <%= render "shrimpos/entry_card", shrimpo_entry: score.shrimpo_entry, shrimpo: @shrimpo, category_score: score %>
+                <hr />
+              <% end %>
+            <% end %>
+          <% else %>
+            <h1>Entries</h1>
+            <% @shrimpo.saved_shrimpo_entries.each do |entry| %>
+              <%= render "shrimpos/entry_card", shrimpo_entry: entry, shrimpo: @shrimpo %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%# Entry submission form: only visible during the running phase %>
+      <% if @shrimpo.status == "running" %>
+        <section class="bg-df-pink rounded-lg border-4 border-white p-2">
+          <% if user_signed_in? %>
+            <h2>SUBMIT ENTRY</h2>
+            <%= render "shrimpos/entry_uploader", shrimpo: @shrimpo, shrimpo_entry: @shrimpo_entry %>
+          <% else %>
+            <span>
+              <%= link_to "Create an account", new_user_registration_path %> to join the shrimpo.
+            </span>
+          <% end %>
+        </section>
+      <% end %>
+
+      <%# Comments section %>
+      <section>
+        <% if user_signed_in? %>
+          <h1 class="text-2xl font-cursive mb-2">
+            Hey, <%= current_user.username %>, leave a comment
+          </h1>
+          <%= render "posts/form", postable: @shrimpo, postable_type: "Shrimpo" %>
+        <% else %>
+          <p>Login or register to leave a comment.</p>
+        <% end %>
+      </section>
+
+      <section class="posts">
+        <% @shrimpo.posts.order(created_at: :desc).each do |post| %>
+          <%= render "posts/post", post: post %>
+        <% end %>
+      </section>
+    </section>
+
+  </section>
+</section>

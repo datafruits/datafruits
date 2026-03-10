@@ -1,0 +1,31 @@
+<%# Shrimpos index — lists all shrimpos grouped by status %>
+<%# Equivalent to app/templates/home/shrimpos.hbs in the Ember frontend %>
+
+<section class="page-spacing">
+  <h1>
+    <p>THE POWER OF SHRIMPO</p>
+    <span class="ml-2 text-lg italic">beta</span>
+    <p>COMPELS YOU</p>
+  </h1>
+  <p class="italic">Improve your skills. Create new music.</p>
+
+  <% if user_signed_in? && current_user.level.to_i > 2 %>
+    <div class="my-2">
+      <%= link_to "BEGIN A NEW SHRIMPO", new_shrimpo_path, class: "cool-button" %>
+    </div>
+  <% end %>
+
+  <h3>Shrimpos in Progress</h3>
+  <% if @current_shrimpos.any? %>
+    <% @current_shrimpos.each do |shrimpo| %>
+      <%= render "shrimpos/card", shrimpo: shrimpo %>
+    <% end %>
+  <% else %>
+    <p>No shrimpos in progress......why don't you start one?!</p>
+  <% end %>
+
+  <h3>Completed Shrimpos</h3>
+  <% @completed_shrimpos.each do |shrimpo| %>
+    <%= render "shrimpos/card", shrimpo: shrimpo %>
+  <% end %>
+</section>

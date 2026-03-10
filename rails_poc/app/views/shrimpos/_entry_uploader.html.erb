@@ -1,0 +1,54 @@
+<%#
+  Entry uploader partial — form for submitting a new shrimpo entry.
+  Equivalent to app/components/shrimpo/entry-uploader.hbs in the Ember frontend.
+
+  Audio files are uploaded via Active Storage direct upload, which allows the browser
+  to upload directly to the storage service (S3/GCS) and return a signed blob ID.
+%>
+
+<% can_submit = shrimpo.multi_submit_allowed? || shrimpo_entry.new_record? %>
+
+<% if can_submit %>
+  <%= form_with model: [shrimpo, shrimpo_entry],
+                url: shrimpo_shrimpo_entries_path(shrimpo.slug),
+                data: { controller: "direct-upload" } do |f| %>
+
+    <div class="mb-2">
+      <%= f.label :title, "Title" %>
+      <%= f.text_field :title, class: "w-full border rounded p-2 text-black" %>
+    </div>
+
+    <div>
+      <label>
+        Upload file plz (mp3 only)
+        <%#
+          The file input triggers a direct upload to Active Storage.
+          The shrimpo-uploader web component handles progress display.
+        %>
+        <shrimpo-uploader
+          direct-upload-url="<%= rails_direct_uploads_url %>"
+          field-name="shrimpo_entry[audio]"
+        >
+          <input
+            type="file"
+            accept="audio/mpeg,audio/mp3"
+            slot="file-input"
+          />
+        </shrimpo-uploader>
+      </label>
+    </div>
+
+    <div class="my-2">
+      <label for="cc-license-checkbox">
+        This shrimpo entry will be licensed under the
+        ATTRIBUTION-NONCOMMERCIAL-SHAREALIKE Creative Commons License.
+      </label>
+      <%= f.check_box :cc_license_accepted, id: "cc-license-checkbox" %>
+      <a href="https://mirrors.creativecommons.org/presskit/buttons/80x15/png/by-nc-sa.png" target="_blank">
+        <img src="/assets/images/by-nc-sa.png" alt="CC BY-NC-SA" />
+      </a>
+    </div>
+
+    <%= f.submit "SHRIMP IT", class: "cool-button" %>
+  <% end %>
+<% end %>

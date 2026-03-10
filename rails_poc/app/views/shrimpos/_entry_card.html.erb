@@ -1,0 +1,59 @@
+<%#
+  Entry card partial — renders a single shrimpo entry in a list.
+  Equivalent to app/components/shrimpo/entry-card.hbs in the Ember frontend.
+%>
+
+<div class="bg-df-pink text-2xl rounded-lg border-4 border-white sm:py-1 flex justify-between space-x-1 text-xs sm:text-xl mb-2 p-2 md:py-4">
+  <div class="flex items-start">
+    <% if shrimpo.status == "completed" || shrimpo.shrimpo_type == "mega" %>
+      <span>
+        <img class="rounded-lg" style="height: 3rem;" src="<%= shrimpo_entry.user_avatar %>" alt="" />
+      </span>
+    <% end %>
+    <div class="flex flex-col">
+      <%= link_to shrimpo_entry_path(shrimpo.slug, shrimpo_entry.slug) do %>
+        <h2><%= shrimpo_entry.title %></h2>
+      <% end %>
+      <% if shrimpo.status == "completed" || shrimpo.shrimpo_type == "mega" %>
+        <%= link_to dj_path(shrimpo_entry.username) do %>
+          <h3><%= shrimpo_entry.username %></h3>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <% if shrimpo.status == "completed" %>
+    <div>
+      <% if local_assigns[:category_score] %>
+        <span class="font-extrabold">
+          <%= formatted_shrimpo_ranking(category_score.ranking, shrimpo.saved_shrimpo_entries.length) %>
+        </span>
+      <% else %>
+        <span class="font-extrabold">
+          <%= formatted_shrimpo_ranking(shrimpo_entry.ranking, shrimpo.saved_shrimpo_entries.length) %>
+        </span>
+      <% end %>
+
+      <% shrimpo_entry.trophy_awards.each do |trophy_award| %>
+        <%= render "users/badge", badge: trophy_award %>
+      <% end %>
+
+      <div>
+        <% if local_assigns[:category_score] %>
+          <span>Total:</span>
+          <span class="font-extrabold"><%= category_score.score %></span>
+        <% else %>
+          <span>Total:</span>
+          <span class="font-extrabold"><%= shrimpo_entry.total_score %></span>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+  <%# Web component for the entry audio player %>
+  <shrimpo-player
+    cdn-url="<%= shrimpo_entry.cdn_url %>"
+    download-url="<%= shrimpo_entry.cdn_url %>"
+    title="<%= shrimpo_entry.title %>"
+  ></shrimpo-player>
+</div>
