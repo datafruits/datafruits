@@ -10,6 +10,8 @@ export default class HomeUserSettingsController extends Controller {
   @service
   activeStorage;
 
+  @tracked avatarUploadProgress = 0;
+
   greetings = [
     '你好',
     'hello',
@@ -229,7 +231,7 @@ export default class HomeUserSettingsController extends Controller {
         this.activeStorage
         .upload(files.item(i), directUploadURL, {
           onProgress: (progress: any) => {
-            this.coverArtUploadProgress= progress;
+            this.avatarUploadProgress = progress;
           },
         })
         .then((blob: any) => {
