@@ -5,19 +5,11 @@
         <h1 class="font-cursive text-2xl mb-2">
           {{this.model.username}}
         </h1>
-        {{#if this.model.imageMediumUrl}}
-          <img
-            class="rounded-lg mb-2"
-            src={{this.model.imageMediumUrl}}
-            alt={{this.model.username}}
-            >
-        {{else}}
-          <img
-            class="rounded-lg mb-2"
-            src="/assets/images/show_placeholder.jpg"
-            alt={{this.model.username}}
-            >
-        {{/if}}
+        <img
+          class="rounded-lg mb-2"
+          src={{this.model.imageUrl}}
+          alt={{this.model.username}}
+          >
         <p class="">
           <span>{{t "profile.joined"}}</span> - {{format-day this.model.createdAt}}
         </p>
