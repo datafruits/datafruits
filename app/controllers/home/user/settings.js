@@ -1,10 +1,17 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import ENV from 'datafruits13/config/environment';
 
 export default class HomeUserSettingsController extends Controller {
   @service
   currentUser;
+
+  @service
+  activeStorage;
+
+  @tracked avatarUploadProgress = 0;
 
   greetings = [
     '你好',
@@ -215,23 +222,26 @@ export default class HomeUserSettingsController extends Controller {
   ];
 
   @action
-  updateFile(e) {
-    // this.currentUser.user.avatar.update(e.target.files[0]);
-    // this.currentUser.user.avatarFilename = e.target.files[0].name;
+  updateFile(event) {
+    const inputElement = event.target as HTMLInputElement;
+    const files = inputElement.files;
+    if (files) {
+      const directUploadURL = `${ENV.API_HOST}/rails/active_storage/direct_uploads`;
 
-    this.file = e.target.files[0];
-    this.currentUser.user.avatarFilename = e.target.files[0].name;
-    let reader = new FileReader();
+      for (let i = 0; i < files.length; i++) {
+        this.activeStorage
+        .upload(files.item(i), directUploadURL, {
+          onProgress: (progress: any) => {
+            this.avatarUploadProgress = progress;
+          },
+        })
+        .then((blob: any) => {
+          const signedId = blob.signedId;
 
-    reader.onload = (e) => {
-      this.currentUser.user.avatar = e.target.result;
-    };
-    reader.onerror = (e) => {
-      console.log('error reading file');
-      console.log(e);
-    };
-
-    reader.readAsDataURL(this.file);
+          this.currentUser.user.avatar = signedId;
+        });
+      }
+    }
   }
 
   @action
@@ -250,11 +260,11 @@ export default class HomeUserSettingsController extends Controller {
     this.currentUser.user
       .save()
       .then(() => {
-        console.log('saved user!');  
+        console.log('saved user!');
         alert('updated your profile!');
       })
       .catch((error) => {
-        console.log(error);  
+        console.log(error);
         alert('couldnt save user!');
       });
   }

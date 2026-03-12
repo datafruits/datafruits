@@ -32,6 +32,9 @@ export default class UserModel extends Model {
   imageUrl;
 
   @attr()
+  asImageUrl;
+
+  @attr()
   imageThumbUrl;
 
   @attr()

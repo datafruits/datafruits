@@ -13,12 +13,6 @@ export default class Dj extends User {
   imageUrl;
 
   @attr()
-  imageThumbUrl;
-
-  @attr()
-  imageMediumUrl;
-
-  @attr()
   bio;
 
   @attr()
