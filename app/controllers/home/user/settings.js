@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import ENV from 'datafruits13/config/environment';
 
 export default class HomeUserSettingsController extends Controller {
