@@ -10,7 +10,6 @@ export default class MyShowsEpisodeCard extends Component<MyShowsEpisodeCardArgs
   get backgroundStyle() {
     let image;
     const show = this.args.episode;
-    console.log(`this show ${show.formattedEpisodeTitle} image url: ${show.imageUrl}`);
     if (show.imageUrl) {
       image = show.imageUrl;
     } else {
