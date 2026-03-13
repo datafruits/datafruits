@@ -8,7 +8,7 @@
   <:success as |datafruits|>
     {{#if this.showingDatafruits}}
       <marquee id="add-datafruit-bar" class="text-sm sm:text-xl">
-        [<img style="height: 20px; display: inline;" src="{{this.currentDatafruit.avatarUrlOrDefault}}" alt={{this.currentDatafruit.username}} / >
+        [<img style="height: 20px; display: inline;" src="{{this.currentDatafruit.avatarUrl}}" alt={{this.currentDatafruit.username}} / >
         <LinkTo @model={{this.currentDatafruit.username}} @route="home.dj">
           {{this.currentDatafruit.username}}
         </LinkTo>]

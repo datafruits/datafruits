@@ -25,7 +25,6 @@ export default class ShowSeries extends Model {
   @attr('string') declare recurringCadence: 'First' | 'Second' | 'Third' | 'Fourth' | 'Last';
 
   @attr('string') declare image: string;
-  @attr('string') declare imageFilename: string;
   @attr('string') declare imageUrl: string;
   @attr('string') declare thumbImageUrl: string;
 
