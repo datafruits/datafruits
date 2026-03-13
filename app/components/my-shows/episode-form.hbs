@@ -34,8 +34,7 @@
         <LabelsSelect
           class="my-2 flex justify-start gap-4"
           @value={{field.value}}
-          @onChange={{field.setvalue}}
-          @changeset={{changeset}}
+          @onChange={{field.setValue}}
         />
       </form.Field>
     </div>
@@ -70,35 +69,36 @@
     {{#if @episode.airDatePassed}}
       <div>
         <div class="my-2 flex justify-start gap-4">
-          <form.Field @name='status' as |field>
+          <form.Field @name='status' as |field|>
             <field.Label>{{t "profile.my-shows.form.archive-status"}}</field.Label>
-            <field.Select as |select| >
+            <field.Select as |select|>
               {{#each-in this.statusOptions as |key val|}}
                 <select.Option @value="{{val}}">
                   {{key}}
                 </select.Option>
               {{/each-in}}
-            </field.Selet
+            </field.Select>
+            <field.Errors />
           </form.Field>
         </div>
 
-        <MyShows::RecordingSelector @changeset={{changeset}} />
+        <MyShows::RecordingSelector @changeset={{@episode}} />
         <div class="my-2 py-2">
-          <Form.Input
-            @label={{t "profile.my-shows.form.youtube-link"}}
-            @fieldName="youtubeLink"
-            @containerClass="mb-2"
-          />
-          <Form.Input
-            @label={{t "profile.my-shows.form.mixcloud-link"}}
-            @fieldName="mixcloudLink"
-            @containerClass="mb-2"
-          />
-          <Form.Input
-            @label={{t "profile.my-shows.form.soundcloud-link"}}
-            @fieldName="soundcloudLink"
-            @containerClass="mb-2"
-          />
+          <form.Field @name='youtubeLink' as |field|>
+            <field.Label>{{t "profile.my-shows.form.youtube-link"}}</field.Label>
+            <field.Input class='border rounded px-2' />
+            <field.Errors />
+          </form.Field>
+          <form.Field @name='mixcloudLink' as |field|>
+            <field.Label>{{t "profile.my-shows.form.mixcloud-link"}}</field.Label>
+            <field.Input class='border rounded px-2' />
+            <field.Errors />
+          </form.Field>
+          <form.Field @name='soundcloudLink' as |field|>
+            <field.Label>{{t "profile.my-shows.form.soundcloud-link"}}</field.Label>
+            <field.Input class='border rounded px-2' />
+            <field.Errors />
+          </form.Field>
         </div>
       </div>
     {{else}}
@@ -109,14 +109,14 @@
           <TimePicker
             @label="Start time"
             @property="start"
-            @changeset={{changeset}}
+            @changeset={{@episode}}
             @onChange={{this.setEndAfterStart}}
           />
           <TimePicker
             @label="Duration"
             @property="end"
-            @changeset={{changeset}}
-            @startTime={{changeset.start}}
+            @changeset={{@episode}}
+            @startTime={{@episode.start}}
           />
         </div>
       </div>
@@ -155,19 +155,19 @@
         <div class="flex justify-start gap-10 mb-4 relative">
           <div class="flex justify-end gap-2">
             <TrackUploader
-              @changeset={{changeset}}
+              @changeset={{@episode}}
               @onStartUpload={{this.onStartUpload}}
               @onFinishUpload={{this.onFinishUpload}}
             />
           </div>
         </div>
       {{else}}
-        <MyShows::TrackSelector @changeset={{changeset}} />
+        <MyShows::TrackSelector @changeset={{@episode}} />
       {{/if}}
 
-      {{#if changeset.prerecordTrackId}}
+      {{#if @episode.prerecordTrackId}}
         <div class="font-bold">
-          {{changeset.prerecordTrackFilename}}
+          {{@episode.prerecordTrackFilename}}
         </div>
       {{/if}}
     {{/if}}
@@ -177,10 +177,7 @@
     <Button
       @type="submit"
       @intent="primary"
-      disabled={{(or
-        (eq this.isUploading true)
-        (or Form.state.hasSubmitted changeset.isInvalid)
-      )}}
+      disabled={{(or (eq this.isUploading true) form.isSubmitting)}}
       class="cool-button mb-2"
     >
       {{t "profile.my-shows.form.update"}}
