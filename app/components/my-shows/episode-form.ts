@@ -4,7 +4,6 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import type ScheduledShow from 'datafruits13/models/scheduled-show';
 import dayjs, { Dayjs } from 'dayjs';
-import { BufferedChangeset } from 'ember-changeset/types';
 
 import { object, string } from 'yup';
 
@@ -71,8 +70,13 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   }
 
   @action
-  onSubmit(result: any) {
-    this.router.transitionTo('home.shows.episode', result);
+  async onSubmit(data: Partial<ScheduledShow>) {
+    const episode = this.args.episode;
+    Object.entries(data).forEach(([key, value]) => {
+      episode.set(key as keyof ScheduledShow, value);
+    });
+    await episode.save();
+    this.router.transitionTo('home.shows.episode', episode);
   }
 
   @action
@@ -92,25 +96,25 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   }
 
   @action
-  setEndAfterStart(startTime: Dayjs, changeset: BufferedChangeset) {
-    if (startTime.hour() > dayjs(changeset.get('endAt')).hour()) {
+  setEndAfterStart(startTime: Dayjs, model: ScheduledShow) {
+    if (startTime.hour() > dayjs(model.get('end')).hour()) {
       console.log('setting end time to: ', startTime.add(1, 'hour').hour());
-      changeset.set('endTime', startTime.add(1, 'hour'));
+      model.set('end', startTime.add(1, 'hour').toISOString());
     }
   }
 
   @action
   selectTrackOption(option: 'upload' | 'track'): void {
     this.trackOption = option;
- }
+  }
 
- get imagePreviewSrc(): string | null {
-   if(this.imagePreview) {
-     return this.imagePreview;
-   } else if(this.args.episode.thumbImageUrl) {
-     return this.args.episode.thumbImageUrl;
-   } else {
-     return null;
-   }
- }
+  get imagePreviewSrc(): string | null {
+    if(this.imagePreview) {
+      return this.imagePreview;
+    } else if(this.args.episode.thumbImageUrl) {
+      return this.args.episode.thumbImageUrl;
+    } else {
+      return null;
+    }
+  }
 }

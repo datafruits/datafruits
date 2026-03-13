@@ -7,7 +7,9 @@ import { debounce } from '@ember/runloop';
 import type Label from 'datafruits13/models/label';
 
 interface LabelsSelectArgs {
-  changeset: BufferedChangeset;
+  changeset?: BufferedChangeset;
+  value?: Label[];
+  onChange?: (labels: Label[]) => void;
 }
 
 export default class LabelsSelect extends Component<LabelsSelectArgs> {
@@ -15,6 +17,13 @@ export default class LabelsSelect extends Component<LabelsSelectArgs> {
 
   @tracked error: string = "";
   @tracked labels: Label[] = [];
+
+  get selectedLabels(): Label[] {
+    if (this.args.value !== undefined) {
+      return this.args.value || [];
+    }
+    return this.args.changeset?.get('labels') || [];
+  }
 
   @action
   hideCreateOptionOnSameName(term: string) {
@@ -24,11 +33,15 @@ export default class LabelsSelect extends Component<LabelsSelectArgs> {
 
   @action
   setSelectedLabels(labels: Label[]) {
-    this.args.changeset.set('labels', labels);
-    const labelIds = labels.map((label) => {
-      return label.get('id');
-    });
-    this.args.changeset.set('labelIds', labelIds);
+    if (this.args.onChange) {
+      this.args.onChange(labels);
+    } else if (this.args.changeset) {
+      this.args.changeset.set('labels', labels);
+      const labelIds = labels.map((label) => {
+        return label.get('id');
+      });
+      this.args.changeset.set('labelIds', labelIds);
+    }
   }
 
   @action
@@ -37,12 +50,16 @@ export default class LabelsSelect extends Component<LabelsSelectArgs> {
     const label = store.createRecord('label', { name: name });
     const onSuccess = (label: Label) => {
       console.log('label saved!');
-      this.args.changeset.get('labels').push(label);
-      this.args.changeset.get('labelIds').push(label.get('id'));
+      if (this.args.onChange) {
+        const current = this.selectedLabels;
+        this.args.onChange([...current, label]);
+      } else if (this.args.changeset) {
+        this.args.changeset.get('labels').push(label);
+        this.args.changeset.get('labelIds').push(label.get('id'));
+      }
     };
     const onFail = (response: any) => {
       this.error = 'Failed to save tag: ' + response.errors[0].detail;
-      //this.flashMessages.danger('Sorry, something went wrong!');
       console.log('label save failed');
     };
     label.save().then(onSuccess, onFail);
