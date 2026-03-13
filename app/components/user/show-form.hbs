@@ -45,6 +45,7 @@
           type="file"
           {{on "change" this.updateFile}}
         />
+        {{this.imageUploadProgress}}
       </div>
       <Form.Textarea
         @label={{t "profile.my-shows.form.description"}}

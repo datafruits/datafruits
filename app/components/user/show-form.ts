@@ -3,6 +3,7 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { debounce } from '@ember/runloop';
 import { tracked } from '@glimmer/tracking';
+import ENV from 'datafruits13/config/environment';
 import ShowSeriesValidations from '../../validations/show-series';
 import type ShowSeries from 'datafruits13/models/show-series';
 import type User from 'datafruits13/models/user';
@@ -19,11 +20,14 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   @service declare router: any;
   @service declare store: any;
   @service declare currentUser: any;
+  @service declare intl: any;
+  @service declare activeStorage: any;
 
   file: Blob | null = null;
 
   @tracked users: User[] = [];
   @tracked errors: { [key: string]: string[] } = {};
+  @tracked imageUploadProgress = 0;
 
   weekdayCadences = [
     'First',
@@ -40,20 +44,49 @@ export default class UserShowForm extends Component<UserShowFormArgs> {
   ];
 
   @action
-  updateFile(e: any){
-    this.file = e.target.files[0];
-    this.args.show.imageFilename = e.target.files[0].name;
-    const reader = new FileReader();
+  updateFile(event: Event){
+    // this.file = e.target.files[0];
+    // this.args.show.imageFilename = e.target.files[0].name;
+    // const reader = new FileReader();
+    //
+    // reader.onload = (e) => {
+    //   this.args.show.image = e.target?.result as string;
+    // };
+    // reader.onerror = (e) => {
+    //   console.log('error reading file');
+    //   console.log(e);
+    // };
+    //
+    // reader.readAsDataURL(this.file as Blob);
+    //
+    const inputElement = event.target as HTMLInputElement;
+    const files = inputElement.files;
+    if (files) {
+      const file = files[0];
+      // Validate file type - only allow images
+      const validImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
+      if (!validImageTypes.includes(file.type)) {
+        alert(this.intl.t('profile.my-shows.form.invalid-file-type'));
+        (event.target as HTMLInputElement).value = ''; // Clear the input
+        return;
+      }
 
-    reader.onload = (e) => {
-      this.args.show.image = e.target?.result as string;
-    };
-    reader.onerror = (e) => {
-      console.log('error reading file');
-      console.log(e);
-    };
+      const directUploadURL = `${ENV.API_HOST}/rails/active_storage/direct_uploads`;
 
-    reader.readAsDataURL(this.file as Blob);
+      for (let i = 0; i < files.length; i++) {
+        this.activeStorage
+        .upload(files.item(i), directUploadURL, {
+          onProgress: (progress: any) => {
+            this.imageUploadProgress = progress;
+          },
+        })
+        .then((blob: any) => {
+          const signedId = blob.signedId;
+
+          this.args.show.image = signedId;
+        });
+      }
+    }
   }
 
   @action
