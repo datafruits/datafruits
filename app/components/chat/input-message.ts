@@ -23,7 +23,11 @@ export default class ChatInputMessage extends Component<ChatInputMessageSignatur
 
   @service declare currentUser: CurrentUserService;
 
+  @service declare session: any;
+
   @tracked inputMessage: string = '';
+  
+  @tracked showingGiftSubscriptionModal: boolean = false;
 
   get hasMessage () {
     return this.inputMessage.length > 0;
@@ -129,6 +133,11 @@ export default class ChatInputMessage extends Component<ChatInputMessageSignatur
     }
 
     return counts;
+  }
+
+  @action
+  toggleGiftSubscriptionModal() {
+    this.showingGiftSubscriptionModal = !this.showingGiftSubscriptionModal;
   }
 
   @action
