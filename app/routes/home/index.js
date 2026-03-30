@@ -14,6 +14,9 @@ export default class IndexRoute extends Route {
     }
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${ENV.YOUTUBE_CHANNEL_ID}&maxResults=1&order=date&type=video&key=${ENV.GOOGLE_API_KEY}`;
     const res = await fetch(url);
+    if (!res.ok) {
+      return null;
+    }
     const data = await res.json();
     if (data.items && data.items.length > 0) {
       return data.items[0].id.videoId;
