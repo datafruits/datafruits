@@ -8,6 +8,19 @@ export default class IndexRoute extends Route {
   @service fastboot;
   @service store;
 
+  async fetchLatestYoutubeVideoId() {
+    if (!ENV.GOOGLE_API_KEY || !ENV.YOUTUBE_CHANNEL_ID) {
+      return null;
+    }
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${ENV.YOUTUBE_CHANNEL_ID}&maxResults=1&order=date&type=video&key=${ENV.GOOGLE_API_KEY}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    if (data.items && data.items.length > 0) {
+      return data.items[0].id.videoId;
+    }
+    return null;
+  }
+
   async model() {
     let query = {
       start: dayjs().format('YYYY-MM-DD HH:MM Z'),
@@ -33,7 +46,8 @@ export default class IndexRoute extends Route {
       }),
       latestWiki: this.store.findAll('wiki-page').then((wiki) => {
         return wiki.slice(0, 3);
-      })
+      }),
+      latestYoutubeVideoId: this.fetchLatestYoutubeVideoId().catch(() => null),
     });
   }
 
