@@ -32,6 +32,7 @@ Router.map(function () {
     this.route('user', function () {
       this.route('settings');
       this.route('favorites');
+      this.route('custom-emojis');
       this.route('my-shows');
       this.route('my-shows.new', { path: 'my-shows/new' });
       this.route('my-shows.edit', { path: 'my-shows/:slug/edit' });

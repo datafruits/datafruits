@@ -85,13 +85,27 @@
     "loading": "載入中...",
     "error": "錯誤. 請刷新頁面並重試."
   },
-  "djs": { "title": "DJs" },
-  "radio": { "title": "電台" },
-  "releases": { "title": "唱片公司" },
-  "about": { "title": "datafruits是什麼?" },
-  "blog": { "title": "博客" },
-  "shop": { "title": "商店" },
-  "subscribe": { "title": "通訊註冊" },
+  "djs": {
+    "title": "DJs"
+  },
+  "radio": {
+    "title": "電台"
+  },
+  "releases": {
+    "title": "唱片公司"
+  },
+  "about": {
+    "title": "datafruits是什麼?"
+  },
+  "blog": {
+    "title": "博客"
+  },
+  "shop": {
+    "title": "商店"
+  },
+  "subscribe": {
+    "title": "通訊註冊"
+  },
   "djinquiry": {
     "title": "DJ案件",
     "heading": "想在 Datafruits 上舉辦自己的節目嗎？",
@@ -132,9 +146,26 @@
     }
   },
   "locale": "語言",
-  "theme": { "label": "主題" },
+  "theme": {
+    "label": "主題"
+  },
   "donate": {
     "title": "支持",
     "dj_link": "当前DJ的捐赠链接在这里"
+  },
+  "custom_emoji": {
+    "title": "Custom Emojis",
+    "description": "Upload your own custom emojis to use in chat!",
+    "upload_new": "Upload New Emoji",
+    "my_emojis": "My Emojis",
+    "no_emojis": "You haven't uploaded any custom emojis yet.",
+    "form": {
+      "name": "Emoji Name",
+      "name_placeholder": "my_emoji",
+      "image": "Emoji Image",
+      "uploading": "Uploading...",
+      "preview": "Emoji preview",
+      "submit": "Upload Emoji"
+    }
   }
 }
