@@ -48,6 +48,9 @@ export function createEmojiAutocomplete() {
       callback(newResults);
     },
     template: function (shortname: string) {
+      if (emojiStrategy[shortname].imageUrl) {
+        return `<img class="emojione" src="${emojiStrategy[shortname].imageUrl}"> ${shortname}`;
+      }
       let extension;
       if (emojiStrategy[shortname].animated) {
         extension = '.gif';

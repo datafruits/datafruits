@@ -3,6 +3,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import ENV from 'datafruits13/config/environment';
+import { registerUserEmoji } from 'datafruits13/utils/user-emoji-registry';
 
 export default class CustomEmojiForm extends Component {
   @service store;
@@ -67,6 +68,7 @@ export default class CustomEmojiForm extends Component {
         image: this.imageSignedId,
       });
       await emoji.save();
+      registerUserEmoji(emoji.name, emoji.imageUrl);
       this.name = '';
       this.imageSignedId = null;
       this.imagePreviewUrl = null;
