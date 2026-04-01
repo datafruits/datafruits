@@ -76,7 +76,8 @@ export default class CustomEmojiForm extends Component {
       if (this.args.onSave) {
         this.args.onSave(emoji);
       }
-    } catch {
+    } catch (err) {
+      console.error('Error saving custom emoji:', err);
       this.error = 'Failed to save custom emoji. Please try again.';
     } finally {
       this.isSaving = false;

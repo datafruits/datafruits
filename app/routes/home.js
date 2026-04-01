@@ -78,7 +78,7 @@ export default class HomeRoute extends Route {
         registerUserEmoji(emoji.name, emoji.imageUrl);
       });
     } catch (err) {
-      console.log('Failed to load custom emojis:', err);
+      console.error('Failed to load custom emojis:', err);
     }
   }
 }
