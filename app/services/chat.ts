@@ -11,6 +11,51 @@ interface FruitCount {
   [key: string]: number;
 }
 
+interface ComboDefinition {
+  name: string;
+  condition: (_counts: FruitCount) => boolean;
+  cooldownSeconds: number;
+}
+
+const COMBO_DEFINITIONS: ComboDefinition[] = [
+  {
+    name: 'citrus-storm',
+    condition: (counts) => (counts['lemon'] || 0) >= 5 && (counts['orange'] || 0) >= 5,
+    cooldownSeconds: 60,
+  },
+  {
+    name: 'tropical-wave',
+    condition: (counts) => (counts['banana'] || 0) >= 5 && (counts['pineapple'] || 0) >= 3,
+    cooldownSeconds: 60,
+  },
+  {
+    name: 'berry-blast',
+    condition: (counts) => (counts['strawberry'] || 0) >= 10,
+    cooldownSeconds: 60,
+  },
+  {
+    name: 'rainbow-mix',
+    condition: (counts) => {
+      const freeFruits = ['strawberry', 'orange', 'lemon', 'banana', 'watermelon', 'cabbage', 'beamsprout'];
+      return freeFruits.filter((f) => (counts[f] || 0) >= 2).length >= 5;
+    },
+    cooldownSeconds: 90,
+  },
+  {
+    name: 'fruit-overflow',
+    condition: (counts) => (counts['total'] || 0) >= 50,
+    cooldownSeconds: 120,
+  },
+  {
+    name: 'mega-combo',
+    condition: (counts) => {
+      const premiumFruits = ['metal-pineapple', 'real-lemoner', 'mega-beamsprout', 'giga-shrimpshake', 'the-ravers'];
+      return premiumFruits.filter((f) => (counts[f] || 0) >= 1).length >= 3;
+    },
+    cooldownSeconds: 180,
+  },
+];
+
 interface Message {
   user: string;
   avatarUrl: string;
@@ -53,6 +98,8 @@ export default class ChatService extends Service {
   chan: Channel;
   notificationChan: Channel;
 
+  lastComboTimes: Map<string, number> = new Map();
+
   setFruitCount(key: string, value: number) {
     this._fruitCounts[key] = value;
     this._fruitCounts = { ...this._fruitCounts };
@@ -60,6 +107,19 @@ export default class ChatService extends Service {
 
   getFruitCount(key: string) {
     return this._fruitCounts[key];
+  }
+
+  checkCombos() {
+    const now = Date.now();
+    const eligible = COMBO_DEFINITIONS.filter((combo) => {
+      if (!combo.condition(this._fruitCounts)) return false;
+      const lastTime = this.lastComboTimes.get(combo.name) || 0;
+      return now - lastTime >= combo.cooldownSeconds * 1000;
+    });
+    if (eligible.length === 0) return;
+    const chosen = eligible[Math.floor(Math.random() * eligible.length)];
+    this.lastComboTimes.set(chosen.name, now);
+    this.eventBus.publish('comboTriggered', chosen.name);
   }
 
   join(username: string, token: string) {
@@ -232,6 +292,7 @@ export default class ChatService extends Service {
       console.log(msg);
       this.setFruitCount("total", msg.total_count);
       this.setFruitCount(msg.fruit, msg.count);
+      this.checkCombos();
       this.eventBus.publish("fruitTipped", msg.fruit);
     });
 

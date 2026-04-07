@@ -16,6 +16,11 @@ import TheRavers from './pixi/animations/the-ravers';
 import MegaBeamsprout from './pixi/animations/mega-beamsprout';
 import FruitSmoothie from './pixi/animations/fruit-smoothie';
 import TreasureOpen from './pixi/animations/treasure-open';
+import CitrusStorm from './pixi/animations/citrus-storm';
+import TropicalWave from './pixi/animations/tropical-wave';
+import BerryBlast from './pixi/animations/berry-blast';
+import RainbowMix from './pixi/animations/rainbow-mix';
+import MegaCombo from './pixi/animations/mega-combo';
 
 export default class PixiComponent extends Component {
   @service eventBus;
@@ -46,6 +51,7 @@ export default class PixiComponent extends Component {
     this.eventBus.subscribe("limitBreakReached", this, "addFruitTip");
     this.eventBus.subscribe("weatherChanged", this, "reinitPixi");
     this.eventBus.subscribe("treasureOpened", this, "treasureOpened");
+    this.eventBus.subscribe("comboTriggered", this, "addComboAnimation");
   }
 
   treasureOpened(treasureName) {
@@ -129,6 +135,48 @@ export default class PixiComponent extends Component {
       }, 5000);
     } else {
       console.log("pixi.js wasn't initialized...");
+    }
+  }
+
+  addComboAnimation(comboName) {
+    if (!this.app) {
+      console.log("pixi.js wasn't initialized...");
+      return;
+    }
+    console.log(`combo triggered: ${comboName}`);
+    switch (comboName) {
+      case 'citrus-storm': {
+        let citrusStorm = new CitrusStorm(this.app, this.animations, { customFilter: this.filter, noiseFilter: this.noiseFilter });
+        this.fruitSummons.push(citrusStorm);
+        break;
+      }
+      case 'tropical-wave': {
+        let tropicalWave = new TropicalWave(this.app, this.animations, { customFilter: this.filter, noiseFilter: this.noiseFilter });
+        this.fruitSummons.push(tropicalWave);
+        break;
+      }
+      case 'berry-blast': {
+        let berryBlast = new BerryBlast(this.app, this.animations, { customFilter: this.filter, noiseFilter: this.noiseFilter });
+        this.fruitSummons.push(berryBlast);
+        break;
+      }
+      case 'rainbow-mix': {
+        let rainbowMix = new RainbowMix(this.app, this.animations, this.fruits, { customFilter: this.filter, noiseFilter: this.noiseFilter });
+        this.fruitSummons.push(rainbowMix);
+        break;
+      }
+      case 'fruit-overflow': {
+        let fruitSmoothie = new FruitSmoothie(this.app, this.animations, this.fruits, { customFilter: this.filter, noiseFilter: this.noiseFilter });
+        this.fruitSummons.push(fruitSmoothie);
+        break;
+      }
+      case 'mega-combo': {
+        let megaCombo = new MegaCombo(this.app, this.animations, { customFilter: this.filter, noiseFilter: this.noiseFilter });
+        this.fruitSummons.push(megaCombo);
+        break;
+      }
+      default:
+        console.log(`unknown combo: ${comboName}`);
     }
   }
 
