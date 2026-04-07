@@ -26,7 +26,7 @@ export default class RainbowMix {
       sprite.orbitRadius = 20 + i * 8;
       sprite.orbitSpeed = Math.max(0.005, 0.04 - (i / total) * 0.03);
 
-      sprite.animationSpeed = Math.random() * 2;
+      sprite.animationSpeed = 0.5 + Math.random() * 1.5;
       let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
       sprite.gotoAndPlay(randomFrame);
 

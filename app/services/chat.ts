@@ -17,6 +17,9 @@ interface ComboDefinition {
   cooldownSeconds: number;
 }
 
+const FREE_FRUITS = ['strawberry', 'orange', 'lemon', 'banana', 'watermelon', 'cabbage', 'beamsprout'];
+const PREMIUM_FRUITS = ['metal-pineapple', 'real-lemoner', 'mega-beamsprout', 'giga-shrimpshake', 'the-ravers'];
+
 const COMBO_DEFINITIONS: ComboDefinition[] = [
   {
     name: 'citrus-storm',
@@ -25,7 +28,7 @@ const COMBO_DEFINITIONS: ComboDefinition[] = [
   },
   {
     name: 'tropical-wave',
-    condition: (counts) => (counts['banana'] || 0) >= 5 && (counts['pineapple'] || 0) >= 3,
+    condition: (counts) => (counts['banana'] || 0) >= 5 && (counts['pineapple'] || 0) >= 5,
     cooldownSeconds: 60,
   },
   {
@@ -35,10 +38,7 @@ const COMBO_DEFINITIONS: ComboDefinition[] = [
   },
   {
     name: 'rainbow-mix',
-    condition: (counts) => {
-      const freeFruits = ['strawberry', 'orange', 'lemon', 'banana', 'watermelon', 'cabbage', 'beamsprout'];
-      return freeFruits.filter((f) => (counts[f] || 0) >= 2).length >= 5;
-    },
+    condition: (counts) => FREE_FRUITS.filter((f) => (counts[f] || 0) >= 2).length >= 5,
     cooldownSeconds: 90,
   },
   {
@@ -48,10 +48,7 @@ const COMBO_DEFINITIONS: ComboDefinition[] = [
   },
   {
     name: 'mega-combo',
-    condition: (counts) => {
-      const premiumFruits = ['metal-pineapple', 'real-lemoner', 'mega-beamsprout', 'giga-shrimpshake', 'the-ravers'];
-      return premiumFruits.filter((f) => (counts[f] || 0) >= 1).length >= 3;
-    },
+    condition: (counts) => PREMIUM_FRUITS.filter((f) => (counts[f] || 0) >= 1).length >= 3,
     cooldownSeconds: 180,
   },
 ];

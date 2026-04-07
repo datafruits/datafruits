@@ -26,7 +26,7 @@ export default class CitrusStorm {
       sprite.orbitRadius = 60 + Math.random() * 160;
       sprite.orbitSpeed = (0.02 + Math.random() * 0.03) * (Math.random() > 0.5 ? 1 : -1);
 
-      sprite.animationSpeed = Math.random() * 2;
+      sprite.animationSpeed = 0.5 + Math.random() * 1.5;
       let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
       sprite.gotoAndPlay(randomFrame);
 

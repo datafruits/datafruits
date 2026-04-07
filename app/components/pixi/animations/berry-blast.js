@@ -28,7 +28,7 @@ export default class BerryBlast {
       sprite.vx = Math.cos(angle) * speed;
       sprite.vy = Math.sin(angle) * speed;
 
-      sprite.animationSpeed = Math.random() * 2;
+      sprite.animationSpeed = 0.5 + Math.random() * 1.5;
       let randomFrame = Math.floor(Math.random() * sprite.totalFrames);
       sprite.gotoAndPlay(randomFrame);
 
