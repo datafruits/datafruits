@@ -34,6 +34,10 @@ export default class ShowSeriesView extends Component<ShowSeriesViewArgs> {
     }
   }
 
+  get backgroundImageStyle(): ReturnType<typeof htmlSafe> {
+    return htmlSafe(`background-image: url(${this.args.showSeries.imageUrl})`);
+  }
+
   get canEdit(): boolean {
     return this.session.isAuthenticated && (this.args.showSeries.users.includes(this.currentUser.user) || this.currentUser.user.roles.includes('admin'));
   }
@@ -41,7 +45,7 @@ export default class ShowSeriesView extends Component<ShowSeriesViewArgs> {
   <template>
     <div class="relative show-poster w-full flex space-x-2">
       <div class="w-1/2">
-        <div style="background-image: url({{@showSeries.imageUrl}})" alt={{@showSeries.title}} class="w-full h-full show-image bg-top bg-cover"></div>
+        <div style={{this.backgroundImageStyle}} alt={{@showSeries.title}} class="w-full h-full show-image bg-top bg-cover"></div>
         <div class="show-info">
           {{#if this.canEdit}}
             <div class="my-2">
