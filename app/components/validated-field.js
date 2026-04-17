@@ -24,6 +24,12 @@ export default class ValidatedField extends Component {
   }
 
   @action
+  handleTextareaInput(event) {
+    let property = this.args.property;
+    this.args.changeset.set(property, event.target.value);
+  }
+
+  @action
   updateProperty(event) {
     debounce(this, this._updateProperty, event.target.value, 500);
   }
