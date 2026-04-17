@@ -43,7 +43,7 @@ export default class ChatMessage extends Component {
     if (this.hasData)
       return this.args.message.body.match(this.dataRegex)[0];
 
-    return ""
+    return "";
   }
 
   get messageText() {

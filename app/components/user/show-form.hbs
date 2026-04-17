@@ -59,7 +59,7 @@
       <div>
         <label class="block text-sm font-bold mb-2" for="body">{{t "profile.my-shows.form.start"}}</label>
         <div class="flex">
-          {{#if (not @edit)}}
+          {{#unless @edit}}
             <input
               class="mr-2"
               type="date"
@@ -68,7 +68,7 @@
               value={{format-day changeset.startDate}}
               {{on "change" (fn this.adjustRecurringForDate changeset)}}
             />
-          {{/if}}
+          {{/unless}}
           <TimePicker
             @property="startTime"
             @changeset={{changeset}}
@@ -162,7 +162,7 @@
         <Button
           @type='submit'
           @intent='primary'
-          disabled={{(or Form.state.hasSubmitted changeset.isInvalid)}}
+          disabled={{or Form.state.hasSubmitted changeset.isInvalid}}
           class='cool-button mb-2'
           >
           {{t "save_show"}}

@@ -4,7 +4,7 @@ import { service } from '@ember/service';
 import { htmlSafe } from '@ember/template';
 import { SafeString } from 'handlebars';
 import emojione from 'emojione';
-import type ShowSeries from 'datafruits13/models/show-series'
+import type ShowSeries from 'datafruits13/models/show-series';
 import type RouterService from '@ember/routing/router-service';
 import { LinkTo } from '@ember/routing';
 import { t } from 'ember-intl';

@@ -48,7 +48,7 @@
           {{on "change" (fn this.setShrimpoType changeset)}}
           >
           {{#each this.shrimpoTypes as |shrimpoType|}}
-            <option value="{{shrimpoType}}" selected={{(eq changeset.shrimpoType shrimpoType)}}>{{shrimpoType}}</option>
+            <option value="{{shrimpoType}}" selected={{eq changeset.shrimpoType shrimpoType}}>{{shrimpoType}}</option>
           {{/each}}
       </select>
     </div>
@@ -85,7 +85,7 @@
         {{on "change" (fn this.setLength changeset)}}
         >
         {{#each this.lengths as |length|}}
-          <option value="{{length}}" selected={{(eq changeset.duration length)}}>{{length}}</option>
+          <option value="{{length}}" selected={{eq changeset.duration length}}>{{length}}</option>
         {{/each}}
       </select>
     </div>

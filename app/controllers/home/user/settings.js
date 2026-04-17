@@ -223,7 +223,7 @@ export default class HomeUserSettingsController extends Controller {
 
   @action
   updateFile(event) {
-    const inputElement = event.target as HTMLInputElement;
+    const inputElement = event.target;
     const files = inputElement.files;
     if (files) {
       const directUploadURL = `${ENV.API_HOST}/rails/active_storage/direct_uploads`;
@@ -231,11 +231,11 @@ export default class HomeUserSettingsController extends Controller {
       for (let i = 0; i < files.length; i++) {
         this.activeStorage
         .upload(files.item(i), directUploadURL, {
-          onProgress: (progress: any) => {
+          onProgress: (progress) => {
             this.avatarUploadProgress = progress;
           },
         })
-        .then((blob: any) => {
+        .then((blob) => {
           const signedId = blob.signedId;
 
           this.currentUser.user.avatar = signedId;

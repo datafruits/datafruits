@@ -66,7 +66,7 @@
         <section class="mb-4">
           {{#if this.session.isAuthenticated}}
             <h1 class="text-2xl font-cursive mb-2">Hey, {{this.currentUser.user.username}}, {{t "show.episode.leave_a_comment"}}</h1>
-            <Post::Form @postable={{this.model}} @postableType={{'ScheduledShow'}} />
+            <Post::Form @postable={{this.model}} @postableType='ScheduledShow' />
           {{else}}
             {{t "forum.login_or_register"}}
           {{/if}}
