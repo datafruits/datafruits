@@ -14,6 +14,7 @@ export default class RandomBannerAd extends Component {
     { img: "/assets/images/ad-chewing-water.png", link: "https://datafruits.fm/shows/chewing-water-7a8e34ca-ee2a-45f1-864a-eeddd24ca7f4" },
     { img: "/assets/images/ad-open-space.png", link: "" },
     { img: "/assets/images/ad-burgerzone-thrilling-graphics.png", link: "https://cybertomato.xyz/" },
+    { img: "/assets/images/ad-bringoo-dumb-block-factory.png", link: "https://store.steampowered.com/app/4574960/Prof_Bringoos_Big_Dumb_Block_Factory/" },
     { img: "/assets/images/ad-datafruits-archives.png", link: "https://datafruits.fm/podcasts" },
     { img: "/assets/images/ad-datafruits-radio-gotta-be.png.png", link: "" },
     { img: "/assets/images/ad-datafruits-radio-support.png", link: "https://datafruits.fm/support" },
