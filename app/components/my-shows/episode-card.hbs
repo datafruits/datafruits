@@ -13,7 +13,8 @@
       @route="home.shows.episode"
       @models={{array @episode.showSeriesSlug @episode.slug}}
       class="h-80 bg-center bg-cover block overflow-hidden rounded-xl"
-      style={{this.backgroundStyle}}>
+      style={{this.backgroundStyle}}
+      aria-label={{t "episode.image_aria" title=@episode.title}}>
     </LinkTo>
   </div>
   <div class="my-2">

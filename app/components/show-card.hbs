@@ -11,7 +11,8 @@
       @route="home.show"
       @model={{@showSeries.slug}}
       class="h-80 bg-center bg-cover block overflow-hidden rounded-xl"
-      style={{this.backgroundStyle}}>
+      style={{this.backgroundStyle}}
+      aria-label={{t "show.image_aria" title=@showSeries.title}}>
     </LinkTo>
   </div>
   <div class="mt-2">
