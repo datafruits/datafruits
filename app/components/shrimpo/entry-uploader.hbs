@@ -45,6 +45,7 @@
         {{t "shrimpo.form.submit"}}
       </Button>
       {{#if Form.state.hasSubmitted}}
+        {{! template-lint-disable no-obsolete-elements }}
         <marquee>SAVING....DON'T TURN OFF THE POWER.........</marquee>
       {{/if}}
     </Ui::ChangesetForm>

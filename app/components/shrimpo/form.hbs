@@ -107,6 +107,7 @@
       {{t "shrimpo.form.submit"}}
     </Button>
     {{#if Form.state.hasSubmitted}}
+      {{! template-lint-disable no-obsolete-elements }}
       <marquee>{{t "forms.saving"}}</marquee>
     {{/if}}
   </Ui::ChangesetForm>

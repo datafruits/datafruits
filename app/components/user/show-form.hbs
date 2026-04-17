@@ -168,6 +168,7 @@
           {{t "save_show"}}
         </Button>
         {{#if Form.state.hasSubmitted}}
+          {{! template-lint-disable no-obsolete-elements }}
           <marquee>{{t "forms.saving"}}</marquee>
         {{/if}}
       </div>

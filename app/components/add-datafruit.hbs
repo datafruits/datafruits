@@ -5,8 +5,9 @@
     {{t "microtext.loading"}}
   </:pending>
 
-  <:success as |datafruits|>
+  <:success>
     {{#if this.showingDatafruits}}
+      {{! template-lint-disable no-obsolete-elements }}
       <marquee id="add-datafruit-bar" class="text-sm sm:text-xl">
         [<img style="height: 20px; display: inline;" src="{{this.currentDatafruit.avatarUrl}}" alt={{this.currentDatafruit.username}} / >
         <LinkTo @model={{this.currentDatafruit.username}} @route="home.dj">
