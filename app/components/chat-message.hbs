@@ -53,9 +53,7 @@
       >
       <img src="/assets/images/cominghand.gif" class="grab" />
       <button
-        class="cool-button"
-        {{on "click" this.grabTreasure}}
-        disabled={{this.cantOpenTreasure}}
+        class="cool-button" disabled={{this.cantOpenTreasure}} type="button" {{on "click" this.grabTreasure}}
       >
         <img src="/assets/images/treasure_chest.gif" style="height: 3rem;" />
       </button>

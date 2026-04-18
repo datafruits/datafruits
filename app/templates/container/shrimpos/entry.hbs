@@ -42,11 +42,10 @@
               {{/each}}
             </div>
             {{#if (eq this.model.shrimpoType 'mega')}}
-              <!-- mega category scores -->
+              {{!-- mega category scores --}}
               <ul>
                 <li><span class="font-bold">{{formatted-shrimpo-ranking this.model.ranking this.model.shrimpoTotalEntries}}</span> overall ({{this.model.totalScore}})</li>
                 {{#each this.model.shrimpoVotingCategoryScores  as |votingCategoryScore|}}
-                  {{log votingCategoryScore.shrimpoVotingCategory.emoji}}
                   <li>
                     <img
                       width='48'

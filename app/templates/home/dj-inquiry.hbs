@@ -80,7 +80,7 @@
                 {{t "djinquiry.interval"}}
               </label>
               <br>
-              <select onchange={{action "setShowInterval"}} value="target.value">
+              <select {{on "change" this.setShowInterval}}>
                 {{#each this.intervals as |interval|}}
                   {{#if (eq this.model.interval interval)}}
                     <option value={{interval}} selected="selected">

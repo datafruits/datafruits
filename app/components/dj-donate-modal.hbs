@@ -1,6 +1,6 @@
-<a {{on "click" this.toggleDjDonateModal}} ...attributes class="donate-button text-shadow">
+<button type="button" {{on "click" this.toggleDjDonateModal}} ...attributes class="donate-button text-shadow">
   {{t "donate.title"}}
-</a>
+</button>
 {{#if this.showingDjDonateModal}}
   <Ui::Modal
       @toggleModal={{this.toggleDjDonateModal}}

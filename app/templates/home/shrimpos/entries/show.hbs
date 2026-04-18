@@ -42,11 +42,10 @@
               {{/each}}
             </div>
             {{#if (eq this.model.shrimpoType 'mega')}}
-              <!-- mega category scores -->
+              {{!-- mega category scores --}}
               <ul>
                 <li><span class="font-bold">{{formatted-shrimpo-ranking this.model.ranking this.model.shrimpoTotalEntries}}</span> overall ({{this.model.totalScore}})</li>
                 {{#each this.model.shrimpoVotingCategoryScores  as |votingCategoryScore|}}
-                  {{log votingCategoryScore.shrimpoVotingCategory.emoji}}
                   <li>
                     <img
                       width='48'
@@ -100,7 +99,7 @@
       <section>
         {{#if this.session.isAuthenticated}}
           <h1 class="text-2xl font-cursive mb-2">Hey, {{this.currentUser.user.username}}, {{t "show.episode.leave_a_comment"}}</h1>
-          <Post::Form @postable={{this.model}} @postableType={{'ShrimpoEntry'}} />
+          <Post::Form @postable={{this.model}} @postableType='ShrimpoEntry' />
         {{else}}
           {{t "forum.login_or_register"}}
         {{/if}}

@@ -135,13 +135,27 @@
     "loading": "ロード中...",
     "error": "エラーが起これました。ページをリフレッシュしてもう一回やってみて下さい。"
   },
-  "djs": { "title": "DJs" },
-  "radio": { "title": "ラジオ" },
-  "releases": { "title": "レーベル" },
-  "about": { "title": "datafruitsとは？" },
-  "blog": { "title": "ブログ" },
-  "shop": { "title": "買い物" },
-  "subscribe": { "title": "メールマガ登録" },
+  "djs": {
+    "title": "DJs"
+  },
+  "radio": {
+    "title": "ラジオ"
+  },
+  "releases": {
+    "title": "レーベル"
+  },
+  "about": {
+    "title": "datafruitsとは？"
+  },
+  "blog": {
+    "title": "ブログ"
+  },
+  "shop": {
+    "title": "買い物"
+  },
+  "subscribe": {
+    "title": "メールマガ登録"
+  },
   "shows": {
     "title": "番組"
   },
@@ -221,7 +235,8 @@
     "episode": {
       "comments": "コメント",
       "leave_a_comment": "コメントしませんか....???"
-    }
+    },
+    "image_aria": "{title}を見る"
   },
   "player": {
     "aria": {
@@ -235,7 +250,9 @@
     }
   },
   "locale": "言語",
-  "theme": { "label": "テーマ" },
+  "theme": {
+    "label": "テーマ"
+  },
   "donate": {
     "title": "寄付する",
     "dj_link": "現状のDJに寄付するリンクはこちらです。"
@@ -292,7 +309,8 @@
   },
   "episode": {
     "date": "日付:",
-    "status": "ステータス:"
+    "status": "ステータス:",
+    "image_aria": "{title}を見る"
   },
   "user_menu": {
     "xp": "XP: ",
@@ -333,5 +351,8 @@
     "voting_happens_now": "SHRIMPO投票が始まります！",
     "rate_tune_by": "曲を評価してください。",
     "login_to_vote": "SHRIMPOに投票するにはログインまたは登録してください！"
+  },
+  "container": {
+    "logo_aria": "datafruits.fm ホームページ"
   }
 }

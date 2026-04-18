@@ -421,7 +421,8 @@
     "episode": {
       "comments": "COMMENTS",
       "leave_a_comment": "leave a comment....???"
-    }
+    },
+    "image_aria": "View {title}"
   },
   "player": {
     "play_button_label": "play",
@@ -540,7 +541,8 @@
   },
   "episode": {
     "date": "Date:",
-    "status": "Status:"
+    "status": "Status:",
+    "image_aria": "View {title}"
   },
   "user_menu": {
     "xp": "XP: ",
@@ -581,5 +583,8 @@
     "voting_happens_now": "Shrimps command voting happens now!",
     "rate_tune_by": "Rate tune by number of",
     "login_to_vote": "Login or register to vote on this shrimpo!"
+  },
+  "container": {
+    "logo_aria": "datafruits.fm homepage"
   }
 }

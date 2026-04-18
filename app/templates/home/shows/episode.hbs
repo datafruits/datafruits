@@ -1,7 +1,7 @@
 <section class="page-spacing">
   <section class="flex w-full">
     <section class="w-1/2">
-      <div style="background-image: url('{{this.model.imageOrDefault}}')" alt={{this.model.title}} class="w-full h-full show-image bg-top bg-cover"></div>
+      <div style={{html-safe-string (concat "background-image: url('" this.model.imageOrDefault "')")}} alt={{this.model.title}} class="w-full h-full show-image bg-top bg-cover"></div>
       <h1 class="text-3xl">
         {{this.model.title}}
       </h1>
@@ -66,7 +66,7 @@
         <section class="mb-4">
           {{#if this.session.isAuthenticated}}
             <h1 class="text-2xl font-cursive mb-2">Hey, {{this.currentUser.user.username}}, {{t "show.episode.leave_a_comment"}}</h1>
-            <Post::Form @postable={{this.model}} @postableType={{'ScheduledShow'}} />
+            <Post::Form @postable={{this.model}} @postableType='ScheduledShow' />
           {{else}}
             {{t "forum.login_or_register"}}
           {{/if}}

@@ -63,16 +63,32 @@
       "tag": "Etiqueta"
     }
   },
-  "timetable": { "title": "Calendario" },
-  "djs": { "title": "DJs" },
+  "timetable": {
+    "title": "Calendario"
+  },
+  "djs": {
+    "title": "DJs"
+  },
   "nav_toggle": "Cambiar navigación",
-  "radio": { "title": "Radio" },
-  "releases": { "title": "Sello" },
-  "about": { "title": "Sobre DF" },
-  "blog": { "title": "Blog" },
-  "shop": { "title": "Tienda" },
+  "radio": {
+    "title": "Radio"
+  },
+  "releases": {
+    "title": "Sello"
+  },
+  "about": {
+    "title": "Sobre DF"
+  },
+  "blog": {
+    "title": "Blog"
+  },
+  "shop": {
+    "title": "Tienda"
+  },
   "thanks": "Gracias!",
-  "subscribe": { "title": "Suscríbase" },
+  "subscribe": {
+    "title": "Suscríbase"
+  },
   "newsletter_modal": {
     "title": "BOLETÍN INFORMATIVO DATAFRUITS.FM",
     "placeholder_email": "Email",
@@ -108,7 +124,8 @@
   },
   "show": {
     "hosted_prefix": "Alojado por:",
-    "archive": "Escuche el archivo"
+    "archive": "Escuche el archivo",
+    "image_aria": "Ver {title}"
   },
   "player": {
     "return_to_live": "volver a la transmisión en vivo",
@@ -184,5 +201,11 @@
   "donate": {
     "title": "APOYO",
     "dj_link": "El enlace de donación del DJ actual está aquí:"
+  },
+  "episode": {
+    "image_aria": "Ver {title}"
+  },
+  "container": {
+    "logo_aria": "Página principal de datafruits.fm"
   }
 }

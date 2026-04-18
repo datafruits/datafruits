@@ -14,24 +14,23 @@
   <div class="radio-container">
     <div class="player-controls">
       {{#if this.loading}}
-        <a class="jp-loading" href="javascript:;" tabindex="1">
+        <span class="jp-loading" tabindex="0">
           {{t "player.loading"}}
-        </a>
+        </span>
       {{else if this.playing}}
-        <a class="jp-pause" tabindex="1" {{on "click" this.pause}}>
+        <button type="button" class="jp-pause" tabindex="0" {{on "click" this.pause}}>
           {{t (if this.playingPodcast "player.pause" "player.stop")}}
-        </a>
+        </button>
       {{else if this.paused}}
-        <a {{on "click" this.play}}
+        <button type="button" {{on "click" this.play}}
           {{on "mouseenter" this.playButtonMouseEnter}}
           {{on "mouseleave" this.playButtonMouseOut}}
           title={{t "player.title.play"}}
           class="jp-play"
-          href="javascript:;"
-          tabindex="1"
+          tabindex="0"
         >
           {{t "player.play"}}
-        </a>
+        </button>
       {{/if}}
       <span
         id="volume-control"
@@ -44,15 +43,15 @@
       >
         {{#if this.muted}}
           {{!-- template-lint-disable no-nested-interactive --}}
-          <a class="jp-unmute" tabindex="1"
+          <button type="button" class="jp-unmute" tabindex="0"
             {{on 'click' this.unmute}} >
             <Ui::Icon @name="volume-off" />
-          </a>
+          </button>
         {{else}}
-          <a class="jp-mute" tabindex="1"
+          <button type="button" class="jp-mute" tabindex="0"
             {{on "click" this.mute}} >
             <Ui::Icon @name="volume-up" />
-          </a>
+          </button>
         {{/if}}
         {{#if this.showingVolumeControl}}
           <input
