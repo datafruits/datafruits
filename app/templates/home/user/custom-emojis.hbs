@@ -1,0 +1,32 @@
+<div class="page-spacing">
+  <h1 class="debussy-header">
+    {{t "custom_emoji.title"}}
+  </h1>
+
+  <div class="page-bg">
+    <p class="mb-4">{{t "custom_emoji.description"}}</p>
+
+    <h2 class="text-xl font-bold mb-2">{{t "custom_emoji.upload_new"}}</h2>
+    <CustomEmoji::Form />
+
+    <hr class="my-8" />
+
+    <h2 class="text-xl font-bold mb-2">{{t "custom_emoji.my_emojis"}}</h2>
+    {{#if @model.length}}
+      <div class="flex flex-wrap gap-4">
+        {{#each @model as |emoji|}}
+          <div class="text-center p-2">
+            <img
+              src={{emoji.imageUrl}}
+              alt={{emoji.name}}
+              class="w-16 h-16 object-contain mx-auto"
+            />
+            <span class="block text-sm mt-1">:{{emoji.name}}:</span>
+          </div>
+        {{/each}}
+      </div>
+    {{else}}
+      <p>{{t "custom_emoji.no_emojis"}}</p>
+    {{/if}}
+  </div>
+</div>

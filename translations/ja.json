@@ -135,13 +135,27 @@
     "loading": "ロード中...",
     "error": "エラーが起これました。ページをリフレッシュしてもう一回やってみて下さい。"
   },
-  "djs": { "title": "DJs" },
-  "radio": { "title": "ラジオ" },
-  "releases": { "title": "レーベル" },
-  "about": { "title": "datafruitsとは？" },
-  "blog": { "title": "ブログ" },
-  "shop": { "title": "買い物" },
-  "subscribe": { "title": "メールマガ登録" },
+  "djs": {
+    "title": "DJs"
+  },
+  "radio": {
+    "title": "ラジオ"
+  },
+  "releases": {
+    "title": "レーベル"
+  },
+  "about": {
+    "title": "datafruitsとは？"
+  },
+  "blog": {
+    "title": "ブログ"
+  },
+  "shop": {
+    "title": "買い物"
+  },
+  "subscribe": {
+    "title": "メールマガ登録"
+  },
   "shows": {
     "title": "番組"
   },
@@ -235,7 +249,9 @@
     }
   },
   "locale": "言語",
-  "theme": { "label": "テーマ" },
+  "theme": {
+    "label": "テーマ"
+  },
   "donate": {
     "title": "寄付する",
     "dj_link": "現状のDJに寄付するリンクはこちらです。"
@@ -333,5 +349,20 @@
     "voting_happens_now": "SHRIMPO投票が始まります！",
     "rate_tune_by": "曲を評価してください。",
     "login_to_vote": "SHRIMPOに投票するにはログインまたは登録してください！"
+  },
+  "custom_emoji": {
+    "title": "Custom Emojis",
+    "description": "Upload your own custom emojis to use in chat!",
+    "upload_new": "Upload New Emoji",
+    "my_emojis": "My Emojis",
+    "no_emojis": "You haven't uploaded any custom emojis yet.",
+    "form": {
+      "name": "Emoji Name",
+      "name_placeholder": "my_emoji",
+      "image": "Emoji Image",
+      "uploading": "Uploading...",
+      "preview": "Emoji preview",
+      "submit": "Upload Emoji"
+    }
   }
 }

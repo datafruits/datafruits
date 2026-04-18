@@ -63,16 +63,32 @@
       "tag": "Etiqueta"
     }
   },
-  "timetable": { "title": "Calendario" },
-  "djs": { "title": "DJs" },
+  "timetable": {
+    "title": "Calendario"
+  },
+  "djs": {
+    "title": "DJs"
+  },
   "nav_toggle": "Cambiar navigación",
-  "radio": { "title": "Radio" },
-  "releases": { "title": "Sello" },
-  "about": { "title": "Sobre DF" },
-  "blog": { "title": "Blog" },
-  "shop": { "title": "Tienda" },
+  "radio": {
+    "title": "Radio"
+  },
+  "releases": {
+    "title": "Sello"
+  },
+  "about": {
+    "title": "Sobre DF"
+  },
+  "blog": {
+    "title": "Blog"
+  },
+  "shop": {
+    "title": "Tienda"
+  },
   "thanks": "Gracias!",
-  "subscribe": { "title": "Suscríbase" },
+  "subscribe": {
+    "title": "Suscríbase"
+  },
   "newsletter_modal": {
     "title": "BOLETÍN INFORMATIVO DATAFRUITS.FM",
     "placeholder_email": "Email",
@@ -184,5 +200,20 @@
   "donate": {
     "title": "APOYO",
     "dj_link": "El enlace de donación del DJ actual está aquí:"
+  },
+  "custom_emoji": {
+    "title": "Custom Emojis",
+    "description": "Upload your own custom emojis to use in chat!",
+    "upload_new": "Upload New Emoji",
+    "my_emojis": "My Emojis",
+    "no_emojis": "You haven't uploaded any custom emojis yet.",
+    "form": {
+      "name": "Emoji Name",
+      "name_placeholder": "my_emoji",
+      "image": "Emoji Image",
+      "uploading": "Uploading...",
+      "preview": "Emoji preview",
+      "submit": "Upload Emoji"
+    }
   }
 }
