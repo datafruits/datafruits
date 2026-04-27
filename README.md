@@ -16,7 +16,7 @@ You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (22.x)
-  - We prefer [volta](https://volta.sh/) to manage Node versions
+  * We prefer [volta](https://volta.sh/) to manage Node versions
 * [PNPM](https://pnpm.io/)
 * [Ember CLI](https://ember-cli.com/)
 
@@ -37,6 +37,7 @@ If you want to develop against local versions of
 [streampusher](https://github.com/streampusher/) or [hotdog
 lounge (the chat server)](https://github.com/datafruits/hotdog_lounge) you can
 edit these values in the `.env` file, and restart the server.
+
 ```
 CHAT_SOCKET_URL="wss://localhost:4000/socket"
 API_HOST='https://localhost:3000'
@@ -48,18 +49,18 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Running Tests
 
-- `yarn test`
-- `yarn test:ember --server`
+* `pnpm run test`
+* `pnpm run test:ember --server`
 
 ### Linting
 
-- `yarn lint`
-- `yarn lint:fix`
+* `pnpm run lint:js`
+* `pnpm run lint:fix`
 
 ### Building
 
-- `yarn ember build` (development)
-- `yarn build` (production)
+* `pnpm run ember build` (development)
+* `pnpm run build` (production)
 
 ### Deploying
 
@@ -67,8 +68,8 @@ Specify what it takes to deploy your app.
 
 ## Further Reading / Useful Links
 
-- [ember.js](https://emberjs.com/)
-- [ember-cli](https://cli.emberjs.com/release/)
-- Development Browser Extensions
-  - [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  - [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+* [ember.js](https://emberjs.com/)
+* [ember-cli](https://cli.emberjs.com/release/)
+* Development Browser Extensions
+  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
