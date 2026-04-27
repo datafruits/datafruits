@@ -772,6 +772,8 @@ canvas#pixi {
 }
 
 body {
+  position: fixed;
+  overflow: hidden;
   scrollbar-color: $pink;
   scrollbar-width: auto;
 }
