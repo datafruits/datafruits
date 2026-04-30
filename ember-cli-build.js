@@ -23,7 +23,7 @@ module.exports = function (defaults) {
     exclude: ['assets/images/emojis/*', 'assets/images/sprites/*', 'assets/images/lv*_fruit.gif', 'assets/images/big_cow.png'],
   };
 
-  let app = new EmberApp(defaults, {
+  const app = new EmberApp(defaults, {
     newVersion: {
       enabled: true,
       useAppVersion: true,
@@ -33,6 +33,15 @@ module.exports = function (defaults) {
       urls: urlFinder,
     },
 
+    emberData: {
+      deprecations: {
+        // New projects can safely leave this deprecation disabled.
+        // If upgrading, to opt-into the deprecated behavior, set this to true and then follow:
+        // https://deprecations.emberjs.com/id/ember-data-deprecate-store-extends-ember-object
+        // before upgrading to Ember Data 6.0
+        DEPRECATE_STORE_EXTENDS_EMBER_OBJECT: false,
+      },
+    },
     // Add options here
     fingerprint: fingerprintOptions,
 
