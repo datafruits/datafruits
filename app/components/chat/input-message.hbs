@@ -14,7 +14,7 @@
       data-test-chat-input-message
     />
     {{#if this.hasMessage}}
-      <button
+      <button {{on "click" this.sendMessage}}
         type="submit"
         class="cool-button"
         id="send-message-button"
