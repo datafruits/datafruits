@@ -5,10 +5,20 @@
         {{ if this.isLive "is-live" "" }}
         {{ if this.playButtonHover "bleed" "" }}
          "
-  {{did-insert this.didInsert}}
   >
+  {{this.subscriptions}}
   <audio preload="" id="radio-player" class="hidden"
         crossorigin="anonymous"
+    {{audio-player-events
+      onLoadstart=this.onAudioLoadstart
+      onPause=this.onAudioPause
+      onPlaying=this.onAudioPlaying
+      onSeeked=this.onAudioSeeked
+      onTimeupdate=this.onAudioTimeupdate
+      onSeeking=this.onAudioSeeking
+      onCanplay=this.onAudioCanplay
+      onSetup=this.onAudioSetup
+    }}
     >
     <source
       src="https://streampusher-relay.club/datafruits.mp3"

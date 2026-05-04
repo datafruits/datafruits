@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import type Owner from '@ember/owner';
 
 interface UserBadgesSignature {
   Args: {
@@ -18,11 +17,9 @@ export default class UserBadges extends Component<UserBadgesSignature> {
   @service declare intl: any;
 
   validBadges = ['dj', 'vj', 'supporter', 'emerald_supporter', 'gold_supporter', 'strawberry', 'lemon', 'orange', 'watermelon', 'banana', 'cabbage', 'pineapple', 'duckle'];
-  descriptions: any;
 
-  constructor(owner: Owner, args: UserBadgesSignature['Args']) {
-    super(owner, args);
-    this.descriptions = {
+  get descriptions(): Record<string, string> {
+    return {
       'dj': this.intl.t('profile.badges.dj'),
       'vj': this.intl.t('profile.badges.vj'),
       'supporter': this.intl.t('profile.badges.supporter'),

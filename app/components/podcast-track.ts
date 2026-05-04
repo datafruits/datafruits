@@ -4,8 +4,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { debounce } from '@ember/runloop';
 import { htmlSafe } from '@ember/template';
-import { resource } from 'ember-resources';
-import type Owner from '@ember/owner';
+import { resource, use } from 'ember-resources';
 import { TrackEventPayload, PlayerState } from '../types/player';
 
 interface PodcastTrackArgs {
@@ -27,24 +26,15 @@ interface PodcastTrackArgs {
 }
 
 export default class PodcastTrack extends Component<PodcastTrackArgs> {
-  subscriptions = resource(this, () => {
+  @use subscriptions = resource(({ on }) => {
     this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
     this.eventBus.subscribe('trackPaused', this, 'onTrackPaused');
 
-    return () => {
+    on.cleanup(() => {
       this.eventBus.unsubscribe('trackPlayed', this, 'onTrackPlayed');
       this.eventBus.unsubscribe('trackPaused', this, 'onTrackPaused');
-    };
+    });
   });
-
-  constructor(owner: Owner, args: PodcastTrackArgs) {
-    super(owner, args);
-  }
-
-  @action
-  willDestroy(): void {
-    super.willDestroy();
-  }
 
 
   @service
