@@ -136,6 +136,7 @@
     "ember-provide-consume-context": "^0.7.0",
     "ember-qunit": "^9.0.2",
     "ember-resolver": "^13.1.0",
+    "ember-resources": "^7.0.7",
     "ember-rollbar-client": "github:davewasmer/ember-rollbar-client#fastboot-memory-leak-fix",
     "ember-set-helper": "^2.0.1",
     "ember-simple-auth": "8.0.0",
