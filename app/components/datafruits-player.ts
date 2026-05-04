@@ -71,8 +71,8 @@ export default class DatafruitsPlayer extends Component {
       return this._volume;
     }
     if (!this.fastboot.isFastBoot) {
-      const stored = parseFloat(localStorage.getItem("datafruits-volume") as string);
-      return stored || 0.8;
+      const rawStored = localStorage.getItem("datafruits-volume");
+      return rawStored !== null ? parseFloat(rawStored) || 0.8 : 0.8;
     }
     return 1.0;
   }
