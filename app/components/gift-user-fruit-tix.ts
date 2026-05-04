@@ -16,25 +16,20 @@ export default class GiftUserFruitTix extends Component<GiftUserFruitTixArgs> {
   FruitTicketGiftValidations = FruitTicketGiftValidations;
 
   @tracked showingModal: boolean = false;
-  @tracked _fruitTicketGift: FruitTicketGift | null = null;
   @service declare store: Store;
   @service declare currentUser: any;
 
-  @use _giftRecord = resource(({ on }) => {
+  @use fruitTicketGift = resource(({ on }) => {
     const record = this.store.createRecord('fruit-ticket-gift', {
       toUserId: this.args.toUser.id
     }) as FruitTicketGift;
-    this._fruitTicketGift = record;
     on.cleanup(() => {
       if (record.isNew) {
         record.unloadRecord();
       }
     });
+    return record;
   });
-
-  get fruitTicketGift(): FruitTicketGift {
-    return this._fruitTicketGift!;
-  }
 
   @action
   showFruitTixModal() {
