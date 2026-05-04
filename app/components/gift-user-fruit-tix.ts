@@ -3,7 +3,7 @@ import type Store from '@ember-data/store';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
-import type Owner from '@ember/owner';
+import { resource, use } from 'ember-resources';
 import FruitTicketGiftValidations from '../validations/fruit-ticket-gift';
 import type FruitTicketGift from 'datafruits13/models/fruit-ticket-gift';
 import type User from 'datafruits13/models/user';
@@ -16,22 +16,24 @@ export default class GiftUserFruitTix extends Component<GiftUserFruitTixArgs> {
   FruitTicketGiftValidations = FruitTicketGiftValidations;
 
   @tracked showingModal: boolean = false;
-  @tracked fruitTicketGift: FruitTicketGift;
+  @tracked _fruitTicketGift: FruitTicketGift | null = null;
   @service declare store: Store;
   @service declare currentUser: any;
 
-  constructor(owner: Owner, args: GiftUserFruitTixArgs) {
-    super(owner, args);
-    this.fruitTicketGift = this.store.createRecord('fruit-ticket-gift', {
+  @use _giftRecord = resource(({ on }) => {
+    const record = this.store.createRecord('fruit-ticket-gift', {
       toUserId: this.args.toUser.id
+    }) as FruitTicketGift;
+    this._fruitTicketGift = record;
+    on.cleanup(() => {
+      if (record.isNew) {
+        record.unloadRecord();
+      }
     });
-  }
+  });
 
-  willDestroy(): void {
-    super.willDestroy();
-    if (this.fruitTicketGift.isNew) {
-      this.fruitTicketGift.unloadRecord();
-    }
+  get fruitTicketGift(): FruitTicketGift {
+    return this._fruitTicketGift!;
   }
 
   @action

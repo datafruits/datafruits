@@ -5,7 +5,6 @@ import Component from '@glimmer/component';
 import { isEmpty } from '@ember/utils';
 import { tracked } from '@glimmer/tracking';
 import { resource, use } from 'ember-resources';
-import type Owner from '@ember/owner';
 import VideoStreamService from 'datafruits13/services/video-stream';
 // import type Track from 'datafruits13/models/track';
 import ENV from 'datafruits13/config/environment';
@@ -63,9 +62,24 @@ export default class DatafruitsPlayer extends Component {
   @tracked playTimePercentage = 0.0;
   @tracked playTime = 0.0;
   @tracked duration = 0.0;
-  @tracked volume = 1.0;
+  @tracked _volume: number | null = null;
   @tracked videoAudioOn = false;
   @tracked podcastTrackId: string = "";
+
+  get volume(): number {
+    if (this._volume !== null) {
+      return this._volume;
+    }
+    if (!this.fastboot.isFastBoot) {
+      const stored = parseFloat(localStorage.getItem("datafruits-volume") as string);
+      return stored || 0.8;
+    }
+    return 1.0;
+  }
+
+  set volume(v: number) {
+    this._volume = v;
+  }
 
   get volumeString(): string {
     return `${Math.floor(Number(this.volume) * 100).toString()}%`;
@@ -81,15 +95,6 @@ export default class DatafruitsPlayer extends Component {
 
   get loading(): boolean {
     return this.playerState === PlayerState.Loading;
-  }
-
-  constructor(owner: Owner, args: any) {
-    super(owner, args);
-
-    if (!this.fastboot.isFastBoot) {
-      this.volume =
-        parseFloat(localStorage.getItem("datafruits-volume") as string) || 0.8;
-    }
   }
 
   get isLive() {
