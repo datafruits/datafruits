@@ -326,7 +326,7 @@ export default class DatafruitsPlayer extends Component {
   }
 
   @action
-  onAudioSetup(audioTag: HTMLAudioElement): void {
+  initializeAudioElement(audioTag: HTMLAudioElement): void {
     audioTag.volume = this.volume;
     this.setRadioTitle();
   }
