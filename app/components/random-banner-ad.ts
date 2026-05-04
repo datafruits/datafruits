@@ -1,11 +1,39 @@
 import Component from '@glimmer/component';
 import { later } from '@ember/runloop';
 import { tracked } from '@glimmer/tracking';
+import { resource } from 'ember-resources';
+import type Owner from '@ember/owner';
 import ENV from 'datafruits13/config/environment';
 
 //interface RandomBannerAdArgs {}
 
 export default class RandomBannerAd extends Component {
+  rerenderTimer = resource(this, () => {
+    let cancelled = false;
+
+    const schedule = () => {
+      if (cancelled) {
+        return;
+      }
+
+      this.randomBanner();
+
+      if (ENV.environment === 'test') {
+        return;
+      }
+
+      later(() => {
+        schedule();
+      }, 5_000);
+    };
+
+    schedule();
+
+    return () => {
+      cancelled = true;
+    };
+  });
+
   @tracked currentAd: Record<string, string> = { img: "/assets/images/ad-open-space.png", link: "" };
 
   ads: Record<string, string>[] = [
@@ -22,17 +50,12 @@ export default class RandomBannerAd extends Component {
     { img: "/assets/images/ad-monday-nite-fruits.png", link: "https://datafruits.fm/shows/monday-night-fruits" },
   ]
 
-  constructor(owner: unknown, args: any) {
+  constructor(owner: Owner, args: any) {
     super(owner, args);
-    this.randomBanner();
   }
 
   randomBanner() {
     const random = Math.floor(Math.random() * this.ads.length);
     this.currentAd = this.ads[random];
-    if (ENV.environment === 'test') return;
-    later(() => {
-      this.randomBanner();
-    }, 5_000);
   }
 }

@@ -4,6 +4,7 @@ import type ShrimpoEntry from 'datafruits13/models/shrimpo-entry';
 import type ShrimpoVotingCategory from 'datafruits13/models/shrimpo-voting-category';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import type Owner from '@ember/owner';
 import ENV from 'datafruits13/config/environment';
 import fetch from 'fetch';
 
@@ -29,7 +30,7 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
 
   shrimpVoteUrl = `${ENV.API_HOST}/api/shrimpos/${this.args.entry.shrimpoSlug}/shrimpo_entries/${this.args.entry.slug}/voting_categories.json`;
 
-  constructor(owner: unknown, args: any) {
+  constructor(owner: Owner, args: any) {
     super(owner, args);
 
     const existingVotes = this.args.entry.shrimpoVotes.filter((vote: any) => {

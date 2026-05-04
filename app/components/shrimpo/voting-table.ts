@@ -6,6 +6,7 @@ import { action } from '@ember/object';
 import { formatEmojiHtml } from 'datafruits13/helpers/format-emoji-html';
 import { emojiPath } from 'datafruits13/helpers/emoji-path';
 import { inject as service } from '@ember/service';
+import type Owner from '@ember/owner';
 
 interface ShrimpoVotingTableArgs {
   entry: ShrimpoEntry;
@@ -28,7 +29,7 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
 
   //vote: ShrimpoVote;
 
-  constructor(owner: unknown, args: any) {
+  constructor(owner: Owner, args: any) {
     super(owner, args);
     const existingVote = this.args.entry.shrimpoVotes.find((vote: any) => {
       return vote.get('user.id') == this.currentUser.user.id;

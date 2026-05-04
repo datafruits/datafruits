@@ -4,6 +4,8 @@ import { debounce } from '@ember/runloop';
 import Component from '@glimmer/component';
 import { isEmpty } from '@ember/utils';
 import { tracked } from '@glimmer/tracking';
+import { resource } from 'ember-resources';
+import type Owner from '@ember/owner';
 import VideoStreamService from 'datafruits13/services/video-stream';
 // import type Track from 'datafruits13/models/track';
 import ENV from 'datafruits13/config/environment';
@@ -18,6 +20,24 @@ enum PlayerState {
 }
 
 export default class DatafruitsPlayer extends Component {
+  subscriptions = resource(this, () => {
+    this.eventBus.subscribe("trackPlayed", this, "onTrackPlayed");
+    this.eventBus.subscribe("trackPaused", this, "onTrackPaused");
+    this.eventBus.subscribe("metadataUpdate", this, "setRadioTitle");
+    this.eventBus.subscribe("liveVideoAudio", this, "useVideoAudio");
+    this.eventBus.subscribe("liveVideoAudioOff", this, "disableVideoAudio");
+    this.eventBus.subscribe("canonicalMetadataUpdate", this, "onCanonicalMetadataUpdate");
+
+    return () => {
+      this.eventBus.unsubscribe("trackPlayed", this, "onTrackPlayed");
+      this.eventBus.unsubscribe("trackPaused", this, "onTrackPaused");
+      this.eventBus.unsubscribe("metadataUpdate", this, "setRadioTitle");
+      this.eventBus.unsubscribe("liveVideoAudio", this, "useVideoAudio");
+      this.eventBus.unsubscribe("liveVideoAudioOff", this, "disableVideoAudio");
+      this.eventBus.unsubscribe("canonicalMetadataUpdate", this, "onCanonicalMetadataUpdate");
+    };
+  });
+
   @service
   declare eventBus: EventBusService;
 
@@ -63,14 +83,8 @@ export default class DatafruitsPlayer extends Component {
     return this.playerState === PlayerState.Loading;
   }
 
-  constructor(owner: unknown, args: any) {
+  constructor(owner: Owner, args: any) {
     super(owner, args);
-    this.eventBus.subscribe("trackPlayed", this, "onTrackPlayed");
-    this.eventBus.subscribe("trackPaused", this, "onTrackPaused");
-    this.eventBus.subscribe("metadataUpdate", this, "setRadioTitle");
-    this.eventBus.subscribe("liveVideoAudio", this, "useVideoAudio");
-    this.eventBus.subscribe("liveVideoAudioOff", this, "disableVideoAudio");
-    this.eventBus.subscribe("canonicalMetadataUpdate", this, "onCanonicalMetadataUpdate");
 
     if (!this.fastboot.isFastBoot) {
       this.volume =
@@ -81,10 +95,6 @@ export default class DatafruitsPlayer extends Component {
   @action
   willDestroy(): void {
     super.willDestroy();
-    this.eventBus.unsubscribe("trackPlayed", this, "onTrackPlayed");
-    this.eventBus.unsubscribe("metadataUpdate", this, "setRadioTitle");
-    this.eventBus.unsubscribe("liveVideoAudio", this, "useVideoAudio");
-    this.eventBus.unsubscribe("liveVideoAudioOff", this, "disableVideoAudio");
   }
 
   get isLive() {
@@ -392,4 +402,3 @@ declare module '@glint/environment-ember-loose/registry' {
     DatafruitsPlayer: typeof DatafruitsPlayer;
   }
 }
-

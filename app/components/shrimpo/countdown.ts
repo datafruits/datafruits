@@ -1,12 +1,37 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { later } from '@ember/runloop';
+import { resource } from 'ember-resources';
+import type Owner from '@ember/owner';
 
 interface ShrimpoCountdownArgs {
   endAt: string;
 }
 
 export default class ShrimpoCountdown extends Component<ShrimpoCountdownArgs> {
+  timer = resource(this, () => {
+    let cancelled = false;
+
+    const tick = () => {
+      if (cancelled) {
+        return;
+      }
+
+      this.elapsedTimeSeconds += 1000;
+      later(() => {
+        tick();
+      }, 1000);
+    };
+
+    later(() => {
+      tick();
+    }, 1000);
+
+    return () => {
+      cancelled = true;
+    };
+  });
+
   @tracked elapsedTimeSeconds = 0;
 
   get currentTimeLeft() {
@@ -29,11 +54,8 @@ export default class ShrimpoCountdown extends Component<ShrimpoCountdownArgs> {
     }, 1000);
   }
 
-  constructor(owner: unknown, args: any) {
+  constructor(owner: Owner, args: any) {
     super(owner, args);
     //setTimeout(this.incTime, 1000);
-    later(() => {
-      this.incTime();
-    }, 1000);
   }
 }
