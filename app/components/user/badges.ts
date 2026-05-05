@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 
 interface UserBadgesSignature {
   Args: {
-    role: string;
+    role: string | string[];
   };
 }
 
@@ -18,7 +18,7 @@ export default class UserBadges extends Component<UserBadgesSignature> {
 
   validBadges = ['dj', 'vj', 'supporter', 'emerald_supporter', 'gold_supporter', 'strawberry', 'lemon', 'orange', 'watermelon', 'banana', 'cabbage', 'pineapple', 'duckle'];
 
-  get descriptions() {
+  get descriptions(): Record<string, string> {
     return {
       'dj': this.intl.t('profile.badges.dj'),
       'vj': this.intl.t('profile.badges.vj'),
