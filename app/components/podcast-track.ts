@@ -25,20 +25,6 @@ interface PodcastTrackArgs {
 }
 
 export default class PodcastTrack extends Component<PodcastTrackArgs> {
-  constructor(owner: unknown, args: PodcastTrackArgs) {
-    super(owner, args);
-    this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
-    this.eventBus.subscribe('trackPaused', this, 'onTrackPaused');
-  }
-
-  @action
-  willDestroy(): void {
-    super.willDestroy();
-    this.eventBus.unsubscribe('trackPlayed', this, 'onTrackPlayed');
-    this.eventBus.unsubscribe('trackPaused', this, 'onTrackPaused');
-  }
-
-
   @service
   declare eventBus: any;
 
@@ -56,6 +42,16 @@ export default class PodcastTrack extends Component<PodcastTrackArgs> {
 
   @tracked
   playerState: PlayerState = PlayerState.Paused;
+
+  setupSubscriptions(): void {
+    this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
+    this.eventBus.subscribe('trackPaused', this, 'onTrackPaused');
+  }
+
+  teardownSubscriptions(): void {
+    this.eventBus.unsubscribe('trackPlayed', this, 'onTrackPlayed');
+    this.eventBus.unsubscribe('trackPaused', this, 'onTrackPaused');
+  }
 
   get playing(): boolean {
     return this.playerState === PlayerState.Playing;

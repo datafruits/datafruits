@@ -13,6 +13,11 @@ interface ShrimpoVotingCategoriesTableArgs {
   votingCompletionPercentage: number;
 }
 
+interface VoteState {
+  score: number;
+  emoji: string;
+}
+
 export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotingCategoriesTableArgs> {
   @service
   declare session: any;
@@ -23,37 +28,67 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
   @service
   declare currentUser: any;
 
-  @tracked votes: any = {};
+  @tracked editedVotes: Record<string, VoteState> | null = null;
 
-  @tracked voted: boolean = false;
+  @tracked hasSavedVote = false;
 
-  shrimpVoteUrl = `${ENV.API_HOST}/api/shrimpos/${this.args.entry.shrimpoSlug}/shrimpo_entries/${this.args.entry.slug}/voting_categories.json`;
+  get shrimpVoteUrl() {
+    return `${ENV.API_HOST}/api/shrimpos/${this.args.entry.shrimpoSlug}/shrimpo_entries/${this.args.entry.slug}/voting_categories.json`;
+  }
 
-  constructor(owner: unknown, args: any) {
-    super(owner, args);
+  get existingVotes() {
+    const currentUserId = this.currentUser.user?.id;
 
-    const existingVotes = this.args.entry.shrimpoVotes.filter((vote: any) => {
-      return vote.get('user.id') == this.currentUser.user.id;
+    if (!currentUserId) {
+      return [];
+    }
+
+    return this.args.entry.shrimpoVotes.filter((vote: any) => {
+      return vote.get('user.id') == currentUserId;
     });
-    if(existingVotes.length === 5) {
-      this.voted = true;
-      // populate existing votes
-      this.args.entry.shrimpoVotes.forEach((vote: any)  => {
-        this.votes[vote.votingCategoryName] = {score: vote.score, emoji: vote.votingCategoryEmoji};
+  }
+
+  get initialVotes(): Record<string, VoteState> {
+    const votes: Record<string, VoteState> = {};
+
+    if (this.existingVotes.length === this.args.votingCategories.length) {
+      this.existingVotes.forEach((vote: any) => {
+        votes[vote.votingCategoryName] = {
+          score: vote.score,
+          emoji: vote.votingCategoryEmoji
+        };
       });
     } else {
-      // initialize votes if no existing votes
       this.args.votingCategories.forEach((votingCategory: ShrimpoVotingCategory) => {
-        this.votes[votingCategory.name] = {score: 1, emoji: votingCategory.emoji};
+        votes[votingCategory.name] = {
+          score: 1,
+          emoji: votingCategory.emoji
+        };
       });
     }
 
+    return votes;
+  }
+
+  get votes(): Record<string, VoteState> {
+    return this.editedVotes ?? this.initialVotes;
+  }
+
+  get voted(): boolean {
+    return this.hasSavedVote || this.existingVotes.length === this.args.votingCategories.length;
   }
 
   @action
   setScore(name: string, event: any) {
-    this.votes[name].score = event.target.value;
-    this.votes = { ...this.votes };
+    if (!this.editedVotes) {
+      this.editedVotes = { ...this.initialVotes };
+    }
+
+    this.editedVotes[name] = {
+      ...this.editedVotes[name],
+      score: Number(event.target.value)
+    };
+    this.editedVotes = { ...this.editedVotes };
   }
 
   @action
@@ -85,7 +120,7 @@ export default class ShrimpoVotingCategoriesTable extends Component<ShrimpoVotin
       .then((data) => {
         if (data.status == 200) {
           alert('Voteded!');
-          this.voted = true;
+          this.hasSavedVote = true;
           this.store.findRecord('shrimpo', this.args.entry.shrimpoSlug);
         } else {
           alert('Something went wrong!');

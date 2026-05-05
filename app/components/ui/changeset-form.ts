@@ -4,6 +4,7 @@ import { BufferedChangeset } from 'ember-changeset/types';
 import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
 import { next } from '@ember/runloop';
+import { resource, use } from 'ember-resources';
 
 interface UiChangesetFormSignature {
   Args: {
@@ -38,8 +39,7 @@ interface UiChangesetFormSignature {
 }
 
 export default class UiChangesetFormComponent extends Component<UiChangesetFormSignature> {
-  constructor(owner: unknown, args: UiChangesetFormSignature['Args']) {
-    super(owner, args);
+  @use initializeForm = resource(() => {
     assert(
       '@changeset must be defined on <ChangesetForm> component',
       this.args.changeset
@@ -52,7 +52,7 @@ export default class UiChangesetFormComponent extends Component<UiChangesetFormS
         });
       });
     }
-  }
+  });
 
 
   @tracked hasSubmitted = false;
