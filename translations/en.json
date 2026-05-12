@@ -133,7 +133,20 @@
     "title": "Timetable",
     "aria": "Browse scheduled shows and events",
     "timezone": "All events displayed in your local timezone: ",
-    "loading": "Loading..."
+    "time_range": "{start} ~ {end}",
+    "loading": "Loading...",
+    "views": {
+      "schedule": "Schedule",
+      "availability": "Availability"
+    },
+    "availability": {
+      "hour": "Hour",
+      "weekly": "Weekly",
+      "biweekly": "Biweekly",
+      "monthly": "Monthly",
+      "available_short": "✓",
+      "unavailable_short": "—"
+    }
   },
   "djs": {
     "title": "Fruits",
