@@ -34,6 +34,10 @@ export default class TimetableCalendarComponent extends Component {
     return this.viewMode === 'availability';
   }
 
+  get currentTimezone() {
+    return dayjs.tz.guess();
+  }
+
   get timeSlotAvailabilityRows() {
     const occupiedHours = this.occupiedHourKeys;
 

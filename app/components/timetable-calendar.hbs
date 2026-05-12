@@ -3,13 +3,13 @@
     {{t "timetable.loading"}}
   </:pending>
 
-  <:success as |shows|>
+  <:success>
     <div class="mb-4 flex gap-2">
       <button
         type="button"
         class="btn"
         data-test-timetable-view-schedule
-        aria-pressed={{if (not this.isAvailabilityView) "true" "false"}}
+        aria-pressed={{if this.isAvailabilityView "false" "true"}}
         {{on "click" (fn this.setViewMode "schedule")}}
       >
         {{t "timetable.views.schedule"}}
@@ -43,9 +43,9 @@
               <th scope="row">{{row.label}}</th>
               {{#each row.cells as |cell|}}
                 <td>
-                  <div>{{t "timetable.availability.weekly"}}: {{if cell.weeklyAvailable (t "timetable.availability.available_short") "—"}}</div>
-                  <div>{{t "timetable.availability.biweekly"}}: {{if cell.biweeklyAvailable (t "timetable.availability.available_short") "—"}}</div>
-                  <div>{{t "timetable.availability.monthly"}}: {{if cell.monthlyAvailable (t "timetable.availability.available_short") "—"}}</div>
+                  <div>{{t "timetable.availability.weekly"}}: {{if cell.weeklyAvailable (t "timetable.availability.available_short") (t "timetable.availability.unavailable_short")}}</div>
+                  <div>{{t "timetable.availability.biweekly"}}: {{if cell.biweeklyAvailable (t "timetable.availability.available_short") (t "timetable.availability.unavailable_short")}}</div>
+                  <div>{{t "timetable.availability.monthly"}}: {{if cell.monthlyAvailable (t "timetable.availability.available_short") (t "timetable.availability.unavailable_short")}}</div>
                 </td>
               {{/each}}
             </tr>
@@ -59,7 +59,7 @@
             <th scope="col" colspan="2">
               {{t "timetable.timezone" }}
               <span class="italic">
-                {{current-timezone}}
+                {{this.currentTimezone}}
               </span>
             </th>
           </tr>
@@ -70,7 +70,7 @@
             <tr><td><hr /></td></tr>
             {{#each shows as |show|}}
               <tr>
-                <td>{{format-time show.start}} ~ {{format-time show.end}}</td>
+                <td>{{format-time show.start}} {{t "timetable.range_separator"}} {{format-time show.end}}</td>
                 {{#if (is-current-show show)}}
                   <td class="bleed">
                     <LinkTo

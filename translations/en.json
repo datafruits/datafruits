@@ -133,6 +133,7 @@
     "title": "Timetable",
     "aria": "Browse scheduled shows and events",
     "timezone": "All events displayed in your local timezone: ",
+    "range_separator": "~",
     "loading": "Loading...",
     "views": {
       "schedule": "Schedule",
@@ -143,7 +144,8 @@
       "weekly": "Weekly",
       "biweekly": "Biweekly",
       "monthly": "Monthly",
-      "available_short": "✓"
+      "available_short": "✓",
+      "unavailable_short": "—"
     }
   },
   "djs": {
