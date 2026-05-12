@@ -1,23 +1,57 @@
-import { module, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { click, render } from '@ember/test-helpers';
+import { hbs } from 'ember-cli-htmlbars';
+import Service from '@ember/service';
 
 import { setupIntl } from 'ember-intl/test-support';
+
+class MockStoreService extends Service {
+  queryResult = undefined;
+
+  query() {
+    if (this.queryResult !== undefined) {
+      return this.queryResult;
+    }
+    return new Promise(() => {});
+  }
+}
 
 module('Integration | Component | timetable calendar', function (hooks) {
   setupRenderingTest(hooks);
 
   setupIntl(hooks, 'en-us');
 
-  skip('it renders', async function (assert) {
-    assert.expect(0);
+  hooks.beforeEach(function () {
+    this.owner.register('service:store', MockStoreService);
+  });
 
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.on('myAction', function(val) { ... });
+  test('it renders the loading state while timetable data is pending', async function (assert) {
+    await render(hbs`<TimetableCalendar />`);
 
-    await render(hbs`{{timetable-calendar}}`);
+    assert.dom('[data-test-timetable-schedule-table]').doesNotExist();
+    assert.dom(this.element).includesText('Loading...');
+  });
 
-    //assert.equal(this.$().text().trim(), '');
+  test('it toggles to availability view', async function (assert) {
+    this.owner.lookup('service:store').queryResult = Promise.resolve([
+      {
+        start: '2026-05-12T10:00:00Z',
+        end: '2026-05-12T11:00:00Z',
+        title: 'Test Show',
+        showSeriesSlug: 'test-series',
+        slug: 'test-show',
+      },
+    ]);
+
+    await render(hbs`<TimetableCalendar />`);
+
+    assert.dom('[data-test-timetable-schedule-table]').exists();
+    assert.dom('[data-test-timetable-availability-table]').doesNotExist();
+
+    await click('[data-test-timetable-view-availability]');
+
+    assert.dom('[data-test-timetable-availability-table]').exists();
+    assert.dom('[data-test-timetable-schedule-table]').doesNotExist();
   });
 });

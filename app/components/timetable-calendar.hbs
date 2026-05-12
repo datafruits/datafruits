@@ -4,49 +4,99 @@
   </:pending>
 
   <:success as |shows|>
-    <table class="page-bg block px-6 py-4">
-      <thead>
-        <tr>
-        <th scope="col" colspan="2">
-          {{t "timetable.timezone" }}
-          <span class="italic">
-            {{current-timezone}}
-          </span>
-        </th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each-in this.groupedShows as |day shows|}}
-          <tr><td class="text-xl font-debussy">{{format-timetable-day day}}</td></tr>
-          <tr><td><hr /></td></tr>
-          {{#each shows as |show|}}
+    <div class="mb-4 flex gap-2">
+      <button
+        type="button"
+        class="btn"
+        data-test-timetable-view-schedule
+        aria-pressed={{if (not this.isAvailabilityView) "true" "false"}}
+        {{on "click" (fn this.setViewMode "schedule")}}
+      >
+        {{t "timetable.views.schedule"}}
+      </button>
+      <button
+        type="button"
+        class="btn"
+        data-test-timetable-view-availability
+        aria-pressed={{if this.isAvailabilityView "true" "false"}}
+        {{on "click" (fn this.setViewMode "availability")}}
+      >
+        {{t "timetable.views.availability"}}
+      </button>
+    </div>
+
+    {{#if this.isAvailabilityView}}
+      <table class="page-bg block px-6 py-4" data-test-timetable-availability-table>
+        <thead>
+          <tr>
+            <th scope="col">
+              {{t "timetable.availability.hour"}}
+            </th>
+            {{#each this.weekdays as |day|}}
+              <th scope="col">{{day.label}}</th>
+            {{/each}}
+          </tr>
+        </thead>
+        <tbody>
+          {{#each this.timeSlotAvailabilityRows as |row|}}
             <tr>
-              <td>{{format-time show.start}} ~ {{format-time show.end}}</td>
-              {{#if (is-current-show show)}}
-                <td class="bleed">
-                  <LinkTo
-                    @route="home.shows.episode"
-                    @models={{array show.showSeriesSlug show.slug}}
-                    title={{show.title}}>
-                    {{show.title}}
-                  </LinkTo>
-                </td>
-              {{else}}
+              <th scope="row">{{row.label}}</th>
+              {{#each row.cells as |cell|}}
                 <td>
-                  <LinkTo
-                    @route="home.shows.episode"
-                    @models={{array show.showSeriesSlug show.slug}}
-                    title={{show.title}}>
-                    {{show.title}}
-                  </LinkTo>
+                  <div>{{t "timetable.availability.weekly"}}: {{if cell.weeklyAvailable (t "timetable.availability.available_short") "—"}}</div>
+                  <div>{{t "timetable.availability.biweekly"}}: {{if cell.biweeklyAvailable (t "timetable.availability.available_short") "—"}}</div>
+                  <div>{{t "timetable.availability.monthly"}}: {{if cell.monthlyAvailable (t "timetable.availability.available_short") "—"}}</div>
                 </td>
-              {{/if}}
+              {{/each}}
             </tr>
           {{/each}}
-          <br />
-        {{/each-in}}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    {{else}}
+      <table class="page-bg block px-6 py-4" data-test-timetable-schedule-table>
+        <thead>
+          <tr>
+            <th scope="col" colspan="2">
+              {{t "timetable.timezone" }}
+              <span class="italic">
+                {{current-timezone}}
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each-in this.groupedShows as |day shows|}}
+            <tr><td class="text-xl font-debussy">{{format-timetable-day day}}</td></tr>
+            <tr><td><hr /></td></tr>
+            {{#each shows as |show|}}
+              <tr>
+                <td>{{format-time show.start}} ~ {{format-time show.end}}</td>
+                {{#if (is-current-show show)}}
+                  <td class="bleed">
+                    <LinkTo
+                      @route="home.shows.episode"
+                      @models={{array show.showSeriesSlug show.slug}}
+                      title={{show.title}}>
+                      {{show.title}}
+                    </LinkTo>
+                  </td>
+                {{else}}
+                  <td>
+                    <LinkTo
+                      @route="home.shows.episode"
+                      @models={{array show.showSeriesSlug show.slug}}
+                      title={{show.title}}>
+                      {{show.title}}
+                    </LinkTo>
+                  </td>
+                {{/if}}
+              </tr>
+            {{/each}}
+            <br />
+          {{/each-in}}
+        </tbody>
+      </table>
+    {{/if}}
   </:success>
 
   <:error>
