@@ -70,7 +70,7 @@
             <tr><td><hr /></td></tr>
             {{#each shows as |show|}}
               <tr>
-                <td>{{format-time show.start}} {{t "timetable.range_separator"}} {{format-time show.end}}</td>
+                <td>{{t "timetable.time_range" start=(format-time show.start) end=(format-time show.end)}}</td>
                 {{#if (is-current-show show)}}
                   <td class="bleed">
                     <LinkTo

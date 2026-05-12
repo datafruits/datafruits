@@ -28,7 +28,7 @@ export default class TimetableCalendarComponent extends Component {
     { index: 6, label: 'Sat' },
   ];
 
-  cadences = ['First', 'Second', 'Third', 'Fourth', 'Last'];
+  monthlyCadenceOptions = ['First', 'Second', 'Third', 'Fourth', 'Last'];
 
   get isAvailabilityView() {
     return this.viewMode === 'availability';
@@ -109,7 +109,7 @@ export default class TimetableCalendarComponent extends Component {
   }
 
   isMonthlySlotAvailable(weekday, hour, occupiedHours) {
-    return this.cadences.some((cadence) => {
+    return this.monthlyCadenceOptions.some((cadence) => {
       return !this.monthlyCandidateDates(weekday, cadence).some((date) =>
         occupiedHours.has(this.hourKey(date, hour)),
       );
@@ -171,7 +171,7 @@ export default class TimetableCalendarComponent extends Component {
       date = date.add(1, 'day');
     }
 
-    const cadenceIndex = this.cadences.indexOf(cadence);
+    const cadenceIndex = this.monthlyCadenceOptions.indexOf(cadence);
     const candidate = date.add(cadenceIndex, 'week');
     if (candidate.month() !== month.month()) {
       return null;

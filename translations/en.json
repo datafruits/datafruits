@@ -133,7 +133,7 @@
     "title": "Timetable",
     "aria": "Browse scheduled shows and events",
     "timezone": "All events displayed in your local timezone: ",
-    "range_separator": "~",
+    "time_range": "{start} ~ {end}",
     "loading": "Loading...",
     "views": {
       "schedule": "Schedule",
