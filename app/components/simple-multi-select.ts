@@ -78,11 +78,11 @@ export default class SimpleMultiSelect extends Component<SimpleMultiSelectArgs> 
       }
     }
 
-    if (option === null || option === undefined || typeof option === 'object') {
-      return '';
+    if (typeof option === 'number' || typeof option === 'boolean') {
+      return `${option}`;
     }
 
-    return `${option}`;
+    return '';
   }
 
   optionValue(option: MultiSelectOption) {
