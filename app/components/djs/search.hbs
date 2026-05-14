@@ -1,10 +1,15 @@
-<PowerSelectMultiple
+<SimpleMultiSelect
   @options={{this.badges}}
   @selected={{this.selectedBadges}}
-  @selectedItemComponent={{component 'djs/selected-badge'}}
-  @allowClear={{true}}
   @placeholder={{t "djs.filter"}}
-  @onChange={{this.changeBadges}} as |badge|
+  @onChange={{this.changeBadges}}
 >
-  <img class="w-8" src={{badge.img}}/>
-</PowerSelectMultiple>
+  <:option as |badge|>
+    <img class="w-8 inline mr-2" src={{badge.img}} alt={{badge.name}}/>
+    {{badge.name}}
+  </:option>
+  <:selected as |badge|>
+    <img class="w-8 inline mr-2" src={{badge.img}} alt={{badge.name}}/>
+    {{badge.name}}
+  </:selected>
+</SimpleMultiSelect>

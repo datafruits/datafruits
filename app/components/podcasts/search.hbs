@@ -17,18 +17,20 @@
   <form role="search" class="px-3" aria-label={{ t "podcasts.tag_search.label"}}>
     <div class="flex flex-col">
       <label class="text-center text-white" for="tag_search">{{t "podcasts.tag_search"}}</label>
-      <PowerSelectMultiple
-        name="tag_search"
-        id="tag_search"
+      <SimpleMultiSelect
+        @inputId="tag_search"
         @placeholder={{t "podcasts.placeholders.tag"}}
-        @searchEnabled={{true}}
         @options={{this.labelNames}}
         @selected={{@selectedLabels}}
-        @renderInPlace={{true}}
-        @onChange={{this.selectLabel}} as |label|
+        @onChange={{this.selectLabel}}
       >
-        {{label}}
-      </PowerSelectMultiple>
+        <:option as |label|>
+          {{label}}
+        </:option>
+        <:selected as |label|>
+          {{label}}
+        </:selected>
+      </SimpleMultiSelect>
     </div>
   </form>
 </div>

@@ -5,17 +5,19 @@
       {{this.error}}
     </div>
   {{/if}}
-  <PowerSelectMultipleWithCreate
+  <SimpleMultiSelect
     @options={{this.labels}}
     @selected={{@changeset.labels}}
-    @searchEnabled={{true}}
     @search={{this.searchLabels}}
-    @renderInPlace={{true}}
     @onChange={{this.setSelectedLabels}}
     @onCreate={{this.createTag}}
     @showCreateWhen={{this.hideCreateOptionOnSameName}}
-    as |label|
   >
-    {{label.name}}
-  </PowerSelectMultipleWithCreate>
+    <:option as |label|>
+      {{label.name}}
+    </:option>
+    <:selected as |label|>
+      {{label.name}}
+    </:selected>
+  </SimpleMultiSelect>
 </section>
