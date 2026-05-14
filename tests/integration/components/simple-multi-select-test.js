@@ -33,4 +33,20 @@ module('Integration | Component | simple-multi-select', function (hooks) {
     assert.dom('[data-test-option]').exists({ count: 2 });
     assert.dom(findAll('[data-test-option]')[0]).hasTextContaining('pine-1');
   });
+
+  test('it adds created option returned from onCreate', async function (assert) {
+    this.set('selected', []);
+    this.set('options', []);
+    this.set('onChange', (values) => this.set('selected', values));
+    this.set('onCreate', (term) => term);
+
+    await render(
+      hbs`<SimpleMultiSelect @options={{this.options}} @selected={{this.selected}} @onChange={{this.onChange}} @onCreate={{this.onCreate}} />`
+    );
+
+    await fillIn('[data-test-simple-multi-select-input]', 'newtag');
+    await click('[data-test-create-option]');
+
+    assert.deepEqual(this.selected, ['newtag']);
+  });
 });

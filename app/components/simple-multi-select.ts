@@ -148,7 +148,10 @@ export default class SimpleMultiSelect extends Component<SimpleMultiSelectArgs> 
       return;
     }
 
-    await this.args.onCreate(this.searchTerm.trim());
+    const createdOption = await this.args.onCreate(this.searchTerm.trim());
+    if (createdOption !== null && createdOption !== undefined && !this.isSelected(createdOption)) {
+      this.args.onChange([...this.selected, createdOption]);
+    }
     this.searchTerm = '';
     this.searchedOptions = null;
   }
