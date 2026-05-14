@@ -5,11 +5,11 @@
   @onChange={{this.changeBadges}}
 >
   <:option as |badge|>
-    <img class="w-8 inline mr-2" src={{badge.img}} alt={{badge.name}}/>
+    <img class="w-8 inline mr-2" src={{badge.img}} alt=""/>
     {{badge.name}}
   </:option>
   <:selected as |badge|>
-    <img class="w-8 inline mr-2" src={{badge.img}} alt={{badge.name}}/>
+    <img class="w-8 inline mr-2" src={{badge.img}} alt=""/>
     {{badge.name}}
   </:selected>
 </SimpleMultiSelect>

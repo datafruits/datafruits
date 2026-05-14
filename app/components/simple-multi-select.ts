@@ -71,7 +71,8 @@ export default class SimpleMultiSelect extends Component<SimpleMultiSelectArgs> 
     }
 
     if (option && typeof option === 'object') {
-      const maybeName = (option as { name?: string; username?: string }).name ?? (option as { username?: string }).username;
+      const optionObject = option as { name?: string; username?: string };
+      const maybeName = optionObject.name ?? optionObject.username;
       if (maybeName) {
         return maybeName;
       }
