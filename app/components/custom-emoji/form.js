@@ -61,22 +61,31 @@ export default class CustomEmojiForm extends Component {
 
     this.isSaving = true;
     this.error = '';
+    let customEmoji;
 
     try {
-      const emoji = this.store.createRecord('custom-emoji', {
+      customEmoji = this.store.createRecord('custom-emoji', {
         name: this.name.trim(),
         image: this.imageSignedId,
       });
-      await emoji.save();
-      registerUserEmoji(emoji.name, emoji.imageUrl);
+      await customEmoji.save();
+
+      await this.store.createRecord('user-emoji', {
+        customEmojiId: customEmoji.id,
+      }).save();
+
+      registerUserEmoji(customEmoji.name, customEmoji.imageUrl);
       this.name = '';
       this.imageSignedId = null;
       this.imagePreviewUrl = null;
       this.uploadProgress = 0;
       if (this.args.onSave) {
-        this.args.onSave(emoji);
+        this.args.onSave(customEmoji);
       }
     } catch (err) {
+      if (customEmoji) {
+        customEmoji.unloadRecord();
+      }
       console.error('Error saving custom emoji:', err);
       this.error = 'Failed to save custom emoji. Please try again.';
     } finally {

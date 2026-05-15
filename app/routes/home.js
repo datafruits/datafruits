@@ -1,7 +1,5 @@
 import { inject as service } from '@ember/service';
 import Route from '@ember/routing/route';
-import { registerUserEmoji } from 'datafruits13/utils/user-emoji-registry';
-
 export default class HomeRoute extends Route {
   @service
   currentUser;
@@ -14,9 +12,6 @@ export default class HomeRoute extends Route {
 
   @service
   fastboot;
-
-  @service
-  store;
 
   async beforeModel() {
     await this.session.setup();
@@ -32,7 +27,6 @@ export default class HomeRoute extends Route {
 
   afterModel() {
     if (!this.fastboot.isFastBoot) {
-      this._loadCustomEmojis();
       let locales = this.intl.locales;
       let language;
       
@@ -68,17 +62,6 @@ export default class HomeRoute extends Route {
     } catch (err) {
       console.log(err);  
       await this.session.invalidate();
-    }
-  }
-
-  async _loadCustomEmojis() {
-    try {
-      const emojis = await this.store.findAll('custom-emoji');
-      emojis.forEach((emoji) => {
-        registerUserEmoji(emoji.name, emoji.imageUrl);
-      });
-    } catch (err) {
-      console.error('Failed to load custom emojis:', err);
     }
   }
 }

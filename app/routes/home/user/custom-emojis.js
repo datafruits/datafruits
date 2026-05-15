@@ -13,12 +13,14 @@ export default class UserCustomEmojisRoute extends Route {
   }
 
   afterModel() {
-    if (!this.currentUser.user || this.currentUser.user.level < 3) {
+    const user = this.currentUser.user;
+
+    if (!user || user.level < 3 || !user.roles.includes('dj')) {
       this.router.transitionTo('home.index');
     }
   }
 
   model() {
-    return this.store.findAll('custom-emoji');
+    return this.store.peekAll('custom-emoji');
   }
 }
