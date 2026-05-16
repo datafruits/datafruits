@@ -71,6 +71,12 @@ export default class UserModel extends Model {
   @attr()
   hasUnreadNotifications;
 
+  @attr()
+  emojiSlotsTotal;
+
+  @attr()
+  emojiSlotsAvailable;
+
   @hasMany('track-favorite', {
     async: false,
     inverse: null

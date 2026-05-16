@@ -351,18 +351,19 @@
     "login_to_vote": "SHRIMPOに投票するにはログインまたは登録してください！"
   },
   "custom_emoji": {
-    "title": "Custom Emojis",
-    "description": "Upload your own custom emojis to use in chat!",
-    "upload_new": "Upload New Emoji",
-    "my_emojis": "My Emojis",
-    "no_emojis": "You haven't uploaded any custom emojis yet.",
+    "title": "カスタム絵文字",
+    "description": "チャットで使える自分だけのカスタム絵文字をアップロードしよう！",
+    "slot_status": "絵文字スロットは合計{total}個あり、残りは{available}個です。",
+    "upload_new": "新しい絵文字をアップロード",
+    "my_emojis": "自分の絵文字",
+    "no_emojis": "まだカスタム絵文字をアップロードしていません。",
     "form": {
-      "name": "Emoji Name",
+      "name": "絵文字名",
       "name_placeholder": "my_emoji",
-      "image": "Emoji Image",
-      "uploading": "Uploading...",
-      "preview": "Emoji preview",
-      "submit": "Upload Emoji"
+      "image": "絵文字画像",
+      "uploading": "アップロード中...",
+      "preview": "絵文字のプレビュー",
+      "submit": "絵文字をアップロード"
     }
   }
 }

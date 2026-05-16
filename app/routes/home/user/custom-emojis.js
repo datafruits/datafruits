@@ -20,6 +20,12 @@ export default class UserCustomEmojisRoute extends Route {
   }
 
   model() {
-    return this.currentUser.user?.get('customEmojis') ?? [];
+    const user = this.currentUser.user;
+
+    return {
+      emojis: user?.get('customEmojis') ?? [],
+      emojiSlotsTotal: user?.emojiSlotsTotal ?? 0,
+      emojiSlotsAvailable: user?.emojiSlotsAvailable ?? 0,
+    };
   }
 }

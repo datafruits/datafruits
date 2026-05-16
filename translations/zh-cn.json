@@ -154,18 +154,19 @@
     "dj_link": "当前DJ的捐赠链接在这里"
   },
   "custom_emoji": {
-    "title": "Custom Emojis",
-    "description": "Upload your own custom emojis to use in chat!",
-    "upload_new": "Upload New Emoji",
-    "my_emojis": "My Emojis",
-    "no_emojis": "You haven't uploaded any custom emojis yet.",
+    "title": "自定义表情",
+    "description": "上传你自己的自定义表情，在聊天中使用！",
+    "slot_status": "你总共有 {total} 个表情槽位，还剩 {available} 个。",
+    "upload_new": "上传新表情",
+    "my_emojis": "我的表情",
+    "no_emojis": "你还没有上传任何自定义表情。",
     "form": {
-      "name": "Emoji Name",
+      "name": "表情名称",
       "name_placeholder": "my_emoji",
-      "image": "Emoji Image",
-      "uploading": "Uploading...",
-      "preview": "Emoji preview",
-      "submit": "Upload Emoji"
+      "image": "表情图片",
+      "uploading": "上传中...",
+      "preview": "表情预览",
+      "submit": "上传表情"
     }
   }
 }

@@ -205,18 +205,19 @@
     "submit": "생각합니다"
   },
   "custom_emoji": {
-    "title": "Custom Emojis",
-    "description": "Upload your own custom emojis to use in chat!",
-    "upload_new": "Upload New Emoji",
-    "my_emojis": "My Emojis",
-    "no_emojis": "You haven't uploaded any custom emojis yet.",
+    "title": "커스텀 이모지",
+    "description": "채팅에서 사용할 나만의 커스텀 이모지를 업로드하세요!",
+    "slot_status": "이모지 슬롯은 총 {total}개이며, {available}개 남아 있습니다.",
+    "upload_new": "새 이모지 업로드",
+    "my_emojis": "내 이모지",
+    "no_emojis": "아직 업로드한 커스텀 이모지가 없습니다.",
     "form": {
-      "name": "Emoji Name",
+      "name": "이모지 이름",
       "name_placeholder": "my_emoji",
-      "image": "Emoji Image",
-      "uploading": "Uploading...",
-      "preview": "Emoji preview",
-      "submit": "Upload Emoji"
+      "image": "이모지 이미지",
+      "uploading": "업로드 중...",
+      "preview": "이모지 미리보기",
+      "submit": "이모지 업로드"
     }
   }
 }
