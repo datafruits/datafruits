@@ -48,10 +48,6 @@ module.exports = async function(defaults) {
 
     hinting: false,
 
-    babel: {
-      plugins: [require('ember-auto-import/babel-plugin')],
-    },
-
     autoImport: {
       alias: {
         'ember-composable-helpers': '@nullvoxpopuli/ember-composable-helpers',
