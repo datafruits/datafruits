@@ -41,8 +41,8 @@ export default class VideoStreamService extends Service {
 
   constructor() {
     super(...arguments);
-    this.streamHost = ENV.STREAM_HOST;
-    this.streamName = ENV.STREAM_NAME;
+    this.streamHost = typeof ENV.STREAM_HOST === 'string' ? ENV.STREAM_HOST : '';
+    this.streamName = typeof ENV.STREAM_NAME === 'string' ? ENV.STREAM_NAME : '';
   }
 
   initializePlayer() {
