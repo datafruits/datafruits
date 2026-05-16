@@ -33,7 +33,6 @@
       ],
       "@ember/destroyable": ["node_modules/ember-destroyable-polyfill"],
       "fetch": [
-        "node_modules/ember-fetch"
       ],
       "*": [
         "types/*"

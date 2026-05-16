@@ -51,6 +51,12 @@ module.exports = function (defaults) {
       plugins: [require('ember-auto-import/babel-plugin')],
     },
 
+    autoImport: {
+      alias: {
+        'ember-composable-helpers': '@nullvoxpopuli/ember-composable-helpers',
+      },
+    },
+
     'ember-simple-auth': {
       useSessionSetupMethod: true,
     },

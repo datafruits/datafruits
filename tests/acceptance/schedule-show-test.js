@@ -1,7 +1,7 @@
 import { module, skip } from 'qunit';
 import { visit, currentURL, fillIn, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
-import { setupMirage } from 'ember-cli-mirage/test-support';
+import { setupMirage } from 'datafruits13/tests/test-support/mirage';
 
 module('Acceptance | schedule show', function (hooks) {
   setupApplicationTest(hooks);
