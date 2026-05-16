@@ -31,19 +31,6 @@ module.exports = function (environment) {
         openLinksInNewWindow: true
       },
     },
-
-    fastboot: {
-      hostWhitelist: [
-        'streampusher.com',
-        'datafruits.streampusher.com',
-        'datafruits.tumblr.com',
-        'datafruits.fm',
-        'www.datafruits.fm',
-        /^localhost:\d+$/,
-        ///^(.*)\.herokuapp\.com/,
-      ],
-    },
-
     emberRollbarClient: {
       accessToken: process.env.ROLLBAR_TOKEN,
       // By default Rollbar logging is enabled in every environment except test and development.

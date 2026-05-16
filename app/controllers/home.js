@@ -22,9 +22,6 @@ export default class HomeController extends Controller {
   currentUser;
 
   @service
-  fastboot;
-
-  @service
   chat;
 
   @service

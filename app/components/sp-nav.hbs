@@ -216,10 +216,8 @@
     </div>
   {{/unless}}
 </nav>
-{{#unless this.fastboot.isFastBoot}}
-  {{#if this.showingSettings}}
-    <WebsiteSettings
-      @closeDialog={{this.closeDialog}}
-    />
-  {{/if}}
-{{/unless}}
+{{#if this.showingSettings}}
+  <WebsiteSettings
+    @closeDialog={{this.closeDialog}}
+  />
+{{/if}}

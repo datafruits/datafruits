@@ -11,13 +11,10 @@ export default class HomeRoute extends Route {
   @service
   intl;
 
-  @service
-  fastboot;
-
   async beforeModel() {
     await this.session.setup();
 
-    if (!this.fastboot.isFastBoot) {
+    if (typeof document !== 'undefined' && typeof localStorage !== 'undefined') {
       let element = document.getElementsByTagName('html')[0];
       let theme = localStorage.getItem('datafruits-theme') || 'classic';
       let themeName = `theme-${theme}`;
@@ -27,10 +24,10 @@ export default class HomeRoute extends Route {
   }
 
   afterModel() {
-    if (!this.fastboot.isFastBoot) {
+    if (typeof localStorage !== 'undefined' && typeof navigator !== 'undefined') {
       let locales = this.intl.locales;
       let language;
-      
+
       // First check if user has a saved locale preference
       let savedLocale = localStorage.getItem('datafruits-locale');
       if (savedLocale && locales.includes(savedLocale.toLowerCase())) {
@@ -61,7 +58,7 @@ export default class HomeRoute extends Route {
     try {
       await this.currentUser.load();
     } catch (err) {
-      console.log(err);  
+      console.log(err);
       await this.session.invalidate();
     }
   }

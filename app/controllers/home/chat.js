@@ -5,9 +5,6 @@ import Controller from '@ember/controller';
 
 export default class ChatController extends Controller {
   @service
-  fastboot;
-
-  @service
   chat;
 
   @service
@@ -18,10 +15,6 @@ export default class ChatController extends Controller {
 
   @tracked
   isAuthenticating;
-
-  get isNotFastboot() {
-    return !this.fastboot.isFastBoot;
-  }
 
   @action
   authenticate(nick, pass) {

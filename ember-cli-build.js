@@ -1,6 +1,5 @@
 'use strict';;
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-const urlFinder = require('./urlFinder.js');
 const isProduction = EmberApp.env() === 'production';
 
 const purgeCSS = {
@@ -8,7 +7,7 @@ const purgeCSS = {
   options: {
     content: [
       // add extra paths here for components/controllers which include tailwind classes
-      './app/index.html',
+      './index.html',
       './app/templates/**/*.hbs',
       './app/components/**/*.hbs',
     ],
@@ -35,11 +34,6 @@ module.exports = async function(defaults) {
       enabled: true,
       useAppVersion: true,
     },
-
-    prember: {
-      urls: urlFinder,
-    },
-
     emberData: {
       deprecations: {
         // New projects can safely leave this deprecation disabled.

@@ -32,9 +32,6 @@ export default class DatafruitsPlayer extends Component {
   declare eventBus: EventBusService;
 
   @service
-  declare fastboot: any;
-
-  @service
   declare metadata: any;
 
   @service
@@ -184,7 +181,7 @@ export default class DatafruitsPlayer extends Component {
   }
 
   setPageTitle() {
-    if (!this.fastboot.isFastBoot) {
+    if (typeof document !== "undefined") {
       document.title = `DATAFRUITS.FM - ${this.title}`;
     }
   }
@@ -408,7 +405,7 @@ export default class DatafruitsPlayer extends Component {
   }
 
   setupPlayer(audioTag: HTMLAudioElement): void {
-    if (!this.fastboot.isFastBoot) {
+    if (typeof localStorage !== "undefined") {
       this.subscribeToPlayerEvents();
       this.addAudioEventListeners(audioTag);
       this.volume = parseFloat(localStorage.getItem("datafruits-volume") as string) || 0.8;
@@ -418,10 +415,8 @@ export default class DatafruitsPlayer extends Component {
   }
 
   teardownPlayer(audioTag: HTMLAudioElement): void {
-    if (!this.fastboot.isFastBoot) {
-      this.unsubscribeFromPlayerEvents();
-      this.removeAudioEventListeners(audioTag);
-    }
+    this.unsubscribeFromPlayerEvents();
+    this.removeAudioEventListeners(audioTag);
   }
 }
 

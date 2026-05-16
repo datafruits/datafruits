@@ -23,7 +23,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "start": "vite",
-    "dev": "FASTBOOT_DISABLED=true ./node_modules/.bin/ember s",
+    "dev": "./node_modules/.bin/ember s",
     "test": "concurrently \"yarn:lint\" \"yarn:test:*\" --names \"lint,test:\" --prefixColors auto",
     "coverage": "cross-env COVERAGE=true ember test",
     "lighthouse": "lhci autorun --config=config/lighthouserc.js",
@@ -117,7 +117,6 @@
     "ember-cli-dependency-lint": "^2.0.1",
     "ember-cli-deprecation-workflow": "^3.3.0",
     "ember-cli-dotenv": "^3.1.0",
-    "ember-cli-fastboot": "^4.1.5",
     "ember-cli-htmlbars": "^7.0.1",
     "ember-cli-meta-tags": "^7.0.0",
     "ember-cli-netlify": "^0.4.1",
@@ -154,7 +153,6 @@
     "eslint-plugin-n": "^17.17.0",
     "eslint-plugin-qunit": "^8.1.2",
     "eslint-scope": "^8.4.0",
-    "fastboot-app-server": "2.0.0",
     "globals": "^16.2.0",
     "handlebars": "^4.7.8",
     "jsdom": "^20.0.0",
@@ -162,7 +160,6 @@
     "phoenix": "^1.7.21",
     "postcss-import": "14.0.2",
     "postcss-scss": "4.0.3",
-    "prember": "^2.1.0",
     "prettier-plugin-ember-template-tag": "^2.0.5",
     "qunit": "^2.24.1",
     "qunit-dom": "3.4.0",
@@ -186,9 +183,6 @@
       "@embroider/macros": "1.18.0"
     }
   },
-  "fastbootDependencies": [
-    "crypto"
-  ],
   "engines": {
     "node": ">= 18"
   },
@@ -200,7 +194,6 @@
     "babel-plugin-ember-modules-api-polyfill": "2.13.0",
     "ember-deep-tracked": "^2.0.1",
     "ember-destroyable-polyfill": "^2.0.3",
-    "fastboot-app-server": "^4.1.4",
     "fruits-ui": "github:datafruits/fruits-ui",
     "jsdom": "^20.0.3",
     "json-diff": "^1.0.6",

@@ -42,13 +42,11 @@
 <DatafruitsVisuals
   class="block absolute top-0 w-screen h-screen h-handle-resize"
 />
-{{#unless this.fastboot.isFastBoot}}
-  <Notifications />
-  <WindowResizeHandler />
-  {{#if this.showingPixi}}
-    <Pixi />
-  {{/if}}
-{{/unless}}
+<Notifications />
+<WindowResizeHandler />
+{{#if this.showingPixi}}
+  <Pixi />
+{{/if}}
 
 {{#if this.aprilFools}}
   {{!-- bgs --}}
