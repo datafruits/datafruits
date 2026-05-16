@@ -4,12 +4,11 @@ import { inject as service } from '@ember/service';
 export default class UserCustomEmojisRoute extends Route {
   @service session;
   @service currentUser;
-  @service store;
   @service router;
 
   async beforeModel(transition) {
     this.session.requireAuthentication(transition, 'home.login');
-    await this.currentUser.load();
+    await this.currentUser.load(true);
   }
 
   afterModel() {
@@ -21,6 +20,6 @@ export default class UserCustomEmojisRoute extends Route {
   }
 
   model() {
-    return this.store.peekAll('custom-emoji');
+    return this.currentUser.user?.get('customEmojis') ?? [];
   }
 }

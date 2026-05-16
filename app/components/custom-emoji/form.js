@@ -8,6 +8,7 @@ import { registerUserEmoji } from 'datafruits13/utils/user-emoji-registry';
 export default class CustomEmojiForm extends Component {
   @service store;
   @service activeStorage;
+  @service currentUser;
 
   @tracked name = '';
   @tracked uploadProgress = 0;
@@ -73,6 +74,11 @@ export default class CustomEmojiForm extends Component {
       await this.store.createRecord('user-emoji', {
         customEmojiId: customEmoji.id,
       }).save();
+
+      const customEmojis = this.currentUser.user?.customEmoji;
+      if (customEmojis && !customEmojis.includes(customEmoji)) {
+        customEmojis.pushObject(customEmoji);
+      }
 
       registerUserEmoji(customEmoji.name, customEmoji.imageUrl);
       this.name = '';
