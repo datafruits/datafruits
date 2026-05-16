@@ -1,5 +1,4 @@
-'use strict';
-
+'use strict';;
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 const urlFinder = require('./urlFinder.js');
 const isProduction = EmberApp.env() === 'production';
@@ -17,7 +16,15 @@ const purgeCSS = {
   },
 };
 
-module.exports = function (defaults) {
+const {
+  compatBuild
+} = require("@embroider/compat");
+
+module.exports = async function(defaults) {
+  const {
+    buildOnce
+  } = await import("@embroider/vite");
+
   var fingerprintOptions = {
     enabled: true,
     exclude: ['assets/images/emojis/*', 'assets/images/sprites/*', 'assets/images/lv*_fruit.gif', 'assets/images/big_cow.png'],
@@ -110,5 +117,5 @@ module.exports = function (defaults) {
   app.import('/vendor/TopazPlus_a1200.woff2');
   app.import('node_modules/video.js/dist/video-js.min.css');
 
-  return app.toTree();
+  return compatBuild(app, buildOnce);
 };

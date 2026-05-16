@@ -37,7 +37,11 @@
       "*": [
         "types/*"
       ]
-    }
+    },
+    "types": [
+      "@embroider/core/virtual",
+      "vite/client"
+    ]
   },
   "glint": {
     "environment": "ember-loose"

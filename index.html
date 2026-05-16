@@ -18,8 +18,8 @@
 
     {{content-for 'head'}}
 
-    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css" />
-    <link rel="stylesheet" href="{{rootURL}}assets/datafruits13.css" />
+    <link rel="stylesheet" href="/@embroider/virtual/vendor.css" />
+    <link rel="stylesheet" href="/@embroider/virtual/app.css" />
     <link rel="icon" href="{{rootURL}}assets/favicon.ico" />
     <link rel="apple-touch-icon" href="{{rootURL}}apple-touch-icon-precomposed.png" />
 
@@ -79,8 +79,13 @@
   <body class="h-screen classic:bg-df-blue blm:bg-black trans:theme-trans text-white font-helvetica overflow-hidden fixed md:static">
     {{content-for 'body'}}
 
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/datafruits13.js"></script>
+    <script src="/@embroider/virtual/vendor.js"></script>
+    <script type="module">
+      import Application from './app/app';
+      import environment from './app/config/environment';
+
+      Application.create(environment.APP);
+    </script>
 
     {{content-for 'body-footer'}}
   </body>
