@@ -1,7 +1,6 @@
 import Service, { inject as service } from '@ember/service';
 import { later, run } from '@ember/runloop';
 import ENV from 'datafruits13/config/environment';
-import fetch from 'fetch';
 import { tracked } from '@glimmer/tracking';
 import videojs from 'video.js';
 import type EventBusService from 'datafruits13/services/event-bus';

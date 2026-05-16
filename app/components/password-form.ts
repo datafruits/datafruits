@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import ENV from 'datafruits13/config/environment';
-import fetch from 'fetch';
 
 interface PasswordFormSignature {
   Args: {
@@ -65,4 +64,3 @@ declare module '@glint/environment-ember-loose/registry' {
     PasswordForm: typeof PasswordForm;
   }
 }
-

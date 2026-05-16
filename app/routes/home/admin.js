@@ -1,7 +1,6 @@
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
 import fruitTypes from '../../fruit-types';
-import fetch from 'fetch';
 import ENV from 'datafruits13/config/environment';
 import dayjs from 'dayjs';
 

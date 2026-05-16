@@ -6,7 +6,6 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import ENV from 'datafruits13/config/environment';
-import fetch from 'fetch';
 
 export default class HomeShrimposShow extends Controller {
   @service declare currentUser: any;

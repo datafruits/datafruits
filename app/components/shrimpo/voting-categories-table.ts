@@ -5,7 +5,6 @@ import type ShrimpoVotingCategory from 'datafruits13/models/shrimpo-voting-categ
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import ENV from 'datafruits13/config/environment';
-import fetch from 'fetch';
 
 interface ShrimpoVotingCategoriesTableArgs {
   entry: ShrimpoEntry;
