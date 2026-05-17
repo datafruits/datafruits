@@ -352,6 +352,9 @@ importers:
       ember-page-title:
         specifier: ^9.0.1
         version: 9.0.3
+      ember-power-select:
+        specifier: ^8.12.1
+        version: 8.12.1(@babel/core@7.29.0)(@ember/test-helpers@5.4.2(@babel/core@7.29.0)(@glint/template@1.5.2))(@glimmer/component@2.1.1)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.1.1)(@glint/template@1.5.2)(@types/ember__array@4.0.10(@babel/core@7.29.0))(@types/ember__component@4.0.22(@babel/core@7.29.0))(@types/ember__controller@4.0.12(@babel/core@7.29.0))(@types/ember__object@4.0.12(@babel/core@7.29.0))(@types/ember__routing@4.0.22(@babel/core@7.29.0))(ember-cli-htmlbars@7.0.1(@babel/core@7.29.0)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5)))(ember-modifier@4.2.2(@babel/core@7.29.0)))(@glint/template@1.5.2)(ember-basic-dropdown@9.0.0(@babel/core@7.29.0)(@ember/test-helpers@5.4.2(@babel/core@7.29.0)(@glint/template@1.5.2))(@embroider/macros@1.18.0(@glint/template@1.5.2))(@glimmer/component@2.1.1))(ember-concurrency@5.2.0(@babel/core@7.29.0)(@glint/template@1.5.2))(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5))
       ember-power-select-with-create:
         specifier: ^3.0.1
         version: 3.0.1(5411185b29d68397c1cd282a9d9df105)
@@ -15990,7 +15993,7 @@ snapshots:
       ember-basic-dropdown: 9.0.0(@babel/core@7.29.0)(@ember/test-helpers@5.4.2(@babel/core@7.29.0)(@glint/template@1.5.2))(@embroider/macros@1.18.0(@glint/template@1.5.2))(@glimmer/component@2.1.1)
       ember-concurrency: 5.2.0(@babel/core@7.29.0)(@glint/template@1.5.2)
       ember-element-helper: 0.8.8
-      ember-modifier: 4.2.2(@babel/core@7.29.0)
+      ember-modifier: 4.3.0(@babel/core@7.29.0)
       ember-truth-helpers: 4.0.3(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5))
     transitivePeerDependencies:
       - '@babel/core'
@@ -16010,7 +16013,7 @@ snapshots:
       ember-basic-dropdown: 8.11.1(@babel/core@7.29.0)(@ember/test-helpers@5.4.2(@babel/core@7.29.0)(@glint/template@1.5.2))(@glimmer/component@2.1.1)(@glint/environment-ember-loose@1.5.2(@glimmer/component@2.1.1)(@glint/template@1.5.2)(@types/ember__array@4.0.10(@babel/core@7.29.0))(@types/ember__component@4.0.22(@babel/core@7.29.0))(@types/ember__controller@4.0.12(@babel/core@7.29.0))(@types/ember__object@4.0.12(@babel/core@7.29.0))(@types/ember__routing@4.0.22(@babel/core@7.29.0))(ember-cli-htmlbars@7.0.1(@babel/core@7.29.0)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5)))(ember-modifier@4.2.2(@babel/core@7.29.0)))(@glint/template@1.7.7)(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5))
       ember-concurrency: 5.2.0(@babel/core@7.29.0)(@glint/template@1.5.2)
       ember-element-helper: 0.8.8
-      ember-modifier: 4.2.2(@babel/core@7.29.0)
+      ember-modifier: 4.3.0(@babel/core@7.29.0)
       ember-truth-helpers: 4.0.3(ember-source@6.12.0(@glimmer/component@2.1.1)(rsvp@4.8.5))
     transitivePeerDependencies:
       - '@babel/core'
