@@ -1,16 +1,25 @@
 import { createServer, Response } from 'miragejs';
-import {
-  discoverEmberDataModels,
-} from 'ember-cli-mirage';
+import applicationSerializer from './serializers/application';
+import microtextModel from './models/microtext';
+import shrimpoModel from './models/shrimpo';
+import userModel from './models/user';
+import defaultScenario from './scenarios/default';
 import ENV from 'datafruits13/config/environment';
 
 export default function (config) {
-    let finalConfig = {
+  let finalConfig = {
     ...config,
     models: {
-      ...discoverEmberDataModels(config.store),
-      ...config.models
+      microtext: microtextModel,
+      shrimpo: shrimpoModel,
+      user: userModel,
+      ...config.models,
     },
+    serializers: {
+      application: applicationSerializer,
+      ...config.serializers,
+    },
+    seeds: defaultScenario,
     routes,
   };
 

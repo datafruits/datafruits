@@ -33,12 +33,15 @@
       ],
       "@ember/destroyable": ["node_modules/ember-destroyable-polyfill"],
       "fetch": [
-        "node_modules/ember-fetch"
       ],
       "*": [
         "types/*"
       ]
-    }
+    },
+    "types": [
+      "@embroider/core/virtual",
+      "vite/client"
+    ]
   },
   "glint": {
     "environment": "ember-loose"

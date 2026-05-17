@@ -6,6 +6,7 @@ import { inject as service } from '@ember/service';
 import FruitTicketGiftValidations from '../validations/fruit-ticket-gift';
 import type FruitTicketGift from 'datafruits13/models/fruit-ticket-gift';
 import type User from 'datafruits13/models/user';
+import CurrentUserService from 'datafruits13/services/current-user';
 
 interface GiftUserFruitTixArgs {
   toUser: User;
@@ -17,17 +18,26 @@ export default class GiftUserFruitTix extends Component<GiftUserFruitTixArgs> {
   @tracked showingModal: boolean = false;
   @tracked fruitTicketGift: null | FruitTicketGift = null;
   @service declare store: Store;
-  @service declare currentUser: any;
+  @service declare currentUser: CurrentUserService;
 
-  constructor(owner: unknown, args: any) {
-    super(owner, args);
-    this.fruitTicketGift = this.store.createRecord('fruit-ticket-gift', {
-      toUserId: this.args.toUser.id
+  createFruitTicketGift(): FruitTicketGift {
+    const toUserId = this.args.toUser.id;
+
+    if (!toUserId) {
+      throw new Error('GiftUserFruitTix requires a toUser with an id');
+    }
+
+    return this.store.createRecord('fruit-ticket-gift', {
+      toUserId
     });
   }
 
   @action
   showFruitTixModal() {
+    if (!this.showingModal && !this.fruitTicketGift) {
+      this.fruitTicketGift = this.createFruitTicketGift();
+    }
+
     this.showingModal = !this.showingModal;
   }
 

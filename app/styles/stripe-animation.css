@@ -1,0 +1,5 @@
+@keyframes stripes {
+  100% {
+    background-position: 100% 100%;
+  }
+}

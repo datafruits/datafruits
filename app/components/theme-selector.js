@@ -6,14 +6,11 @@ export default class ThemeSelector extends Component {
   @service
   intl;
 
-  @service
-  fastboot;
-
   @tracked currentTheme;
   constructor(owner, args) {
     super(owner, args);
 
-    if (!this.fastboot.isFastBoot) {
+    if (typeof localStorage !== 'undefined') {
       this.currentTheme = localStorage.getItem('datafruits-theme') || 'classic';
     }
   }

@@ -1,0 +1,21 @@
+{
+  "name": "datafruits.fm",
+  "short_name": "datafruits",
+  "description": "Datafruits is a netradio and label founded in 2012 by Tony Miller (mcfiredrill). Its mission is to bring you the world's strangest sounds and bring together the music communities around the world.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#fff",
+  "icons": [
+    {
+      "src": "/assets/images/logo.png",
+      "sizes": "50x50",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ]
+}

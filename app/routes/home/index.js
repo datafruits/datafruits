@@ -5,7 +5,6 @@ import { hash } from 'rsvp';
 import dayjs from 'dayjs';
 
 export default class IndexRoute extends Route {
-  @service fastboot;
   @service store;
 
   async fetchLatestYoutubeVideoId() {

@@ -5,10 +5,10 @@
         {{ if this.isLive "is-live" "" }}
         {{ if this.playButtonHover "bleed" "" }}
          "
-  {{did-insert this.didInsert}}
   >
   <audio preload="" id="radio-player" class="hidden"
-        crossorigin="anonymous"
+         crossorigin="anonymous"
+         {{player-lifecycle this}}
     >
     <source
       src="https://streampusher-relay.club/datafruits.mp3"

@@ -1,0 +1,29 @@
+:root {
+  --df-green: #41d069;
+  --df-green-dark: #289244;
+  --df-yellow: #e8e000;
+  --df-pink: #cf79e9;
+  --df-blue: #00b4ff;
+  --df-cool-border-image: repeating-linear-gradient(
+    90deg,
+    var(--df-green),
+    var(--df-green) 20px,
+    var(--df-pink) 20px,
+    var(--df-pink) 40px,
+    var(--df-yellow) 40px,
+    var(--df-yellow) 60px,
+    var(--df-blue) 60px,
+    var(--df-blue) 80px
+  );
+  --df-stripes: repeating-linear-gradient(
+    90deg,
+    var(--df-green),
+    var(--df-green) 20px,
+    var(--df-pink) 20px,
+    var(--df-pink) 40px,
+    var(--df-yellow) 40px,
+    var(--df-yellow) 60px,
+    var(--df-blue) 60px,
+    var(--df-blue) 80px
+  );
+}

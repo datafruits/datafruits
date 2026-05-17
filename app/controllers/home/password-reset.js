@@ -3,7 +3,6 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { isEmpty } from '@ember/utils';
 import ENV from 'datafruits13/config/environment';
-import fetch from 'fetch';
 
 export default class PasswordResetController extends Controller {
   passwordResetUrl = `${ENV.API_HOST}/users/password`;

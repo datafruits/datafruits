@@ -21,14 +21,14 @@
     text-overflow: ellipsis;
     display: inline-block;
     &:not(:hover) {
-      span {
+      & span {
         text-overflow: ellipsis;
         animation: none;
       }
     }
     &:hover,
     &:focus {
-      span {
+      & span {
         display: block;
         animation: scroll-text 5s infinite linear;
       }
@@ -69,49 +69,49 @@ div.radio-bar a:hover {
   display: flex;
   width: 100%;
   justify-content: center;
-  input[type=range] {
+  & input[type=range] {
     -webkit-appearance: none;
     width: 100%;
   }
-  input[type=range]:focus {
+  & input[type=range]:focus {
     outline: none;
   }
-  input[type=range]::-webkit-slider-runnable-track {
+  & input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 20px;
     cursor: pointer;
-    background: $yellow;
+    background: var(--df-yellow);
     border-radius: 1.3px;
     border: none;
   }
-  input[type=range]::-webkit-slider-thumb {
+  & input[type=range]::-webkit-slider-thumb {
     height: 25px;
     width: 25px;
     border-radius: 3px;
-    background: $pink;
+    background: var(--df-pink);
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -2px;
   }
-  input[type=range]::-moz-range-track {
+  & input[type=range]::-moz-range-track {
     width: 100%;
     height: 20px;
     cursor: pointer;
-    background: $yellow;
+    background: var(--df-yellow);
     border-radius: 1.3px;
     border: none;
   }
-  input[type=range]::-moz-range-thumb {
+  & input[type=range]::-moz-range-thumb {
     height: 25px;
     width: 25px;
     border-radius: 3px;
-    background: $pink;
+    background: var(--df-pink);
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -2px;
     border: none;
   }
-  input[type=range]::-ms-track {
+  & input[type=range]::-ms-track {
     width: 100%;
     height: 20px;
     cursor: pointer;
@@ -119,19 +119,19 @@ div.radio-bar a:hover {
     border: none;
     color: transparent;
   }
-  input[type=range]::-ms-fill-lower {
-    background: $pink;
+  & input[type=range]::-ms-fill-lower {
+    background: var(--df-pink);
     border-radius: 3px;
   }
-  input[type=range]::-ms-fill-upper {
-    background: $pink;
+  & input[type=range]::-ms-fill-upper {
+    background: var(--df-pink);
     border-radius: 3px;
   }
-  input[type=range]::-ms-thumb {
+  & input[type=range]::-ms-thumb {
     height: 25px;
     width: 25px;
     border-radius: 3px;
-    background: $yellow;
+    background: var(--df-yellow);
     cursor: pointer;
   }
   .seek-bar-wrapper {
@@ -139,24 +139,32 @@ div.radio-bar a:hover {
     padding-left: 5px;
     padding-right: 17px;
     &.seeking {
-      input[type=range] {
+      & input[type=range] {
         border: none;
       }
-      input[type=range]::-webkit-slider-runnable-track {
+      & input[type=range]::-webkit-slider-runnable-track {
         background: none;
-        @include stripe-animation;
+        background: var(--df-stripes);
+        background-size: 200% 200%;
+        animation: stripes 15s infinite;
       }
-      input[type=range]::-moz-range-track {
+      & input[type=range]::-moz-range-track {
         background: none;
-        @include stripe-animation;
+        background: var(--df-stripes);
+        background-size: 200% 200%;
+        animation: stripes 15s infinite;
       }
-      input[type=range]::-ms-fill-lower {
+      & input[type=range]::-ms-fill-lower {
         background: none;
-        @include stripe-animation;
+        background: var(--df-stripes);
+        background-size: 200% 200%;
+        animation: stripes 15s infinite;
       }
-      input[type=range]::-ms-fill-upper {
+      & input[type=range]::-ms-fill-upper {
         background: none;
-        @include stripe-animation;
+        background: var(--df-stripes);
+        background-size: 200% 200%;
+        animation: stripes 15s infinite;
       }
     }
   }
@@ -167,14 +175,14 @@ div.radio-bar a:hover {
 .jp-volume-controls {
   position: relative;
   filter: drop-shadow(1px 1px 1px #333);
-  label {
+  & label {
     filter: none;
   }
   .jp-unmute {
     display: inline-block;
     width: 1em;
   }
-  input.volume-control {
+  & input.volume-control {
     position: absolute;
     transform: rotate(270deg);
     /* height and width are switched since its rotated */
@@ -184,49 +192,49 @@ div.radio-bar a:hover {
     top: -69px;
     left: -40px;
   }
-  input[type=range] {
+  & input[type=range] {
     -webkit-appearance: none;
     height: 100%;
     background: none;
     border: none;
   }
-  input[type=range]:focus {
+  & input[type=range]:focus {
     outline: none;
   }
-  input[type=range]::-webkit-slider-runnable-track {
+  & input[type=range]::-webkit-slider-runnable-track {
     height: 100%;
     width: 8.4px;
     cursor: pointer;
-    background: $pink;
+    background: var(--df-pink);
     border-radius: 5px;
   }
-  input[type=range]::-webkit-slider-thumb {
+  & input[type=range]::-webkit-slider-thumb {
     height: 36px;
     width: 16px;
     border-radius: 5px;
-    background: $yellow;
+    background: var(--df-yellow);
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -8px;
   }
-  input[type=range]:focus::-webkit-slider-runnable-track {
-    background: $pink;
+  & input[type=range]:focus::-webkit-slider-runnable-track {
+    background: var(--df-pink);
   }
-  input[type=range]::-moz-range-track {
+  & input[type=range]::-moz-range-track {
     height: 100%;
     width: 100%;
     cursor: pointer;
-    background: $pink;
+    background: var(--df-pink);
     border-radius: 5px;
   }
-  input[type=range]::-moz-range-thumb {
+  & input[type=range]::-moz-range-thumb {
     height: 36px;
     width: 16px;
     border-radius: 5px;
-    background: $yellow;
+    background: var(--df-yellow);
     cursor: pointer;
   }
-  input[type=range]::-ms-track {
+  & input[type=range]::-ms-track {
     height: 100%;
     width: 100%;
     cursor: pointer;
@@ -235,26 +243,26 @@ div.radio-bar a:hover {
     border-width: 16px 0;
     color: transparent;
   }
-  input[type=range]::-ms-fill-lower {
-    background: $pink;
+  & input[type=range]::-ms-fill-lower {
+    background: var(--df-pink);
     border-radius: 5px;
   }
-  input[type=range]::-ms-fill-upper {
-    background: $pink;
+  & input[type=range]::-ms-fill-upper {
+    background: var(--df-pink);
     border-radius: 5px;
   }
-  input[type=range]::-ms-thumb {
+  & input[type=range]::-ms-thumb {
     height: 36px;
     width: 16px;
     border-radius: 5px;
-    background: $yellow;
+    background: var(--df-yellow);
     cursor: pointer;
   }
-  input[type=range]:focus::-ms-fill-lower {
-    background: $pink;
+  & input[type=range]:focus::-ms-fill-lower {
+    background: var(--df-pink);
   }
-  input[type=range]:focus::-ms-fill-upper {
-    background: $pink;
+  & input[type=range]:focus::-ms-fill-upper {
+    background: var(--df-pink);
   }
 }
 
@@ -263,7 +271,7 @@ audio {
 }
 
 div.radio-container {
-  label {
+  & label {
     font-family: cursive;
   }
 }

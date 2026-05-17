@@ -1,7 +1,5 @@
-'use strict';
-
+'use strict';;
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-const urlFinder = require('./urlFinder.js');
 const isProduction = EmberApp.env() === 'production';
 
 const purgeCSS = {
@@ -9,7 +7,7 @@ const purgeCSS = {
   options: {
     content: [
       // add extra paths here for components/controllers which include tailwind classes
-      './app/index.html',
+      './index.html',
       './app/templates/**/*.hbs',
       './app/components/**/*.hbs',
     ],
@@ -17,29 +15,43 @@ const purgeCSS = {
   },
 };
 
-module.exports = function (defaults) {
+const {
+  compatBuild
+} = require("@embroider/compat");
+
+module.exports = async function(defaults) {
+  const {
+    buildOnce
+  } = await import("@embroider/vite");
+
   var fingerprintOptions = {
     enabled: true,
     exclude: ['assets/images/emojis/*', 'assets/images/sprites/*', 'assets/images/lv*_fruit.gif', 'assets/images/big_cow.png'],
   };
 
-  let app = new EmberApp(defaults, {
+  const app = new EmberApp(defaults, {
     newVersion: {
       enabled: true,
       useAppVersion: true,
     },
-
-    prember: {
-      urls: urlFinder,
+    emberData: {
+      deprecations: {
+        // New projects can safely leave this deprecation disabled.
+        // If upgrading, to opt-into the deprecated behavior, set this to true and then follow:
+        // https://deprecations.emberjs.com/id/ember-data-deprecate-store-extends-ember-object
+        // before upgrading to Ember Data 6.0
+        DEPRECATE_STORE_EXTENDS_EMBER_OBJECT: false,
+      },
     },
-
     // Add options here
     fingerprint: fingerprintOptions,
 
     hinting: false,
 
-    babel: {
-      plugins: [require('ember-auto-import/babel-plugin')],
+    autoImport: {
+      alias: {
+        'ember-composable-helpers': '@nullvoxpopuli/ember-composable-helpers',
+      },
     },
 
     'ember-simple-auth': {
@@ -60,16 +72,10 @@ module.exports = function (defaults) {
 
     postcssOptions: {
       compile: {
-        extension: 'scss',
+        extension: 'css',
         enabled: true,
-        parser: require('postcss-scss'),
         plugins: [
-          {
-            module: require('@csstools/postcss-sass'),
-            options: {
-              includePaths: ['node_modules/ember-power-select'],
-            },
-          },
+          require('postcss-import'),
           require('tailwindcss')('./app/tailwind/config.js'),
           ...(isProduction ? [purgeCSS] : []),
         ],
@@ -95,5 +101,5 @@ module.exports = function (defaults) {
   app.import('/vendor/TopazPlus_a1200.woff2');
   app.import('node_modules/video.js/dist/video-js.min.css');
 
-  return app.toTree();
+  return compatBuild(app, buildOnce);
 };

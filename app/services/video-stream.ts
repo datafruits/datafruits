@@ -1,7 +1,6 @@
 import Service, { inject as service } from '@ember/service';
 import { later, run } from '@ember/runloop';
 import ENV from 'datafruits13/config/environment';
-import fetch from 'fetch';
 import { tracked } from '@glimmer/tracking';
 import videojs from 'video.js';
 import type EventBusService from 'datafruits13/services/event-bus';
@@ -42,8 +41,8 @@ export default class VideoStreamService extends Service {
 
   constructor() {
     super(...arguments);
-    this.streamHost = ENV.STREAM_HOST;
-    this.streamName = ENV.STREAM_NAME;
+    this.streamHost = typeof ENV.STREAM_HOST === 'string' ? ENV.STREAM_HOST : '';
+    this.streamName = typeof ENV.STREAM_NAME === 'string' ? ENV.STREAM_NAME : '';
   }
 
   initializePlayer() {

@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { later } from '@ember/runloop';
+import { cancel, later } from '@ember/runloop';
 
 interface ShrimpoCountdownArgs {
   endAt: string;
@@ -8,6 +8,7 @@ interface ShrimpoCountdownArgs {
 
 export default class ShrimpoCountdown extends Component<ShrimpoCountdownArgs> {
   @tracked elapsedTimeSeconds = 0;
+  timer?: ReturnType<typeof later>;
 
   get currentTimeLeft() {
     const timeLeftMs = (new Date(this.args.endAt).getTime()) - this.elapsedTimeSeconds;
@@ -22,18 +23,20 @@ export default class ShrimpoCountdown extends Component<ShrimpoCountdownArgs> {
   }
 
   incTime() {
-    //console.log('in incTime');
     this.elapsedTimeSeconds += 1000;
-    later(() => {
+    this.timer = later(() => {
       this.incTime();
     }, 1000);
   }
 
-  constructor(owner: unknown, args: any) {
-    super(owner, args);
-    //setTimeout(this.incTime, 1000);
-    later(() => {
+  startCountdown(): void {
+    this.timer = later(() => {
       this.incTime();
     }, 1000);
+  }
+
+  stopCountdown(): void {
+    cancel(this.timer);
+    this.timer = undefined;
   }
 }

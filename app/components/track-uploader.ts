@@ -2,7 +2,6 @@ import Component from '@glimmer/component';
 import ENV from 'datafruits13/config/environment';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import fetch from 'fetch';
 import type { BufferedChangeset } from 'ember-changeset/types';
 //import type { UploadFile } from 'ember-file-upload/upload-file';
 

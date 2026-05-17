@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import fetch from 'fetch';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import ENV from 'datafruits13/config/environment';

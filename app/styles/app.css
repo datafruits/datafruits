@@ -1,18 +1,16 @@
 /* purgecss start ignore */
-@use "sass:color";
+@import "./colors.css";
+@import "./flags.css";
+@import "./loading-spinner.css";
+@import "./container.css";
+@import "./stripe-animation.css";
+@import "./shake.css";
+@import "./rotate.css";
+@import "./upload-progress.css";
+
+@import "./player.css";
 
 @tailwind base;
-
-@import "colors.scss";
-@import "flags.scss";
-@import "loading-spinner.scss";
-@import "container.scss";
-@import "stripe-animation.scss";
-@import "shake.scss";
-@import "rotate.scss";
-@import "upload-progress.scss";
-
-@import "player.scss";
 
 @tailwind components;
 
@@ -94,129 +92,129 @@ pre {
 @keyframes textshadowfade {
   from {
     text-shadow:
-      $green -1px -1px,
-      $green -2px -2px,
-      $green -3px -3px,
-      $green -4px -4px,
-      $green -5px -5px,
-      $green -6px -6px,
-      $green -7px -7px,
-      $green -8px -8px,
-      $green -9px -9px,
-      $green -10px -10px,
-      $green -11px -11px,
-      $green -12px -12px,
-      $green -13px -13px,
-      $green -14px -14px,
-      $green -15px -15px;
+      var(--df-green) -1px -1px,
+      var(--df-green) -2px -2px,
+      var(--df-green) -3px -3px,
+      var(--df-green) -4px -4px,
+      var(--df-green) -5px -5px,
+      var(--df-green) -6px -6px,
+      var(--df-green) -7px -7px,
+      var(--df-green) -8px -8px,
+      var(--df-green) -9px -9px,
+      var(--df-green) -10px -10px,
+      var(--df-green) -11px -11px,
+      var(--df-green) -12px -12px,
+      var(--df-green) -13px -13px,
+      var(--df-green) -14px -14px,
+      var(--df-green) -15px -15px;
   }
   30% {
     text-shadow:
-      $pink -1px -1px,
-      $pink -2px -2px,
-      $pink -3px -3px,
-      $pink -4px -4px,
-      $pink -5px -5px,
-      $pink -6px -6px,
-      $pink -7px -7px,
-      $pink -8px -8px,
-      $pink -9px -9px,
-      $pink -10px -10px,
-      $pink -11px -11px,
-      $pink -12px -12px,
-      $pink -13px -13px,
-      $pink -14px -14px,
-      $pink -15px -15px;
+      var(--df-pink) -1px -1px,
+      var(--df-pink) -2px -2px,
+      var(--df-pink) -3px -3px,
+      var(--df-pink) -4px -4px,
+      var(--df-pink) -5px -5px,
+      var(--df-pink) -6px -6px,
+      var(--df-pink) -7px -7px,
+      var(--df-pink) -8px -8px,
+      var(--df-pink) -9px -9px,
+      var(--df-pink) -10px -10px,
+      var(--df-pink) -11px -11px,
+      var(--df-pink) -12px -12px,
+      var(--df-pink) -13px -13px,
+      var(--df-pink) -14px -14px,
+      var(--df-pink) -15px -15px;
   }
   60% {
     text-shadow:
-      $blue -1px -1px,
-      $blue -2px -2px,
-      $blue -3px -3px,
-      $blue -4px -4px,
-      $blue -5px -5px,
-      $blue -6px -6px,
-      $blue -7px -7px,
-      $blue -8px -8px,
-      $blue -9px -9px,
-      $blue -10px -10px,
-      $blue -11px -11px,
-      $blue -12px -12px,
-      $blue -13px -13px,
-      $blue -14px -14px,
-      $blue -15px -15px;
+      var(--df-blue) -1px -1px,
+      var(--df-blue) -2px -2px,
+      var(--df-blue) -3px -3px,
+      var(--df-blue) -4px -4px,
+      var(--df-blue) -5px -5px,
+      var(--df-blue) -6px -6px,
+      var(--df-blue) -7px -7px,
+      var(--df-blue) -8px -8px,
+      var(--df-blue) -9px -9px,
+      var(--df-blue) -10px -10px,
+      var(--df-blue) -11px -11px,
+      var(--df-blue) -12px -12px,
+      var(--df-blue) -13px -13px,
+      var(--df-blue) -14px -14px,
+      var(--df-blue) -15px -15px;
   }
   90% {
     text-shadow:
-      $yellow -1px -1px,
-      $yellow -2px -2px,
-      $yellow -3px -3px,
-      $yellow -4px -4px,
-      $yellow -5px -5px,
-      $yellow -6px -6px,
-      $yellow -7px -7px,
-      $yellow -8px -8px,
-      $yellow -9px -9px,
-      $yellow -10px -10px,
-      $yellow -11px -11px,
-      $yellow -12px -12px,
-      $yellow -13px -13px,
-      $yellow -14px -14px,
-      $yellow -15px -15px;
+      var(--df-yellow) -1px -1px,
+      var(--df-yellow) -2px -2px,
+      var(--df-yellow) -3px -3px,
+      var(--df-yellow) -4px -4px,
+      var(--df-yellow) -5px -5px,
+      var(--df-yellow) -6px -6px,
+      var(--df-yellow) -7px -7px,
+      var(--df-yellow) -8px -8px,
+      var(--df-yellow) -9px -9px,
+      var(--df-yellow) -10px -10px,
+      var(--df-yellow) -11px -11px,
+      var(--df-yellow) -12px -12px,
+      var(--df-yellow) -13px -13px,
+      var(--df-yellow) -14px -14px,
+      var(--df-yellow) -15px -15px;
   }
   to {
     text-shadow:
-      $green -1px -1px,
-      $green -2px -2px,
-      $green -3px -3px,
-      $green -4px -4px,
-      $green -5px -5px,
-      $green -6px -6px,
-      $green -7px -7px,
-      $green -8px -8px,
-      $green -9px -9px,
-      $green -10px -10px,
-      $green -11px -11px,
-      $green -12px -12px,
-      $green -13px -13px,
-      $green -14px -14px,
-      $green -15px -15px;
+      var(--df-green) -1px -1px,
+      var(--df-green) -2px -2px,
+      var(--df-green) -3px -3px,
+      var(--df-green) -4px -4px,
+      var(--df-green) -5px -5px,
+      var(--df-green) -6px -6px,
+      var(--df-green) -7px -7px,
+      var(--df-green) -8px -8px,
+      var(--df-green) -9px -9px,
+      var(--df-green) -10px -10px,
+      var(--df-green) -11px -11px,
+      var(--df-green) -12px -12px,
+      var(--df-green) -13px -13px,
+      var(--df-green) -14px -14px,
+      var(--df-green) -15px -15px;
   }
 }
 
 @keyframes colorfade {
   from {
-    color: $green;
+    color: var(--df-green);
   }
   30% {
-    color: $pink;
+    color: var(--df-pink);
   }
   60% {
-    color: $blue;
+    color: var(--df-blue);
   }
   90% {
-    color: $yellow;
+    color: var(--df-yellow);
   }
   to {
-    color: $green;
+    color: var(--df-green);
   }
 }
 
 @keyframes bg-colorfade {
   from {
-    background: $green;
+    background: var(--df-green);
   }
   30% {
-    background: $pink;
+    background: var(--df-pink);
   }
   60% {
-    background: $blue;
+    background: var(--df-blue);
   }
   90% {
-    background: $yellow;
+    background: var(--df-yellow);
   }
   to {
-    background: $green;
+    background: var(--df-green);
   }
 }
 
@@ -249,22 +247,26 @@ pre {
 }
 
 .bleed {
-  @include stripe-animation;
+  background: var(--df-stripes);
+  background-size: 200% 200%;
+  animation: stripes 15s infinite;
 }
 
 .shake {
-  background: $green;
+  background: var(--df-green);
   border: solid 1px white;
   @apply p-2 rounded-lg;
-  @include shake-animation;
+  transform: translate3d(0, 0, 0);
+  animation: shake 0.5s infinite;
 }
 
 .screen-shake {
-  @include shake-animation-once;
+  transform: translate3d(0, 0, 0);
+  animation: shake linear 500ms;
 }
 
 .rotate-screen {
-  @include rotate-animation;
+  animation: rotateScreen 5s ease;
 }
 
 .cool-button {
@@ -327,7 +329,7 @@ pre {
   }
 }
 
-// make links in chat change the same color if it's changed
+/* make links in chat change the same color if it's changed */
 #chat-area a {
   color: inherit;
 }
@@ -342,15 +344,15 @@ img.emojione {
   display: inline;
 }
 
-//chat autofill emoji and username picker
+/* chat autofill emoji and username picker */
 .dropdown-menu {
   @apply bg-df-pink rounded-sm border-4 border-dotted border-df-green overflow-scroll h-40;
-  img {
+  & img {
     @apply inline;
   }
 }
 
-// some defaults to make things easier
+/* some defaults to make things easier */
 a {
   @apply text-df-yellow;
 }
@@ -367,9 +369,9 @@ input {
   z-index: -999;
   @apply absolute left-0 top-0;
   .video-js {
-    // background: none;
+    /* background: none; */
     width: 100vw !important;
-    video {
+    & video {
       width: 100vw !important;
       height: 100vh !important;
       @apply absolute left-0 object-cover;
@@ -378,11 +380,11 @@ input {
 }
 
 form {
-  label {
+  & label {
     @apply text-df-yellow;
   }
-  textarea,
-  select {
+  & textarea,
+  & select {
     @apply text-black;
   }
   .error {
@@ -393,14 +395,16 @@ form {
 
 .track-label {
   &:hover {
-    @include stripe-animation;
+    background: var(--df-stripes);
+    background-size: 200% 200%;
+    animation: stripes 15s infinite;
   }
 }
 
 .message {
   /* for emojis */
-  span {
-    img {
+  & span {
+    & img {
       @apply inline;
     }
   }
@@ -410,7 +414,7 @@ form {
   transform: rotate(90deg);
 }
 
-@import "ember-power-select";
+/* @import "ember-power-select/ember-power-select"; */
 
 .ember-power-select-multiple-option {
   text-shadow: none;
@@ -455,7 +459,9 @@ li.ember-power-select-multiple-option {
 }
 
 .patron:hover {
-  @include stripe-animation;
+  background: var(--df-stripes);
+  background-size: 200% 200%;
+  animation: stripes 15s infinite;
 }
 
 #social-media-links a:hover {
@@ -476,12 +482,12 @@ li.ember-power-select-multiple-option {
   cursor: pointer;
   border: solid 2px #eee;
   &:hover {
-    border: dashed 2px $yellow;
+    border: dashed 2px var(--df-yellow);
   }
 }
 
 .blog-post {
-  img {
+  & img {
     max-width: 500px;
   }
 }
@@ -497,8 +503,8 @@ li.ember-power-select-multiple-option {
 
   &:hover,
   &:focus {
-    background-color: color.adjust($green, $lightness: -15%);
-    border: 1px solid color.adjust(white, $lightness: -15%);
+    background-color: var(--df-green-dark);
+    border: 1px solid rgb(217 217 217);
     color: #fff;
   }
 
@@ -525,35 +531,7 @@ li.ember-power-select-multiple-option {
 }
 
 .fancy-box {
-  border-image: repeating-linear-gradient(
-    90deg,
-    $green,
-    $green 20px,
-    $pink 20px,
-    $pink 40px,
-    $yellow 40px,
-    $yellow 60px,
-    $blue 60px,
-    $blue 80px
-  );
-  border-width: 10px;
-  border-style: solid;
-  border-image-slice: 1;
-  box-shadow: 10px 10px 2px grey;
-}
-
-@mixin cool-border {
-  border-image: repeating-linear-gradient(
-    90deg,
-    $green,
-    $green 20px,
-    $pink 20px,
-    $pink 40px,
-    $yellow 40px,
-    $yellow 60px,
-    $blue 60px,
-    $blue 80px
-  );
+  border-image: var(--df-cool-border-image);
   border-width: 10px;
   border-style: solid;
   border-image-slice: 1;
@@ -561,18 +539,30 @@ li.ember-power-select-multiple-option {
 }
 
 .user-settings-menu {
-  @include cool-border;
+  border-image: var(--df-cool-border-image);
+  border-width: 10px;
+  border-style: solid;
+  border-image-slice: 1;
+  box-shadow: 10px 10px 2px grey;
 }
 
 .wiki-article {
-  @include cool-border;
-  img {
+  border-image: var(--df-cool-border-image);
+  border-width: 10px;
+  border-style: solid;
+  border-image-slice: 1;
+  box-shadow: 10px 10px 2px grey;
+  & img {
     max-height: 550px;
   }
 }
 
 .show-info {
-  @include cool-border;
+  border-image: var(--df-cool-border-image);
+  border-width: 10px;
+  border-style: solid;
+  border-image-slice: 1;
+  box-shadow: 10px 10px 2px grey;
   padding: 1em;
   max-width: 50%;
   bottom: 20px;
@@ -589,7 +579,11 @@ li.ember-power-select-multiple-option {
 }
 
 .forum-post {
-  @include cool-border;
+  border-image: var(--df-cool-border-image);
+  border-width: 10px;
+  border-style: solid;
+  border-image-slice: 1;
+  box-shadow: 10px 10px 2px grey;
 }
 
 .show-image {
@@ -597,8 +591,8 @@ li.ember-power-select-multiple-option {
 }
 
 .add-datafruits {
-  background: $green;
-  color: $yellow;
+  background: var(--df-green);
+  color: var(--df-yellow);
   padding: 5px;
   display: flex;
 }
@@ -620,7 +614,7 @@ canvas#pixi {
   &.tip:active {
     animation: none;
   }
-  img {
+  & img {
     height: 5ex !important;
   }
 }
@@ -659,7 +653,9 @@ canvas#pixi {
 }
 
 .update-notification {
-  @include stripe-animation;
+  background: var(--df-stripes);
+  background-size: 200% 200%;
+  animation: stripes 15s infinite;
   color: white;
   font-weight: bold;
   animation: bounce linear 200ms;
@@ -667,7 +663,7 @@ canvas#pixi {
 
 .update-notification span {
   text-shadow:
-    0 0 0.6em $blue,
+    0 0 0.6em var(--df-blue),
     0 2px 0.4em black;
 }
 
@@ -763,7 +759,7 @@ canvas#pixi {
 }
 
 .playing-podcast {
-  @apply bg-df-green blm:bg-black trans:bg-df-pink #{!important};
+  @apply bg-df-green blm:bg-black trans:bg-df-pink;
 }
 
 #tag_search {
@@ -772,7 +768,7 @@ canvas#pixi {
 }
 
 body {
-  scrollbar-color: $pink;
+  scrollbar-color: var(--df-pink);
   scrollbar-width: auto;
 }
 
@@ -785,8 +781,8 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: $pink;
-  outline: 1px solid $blue;
+  background-color: var(--df-pink);
+  outline: 1px solid var(--df-blue);
 }
 
 .pagination-wrapper {
@@ -799,7 +795,7 @@ body::-webkit-scrollbar-thumb {
 
 .pagination.number:hover {
   @apply rounded bg-df-blue blm:bg-white;
-  a {
+  & a {
     @apply text-white blm:text-black;
   }
 }
@@ -832,9 +828,9 @@ body::-webkit-scrollbar-thumb {
   @apply classic:bg-df-pink blm:bg-black trans:bg-df-blue border-solid border-2 border-df-blue text-white;
 }
 
-// .ember-power-select-selected-item {
-//   color: white;
-// }
+/* .ember-power-select-selected-item {
+  color: white;
+} */
 
 .about-section,
 .support-section {
@@ -875,7 +871,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 8px;
   box-shadow: 4px 4px 1px #333;
 
-  background: $blue;
+  background: var(--df-blue);
   padding: 0;
 
   border-style: solid;
@@ -907,7 +903,9 @@ body::-webkit-scrollbar-thumb {
   @apply font-debussy text-2xl text-df-yellow uppercase;
   @apply transition-all duration-100 ease-in-out;
   &:hover {
-    @include stripe-animation;
+    background: var(--df-stripes);
+    background-size: 200% 200%;
+    animation: stripes 15s infinite;
     @apply text-4xl;
     transform: rotate(-3deg);
   }

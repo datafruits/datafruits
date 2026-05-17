@@ -3,6 +3,7 @@
   {{on "submit" (fn this.handleSubmit @changeset)}}
   {{on "reset" (fn this.handleReset @changeset)}}
 >
+  {{this.initializeForm}}
 
   {{yield
     (hash

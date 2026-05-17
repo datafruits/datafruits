@@ -1,5 +1,5 @@
 import Component from '@glimmer/component';
-import { later } from '@ember/runloop';
+import { cancel, later } from '@ember/runloop';
 import { tracked } from '@glimmer/tracking';
 import ENV from 'datafruits13/config/environment';
 
@@ -7,6 +7,7 @@ import ENV from 'datafruits13/config/environment';
 
 export default class RandomBannerAd extends Component {
   @tracked currentAd: Record<string, string> = { img: "/assets/images/ad-open-space.png", link: "" };
+  rotationTimer?: ReturnType<typeof later>;
 
   ads: Record<string, string>[] = [
     { img: "/assets/images/ad-tpqc.webp", link: "https://www.etsy.com/shop/TrashPandaQC" },
@@ -22,16 +23,20 @@ export default class RandomBannerAd extends Component {
     { img: "/assets/images/ad-monday-nite-fruits.png", link: "https://datafruits.fm/shows/monday-night-fruits" },
   ]
 
-  constructor(owner: unknown, args: any) {
-    super(owner, args);
+  startRotation(): void {
     this.randomBanner();
+  }
+
+  stopRotation(): void {
+    cancel(this.rotationTimer);
+    this.rotationTimer = undefined;
   }
 
   randomBanner() {
     const random = Math.floor(Math.random() * this.ads.length);
     this.currentAd = this.ads[random];
     if (ENV.environment === 'test') return;
-    later(() => {
+    this.rotationTimer = later(() => {
       this.randomBanner();
     }, 5_000);
   }

@@ -5,11 +5,8 @@ export default class PageTitleService extends EmberPageTitleService {
   @service
   metadata;
 
-  @service
-  fastboot;
-
   titleDidUpdate(title) {
-    if (!this.fastboot.isFastBoot) {
+    if (typeof document !== 'undefined') {
       document.title = `${title} - ${this.metadata.title}`;
     }
   }

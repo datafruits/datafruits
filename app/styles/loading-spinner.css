@@ -1,5 +1,3 @@
-$spin-duration: 1.5s;
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);

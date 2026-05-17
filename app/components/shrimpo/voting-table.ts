@@ -22,24 +22,30 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
   @service
   declare currentUser: any;
 
-  @tracked score: number = 1;
+  @tracked editedScore: number | null = null;
 
-  @tracked voted: boolean = false;
+  @tracked hasSavedVote = false;
 
   //vote: ShrimpoVote;
 
-  constructor(owner: unknown, args: any) {
-    super(owner, args);
-    const existingVote = this.args.entry.shrimpoVotes.find((vote: any) => {
-      return vote.get('user.id') == this.currentUser.user.id;
-    });
-    console.log(existingVote);
-    if(existingVote) {
-      console.log(existingVote.score);
-      //this.vote = existingVote;
-      this.score = existingVote.score;
-      this.voted = true;
+  get existingVote() {
+    const currentUserId = this.currentUser.user?.id;
+
+    if (!currentUserId) {
+      return undefined;
     }
+
+    return this.args.entry.shrimpoVotes.find((vote: any) => {
+      return vote.get('user.id') == currentUserId;
+    });
+  }
+
+  get score(): number {
+    return this.editedScore ?? this.existingVote?.score ?? 1;
+  }
+
+  get voted(): boolean {
+    return this.hasSavedVote || Boolean(this.existingVote);
   }
 
   @action
@@ -53,7 +59,7 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
       await vote.save();
       console.log(vote);
       alert('saved shrimpo vote!');
-      this.voted = true;
+      this.hasSavedVote = true;
     } catch (error) {
       console.log(vote);
       console.log(error);
@@ -64,7 +70,7 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
 
   @action
   setScore(event: any) {
-    this.score = event.target.value;
+    this.editedScore = Number(event.target.value);
   }
 
   get scoreEmoji() {

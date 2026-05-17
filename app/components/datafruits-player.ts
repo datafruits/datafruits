@@ -17,12 +17,19 @@ enum PlayerState {
   Seeking = 'seeking'
 }
 
+interface AudioEventListeners {
+  loadstart: () => void;
+  pause: () => void;
+  playing: () => void;
+  seeked: () => void;
+  timeupdate: () => void;
+  seeking: () => void;
+  canplay: () => void;
+}
+
 export default class DatafruitsPlayer extends Component {
   @service
   declare eventBus: EventBusService;
-
-  @service
-  declare fastboot: any;
 
   @service
   declare metadata: any;
@@ -46,6 +53,7 @@ export default class DatafruitsPlayer extends Component {
   @tracked volume = 1.0;
   @tracked videoAudioOn = false;
   @tracked podcastTrackId: string = "";
+  audioEventListeners: AudioEventListeners | null = null;
 
   get volumeString(): string {
     return `${Math.floor(Number(this.volume) * 100).toString()}%`;
@@ -63,28 +71,104 @@ export default class DatafruitsPlayer extends Component {
     return this.playerState === PlayerState.Loading;
   }
 
-  constructor(owner: unknown, args: any) {
-    super(owner, args);
+  subscribeToPlayerEvents(): void {
     this.eventBus.subscribe("trackPlayed", this, "onTrackPlayed");
     this.eventBus.subscribe("trackPaused", this, "onTrackPaused");
     this.eventBus.subscribe("metadataUpdate", this, "setRadioTitle");
     this.eventBus.subscribe("liveVideoAudio", this, "useVideoAudio");
     this.eventBus.subscribe("liveVideoAudioOff", this, "disableVideoAudio");
     this.eventBus.subscribe("canonicalMetadataUpdate", this, "onCanonicalMetadataUpdate");
-
-    if (!this.fastboot.isFastBoot) {
-      this.volume =
-        parseFloat(localStorage.getItem("datafruits-volume") as string) || 0.8;
-    }
   }
 
-  @action
-  willDestroy(): void {
-    super.willDestroy();
+  unsubscribeFromPlayerEvents(): void {
     this.eventBus.unsubscribe("trackPlayed", this, "onTrackPlayed");
+    this.eventBus.unsubscribe("trackPaused", this, "onTrackPaused");
     this.eventBus.unsubscribe("metadataUpdate", this, "setRadioTitle");
     this.eventBus.unsubscribe("liveVideoAudio", this, "useVideoAudio");
     this.eventBus.unsubscribe("liveVideoAudioOff", this, "disableVideoAudio");
+    this.eventBus.unsubscribe("canonicalMetadataUpdate", this, "onCanonicalMetadataUpdate");
+  }
+
+  createAudioEventListeners(audioTag: HTMLAudioElement): AudioEventListeners {
+    return {
+      loadstart: () => {
+        if (this.playButtonPressed === true) {
+          this.playerState = PlayerState.Seeking;
+          if (audioTag.readyState === 0) {
+            this.playerState = PlayerState.Loading;
+          }
+        }
+        if (document.getElementsByClassName("seek").length) {
+          document.getElementsByClassName("seek")[0].classList.add("seeking");
+        }
+      },
+      pause: () => {
+        this.playerState = PlayerState.Paused;
+      },
+      playing: () => {
+        this.playerState = PlayerState.Playing;
+      },
+      seeked: () => {
+        this.playTimePercentage = (100 / audioTag.duration) * audioTag.currentTime;
+
+        if (this.playingPodcast) {
+          this.playTime = audioTag.currentTime;
+        }
+      },
+      timeupdate: () => {
+        this.playTimePercentage = (100 / audioTag.duration) * audioTag.currentTime;
+
+        if (this.playingPodcast) {
+          this.playTime = audioTag.currentTime;
+        }
+      },
+      seeking: () => {
+        if (document.getElementsByClassName("seek-bar-wrapper").length) {
+          document
+            .getElementsByClassName("seek-bar-wrapper")[0]
+            .classList.add("seeking");
+        }
+      },
+      canplay: () => {
+        this.duration = audioTag.duration;
+        if (document.getElementsByClassName("seek-bar-wrapper").length) {
+          document
+            .getElementsByClassName("seek-bar-wrapper")[0]
+            .classList.remove("seeking");
+        }
+        if (document.getElementsByClassName("seek").length) {
+          document
+            .getElementsByClassName("seek")[0]
+            .classList.remove("seeking");
+        }
+      }
+    };
+  }
+
+  addAudioEventListeners(audioTag: HTMLAudioElement): void {
+    this.audioEventListeners = this.createAudioEventListeners(audioTag);
+    audioTag.addEventListener("loadstart", this.audioEventListeners.loadstart);
+    audioTag.addEventListener("pause", this.audioEventListeners.pause);
+    audioTag.addEventListener("playing", this.audioEventListeners.playing);
+    audioTag.addEventListener("seeked", this.audioEventListeners.seeked);
+    audioTag.addEventListener("timeupdate", this.audioEventListeners.timeupdate);
+    audioTag.addEventListener("seeking", this.audioEventListeners.seeking);
+    audioTag.addEventListener("canplay", this.audioEventListeners.canplay);
+  }
+
+  removeAudioEventListeners(audioTag: HTMLAudioElement): void {
+    if (!this.audioEventListeners) {
+      return;
+    }
+
+    audioTag.removeEventListener("loadstart", this.audioEventListeners.loadstart);
+    audioTag.removeEventListener("pause", this.audioEventListeners.pause);
+    audioTag.removeEventListener("playing", this.audioEventListeners.playing);
+    audioTag.removeEventListener("seeked", this.audioEventListeners.seeked);
+    audioTag.removeEventListener("timeupdate", this.audioEventListeners.timeupdate);
+    audioTag.removeEventListener("seeking", this.audioEventListeners.seeking);
+    audioTag.removeEventListener("canplay", this.audioEventListeners.canplay);
+    this.audioEventListeners = null;
   }
 
   get isLive() {
@@ -97,7 +181,7 @@ export default class DatafruitsPlayer extends Component {
   }
 
   setPageTitle() {
-    if (!this.fastboot.isFastBoot) {
+    if (typeof document !== "undefined") {
       document.title = `DATAFRUITS.FM - ${this.title}`;
     }
   }
@@ -320,69 +404,19 @@ export default class DatafruitsPlayer extends Component {
       .padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
   }
 
-  @action
-  didInsert() {
-    if (!this.fastboot.isFastBoot) {
-      const audioTag = document.getElementById(
-        "radio-player"
-      ) as HTMLAudioElement;
-
-      audioTag.addEventListener("loadstart", () => {
-        if (this.playButtonPressed === true) {
-          this.playerState = PlayerState.Seeking;
-          if (audioTag.readyState === 0) {
-            this.playerState = PlayerState.Loading;
-          }
-        }
-        if (document.getElementsByClassName("seek").length) {
-          document.getElementsByClassName("seek")[0].classList.add("seeking");
-        }
-      });
-      audioTag.addEventListener("pause", () => {
-        this.playerState = PlayerState.Paused;
-      });
-      audioTag.addEventListener("playing", () => {
-        this.playerState = PlayerState.Playing;
-      });
-      audioTag.addEventListener("seeked", () => {
-        this.playTimePercentage =
-          (100 / audioTag.duration) * audioTag.currentTime;
-
-        if (this.playingPodcast) {
-          this.playTime = audioTag.currentTime;
-        }
-      });
-      audioTag.addEventListener("timeupdate", () => {
-        this.playTimePercentage =
-          (100 / audioTag.duration) * audioTag.currentTime;
-
-        if (this.playingPodcast) {
-          this.playTime = audioTag.currentTime;
-        }
-      });
-      audioTag.addEventListener("seeking", () => {
-        if (document.getElementsByClassName("seek-bar-wrapper").length) {
-          document
-            .getElementsByClassName("seek-bar-wrapper")[0]
-            .classList.add("seeking");
-        }
-      });
-      audioTag.addEventListener("canplay", () => {
-        this.duration = audioTag.duration;
-        if (document.getElementsByClassName("seek-bar-wrapper").length) {
-          document
-            .getElementsByClassName("seek-bar-wrapper")[0]
-            .classList.remove("seeking");
-        }
-        if (document.getElementsByClassName("seek").length) {
-          document
-            .getElementsByClassName("seek")[0]
-            .classList.remove("seeking");
-        }
-      });
+  setupPlayer(audioTag: HTMLAudioElement): void {
+    if (typeof localStorage !== "undefined") {
+      this.subscribeToPlayerEvents();
+      this.addAudioEventListeners(audioTag);
+      this.volume = parseFloat(localStorage.getItem("datafruits-volume") as string) || 0.8;
       audioTag.volume = this.volume;
       this.setRadioTitle();
     }
+  }
+
+  teardownPlayer(audioTag: HTMLAudioElement): void {
+    this.unsubscribeFromPlayerEvents();
+    this.removeAudioEventListeners(audioTag);
   }
 }
 
@@ -392,4 +426,3 @@ declare module '@glint/environment-ember-loose/registry' {
     DatafruitsPlayer: typeof DatafruitsPlayer;
   }
 }
-
