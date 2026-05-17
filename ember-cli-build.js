@@ -72,16 +72,10 @@ module.exports = async function(defaults) {
 
     postcssOptions: {
       compile: {
-        extension: 'scss',
+        extension: 'css',
         enabled: true,
-        parser: require('postcss-scss'),
         plugins: [
-          {
-            module: require('@csstools/postcss-sass'),
-            options: {
-              includePaths: ['node_modules/ember-power-select'],
-            },
-          },
+          require('postcss-import'),
           require('tailwindcss')('./app/tailwind/config.js'),
           ...(isProduction ? [purgeCSS] : []),
         ],

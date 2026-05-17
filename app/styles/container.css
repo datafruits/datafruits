@@ -1,0 +1,15 @@
+.twitter-card-container {
+  border: dashed rgb(233,146,255);
+  height: 100vh;
+}
+
+.twitter-card-container .logo {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.twitter-card-container #circle-logo {
+  display: block;
+  visibility: visible;
+}
