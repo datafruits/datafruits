@@ -127,6 +127,7 @@
     "ember-data": "^5.4.1",
     "ember-decorators": "^6.1.1",
     "ember-file-upload": "8.2.0",
+    "ember-inflector": "^6.0.0",
     "ember-intl": "^8.2.4",
     "ember-load-initializers": "^3.0.1",
     "ember-lodash": "4.19.5",
