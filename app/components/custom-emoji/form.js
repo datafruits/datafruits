@@ -75,7 +75,7 @@ export default class CustomEmojiForm extends Component {
         customEmojiId: customEmoji.id,
       }).save();
 
-      const customEmojis = this.currentUser.user?.customEmoji;
+      const customEmojis = this.currentUser.user?.customEmojis;
       if (customEmojis && !customEmojis.includes(customEmoji)) {
         customEmojis.pushObject(customEmoji);
       }

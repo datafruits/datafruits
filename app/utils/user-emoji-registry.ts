@@ -5,6 +5,11 @@ interface UserEmoji {
   imageUrl: string;
 }
 
+interface UserEmojiRecord {
+  name?: string | null;
+  imageUrl?: string | null;
+}
+
 const userEmojiRegistry: { [shortname: string]: UserEmoji } = {};
 
 /**
@@ -24,6 +29,28 @@ export function registerUserEmoji(name: string, imageUrl: string): void {
     userUploaded: true,
     imageUrl: imageUrl,
   };
+}
+
+export function clearUserEmojis(): void {
+  Object.keys(userEmojiRegistry).forEach((shortname) => {
+    delete userEmojiRegistry[shortname];
+  });
+
+  Object.entries(emojiStrategy).forEach(([shortname, emoji]) => {
+    if (emoji.userUploaded) {
+      delete emojiStrategy[shortname];
+    }
+  });
+}
+
+export function syncUserEmojis(emojis: Iterable<UserEmojiRecord> | null | undefined): void {
+  clearUserEmojis();
+
+  for (const emoji of emojis ?? []) {
+    if (emoji.name && emoji.imageUrl) {
+      registerUserEmoji(emoji.name, emoji.imageUrl);
+    }
+  }
 }
 
 /**

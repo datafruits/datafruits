@@ -1,5 +1,6 @@
 import Service, { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import { syncUserEmojis } from 'datafruits13/utils/user-emoji-registry';
 
 export default class CurrentUserService extends Service {
   @service
@@ -22,6 +23,10 @@ export default class CurrentUserService extends Service {
         user = await this.store.queryRecord('user', { me: true });
         this.user = user;
       }
+      syncUserEmojis(this.user?.customEmojis);
+    } else {
+      this.user = undefined;
+      syncUserEmojis([]);
     }
   }
 }
