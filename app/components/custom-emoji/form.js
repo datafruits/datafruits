@@ -63,6 +63,7 @@ export default class CustomEmojiForm extends Component {
     this.isSaving = true;
     this.error = '';
     let customEmoji;
+    let userEmoji;
 
     try {
       customEmoji = this.store.createRecord('custom-emoji', {
@@ -71,13 +72,31 @@ export default class CustomEmojiForm extends Component {
       });
       await customEmoji.save();
 
-      await this.store.createRecord('user-emoji', {
+      userEmoji = this.store.createRecord('user-emoji', {
         customEmojiId: customEmoji.id,
-      }).save();
+      });
+      await userEmoji.save();
 
       const customEmojis = this.currentUser.user?.customEmojis;
-      if (customEmojis && !customEmojis.includes(customEmoji)) {
-        customEmojis.push(customEmoji);
+      const existingCustomEmoji = customEmojis?.find?.((emoji) => emoji === customEmoji);
+      if (customEmojis && !existingCustomEmoji) {
+        if (typeof customEmojis.pushObject === 'function') {
+          customEmojis.pushObject(customEmoji);
+        } else {
+          customEmojis.push(customEmoji);
+        }
+      }
+
+      const userEmojis = this.currentUser.user?.userEmojis;
+      const existingUserEmoji = userEmojis?.find?.((savedUserEmoji) => {
+        return String(savedUserEmoji.customEmojiId) === String(customEmoji.id);
+      });
+      if (userEmojis && !existingUserEmoji) {
+        if (typeof userEmojis.pushObject === 'function') {
+          userEmojis.pushObject(userEmoji);
+        } else {
+          userEmojis.push(userEmoji);
+        }
       }
 
       registerUserEmoji(customEmoji.name, customEmoji.imageUrl);

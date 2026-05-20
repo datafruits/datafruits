@@ -22,9 +22,9 @@
     {{/if}}
 
     <h2 class="text-xl font-bold mb-2">{{t "custom_emoji.saved_emojis"}}</h2>
-    {{#if @model.savedEmojis.length}}
+    {{#if this.savedEmojis.length}}
       <CustomEmoji::Gallery
-        @emojis={{@model.savedEmojis}}
+        @emojis={{this.savedEmojis}}
         @showOwner={{true}}
       />
     {{else}}
@@ -35,8 +35,8 @@
       <hr class="my-8" />
 
       <h2 class="text-xl font-bold mb-2">{{t "custom_emoji.my_emojis"}}</h2>
-      {{#if @model.uploadedEmojis.length}}
-        <CustomEmoji::Gallery @emojis={{@model.uploadedEmojis}} />
+      {{#if this.uploadedEmojis.length}}
+        <CustomEmoji::Gallery @emojis={{this.uploadedEmojis}} />
       {{else}}
         <p>{{t "custom_emoji.no_emojis"}}</p>
       {{/if}}
