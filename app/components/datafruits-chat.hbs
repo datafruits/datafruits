@@ -88,8 +88,8 @@
     </div>
     {{#if this.showingLoginModal}}
       <LoginModal
-        @login={{action "enterChat"}}
-        @toggleModal={{action "toggleLoginModal"}}
+        @login={{this.enterChat}}
+        @toggleModal={{this.toggleLoginModal}}
       />
     {{/if}}
   {{/if}}

@@ -23,12 +23,11 @@
         </LinkTo>
       </section>
       <section>
-        <!-- admin stuff -->
+        {{!-- admin stuff --}}
         {{#if this.hostLoggedIn}}
           <button
-            {{on "click" this.endShrimpo}}
             disabled={{if this.canEndShrimpo false true}}
-            class="cool-button"
+            class="cool-button" type="button" {{on "click" this.endShrimpo}}
           >
             {{t "shrimpo.end_shrimpo"}}
           </button>
@@ -88,7 +87,7 @@
           </div>
           {{#if (eq this.model.shrimpo.shrimpoType "mega")}}
             {{#if (eq this.model.shrimpo.status "completed")}}
-              <!-- two cols of results -->
+              {{!-- two cols of results --}}
               <h1>best overall</h1>
               {{#each this.model.shrimpo.savedShrimpoEntries as |shrimpoEntry|}}
                 <Shrimpo::EntryCard @shrimpoEntry={{shrimpoEntry}} />
@@ -140,7 +139,7 @@
             {{t "show.episode.leave_a_comment"}}</h1>
           <Post::Form
             @postable={{this.model.shrimpo}}
-            @postableType={{"Shrimpo"}}
+            @postableType="Shrimpo"
           />
         {{else}}
           {{t "forum.login_or_register"}}

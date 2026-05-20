@@ -173,8 +173,7 @@
         <li class="py-2 pr-3 w-full border-dashed border-white border-t-4">
           <button
             class="text-white text-shadow-light"
-            aria-label={{t "settings.title"}}
-            {{on "click" this.settingsDialogToggle}}
+            aria-label={{t "settings.title"}} type="button" {{on "click" this.settingsDialogToggle}}
           >
             {{t "settings.icon"}}
           </button>
@@ -193,7 +192,7 @@
           class=""
           role="button"
           aria-label="{{t 'usermenu.dropdown-aria'}}"
-          {{on "click" this.args.toggleUserMenu}}
+          {{on "click" @toggleUserMenu}}
         >
           <img
             class="inline rounded-lg"

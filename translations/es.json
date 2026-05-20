@@ -124,7 +124,8 @@
   },
   "show": {
     "hosted_prefix": "Alojado por:",
-    "archive": "Escuche el archivo"
+    "archive": "Escuche el archivo",
+    "image_aria": "Ver {title}"
   },
   "player": {
     "return_to_live": "volver a la transmisión en vivo",
@@ -222,5 +223,11 @@
       "preview": "Emoji preview",
       "submit": "Upload Emoji"
     }
+  },
+  "episode": {
+    "image_aria": "Ver {title}"
+  },
+  "container": {
+    "logo_aria": "Página principal de datafruits.fm"
   }
 }

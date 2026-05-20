@@ -129,7 +129,8 @@
     "title": "DJs"
   },
   "show": {
-    "archive": "아카이브 듣기"
+    "archive": "아카이브 듣기",
+    "image_aria": "{title} 보기"
   },
   "radio": {
     "title": "라디오"
@@ -225,5 +226,11 @@
       "preview": "이모지 미리보기",
       "submit": "이모지 업로드"
     }
+  },
+  "episode": {
+    "image_aria": "{title} 보기"
+  },
+  "container": {
+    "logo_aria": "datafruits.fm 홈페이지"
   }
 }

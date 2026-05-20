@@ -132,7 +132,8 @@
     "upcoming_shows": "下次直播時間表"
   },
   "show": {
-    "archive": "聽存檔"
+    "archive": "聽存檔",
+    "image_aria": "查看{title}"
   },
   "player": {
     "aria": {
@@ -174,5 +175,11 @@
       "preview": "表情预览",
       "submit": "上传表情"
     }
+  },
+  "episode": {
+    "image_aria": "查看{title}"
+  },
+  "container": {
+    "logo_aria": "datafruits.fm 主页"
   }
 }

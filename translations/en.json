@@ -421,7 +421,8 @@
     "episode": {
       "comments": "COMMENTS",
       "leave_a_comment": "leave a comment....???"
-    }
+    },
+    "image_aria": "View {title}"
   },
   "player": {
     "play_button_label": "play",
@@ -540,7 +541,8 @@
   },
   "episode": {
     "date": "Date:",
-    "status": "Status:"
+    "status": "Status:",
+    "image_aria": "View {title}"
   },
   "user_menu": {
     "xp": "XP: ",
@@ -603,5 +605,8 @@
       "preview": "Emoji preview",
       "submit": "Upload Emoji"
     }
+  },
+  "container": {
+    "logo_aria": "datafruits.fm homepage"
   }
 }

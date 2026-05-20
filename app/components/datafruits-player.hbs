@@ -37,16 +37,16 @@
           class="player-loading">
         </div>
       {{else if this.playing}}
-        <a id="pause-stream"
+        <button id="pause-stream"
           name="pause-stream"
-          role="button"
+          type="button"
           aria-label={{t "player.aria.stop"}}
           {{on "click" this.pause}}
           class="jp-pause"
           tabindex="0"
         >
           {{t (if this.playingPodcast "player.pause" "player.stop")}}
-        </a>
+        </button>
       {{else if this.paused}}
         <a id="play-stream"
           name="play-stream"
@@ -74,27 +74,27 @@
       >
         {{#if this.muted}}
           {{!-- template-lint-disable no-nested-interactive --}}
-          <a
+          <button
             class="jp-unmute"
+            type="button"
             tabindex="0"
-            role="button"
             title={{t "player.aria.unmute"}}
             aria-label={{t "player.aria.unmute"}}
             {{on 'click' this.unmute}}
           >
             <Ui::Icon @name="volume-off" />
-          </a>
+          </button>
         {{else}}
-          <a
+          <button
             class="jp-mute"
+            type="button"
             tabindex="0"
-            role="button"
             title={{t "player.aria.mute"}}
             aria-label={{t "player.aria.mute"}}
             {{on "click" this.mute}}
           >
             <Ui::Icon @name="volume-up" />
-          </a>
+          </button>
         {{/if}}
         {{#if this.showingVolumeControl}}
           <input

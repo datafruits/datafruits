@@ -3,6 +3,7 @@
     <button
       id="camera--trigger"
       class="cool-button z-10 opacity-40 hover:opacity-100"
+      type="button"
       {{on "click" this.cameraAction}}
     >
       {{this.cameraEmoji}}
@@ -10,6 +11,7 @@
     <button
       id="camera--retry"
       class="cool-button z-10 opacity-40 hover:opacity-100"
+      type="button"
       {{on "click" this.reloadCamera}}
     >
       {{this.xMarkEmoji}}
@@ -17,6 +19,7 @@
     <button
       id="camera--send"
       class="cool-button z-10 opacity-40 hover:opacity-100"
+      type="button"
       {{on "click" this.sendCamera}}
     >
       {{this.checkMarkEmoji}}
