@@ -44,6 +44,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
+      - name: Create .env from sample
+        run: cp .env.sample .env
+
       # Install dependencies
       - name: Install dependencies
         run: pnpm install
@@ -85,6 +88,9 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+
+      - name: Create .env from sample
+        run: cp .env.sample .env
 
       # Install dependencies
       - name: Install dependencies
