@@ -52,8 +52,6 @@
   </:error>
 
   <:success as |result|>
-    {{log "SUCCESS"}}
-    {{log result}}
     <span
       >
     <FruitsUi::Pagination
@@ -64,7 +62,6 @@
     <div class="p-2">
       {{#each result as |show|}}
         {{#if show.tracks.length}}
-          {{log show.firstTrack}}
           <PodcastTrack
             @track={{show.firstTrack}}
             @show={{show}}

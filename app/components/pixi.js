@@ -6,7 +6,7 @@ import { inject as service } from '@ember/service';
 import { later } from '@ember/runloop';
 
 // fruits
-import fruitTypes from '../fruit-types'
+import fruitTypes from '../fruit-types';
 
 // animations
 import MetalPineapple from './pixi/animations/metal-pineapple';
@@ -177,7 +177,7 @@ export default class PixiComponent extends Component {
           let sprite = fn();
           drops.addChild(sprite);
           return sprite;
-        })
+        });
 
       this.app.stage.addChild(drops);
       particles = particles.concat(genParticles(sprite));
@@ -245,8 +245,8 @@ export default class PixiComponent extends Component {
             s.y = snowSprite.startY = -(SIZE + floored(this.app.renderer.height));
             s.scale.x = 0.05;
             s.scale.y = 0.05;
-            return s
-          }
+            return s;
+          };
 
           [particles, reset, update, drops] = this.initWeather([snowSprite], 1000);
           break;
@@ -263,7 +263,7 @@ export default class PixiComponent extends Component {
             d.scale.x = 0.5 * maybeFlip();
             d.scale.y = 0.5;
             return d;
-          }
+          };
 
           const catSprite = () => {
             const c = PIXI.Sprite.from("/assets/images/sprites/cat_rain.png");
@@ -276,7 +276,7 @@ export default class PixiComponent extends Component {
             c.scale.x = 0.5 * maybeFlip();
             c.scale.y = 0.5;
             return c;
-          }
+          };
 
           [particles, reset, update, drops] = this.initWeather([catSprite, dogSprite], 500);
           break;
@@ -304,7 +304,7 @@ export default class PixiComponent extends Component {
     this.fruits.forEach(fruit => {
       console.log('loading fruit: ', fruit);
       this.app.loader.add(fruit, `/assets/images/sprites/${fruit}.json`);
-    })
+    });
 
     // TODO
     // this.app.loader.add(
