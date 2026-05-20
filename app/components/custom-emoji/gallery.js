@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { syncUserEmojis } from 'datafruits13/utils/user-emoji-registry';
+import { registerUserEmoji } from 'datafruits13/utils/user-emoji-registry';
 
 function getEmojiOwnerId(emoji) {
   return String(emoji?.user?.id ?? emoji?.belongsTo?.('user')?.id?.() ?? '');
@@ -18,7 +18,7 @@ export default class CustomEmojiGallery extends Component {
 
   get savedEmojiIds() {
     return new Set(
-      Array.from(this.currentUser.user?.customEmojis ?? []).map((emoji) => String(emoji.id)),
+      Array.from(this.currentUser.user?.userEmojis ?? []).map((userEmoji) => String(userEmoji.customEmojiId)),
     );
   }
 
@@ -60,24 +60,25 @@ export default class CustomEmojiGallery extends Component {
     this.savingEmojiIds = [...this.savingEmojiIds, emojiId];
 
     try {
-      await this.store.createRecord('user-emoji', {
+      const userEmoji = this.store.createRecord('user-emoji', {
         customEmojiId: emoji.id,
-      }).save();
+      });
+      await userEmoji.save();
 
-      const savedEmojis = this.currentUser.user?.customEmojis;
-      const alreadySaved = savedEmojis?.find?.((savedEmoji) => {
-        return String(savedEmoji.id) === emojiId;
+      const userEmojis = this.currentUser.user?.userEmojis;
+      const alreadySaved = userEmojis?.find?.((savedUserEmoji) => {
+        return String(savedUserEmoji.customEmojiId) === emojiId;
       });
 
-      if (savedEmojis && !alreadySaved) {
-        if (typeof savedEmojis.pushObject === 'function') {
-          savedEmojis.pushObject(emoji);
+      if (userEmojis && !alreadySaved) {
+        if (typeof userEmojis.pushObject === 'function') {
+          userEmojis.pushObject(userEmoji);
         } else {
-          savedEmojis.push(emoji);
+          userEmojis.push(userEmoji);
         }
       }
 
-      syncUserEmojis(this.currentUser.user?.customEmojis);
+      registerUserEmoji(emoji.name, emoji.imageUrl);
     } catch (err) {
       console.error('Error saving custom emoji:', err);
       this.error = 'Failed to save emoji. Please try again.';

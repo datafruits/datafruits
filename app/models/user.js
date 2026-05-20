@@ -101,6 +101,11 @@ export default class UserModel extends Model {
     inverse: 'user'
   }) customEmojis;
 
+  @hasMany('user-emoji', {
+    async: false,
+    inverse: null
+  }) userEmojis;
+
   async favoritedTrack(trackId) {
     let trackFavorites = await this.trackFavorites;
     let trackIds = trackFavorites.map((trackFavorite) => {
