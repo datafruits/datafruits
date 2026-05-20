@@ -14,7 +14,7 @@
   <div class="radio-container">
     <div class="player-controls">
       {{#if this.loading}}
-        <span class="jp-loading" tabindex="0">
+        <span class="jp-loading" role="status" aria-live="polite">
           {{t "player.loading"}}
         </span>
       {{else if this.playing}}
