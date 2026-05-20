@@ -206,10 +206,16 @@
   },
   "custom_emoji": {
     "title": "커스텀 이모지",
-    "description": "채팅에서 사용할 나만의 커스텀 이모지를 업로드하세요!",
+    "description": "DJ의 커스텀 이모지를 저장해 채팅에서 사용할 수 있고, DJ 이모지 슬롯이 있으면 자신의 이모지도 업로드할 수 있습니다.",
     "slot_status": "이모지 슬롯은 총 {total}개이며, {available}개 남아 있습니다.",
     "upload_new": "새 이모지 업로드",
     "my_emojis": "내 이모지",
+    "saved_emojis": "저장한 이모지",
+    "no_saved_emojis": "아직 저장한 DJ 이모지가 없습니다.",
+    "dj_emojis": "DJ 이모지",
+    "save": "저장",
+    "saving": "저장 중...",
+    "saved": "저장됨",
     "no_emojis": "아직 업로드한 커스텀 이모지가 없습니다.",
     "form": {
       "name": "이모지 이름",

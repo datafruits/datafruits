@@ -155,10 +155,16 @@
   },
   "custom_emoji": {
     "title": "自定义表情",
-    "description": "上传你自己的自定义表情，在聊天中使用！",
+    "description": "保存 DJ 的自定义表情以便在聊天中使用，如果你有 DJ 表情位，也可以上传自己的表情。",
     "slot_status": "你总共有 {total} 个表情槽位，还剩 {available} 个。",
     "upload_new": "上传新表情",
     "my_emojis": "我的表情",
+    "saved_emojis": "已保存的表情",
+    "no_saved_emojis": "你还没有保存任何 DJ 表情。",
+    "dj_emojis": "DJ 表情",
+    "save": "保存",
+    "saving": "保存中...",
+    "saved": "已保存",
     "no_emojis": "你还没有上传任何自定义表情。",
     "form": {
       "name": "表情名称",

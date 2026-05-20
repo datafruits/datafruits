@@ -1,0 +1,40 @@
+{{#if this.error}}
+  <div class="text-red-400 mb-2">{{this.error}}</div>
+{{/if}}
+
+<div class="flex flex-wrap gap-4">
+  {{#each this.displayEmojis key="@identity" as |item|}}
+    <div class="text-center p-2">
+      <img
+        src={{item.emoji.imageUrl}}
+        alt={{item.emoji.name}}
+        class="w-16 h-16 object-contain mx-auto"
+      />
+      <span class="block text-sm mt-1">:{{item.emoji.name}}:</span>
+
+      {{#if @showOwner}}
+        {{#if item.ownerName}}
+          <span class="block text-xs mt-1">{{item.ownerName}}</span>
+        {{/if}}
+      {{/if}}
+
+      {{#if item.showSaveButton}}
+        <button
+          type="button"
+          class="cool-button mt-2"
+          disabled={{or item.isSaved item.isSaving}}
+          data-test-save-custom-emoji={{item.emoji.id}}
+          {{on "click" (fn this.saveEmoji item.emoji)}}
+        >
+          {{#if item.isSaving}}
+            {{t "custom_emoji.saving"}}
+          {{else if item.isSaved}}
+            {{t "custom_emoji.saved"}}
+          {{else}}
+            {{t "custom_emoji.save"}}
+          {{/if}}
+        </button>
+      {{/if}}
+    </div>
+  {{/each}}
+</div>

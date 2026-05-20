@@ -5,35 +5,41 @@
 
   <div class="page-bg p-4">
     <p class="mb-4">{{t "custom_emoji.description"}}</p>
-    <p class="mb-4">
-      {{t
-        "custom_emoji.slot_status"
-        total=@model.emojiSlotsTotal
-        available=@model.emojiSlotsAvailable
-      }}
-    </p>
 
-    <h2 class="text-xl font-bold mb-2">{{t "custom_emoji.upload_new"}}</h2>
-    <CustomEmoji::Form />
+    {{#if @model.canUploadCustomEmojis}}
+      <p class="mb-4">
+        {{t
+          "custom_emoji.slot_status"
+          total=@model.emojiSlotsTotal
+          available=@model.emojiSlotsAvailable
+        }}
+      </p>
 
-    <hr class="my-8" />
+      <h2 class="text-xl font-bold mb-2">{{t "custom_emoji.upload_new"}}</h2>
+      <CustomEmoji::Form />
 
-    <h2 class="text-xl font-bold mb-2">{{t "custom_emoji.my_emojis"}}</h2>
-    {{#if @model.emojis.length}}
-      <div class="flex flex-wrap gap-4">
-        {{#each @model.emojis as |emoji|}}
-          <div class="text-center p-2">
-            <img
-              src={{emoji.imageUrl}}
-              alt={{emoji.name}}
-              class="w-16 h-16 object-contain mx-auto"
-            />
-            <span class="block text-sm mt-1">:{{emoji.name}}:</span>
-          </div>
-        {{/each}}
-      </div>
+      <hr class="my-8" />
+    {{/if}}
+
+    <h2 class="text-xl font-bold mb-2">{{t "custom_emoji.saved_emojis"}}</h2>
+    {{#if @model.savedEmojis.length}}
+      <CustomEmoji::Gallery
+        @emojis={{@model.savedEmojis}}
+        @showOwner={{true}}
+      />
     {{else}}
-      <p>{{t "custom_emoji.no_emojis"}}</p>
+      <p>{{t "custom_emoji.no_saved_emojis"}}</p>
+    {{/if}}
+
+    {{#if @model.canUploadCustomEmojis}}
+      <hr class="my-8" />
+
+      <h2 class="text-xl font-bold mb-2">{{t "custom_emoji.my_emojis"}}</h2>
+      {{#if @model.uploadedEmojis.length}}
+        <CustomEmoji::Gallery @emojis={{@model.uploadedEmojis}} />
+      {{else}}
+        <p>{{t "custom_emoji.no_emojis"}}</p>
+      {{/if}}
     {{/if}}
   </div>
 </div>

@@ -352,10 +352,16 @@
   },
   "custom_emoji": {
     "title": "カスタム絵文字",
-    "description": "チャットで使える自分だけのカスタム絵文字をアップロードしよう！",
+    "description": "DJのカスタム絵文字を保存してチャットで使えます。DJ絵文字枠があれば自分の絵文字もアップロードできます。",
     "slot_status": "絵文字スロットは合計{total}個あり、残りは{available}個です。",
     "upload_new": "新しい絵文字をアップロード",
     "my_emojis": "自分の絵文字",
+    "saved_emojis": "保存した絵文字",
+    "no_saved_emojis": "まだDJの絵文字を保存していません。",
+    "dj_emojis": "DJの絵文字",
+    "save": "保存",
+    "saving": "保存中...",
+    "saved": "保存済み",
     "no_emojis": "まだカスタム絵文字をアップロードしていません。",
     "form": {
       "name": "絵文字名",

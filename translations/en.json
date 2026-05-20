@@ -584,10 +584,16 @@
   },
   "custom_emoji": {
     "title": "Custom Emojis",
-    "description": "Upload your own custom emojis to use in chat!",
+    "description": "Save DJs' custom emojis to use in chat, and upload your own if you have DJ emoji slots.",
     "slot_status": "You have {total} emoji slots total, with {available} left.",
     "upload_new": "Upload New Emoji",
     "my_emojis": "My Emojis",
+    "saved_emojis": "Saved Emojis",
+    "no_saved_emojis": "You haven't saved any DJ emojis yet.",
+    "dj_emojis": "DJ Emojis",
+    "save": "Save",
+    "saving": "Saving...",
+    "saved": "Saved",
     "no_emojis": "You haven't uploaded any custom emojis yet.",
     "form": {
       "name": "Emoji Name",

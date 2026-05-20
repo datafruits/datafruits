@@ -50,6 +50,18 @@
       </LinkTo>
     {{/if}}
   </div>
+
+  {{#if this.model.customEmojis.length}}
+    <div class="col-md-6 mt-5">
+      <h2 class="text-xl">
+        {{t "custom_emoji.dj_emojis"}}
+      </h2>
+      <CustomEmoji::Gallery
+        @emojis={{this.model.customEmojis}}
+        @allowSave={{true}}
+      />
+    </div>
+  {{/if}}
 </div>
 
 {{#if (includes 'dj' this.model.roles)}}
