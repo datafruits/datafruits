@@ -1,0 +1,250 @@
+{{! template-lint-disable no-bare-strings }}
+<main class="home-landing page-spacing" data-test-home-landing>
+  <section
+    class="home-hero"
+    aria-labelledby="home-hero-title"
+    data-test-home-hero>
+    <div class="home-hero__content">
+      <p class="home-hero__eyebrow">internet radio • chatroom • wiki • shrimpo</p>
+      <div class="home-hero__branding">
+        <img
+          class="home-hero__logo"
+          src="/assets/images/logo.png"
+          alt="datafruits.fm" />
+        <img
+          class="home-hero__sparkles"
+          src="/assets/images/pink_sparkles.gif"
+          alt="" />
+      </div>
+
+      <h1 id="home-hero-title" class="home-hero__title">
+        fruit from the future, streaming now
+      </h1>
+      <p class="home-hero__lede">
+        datafruits is a scrappy online radio station and community archive packed
+        with shows, chat, forum posts, wiki lore, merch, and shrimpo magic.
+      </p>
+
+      <div class="home-hero__actions">
+        <LinkTo class="cool-button home-hero__action" @route="home.chat">
+          Enter chat
+        </LinkTo>
+        <LinkTo class="cool-button home-hero__action" @route="home.shows">
+          Browse shows
+        </LinkTo>
+        <LinkTo class="cool-button home-hero__action" @route="home.podcasts">
+          Listen to podcasts
+        </LinkTo>
+      </div>
+
+      <ul class="home-hero__stats" aria-label="Homepage highlights">
+        <li class="home-hero__stat">
+          <span class="home-hero__stat-number">{{@model.upcomingShows.length}}</span>
+          <span class="home-hero__stat-label">up next</span>
+        </li>
+        <li class="home-hero__stat">
+          <span class="home-hero__stat-number">{{@model.latestPosts.length}}</span>
+          <span class="home-hero__stat-label">fresh posts</span>
+        </li>
+        <li class="home-hero__stat">
+          <span class="home-hero__stat-number">{{@model.activeShrimpos.length}}</span>
+          <span class="home-hero__stat-label">shrimpos</span>
+        </li>
+      </ul>
+    </div>
+
+    <aside class="home-hero__aside" aria-label="Featured merch and video">
+      <div class="home-hero__fruit-wrap" aria-hidden="true">
+        <img
+          class="home-hero__fruit home-hero__fruit--strawberry"
+          src="/assets/images/strawberry.png"
+          alt="" />
+        <img
+          class="home-hero__fruit home-hero__fruit--futsu"
+          src="/assets/images/futsu.png"
+          alt="" />
+      </div>
+
+      <div class="home-spotlight-card" data-test-home-merch>
+        <p class="home-spotlight-card__kicker">fruit stand</p>
+        <h2 class="home-spotlight-card__title">Fresh merch from the orchard</h2>
+        <a
+          class="home-spotlight-card__merch"
+          href="https://datafruits.bandcamp.com/merch"
+          target="_blank"
+          rel="noopener noreferrer">
+          <img
+            src="/assets/images/fruits_merch.png"
+            alt="datafruits merchandise"
+            loading="lazy" />
+        </a>
+        <a
+          class="cool-button home-spotlight-card__link"
+          href="https://datafruits.bandcamp.com/merch"
+          target="_blank"
+          rel="noopener noreferrer">
+          Shop merch
+        </a>
+      </div>
+
+      {{#if @model.latestYoutubeVideoId}}
+        <div class="home-spotlight-card home-spotlight-card--video">
+          <p class="home-spotlight-card__kicker">latest vid</p>
+          <div class="home-video" data-test-home-video>
+            <iframe
+              class="home-video__embed"
+              src="https://www.youtube.com/embed/{{@model.latestYoutubeVideoId}}"
+              title="Latest datafruits video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      {{/if}}
+    </aside>
+  </section>
+
+  <div class="home-panels">
+    <section
+      class="home-panel home-panel--shows"
+      aria-labelledby="home-upcoming-shows"
+      data-test-home-panel="shows">
+      <div class="home-panel__header">
+        <p class="home-panel__eyebrow">on deck</p>
+        <div class="home-panel__heading-row">
+          <h2 id="home-upcoming-shows" class="home-panel__title">
+            {{t "home.upcoming_shows"}}
+          </h2>
+          <LinkTo class="home-panel__link" @route="home.shows">All shows</LinkTo>
+        </div>
+      </div>
+
+      <div class="home-card-stack home-card-stack--episodes">
+        {{#each @model.upcomingShows key="slug" as |show|}}
+          <ShowEpisodeCard @episode={{show}} />
+        {{else}}
+          <p class="home-panel__empty">No scheduled shows right now.</p>
+        {{/each}}
+      </div>
+    </section>
+
+    <section
+      class="home-panel home-panel--podcasts"
+      aria-labelledby="home-latest-podcasts"
+      data-test-home-panel="podcasts">
+      <div class="home-panel__header">
+        <p class="home-panel__eyebrow">replay pile</p>
+        <div class="home-panel__heading-row">
+          <h2 id="home-latest-podcasts" class="home-panel__title">
+            {{t "home.latest_podcasts"}}
+          </h2>
+          <LinkTo class="home-panel__link" @route="home.podcasts">Archive</LinkTo>
+        </div>
+      </div>
+
+      <div class="home-card-stack home-card-stack--episodes">
+        {{#each @model.latestPodcasts key="slug" as |track|}}
+          <ShowEpisodeCard @episode={{track}} />
+        {{else}}
+          <p class="home-panel__empty">Podcast archive loading from the vine.</p>
+        {{/each}}
+      </div>
+    </section>
+
+    <section
+      class="home-panel home-panel--posts"
+      aria-labelledby="home-latest-posts"
+      data-test-home-panel="posts">
+      <div class="home-panel__header">
+        <p class="home-panel__eyebrow">message board</p>
+        <div class="home-panel__heading-row">
+          <h2 id="home-latest-posts" class="home-panel__title">
+            {{t "home.latest_posts"}}
+          </h2>
+          <LinkTo class="home-panel__link" @route="home.forum">Forum</LinkTo>
+        </div>
+      </div>
+
+      <div class="home-card-stack home-card-stack--posts">
+        {{#each @model.latestPosts key="slug" as |post|}}
+          <Forum::ThreadCard @thread={{post}} />
+        {{else}}
+          <p class="home-panel__empty">No fresh forum chatter yet.</p>
+        {{/each}}
+      </div>
+    </section>
+
+    <section
+      class="home-panel home-panel--wiki"
+      aria-labelledby="home-latest-wiki"
+      data-test-home-panel="wiki">
+      <div class="home-panel__header">
+        <p class="home-panel__eyebrow">deep cuts</p>
+        <div class="home-panel__heading-row">
+          <h2 id="home-latest-wiki" class="home-panel__title">
+            {{t "home.latest_wiki"}}
+          </h2>
+          <LinkTo class="home-panel__link" @route="home.wiki">Wiki</LinkTo>
+        </div>
+      </div>
+
+      <div class="home-wiki-list">
+        {{#each @model.latestWiki key="slug" as |wikiPage|}}
+          <LinkTo
+            class="home-wiki-link"
+            @route="home.wiki.show"
+            @model={{wikiPage.slug}}>
+            <span class="home-wiki-link__title">{{wikiPage.title}}</span>
+            <span class="home-wiki-link__arrow" aria-hidden="true">↗</span>
+          </LinkTo>
+        {{else}}
+          <p class="home-panel__empty">No wiki pages to surface right now.</p>
+        {{/each}}
+      </div>
+    </section>
+
+    <section
+      class="home-panel home-panel--chat"
+      aria-labelledby="home-chat-preview"
+      data-test-home-panel="chat">
+      <div class="home-panel__header">
+        <p class="home-panel__eyebrow">always on</p>
+        <div class="home-panel__heading-row">
+          <h2 id="home-chat-preview" class="home-panel__title">Chatroom preview</h2>
+          <LinkTo class="home-panel__link" @route="home.chat">Open chat</LinkTo>
+        </div>
+      </div>
+
+      <div class="home-chat-preview">
+        <NetworkStatus as |status|>
+          <ChatPreview @networkStatus={{status}} />
+        </NetworkStatus>
+      </div>
+    </section>
+
+    <section
+      class="home-panel home-panel--shrimpo"
+      aria-labelledby="home-latest-shrimpo"
+      data-test-home-panel="shrimpo">
+      <div class="home-panel__header">
+        <p class="home-panel__eyebrow">tiny tournaments</p>
+        <div class="home-panel__heading-row">
+          <h2 id="home-latest-shrimpo" class="home-panel__title">
+            {{t "home.latest_shrimpo"}}
+          </h2>
+          <LinkTo class="home-panel__link" @route="home.shrimpos">See all</LinkTo>
+        </div>
+      </div>
+
+      <div class="home-card-stack home-card-stack--shrimpo">
+        {{#each @model.activeShrimpos key="slug" as |shrimpo|}}
+          <Shrimpo::Card @shrimpo={{shrimpo}} />
+        {{else}}
+          <p class="home-panel__empty">No shrimpo results to show yet.</p>
+        {{/each}}
+      </div>
+    </section>
+  </div>
+</main>
