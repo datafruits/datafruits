@@ -112,9 +112,6 @@ export default ts.config(
   {
     files: ['**/*.gts'],
     extends: [ember.configs.gts],
-    languageOptions: {
-      parserOptions: parserOptions.esm.ts,
-    },
   },
   {
     files: ['tests/**/*-test.{js,gjs,ts,gts}'],
@@ -176,6 +173,14 @@ export default ts.config(
       'ember/no-empty-glimmer-component-classes': 'off',
       'ember/no-runloop': 'off',
       'semi': ['warn', 'always'], // or 'never' if you prefer no semicolons
+    },
+  },
+  {
+    files: ['**/*.ts', '**/*.gts'],
+    rules: {
+      // Disable core semi rule for TS files - it incorrectly flags
+      // and auto-fixes TypeScript export default interface declarations
+      'semi': 'off',
     },
   },
 );

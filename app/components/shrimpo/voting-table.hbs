@@ -18,8 +18,8 @@
     <div class="shrimpo-score-picker mb-2">
       <input
         type="range"
-        min=1
-        max=6
+        min="1"
+        max="6"
         value={{this.score}}
         {{on "change" this.setScore}}
       >
@@ -56,8 +56,7 @@
       </div>
     </div>
     <button
-      {{on "click" this.saveVote}}
-      class="cool-button">
+      class="cool-button" type="button" {{on "click" this.saveVote}}>
       SAVE VOTE
     </button>
   </div>
