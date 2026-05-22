@@ -249,6 +249,7 @@ pre {
 }
 
 .bleed {
+  opacity: 0.7;
   @include stripe-animation;
 }
 
@@ -274,8 +275,8 @@ pre {
   box-shadow:
     inset 0.2em 0.2em 0.2em 0 rgba(255, 255, 255, 0.5),
     inset -0.2em -0.2em 0.2em 0 rgba(0, 0, 0, 0.5);
-  @apply border-solid border-2 border-white text-lg rounded-sm;
-  @apply text-white font-semibold p-2 leading-none bg-df-blue;
+  @apply border-solid border-2 border-df-blue text-lg rounded-sm;
+  @apply text-white font-semibold p-2 leading-none bg-df-surface-bright;
   @apply transition-all duration-100 ease-in-out;
   @apply cursor-pointer;
   &.hack {
@@ -356,7 +357,7 @@ a {
 }
 
 a:hover {
-  @apply text-df-yellow-dark;
+  @apply text-white;
 }
 
 input {
@@ -527,14 +528,14 @@ li.ember-power-select-multiple-option {
 .fancy-box {
   border-image: repeating-linear-gradient(
     90deg,
-    $green,
-    $green 20px,
-    $pink 20px,
-    $pink 40px,
-    $yellow 40px,
-    $yellow 60px,
-    $blue 60px,
-    $blue 80px
+    rgba($green, 0.7),
+    rgba($green, 0.7) 20px,
+    rgba($pink, 0.7) 20px,
+    rgba($pink, 0.7) 40px,
+    rgba($yellow, 0.7) 40px,
+    rgba($yellow, 0.7) 60px,
+    rgba($blue, 0.7) 60px,
+    rgba($blue, 0.7) 80px
   );
   border-width: 10px;
   border-style: solid;
@@ -545,14 +546,14 @@ li.ember-power-select-multiple-option {
 @mixin cool-border {
   border-image: repeating-linear-gradient(
     90deg,
-    $green,
-    $green 20px,
-    $pink 20px,
-    $pink 40px,
-    $yellow 40px,
-    $yellow 60px,
-    $blue 60px,
-    $blue 80px
+    rgba($green, 0.7),
+    rgba($green, 0.7) 20px,
+    rgba($pink, 0.7) 20px,
+    rgba($pink, 0.7) 40px,
+    rgba($yellow, 0.7) 40px,
+    rgba($yellow, 0.7) 60px,
+    rgba($blue, 0.7) 60px,
+    rgba($blue, 0.7) 80px
   );
   border-width: 10px;
   border-style: solid;
@@ -579,7 +580,7 @@ li.ember-power-select-multiple-option {
   left: 20px;
   position: absolute;
 
-  @apply bg-df-blue-dark blm:bg-black;
+  @apply bg-df-surface blm:bg-black;
 
   @media (max-width: 480px) {
     width: 100%;
@@ -772,7 +773,8 @@ canvas#pixi {
 }
 
 body {
-  scrollbar-color: $pink;
+  background: $bg;
+  scrollbar-color: $surface-bright $surface;
   scrollbar-width: auto;
 }
 
@@ -781,12 +783,13 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: $surface;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: $pink;
-  outline: 1px solid $blue;
+  background-color: $surface-bright;
+  outline: 1px solid $surface;
 }
 
 .pagination-wrapper {
@@ -815,6 +818,7 @@ body::-webkit-scrollbar-thumb {
 
 .debussy-header {
   @apply text-center font-debussy tracking-widest pb-2;
+  text-shadow: 0 0 10px rgba($blue, 0.4);
 }
 
 .page-spacing {
@@ -822,7 +826,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 .page-bg {
-  @apply bg-df-blue-dark blm:bg-black rounded;
+  @apply bg-df-surface blm:bg-black rounded;
+  background-image: linear-gradient(180deg, rgba($bg-secondary, 0.6), rgba($bg, 0.75));
 }
 
 .page-section-bg {
@@ -875,7 +880,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 8px;
   box-shadow: 4px 4px 1px #333;
 
-  background: $blue;
+  background: $surface;
   padding: 0;
 
   border-style: solid;
@@ -914,7 +919,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .tier-col {
-  @apply border-4 p-2 rounded-md border-df-pink bg-df-blue;
+  @apply border-4 p-2 rounded-md border-df-pink bg-df-surface;
 }
 
 .its-just-a-website-menu-item {

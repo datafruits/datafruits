@@ -1,5 +1,5 @@
 <section class="h-handle-resize flex flex-col justify-between">
-  <div class="flex classic:bg-df-pink blm:bg-black trans:bg-df-blue">
+  <div class="flex bg-df-bg classic:bg-df-pink blm:bg-black trans:bg-df-blue">
     <a class="skip-to-content-link" href="#main-content">
       {{t "skip_to_content"}}
     </a>
@@ -21,11 +21,11 @@
   <OurVersionNotifier
     @updateMessage="Updates have been made to datafruits! Refresh to stay up-to-date 💻"
     @reloadButtonText="Refresh" />
-  <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow" id="main-content">
+  <div class="overflow-auto min-h-0 text-white text-shadow flex flex-col flex-grow bg-df-bg" id="main-content">
     {{outlet}}
   </div>
   <DatafruitsPlayer
-    class="flex-col flex justify-center classic:bg-df-pink blm:bg-black trans:bg-df-blue text-xl py-2 text-white leading-none"
+    class="flex-col flex justify-center bg-df-bg-secondary classic:bg-df-pink blm:bg-black trans:bg-df-blue text-xl py-2 text-white leading-none"
   >
     <DjDonateModal class="hidden md:block mr-2" />
     <HackButton class="hidden md:block mr-2" />
@@ -35,7 +35,7 @@
       <AudioVisualizer />
     </div>
   {{/if}}
-  <div class="flex-row flex justify-between text-xl classic:bg-df-green blm:bg-black trans:bg-df-blue">
+  <div class="flex-row flex justify-between text-xl bg-df-bg-secondary classic:bg-df-green blm:bg-black trans:bg-df-blue">
     <AddDatafruit />
   </div>
 </section>
