@@ -1,0 +1,11 @@
+- need to register emoji (registerUserEmoji)
+
+
+  emojiStrategy[shortname] = {
+    unicode: name,
+    shortname: shortname,
+    keywords: [name],
+    custom: true,
+    userUploaded: true,
+    imageUrl: imageUrl,
+  };

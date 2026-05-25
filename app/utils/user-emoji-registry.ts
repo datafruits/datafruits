@@ -17,6 +17,7 @@ const userEmojiRegistry: { [shortname: string]: UserEmoji } = {};
  * autocomplete, and the emoji picker.
  */
 export function registerUserEmoji(name: string, imageUrl: string): void {
+  console.log(`registerUserEmoji ${imageUrl} ${name}`);
   const shortname = `:${name}:`;
   userEmojiRegistry[shortname] = { name, imageUrl };
 
