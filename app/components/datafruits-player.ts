@@ -46,6 +46,9 @@ export default class DatafruitsPlayer extends Component {
   @tracked volume = 1.0;
   @tracked videoAudioOn = false;
   @tracked podcastTrackId: string = "";
+  @tracked resumeTimeForTrackId: string | null = null;
+  @tracked resumeTimeToApply: number | null = null;
+  static ARCHIVE_PLAYTIME_COOKIE_PREFIX = 'datafruits-archive-playtime';
 
   get volumeString(): string {
     return `${Math.floor(Number(this.volume) * 100).toString()}%`;
@@ -134,6 +137,8 @@ export default class DatafruitsPlayer extends Component {
       // load and play podcast from beginning
       this.title = event.title;
       this.podcastTrackId = String(event.track_id);
+      this.resumeTimeForTrackId = this.podcastTrackId;
+      this.resumeTimeToApply = this._getArchivePlaybackTime(this.podcastTrackId);
       this.setPageTitle();
       this.playingPodcast = true;
       this.playTime = 0.0;
@@ -167,6 +172,41 @@ export default class DatafruitsPlayer extends Component {
       "radio-player"
     ) as HTMLAudioElement;
     audioTag.muted = false;
+  }
+
+  _archivePlaytimeCookieName(trackId: string): string {
+    return `${DatafruitsPlayer.ARCHIVE_PLAYTIME_COOKIE_PREFIX}-${trackId}`;
+  }
+
+  _setArchivePlaybackTime(trackId: string, time: number): void {
+    if (this.fastboot.isFastBoot || Number.isNaN(time) || time < 0) {
+      return;
+    }
+
+    const oneYearInSeconds = 60 * 60 * 24 * 365;
+    document.cookie = `${this._archivePlaytimeCookieName(trackId)}=${time}; max-age=${oneYearInSeconds}; path=/; SameSite=Lax`;
+  }
+
+  _getArchivePlaybackTime(trackId: string): number | null {
+    if (this.fastboot.isFastBoot) {
+      return null;
+    }
+
+    const cookiePrefix = `${this._archivePlaytimeCookieName(trackId)}=`;
+    const cookies = document.cookie.split(';');
+
+    for (const cookie of cookies) {
+      const trimmedCookie = cookie.trim();
+
+      if (trimmedCookie.startsWith(cookiePrefix)) {
+        const parsed = parseFloat(trimmedCookie.slice(cookiePrefix.length));
+        if (Number.isFinite(parsed) && parsed >= 0) {
+          return parsed;
+        }
+      }
+    }
+
+    return null;
   }
 
   @action
@@ -350,6 +390,9 @@ export default class DatafruitsPlayer extends Component {
 
         if (this.playingPodcast) {
           this.playTime = audioTag.currentTime;
+          if (!isEmpty(this.podcastTrackId)) {
+            this._setArchivePlaybackTime(this.podcastTrackId, this.playTime);
+          }
         }
       });
       audioTag.addEventListener("timeupdate", () => {
@@ -358,6 +401,9 @@ export default class DatafruitsPlayer extends Component {
 
         if (this.playingPodcast) {
           this.playTime = audioTag.currentTime;
+          if (!isEmpty(this.podcastTrackId)) {
+            this._setArchivePlaybackTime(this.podcastTrackId, this.playTime);
+          }
         }
       });
       audioTag.addEventListener("seeking", () => {
@@ -369,6 +415,19 @@ export default class DatafruitsPlayer extends Component {
       });
       audioTag.addEventListener("canplay", () => {
         this.duration = audioTag.duration;
+        if (
+          this.playingPodcast &&
+          !isEmpty(this.podcastTrackId) &&
+          this.resumeTimeForTrackId === this.podcastTrackId &&
+          this.resumeTimeToApply !== null &&
+          Number.isFinite(audioTag.duration)
+        ) {
+          audioTag.currentTime = Math.min(this.resumeTimeToApply, audioTag.duration);
+          this.playTime = audioTag.currentTime;
+          this.playTimePercentage = (100 / audioTag.duration) * audioTag.currentTime;
+          this.resumeTimeToApply = null;
+          this.resumeTimeForTrackId = null;
+        }
         if (document.getElementsByClassName("seek-bar-wrapper").length) {
           document
             .getElementsByClassName("seek-bar-wrapper")[0]
@@ -392,4 +451,3 @@ declare module '@glint/environment-ember-loose/registry' {
     DatafruitsPlayer: typeof DatafruitsPlayer;
   }
 }
-
