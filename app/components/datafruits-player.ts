@@ -48,6 +48,7 @@ export default class DatafruitsPlayer extends Component {
   @tracked podcastTrackId: string = "";
   @tracked resumeTimeForTrackId: string | null = null;
   @tracked resumeTimeToApply: number | null = null;
+  static ONE_YEAR_IN_SECONDS = 60 * 60 * 24 * 365;
   static ARCHIVE_PLAYTIME_COOKIE_PREFIX = 'datafruits-archive-playtime';
 
   get volumeString(): string {
@@ -183,8 +184,7 @@ export default class DatafruitsPlayer extends Component {
       return;
     }
 
-    const oneYearInSeconds = 60 * 60 * 24 * 365;
-    document.cookie = `${this._archivePlaytimeCookieName(trackId)}=${time}; max-age=${oneYearInSeconds}; path=/; SameSite=Lax`;
+    document.cookie = `${this._archivePlaytimeCookieName(trackId)}=${time}; max-age=${DatafruitsPlayer.ONE_YEAR_IN_SECONDS}; path=/; SameSite=Lax`;
   }
 
   _getArchivePlaybackTime(trackId: string): number | null {
@@ -420,7 +420,8 @@ export default class DatafruitsPlayer extends Component {
           !isEmpty(this.podcastTrackId) &&
           this.resumeTimeForTrackId === this.podcastTrackId &&
           this.resumeTimeToApply !== null &&
-          Number.isFinite(audioTag.duration)
+          Number.isFinite(audioTag.duration) &&
+          audioTag.readyState >= HTMLMediaElement.HAVE_METADATA
         ) {
           audioTag.currentTime = Math.min(this.resumeTimeToApply, audioTag.duration);
           this.playTime = audioTag.currentTime;
