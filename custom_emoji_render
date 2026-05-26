@@ -9,3 +9,22 @@
     userUploaded: true,
     imageUrl: imageUrl,
   };
+
+------------------------
+load all custom emojis on site load???
+
+findAll('custom-emoji')
+
+  emojiStrategy[shortname] = {
+    unicode: name,
+    shortname: shortname,
+    keywords: [name],
+    custom: true,
+    imageUrl: imageUrl,
+    userUploaded: true,
+    emojiUsers: ['mcfiredrill', 'djnameko']
+  };
+
+check emojiUsers and sent by user when sent to render or not
+
+-------------------------
