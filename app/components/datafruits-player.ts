@@ -184,7 +184,8 @@ export default class DatafruitsPlayer extends Component {
       return;
     }
 
-    document.cookie = `${this._archivePlaytimeCookieName(trackId)}=${time}; max-age=${DatafruitsPlayer.ONE_YEAR_IN_SECONDS}; path=/; SameSite=Lax`;
+    const secureAttribute = window.location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = `${this._archivePlaytimeCookieName(trackId)}=${time}; max-age=${DatafruitsPlayer.ONE_YEAR_IN_SECONDS}; path=/; SameSite=Lax${secureAttribute}`;
   }
 
   _getArchivePlaybackTime(trackId: string): number | null {
@@ -420,8 +421,7 @@ export default class DatafruitsPlayer extends Component {
           !isEmpty(this.podcastTrackId) &&
           this.resumeTimeForTrackId === this.podcastTrackId &&
           this.resumeTimeToApply !== null &&
-          Number.isFinite(audioTag.duration) &&
-          audioTag.readyState >= HTMLMediaElement.HAVE_METADATA
+          Number.isFinite(audioTag.duration)
         ) {
           audioTag.currentTime = Math.min(this.resumeTimeToApply, audioTag.duration);
           this.playTime = audioTag.currentTime;
