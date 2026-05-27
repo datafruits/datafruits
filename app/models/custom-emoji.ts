@@ -5,6 +5,7 @@ export default class CustomEmoji extends Model {
   @attr('string') declare name: string;
   @attr('string') declare image: string;
   @attr('string') declare imageUrl: string;
+  @attr() declare emojiUsers: string[];
   @belongsTo('user', { async: false, inverse: null }) declare user: User;
 }
 

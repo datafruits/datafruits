@@ -1,4 +1,5 @@
 import emojiStrategy from 'datafruits13/emojiStrategy';
+import { isEmojiAccessible } from 'datafruits13/utils/user-emoji-registry';
 
 export function createEmojiAutocomplete() {
   return {
@@ -14,6 +15,8 @@ export function createEmojiAutocomplete() {
       const results2: string[] = [];
       const results3: string[] = [];
       for (const [shortname, data] of Object.entries(emojiStrategy)) {
+        // Skip locked user-uploaded emojis the current user can't access
+        if (data.userUploaded && !isEmojiAccessible(shortname)) continue;
         if (shortname.indexOf(term) > -1) {
           results.push(shortname);
         } else {
