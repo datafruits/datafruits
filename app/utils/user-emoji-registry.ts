@@ -80,7 +80,6 @@ export function syncUserEmojis(emojis: Iterable<UserEmojiRecord> | null | undefi
  */
 export function replaceUserEmojis(text: string): string {
   for (const [shortname, emoji] of Object.entries(userEmojiRegistry)) {
-    console.log(`in replaceUserEmojis ${shortname} ${emoji}`);
     if (text.indexOf(shortname) === -1) continue;
     console.log(`is emoji accessible for me?: ${currentUsername}`, isEmojiAccessible(shortname));
     if (!isEmojiAccessible(shortname)) continue;
