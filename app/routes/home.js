@@ -1,6 +1,6 @@
 import { inject as service } from '@ember/service';
 import Route from '@ember/routing/route';
-
+import { syncUserEmojis } from 'datafruits13/utils/user-emoji-registry';
 export default class HomeRoute extends Route {
   @service
   currentUser;
@@ -14,6 +14,9 @@ export default class HomeRoute extends Route {
   @service
   fastboot;
 
+  @service
+  store;
+
   async beforeModel() {
     await this.session.setup();
 
@@ -26,11 +29,15 @@ export default class HomeRoute extends Route {
     return this._loadCurrentUser();
   }
 
-  afterModel() {
+  async afterModel() {
+    const allCustomEmojis = await this.store.findAll('custom-emoji', { reload: true });
+    console.log(allCustomEmojis.length);
+    syncUserEmojis(allCustomEmojis);
+
     if (!this.fastboot.isFastBoot) {
       let locales = this.intl.locales;
       let language;
-      
+
       // First check if user has a saved locale preference
       let savedLocale = localStorage.getItem('datafruits-locale');
       if (savedLocale && locales.includes(savedLocale.toLowerCase())) {
@@ -61,7 +68,7 @@ export default class HomeRoute extends Route {
     try {
       await this.currentUser.load();
     } catch (err) {
-      console.log(err);  
+      console.log(err);
       await this.session.invalidate();
     }
   }

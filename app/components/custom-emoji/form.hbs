@@ -1,0 +1,52 @@
+<form class="mb-4" {{on "submit" this.submit}}>
+  {{#if this.error}}
+    <div class="text-red-400 mb-2">{{this.error}}</div>
+  {{/if}}
+
+  <div class="mb-2">
+    <label class="block text-sm font-bold mb-1" for="custom-emoji-name">
+      {{t "custom_emoji.form.name"}}
+    </label>
+    <input
+      class="user-settings-input w-full md:w-1/2"
+      id="custom-emoji-name"
+      type="text"
+      placeholder={{t "custom_emoji.form.name_placeholder"}}
+      value={{this.name}}
+      {{on "input" this.updateName}}
+    />
+  </div>
+
+  <div class="mb-2">
+    <label class="block text-sm font-bold mb-1" for="custom-emoji-image">
+      {{t "custom_emoji.form.image"}}
+    </label>
+    <input
+      class="py-4 px-4 my-2 text-df-yellow w-full md:w-1/2 semibold border-dashed"
+      id="custom-emoji-image"
+      type="file"
+      accept="image/png,image/gif,image/jpeg,image/webp"
+      {{on "change" this.uploadImage}}
+    />
+    {{#if this.uploadProgress}}
+      <span class="text-sm">{{t "custom_emoji.form.uploading"}} {{this.uploadProgress}}%</span>
+    {{/if}}
+    {{#if this.imagePreviewUrl}}
+      <div class="mt-2">
+        <img src={{this.imagePreviewUrl}} alt={{t "custom_emoji.form.preview"}} class="w-16 h-16 object-contain" />
+      </div>
+    {{/if}}
+  </div>
+
+  <button
+    type="submit"
+    class="cool-button"
+    disabled={{or (not this.isValid) this.isSaving}}
+  >
+    {{#if this.isSaving}}
+      {{t "forms.saving"}}
+    {{else}}
+      {{t "custom_emoji.form.submit"}}
+    {{/if}}
+  </button>
+</form>

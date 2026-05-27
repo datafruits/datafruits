@@ -352,6 +352,28 @@
     "rate_tune_by": "曲を評価してください。",
     "login_to_vote": "SHRIMPOに投票するにはログインまたは登録してください！"
   },
+  "custom_emoji": {
+    "title": "カスタム絵文字",
+    "description": "DJのカスタム絵文字を保存してチャットで使えます。DJ絵文字枠があれば自分の絵文字もアップロードできます。",
+    "slot_status": "絵文字スロットは合計{total}個あり、残りは{available}個です。",
+    "upload_new": "新しい絵文字をアップロード",
+    "my_emojis": "自分の絵文字",
+    "saved_emojis": "保存した絵文字",
+    "no_saved_emojis": "まだDJの絵文字を保存していません。",
+    "dj_emojis": "DJの絵文字",
+    "save": "保存",
+    "saving": "保存中...",
+    "saved": "保存済み",
+    "no_emojis": "まだカスタム絵文字をアップロードしていません。",
+    "form": {
+      "name": "絵文字名",
+      "name_placeholder": "my_emoji",
+      "image": "絵文字画像",
+      "uploading": "アップロード中...",
+      "preview": "絵文字のプレビュー",
+      "submit": "絵文字をアップロード"
+    }
+  },
   "container": {
     "logo_aria": "datafruits.fm ホームページ"
   }

@@ -1,0 +1,45 @@
+<div class="page-spacing">
+  <h1 class="debussy-header">
+    {{t "custom_emoji.title"}}
+  </h1>
+
+  <div class="page-bg p-4">
+    <p class="mb-4">{{t "custom_emoji.description"}}</p>
+
+    {{#if @model.canUploadCustomEmojis}}
+      <p class="mb-4">
+        {{t
+          "custom_emoji.slot_status"
+          total=@model.emojiSlotsTotal
+          available=@model.emojiSlotsAvailable
+        }}
+      </p>
+
+      <h2 class="text-xl font-bold mb-2">{{t "custom_emoji.upload_new"}}</h2>
+      <CustomEmoji::Form />
+
+      <hr class="my-8" />
+    {{/if}}
+
+    <h2 class="text-xl font-bold mb-2">{{t "custom_emoji.saved_emojis"}}</h2>
+    {{#if this.savedEmojis.length}}
+      <CustomEmoji::Gallery
+        @emojis={{this.savedEmojis}}
+        @showOwner={{true}}
+      />
+    {{else}}
+      <p>{{t "custom_emoji.no_saved_emojis"}}</p>
+    {{/if}}
+
+    {{#if @model.canUploadCustomEmojis}}
+      <hr class="my-8" />
+
+      <h2 class="text-xl font-bold mb-2">{{t "custom_emoji.my_emojis"}}</h2>
+      {{#if this.uploadedEmojis.length}}
+        <CustomEmoji::Gallery @emojis={{this.uploadedEmojis}} />
+      {{else}}
+        <p>{{t "custom_emoji.no_emojis"}}</p>
+      {{/if}}
+    {{/if}}
+  </div>
+</div>

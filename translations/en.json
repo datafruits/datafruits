@@ -584,6 +584,28 @@
     "rate_tune_by": "Rate tune by number of",
     "login_to_vote": "Login or register to vote on this shrimpo!"
   },
+  "custom_emoji": {
+    "title": "Custom Emojis",
+    "description": "Save DJs' custom emojis to use in chat, and upload your own if you have DJ emoji slots.",
+    "slot_status": "You have {total} emoji slots total, with {available} left.",
+    "upload_new": "Upload New Emoji",
+    "my_emojis": "My Emojis",
+    "saved_emojis": "Saved Emojis",
+    "no_saved_emojis": "You haven't saved any DJ emojis yet.",
+    "dj_emojis": "DJ Emojis",
+    "save": "Save",
+    "saving": "Saving...",
+    "saved": "Saved",
+    "no_emojis": "You haven't uploaded any custom emojis yet.",
+    "form": {
+      "name": "Emoji Name",
+      "name_placeholder": "my_emoji",
+      "image": "Emoji Image",
+      "uploading": "Uploading...",
+      "preview": "Emoji preview",
+      "submit": "Upload Emoji"
+    }
+  },
   "container": {
     "logo_aria": "datafruits.fm homepage"
   }

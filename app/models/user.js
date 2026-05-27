@@ -71,6 +71,12 @@ export default class UserModel extends Model {
   @attr()
   hasUnreadNotifications;
 
+  @attr()
+  emojiSlotsTotal;
+
+  @attr()
+  emojiSlotsAvailable;
+
   @hasMany('track-favorite', {
     async: false,
     inverse: null
@@ -89,6 +95,16 @@ export default class UserModel extends Model {
     async: false,
     inverse: 'user'
   }) shrimpoEntries;
+
+  @hasMany('custom-emoji', {
+    async: false,
+    inverse: 'user'
+  }) customEmojis;
+
+  @hasMany('user-emoji', {
+    async: false,
+    inverse: null
+  }) userEmojis;
 
   async favoritedTrack(trackId) {
     let trackFavorites = await this.trackFavorites;

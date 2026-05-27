@@ -277,12 +277,16 @@ export default class ChatService extends Service {
     this.chan.on('presence_state', (state) => {
       if (isDestroyed(this) || isDestroying(this)) return;
       const presences = this.presences;
+      // TODO do we send user emojis here ??
+      console.log(this.presences);
       this.presences = Presence.syncState(presences, state);
     });
 
     this.chan.on('presence_diff', (diff) => {
       if (isDestroyed(this) || isDestroying(this)) return;
       const presences = this.presences;
+      // TODO do we send user emojis here ??
+      console.log(this.presences);
       this.presences = Presence.syncDiff(presences, diff);
     });
 

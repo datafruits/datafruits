@@ -144,6 +144,14 @@ export default class EmojiSelectorEmojiComponent extends Component {
       groupedEmojis.push({ groupName, emojis });
     }
 
+    // Add user-uploaded emojis group
+    const userUploadedEmojis = Object.values(allEmojis).filter(
+      (emoji) => emoji.userUploaded
+    );
+    if (userUploadedEmojis.length > 0) {
+      groupedEmojis.push({ groupName: 'User Uploads', emojis: userUploadedEmojis });
+    }
+
     return groupedEmojis;
   }
 
