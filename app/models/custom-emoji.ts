@@ -6,7 +6,7 @@ export default class CustomEmoji extends Model {
   @attr('string') declare image: string;
   @attr('string') declare imageUrl: string;
   @attr() declare emojiUsers: string[];
-  @belongsTo('user', { async: false, inverse: null }) declare user: User;
+  @belongsTo('user', { async: false, inverse: 'customEmojis' }) declare user: User;
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.
