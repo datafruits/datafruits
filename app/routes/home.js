@@ -27,28 +27,30 @@ export default class HomeRoute extends Route {
   }
 
   afterModel() {
-    if (!this.fastboot.isFastBoot) {
-      let locales = this.intl.locales;
-      let language;
-      
-      // First check if user has a saved locale preference
-      let savedLocale = localStorage.getItem('datafruits-locale');
-      if (savedLocale && locales.includes(savedLocale.toLowerCase())) {
-        language = savedLocale;
-      } else {
-        // Fall back to browser language detection
-        console.log(navigator.languages);
-        if (navigator.languages) {
-          language = navigator.languages[0];
-        } else {
-          language = navigator.language || navigator.userLanguage;
-        }
-        language = locales.includes(language.toLowerCase()) ? language : 'en';
-      }
-
-      //this.intl.locale = language;
-      this.intl.setLocale(language);
+    if (this.fastboot.isFastBoot) {
+      this.intl.setLocale('en');
+      return;
     }
+
+    let locales = this.intl.locales;
+    let language;
+
+    // First check if user has a saved locale preference
+    let savedLocale = localStorage.getItem('datafruits-locale');
+    if (savedLocale && locales.includes(savedLocale.toLowerCase())) {
+      language = savedLocale;
+    } else {
+      // Fall back to browser language detection
+      console.log(navigator.languages);
+      if (navigator.languages) {
+        language = navigator.languages[0];
+      } else {
+        language = navigator.language || navigator.userLanguage;
+      }
+      language = locales.includes(language.toLowerCase()) ? language : 'en';
+    }
+
+    this.intl.setLocale(language);
   }
 
   async sessionAuthenticated() {

@@ -28,6 +28,7 @@ export default class ChatService extends Service {
   @service declare eventBus: EventBusService;
   @service declare currentUser: CurrentUserService;
   @service declare store: any;
+  @service declare fastboot: any;
 
   @tracked presences = {};
   @tracked messages: Array<Message> = [];
@@ -50,8 +51,8 @@ export default class ChatService extends Service {
 
   username: string = '';
 
-  chan: Channel;
-  notificationChan: Channel;
+  chan!: Channel;
+  notificationChan!: Channel;
 
   setFruitCount(key: string, value: number) {
     this._fruitCounts[key] = value;
@@ -134,7 +135,11 @@ export default class ChatService extends Service {
   constructor() {
     super(...arguments);
 
-    const socket = this.socket.socket;
+    if (this.fastboot.isFastBoot) {
+      return;
+    }
+
+    const socket = this.socket.socket!;
 
     this.chan = socket.channel('rooms:lobby', {});
 

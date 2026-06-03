@@ -23,6 +23,8 @@ module.exports = async function ({ _distDir, visit }) {
     '/support'
   ];
 
+  const validUrls = [];
+
   const isValidUrl = (aTag) => {
     return !aTag.hostname &&
       !urls.includes(aTag.href.toLowerCase()) &&
@@ -32,8 +34,15 @@ module.exports = async function ({ _distDir, visit }) {
 
   // need to recursively crawl all the links on every page somehow
   for (const url of urls) {
-    let page = await visit(url);
+    let page;
+    try {
+      page = await visit(url);
+    } catch (err) {
+      console.log(`Skipping ${url} due to error: ${err.message}`);
+      continue;
+    }
     if (page.statusCode === 200) {
+      validUrls.push(url);
       let html = await page.html();
       let dom = new JSDOM(html);
       for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
@@ -45,9 +54,16 @@ module.exports = async function ({ _distDir, visit }) {
       }
       if (['/podcasts', '/forum', '/wiki', '/shows'].includes(url)) {
         for (let aTag of [...dom.window.document.querySelectorAll('span.pagination a')]) {
-          page = await visit(aTag.href);
-          if (page.statusCode === 200) {
-            let html = await page.html();
+          let paginationPage;
+          try {
+            paginationPage = await visit(aTag.href);
+          } catch (err) {
+            console.log(`Skipping pagination ${aTag.href} due to error: ${err.message}`);
+            continue;
+          }
+          if (paginationPage.statusCode === 200) {
+            validUrls.push(aTag.href.toLowerCase());
+            let html = await paginationPage.html();
             let dom = new JSDOM(html);
             for (let aTag of [...dom.window.document.querySelectorAll('a')]) {
               if (aTag.href) {
@@ -62,6 +78,6 @@ module.exports = async function ({ _distDir, visit }) {
     }
   }
 
-  console.log('url count: ', urls.length);
-  return urls;
+  console.log('url count: ', validUrls.length);
+  return validUrls;
 };

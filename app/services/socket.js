@@ -1,10 +1,15 @@
-import Service from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import { Socket } from 'phoenix';
 import ENV from 'datafruits13/config/environment';
 
 export default class SocketService extends Service {
+  @service fastboot;
+
   constructor() {
     super(...arguments);
+    if (this.fastboot.isFastBoot) {
+      return;
+    }
     this.socket = new Socket(ENV.CHAT_SOCKET_URL, {
       logger: function logger(/*kind, msg, data*/) {
         //console.log(kind + ": " + msg, data);

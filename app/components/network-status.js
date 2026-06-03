@@ -22,9 +22,11 @@ export default class NetworkStatus extends Component {
   @action
   willDestroy() {
     super.willDestroy(...arguments);
-    let _update = this._update;
-    window.removeEventListener('online', _update);
-    window.removeEventListener('offline', _update);
+    if (typeof window !== 'undefined' && this._update) {
+      let _update = this._update;
+      window.removeEventListener('online', _update);
+      window.removeEventListener('offline', _update);
+    }
   }
 
   updateStatus() {
