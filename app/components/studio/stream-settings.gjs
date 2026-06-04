@@ -3,6 +3,7 @@ import { service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { on } from '@ember/modifier';
+import { t } from 'ember-intl';
 
 export default class StudioStreamSettings extends Component {
   @service currentUser;
@@ -17,6 +18,7 @@ export default class StudioStreamSettings extends Component {
 
   <template>
     <div class="stream-settings">
+      <p>{{t "studio.stream_key_warning"}}</p>
       <label>Stream Key</label>
       <div class="stream-key-field">
         <input

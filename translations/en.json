@@ -565,7 +565,8 @@
   "studio": {
     "stream_title": "Stream Title",
     "donation_link": "Donation Link",
-    "update": "Update"
+    "update": "Update",
+    "stream_key_warning": "hey, don't share your stream key with no body...or they can stream as you. but you knew that, right?"
   },
   "labels": {
     "tags": "Tags"

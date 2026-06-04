@@ -333,7 +333,8 @@
   "studio": {
     "stream_title": "ストリームタイトル",
     "donation_link": "寄付リンク",
-    "update": "更新"
+    "update": "更新",
+    "stream_key_warning": "ねえ、ストリームキーは誰にも教えちゃダメだよ…じゃないと、あなたとして配信されちゃう。でも、知ってたよね？"
   },
   "labels": {
     "tags": "タグ"
