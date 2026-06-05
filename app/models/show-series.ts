@@ -37,6 +37,21 @@ export default class ShowSeries extends Model {
 
   @attr('string') declare status: 'active' | 'archived' | 'disabled';
 
+  get imageOrDefault(): string {
+    if (this.imageUrl) return this.imageUrl;
+    if (this.thumbImageUrl) return this.thumbImageUrl;
+    const firstUser = (this.users as any)?.[0];
+    if (firstUser?.asImageUrl) return firstUser.asImageUrl;
+    if (firstUser?.imageUrl) return firstUser.imageUrl;
+    if (firstUser?.avatarUrl) return firstUser.avatarUrl;
+    return '/assets/images/show_placeholder.jpg';
+  }
+
+  get thumbImageOrDefault(): string {
+    if (this.thumbImageUrl) return this.thumbImageUrl;
+    return this.imageOrDefault;
+  }
+
   get isWeekly() {
     return this.recurringInterval === 'week';
   }

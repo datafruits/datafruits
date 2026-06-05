@@ -104,14 +104,12 @@ export default class ScheduledShow extends Model {
   }
 
   get imageOrDefault() {
-    if (this.asImageUrl) {
-      return this.asImageUrl;
-    } else if (this.imageUrl) {
-      return this.imageUrl;
-    } else {
-      // TODO return this.showSeries.get('asImageUrl');
-      return this.showSeries.get('imageUrl');
-    }
+    if (this.asImageUrl) return this.asImageUrl;
+    if (this.imageUrl) return this.imageUrl;
+    if (this.thumbImageUrl) return this.thumbImageUrl;
+    const seriesImage = this.showSeries.get?.('imageUrl') || this.showSeries.get?.('thumbImageUrl');
+    if (seriesImage) return seriesImage;
+    return '/assets/images/show_placeholder.jpg';
   }
 
   get airDatePassed() {
