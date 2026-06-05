@@ -8,13 +8,7 @@ interface MyShowsEpisodeCardArgs {
 
 export default class MyShowsEpisodeCard extends Component<MyShowsEpisodeCardArgs> {
   get backgroundStyle() {
-    let image;
-    const show = this.args.episode;
-    if (show.imageUrl) {
-      image = show.imageUrl;
-    } else {
-      image = '/assets/images/show_placeholder.jpg';
-    }
+    const image = this.args.episode.imageOrDefault;
     return htmlSafe(`background-image: url('${image}');`);
   }
 }

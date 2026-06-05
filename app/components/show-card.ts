@@ -8,17 +8,7 @@ interface ShowCardArgs {
 
 export default class ShowCardComponent extends Component<ShowCardArgs> {
   get backgroundStyle() {
-    let image;
-    const show = this.args.showSeries;
-    if (show.thumbImageUrl) {
-      image = show.thumbImageUrl;
-    // } else if (show.isGuest) {
-    //   image = '/assets/images/show_placeholder.jpg';
-    // } else if (show.host && show.host.imageUrl) {
-    //   image = show.host.imageUrl;
-    } else {
-      image = '/assets/images/show_placeholder.jpg';
-    }
+    const image = this.args.showSeries.thumbImageOrDefault;
     return htmlSafe(`background-image: url('${image}');`);
   }
 }

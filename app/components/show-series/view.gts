@@ -35,7 +35,7 @@ export default class ShowSeriesView extends Component<ShowSeriesViewArgs> {
   }
 
   get backgroundImageStyle(): ReturnType<typeof htmlSafe> {
-    return htmlSafe(`background-image: url(${this.args.showSeries.imageUrl})`);
+    return htmlSafe(`background-image: url(${this.args.showSeries.imageOrDefault})`);
   }
 
   get canEdit(): boolean {
