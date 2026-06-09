@@ -6,10 +6,10 @@ export default class HomeUserMyShowsEpisodesController extends Controller{
   @service store;
 
   get fetchArchives() {
-    return this.store.query('scheduled-show', { showSeries: this.model.slug, status: 'archive_published' });
+    return this.store.query('scheduled-show', { showSeries: this.model.slug, range: 'past' });
   }
 
   get fetchUpcoming() {
-    return this.store.query('scheduled-show', { showSeries: this.model.slug, status: 'archive_unpublished' });
+    return this.store.query('scheduled-show', { showSeries: this.model.slug, range: 'future' });
   } // normal class body definition here
 }
