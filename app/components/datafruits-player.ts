@@ -9,6 +9,7 @@ import VideoStreamService from 'datafruits13/services/video-stream';
 import ENV from 'datafruits13/config/environment';
 import type EventBusService from 'datafruits13/services/event-bus';
 import { TrackEventPayload } from '../types/player';
+import Hls from 'hls.js';
 
 enum PlayerState {
   Playing = 'playing',
@@ -18,6 +19,8 @@ enum PlayerState {
 }
 
 export default class DatafruitsPlayer extends Component {
+  STREAM = "https://viz.streampusher.com:16666/datafruits_hls/live.m3u8";
+
   @service
   declare eventBus: EventBusService;
 
@@ -323,6 +326,15 @@ export default class DatafruitsPlayer extends Component {
   @action
   didInsert() {
     if (!this.fastboot.isFastBoot) {
+      if (Hls.isSupported()) {
+        const hls = new Hls({
+          enableWorker: true,
+          lowLatencyMode: true
+        });
+        const video = document.getElementById("video-player") as HTMLVideoElement;
+        hls.loadSource(this.STREAM);
+        hls.attachMedia(video);
+      }
       const audioTag = document.getElementById(
         "radio-player"
       ) as HTMLAudioElement;

@@ -418,6 +418,9 @@ importers:
       handlebars:
         specifier: ^4.7.8
         version: 4.7.8
+      hls.js:
+        specifier: ^1.6.16
+        version: 1.6.16
       loader.js:
         specifier: ^4.7.0
         version: 4.7.0
@@ -5965,6 +5968,9 @@ packages:
 
   hex-color-regex@1.1.0:
     resolution: {integrity: sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==}
+
+  hls.js@1.6.16:
+    resolution: {integrity: sha512-VSIRpLfRwlAAdGL4wiTucx2ScRipo0ed1FBatWkyt832jC4CReKstga6yIhYVwGu9LOBjuX9wzmRMeQdBJtzEA==}
 
   hmac-drbg@1.0.1:
     resolution: {integrity: sha512-Tti3gMqLdZfhOQY1Mzf/AanLiqh1WTiJgEj26ZuYQ9fbkLomzGchCws4FyrSd4VkpBfiNhaE1On+lOz894jvXg==}
@@ -17308,6 +17314,8 @@ snapshots:
       rsvp: 3.2.1
 
   hex-color-regex@1.1.0: {}
+
+  hls.js@1.6.16: {}
 
   hmac-drbg@1.0.1:
     dependencies:
