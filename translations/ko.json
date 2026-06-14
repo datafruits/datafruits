@@ -210,5 +210,8 @@
   },
   "container": {
     "logo_aria": "datafruits.fm 홈페이지"
+  },
+  "studio": {
+    "stream_key_warning": "스트림 키는 아무에게도 알려주지 마세요...그러면 당신인 척 방송할 수 있거든요. 근데 알고 있었죠, 그렇죠?"
   }
 }
