@@ -4,12 +4,11 @@ import { debounce } from '@ember/runloop';
 import Component from '@glimmer/component';
 import { isEmpty } from '@ember/utils';
 import { tracked } from '@glimmer/tracking';
-import VideoStreamService from 'datafruits13/services/video-stream';
+import type VideoStreamService from 'datafruits13/services/video-stream';
 // import type Track from 'datafruits13/models/track';
 import ENV from 'datafruits13/config/environment';
 import type EventBusService from 'datafruits13/services/event-bus';
 import { TrackEventPayload } from '../types/player';
-import Hls from 'hls.js';
 
 enum PlayerState {
   Playing = 'playing',
@@ -18,9 +17,12 @@ enum PlayerState {
   Seeking = 'seeking'
 }
 
-export default class DatafruitsPlayer extends Component {
-  STREAM = "https://viz.streampusher.com:16666/datafruits_hls/live.m3u8";
+enum Source {
+  VideoStream = 'video',
+  Track = 'track'
+}
 
+export default class DatafruitsPlayer extends Component {
   @service
   declare eventBus: EventBusService;
 
@@ -41,6 +43,7 @@ export default class DatafruitsPlayer extends Component {
   @tracked muted = false;
   @tracked showingVolumeControl = false;
   @tracked playerState: PlayerState = PlayerState.Paused; //"playing", "loading"
+  @tracked currentSource: Source = Source.VideoStream;
   @tracked playButtonPressed = false;
   @tracked oldVolume = 0.8;
   @tracked playTimePercentage = 0.0;
@@ -198,24 +201,25 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   play() {
-    const audioTag = document.getElementById(
-      "radio-player"
-    ) as HTMLAudioElement;
-    if (this.playingPodcast === false) {
-      // reload stream
-      audioTag.src = `${ENV.ICECAST_HOST}/datafruits.mp3`;
+    if (this.currentSource == Source.VideoStream) {
+      this.videoStream.play();
+    } else {
+      const audioTag = document.getElementById(
+        "radio-player"
+      ) as HTMLAudioElement;
+      if (this.playingPodcast === false) {
+        // reload stream
+        audioTag.src = `${ENV.ICECAST_HOST}/datafruits.mp3`;
+      }
+      if (audioTag.readyState === 0) {
+        this.playerState = PlayerState.Loading;
+      }
+      audioTag.play().catch((e) => {
+        console.error('Audio play failed', e);
+      });
     }
-    if (audioTag.readyState === 0) {
-      this.playerState = PlayerState.Loading;
-    }
-    audioTag.play().catch((e) => {
-      console.error('Audio play failed', e);
-    });
     this.playButtonHover = false;
     this.playButtonPressed = true;
-
-    // play video for mobile
-    this.videoStream.play();
   }
 
   @action
@@ -326,15 +330,6 @@ export default class DatafruitsPlayer extends Component {
   @action
   didInsert() {
     if (!this.fastboot.isFastBoot) {
-      if (Hls.isSupported()) {
-        const hls = new Hls({
-          enableWorker: true,
-          lowLatencyMode: true
-        });
-        const video = document.getElementById("video-player") as HTMLVideoElement;
-        hls.loadSource(this.STREAM);
-        hls.attachMedia(video);
-      }
       const audioTag = document.getElementById(
         "radio-player"
       ) as HTMLAudioElement;

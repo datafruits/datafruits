@@ -34,29 +34,29 @@ export default class DatafruitsVisuals extends Component {
   @service
   videoStream;
 
-  @action
-  initIfActive() {
-    if (!this.fastboot.isFastBoot) {
-      if (this.videoStream.active) {
-        this.videoStream.initializePlayer();
-      }
-    }
-  }
-
-  @action
-  didInsert() {
-    if (!this.fastboot.isFastBoot) {
-      if (this.videoStream.active) {
-        this.videoStream.initializePlayer();
-      } else {
-        if (ENV.environment === 'test') return;
-        later(() => {
-          this.videoStream.fetchStream();
-        }, 15000);
-      }
-    }
-  }
-
+  // @action
+  // initIfActive() {
+  //   if (!this.fastboot.isFastBoot) {
+  //     if (this.videoStream.active) {
+  //       this.videoStream.initializePlayer();
+  //     }
+  //   }
+  // }
+  //
+  // @action
+  // didInsert() {
+  //   if (!this.fastboot.isFastBoot) {
+  //     if (this.videoStream.active) {
+  //       this.videoStream.initializePlayer();
+  //     } else {
+  //       if (ENV.environment === 'test') return;
+  //       later(() => {
+  //         this.videoStream.fetchStream();
+  //       }, 15000);
+  //     }
+  //   }
+  // }
+  //
   dragStart(event) {
     console.log('dragStart');
     console.log(event);
