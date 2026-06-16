@@ -38,7 +38,7 @@ export default class VideoStreamService extends Service {
 
   // player: videojs.Player | null = null;
 
-  playerState: PlayerState = PlayerState.Paused;
+  @tracked playerState: PlayerState = PlayerState.Paused;
 
   constructor() {
     super(...arguments);

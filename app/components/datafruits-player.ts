@@ -251,14 +251,12 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   mute() {
-    if (this.videoAudioOn) {
-      this.videoStream.mute();
-    } else {
-      const audioTag = document.getElementById(
-        "radio-player"
-      ) as HTMLAudioElement;
-      audioTag.muted = true;
-    }
+    this.videoStream.mute();
+    const audioTag = document.getElementById(
+      "radio-player"
+    ) as HTMLAudioElement;
+    audioTag.muted = true;
+
     this.muted = true;
     this.oldVolume = this.volume;
     this.volume = 0.0;
@@ -267,14 +265,11 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   unmute() {
-    if (this.videoAudioOn) {
-      this.videoStream.unmute();
-    } else {
-      const audioTag = document.getElementById(
-        "radio-player"
-      ) as HTMLAudioElement;
-      audioTag.muted = false;
-    }
+    this.videoStream.unmute();
+    const audioTag = document.getElementById(
+      "radio-player"
+    ) as HTMLAudioElement;
+    audioTag.muted = false;
     this.muted = false;
     this.volume = this.oldVolume;
     localStorage.setItem("datafruits-volume", this.volume.toString());
