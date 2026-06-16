@@ -6,6 +6,7 @@ import type EventBusService from 'datafruits13/services/event-bus';
 import Hls from 'hls.js';
 
 enum PlayerState {
+  //Loading = 'loading',
   Playing = 'playing',
   Paused = 'paused'
 }

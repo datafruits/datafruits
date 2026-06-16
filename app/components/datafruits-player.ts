@@ -58,15 +58,27 @@ export default class DatafruitsPlayer extends Component {
   }
 
   get paused(): boolean {
-    return this.playerState === PlayerState.Paused;
+    if(this.currentSource === Source.VideoStream) {
+      return this.videoStream.playerState === 'paused';
+    } else {
+      return this.playerState === PlayerState.Paused;
+    }
   }
 
   get playing(): boolean {
-    return this.playerState === PlayerState.Playing;
+    if(this.currentSource === Source.VideoStream) {
+      return this.videoStream.playerState === 'playing';
+    } else {
+      return this.playerState === PlayerState.Playing;
+    }
   }
 
   get loading(): boolean {
-    return this.playerState === PlayerState.Loading;
+    if(this.currentSource === Source.VideoStream) {
+      return false;
+    } else {
+      return this.playerState === PlayerState.Loading;
+    }
   }
 
   constructor(owner: unknown, args: any) {
