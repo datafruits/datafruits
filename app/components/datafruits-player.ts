@@ -288,14 +288,19 @@ export default class DatafruitsPlayer extends Component {
   volumeChanged(e: any) {
     this.volume = e.target.value;
     localStorage.setItem("datafruits-volume", this.volume.toString());
-    if (this.videoAudioOn) {
-      this.videoStream.setVolume(this.volume);
-    } else {
-      const audioTag = document.getElementById(
-        "radio-player"
-      ) as HTMLAudioElement;
-      audioTag.volume = this.volume;
-    }
+    this.videoStream.setVolume(this.volume);
+    const audioTag = document.getElementById(
+      "radio-player"
+    ) as HTMLAudioElement;
+    audioTag.volume = this.volume;
+    // if (this.videoAudioOn) {
+    //   this.videoStream.setVolume(this.volume);
+    // } else {
+    //   const audioTag = document.getElementById(
+    //     "radio-player"
+    //   ) as HTMLAudioElement;
+    //   audioTag.volume = this.volume;
+    // }
   }
 
   @action
