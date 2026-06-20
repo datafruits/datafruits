@@ -13,6 +13,7 @@ export default class EmojiSelectorEmojiComponent extends Component {
       ':cabbage:',
       ':canteloper:',
       ':corncobby:',
+      ':coconutty:',
       ':dragion-fruit:',
       ':lemoner:',
       ':limer:',
