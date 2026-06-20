@@ -224,6 +224,14 @@ export function initialize(/* application */) {
       shortnames: [':corncobby:'],
       keywords: ['corncobby'],
     },
+    ':coconutty:': {
+      custom: true,
+      animated: true,
+      uc_base: 'coconutty',
+      uc_output: '',
+      shortnames: [':coconutty:'],
+      keywords: ['coconutty'],
+    },
     ':miniburger:': {
       custom: true,
       uc_base: 'miniburger',
