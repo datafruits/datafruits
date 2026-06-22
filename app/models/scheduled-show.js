@@ -2,7 +2,7 @@ import Model, { attr, hasMany, belongsTo } from '@ember-data/model';
 
 export default class ScheduledShow extends Model {
   @belongsTo('show-series', { async: true, inverse: null }) showSeries;
-  @belongsTo('recording', { async: false, inverse: null }) recording;
+  @hasMany('recording', { async: false, inverse: null }) recording;
   @hasMany('post', {
     async: false,
     inverse: null,

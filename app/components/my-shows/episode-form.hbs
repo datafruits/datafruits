@@ -88,7 +88,14 @@
                 {{/each-in}}
               </select>
             </div>
-            <MyShows::RecordingSelector @changeset={{changeset}} />
+            {{#each this.tracks as |trackOption|}}
+              <MyShows::RecordingSelector @changeset={{changeset}} @trackOption={{trackOption}} />
+            {{/each}}
+            <button
+              {{on "click" this.addTrack}}
+              class="cool-button">
+              Add track
+            </button>
             <div class="my-2 py-2">
               <Form.Input
                 @label={{t "profile.my-shows.form.youtube-link"}}

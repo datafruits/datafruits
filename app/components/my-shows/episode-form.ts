@@ -11,6 +11,13 @@ interface MyShowsEpisodeFormArgs {
   episode: ScheduledShow;
 }
 
+interface TrackOption {
+  option: 'prerecorded' |  'upload';
+  trackId: string | null;
+  trackFilename: string | null;
+  recordingId: string | null;
+}
+
 export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs> {
   @service declare router: any;
   @service declare currentUser: any;
@@ -31,6 +38,8 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   @tracked isUploading: boolean = false;
 
   @tracked trackOption: string = 'upload';
+
+  @tracked tracks: TrackOption[] = [];
 
   @action
   onStartUpload() {
@@ -106,6 +115,11 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
   selectTrackOption(option: 'upload' | 'track'): void {
     this.trackOption = option;
  }
+
+  @action
+  addTrack() {
+    this.tracks.pushObject({});
+  }
 
  get imagePreviewSrc(): string | null {
    if(this.imagePreview) {
