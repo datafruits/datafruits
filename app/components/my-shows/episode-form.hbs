@@ -89,9 +89,11 @@
               </select>
             </div>
             {{#each this.tracks as |trackOption|}}
+              {{log trackOption}}
               <MyShows::RecordingSelector @changeset={{changeset}} @trackOption={{trackOption}} />
             {{/each}}
             <button
+              type="button"
               {{on "click" this.addTrack}}
               class="cool-button">
               Add track

@@ -39,7 +39,7 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
 
   @tracked trackOption: string = 'upload';
 
-  @tracked tracks: TrackOption[] = [];
+  @tracked tracks: TrackOption[] = [{option: 'prerecorded', trackId: null, trackFilename: null, recordingId: null}];
 
   @action
   onStartUpload() {
@@ -117,8 +117,10 @@ export default class MyShowsEpisodeForm extends Component<MyShowsEpisodeFormArgs
  }
 
   @action
-  addTrack() {
-    this.tracks.pushObject({});
+  addTrack(event: Event) {
+    event.preventDefault();
+    console.log("adding track");
+    this.tracks = [...this.tracks, {option: 'prerecorded', trackId: null, trackFilename: null, recordingId: null}];
   }
 
  get imagePreviewSrc(): string | null {
