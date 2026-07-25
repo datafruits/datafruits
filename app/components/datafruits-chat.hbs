@@ -44,7 +44,7 @@
       {{else}}
         <form align="center" class="mb-3" {{on "submit" this.enterChatAnonymously}}>
           {{!-- Nickname input + Join chat button --}}
-          <div class="flex justify-center">
+          <div class="flex justify-center flex-col md:flex-row">
             <label for="nick">{{t "chat.label.nick"}}</label>
             <Input
               @type="text"
