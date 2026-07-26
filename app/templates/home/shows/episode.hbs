@@ -1,6 +1,6 @@
 <section class="page-spacing">
-  <section class="flex w-full">
-    <section class="w-1/2">
+  <section class="flex flex-col md:flex-row w-full">
+    <section class="md:w-1/2">
       <div style={{html-safe-string (concat "background-image: url('" this.model.imageOrDefault "')")}} alt={{this.model.title}} class="w-full h-full show-image bg-top bg-cover"></div>
       <h1 class="text-3xl">
         {{this.model.title}}
@@ -78,7 +78,7 @@
         </section>
       </div>
     </section>
-    <section class="w-1/2">
+    <section class="md:w-1/2">
         {{#if this.model.tracklist}}
           <h1 class="text-2xl">{{t "show.tracklist"}}</h1>
         {{/if}}
