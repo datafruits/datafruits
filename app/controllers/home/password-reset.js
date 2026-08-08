@@ -18,7 +18,8 @@ export default class PasswordResetController extends Controller {
   @tracked submitted = false;
 
   @action
-  submit() {
+  submit(e) {
+    e.preventDefault();
     let data = {
       user: {
         email: this.email,
