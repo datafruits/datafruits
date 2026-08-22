@@ -20,6 +20,7 @@ export default class RandomBannerAd extends Component {
     { img: "/assets/images/ad-datafruits-radio-support.png", link: "https://datafruits.fm/support" },
     { img: "/assets/images/ad-datafruits-strawbur.png", link: "" },
     { img: "/assets/images/ad-monday-nite-fruits.png", link: "https://datafruits.fm/shows/monday-night-fruits" },
+    { img: "/assets/images/ad-craft-radio.png", link: "https://datafruits.fm/shows/craft_radio-w-host-synkretic" },
   ]
 
   constructor(owner: unknown, args: any) {
