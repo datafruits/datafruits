@@ -18,6 +18,7 @@ interface PodcastTrackArgs {
     id: number | string;
     cdnUrl?: string;
     title?: string;
+    podcast?: any; // Ember Data relationship
     get?: (key: string) => any; // for Ember Data compatibility
   };
   selectedLabels: string[];
@@ -29,6 +30,22 @@ export default class PodcastTrack extends Component<PodcastTrackArgs> {
     super(owner, args);
     this.eventBus.subscribe('trackPlayed', this, 'onTrackPlayed');
     this.eventBus.subscribe('trackPaused', this, 'onTrackPaused');
+    void this.checkPodcastFavoriteStatus();
+  }
+
+  async checkPodcastFavoriteStatus() {
+    try {
+      const podcast = await this.args.track.podcast;
+      if (podcast) {
+        const isCurrentlyFavorited = this.currentUser.user.podcastFavorites
+          .map((favorite: { podcastId: number }) => favorite.podcastId)
+          .includes(parseInt(podcast.id));
+        this.podcastFavoriteState = isCurrentlyFavorited;
+      }
+    } catch (error) {
+      console.log('Error checking podcast favorite status:', error);
+      this.podcastFavoriteState = false;
+    }
   }
 
   @action
@@ -56,6 +73,9 @@ export default class PodcastTrack extends Component<PodcastTrackArgs> {
 
   @tracked
   playerState: PlayerState = PlayerState.Paused;
+
+  @tracked
+  podcastFavoriteState: boolean | null = null;
 
   get playing(): boolean {
     return this.playerState === PlayerState.Playing;
@@ -141,11 +161,56 @@ export default class PodcastTrack extends Component<PodcastTrackArgs> {
       });
   }
 
+  @action
+  favoritePodcast(): void {
+    // First get the podcast from the track
+    this.args.track.podcast.then((podcast: any) => {
+      const podcastFavorite = this.store.createRecord('podcastFavorite', {
+        podcast: podcast,
+      });
+      podcastFavorite
+        .save()
+        .then(() => {
+          this.currentUser.user.podcastFavorites.push(podcastFavorite);
+          this.podcastFavoriteState = true;
+          console.log('faved podcast');
+        })
+        .catch((error: Error) => {
+          console.log(`oh no error: ${error}`);
+        });
+    });
+  }
+
+  @action
+  unfavoritePodcast(): void {
+    this.args.track.podcast.then((podcast: any) => {
+      const podcastFavorite = this.currentUser.user.podcastFavorites.find(
+        (podcastFavorite: { podcastId: number }) =>
+          podcastFavorite.podcastId === parseInt(podcast.id)
+      );
+      if (podcastFavorite) {
+        podcastFavorite
+          .destroyRecord()
+          .then(() => {
+            this.podcastFavoriteState = false;
+            console.log('unfaved podcast');
+          })
+          .catch((error: Error) => {
+            console.log(`oh no error: ${error}`);
+          });
+      }
+    });
+  }
+
   get isFavorited(): boolean {
     const id = this.args.show.id;
     return this.currentUser.user.scheduledShowFavorites
       .map((favorite: { scheduledShowId: number }) => favorite.scheduledShowId)
       .includes(parseInt(`${id}`));
+  }
+
+  get isPodcastFavorited(): boolean {
+    return this.podcastFavoriteState === true;
   }
 
   get backgroundStyle(): ReturnType<typeof htmlSafe> {
