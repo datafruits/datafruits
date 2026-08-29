@@ -79,7 +79,21 @@
       "fruits": "View the fruits",
       "emoji": "Post an emoji",
       "buddy_list_button": "Show users in the chatroom",
-      "camera": "Use a camera to share a selfie"
+      "camera": "Use a camera to share a selfie",
+      "gift_subscription": "Buy gift subscriptions"
+    },
+    "gift_subscription": {
+      "title": "Buy Gift Subscriptions",
+      "quantity_label": "How many gift subscriptions?",
+      "subscription": "subscription",
+      "subscriptions": "subscriptions",
+      "recipient_label": "Who should receive the gift? (optional)",
+      "search_placeholder": "Search for a user...",
+      "optional_note": "Leave blank to gift to a random user in chat",
+      "random_note": "Gift subscriptions will be given to random users in chat, prioritizing those without supporter roles",
+      "purchase": "Purchase Gift Subscriptions",
+      "purchasing": "Purchasing...",
+      "cancel": "Cancel"
     }
   },
   "wiki": {
