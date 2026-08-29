@@ -13,8 +13,9 @@ module('Integration | Component | labels-select', function(hooks) {
   test('it renders', async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
+    this.changeset = { labels: [] };
 
-    await render(hbs`{{labels-select}}`);
+    await render(hbs`<LabelsSelect @changeset={{this.changeset}} />`);
 
     assert.equal(this.element?.textContent?.trim(), 'Tags');
   });

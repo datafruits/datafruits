@@ -35,17 +35,19 @@ export default class LabelsSelect extends Component<LabelsSelectArgs> {
   createTag(name: string) {
     const store = this.store;
     const label = store.createRecord('label', { name: name });
-    const onSuccess = (label: Label) => {
+    const onSuccess = (savedLabel: Label) => {
       console.log('label saved!');
-      this.args.changeset.get('labels').push(label);
-      this.args.changeset.get('labelIds').push(label.get('id'));
+      const labels = this.args.changeset.get('labels') || [];
+      this.setSelectedLabels([...labels, savedLabel]);
+      return savedLabel;
     };
     const onFail = (response: any) => {
       this.error = 'Failed to save tag: ' + response.errors[0].detail;
       //this.flashMessages.danger('Sorry, something went wrong!');
       console.log('label save failed');
+      return null;
     };
-    label.save().then(onSuccess, onFail);
+    return label.save().then(onSuccess, onFail);
   }
 
   @action

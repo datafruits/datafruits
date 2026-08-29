@@ -23,7 +23,6 @@ declare module '@glint/environment-ember-loose/registry' {
       Return: void;
     }>;
     PowerSelect: ComponentLike;
-    PowerSelectMultipleWithCreate: ComponentLike;
     changeset: HelperLike<{
       Args: { Positional: [model: any, validations: any] };
       Return: BufferedChangeset;
@@ -31,4 +30,3 @@ declare module '@glint/environment-ember-loose/registry' {
     'format-message-body': HelperLike;
   }
 }
-
