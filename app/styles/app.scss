@@ -881,6 +881,13 @@ body::-webkit-scrollbar-thumb {
   border-style: solid;
   border-color: #ebebeb;
   border-width: 5px;
+  
+  /* Set default size and enable resizing */
+  width: auto;
+  height: auto;
+  min-width: 300px;
+  min-height: 200px;
+  
   .modal-top {
     padding: 5px;
     filter: contrast(180%) brightness(100%);
@@ -901,6 +908,58 @@ body::-webkit-scrollbar-thumb {
 .modal.dragging {
   box-shadow: none;
   @apply border-4 border-dotted border-df-green;
+}
+
+.modal.resizing {
+  box-shadow: none;
+  @apply border-4 border-dashed border-df-yellow;
+}
+
+/* Resize handles */
+.resize-handle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.resize-handle-right {
+  top: 0;
+  right: -5px;
+  width: 10px;
+  height: 100%;
+  cursor: ew-resize;
+}
+
+.resize-handle-bottom {
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  cursor: ns-resize;
+}
+
+.resize-handle-corner {
+  bottom: -5px;
+  right: -5px;
+  width: 15px;
+  height: 15px;
+  cursor: nw-resize;
+  
+  /* Add a small visual indicator for the corner */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-bottom: 8px solid rgba(255, 255, 255, 0.7);
+  }
 }
 
 .tier-header {
