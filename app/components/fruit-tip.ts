@@ -23,6 +23,7 @@ export default class FruitTipComponent extends Component {
   @service declare session: any;
 
   @tracked fruitTypes = fruitTypes;
+  @tracked isPaidFruitSummonInProgress = false;
 
   get fruitCountTotal() {
     return this.chat.getFruitCount('total');
@@ -48,8 +49,14 @@ export default class FruitTipComponent extends Component {
   async fruitTip(fruit: Fruit, event: PointerEvent) {
     event.preventDefault();
     if (fruit.cost > 0) {
+      // Prevent multiple concurrent paid fruit summons
+      if (this.isPaidFruitSummonInProgress) {
+        return;
+      }
+      
       const result = confirm(`This fruit summon will cost Ƒ${fruit.cost} fruit tickets. Are you sure you want to blow your hard earned cash?`);
       if (result) {
+        this.isPaidFruitSummonInProgress = true;
         const fruitSummon = this.store.createRecord('fruit-summon', { name: fruit.name });
         try {
           await fruitSummon.save();
@@ -59,6 +66,8 @@ export default class FruitTipComponent extends Component {
         } catch (error) {
           alert('couldnt do fruit summon!');
           console.log(error);
+        } finally {
+          this.isPaidFruitSummonInProgress = false;
         }
       }
     } else {
