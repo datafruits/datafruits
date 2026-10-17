@@ -1,11 +1,10 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
-//import { action } from '@ember/object';
 import { htmlSafe } from '@ember/template';
-import { SafeString } from 'handlebars';
-import emojione from 'emojione';
+import type { SafeString } from '@ember/template';
 import type ShowSeries from 'datafruits13/models/show-series';
 import type RouterService from '@ember/routing/router-service';
+import type EmojiZoneService from 'datafruits13/services/emoji-zone';
 import { LinkTo } from '@ember/routing';
 import { t } from 'ember-intl';
 import formatTime from '../../helpers/format-time';
@@ -20,18 +19,21 @@ export default class ShowSeriesView extends Component<ShowSeriesViewArgs> {
   @service declare session: any;
   @service declare currentUser: any;
   @service declare router: RouterService;
-
-  // @action
-  // browseLabel(label) {
-  //   this.router.transitionTo('home.podcasts', { queryParams: { tags: label.name } });
-  // }
+  @service('emoji-zone') declare emojiZone: EmojiZoneService;
 
   get description(): SafeString | undefined {
-    if(this.args.showSeries.description) {
-      return htmlSafe(emojione.shortnameToImage(this.args.showSeries.description));
-    } else {
-      return undefined;
+    const raw = this.args.showSeries.description;
+    if (!raw) return undefined;
+
+    let text = raw;
+    const emojiMap = this.emojiZone?.emojiMap;
+    if (this.emojiZone && emojiMap) {
+      text = text.replace(/:([a-zA-Z0-9_+-]+):/g, (match: string, name: string) => {
+        const html = this.emojiZone.htmlFor(name);
+        return html || match;
+      });
     }
+    return htmlSafe(text);
   }
 
   get backgroundImageStyle(): ReturnType<typeof htmlSafe> {

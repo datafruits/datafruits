@@ -3,22 +3,28 @@ import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { htmlSafe } from "@ember/template";
 import { SafeString } from "handlebars";
-import emojione from "emojione";
 
 export default class DjController extends Controller {
   @service router;
+  @service('emoji-zone') emojiZone;
   queryParams = ["page"];
 
   @action
   browseLabel(label) {
     this.router.transitionTo("home.podcasts", {
-      queryParams: { tags: label.name },
+      queryQueryParams: { tags: label.name },
     });
   }
 
   get modelBio() {
     if (!this.model.bio) return undefined;
-    return htmlSafe(emojione.shortnameToImage(this.model.bio));
+    
+    // Replace standard :shortname: patterns with local custom emoji assets via EmojiZoneService
+    let parsedBio = this.model.bio.replace(/:([a-zA-Z0-9_+-]+):/g, (match, name) => {
+      return this.emojiZone.htmlFor(name) || match;
+    });
+
+    return htmlSafe(parsedBio);
   }
 
   get qualifiedHomepageUrl() {

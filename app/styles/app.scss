@@ -292,9 +292,6 @@ pre {
 }
 
 .cool-button {
-  & img.emojione {
-    height: 2ex !important;
-  }
   &:hover,
   &:focus {
     @apply bg-df-blue-dark;
@@ -321,6 +318,16 @@ pre {
   }
 }
 
+.cool-button {
+  img.inline-emoji {
+    height: 1.5em !important;
+    vertical-align: -0.2em;
+    width: auto !important;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
 .chat-input {
   .cool-button {
     height: 38px;
@@ -335,11 +342,6 @@ pre {
 .modal-body form div {
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
-}
-
-img.emojione {
-  height: 4.5ex !important;
-  display: inline;
 }
 
 //chat autofill emoji and username picker
@@ -513,6 +515,7 @@ li.ember-power-select-multiple-option {
   &:focus {
     @apply bg-df-green-dark;
     @apply border-solid border-2 border-gray-100;
+    @apply cursor-not-allowed opacity-50; // Note: this looks like a minor duplication/overlap in donate-button states, but harmless
   }
 
   &:disabled {
@@ -735,7 +738,7 @@ canvas#pixi {
   right: 25px;
   /* https://stackoverflow.com/a/14068216/173635 */
   image-rendering: optimizeSpeed; /* STOP SMOOTHING, GIVE ME SPEED  */
-  image-rendering: -moz-crisp-edges; /* Firefox                        */
+  image-rendering: -moz-crisp-edges; /* Firefox                         */
   image-rendering: -o-crisp-edges; /* Opera                          */
   image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
   image-rendering: pixelated; /* Chrome */
@@ -831,10 +834,6 @@ body::-webkit-scrollbar-thumb {
   @apply w-full mx-2 md:w-3/4;
   @apply classic:bg-df-pink blm:bg-black trans:bg-df-blue border-solid border-2 border-df-blue text-white;
 }
-
-// .ember-power-select-selected-item {
-//   color: white;
-// }
 
 .about-section,
 .support-section {
@@ -1028,6 +1027,22 @@ body::-webkit-scrollbar-thumb {
 
 .shake-text {
   animation: shake-text 0.3s infinite;
+}
+
+/* Single source of truth for all local emoji assets across the app */
+.inline-emoji {
+  display: inline-block;
+  vertical-align: middle;
+  height: 2.3em; /* Adjust this once to control size everywhere (chat + buttons) */
+  width: auto;
+}
+
+/* Automatically center any button that contains an emoji asset */
+button:has(.inline-emoji),
+.cool-button:has(.inline-emoji) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @tailwind utilities;

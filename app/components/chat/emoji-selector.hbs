@@ -1,13 +1,12 @@
 <span class="relative">
   {{!-- mobile view --}}
   <div class="inline-block md:hidden">
-    <button
-      class="cool-button"
+    <button class="cool-button"
+      title={{t "chat.titles.emoji"}} 
       type="button"
-      title={{t "chat.titles.emoji"}}
       {{on "click" this.openEmojiDialog}}
     >
-      {{this.pineappleEmoji}}
+      {{format-emoji-html ":pineapple:"}}
     </button>
     <Chat::BuddyListButton />
   </div>
@@ -39,7 +38,7 @@
       title={{t "chat.titles.emoji"}}
       {{on "click" this.openEmojiDialog}}
     >
-      {{this.smileEmoji}}
+      {{format-emoji-html ":smile:"}}
     </button>
   </div>
   <ChatSettings />
@@ -75,7 +74,7 @@
             title={{t "chat.titles.emoji"}}
             {{on "click" this.openEmojiDialog}}
           >
-            {{this.smileEmoji}}
+            {{format-emoji-html "smile"}}
           </button>
           {{#if this.session.isAuthenticated}}
             {{#if (gte this.currentUser.user.level 4)}}
@@ -85,7 +84,7 @@
                 title={{t "chat.titles.camera"}}
                 {{on "click" this.openCameraDialog}}
               >
-                {{this.cameraEmoji}}
+                {{format-emoji-html "camera"}}
               </button>
             {{/if}}
           {{/if}}

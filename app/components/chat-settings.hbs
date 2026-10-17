@@ -4,7 +4,7 @@
   {{on "click" this.toggleDialog}}
   title="Show the chat settings"
 >
-  {{this.gearIcon}}
+  {{format-emoji-html ":gear:"}}
 </button>
 {{#if this.showingDialog}}
   <Ui::Modal @toggleModal={{this.closeDialog}}>

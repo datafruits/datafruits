@@ -4,9 +4,7 @@ import { inject as service } from '@ember/service';
 
 import { tracked } from '@glimmer/tracking';
 import fruitTypes from '../../fruit-types';
-import emojione from 'emojione';
 import { htmlSafe } from '@ember/template';
-import { formatEmojiHtml } from 'datafruits13/helpers/format-emoji-html';
 
 export default class EmojiSelectorComponent extends Component {
   @service
@@ -14,19 +12,6 @@ export default class EmojiSelectorComponent extends Component {
 
   @service
   session;
-
-
-  get pineappleEmoji() {
-    return formatEmojiHtml(":pineapple:");
-  }
-
-  get smileEmoji() {
-    return formatEmojiHtml(":smile:");
-  }
-
-  get cameraEmoji() {
-    return formatEmojiHtml(":camera:");
-  }
 
   get randomFruitImage() {
     return fruitTypes[Math.floor(Math.random() * fruitTypes.length)].image;
