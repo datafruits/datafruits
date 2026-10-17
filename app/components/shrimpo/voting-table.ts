@@ -1,11 +1,9 @@
 import Component from '@glimmer/component';
 import type ShrimpoEntry from 'datafruits13/models/shrimpo-entry';
-//import type ShrimpoVote from 'datafruits13/models/shrimpo-vote';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { formatEmojiHtml } from 'datafruits13/helpers/format-emoji-html';
-import { emojiPath } from 'datafruits13/helpers/emoji-path';
 import { inject as service } from '@ember/service';
+import type EmojiZoneService from 'datafruits13/services/emoji-zone';
 
 interface ShrimpoVotingTableArgs {
   entry: ShrimpoEntry;
@@ -22,21 +20,18 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
   @service
   declare currentUser: any;
 
+  @service('emoji-zone')
+  declare emojiZone: EmojiZoneService;
+
   @tracked score: number = 1;
-
   @tracked voted: boolean = false;
-
-  //vote: ShrimpoVote;
 
   constructor(owner: unknown, args: any) {
     super(owner, args);
     const existingVote = this.args.entry.shrimpoVotes.find((vote: any) => {
       return vote.get('user.id') == this.currentUser.user.id;
     });
-    console.log(existingVote);
-    if(existingVote) {
-      console.log(existingVote.score);
-      //this.vote = existingVote;
+    if (existingVote) {
       this.score = existingVote.score;
       this.voted = true;
     }
@@ -44,20 +39,16 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
 
   @action
   async saveVote() {
-    //console.log(this.vote.get('shrimpoEntry'));
     const vote = this.store.createRecord('shrimpo-vote', {
       shrimpoEntry: this.args.entry,
       score: this.score
     });
     try {
       await vote.save();
-      console.log(vote);
       alert('saved shrimpo vote!');
       this.voted = true;
     } catch (error) {
-      console.log(vote);
       console.log(error);
-      console.trace();
       alert('couldnt save vote!');
     }
   }
@@ -67,11 +58,8 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
     this.score = event.target.value;
   }
 
-  get scoreEmoji() {
-    return formatEmojiHtml(this.args.entry.shrimpoEmoji);
-  }
-
   get scoreEmojiPath() {
-    return emojiPath([this.args.entry.shrimpoEmoji]);
+    // Resolve directly through the EmojiZoneService manifest mapping
+    return this.emojiZone.urlFor(this.args.entry.shrimpoEmoji);
   }
 }

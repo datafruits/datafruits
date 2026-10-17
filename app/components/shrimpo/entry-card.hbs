@@ -41,10 +41,10 @@
 
       <div>
         {{#if @categoryScore}}
-          <span>Total {{this.categoryScoreEmoji}}'s:</span>
+          <span>Total {{{this.categoryScoreEmoji}}}'s:</span>
           <span class="font-extrabold">{{@categoryScore.score}}</span>
         {{else}}
-          <span>Total {{this.scoreEmoji}}'s:</span>
+          <span>Total {{{this.scoreEmoji}}}'s:</span>
           <span class="font-extrabold">{{@shrimpoEntry.totalScore}}</span>
         {{/if}}
       </div>
