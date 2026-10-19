@@ -27,16 +27,6 @@ export default class ChatMessages extends Component {
   }
 
   @action
-  setupAutoscroll() {
-    if (this.chat.isScrolledToBottom) {
-      this.willAutoscroll = true;
-    } else {
-      this.args.newMessagesAvailable();
-      this.willAutoscroll = false;
-    }
-  }
-
-  @action
   adjustScrolling() {
     if (this.willAutoscroll) {
       const messages = document.getElementById('messages');
@@ -44,10 +34,21 @@ export default class ChatMessages extends Component {
     }
   }
 
+  @action
+  setupAutoscroll() {
+    if (this.scrolledToBottom()) {
+      this.willAutoscroll = true;
+    } else {
+      this.args.newMessagesAvailable();
+      this.willAutoscroll = false;
+    }
+  }
+
   scrolledToBottom() {
     const messages = document.getElementById('messages');
     const messagesHeight = messages.getBoundingClientRect().height;
-    const result = messages.scrollHeight - messages.scrollTop - messagesHeight < 1;
+    // Allow a buffer of 100px to account for newly injected message heights
+    const result = messages.scrollHeight - messages.scrollTop - messagesHeight < 100;
     return result;
   }
 }

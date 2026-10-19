@@ -61,10 +61,9 @@ export default class DatafruitsChat extends Component {
   onScroll() {
     if (this.checkScrolledToBottom()) {
       this.chat.isScrolledToBottom = true;
-      this.newMessagesBelow = false;
+      this.newMessagesBelow = false; // Clear it only when you return to the bottom
     } else {
       this.chat.isScrolledToBottom = false;
-      this.newMessagesBelow = true;
     }
     this.chat.scrollTop = document.getElementById('messages').scrollTop;
   }
