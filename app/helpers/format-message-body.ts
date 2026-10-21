@@ -20,7 +20,7 @@ export default class FormatMessageBody extends Helper {
       .replace(/'/g, '&#039;');
 
     // Replace :shortname: only if it exists in the emoji map
-    const parsed = escapedText.replace(/:([a-zA-Z0-9_+-]+):/g, (match, name) => {
+    const parsedEmojis = escapedText.replace(/:([a-zA-Z0-9_+-]+):/g, (match, name) => {
       const cleanName = name.toLowerCase();
       if (this.emojiZone?.emojiMap?.has(cleanName)) {
         return this.emojiZone.htmlFor(cleanName);
@@ -28,6 +28,12 @@ export default class FormatMessageBody extends Helper {
       return match; // Leave system text, notifications, and emoticons untouched
     });
 
-    return htmlSafe(parsed);
+    // Restore URL linkification with secure target/rel attributes
+    const urlPattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=_|!:,.;]*[-A-Z0-9+&@#\/%=_|])/ig;
+    const linkedText = parsedEmojis.replace(urlPattern, (url) => {
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+    });
+
+    return htmlSafe(linkedText);
   }
 }
