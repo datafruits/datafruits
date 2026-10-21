@@ -11,8 +11,16 @@ export default class FormatMessageBody extends Helper {
     const text = params[0];
     if (!text) return htmlSafe('');
 
+    // Escape raw HTML characters to prevent XSS vulnerabilities
+    const escapedText = text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+
     // Replace :shortname: only if it exists in the emoji map
-    const parsed = text.replace(/:([a-zA-Z0-9_+-]+):/g, (match, name) => {
+    const parsed = escapedText.replace(/:([a-zA-Z0-9_+-]+):/g, (match, name) => {
       const cleanName = name.toLowerCase();
       if (this.emojiZone?.emojiMap?.has(cleanName)) {
         return this.emojiZone.htmlFor(cleanName);
