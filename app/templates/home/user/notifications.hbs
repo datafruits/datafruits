@@ -1,11 +1,16 @@
 <div class="page-spacing">
-  <div class="flex">
-    {{#if this.model.length}}
-      <h1>{{t "profile.notifications.header"}}</h1>
-    {{else}}
-      <h1>{{t "profile.notifications.no_notifications_yet"}}</h1>
-    {{/if}}
-    <img src="/assets/images/futsu.png" alt="{{t "profile.notifications.pidgeon"}}" class="ml-2" />
+  <div class="flex items-center justify-between max-h-48 w-full">
+    <img class="h-24 w-auto object-contain ml-4" style="transform: scaleX(-1);" src="/assets/images/futsu.png" alt="{{t "profile.notifications.pidgeon"}}"/>
+    
+    <div class="flex-1 text-center px-4">
+      {{#if this.model.length}}
+        <h1 class="inline-block">{{t "profile.notifications.header"}}</h1>
+      {{else}}
+        <h1 class="inline-block">{{t "profile.notifications.no_notifications_yet"}}</h1>
+      {{/if}}
+    </div>
+
+    <img class="h-24 w-auto object-contain ml-4" src="/assets/images/futsu.png" alt="{{t "profile.notifications.pidgeon"}}"/>
   </div>
 
   <ul>

@@ -1,16 +1,19 @@
-<div
-  {{did-insert this.setUnread}}
+<div {{did-insert this.setUnread}}>
+  <button 
+    type="button" 
+    {{on "click" this.toggleNotificationsModal}} 
+    ...attributes 
+    class="text-shadow bg-df-green border border-white p-2 rounded-lg flex items-center justify-center {{if this.hasUnread "shake" ""}}"
   >
-  <button type="button" {{on "click" this.toggleNotificationsModal}} ...attributes class="text-shadow">
-    <img src="/assets/images/futsu.png"
-         style="max-width: none;"
-         alt="{{this.pidgeonTranslation}}"
-         class="{{if this.hasUnread "shake" ""}}" />
+    <img 
+      src="/assets/images/futsu.png"
+      style="height: 32px; width: 32px; max-width: none; object-fit: contain;"
+      alt="{{this.pidgeonTranslation}}" 
+    />
   </button>
+  
   {{#if this.showingNotificationsModal}}
-    <Ui::Modal
-        @toggleModal={{this.toggleNotificationsModal}}
-      >
+    <Ui::Modal @toggleModal={{this.toggleNotificationsModal}}>
       <div class="modal-body m-1">
         <h1>
           {{t "profile.notifications.title"}}
