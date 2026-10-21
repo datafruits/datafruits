@@ -12,10 +12,10 @@ export default class DjController extends Controller {
   @action
   browseLabel(label) {
     this.router.transitionTo("home.podcasts", {
-      queryQueryParams: { tags: label.name },
+      queryParams: { tags: label.name },
     });
   }
-
+  
   get modelBio() {
     if (!this.model.bio) return undefined;
     
