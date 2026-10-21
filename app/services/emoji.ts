@@ -32,7 +32,7 @@ export default class EmojiService extends Service {
     if (!EmojiService._current) {
       EmojiService._current = this;
     }
-    this.loadManifest();
+    void this.loadManifest();
   }
 
   async loadManifest() {

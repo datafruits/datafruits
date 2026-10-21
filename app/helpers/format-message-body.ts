@@ -29,6 +29,7 @@ export default class FormatMessageBody extends Helper {
     });
 
     // Restore URL linkification with secure target/rel attributes
+    // eslint-disable-next-line no-useless-escape
     const urlPattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=_|!:,.;]*[-A-Z0-9+&@#\/%=_|])/ig;
     const linkedText = parsedEmojis.replace(urlPattern, (url) => {
       return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;

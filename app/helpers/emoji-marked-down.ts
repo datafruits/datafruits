@@ -1,6 +1,6 @@
 import Helper from '@ember/component/helper';
 import { service } from '@ember/service';
-// @ts-ignore
+// @ts-expect-error: showdown lacks full type definitions
 import showdown from 'showdown';
 import { htmlSafe } from '@ember/template';
 import type { SafeString } from '@ember/template';
