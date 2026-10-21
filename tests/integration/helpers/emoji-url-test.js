@@ -2,10 +2,10 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import EmojiZoneService from 'datafruits13/services/emoji-zone';
+import EmojiService from 'datafruits13/services/emoji';
 
 // Create a test subclass to prevent network fetches and manifest race conditions
-class TestEmojiZoneService extends EmojiZoneService {
+class TestEmojiService extends EmojiService {
   loadManifest() {
     this.isLoaded = true;
   }
@@ -15,7 +15,7 @@ module('Integration | Helper | emoji-url', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
-    this.owner.register('service:emoji-zone', TestEmojiZoneService);
+    this.owner.register('service:emoji-zone', TestEmojiService);
   });
 
   test('it renders', async function (assert) {

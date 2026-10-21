@@ -1,16 +1,16 @@
 import Controller from '@ember/controller';
 import type ShrimpoEntry from 'datafruits13/models/shrimpo-entry';
 import { inject as service } from '@ember/service';
-import EmojiZoneService from 'datafruits13/services/emoji-zone';
+import EmojiService from 'datafruits13/services/emoji';
 
 export default class ContainerShrimposEntry extends Controller {
   declare model: ShrimpoEntry;
   @service declare currentUser: any;
   @service declare session: any;
-  @service('emoji-zone') declare emojiZone: EmojiZoneService
+  @service declare emoji: EmojiService
 
   get scoreEmoji() {
-    return this.emojiZone.htmlFor(this.model.shrimpoEmoji);
+    return this.emoji.htmlFor(this.model.shrimpoEmoji);
   }
 }
 

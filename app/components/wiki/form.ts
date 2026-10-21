@@ -6,7 +6,6 @@ import Store from '@ember-data/store';
 import RouterService from '@ember/routing/router-service';
 import { tracked } from '@glimmer/tracking';
 import type WikiPage from 'datafruits13/models/wiki-page';
-import type EmojiZoneService from 'datafruits13/services/emoji-zone';
 
 interface WikiFormSignature {
   Args: {
@@ -19,7 +18,6 @@ export default class WikiForm extends Component<WikiFormSignature> {
 
   @service declare store: Store;
   @service declare router: RouterService;
-  @service('emoji-zone') declare emojiZone: EmojiZoneService;
 
   @tracked previewBody: string = this.args.model.body || '';
   @tracked previewTitle: string = this.args.model.title || '';

@@ -1,8 +1,8 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { inject as service } from '@ember/service';
-import EmojiZoneService from 'datafruits13/services/emoji-zone';
+import { service } from '@ember/service';
+import type EmojiService from 'datafruits13/services/emoji';
 import type ChatService from 'datafruits13/services/chat';
 
 interface EmojiSelectorEmojiArgs {
@@ -22,28 +22,28 @@ export default class EmojiSelectorEmojiComponent extends Component<EmojiSelector
 
   @tracked width = 36;
   @service declare chat: ChatService;
-  @service('emoji-zone') declare emojiZone: EmojiZoneService;
+  @service declare emoji: EmojiService;
 
   get groupedEmojiOptions() {
-    const emojiZone = this.emojiZone;
-    
-    if (!emojiZone.isLoaded) {
+    const emojiService = this.emoji;
+
+    if (!emojiService?.isLoaded) {
       return [];
     }
 
-    const allManifest = emojiZone.manifest || [];
+    const allManifest = emojiService.manifest || [];
     const groupedEmojis = [];
 
     // 1. Recent emojis group
     const recentEmojis = (this.chat.recentEmojis || [])
       .map((shortname) => {
         const clean = shortname.replace(/^:|:$/g, '').toLowerCase();
-        const meta = emojiZone.emojiMap.get(clean);
+        const meta = emojiService.emojiMap.get(clean);
         if (!meta) return null;
         return {
           shortname: `:${meta.name}:`,
           file: meta.file,
-          url: emojiZone.urlFor(meta.name),
+          url: emojiService.urlFor(meta.name),
         };
       })
       .filter(Boolean);
@@ -70,7 +70,7 @@ export default class EmojiSelectorEmojiComponent extends Component<EmojiSelector
         .map((emoji) => ({
           shortname: `:${emoji.name}:`,
           file: emoji.file,
-          url: emojiZone.urlFor(emoji.name),
+          url: emojiService.urlFor(emoji.name),
         }));
 
       if (items.length > 0) {

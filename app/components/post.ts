@@ -1,8 +1,4 @@
 import Component from '@glimmer/component';
-import { service } from '@ember/service';
-import { htmlSafe } from '@ember/template';
-import type { SafeString } from '@ember/template';
-import type EmojiZoneService from 'datafruits13/services/emoji-zone';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
@@ -12,30 +8,17 @@ dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(localizedFormat);
 
-export default class Post extends Component {
-  @service('emoji-zone') declare emojiZone: EmojiZoneService;
+interface PostArgs {
+  post?: {
+    body?: string;
+    createdAt?: string | Date;
+  };
+}
 
-  get body(): SafeString {
-    // @ts-ignore
-    const postBody = this.args.post?.body;
-    if (!postBody) return htmlSafe('');
-
-    const parsedBody = postBody.replace(/:([a-zA-Z0-9_+-]+):/g, (match: string, name: string) => {
-      if (this.emojiZone) {
-        const url = this.emojiZone.urlFor(name);
-        if (url) {
-          return this.emojiZone.htmlFor(name);
-        }
-      }
-      return match;
-    });
-
-    return htmlSafe(parsedBody);
-  }
-
+export default class Post extends Component<{ Args: PostArgs }> {
   get formattedDate(): string {
-    // @ts-ignore
     const createdAt = this.args.post?.createdAt;
+    if (!createdAt) return '';
     const timeZone = dayjs.tz.guess();
     return dayjs(createdAt).tz(timeZone).format('LLL');
   }

@@ -12,14 +12,14 @@ export interface EmojiMetadata {
   animated?: boolean;
 }
 
-export default class EmojiZoneService extends Service {
-  private static _current?: EmojiZoneService;
+export default class EmojiService extends Service {
+  private static _current?: EmojiService;
 
-  static get current(): EmojiZoneService {
-    if (!EmojiZoneService._current) {
-      EmojiZoneService._current = new EmojiZoneService();
+  static get current(): EmojiService {
+    if (!EmojiService._current) {
+      EmojiService._current = new EmojiService();
     }
-    return EmojiZoneService._current;
+    return EmojiService._current;
   }
 
   @tracked emojiMap = new Map<string, EmojiMetadata>();
@@ -29,8 +29,8 @@ export default class EmojiZoneService extends Service {
 
   constructor() {
     super(...arguments);
-    if (!EmojiZoneService._current) {
-      EmojiZoneService._current = this;
+    if (!EmojiService._current) {
+      EmojiService._current = this;
     }
     this.loadManifest();
   }
@@ -39,7 +39,7 @@ export default class EmojiZoneService extends Service {
     try {
       const response = await fetch(`${this.basePath}/manifest.json`);
       if (!response.ok) {
-        console.error(`[EmojiZone] Failed to fetch manifest: ${response.status}`);
+        console.error(`[Emoji] Failed to fetch manifest: ${response.status}`);
         return;
       }
 
@@ -70,9 +70,9 @@ export default class EmojiZoneService extends Service {
       this.emojiMap = map;
       this.isLoaded = true;
 
-      console.log(`[EmojiZone] Successfully loaded ${manifest.length} emojis from manifest.`);
+      console.log(`[Emoji] Successfully loaded ${manifest.length} emojis from manifest.`);
     } catch (e) {
-      console.error('[EmojiZone] Failed to load emoji manifest', e);
+      console.error('[Emoji] Failed to load emoji manifest', e);
     }
   }
 

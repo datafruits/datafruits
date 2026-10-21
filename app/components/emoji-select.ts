@@ -1,15 +1,15 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import EmojiZoneService from 'datafruits13/services/emoji-zone';
 import { BufferedChangeset } from 'ember-changeset/types';
+import EmojiService from 'datafruits13/services/emoji';
 
 interface EmojiSelectArgs {
   changeset: BufferedChangeset;
 }
 
 export default class EmojiSelect extends Component<EmojiSelectArgs> {
-  @service('emoji-zone') declare emojiZone: EmojiZoneService;
+  @service declare emoji: EmojiService;
 
   @action
   selectEmoji(emoji: { shortname: string }) {
@@ -17,16 +17,15 @@ export default class EmojiSelect extends Component<EmojiSelectArgs> {
   }
 
   get emojiOptions() {
-    // Rely on the tracked emojiZone service state so it updates reactively upon load
-    if (!this.emojiZone.isLoaded) {
+    if (!this.emoji.isLoaded) {
       return [];
     }
 
-    const manifest = this.emojiZone.manifest || [];
+    const manifest = this.emoji.manifest || [];
     return manifest.map((emoji) => ({
       shortname: `:${emoji.name}:`,
       file: emoji.file,
-      url: this.emojiZone.urlFor(emoji.name),
+      url: this.emoji.urlFor(emoji.name),
       custom: true,
       animated: emoji.file?.endsWith('.gif') || false,
     }));

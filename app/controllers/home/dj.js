@@ -1,12 +1,9 @@
 import { action } from '@ember/object';
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { htmlSafe } from "@ember/template";
-import { SafeString } from "handlebars";
 
 export default class DjController extends Controller {
   @service router;
-  @service('emoji-zone') emojiZone;
   queryParams = ["page"];
 
   @action
@@ -14,17 +11,6 @@ export default class DjController extends Controller {
     this.router.transitionTo("home.podcasts", {
       queryParams: { tags: label.name },
     });
-  }
-  
-  get modelBio() {
-    if (!this.model.bio) return undefined;
-    
-    // Replace standard :shortname: patterns with local custom emoji assets via EmojiZoneService
-    let parsedBio = this.model.bio.replace(/:([a-zA-Z0-9_+-]+):/g, (match, name) => {
-      return this.emojiZone.htmlFor(name) || match;
-    });
-
-    return htmlSafe(parsedBio);
   }
 
   get qualifiedHomepageUrl() {

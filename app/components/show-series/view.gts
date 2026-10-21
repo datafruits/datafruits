@@ -1,13 +1,12 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
-import { htmlSafe } from '@ember/template';
-import type { SafeString } from '@ember/template';
 import type ShowSeries from 'datafruits13/models/show-series';
 import type RouterService from '@ember/routing/router-service';
-import type EmojiZoneService from 'datafruits13/services/emoji-zone';
+import type EmojiService from 'datafruits13/services/emoji';
 import { LinkTo } from '@ember/routing';
 import { t } from 'ember-intl';
 import formatTime from '../../helpers/format-time';
+import emojiMarkedDown from '../../helpers/emoji-marked-down';
 import TrackLabel from '../track-label';
 import EpisodeList from './episode-list';
 
@@ -19,25 +18,10 @@ export default class ShowSeriesView extends Component<ShowSeriesViewArgs> {
   @service declare session: any;
   @service declare currentUser: any;
   @service declare router: RouterService;
-  @service('emoji-zone') declare emojiZone: EmojiZoneService;
+  @service declare emoji: EmojiService;
 
-  get description(): SafeString | undefined {
-    const raw = this.args.showSeries.description;
-    if (!raw) return undefined;
-
-    let text = raw;
-    const emojiMap = this.emojiZone?.emojiMap;
-    if (this.emojiZone && emojiMap) {
-      text = text.replace(/:([a-zA-Z0-9_+-]+):/g, (match: string, name: string) => {
-        const html = this.emojiZone.htmlFor(name);
-        return html || match;
-      });
-    }
-    return htmlSafe(text);
-  }
-
-  get backgroundImageStyle(): ReturnType<typeof htmlSafe> {
-    return htmlSafe(`background-image: url(${this.args.showSeries.imageOrDefault})`);
+  get backgroundImageStyle() {
+    return `background-image: url(${this.args.showSeries.imageOrDefault})`;
   }
 
   get canEdit(): boolean {
@@ -94,7 +78,7 @@ export default class ShowSeriesView extends Component<ShowSeriesViewArgs> {
             </h3>
           {{/if}}
           <p>
-            {{this.description}}
+            {{emojiMarkedDown @showSeries.description}}
           </p>
         </div>
         <div class="p-2">

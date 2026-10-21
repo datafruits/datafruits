@@ -3,7 +3,7 @@ import type ShrimpoEntry from 'datafruits13/models/shrimpo-entry';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import type EmojiZoneService from 'datafruits13/services/emoji-zone';
+import type EmojiService from 'datafruits13/services/emoji';
 
 interface ShrimpoVotingTableArgs {
   entry: ShrimpoEntry;
@@ -20,8 +20,8 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
   @service
   declare currentUser: any;
 
-  @service('emoji-zone')
-  declare emojiZone: EmojiZoneService;
+  @service('emoji')
+  declare emoji: EmojiService;
 
   @tracked score: number = 1;
   @tracked voted: boolean = false;
@@ -58,8 +58,13 @@ export default class ShrimpoVotingTable extends Component<ShrimpoVotingTableArgs
     this.score = event.target.value;
   }
 
+  // Returns safe HTML for use in sentences via triple-curlies {{{this.scoreEmoji}}}
+  get scoreEmoji() {
+    return this.emoji.htmlFor(this.args.entry.shrimpoEmoji);
+  }
+
+  // Returns the raw URL string for img src attributes
   get scoreEmojiPath() {
-    // Resolve directly through the EmojiZoneService manifest mapping
-    return this.emojiZone.urlFor(this.args.entry.shrimpoEmoji);
+    return this.emoji.urlFor(this.args.entry.shrimpoEmoji);
   }
 }

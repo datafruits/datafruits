@@ -5,10 +5,10 @@ import showdown from 'showdown';
 import { htmlSafe } from '@ember/template';
 import type { SafeString } from '@ember/template';
 import { isBlank, isEmpty } from '@ember/utils';
-import type EmojiZoneService from 'datafruits13/services/emoji-zone';
+import type EmojiService from 'datafruits13/services/emoji';
 
 export default class EmojiMarkedDown extends Helper {
-  @service('emoji-zone') declare emojiZone: EmojiZoneService;
+  @service('emoji') declare emoji: EmojiService;
 
   compute(params: [string | undefined | null]): SafeString {
     const input = params[0];
@@ -16,13 +16,13 @@ export default class EmojiMarkedDown extends Helper {
       return htmlSafe('');
     }
 
-    const emojiMap = this.emojiZone?.emojiMap;
+    const emojiMap = this.emoji?.emojiMap;
     let text = String(input);
 
     // Replace valid custom emoji shortcodes
-    if (this.emojiZone && emojiMap && emojiMap.size > 0) {
+    if (this.emoji && emojiMap && emojiMap.size > 0) {
       text = text.replace(/:([a-zA-Z0-9_+-]+):/g, (match: string, name: string) => {
-        const html = this.emojiZone.htmlFor(name);
+        const html = this.emoji.htmlFor(name);
         return html || match;
       });
     }
