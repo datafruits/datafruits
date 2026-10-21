@@ -1,6 +1,9 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
-import { formatEmojiHtml } from "datafruits13/helpers/format-emoji-html";
+import { inject as service } from "@ember/service";
+import { htmlSafe } from "@ember/template";
+import type { SafeString } from "@ember/template";
+import type EmojiZoneService from "datafruits13/services/emoji-zone";
 
 interface CameraMenuArgs {
   closeDialog: any;
@@ -8,15 +11,23 @@ interface CameraMenuArgs {
 }
 
 export default class CameraMenu extends Component<CameraMenuArgs> {
-  get cameraEmoji() {
-    return formatEmojiHtml(":camera:");
+  @service('emoji-zone') declare emojiZone: EmojiZoneService;
+
+  get cameraEmoji(): SafeString {
+    if (!this.emojiZone) return htmlSafe('');
+    return htmlSafe(this.emojiZone.htmlFor("camera"));
   }
-  get checkMarkEmoji() {
-    return formatEmojiHtml(":heavy_check_mark:");
+
+  get checkMarkEmoji(): SafeString {
+    if (!this.emojiZone) return htmlSafe('');
+    return htmlSafe(this.emojiZone.htmlFor("heavy_check_mark"));
   }
-  get xMarkEmoji() {
-    return formatEmojiHtml(":heavy_multiplication_x:");
+
+  get xMarkEmoji(): SafeString {
+    if (!this.emojiZone) return htmlSafe('');
+    return htmlSafe(this.emojiZone.htmlFor("heavy_multiplication_x"));
   }
+
   @action
   didInsert() {
     navigator.mediaDevices
