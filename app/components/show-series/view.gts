@@ -1,14 +1,12 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
-//import { action } from '@ember/object';
-import { htmlSafe } from '@ember/template';
-import { SafeString } from 'handlebars';
-import emojione from 'emojione';
 import type ShowSeries from 'datafruits13/models/show-series';
 import type RouterService from '@ember/routing/router-service';
+import type EmojiService from 'datafruits13/services/emoji';
 import { LinkTo } from '@ember/routing';
 import { t } from 'ember-intl';
 import formatTime from '../../helpers/format-time';
+import emojiMarkedDown from '../../helpers/emoji-marked-down';
 import TrackLabel from '../track-label';
 import EpisodeList from './episode-list';
 
@@ -20,22 +18,10 @@ export default class ShowSeriesView extends Component<ShowSeriesViewArgs> {
   @service declare session: any;
   @service declare currentUser: any;
   @service declare router: RouterService;
+  @service declare emoji: EmojiService;
 
-  // @action
-  // browseLabel(label) {
-  //   this.router.transitionTo('home.podcasts', { queryParams: { tags: label.name } });
-  // }
-
-  get description(): SafeString | undefined {
-    if(this.args.showSeries.description) {
-      return htmlSafe(emojione.shortnameToImage(this.args.showSeries.description));
-    } else {
-      return undefined;
-    }
-  }
-
-  get backgroundImageStyle(): ReturnType<typeof htmlSafe> {
-    return htmlSafe(`background-image: url(${this.args.showSeries.imageOrDefault})`);
+  get backgroundImageStyle() {
+    return `background-image: url(${this.args.showSeries.imageOrDefault})`;
   }
 
   get canEdit(): boolean {
@@ -92,7 +78,7 @@ export default class ShowSeriesView extends Component<ShowSeriesViewArgs> {
             </h3>
           {{/if}}
           <p>
-            {{this.description}}
+            {{emojiMarkedDown @showSeries.description}}
           </p>
         </div>
         <div class="p-2">

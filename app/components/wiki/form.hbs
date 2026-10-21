@@ -1,6 +1,4 @@
-<div class="grid grid-cols-2 gap-2"
-  {{did-insert this.didInsert}}
-  >
+<div class="grid grid-cols-2 gap-2">
   <div class="">
     <span>{{t "wiki_form.markdown_help" htmlSafe=true}}</span>
     {{#let (changeset @model this.WikiPageValidations) as |changeset|}}
@@ -42,7 +40,7 @@
     {{/let}}
   </div>
   <div class="">
-    <h1>{{this.previewTitle}}</h1>
-    {{marked-down this.previewBody}}
+    <h1>{{emoji-marked-down this.previewTitle}}</h1>
+    {{emoji-marked-down this.previewBody}}
   </div>
 </div>

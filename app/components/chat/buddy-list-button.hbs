@@ -1,10 +1,10 @@
 <button
   {{on "click" this.toggleDialog}}
   type="button"
-  class="cool-button md:hidden"
+  class="cool-button"
   title="Show the buddy list"
 >
-  {{this.buddyListIcon}}
+  {{format-emoji-html ":busts_in_silhouette:"}}
 </button>
 {{#if this.showingDialog}}
   <Ui::Modal

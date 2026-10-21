@@ -1,16 +1,26 @@
-import emojione from 'emojione';
+export interface EmojiStrategyItem {
+  unicode: string;
+  shortname: string;
+  keywords: string[];
+  custom: boolean;
+  animated: boolean;
+  file?: string;
+}
 
-const emojiStrategy: { [shortname: string]: any } = {};
+const emojiStrategy: Record<string, EmojiStrategyItem> = {};
 
-Object.keys(emojione.emojioneList).forEach((emoji) => {
-  const keywords = emojione.emojioneList[emoji].keywords ? emojione.emojioneList[emoji].keywords : [];
-  emojiStrategy[emoji] = {
-    unicode: emojione.emojioneList[emoji].uc_base,
-    shortname: emojione.emojioneList[emoji].shortnames[0],
-    keywords: keywords,
-    custom: emojione.emojioneList[emoji].custom,
-    animated: emojione.emojioneList[emoji].animated,
+export function registerEmoji(name: string, details: Partial<EmojiStrategyItem> = {}) {
+  const cleanName = name.replace(/^:|:$/g, '');
+  const shortname = `:${cleanName}:`;
+  
+  emojiStrategy[shortname] = {
+    unicode: details.unicode || cleanName,
+    shortname: cleanName,
+    keywords: details.keywords || [],
+    custom: true,
+    animated: details.animated || details.file?.endsWith('.gif') || false,
+    file: details.file || `${cleanName}.png`,
   };
-});
+}
 
 export default emojiStrategy;

@@ -48,22 +48,9 @@ export function createEmojiAutocomplete() {
       callback(newResults);
     },
     template: function (shortname: string) {
-      let extension;
-      if (emojiStrategy[shortname].animated) {
-        extension = '.gif';
-      } else {
-        extension = '.png';
-      }
-      if (emojiStrategy[shortname].custom) {
-        return `<img class="emojione" src="/assets/images/emojis/${emojiStrategy[shortname].unicode}${extension}"> ${shortname}`;
-      } else {
-        return (
-          '<img class="emojione" src="//cdn.jsdelivr.net/emojione/assets/4.0/png/32/' +
-          emojiStrategy[shortname].unicode +
-          '.png"> ' +
-          shortname
-        );
-      }
+      const emoji = emojiStrategy[shortname];
+      const file = emoji?.file || `${shortname}.png`;
+      return `<img class="inline-emoji" src="/emoji-zone/${file}"> ${shortname}`;
     },
     replace: function (shortname: string) {
       return shortname;

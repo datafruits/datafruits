@@ -1,6 +1,5 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
-import { formatEmojiHtml } from "datafruits13/helpers/format-emoji-html";
 
 interface CameraMenuArgs {
   closeDialog: any;
@@ -8,15 +7,6 @@ interface CameraMenuArgs {
 }
 
 export default class CameraMenu extends Component<CameraMenuArgs> {
-  get cameraEmoji() {
-    return formatEmojiHtml(":camera:");
-  }
-  get checkMarkEmoji() {
-    return formatEmojiHtml(":heavy_check_mark:");
-  }
-  get xMarkEmoji() {
-    return formatEmojiHtml(":heavy_multiplication_x:");
-  }
   @action
   didInsert() {
     navigator.mediaDevices

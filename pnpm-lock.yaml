@@ -196,9 +196,6 @@ importers:
       '@types/ember__utils':
         specifier: ^4.0.7
         version: 4.0.7(@babel/core@7.26.10)
-      '@types/emojione':
-        specifier: ^2.2.9
-        version: 2.2.9
       '@types/htmlbars-inline-precompile':
         specifier: ^3.0.3
         version: 3.0.3
@@ -391,9 +388,6 @@ importers:
       ember-web-app:
         specifier: ^4.0.0
         version: 4.0.0
-      emojione:
-        specifier: github:mcfiredrill/emojione#animated-emoji
-        version: https://codeload.github.com/mcfiredrill/emojione/tar.gz/3c1494919b9c7f67beb3ac4ee61184983fb6e9eb
       eslint:
         specifier: ^9.29.0
         version: 9.29.0
@@ -2618,9 +2612,6 @@ packages:
 
   '@types/ember__utils@4.0.7':
     resolution: {integrity: sha512-qQPBeWRyIPigKnZ68POlkqI5e6XA78Q4G3xHo687wQTcEtfoL/iZyPC4hn70mdijcZq8Hjch2Y3E5yhsEMzK+g==}
-
-  '@types/emojione@2.2.9':
-    resolution: {integrity: sha512-gJVglAF7Q4T+jbdgIgg/RaejraF9pUFAw3V2aVfcoY2qlY4w82jykYfmYeW8CV3JWCeVp09CxV/ucrpaT6g9Eg==}
 
   '@types/eslint-scope@3.7.7':
     resolution: {integrity: sha512-MzMFlSLBqNF2gcHWO0G1vP/YQyfvrxZ0bF+u7mzUdZ1/xK4A4sru+nraZz5i3iEIk1l1uyicaDVTB4QbbEkAYg==}
@@ -5106,10 +5097,6 @@ packages:
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
-
-  emojione@https://codeload.github.com/mcfiredrill/emojione/tar.gz/3c1494919b9c7f67beb3ac4ee61184983fb6e9eb:
-    resolution: {tarball: https://codeload.github.com/mcfiredrill/emojione/tar.gz/3c1494919b9c7f67beb3ac4ee61184983fb6e9eb}
-    version: 3.1.2
 
   emojis-list@3.0.0:
     resolution: {integrity: sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==}
@@ -12221,8 +12208,6 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  '@types/emojione@2.2.9': {}
-
   '@types/eslint-scope@3.7.7':
     dependencies:
       '@types/eslint': 9.6.1
@@ -16170,8 +16155,6 @@ snapshots:
       - utf-8-validate
 
   emoji-regex@8.0.0: {}
-
-  emojione@https://codeload.github.com/mcfiredrill/emojione/tar.gz/3c1494919b9c7f67beb3ac4ee61184983fb6e9eb: {}
 
   emojis-list@3.0.0: {}
 
