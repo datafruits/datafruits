@@ -17,7 +17,7 @@ function escapeHtml(str: string): string {
 export function formatMessageUser(
   usernameOrArgs: string | undefined | null | [string | undefined | null]
 ): SafeString {
-  let username = Array.isArray(usernameOrArgs) ? usernameOrArgs[0] : usernameOrArgs;
+  const username = Array.isArray(usernameOrArgs) ? usernameOrArgs[0] : usernameOrArgs;
   if (!username) return htmlSafe('');
   return htmlSafe(escapeHtml(username));
 }
@@ -26,7 +26,7 @@ export default class FormatMessageUser extends Helper {
   @service('emoji-zone') declare emojiZone: EmojiZoneService;
 
   compute(params: [string | undefined | null]): SafeString {
-    let rawUsername = params[0];
+    const rawUsername = params[0];
     if (!rawUsername) return htmlSafe('');
 
     let username = escapeHtml(rawUsername);

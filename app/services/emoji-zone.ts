@@ -37,14 +37,14 @@ export default class EmojiZoneService extends Service {
 
   async loadManifest() {
     try {
-      let response = await fetch(`${this.basePath}/manifest.json`);
+      const response = await fetch(`${this.basePath}/manifest.json`);
       if (!response.ok) {
         console.error(`[EmojiZone] Failed to fetch manifest: ${response.status}`);
         return;
       }
 
-      let manifest: EmojiMetadata[] = await response.json();
-      let map = new Map<string, EmojiMetadata>();
+      const manifest: EmojiMetadata[] = await response.json();
+      const map = new Map<string, EmojiMetadata>();
 
       manifest.forEach((emoji) => {
         if (emoji.name) {
@@ -82,7 +82,7 @@ export default class EmojiZoneService extends Service {
       return '';
     }
     const cleanName = name.replace(/^:|:$/g, '').toLowerCase();
-    let emoji = this.emojiMap.get(cleanName);
+    const emoji = this.emojiMap.get(cleanName);
 
     if (emoji) {
       return `${this.basePath}/${emoji.file}`;

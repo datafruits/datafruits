@@ -8,7 +8,7 @@ export function formatEmojiHtml(
   emojiNameOrArgs: string | undefined | null | [string | undefined | null]
 ): SafeString {
   // Handled for functional or direct calls if needed, but class handles templates
-  let emojiName = Array.isArray(emojiNameOrArgs) ? emojiNameOrArgs[0] : emojiNameOrArgs;
+  const emojiName = Array.isArray(emojiNameOrArgs) ? emojiNameOrArgs[0] : emojiNameOrArgs;
   if (!emojiName) return htmlSafe('');
   return htmlSafe(`<img src="/emoji-zone/${emojiName.replace(/^:|:$/g, '').toLowerCase()}.png" class="inline-emoji" />`);
 }

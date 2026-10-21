@@ -20,9 +20,9 @@ export default class Post extends Component {
     const postBody = this.args.post?.body;
     if (!postBody) return htmlSafe('');
 
-    let parsedBody = postBody.replace(/:([a-zA-Z0-9_+-]+):/g, (match: string, name: string) => {
+    const parsedBody = postBody.replace(/:([a-zA-Z0-9_+-]+):/g, (match: string, name: string) => {
       if (this.emojiZone) {
-        let url = this.emojiZone.urlFor(name);
+        const url = this.emojiZone.urlFor(name);
         if (url) {
           return this.emojiZone.htmlFor(name);
         }
