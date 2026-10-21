@@ -22,9 +22,10 @@ export default class EmojiSelectorEmojiComponent extends Component<EmojiSelector
 
   @tracked width = 36;
   @service declare chat: ChatService;
+  @service('emoji-zone') declare emojiZone: EmojiZoneService;
 
   get groupedEmojiOptions() {
-    const emojiZone = EmojiZoneService.current;
+    const emojiZone = this.emojiZone;
     
     if (!emojiZone.isLoaded) {
       return [];
