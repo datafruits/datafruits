@@ -1,7 +1,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { debounce } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 
 export default class ChatMessages extends Component {
@@ -10,14 +9,17 @@ export default class ChatMessages extends Component {
 
   @tracked willAutoscroll = false;
 
+  @action
   _onScroll() {
-    debounce(this, this.args.onScroll, 500);
+    if (this.args.onScroll) {
+      this.args.onScroll();
+    }
   }
 
   @action
   addListener(element) {
-    element.addEventListener('scroll', this._onScroll.bind(this), { passive: true });
-    element.addEventListener('touchmove', this._onScroll.bind(this), { passive: true });
+    element.addEventListener('scroll', this._onScroll, { passive: true });
+    element.addEventListener('touchmove', this._onScroll, { passive: true });
   }
 
   @action
@@ -36,7 +38,7 @@ export default class ChatMessages extends Component {
 
   @action
   setupAutoscroll() {
-    if (this.scrolledToBottom()) {
+    if (this.chat.isScrolledToBottom || this.chat.checkScrolledToBottom()) {
       this.willAutoscroll = true;
     } else {
       this.args.newMessagesAvailable();
@@ -44,11 +46,4 @@ export default class ChatMessages extends Component {
     }
   }
 
-  scrolledToBottom() {
-    const messages = document.getElementById('messages');
-    const messagesHeight = messages.getBoundingClientRect().height;
-    // Allow a buffer of 100px to account for newly injected message heights
-    const result = messages.scrollHeight - messages.scrollTop - messagesHeight < 100;
-    return result;
-  }
 }

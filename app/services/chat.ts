@@ -36,7 +36,9 @@ export default class ChatService extends Service {
   @tracked gifsEnabled: boolean = true;
   @tracked token: string = '';
 
+  @tracked scrollTop: number = 0;
   @tracked isScrolledToBottom: boolean = true;
+  @tracked newMessagesBelow: boolean = false;
 
   @tracked _fruitCounts: FruitCount = {};
 
@@ -47,7 +49,6 @@ export default class ChatService extends Service {
 
   @tracked loading: boolean = true;
 
-  @tracked scrollTop: number = 0;
 
   username: string = '';
 
@@ -130,6 +131,14 @@ export default class ChatService extends Service {
         message.uuid === uuid ? { ...message, treasureLocked: true } : message
       )];
     }
+  }
+  
+  checkScrolledToBottom(): boolean {
+    if (typeof document === 'undefined') return true;
+    const messages = document.getElementById('messages');
+    if (!messages) return true;
+    const messagesHeight = messages.getBoundingClientRect().height;
+    return messages.scrollHeight - messages.scrollTop - messagesHeight < 100;
   }
 
   constructor() {
