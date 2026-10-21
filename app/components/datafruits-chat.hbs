@@ -20,7 +20,7 @@
         @newMessagesAvailable={{this.newMessagesAvailable}}
         @onScroll={{this.onScroll}}
       />
-      {{#if this.newMessagesBelow}}
+      {{#if this.chat.newMessagesBelow}}
         <div class="text-white bg-df-green bg-opacity-75 absolute bottom-0 left-0 w-full">
           <span>{{t "chat.new_messages"}}</span>
         </div>

@@ -18,7 +18,6 @@ export default class DatafruitsChat extends Component {
   @service chatText;
 
   @tracked nick = '';
-  @tracked newMessagesBelow = false; // TODO move this to chat service
   @tracked isJoiningChat = false;
 
   @tracked
@@ -54,26 +53,20 @@ export default class DatafruitsChat extends Component {
 
   @action
   newMessagesAvailable() {
-    this.newMessagesBelow = true;
+    this.chat.newMessagesBelow = true;
   }
 
   @action
   onScroll() {
-    if (this.checkScrolledToBottom()) {
+    if (this.chat.checkScrolledToBottom()) {
       this.chat.isScrolledToBottom = true;
-      this.newMessagesBelow = false;
+      this.chat.newMessagesBelow = false;
     } else {
       this.chat.isScrolledToBottom = false;
-      this.newMessagesBelow = true;
     }
     this.chat.scrollTop = document.getElementById('messages').scrollTop;
   }
 
-  checkScrolledToBottom() {
-    const messages = document.getElementById('messages');
-    const messagesHeight = messages.getBoundingClientRect().height;
-    return messages.scrollHeight - messages.scrollTop - messagesHeight < 1;
-  }
 
   @action
   didInsert() {
