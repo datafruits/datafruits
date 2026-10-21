@@ -15,13 +15,13 @@ module('Integration | Helper | emoji-url', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
-    this.owner.register('service:emoji-zone', TestEmojiService);
+    this.owner.register('service:emoji', TestEmojiService);
   });
 
   test('it renders', async function (assert) {
-    let emojiZone = this.owner.lookup('service:emoji-zone');
-    emojiZone.emojiMap.set('1f33c', { file: '1f33c.png' });
-    emojiZone.emojiMap.set('onion_salad_dressing', { file: 'onion_salad_dressing.gif' });
+    let emojiService = this.owner.lookup('service:emoji');
+    emojiService.emojiMap.set('1f33c', { file: '1f33c.png' });
+    emojiService.emojiMap.set('onion_salad_dressing', { file: 'onion_salad_dressing.gif' });
 
     this.set('inputValue', '1f33c');
     await render(hbs`{{emoji-url this.inputValue}}`);

@@ -1,11 +1,13 @@
 import Helper from '@ember/component/helper';
 import { service } from '@ember/service';
-import EmojiService from 'datafruits13/services/emoji';
+import type EmojiService from 'datafruits13/services/emoji';
 
-export default class EmojiUrlHelper extends Helper {
+export default class EmojiUrl extends Helper {
   @service declare emoji: EmojiService;
 
-  compute([name]: [string]): string {
-    return this.emoji ? this.emoji.urlFor(name) : '';
+  compute(params: [string | undefined | null]): string {
+    const input = params[0];
+    if (!input) return '';
+    return this.emoji?.urlFor(input) || '';
   }
 }
