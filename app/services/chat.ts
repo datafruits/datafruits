@@ -49,13 +49,13 @@ export default class ChatService extends Service {
 
   @tracked loading: boolean = true;
 
-
   username: string = '';
 
   chan!: Channel;
   notificationChan!: Channel;
 
   setFruitCount(key: string, value: number) {
+    if (isDestroyed(this) || isDestroying(this)) return;
     this._fruitCounts[key] = value;
     this._fruitCounts = { ...this._fruitCounts };
   }
@@ -91,28 +91,27 @@ export default class ChatService extends Service {
   }
 
   disconnect() {
-    // need to broadcast a disconnect here or it will look like user is still in the chat to everyone
     this.chan.push('disconnect', { user: this.username });
     this.joinedChat = false;
   }
 
   push(message: string, object: any) {
+    if (isDestroyed(this) || isDestroying(this)) return;
     this.chan.push(message, object);
   }
 
   onTrackPlayed(event: any) {
+    if (isDestroyed(this) || isDestroying(this)) return;
     console.log(event);
     this.chan.push("track_playback", { track_id: event.track_id });
   }
 
   lockTreasure(uuid: string) {
-    console.log('locking treasure with uuid: ', uuid);
+    if (isDestroyed(this) || isDestroying(this)) return;
     const treasureMessage = this.messages.find((message) => {
       return message.uuid === uuid;
     });
     if(treasureMessage) {
-      console.log('found message with the uuid: ', treasureMessage);
-      // reassign messages so ember updates it
       this.messages = [...this.messages.map((message) =>
         message.uuid === uuid ? { ...message, treasureLocked: true } : message
       )];
@@ -120,13 +119,11 @@ export default class ChatService extends Service {
   }
 
   openTreasure(uuid: string) {
-    console.log('open treasure with uuid: ', uuid);
+    if (isDestroyed(this) || isDestroying(this)) return;
     const treasureMessage = this.messages.find((message) => {
       return message.uuid === uuid;
     });
     if(treasureMessage) {
-      console.log('found message with the uuid: ', treasureMessage);
-      // reassign messages so ember updates it
       this.messages = [...this.messages.map((message) =>
         message.uuid === uuid ? { ...message, treasureLocked: true } : message
       )];
@@ -164,20 +161,13 @@ export default class ChatService extends Service {
           return console.log('chat join ok');
         }
       })
-      .receive('timeout', function () {
-        //return console.log("Connection interruption");
-      });
+      .receive('timeout', function () {});
 
-    this.chan.onError(function (/*e*/) {
-      //return console.log("something went wrong", e);
-    });
-
-    this.chan.onClose(function (/*e*/) {
-      //return console.log("channel closed", e);
-    });
+    this.chan.onError(function () {});
+    this.chan.onClose(function () {});
 
     this.chan.on('join', (msg) => {
-      console.log('on join: ', msg);
+      if (isDestroyed(this) || isDestroying(this)) return;
       if(msg.hype_meter_status === "active") {
         this.limitBreakActivated = true;
       }
@@ -185,14 +175,14 @@ export default class ChatService extends Service {
     });
 
     this.chan.on('treasure:received', (msg) => {
-      console.log('treasure_received: ', msg);
+      if (isDestroyed(this) || isDestroying(this)) return;
       this.openTreasure(msg.uuid);
     });
 
     this.chan.on('treasure:opened', (msg) => {
+      if (isDestroyed(this) || isDestroying(this)) return;
       this.lockTreasure(msg.uuid);
       if(msg.user !== this.username) return;
-      console.log('got treasure:opened ', msg);
       const treasureChest = this.store.createRecord('treasureChest', {
         username: msg.user,
         treasureName: msg.treasure,
@@ -200,7 +190,7 @@ export default class ChatService extends Service {
         treasureUuid: msg.uuid,
       });
       treasureChest.save().then(() => {
-        console.log('sending treasure:received');
+        if (isDestroyed(this) || isDestroying(this)) return;
         this.chan.push("treasure:received", {
           user: msg.user,
           token: this.token,
@@ -210,7 +200,6 @@ export default class ChatService extends Service {
           double_bonus: msg.double_bonus
         });
         this.eventBus.publish("treasureOpened", msg.treasure);
-        // update user balance
         if (msg.treasure === 'fruit_tickets' && msg.amount) {
           if (this.currentUser.user) {
             this.currentUser.user.fruitTicketBalance = (this.currentUser.user.fruitTicketBalance || 0) + msg.amount;
@@ -220,14 +209,12 @@ export default class ChatService extends Service {
         void this.currentUser.load(true);
       })
       .catch((error: any) => {
-        console.log('couldnt open (save) treasure chest');
-        console.log(error);
-        //  TODO unlock treasure in fail case
+        console.log('couldnt open (save) treasure chest', error);
       });
     });
 
     this.chan.on('new:msg', (msg) => {
-      console.log("new:msg", msg);
+      if (isDestroyed(this) || isDestroying(this)) return;
       if (msg['role']) {
         msg['role'] = msg.role.split(' ');
       }
@@ -242,51 +229,43 @@ export default class ChatService extends Service {
     });
 
     this.chan.on('new:fruit_tip', (msg) => {
-      // log fruit tip data { count: ..., }
-      console.log(msg);
+      if (isDestroyed(this) || isDestroying(this)) return;
       this.setFruitCount("total", msg.total_count);
       this.setFruitCount(msg.fruit, msg.count);
       this.eventBus.publish("fruitTipped", msg.fruit);
     });
 
     this.chan.on('authorized', (msg) => {
+      if (isDestroyed(this) || isDestroying(this)) return;
       this.username = msg.user;
-      console.log('user authorized msg: ', msg);
       const token = msg.token;
       if (token) {
         this.token = msg.token;
-        // load currentUser
         this.currentUser
           .load()
           .then(() => {
-            console.log('user authorized with token');
+            if (isDestroyed(this) || isDestroying(this)) return;
             this.loading = false;
             this.joinedChat = true;
           })
           .catch(() => this.session.invalidate());
       } else {
-        console.log('user authorized');
         this.loading = false;
         this.joinedChat = true;
       }
       this.recentEmojis = msg.recent_emojis;
-      console.log('recentEmojis: ', this.recentEmojis);
-      // fetch currentUser here? ???
     });
 
     this.chan.on('notauthorized', function (msg) {
       alert(msg.error);
     });
 
-    // user banned
     this.chan.on('disconnect', (/*msg*/) => {
+      if (isDestroyed(this) || isDestroying(this)) return;
       this.joinedChat = false;
     });
 
-    this.chan.on('banned', (msg) => {
-      console.log(`user banned:`);
-      console.log(msg);
-    });
+    this.chan.on('banned', (/*msg*/) => {});
 
     this.chan.on('presence_state', (state) => {
       if (isDestroyed(this) || isDestroying(this)) return;
@@ -301,28 +280,29 @@ export default class ChatService extends Service {
     });
 
     this.chan.on('fruit_counts', (counts: FruitCount) => {
+      if (isDestroyed(this) || isDestroying(this)) return;
       for (const [key, value] of Object.entries(counts)) {
         this.setFruitCount(key, value);
       }
     });
 
     this.chan.on('limit_break_increase', (msg) => {
-      console.log('limit break increased!: ', msg);
+      if (isDestroyed(this) || isDestroying(this)) return;
       this.limitBreakProgress = msg.percentage;
     });
 
     this.chan.on('limit_break_reached', (msg) => {
-      console.log('limit break reached!: ', msg);
+      if (isDestroyed(this) || isDestroying(this)) return;
       this.eventBus.publish("limitBreakReached", msg.combo);
     });
 
     this.chan.on('limit_break_activate', () => {
-      console.log('limit break activated!');
+      if (isDestroyed(this) || isDestroying(this)) return;
       this.limitBreakActivated = true;
     });
-    //
+
     this.chan.on('limit_break_deactivate', () => {
-      console.log('limit break deactivated!');
+      if (isDestroyed(this) || isDestroying(this)) return;
       this.limitBreakActivated = false;
     });
 
@@ -334,23 +314,19 @@ export default class ChatService extends Service {
       .join()
       .receive('ok', () => {
         if (isDestroyed(this) || isDestroying(this)) return;
-          return console.log('notification chan join ok');
       })
-      .receive('timeout', function () {
-        //return console.log("Connection interruption");
-      });
+      .receive('timeout', function () {});
 
     this.notificationChan.on('new:msg', (msg) => {
+      if (isDestroyed(this) || isDestroying(this)) return;
       if (this.currentUser.user) {
         msg.hasMention = msg.body.indexOf(`@${this.currentUser.user.username}`) > -1;
       }
       this.messages = [...this.messages, msg];
     });
-
   }
 
   willDestroy(): void {
-    console.log('chat willDestroy');
     super.willDestroy();
     this.eventBus.unsubscribe('trackPlayed', this, 'onTrackPlayed');
   }
