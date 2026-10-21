@@ -35,8 +35,9 @@ export default class EmojiSelectorEmojiComponent extends Component<EmojiSelector
     const groupedEmojis = [];
 
     // 1. Recent emojis group
-    const recentEmojis = (this.chat.recentEmojis || [])
+    const recentEmojis = (this.chat?.recentEmojis || [])
       .map((shortname) => {
+        if (!shortname || typeof shortname !== 'string') return null;
         const clean = shortname.replace(/^:|:$/g, '').toLowerCase();
         const meta = emojiService.emojiMap.get(clean);
         if (!meta) return null;

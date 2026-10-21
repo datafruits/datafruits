@@ -22,10 +22,10 @@ export default class FormatMessageBody extends Helper {
     // Replace :shortname: only if it exists in the emoji map
     const parsedEmojis = escapedText.replace(/:([a-zA-Z0-9_+-]+):/g, (match, name) => {
       const cleanName = name.toLowerCase();
-      if (this.emoji?.emojiMap?.has(cleanName)) {
+      if (this.emoji && this.emoji.emojiMap && this.emoji.emojiMap.has(cleanName)) {
         return this.emoji.htmlFor(cleanName);
       }
-      return match; // Leave system text, notifications, and emoticons untouched
+      return match;
     });
 
     // Restore URL linkification with secure target/rel attributes

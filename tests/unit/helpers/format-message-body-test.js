@@ -7,14 +7,20 @@ module('Unit | Helper | format message body', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it works', async function (assert) {
-    // Optionally seed the emojiZone service if needed
-    let emojiZone = this.owner.lookup('service:emoji-zone');
-    emojiZone.emojiMap.set('smile', { file: 'smile.png' });
+    // Seed the unified emoji service
+    let emojiService = this.owner.lookup('service:emoji');
+    emojiService.emojiMap.set('smile', { 
+      id: 'smile', 
+      name: 'smile', 
+      category: 'Smileys', 
+      tags: [], 
+      file: 'smile.png' 
+    });
 
     this.set('messageText', 'Hello :smile:');
 
     await render(hbs`{{format-message-body this.messageText}}`);
 
-    assert.dom(this.element).hasText('Hello'); // or check that it renders the html output
+    assert.dom(this.element).hasText('Hello');
   });
 });
