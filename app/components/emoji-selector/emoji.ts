@@ -10,7 +10,7 @@ interface EmojiSelectorEmojiArgs {
 }
 
 export default class EmojiSelectorEmojiComponent extends Component<EmojiSelectorEmojiArgs> {
-  priorityCategories = ['Datafruits', 'Character', 'Food', 'Fruit', 'Drink'];
+  priorityCategories = ['Datafruits', 'Character', 'Fruits', 'Vegetables', 'Drink'];
 
   widthValues = {
     S: 24,
