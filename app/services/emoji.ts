@@ -99,6 +99,6 @@ export default class EmojiService extends Service {
     const cleanName = typeof name === 'string' ? name.replace(/^:|:$/g, '') : 'emoji';
 
     // Single source of truth for emoji <img> tag markup
-    return `<img src="${url}" alt=":${cleanName}:" class="${className}" />`;
+    return `<img src="${url}" alt=":${cleanName}:" title=":${cleanName}:" class="${className}" />`;
   }
 }
