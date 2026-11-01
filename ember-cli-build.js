@@ -93,7 +93,6 @@ module.exports = function (defaults) {
   app.import('/vendor/hinted-Debussy.woff2');
   app.import('/vendor/hinted-Debussy.woff');
   app.import('/vendor/TopazPlus_a1200.woff2');
-  app.import('node_modules/video.js/dist/video-js.min.css');
 
   return app.toTree();
 };

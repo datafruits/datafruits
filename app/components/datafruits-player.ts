@@ -4,7 +4,7 @@ import { debounce } from '@ember/runloop';
 import Component from '@glimmer/component';
 import { isEmpty } from '@ember/utils';
 import { tracked } from '@glimmer/tracking';
-import VideoStreamService from 'datafruits13/services/video-stream';
+import type VideoStreamService from 'datafruits13/services/video-stream';
 // import type Track from 'datafruits13/models/track';
 import ENV from 'datafruits13/config/environment';
 import type EventBusService from 'datafruits13/services/event-bus';
@@ -15,6 +15,11 @@ enum PlayerState {
   Loading = 'loading',
   Paused = 'paused',
   Seeking = 'seeking'
+}
+
+enum Source {
+  VideoStream = 'video',
+  Track = 'track'
 }
 
 export default class DatafruitsPlayer extends Component {
@@ -38,6 +43,7 @@ export default class DatafruitsPlayer extends Component {
   @tracked muted = false;
   @tracked showingVolumeControl = false;
   @tracked playerState: PlayerState = PlayerState.Paused; //"playing", "loading"
+  @tracked currentSource: Source = Source.VideoStream;
   @tracked playButtonPressed = false;
   @tracked oldVolume = 0.8;
   @tracked playTimePercentage = 0.0;
@@ -52,15 +58,27 @@ export default class DatafruitsPlayer extends Component {
   }
 
   get paused(): boolean {
-    return this.playerState === PlayerState.Paused;
+    if(this.currentSource === Source.VideoStream) {
+      return this.videoStream.playerState === 'paused';
+    } else {
+      return this.playerState === PlayerState.Paused;
+    }
   }
 
   get playing(): boolean {
-    return this.playerState === PlayerState.Playing;
+    if(this.currentSource === Source.VideoStream) {
+      return this.videoStream.playerState === 'playing';
+    } else {
+      return this.playerState === PlayerState.Playing;
+    }
   }
 
   get loading(): boolean {
-    return this.playerState === PlayerState.Loading;
+    if(this.currentSource === Source.VideoStream) {
+      return false;
+    } else {
+      return this.playerState === PlayerState.Loading;
+    }
   }
 
   constructor(owner: unknown, args: any) {
@@ -195,24 +213,25 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   play() {
-    const audioTag = document.getElementById(
-      "radio-player"
-    ) as HTMLAudioElement;
-    if (this.playingPodcast === false) {
-      // reload stream
-      audioTag.src = `${ENV.ICECAST_HOST}/datafruits.mp3`;
+    if (this.currentSource == Source.VideoStream) {
+      this.videoStream.play();
+    } else {
+      const audioTag = document.getElementById(
+        "radio-player"
+      ) as HTMLAudioElement;
+      if (this.playingPodcast === false) {
+        // reload stream
+        audioTag.src = `${ENV.ICECAST_HOST}/datafruits.mp3`;
+      }
+      if (audioTag.readyState === 0) {
+        this.playerState = PlayerState.Loading;
+      }
+      audioTag.play().catch((e) => {
+        console.error('Audio play failed', e);
+      });
     }
-    if (audioTag.readyState === 0) {
-      this.playerState = PlayerState.Loading;
-    }
-    audioTag.play().catch((e) => {
-      console.error('Audio play failed', e);
-    });
     this.playButtonHover = false;
     this.playButtonPressed = true;
-
-    // play video for mobile
-    this.videoStream.play();
   }
 
   @action
@@ -232,14 +251,12 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   mute() {
-    if (this.videoAudioOn) {
-      this.videoStream.mute();
-    } else {
-      const audioTag = document.getElementById(
-        "radio-player"
-      ) as HTMLAudioElement;
-      audioTag.muted = true;
-    }
+    this.videoStream.mute();
+    const audioTag = document.getElementById(
+      "radio-player"
+    ) as HTMLAudioElement;
+    audioTag.muted = true;
+
     this.muted = true;
     this.oldVolume = this.volume;
     this.volume = 0.0;
@@ -248,14 +265,11 @@ export default class DatafruitsPlayer extends Component {
 
   @action
   unmute() {
-    if (this.videoAudioOn) {
-      this.videoStream.unmute();
-    } else {
-      const audioTag = document.getElementById(
-        "radio-player"
-      ) as HTMLAudioElement;
-      audioTag.muted = false;
-    }
+    this.videoStream.unmute();
+    const audioTag = document.getElementById(
+      "radio-player"
+    ) as HTMLAudioElement;
+    audioTag.muted = false;
     this.muted = false;
     this.volume = this.oldVolume;
     localStorage.setItem("datafruits-volume", this.volume.toString());
@@ -281,14 +295,19 @@ export default class DatafruitsPlayer extends Component {
   volumeChanged(e: any) {
     this.volume = e.target.value;
     localStorage.setItem("datafruits-volume", this.volume.toString());
-    if (this.videoAudioOn) {
-      this.videoStream.setVolume(this.volume);
-    } else {
-      const audioTag = document.getElementById(
-        "radio-player"
-      ) as HTMLAudioElement;
-      audioTag.volume = this.volume;
-    }
+    this.videoStream.setVolume(this.volume);
+    const audioTag = document.getElementById(
+      "radio-player"
+    ) as HTMLAudioElement;
+    audioTag.volume = this.volume;
+    // if (this.videoAudioOn) {
+    //   this.videoStream.setVolume(this.volume);
+    // } else {
+    //   const audioTag = document.getElementById(
+    //     "radio-player"
+    //   ) as HTMLAudioElement;
+    //   audioTag.volume = this.volume;
+    // }
   }
 
   @action
