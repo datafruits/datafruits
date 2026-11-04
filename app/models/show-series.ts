@@ -2,6 +2,7 @@ import Model, { attr, hasMany } from '@ember-data/model';
 import type ScheduledShowModel from 'datafruits13/models/scheduled-show';
 import type Label from 'datafruits13/models/label';
 import type User from 'datafruits13/models/user';
+import localRecurringWeekday from 'datafruits13/utils/local-recurring-weekday';
 
 export default class ShowSeries extends Model {
   @hasMany('scheduled-show', {
@@ -36,6 +37,8 @@ export default class ShowSeries extends Model {
   @attr('string') declare slug: string;
 
   @attr('string') declare status: 'active' | 'archived' | 'disabled';
+
+  @attr('string') declare timeZone: string;
 
   get imageOrDefault(): string {
     if (this.imageUrl) return this.imageUrl;
@@ -78,10 +81,10 @@ export default class ShowSeries extends Model {
 
   get formattedCadence(): string | undefined {
     if(this.isWeekly) {
-      return this.recurringWeekday;
+      return localRecurringWeekday(this.recurringWeekday, this.startTime, this.timeZone);
     }else if(this.isBiweekly) {
       // TODO i18n
-      return `other ${this.recurringWeekday}`;
+      return `other ${localRecurringWeekday(this.recurringWeekday, this.startTime, this.timeZone)}`;
     } else if(this.isMonthly) {
       // TODO i18n
       return `${this.recurringCadence} ${this.recurringWeekday}`;
