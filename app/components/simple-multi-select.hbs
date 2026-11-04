@@ -1,0 +1,65 @@
+<section ...attributes>
+  <div class="flex flex-wrap gap-2 mb-2">
+    {{#each this.selected as |selectedOption|}}
+      <button
+        type="button"
+        data-test-selected-option
+        class="text-df-yellow classic:bg-df-pink blm:bg-black hover:text-white p-1 border-solid border-white border-2 font-extrabold uppercase"
+        {{on "click" (fn this.removeOption selectedOption)}}
+      >
+        {{#if (has-block "selected")}}
+          {{yield selectedOption to="selected"}}
+        {{else}}
+          {{this.optionText selectedOption}}
+        {{/if}}
+        <span aria-hidden="true">&times;</span>
+      </button>
+    {{/each}}
+  </div>
+
+  <input
+    id={{@inputId}}
+    data-test-simple-multi-select-input
+    class="w-full"
+    value={{this.searchTerm}}
+    placeholder={{or @searchPlaceholder @placeholder}}
+    {{on "input" this.search}}
+  />
+
+  {{#if this.isLoading}}
+    {{#if @loadingText}}
+      <div class="mt-2 text-white">{{@loadingText}}</div>
+    {{/if}}
+  {{else}}
+    <ul class="mt-2 max-h-48 overflow-y-auto border-2 border-white bg-df-blue-dark blm:bg-black">
+      {{#if this.showCreateOption}}
+        <li>
+          <button type="button" data-test-create-option class="w-full text-left p-2 uppercase" {{on "click" this.createOption}}>
+            + {{this.searchTerm}}
+          </button>
+        </li>
+      {{/if}}
+      {{#if this.options.length}}
+        {{#each this.options as |option|}}
+          <li>
+            <button
+              type="button"
+              data-test-option
+              class="w-full text-left p-2 uppercase"
+              aria-pressed={{this.isSelected option}}
+              {{on "click" (fn this.toggleOption option)}}
+            >
+              {{#if (has-block "option")}}
+                {{yield option to="option"}}
+              {{else}}
+                {{this.optionText option}}
+              {{/if}}
+            </button>
+          </li>
+        {{/each}}
+      {{else if (and (not this.showCreateOption) @emptyText)}}
+        <li class="p-2 text-white">{{@emptyText}}</li>
+      {{/if}}
+    </ul>
+  {{/if}}
+</section>
