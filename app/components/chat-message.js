@@ -10,7 +10,7 @@ export default class ChatMessage extends Component {
   @service session;
   @service intl;
 
-  imgRegex = /https?:\/\/(?:[a-z0-9-]+\.)+[a-z]{2,6}(?:\/[^/#?]+)+\.(?:jpg|jpeg|gif|png|webp)(\?.*$)*/i;
+  imgRegex = /https?:\/\/(?:localhost|(?:[a-z0-9-]+\.)+[a-z]{2,})(?::\d+)?(?:\/[^/#?\s]+)+\.(?:jpg|jpeg|gif|png|webp)(?:\?[^\s#]*)?(?:#[^\s]*)?/i;
   dataRegex = /data:image\/.+;base64,.+/;
   discordRegex = /^New\ msg\ in\ discord\ from\ (.+):\ (.+)$/; // eslint-disable-line no-useless-escape
 
