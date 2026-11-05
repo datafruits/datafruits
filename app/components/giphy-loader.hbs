@@ -1,10 +1,10 @@
 <div
-    {{did-update this.fetchGifs @query}}
-    {{did-update this.fetchGifs @gifType}}
+    {{did-update this.fetchGifs @query @gifType @provider}}
        >
   {{yield
     (hash
       isRunning=this.fetchData.isRunning
+      hasError=this.hasError
       data=this.data)
   }}
 </div>

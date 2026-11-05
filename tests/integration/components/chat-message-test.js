@@ -7,7 +7,17 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Component | chat message', function (hooks) {
   setupRenderingTest(hooks);
   setupIntl(hooks, 'en-us');
-  setupIntl(hooks, 'en-us');
+
+  test('renders GIFs from a localhost proxy with a port', async function (assert) {
+    const url = 'http://localhost:4000/images/SFMyNTY.signed-image.gif';
+    this.set('message', { body: url, user: 'tony', timestamp: Date.parse('2017-03-27') });
+    this.set('noop', () => {});
+
+    await render(hbs`<ChatMessage @message={{this.message}} @setupAutoscroll={{this.noop}} @adjustScrolling={{this.noop}} @gifsEnabled={{true}} />`);
+
+    assert.dom('img').hasAttribute('src', url);
+    assert.dom('[data-test-message-body]').doesNotExist();
+  });
 
   test('it renders', async function (assert) {
     // Set any properties with this.set('myProperty', 'value');

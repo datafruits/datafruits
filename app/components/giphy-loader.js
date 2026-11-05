@@ -6,6 +6,7 @@ import { tracked } from '@glimmer/tracking';
 
 export default class GiphyLoader extends Component {
   @tracked data;
+  @tracked hasError = false;
 
   @action
   fetchGifs() {
@@ -16,16 +17,23 @@ export default class GiphyLoader extends Component {
   store;
 
   @(task(function* (query) {
-    yield timeout(1000);
-    // need to debounce here ???
-    let gifs;
-    if(this.args.gifType === "stickers") {
-      gifs = this.store.query('sticker', { query });
-    } else {
-      gifs = this.store.query('gif', { query });
+    this.data = [];
+    this.hasError = false;
+    if (!query?.trim()) {
+      return;
     }
-    let resolvedGifs = yield gifs;
-    this.data = resolvedGifs;
+    yield timeout(1000);
+    try {
+      let gifs;
+      if(this.args.gifType === "stickers" && this.args.provider !== "gifcities") {
+        gifs = this.store.query('sticker', { query });
+      } else {
+        gifs = this.store.query('gif', { query, provider: this.args.provider });
+      }
+      this.data = yield gifs;
+    } catch {
+      this.hasError = true;
+    }
   }).restartable())
   fetchData;
 }
