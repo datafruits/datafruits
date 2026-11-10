@@ -205,6 +205,10 @@
   "episode": {
     "image_aria": "Ver {title}"
   },
+  "xp_progress_meter": {
+    "tooltip": "Faltan {count} puntos para el siguiente nivel",
+    "aria_label": "Progreso de XP hacia el siguiente nivel"
+  },
   "container": {
     "logo_aria": "Página principal de datafruits.fm"
   }

@@ -353,6 +353,10 @@
     "rate_tune_by": "曲を評価してください。",
     "login_to_vote": "SHRIMPOに投票するにはログインまたは登録してください！"
   },
+  "xp_progress_meter": {
+    "tooltip": "次のレベルまであと{count}ポイント",
+    "aria_label": "次のレベルまでのXP進捗"
+  },
   "container": {
     "logo_aria": "datafruits.fm ホームページ"
   }

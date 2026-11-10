@@ -157,6 +157,10 @@
   "episode": {
     "image_aria": "查看{title}"
   },
+  "xp_progress_meter": {
+    "tooltip": "距离下一级还需{count}点经验值",
+    "aria_label": "升至下一级的经验值进度"
+  },
   "container": {
     "logo_aria": "datafruits.fm 主页"
   }

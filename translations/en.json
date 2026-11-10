@@ -585,6 +585,10 @@
     "rate_tune_by": "Rate tune by number of",
     "login_to_vote": "Login or register to vote on this shrimpo!"
   },
+  "xp_progress_meter": {
+    "tooltip": "{count} points needed for next level",
+    "aria_label": "XP progress to next level"
+  },
   "container": {
     "logo_aria": "datafruits.fm homepage"
   }
