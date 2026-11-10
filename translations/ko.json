@@ -208,6 +208,10 @@
   "episode": {
     "image_aria": "{title} 보기"
   },
+  "xp_progress_meter": {
+    "tooltip": "다음 레벨까지 {count}포인트 필요",
+    "aria_label": "다음 레벨까지의 XP 진행률"
+  },
   "container": {
     "logo_aria": "datafruits.fm 홈페이지"
   },
