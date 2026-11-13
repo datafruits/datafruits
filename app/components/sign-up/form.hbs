@@ -4,6 +4,9 @@
   </div>
 {{/if}}
 <form {{on "submit" this.submit}}>
+  <div hidden aria-hidden="true">
+    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-label={{t "signup_website"}}>
+  </div>
   <div>
     <label class="block text-sm font-bold mb-2" for="user-email">{{t "signup.email"}}</label>
     <Input

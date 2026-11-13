@@ -92,6 +92,11 @@ export default class SignUpFormComponent extends Component {
   @action
   submit(event) {
     event.preventDefault();
+    // Read the DOM value so autofill that doesn't fire input events is caught too.
+    if (event.currentTarget.elements.namedItem('website').value !== '') {
+      return;
+    }
+
     let changeset = this.args.changeset;
     changeset.validate().then(() => {
       if (changeset.isValid) {
