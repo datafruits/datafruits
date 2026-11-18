@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import ShrimpoValidations from '../../validations/shrimpo';
-import { action } from '@ember/object';
+import { action, get } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
@@ -81,7 +81,7 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
   }
 
   get notEnoughBalance() {
-    return this.currentUser.user.fruitTicketBalance < this._depostAmount();
+    return get(this.args.model, 'isNew') && this.currentUser.user.fruitTicketBalance < this._depostAmount();
   }
 
   @action

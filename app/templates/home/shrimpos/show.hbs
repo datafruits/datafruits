@@ -25,6 +25,9 @@
       <section>
         {{!-- admin stuff --}}
         {{#if this.hostLoggedIn}}
+          <LinkTo class="cool-button" @route="home.shrimpos.edit" @model={{this.model.shrimpo.slug}}>
+            {{t "shrimpo_edit"}}
+          </LinkTo>
           <button
             disabled={{if this.canEndShrimpo false true}}
             class="cool-button" type="button" {{on "click" this.endShrimpo}}

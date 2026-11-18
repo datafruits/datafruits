@@ -1,6 +1,6 @@
 <h1 class="text-2xl">
   <img class="inline" src="/assets/images/emojis/sshrimp.png" />
-    {{t "shrimpo.form.beginning"}}
+    {{t (if @model.isNew "shrimpo.form.beginning" "shrimpo_edit")}}
   <img class="inline" src="/assets/images/emojis/sshrimp_clear.png" />
 </h1>
 <h2>
@@ -73,12 +73,14 @@
         />
     </div>
 
+    {{#if @model.isNew}}
     <div class="mb-2 {{if this.notEnoughBalance "shake"}}">
       <h3>FRUIT TICKET DEPOSIT REQUIRED: Ƒ{{this.depositAmount}}</h3>
       {{#if this.notEnoughBalance}}
         <span>{{t "shrimpo.form.not_enough_balance"}}</span>
       {{/if}}
     </div>
+    {{/if}}
     <div>
       <select
         id="length"
@@ -104,7 +106,7 @@
       class="cool-button"
       disabled={{or (Form.state.hasSubmitted changeset.isInvalid) (this.notEnoughBalance)}}
       >
-      {{t "shrimpo.form.submit"}}
+      {{t (if @model.isNew "shrimpo.form.submit" "shrimpo_save_changes")}}
     </Button>
     {{#if Form.state.hasSubmitted}}
       {{! template-lint-disable no-obsolete-elements }}
