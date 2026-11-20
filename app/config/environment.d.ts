@@ -15,6 +15,7 @@ declare const config: {
   headTags: any;
   STREAM_NAME: string;
   STREAM_HOST: string;
+  VIDEO_STREAM: string;
 };
 
 export default config;
