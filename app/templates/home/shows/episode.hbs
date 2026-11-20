@@ -36,6 +36,25 @@
             {{t "profile.my-shows.edit"}}
           </LinkTo>
         </div>
+        <div class="my-2 p-2 bg-gray-100 rounded" data-test-processing-status>
+          <h3 class="text-lg font-bold mb-1">Processing Status</h3>
+          {{#if this.model.status}}
+            <div class="mb-1">
+              <strong>Archive:</strong> 
+              <span class="{{if (eq this.model.status 'archive_published') 'text-green-600' 'text-yellow-600'}}" data-test-archive-status>
+                {{#if (eq this.model.status 'archive_published')}}Published{{else}}Unpublished{{/if}}
+              </span>
+            </div>
+          {{/if}}
+          {{#if this.model.recording}}
+            <div class="mb-1">
+              <strong>Recording:</strong> 
+              <span class="{{if this.model.recording.processed 'text-green-600' (if this.model.recording.processingFailed 'text-red-600' 'text-yellow-600')}}" data-test-recording-status>
+                {{this.model.recording.processingStatus}}
+              </span>
+            </div>
+          {{/if}}
+        </div>
       {{/if}}
       <p>
       </p>
