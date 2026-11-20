@@ -11,16 +11,33 @@
     autocomplete="off"
     @value={{this.query}}
   />
+  <fieldset>
+    <legend class="sr-only">{{t "chat.gif_service"}}</legend>
+    <label>
+      <input type="radio" value="giphy" name="gif-provider" {{on "change" this.changeProvider}} checked={{eq this.provider "giphy"}} />
+      {{t "chat.giphy"}}
+    </label>
+    <label>
+      <input type="radio" value="gifcities" name="gif-provider" {{on "change" this.changeProvider}} checked={{eq this.provider "gifcities"}} />
+      {{t "chat.gifcities"}}
+    </label>
+  </fieldset>
+  {{#if (eq this.provider "giphy")}}
   <div>
     <input type="radio" id="gifs" value="gifs" name="gif-type" {{on "click" this.useGifs}} checked={{eq this.gifType "gifs"}} />
     <label for="gifs">{{t "chat.gifs"}}</label>
     <input type="radio" id="stickers" value="stickers" name="gif-type" {{on "click" this.useStickers}} checked={{eq this.gifType "stickers"}} />
     <label for="stickers">{{t "chat.stickers"}}</label>
   </div>
+  {{/if}}
 </div>
-<GiphyLoader @query={{this.query}} @gifType={{this.gifType}} as |loader|>
+<GiphyLoader @query={{this.query}} @gifType={{this.gifType}} @provider={{this.provider}} as |loader|>
   {{#if loader.isRunning}}
     <p>{{t "loading"}}</p>
+  {{else if loader.hasError}}
+    <p role="alert">
+      {{t "chat.gif_search_failed" service=(if (eq this.provider "gifcities") (t "chat.gifcities") (t "chat.giphy"))}}
+    </p>
   {{else}}
     {{#each loader.data as |gif|}}
       <GifPreview @gif={{gif}} @sendGif={{@sendGif}} />

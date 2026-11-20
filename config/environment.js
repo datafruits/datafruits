@@ -125,6 +125,7 @@ module.exports = function (environment) {
     STREAM_HOST: process.env.STREAM_HOST,
     STREAM_NAME: process.env.STREAM_NAME,
     API_HOST: process.env.API_HOST,
+    GIFCITIES_HOST: process.env.GIFCITIES_HOST || 'http://localhost:4000',
     ICECAST_HOST: process.env.ICECAST_HOST || 'https://streampusher-relay.club'
   };
 
