@@ -1,0 +1,22 @@
+<Await @promise={{this.fetchPodcasts}} as |await|>
+  <await.Pending>
+    <p id="podcast-favorites-loading" class="">
+      {{t "loading"}}
+    </p>
+  </await.Pending>
+
+  <await.Fulfilled as |result|>
+    {{#each result as |podcast|}}
+      <div class="bg-df-blue-dark rounded p-4 mb-2">
+        <h3 class="text-white text-lg font-bold">{{podcast.title}}</h3>
+        {{#if podcast.tracks.length}}
+          <p class="text-gray-300 text-sm">{{podcast.tracks.length}} episodes</p>
+        {{/if}}
+      </div>
+    {{/each}}
+  </await.Fulfilled>
+
+  <await.Rejected>
+    {{t "error"}} Loading podcast favorites failed.
+  </await.Rejected>
+</Await>
