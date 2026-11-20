@@ -54,6 +54,7 @@ Router.map(function () {
     this.route('forum.show', { path: '/forum/:title' });
     this.route('shrimpos');
     this.route('shrimpos.new', { path: '/shrimpos/new' });
+    this.route('shrimpos.edit', { path: '/shrimpos/:title/edit' });
     this.route('shrimpos.show', { path: '/shrimpos/:title' });
     this.route('shrimpos.entries.show', { path: '/shrimpos/:shrimpo_slug/entry/:slug' });
     this.route('support');

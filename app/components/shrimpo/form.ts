@@ -1,11 +1,12 @@
 import Component from '@glimmer/component';
 import ShrimpoValidations from '../../validations/shrimpo';
-import { action } from '@ember/object';
+import { action, get } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
 import type Shrimpo from 'datafruits13/models/shrimpo';
 import { BufferedChangeset } from 'ember-changeset/types';
+import dayjs from 'dayjs';
 import ENV from 'datafruits13/config/environment';
 
 interface JsonApiError {
@@ -81,7 +82,18 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
   }
 
   get notEnoughBalance() {
-    return this.currentUser.user.fruitTicketBalance < this._depostAmount();
+    return get(this.args.model, 'isNew') && this.currentUser.user.fruitTicketBalance < this._depostAmount();
+  }
+
+  @action
+  setStartDate(changeset: BufferedChangeset, event: Event) {
+    const date = dayjs((event.target as HTMLInputElement).value);
+    if (!date.isValid()) {
+      return;
+    }
+
+    const time = dayjs(changeset.get('startAt') as string);
+    changeset.set('startAt', date.hour(time.hour()).minute(time.minute()).toISOString());
   }
 
   @action
@@ -107,8 +119,8 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
   }
 
   @action
-  onError(errors: JsonApiError[]) {
-    this.errors = errors.map(error => error.detail);
+  onError(errors: JsonApiError[] = []) {
+    this.errors = errors.flatMap(error => error.detail || error.title || []);
     console.log('onError: ', errors);
     alert("Couldn't save shrimpo...check the form for errors.");
   }

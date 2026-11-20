@@ -7,6 +7,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import ENV from 'datafruits13/config/environment';
 import fetch from 'fetch';
+import { canEditShrimpo } from 'datafruits13/utils/can-edit-shrimpo';
 
 export default class HomeShrimposShow extends Controller {
   @service declare currentUser: any;
@@ -34,7 +35,7 @@ export default class HomeShrimposShow extends Controller {
   }
 
   get hostLoggedIn() {
-    return this.session.isAuthenticated && (this.currentUser.user === this.model.shrimpo.user || this.currentUser.user.role.includes("admin"));
+    return this.session.isAuthenticated && canEditShrimpo(this.currentUser.user, this.model.shrimpo);
   }
 
   @action
