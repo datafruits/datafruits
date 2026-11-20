@@ -1,4 +1,10 @@
 {
+  "shrimpo_categories": {
+    "title": "투표 카테고리",
+    "name": "카테고리 이름",
+    "add": "카테고리 추가",
+    "remove": "카테고리 삭제"
+  },
   "shrimpo_edit": "슈림포 수정",
   "shrimpo_save_changes": "변경 사항 저장",
   "signup_website": "웹사이트",

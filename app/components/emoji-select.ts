@@ -5,7 +5,9 @@ import { BufferedChangeset } from 'ember-changeset/types';
 import EmojiService from 'datafruits13/services/emoji';
 
 interface EmojiSelectArgs {
-  changeset: BufferedChangeset;
+  changeset?: BufferedChangeset;
+  value?: string;
+  onChange?: (emoji: string) => void;
 }
 
 export default class EmojiSelect extends Component<EmojiSelectArgs> {
@@ -13,7 +15,16 @@ export default class EmojiSelect extends Component<EmojiSelectArgs> {
 
   @action
   selectEmoji(emoji: { shortname: string }) {
-    this.args.changeset.set('emoji', emoji.shortname);
+    if (this.args.onChange) {
+      this.args.onChange(emoji.shortname);
+    } else {
+      this.args.changeset?.set('emoji', emoji.shortname);
+    }
+  }
+
+  get selectedEmoji() {
+    const shortname = this.args.value ?? this.args.changeset?.get('emoji');
+    return this.emojiOptions.find(emoji => emoji.shortname === shortname);
   }
 
   get emojiOptions() {

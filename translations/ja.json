@@ -1,4 +1,10 @@
 {
+  "shrimpo_categories": {
+    "title": "投票カテゴリー",
+    "name": "カテゴリー名",
+    "add": "カテゴリーを追加",
+    "remove": "カテゴリーを削除"
+  },
   "shrimpo_edit": "シュリンポを編集",
   "shrimpo_save_changes": "変更を保存",
   "signup_website": "ウェブサイト",
