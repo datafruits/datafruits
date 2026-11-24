@@ -7,6 +7,7 @@ import RouterService from '@ember/routing/router-service';
 import type Shrimpo from 'datafruits13/models/shrimpo';
 import { BufferedChangeset } from 'ember-changeset/types';
 import dayjs from 'dayjs';
+import type { CategoryDraft } from './category-editor';
 import ENV from 'datafruits13/config/environment';
 
 interface JsonApiError {
@@ -26,6 +27,49 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
   ShrimpoValidations = ShrimpoValidations;
 
   @tracked errors: string[] = [];
+
+  @tracked categoryEdits?: { model: Shrimpo; categories: CategoryDraft[] };
+
+  get savedCategories(): CategoryDraft[] {
+    return this.args.model.shrimpoVotingCategories.map(({ id, name, emoji }) => ({
+      id,
+      name,
+      emoji,
+    }));
+  }
+
+  get showCategoryEditor() {
+    return !get(this.args.model, 'isNew') && (
+      this.args.model.shrimpoType === 'mega' || this.savedCategories.length > 0
+    );
+  }
+
+  get categories() {
+    if (this.categoryEdits?.model === this.args.model) {
+      return this.categoryEdits.categories;
+    }
+
+    return this.savedCategories;
+  }
+
+  get saveOptions() {
+    if (this.categoryEdits?.model !== this.args.model) {
+      return undefined;
+    }
+
+    const saved = new Map(this.savedCategories.map((category) => [category.id, category]));
+    const votingCategories = this.categoryEdits.categories.filter(({ id, name, emoji }) => {
+      const original = saved.get(id);
+      return !original || original.name !== name || original.emoji !== emoji;
+    });
+
+    return { adapterOptions: { votingCategories } };
+  }
+
+  @action
+  updateCategories(categories: CategoryDraft[]) {
+    this.categoryEdits = { model: this.args.model, categories };
+  }
 
   @service currentUser: any;
 

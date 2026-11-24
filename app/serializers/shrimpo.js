@@ -26,6 +26,11 @@ export default class ShrimpoSerializer extends ApplicationSerializer {
         }
       }
 
+      const votingCategories = snapshot.adapterOptions?.votingCategories;
+      if (votingCategories?.length) {
+        attributes.shrimpo_voting_categories = votingCategories;
+      }
+
       payload.data.attributes = attributes;
       delete payload.data.relationships;
     }

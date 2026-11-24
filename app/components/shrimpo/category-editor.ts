@@ -9,6 +9,7 @@ export interface CategoryDraft {
 
 interface CategoryEditorArgs {
   categories: CategoryDraft[];
+  disabled?: boolean;
   onChange: (categories: CategoryDraft[]) => void;
 }
 

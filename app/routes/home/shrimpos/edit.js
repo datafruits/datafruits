@@ -13,7 +13,7 @@ export default class HomeShrimposEdit extends Route {
   }
 
   model(params) {
-    return this.store.findRecord('shrimpo', params.title);
+    return this.store.findRecord('shrimpo', params.title, { reload: true });
   }
 
   async afterModel(shrimpo) {
