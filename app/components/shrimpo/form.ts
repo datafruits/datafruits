@@ -32,6 +32,7 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
 
   get savedCategories(): CategoryDraft[] {
     return this.args.model.shrimpoVotingCategories.map(({ id, name, emoji }) => ({
+      key: `saved-${id}`,
       id,
       name,
       emoji,
@@ -61,7 +62,7 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
     const votingCategories = this.categoryEdits.categories.filter(({ id, name, emoji }) => {
       const original = saved.get(id);
       return !original || original.name !== name || original.emoji !== emoji;
-    });
+    }).map(({ id, name, emoji }) => ({ id, name, emoji }));
 
     return { adapterOptions: { votingCategories } };
   }

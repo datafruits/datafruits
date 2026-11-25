@@ -1,6 +1,6 @@
 <fieldset class="mb-4" disabled={{@disabled}}>
   <legend>{{t "shrimpo_categories.title"}}</legend>
-  {{#each @categories as |category index|}}
+  {{#each @categories key="key" as |category index|}}
     <div class="mb-4" data-test-voting-category>
       <label>
         {{t "shrimpo_categories.name"}}

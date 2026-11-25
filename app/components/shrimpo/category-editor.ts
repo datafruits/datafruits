@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
 export interface CategoryDraft {
+  key: string;
   id?: string;
   name: string;
   emoji: string;
@@ -14,8 +15,11 @@ interface CategoryEditorArgs {
 }
 
 export default class ShrimpoCategoryEditor extends Component<CategoryEditorArgs> {
+  private nextDraftId = 0;
+
   @action add() {
-    this.args.onChange([...this.args.categories, { name: '', emoji: ':sshrimp:' }]);
+    const draft = { key: `draft-${this.nextDraftId++}`, name: '', emoji: ':sshrimp:' };
+    this.args.onChange([...this.args.categories, draft]);
   }
 
   @action remove(index: number) {
