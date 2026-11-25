@@ -1,4 +1,12 @@
 {
+  "shrimpo_categories": {
+    "title": "投票类别",
+    "name": "类别名称",
+    "add": "添加类别",
+    "remove": "删除类别"
+  },
+  "shrimpo_edit": "编辑虾比赛",
+  "shrimpo_save_changes": "保存更改",
   "signup_website": "网站",
   "settings": {
     "title": "網站設置"

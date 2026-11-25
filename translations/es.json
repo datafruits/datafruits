@@ -1,4 +1,12 @@
 {
+  "shrimpo_categories": {
+    "title": "Categorías de votación",
+    "name": "Nombre de la categoría",
+    "add": "Añadir categoría",
+    "remove": "Eliminar categoría"
+  },
+  "shrimpo_edit": "Editar shrimpo",
+  "shrimpo_save_changes": "Guardar cambios",
   "signup_website": "Sitio web",
   "404": {
     "message": "Página no encontrada",

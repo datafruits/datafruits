@@ -1,11 +1,13 @@
 import Component from '@glimmer/component';
 import ShrimpoValidations from '../../validations/shrimpo';
-import { action } from '@ember/object';
+import { action, get } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 import RouterService from '@ember/routing/router-service';
 import type Shrimpo from 'datafruits13/models/shrimpo';
 import { BufferedChangeset } from 'ember-changeset/types';
+import dayjs from 'dayjs';
+import type { CategoryDraft } from './category-editor';
 import ENV from 'datafruits13/config/environment';
 
 interface JsonApiError {
@@ -25,6 +27,50 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
   ShrimpoValidations = ShrimpoValidations;
 
   @tracked errors: string[] = [];
+
+  @tracked categoryEdits?: { model: Shrimpo; categories: CategoryDraft[] };
+
+  get savedCategories(): CategoryDraft[] {
+    return this.args.model.shrimpoVotingCategories.map(({ id, name, emoji }) => ({
+      key: `saved-${id}`,
+      id,
+      name,
+      emoji,
+    }));
+  }
+
+  get showCategoryEditor() {
+    return !get(this.args.model, 'isNew') && (
+      this.args.model.shrimpoType === 'mega' || this.savedCategories.length > 0
+    );
+  }
+
+  get categories() {
+    if (this.categoryEdits?.model === this.args.model) {
+      return this.categoryEdits.categories;
+    }
+
+    return this.savedCategories;
+  }
+
+  get saveOptions() {
+    if (this.categoryEdits?.model !== this.args.model) {
+      return undefined;
+    }
+
+    const saved = new Map(this.savedCategories.map((category) => [category.id, category]));
+    const votingCategories = this.categoryEdits.categories.filter(({ id, name, emoji }) => {
+      const original = saved.get(id);
+      return !original || original.name !== name || original.emoji !== emoji;
+    }).map(({ id, name, emoji }) => ({ id, name, emoji }));
+
+    return { adapterOptions: { votingCategories } };
+  }
+
+  @action
+  updateCategories(categories: CategoryDraft[]) {
+    this.categoryEdits = { model: this.args.model, categories };
+  }
 
   @service currentUser: any;
 
@@ -81,7 +127,18 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
   }
 
   get notEnoughBalance() {
-    return this.currentUser.user.fruitTicketBalance < this._depostAmount();
+    return get(this.args.model, 'isNew') && this.currentUser.user.fruitTicketBalance < this._depostAmount();
+  }
+
+  @action
+  setStartDate(changeset: BufferedChangeset, event: Event) {
+    const date = dayjs((event.target as HTMLInputElement).value);
+    if (!date.isValid()) {
+      return;
+    }
+
+    const time = dayjs(changeset.get('startAt') as string);
+    changeset.set('startAt', date.hour(time.hour()).minute(time.minute()).toISOString());
   }
 
   @action
@@ -107,8 +164,8 @@ export default class ShrimpoForm extends Component<ShrimpoFormArgs> {
   }
 
   @action
-  onError(errors: JsonApiError[]) {
-    this.errors = errors.map(error => error.detail);
+  onError(errors: JsonApiError[] = []) {
+    this.errors = errors.flatMap(error => error.detail || error.title || []);
     console.log('onError: ', errors);
     alert("Couldn't save shrimpo...check the form for errors.");
   }

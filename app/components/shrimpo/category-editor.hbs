@@ -1,0 +1,26 @@
+<fieldset class="mb-4" disabled={{@disabled}}>
+  <legend>{{t "shrimpo_categories.title"}}</legend>
+  {{#each @categories key="key" as |category index|}}
+    <div class="mb-4" data-test-voting-category>
+      <label>
+        {{t "shrimpo_categories.name"}}
+        <input
+          class="form-input"
+          type="text"
+          value={{category.name}}
+          required
+          {{on "input" (fn this.updateName index)}}
+        />
+      </label>
+      <EmojiSelect @value={{category.emoji}} @onChange={{fn this.updateEmoji index}} />
+      {{#unless category.id}}
+        <button type="button" class="cool-button" {{on "click" (fn this.remove index)}}>
+          {{t "shrimpo_categories.remove"}}
+        </button>
+      {{/unless}}
+    </div>
+  {{/each}}
+  <button type="button" class="cool-button" {{on "click" this.add}}>
+    {{t "shrimpo_categories.add"}}
+  </button>
+</fieldset>

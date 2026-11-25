@@ -7,6 +7,7 @@ interface TimePickerArgs {
   changeset: BufferedChangeset;
   property: string;
   startTime: string;
+  preserveInitialTime?: boolean;
   onChange?: (val: Dayjs, changeset: BufferedChangeset) => void;
 }
 
@@ -67,6 +68,10 @@ export default class TimePickerComponent extends Component<TimePickerArgs> {
 
   @action
   setInitialTime() {
+    if (this.args.preserveInitialTime) {
+      return;
+    }
+
     const property = this.args.property;
     const changeset = this.args.changeset;
     let time;

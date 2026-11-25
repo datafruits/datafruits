@@ -9,6 +9,7 @@ interface UiChangesetFormSignature {
   Args: {
     /** Changeset Object */
     changeset: BufferedChangeset;
+    saveOptions?: { adapterOptions: object };
     /**
      * Run Changeset execute method instead of save
      * @defaultValue false
@@ -56,6 +57,7 @@ export default class UiChangesetFormComponent extends Component<UiChangesetFormS
 
 
   @tracked hasSubmitted = false;
+  @tracked isSaving = false;
 
   @action
   async handleSubmit(
@@ -65,11 +67,15 @@ export default class UiChangesetFormComponent extends Component<UiChangesetFormS
     console.log("form handle submit");
 
     event.preventDefault();
+    if (this.isSaving) {
+      return;
+    }
+
     await changeset.validate();
 
     this.hasSubmitted = true;
 
-    if (changeset.isInvalid) {
+    if (this.isSaving || changeset.isInvalid) {
       console.log('changeset invalid: ', changeset.errors);
       return;
     }
@@ -78,8 +84,9 @@ export default class UiChangesetFormComponent extends Component<UiChangesetFormS
     if (this.args.runExecuteInsteadOfSave) {
       result = changeset.execute();
     } else {
+      this.isSaving = true;
       try {
-        result = await changeset.save({});
+        result = await changeset.save(this.args.saveOptions ?? {});
         if (typeof this.args.onSubmit === 'function') {
           this.args.onSubmit(result, event);
         }
@@ -90,6 +97,8 @@ export default class UiChangesetFormComponent extends Component<UiChangesetFormS
           this.hasSubmitted = false;
           this.args.onError(error.errors);
         }
+      } finally {
+        this.isSaving = false;
       }
     }
   }
