@@ -515,7 +515,6 @@ li.ember-power-select-multiple-option {
   &:focus {
     @apply bg-df-green-dark;
     @apply border-solid border-2 border-gray-100;
-    @apply cursor-not-allowed opacity-50; // Note: this looks like a minor duplication/overlap in donate-button states, but harmless
   }
 
   &:disabled {
